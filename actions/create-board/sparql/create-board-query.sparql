@@ -1,0 +1,24 @@
+The SPARQL query creating a new board in this context could look something like this:
+
+```sparql
+PREFIX swco: <http://www.seiri.studio/swco/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema>
+
+INSERT DATA { 
+  GRAPH <http://www.seiri.studio/swco> {
+    swco:${boardId} a swco:Board ;
+      swco:title "${title}"^^xsd:string ;
+      swco:orgId "${orgId}"^^xsd:string ;
+      swco:imageId "${imageId}"^^xsd:string ;
+      swco:imageThumbUrl "${imageThumbUrl}"^^xsd:string ;
+      swco:imageFullUrl "${imageFullUrl}"^^xsd:string ;
+      swco:imageUserName "${imageUserName}"^^xsd:string ;
+      swco:imageLinkHTML "${imageLinkHTML}"^^xsd:string .
+  }
+}
+```
+Note: The `${boardId}`, `${title}`, `${orgId}`, `${imageId}`, `${imageThumbUrl}`, `${imageFullUrl}`, `${imageUserName}`, `${imageLinkHTML}` would be replaced with actual values at runtime.
+
+In the query above, we are using SPARQL INSERT DATA clause to add new triples to the RDF graph. We declare the RDF graph URL in GRAPH clause.
+
+Note that this query assumes that the specified board ID (swco:${boardId}) does not already exist in the graph.

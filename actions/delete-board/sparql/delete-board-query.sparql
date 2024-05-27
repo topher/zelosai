@@ -1,0 +1,22 @@
+Based on the Prisma query and the given schema, a corresponding SPARQL DELETE WHERE query could look like this:
+
+```sparql
+PREFIX swco: <http://www.seiri.studio/swco/>
+DELETE { 
+  ?board ?p ?o .
+} 
+WHERE { 
+  ?board a swco:Board; 
+         swco:id "${id}";
+         swco:orgId "${orgId}".
+  ?board ?p ?o.
+}
+```
+
+This query will delete a table (together with all its triples) in your graph where the `id` and `orgId` values match the placeholders `"${id}"` and `"${orgId}"` respectively.
+
+Please replace `"${id}"` and `"${orgId}"` with actual values when you use this query.
+
+This query assumes that there are properties `swco:id` and `swco:orgId` associated with the `swco:Board` class in your schema, which would need to be defined. It also assumes a flat data structure for the board object.
+
+Note that SPARQL queries operate on RDF triplestores, so the structure and accessibility of your data can significantly impact the design and effectiveness of your SPARQL queries.

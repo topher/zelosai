@@ -1,0 +1,21 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX swco: <http://www.seiri.studio/swco/> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema> 
+
+DELETE {
+  ?listID swco:hasOrder ?oldOrder .  
+} 
+
+INSERT {
+  ?listID swco:hasOrder "${list.order}"^^xsd:integer .
+} 
+
+WHERE { 
+  ?listID a swco:List .
+  ?listID swco:belongsTo ?board .
+  ?board a swco:Board .
+  ?board swco:orgId "${orgId}" .
+  ?listID swco:hasOrder ?oldOrder .
+  FILTER(?listID = "${list.id}")
+}

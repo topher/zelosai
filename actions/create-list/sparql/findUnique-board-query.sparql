@@ -1,0 +1,13 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX swco: <http://www.seiri.studio/swco/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?board
+WHERE {
+    ?board rdf:type swco:Board .
+    ?board swco:id "${boardId}" .
+    ?board swco:hasOwner ?org .
+    ?org a swco:Organization ;
+       swco:id "${orgId}" . 
+}

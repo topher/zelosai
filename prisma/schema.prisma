@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
+}
+
+datasource db {
+  provider = "mysql"
+  url = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Category {
+  id        String @id @default(uuid())
+  name      String
+  companions Companion[]
+}
+
+model Companion {
+  id        String @id @default(uuid())
+  userId      String
+  userName String
+  src String
+  name String @db.Text
+  desscription String
+  seed String @db.Text
+  instructions String @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  category Category @relation(fields: [categoryId], references: [id])
+  categoryId String
+
+  @@index([categoryId])
+  @@fulltext([name])
+}
+
+model Task {
+  id        Int      @id @default(autoincrement())
+  title     String
+  progress  Int
+  dueDate   DateTime
+  // other fields...
+}
+
+model UserApiLimit {
+  id        String      @id @default(cuid())
+  userId    String   @unique
+  count     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model UserSubscription {
+  id        String      @id @default(cuid())
+  userId    String   @unique
+  stripeCustomerId       String?   @unique @map(name: "stripe_customer_id")
+  stripeSubscriptionId   String?   @unique @map(name: "stripe_subscription_id")
+  stripePriceId          String?   @map(name: "stripe_price_id")
+  stripeCurrentPeriodEnd DateTime? @map(name: "stripe_current_period_end")
+}

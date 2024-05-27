@@ -1,0 +1,17 @@
+Generating a SPARQL query equivalent to the Prisma `db.list.create({ data: { title, boardId, order: newOrder } });` command, where a new List would be created with the given `title`, `boardId` and `newOrder`, could look like the following:
+
+```sparql
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    PREFIX swco: <http://www.seiri.studio/swco/>
+    
+    INSERT DATA {
+        GRAPH <http://www.seiri.studio/default> {
+            _:newList 
+                a swco:List ;
+                swco:hasTitle "${title}"^^xsd:string ;
+                swco:belongsTo <http://www.seiri.studio/board/${boardId}> ;
+                swco:hasOrder "${newOrder}"^^xsd:integer .
+        }
+    }
+```
+Here, `_:newList` represents a blank node, which is a node where we don't care (or know) about its actual URI. `"${title}"`, `"${boardId}"`, and `"${newOrder}"` would need to be replaced with actual values in your source code. `swco:hasTitle`, `swco:belongsTo`, and `swco:hasOrder` represent properties associated with the List class as per your given SPARQL schema. Please replace these with the actual properties defined in your schema, if they are different.

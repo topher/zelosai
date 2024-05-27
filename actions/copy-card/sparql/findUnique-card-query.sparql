@@ -1,0 +1,13 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema>
+
+SELECT ?card ?list ?board ?org
+WHERE {
+  ?card a swco:Card ;
+  swco:id "${id}" ;
+  swco:belongsTo ?list .
+  ?list a swco:List ;
+   swco:belongsTo ?board .
+  ?org a swco:Organization ;
+       swco:id "${orgId}" ;
+}
+LIMIT 1

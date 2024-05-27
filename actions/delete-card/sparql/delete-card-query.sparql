@@ -1,0 +1,26 @@
+Based on the provided context, here is an assumed SPARQL query template. This template follows SPARQL syntax and includes placeholders for variables such as `${id}` and `${orgId}` that should be replaced with actual values when the query is executed:
+
+```sparql
+PREFIX swco: <http://www.seiri.studio/swco/>
+
+DELETE {
+  ?card a swco:Card ;
+    swco:belongsTo/swco:belongsTo ?org .
+}
+WHERE {
+  ?card a swco:Card ; 
+        swco:belongsTo/swco:belongsTo ?org .
+  FILTER (?card = <http://www.seiri.studio/swco/Card#${id}>)
+  FILTER (?org = <http://www.seiri.studio/swco/Org#${orgId}>)
+}
+```
+
+In this query, we assume that the `id` is a unique identifier for a `Card` and `orgId` is a unique identifier for an `Org` (Organization).
+
+Note: This is an approximate conversion from Prisma to SPARQL based on assumptions about your data model. You may need to adjust the structure and filters in the query to match the structure and relationships of your actual data.
+
+This query deletes from the graph all the triples where the card identified by the id (?card) belongs to a list that belongs to a board that belongs to the organization (?org).
+
+Remember to replace `<http://www.seiri.studio/swco/Card#${id}>` and `<http://www.seiri.studio/swco/Org#${orgId}>` with the actual URIs of the Card and Organization respectively while executing the query.
+
+Also please be aware that SPARQL doesn't have side effect, which means other functions like audit log, re-validation path and actions performed after the deletion in the Prisma scripts won't be reproduced in the SPARQL query.

@@ -1,0 +1,34 @@
+The SPARQL equivalent of the Prisma code for updating a card can be as follows:
+
+Please be aware that SPARQL doesn't natively support an update operation and a way to perform it is by using `DELETE` and `INSERT` operations in combination inside a `WITH` clause. The values that go into `?value` would depend on the specifics of how your data in 'values' maps onto the schema.
+
+```sparql
+PREFIX swco: <http://www.seiri.studio/swco/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+WITH <http://www.seiri.studio/swco/>
+DELETE {
+  ?card ?p ?o .
+} 
+INSERT { 
+  ?card ?p ?value .
+}
+WHERE {
+  ?card a swco:Card ; 
+        rdf:id ?id ;
+        swco:belongsTo/swco:belongsTo/swco:orgId ?orgId ;
+        ?p ?o .
+};
+```
+
+In the `WHERE` clause, the query first filters on Card with specific `id` and `orgId`.
+
+In the `DELETE` clause, it deletes all triples where the `Card` is in subject position.
+
+In the `INSERT` clause, it inserts new values that you have in `values`.
+
+Please replace `?value` with your specific data. 
+
+Also ensure you have the correct graph name in the `WITH` clause and it's writeable.
+
+In general, SPARQL is not as convenient as a SQL-like language (like Prisma) for updating data in-place, and some RDF databases may not support the `DELETE/INSERT` method. Also, RDF is a 'schema-less' model in the sense that the structure of the data is not enforced upfront, so there isn't a simple translation from a relational structure to RDF. So the update might need to be performed in multiple steps and optimize your RDF data model for the kinds of operations you'll be doing the most.
