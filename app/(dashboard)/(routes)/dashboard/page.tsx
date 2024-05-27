@@ -1,41 +1,78 @@
-"use client";
+import { promises as fs } from "fs"
+import path from "path"
+import { Metadata } from "next"
+import Image from "next/image"
+import { z } from "zod"
 
-import { ArrowRight } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { columns } from "./components/columns"
+import { DataTable } from "./components/data-table"
+import { UserNav } from "./components/user-nav"
+import { tasks, allStatCards } from "@/app/data"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
-import { Card } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
+export const metadata: Metadata = {
+  title: "Tasks",
+  description: "A task and issue tracker build using Tanstack Table.",
+}
 
-import { tools } from "@/constants";
+const stat_cards_dashboard = allStatCards.filter(
+  (stat) => stat.page === "dashboard"
+);
 
-export default function HomePage() {
-  const router = useRouter();
-
+export default async function TaskPage() {
   return (
-    <div>
-      <div className="mb-8 space-y-4">
-        <h2 className="text-2xl md:text-4xl font-bold text-center">
-          Explore the power of AI
-        </h2>
-        <p className="text-muted-foreground font-light text-sm md:text-lg text-center">
-          Chat with the smartest AI - Experience the power of AI
-        </p>
+    <>
+      <div className="md:hidden">
+        <Image
+          src="/examples/tasks-light.png"
+          width={1280}
+          height={998}
+          alt="Playground"
+          className="block dark:hidden"
+        />
+        <Image
+          src="/examples/tasks-dark.png"
+          width={1280}
+          height={998}
+          alt="Playground"
+          className="hidden dark:block"
+        />
       </div>
-      <div className="px-4 md:px-20 lg:px-32 space-y-4">
-        {tools.map((tool) => (
-          <Card onClick={() => router.push(tool.href)} key={tool.href} className="p-4 border-black/5 flex items-center justify-between hover:shadow-md transition cursor-pointer">
-            <div className="flex items-center gap-x-4">
-              <div className={cn("p-2 w-fit rounded-md", tool.bgColor)}>
-                <tool.icon className={cn("w-8 h-8", tool.color)} />
-              </div>
-              <div className="font-semibold">
-                {tool.label}
-              </div>
+      <div className="hidden h-full flex-1 flex-col space-y-8 p-8 md:flex">
+
+        <div className="flex items-center justify-between space-y-2">
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight">Welcome back!</h2>
+            <p className="text-muted-foreground">
+              Here&apos;s a list of your tasks for this month!
+            </p>
+          </div>
+          <div className="flex items-center space-x-2">
+            <UserNav />
+          </div>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {stat_cards_dashboard.map((item) => (
+                <Card key={item.title} className="card"> {/* Add a class name for styling */}
+                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                    <CardTitle className="text-sm font-medium"> {/* Apply styles to title */}
+                      {item.title}
+                    </CardTitle>
+                    {/* {item.icon && ( // Conditionally render icon if provided
+                      <svg>
+                        <path d={item.icon} />
+                      </svg>
+                    )} */}
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-2xl font-bold">{item.value}</div>
+                    <p className="text-xs text-muted-foreground">{item.subtitle || "This month"}</p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
-            <ArrowRight className="w-5 h-5" />
-          </Card>
-        ))}
+        <DataTable data={tasks} columns={columns} />
       </div>
-    </div>
-  );
+    </>
+  )
 }

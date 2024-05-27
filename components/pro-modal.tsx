@@ -16,7 +16,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useProModal } from "@/hooks/use-pro-modal";
-import { tools } from "@/constants";
+import { reasonsToUseZelos } from "@/constants";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
@@ -50,7 +50,7 @@ export const ProModal = () => {
             </div>
           </DialogTitle>
           <DialogDescription className="text-center pt-2 space-y-2 text-zinc-900 font-medium">
-            {tools.map((tool) => (
+            {/* {tools.map((tool) => (
               <Card key={tool.href} className="p-3 border-black/5 flex items-center justify-between">
                 <div className="flex items-center gap-x-4">
                   <div className={cn("p-2 w-fit rounded-md", tool.bgColor)}>
@@ -62,7 +62,7 @@ export const ProModal = () => {
                 </div>
                 <Check className="text-primary w-5 h-5" />
               </Card>
-            ))}
+            ))} */}
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>

@@ -1,0 +1,13 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX swco: <http://www.seiri.studio/swco/> 
+
+SELECT ?list ?order
+WHERE {
+  ?board rdf:type swco:Board .
+  ?board rdf:id "${boardId}" .
+  ?list swco:belongsTo ?board .
+  ?list swco:order ?order .
+} 
+ORDER BY DESC(?order)
+LIMIT 1

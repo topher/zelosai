@@ -1,64 +1,62 @@
-import { auth } from "@clerk/nextjs";
-import { NextResponse } from "next/server";
-import { Configuration, OpenAIApi } from "openai";
+import { NextRequest, NextResponse } from 'next/server';
+import { complete_trained_models } from '@/app/data'; // Adjust the import path as necessary
 
-import { checkSubscription } from "@/lib/subscription";
-import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
+const API_URL = "https://lj85eec5vnb3qkei.us-east-1.aws.endpoints.huggingface.cloud";
+const API_TOKEN = process.env.HUGGING_FACE_API_TOKEN;
 
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
-const openai = new OpenAIApi(configuration);
-
-export async function POST(
-  req: Request
-) {
+export async function POST(req: NextRequest) {
   try {
-    const { userId } = auth();
-    const body = await req.json();
-    const { prompt, amount = 1, resolution = "512x512" } = body;
+    const { prompt, resolution, modelId } = await req.json();
 
-    if (!userId) {
-      return new NextResponse("Unauthorized", { status: 401 });
+    const model = complete_trained_models.find(m => m.modelId === modelId);
+
+
+    console.log(model, "💎");
+
+    if (!model) {
+      return NextResponse.json({ message: "Model not found" }, { status: 404 });
     }
 
-    if (!configuration.apiKey) {
-      return new NextResponse("OpenAI API Key not configured.", { status: 500 });
+    let modifiedPrompt = prompt;
+
+    if (model.subject_prompt_alias) {
+      model.subject_prompt_alias.forEach(alias => {
+        const regex = new RegExp(`\\b${alias}\\b`, 'gi');
+        modifiedPrompt = modifiedPrompt.replace(regex, `${model.subject_prompt_key}:1.1`);
+      });
     }
 
-    if (!prompt) {
-      return new NextResponse("Prompt is required", { status: 400 });
-    }
-
-    if (!amount) {
-      return new NextResponse("Amount is required", { status: 400 });
-    }
-
-    if (!resolution) {
-      return new NextResponse("Resolution is required", { status: 400 });
-    }
-
-    const freeTrial = await checkApiLimit();
-    const isPro = await checkSubscription();
-
-    if (!freeTrial && !isPro) {
-      return new NextResponse("Free trial has expired. Please upgrade to pro.", { status: 403 });
-    }
-
-    const response = await openai.createImage({
-      prompt,
-      n: parseInt(amount, 10),
-      size: resolution,
+    console.log(modifiedPrompt, "💎");
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Accept": "image/png",
+        "Authorization": `Bearer ${API_TOKEN}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        inputs: modifiedPrompt,
+        parameters: {
+          negative_prompt: "",
+          width: parseInt(resolution.split("x")[0]),
+          height: parseInt(resolution.split("x")[1]),
+        }
+      })
     });
 
-    if (!isPro) {
-      await incrementApiLimit();
+    if (!response.ok) {
+      return NextResponse.json({ message: response.statusText }, { status: response.status });
     }
 
-    return NextResponse.json(response.data.data);
+    const buffer = await response.arrayBuffer();
+    return new NextResponse(buffer, {
+      status: 200,
+      headers: {
+        'Content-Type': 'image/png',
+      },
+    });
   } catch (error) {
-    console.log('[IMAGE_ERROR]', error);
-    return new NextResponse("Internal Error", { status: 500 });
+    console.error("Error processing the request:", error);
+    return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });
   }
-};
+}

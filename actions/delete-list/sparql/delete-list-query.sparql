@@ -1,0 +1,19 @@
+Building the SPARQL query from your Prisma query is not a direct process as Prisma is designed for SQL databases and SPARQL is used for querying data organized in RDF structure. So, we will try to build a similar functionality query in SPARQL:
+
+```sparql
+PREFIX swco: <http://www.seiri.studio/swco/>
+
+DELETE WHERE {
+  ?list swco:belongsTo ?board .
+  ?list swco:id ?id .
+  ?board swco:id ?boardId .
+  ?board swco:orgId ?orgId .
+}
+```
+This query would, in theory, delete the list with the given id, which belongs to a specific board with the boardId and specific orgId. 
+
+Please note that:
+1. There is no exact match between Prisma and SPARQL syntax. The above query is a hypothetical attempt and may not work perfectly with your RDF structure.
+2. In the delete query, you need to specify the URI of list, board and org that you want to delete, not just their ids. If URI structure is unknown, you first need to select these URIs using SPARQL SELECT query and then delete them.
+3. SPARQL doesn’t support cascading deletes. If you want to delete a list and all related boards and orgs, you would need to delete boards and orgs explicitly in separate queries.
+4. This syntax might change based on the actual structure and connections in your RDF data model. Please adjust the query based on your actual data model.

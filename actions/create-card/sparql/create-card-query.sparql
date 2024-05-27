@@ -1,0 +1,17 @@
+The corresponding raw SPARQL query to create a new swco:Card entity in a RDF database would be the following:
+
+```sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX swco: <http://www.seiri.studio/swco/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+INSERT DATA {
+  _:card a swco:Card;
+    rdfs:label "${title}"^^xsd:string;
+    swco:belongsTo <http://example.org/list/${listId}>;
+    swco:order "${newOrder}"^^xsd:integer;
+}.
+```
+
+Please replace `_:card` with a unique IRI, or use an appropriate mechanism in your RDF database to create unique IDs. `"${title}"`, `"${listId}"` and `"${newOrder}"` are placeholders and should be replaced with the actual values. The IRI for the list (in `swco:belongsTo`) will need to be constructed according to how list entities are identified in your RDF dataset. The `http://example.org/list/${listId}` is just an example and should be adapted to your setup.

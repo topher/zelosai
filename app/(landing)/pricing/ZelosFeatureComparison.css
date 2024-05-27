@@ -1,0 +1,116 @@
+/* Apply styles to the entire document */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    padding: 20px;
+  }
+  
+  /* Style headings */
+  h1, h2, h3 {
+    color: #333;
+  }
+  
+  /* Style table titles */
+  .table-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+  
+  /* Style table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  /* Style table headers */
+  th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center; /* Center align cell data within the feature-value td */
+  }
+  
+  /* Style table cells */
+  td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Add some spacing between sections */
+  .section {
+    margin-bottom: 30px;
+  }
+  
+  /* Style tier names */
+  .tier-name {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+  
+  /* Style feature names */
+  .feature-name {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Style feature values */
+  .feature-value {
+    color: #333;
+  }
+  
+  /* Style feature descriptions */
+  .feature-description {
+    color: #666;
+  }
+  
+  /* Style hub feature categories */
+  .hub-category {
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+  
+  /* Style hub feature names */
+  .hub-feature {
+    font-weight: bold;
+  }
+  
+  /* Style hub feature values */
+  .hub-value {
+    color: #333;
+  }
+  
+  /* Style row headers */
+  .row-header {
+    font-weight: bold;
+  }
+  
+  /* Style container */
+  .container {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    padding: 20px;
+  }
+
+  /* In your ZelosFeatureComparison.css */
+
+.container {
+  margin-bottom: 2rem;
+}
+
+.feature-value {
+  text-align: center; /* Center align cell data within the feature-value td */
+  /* No need to specify color here as it's inherited from the table */
+}
+
+  

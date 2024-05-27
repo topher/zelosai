@@ -4,7 +4,9 @@ const nextConfig = {
     domains: [
       "googleusercontent.com",
       "oaidalleapiprodscus.blob.core.windows.net",
-      "cdn.openai.com"
+      "cdn.openai.com",
+      "images.unsplash.com",
+      "unsplash.com",
     ]
   },
 }

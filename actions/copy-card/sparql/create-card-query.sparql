@@ -1,0 +1,20 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX swco: <http://www.seiri.studio/swco/> 
+
+INSERT { 
+  ?newCard swco:title ?newTitle .
+  ?newCard swco:description ?description .
+  ?newCard swco:order ?newOrder .
+  ?newCard swco:listId ?listId .
+}
+WHERE { 
+  ?card rdf:type swco:Card .
+  ?card swco:title ?title .
+  ?card swco:description ?description .
+  ?card swco:listId ?listId .
+  BIND (URI(CONCAT(STR(?card), "-copy")) AS ?newCard)
+  BIND (CONCAT(?title, "- Copy") AS ?newTitle)
+  LET (?newOrder := ${newOrder})
+  FILTER (?card = <${id}> AND ?listId = <${cardToCopy.listId}>)
+}

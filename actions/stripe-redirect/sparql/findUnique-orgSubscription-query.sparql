@@ -1,0 +1,9 @@
+PREFIX swco: <http://www.seiri.studio/swco/>
+SELECT ?orgSubscription ?stripeCustomerId 
+WHERE {
+  ?orgSubscription a swco:OrgSubscription .
+  ?orgSubscription swco:ownedBy ?org .
+    ?org a swco:Organization ;
+       swco:id "${orgId}" ;
+       swco:stripeCustomerId ?stripeCustomerId .
+}

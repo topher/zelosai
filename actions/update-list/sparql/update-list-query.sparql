@@ -1,0 +1,28 @@
+Here is a template of SPARQL query. Since SPARQL does not support direct updating, this query first deletes the old title and then inserts the new one. 
+
+```sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX swco: <http://www.seiri.studio/swco/> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema> 
+
+DELETE {
+    ?id rdf:subject/rdfs:label ?oldTitle. 
+} 
+INSERT { 
+    ?id rdf:subject/rdfs:label "${title}".
+} 
+WHERE {
+    ?id rdf:subject/rdfs:label ?oldTitle.
+    ?id rdf:subject/swco:belongsTo ?boardId.
+    ?boardId swco:hasList ?list.
+    ?list swco:belongsTo ?orgId.
+    FILTER(?id = "${id}"
+       && ?orgId = "${orgId}"
+       && ?boardId = "${boardId}")
+}
+``` 
+
+In programming context, replace `"${id}"`, `"${orgId}"`, `"${boardId}"`, and `"${title}"` with actual values and function that would generate a valid SPARQL query.
+
+It's important to be aware of security considerations when dealing with raw queries. Be sure to validate and sanitize input parameters to avoid injection attacks. Also, modify the query as required based on the implementation details of how your data is represented and stored. Please also handle errors that may occur when running the query.

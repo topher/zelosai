@@ -1,30 +1,17 @@
-import { Settings } from "lucide-react";
+import { Separator } from "@/components/ui/separator"
+import { ProfileForm } from "./profile-form"
 
-import { Heading } from "@/components/heading";
-import { SubscriptionButton } from "@/components/subscription-button";
-import { checkSubscription } from "@/lib/subscription";
-
-const SettingsPage = async () => {
-  const isPro = await checkSubscription();
-
-  return ( 
-    <div>
-      <Heading
-        title="Settings"
-        description="Manage account settings."
-        icon={Settings}
-        iconColor="text-gray-700"
-        bgColor="bg-gray-700/10"
-      />
-      <div className="px-4 lg:px-8 space-y-4">
-        <div className="text-muted-foreground text-sm">
-          {isPro ? "You are currently on a Pro plan." : "You are currently on a free plan."}
-        </div>
-        <SubscriptionButton isPro={isPro} />
+export default function SettingsProfilePage() {
+  return (
+    <div className="space-y-6">
+      <div>
+        <h3 className="text-lg font-medium">Profile</h3>
+        <p className="text-sm text-muted-foreground">
+          This is how others will see you on the site.
+        </p>
       </div>
+      <Separator />
+      <ProfileForm />
     </div>
-   );
+  )
 }
- 
-export default SettingsPage;
-

@@ -82,3 +82,78 @@ body,
     @apply bg-background text-foreground;
   }
 }
+
+/* In your ZelosFeatureComparison.css */
+
+.bg-background-gradient {
+  background-color: #0A0E30;
+  background-image: linear-gradient(to right, #1557FF, #47D3FF, #551AFF);
+  min-height: 100vh; /* Ensures that the background covers the entire viewport */
+}
+
+
+/* StrategyLayout.css */
+.glassmorphic-card {
+  background: rgba(255, 255, 255, 0.2); /* Adjust the alpha value for opacity */
+  backdrop-filter: blur(10px); /* Adjust the blur intensity for glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Border for the glass effect */
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+  color: #fff;
+  transition: transform 0.2s ease-in-out;
+  position: relative; /* Position for overlay */
+}
+
+.glassmorphic-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(0, 255, 0, 0.5)); /* Change the colors as desired */
+  border-radius: 10px;
+  z-index: -1;
+  opacity: 0.5; /* Adjust the opacity for the stained glass effect */
+}
+
+.glassmorphic-card:hover {
+  transform: scale(1.02); /* Hover effect to slightly enlarge the card */
+}
+
+.board {
+  display: flex;
+  padding: 20px;
+  background-color: #f4f5f7;
+  min-height: 100vh;
+  overflow-x: auto;
+}
+
+.list-container {
+  flex: 0 0 300px;
+  background-color: #ffffff;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
+  margin-right: 20px;
+  padding: 10px;
+}
+
+.list-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.list-cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
+  padding: 10px;
+  margin-bottom: 10px;
+}

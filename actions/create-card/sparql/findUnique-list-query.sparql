@@ -1,0 +1,16 @@
+Based on the Prisma query and reference data provided, it seems that your aim is to retrieve a unique List entity based on specific List ID and the Organization's ID within that List's related Board. The equivalent SPARQL query would look something like this:
+
+```sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX swco: <http://www.seiri.studio/swco/> 
+
+SELECT ?list WHERE { 
+    ?list rdf:type swco:List .
+    ?list swco:id "${listId}" .
+    ?relatedBoard swco:belongsTo ?list .
+    ?relatedBoard swco:orgId "${orgId}" .
+}
+```
+In your production code, you would replace `"${listId}"` and `"${orgId}"` with the actual values you want to filter by. Please ensure to replace these placeholder values with the actual values and apply necessary string handling functions when constructing the query in your production code.
+
+Also, please confirm whether swco:id and swco:orgId are the correct URIs for referring to the internal ids of List and Board elements. These URIs may vary depending on your actual data model structure, which was not fully provided.

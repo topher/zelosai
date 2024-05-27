@@ -11,7 +11,7 @@ import './globals.css'
 const font = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Genius',
+  title: 'Zelos',
   description: 'AI Platform',
 }
 
@@ -23,7 +23,7 @@ export default async function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <CrispProvider />
+        {/* <CrispProvider /> */}
         <body className={font.className}>
           <ToasterProvider />
           <ModalProvider />
