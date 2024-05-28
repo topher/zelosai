@@ -4,6 +4,8 @@ import { auth, currentUser } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import { absoluteUrl } from "@/lib/utils";
 
+export const dynamic = 'force-dynamic';
+
 const settingsUrl = absoluteUrl("/settings");
 
 export async function GET() {
@@ -57,7 +59,7 @@ export async function GET() {
     //   ],
     //   metadata: {
     //     userId,
-    //   },
+    //   }
     // });
 
     // return NextResponse.json({ url: stripeSession.url });
