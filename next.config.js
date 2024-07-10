@@ -7,9 +7,9 @@ const nextConfig = {
       "cdn.openai.com",
       "images.unsplash.com",
       "unsplash.com",
-      "fonts.gstatic.com"
-    ]
+      "fonts.gstatic.com",
+    ],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
