@@ -1,6 +1,7 @@
 {
   "extends": ["next", "next/core-web-vitals"],
   "plugins": ["@next/eslint-plugin-next"],
+  "parser": "@babel/eslint-parser",
   "rules": {
     // Your custom rules here
   }

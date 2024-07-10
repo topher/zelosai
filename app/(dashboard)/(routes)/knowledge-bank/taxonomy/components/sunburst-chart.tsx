@@ -27,7 +27,7 @@ function SunburstChart({ width, height, data, nodePadding, margin, link }: Sunbu
   
     return (
       <div>
-        {chart && <> {chart} </>}  // Wrap the SVG element in a fragment
+        {chart && <> {chart} </>} 
       </div>
     );
   }

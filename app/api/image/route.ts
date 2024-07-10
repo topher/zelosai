@@ -10,7 +10,6 @@ export async function POST(req: NextRequest) {
 
     const model = complete_trained_models.find(m => m.modelId === modelId);
 
-
     console.log(model, "💎");
 
     if (!model) {
@@ -27,6 +26,24 @@ export async function POST(req: NextRequest) {
     }
 
     console.log(modifiedPrompt, "💎");
+
+    console.log({
+      method: "POST",
+      headers: {
+        "Accept": "image/png",
+        "Authorization": `Bearer ${API_TOKEN}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        inputs: modifiedPrompt,
+        parameters: {
+          negative_prompt: "",
+          width: parseInt(resolution.split("x")[0]),
+          height: parseInt(resolution.split("x")[1]),
+        }
+      })
+    });
+
     const response = await fetch(API_URL, {
       method: "POST",
       headers: {

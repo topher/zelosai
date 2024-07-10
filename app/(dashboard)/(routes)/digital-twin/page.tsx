@@ -70,7 +70,8 @@ export default function MusicPage() {
                           Recent
                         </TabsTrigger>
                         <TabsTrigger value="podcasts">
-                          Archive</TabsTrigger>
+                          Archive
+                        </TabsTrigger>
                         <TabsTrigger value="live" disabled>
                           All
                         </TabsTrigger>
@@ -99,16 +100,17 @@ export default function MusicPage() {
                                   category
                                 ).map((model) => (
                                   <Link
+                                    key={model.modelId} // Add key prop here
                                     href={`/digital-twin/${model.tags[0]}/${model.modelId}`}
                                   >
-                                  <AIModelCard
-                                    key={model.label}
-                                    tool={model}
-                                    className="w-[150px]"
-                                    aspectRatio="square"
-                                    width={150}
-                                    height={150}
-                                  />
+                                    <AIModelCard
+                                      key={model.label} // Ensure key prop is unique
+                                      tool={model}
+                                      className="w-[150px]"
+                                      aspectRatio="square"
+                                      width={150}
+                                      height={150}
+                                    />
                                   </Link>
                                 ))}
                               </div>

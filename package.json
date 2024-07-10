@@ -99,11 +99,13 @@
     "zustand": "^4.3.9"
   },
   "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/eslint-parser": "^7.24.7",
     "@types/cytoscape": "^3.21.0",
     "@types/react": "^18.2.79",
     "@types/react-beautiful-dnd": "^13.1.8",
     "@types/uuid": "^9.0.8",
-    "eslint-config-next": "^14.2.3",
+    "eslint-config-next": "^14.2.4",
     "prisma": "^5.0.0"
   }
 }

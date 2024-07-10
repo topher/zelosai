@@ -42,9 +42,9 @@ export function WorkflowEmptyPlaceholder() {
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle> Add Workflow</DialogTitle>
+              <DialogTitle>Add Workflow</DialogTitle>
               <DialogDescription>
-                Tell us want you want can we'll build it out
+                Tell us what you want and we&apos;ll build it out
               </DialogDescription>
             </DialogHeader>
             <div className="grid gap-4 py-4">
