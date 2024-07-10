@@ -1,17 +1,9 @@
-// middleware.ts
-import { NextResponse } from 'next/server';
+// // import { authMiddleware } from "@clerk/nextjs";
 
-export function middleware(request: { cookies: { get: (arg0: string) => any; }; }) {
-  // Custom authentication logic here
-  const token = request.cookies.get('token');
+// // export default authMiddleware({
+// //   publicRoutes: ["/", "/api/webhook"],
+// // });
 
-  if (!token) {
-    return NextResponse.redirect('/login');
-  }
-
-  return NextResponse.next();
-}
-
-export const config = {
-  matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
-};
+// export const config = {
+//   matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
+// };
