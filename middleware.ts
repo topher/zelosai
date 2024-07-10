@@ -4,6 +4,6 @@
 // //   publicRoutes: ["/", "/api/webhook"],
 // // });
 
-// export const config = {
-//   matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
-// };
+export const config = {
+  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(app|api|trpc)(.*)"],
+};
