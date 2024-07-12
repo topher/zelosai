@@ -2,7 +2,7 @@ import { LandingNavbar } from "@/components/landing-navbar";
 import { LandingHero } from "@/components/landing-hero";
 import { LandingFeatures } from "@/components/landing-features";
 import { LandingProcess } from "@/components/landing-process";
-import { LandingHubs } from "@/components/landing-hubs";
+import { PricingSection } from "@/components/pricing-section";
 import Link from 'next/link';
 
 const LandingPage = () => {
@@ -12,6 +12,7 @@ const LandingPage = () => {
       <LandingHero />
       <LandingFeatures />
       <LandingProcess />
+      <PricingSection />
       {/* <LandingHubs /> */}
     </div>
   );
