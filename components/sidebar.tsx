@@ -18,63 +18,65 @@ export const routes = [
     label: 'My Dashboard',
     icon: LayoutDashboard,
     href: '/dashboard',
-    color: "text-sky-500",
+    color: "text-white-500",
   },
   {
     label: 'Digital Twin',
     icon: ImageIcon,
     href: '/digital-twin',
-    color: "text-green-700",
+    color: "text-sky-500",
     children: [
+      { label: 'My Library', href: '/digital-twin', color: "text-blue-500" },
       { label: 'Analytics', href: '/digital-twin/analytics', color: "text-blue-500" },
-      { label: 'Conversation', href: '/digital-twin/conversation', color: "text-blue-500" },
-      { label: 'Image', href: '/digital-twin/image', color: "text-blue-500" },
-      { label: 'Video', href: '/digital-twin/video', color: "text-blue-500" },
-      { label: 'Voice', href: '/digital-twin/voice', color: "text-blue-500" },
+      { label: 'Safety', href: '/digital-twin/safety', color: "text-blue-500" },
+      { label: 'Create New', href: '/digital-twin', color: "text-blue-500" },
     ],
   },
   {
     label: 'Knowledge Bank',
     icon: Briefcase,
     href: '/knowledge-bank',
-    color: "text-yellow-500",
+    color: "text-green-500",
     children: [
       { label: 'My Assets', href: '/knowledge-bank/inventory', color: "text-red-500" },
       { label: 'My Terms', href: '/knowledge-bank/taxonomy', color: "text-red-500" },
       { label: 'Rules', href: '/knowledge-bank/settings', color: "text-red-500" },
       { label: 'Connectors', href: '/knowledge-bank/connectors', color: "text-red-500" },
-      { label: 'Analytics', href: '/knowledge-bank/analytics', color: "text-red-500" },
+      // { label: 'Analytics', href: '/knowledge-bank/analytics', color: "text-red-500" },
     ],
   },
+  // {
+  //   label: 'Settings',
+  //   icon: Settings,
+  //   href: '/settings',
+  //   color: "text-gray-300",
+  //   children: [
+  //     { label: 'Constants', href: '/settings/constants', color: "text-gray-300" },
+  //   ],
+  // },
   {
-    label: 'Settings',
-    icon: Settings,
-    href: '/settings',
-    color: "text-gray-300",
+    label: 'Workflows',
+    icon: ImageIcon,
+    href: '/workflows',
+    color: "text-yellow-500",
     children: [
-      { label: 'Constants', href: '/settings/constants', color: "text-gray-300" },
+      { label: 'Library', href: '/workflows', color: "text-blue-500" },
+      { label: 'My Tasks', href: '/workflows/tasks', color: "text-blue-500" },
+      { label: 'Activity', href: '/workflows/analytics', color: "text-blue-500" },
+      { label: 'New Workflow', href: '/workflows/plan', color: "text-blue-500" },
+      
     ],
   },
   {
     label: 'Strategy',
     icon: Briefcase,
     href: '/strategy',
-    color: "text-yellow-500",
+    color: "text-orange-500",
     children: [
       { label: 'Goals', href: '/strategy/goals', color: "text-red-500" },
       { label: 'Risks', href: '/strategy/risks', color: "text-red-500" },
       { label: 'Use Cases', href: '/strategy/use-cases', color: "text-red-500" },
       { label: 'Plan', href: '/strategy/plan', color: "text-red-500" },
-    ],
-  },
-  {
-    label: 'Workflows',
-    icon: ImageIcon,
-    href: '/workflows',
-    color: "text-green-700",
-    children: [
-      { label: 'Analytics', href: '/workflows/analytics', color: "text-blue-500" },
-      { label: 'Plan', href: '/workflows/plan', color: "text-blue-500" },
     ],
   },
 ];
@@ -103,10 +105,10 @@ export const Sidebar = ({
         <div className="py-4">
           <Link href="/dashboard" className="flex items-center pl-3 mb-14">
             <div className="relative rounded-md h-12 w-12 mr-4">
-              <Image fill alt="Logo" src="/gorigogo.png" className="rounded-md"/>
+              <Image fill alt="Logo" src="/zlogo.png"/>
             </div>
-            <h1 className={cn("text-2xl font-bold", poppins.className)}>
-              GO RIGO GO!
+            <h1 className={cn("text-3xl font-bold", poppins.className)}>
+              ZELOS
             </h1>
           </Link>
         </div>

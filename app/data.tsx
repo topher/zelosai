@@ -1451,12 +1451,12 @@ export const agents = [
 
 // Type BusinessModel
 export const business_model = {
-  "companyName": "Go Rigo Go",
+  "companyName": "Amotion",
   "logo": "https://example.com/logo.png",
   "industry": "Tecnología",
   "location": "San Francisco, CA",
   "foundedYear": 2010,
-  "description": "Go Rigo Go es una empresa líder en tecnología especializada en soluciones de IA inmersivas.",
+  "description": "Amotion es una empresa líder en tecnología especializada en soluciones de IA inmersivas.",
   "website": "https://www.gorigogo.com",
   "socialMedia": {
     "linkedin": "https://www.linkedin.com/company/gorigogo",
