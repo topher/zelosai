@@ -9,7 +9,7 @@ export const LandingHubs = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         <div className="text-center">
           <h3 className="text-xl font-bold mb-2">Strategy Hub</h3>
-          <p>Optimize your digital twin's content strategy.</p>
+          <p>Optimize your digital twin&apos;s content strategy.</p>
         </div>
         <div className="text-center">
           <h3 className="text-xl font-bold mb-2">Content Hub</h3>
