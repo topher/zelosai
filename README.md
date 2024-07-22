@@ -3,6 +3,7 @@
 ### Installation
 ```
 git clone 
+git checkout -b new_branch
 npm install 
 npm run dev
 ```
