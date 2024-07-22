@@ -15,25 +15,25 @@ const poppins = Montserrat ({ weight: '600', subsets: ['latin'] });
 
 export const routes = [
   {
-    label: 'My Dashboard',
+    label: 'Dashboard',
     icon: LayoutDashboard,
     href: '/dashboard',
     color: "text-white-500",
   },
   {
-    label: 'Digital Twin',
+    label: 'Assistants',
     icon: ImageIcon,
     href: '/digital-twin',
     color: "text-sky-500",
     children: [
       { label: 'My Library', href: '/digital-twin', color: "text-blue-500" },
-      { label: 'Analytics', href: '/digital-twin/analytics', color: "text-blue-500" },
+      { label: 'Usage', href: '/digital-twin/analytics', color: "text-blue-500" },
       { label: 'Safety', href: '/digital-twin/safety', color: "text-blue-500" },
       { label: 'Create New', href: '/digital-twin', color: "text-blue-500" },
     ],
   },
   {
-    label: 'Knowledge Bank',
+    label: 'Data Vault',
     icon: Briefcase,
     href: '/knowledge-bank',
     color: "text-green-500",
