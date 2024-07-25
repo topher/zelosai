@@ -28,7 +28,7 @@ const DashboardLayout = ({
           toggleSidebar={toggleSidebar}
         />
       </div>
-      <main className={isCollapsed ? "md:pl-20 min-h-screen" : "md:pl-72 min-h-screen"}>
+      <main className={isCollapsed ? "md:pl-20 min-h-screen" : "md:pl-64 min-h-screen"}>
         <Navbar routes={routes} apiLimitCount={apiLimitCount} isPro={isPro} />
         {children}
       </main>
