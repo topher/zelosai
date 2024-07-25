@@ -1,9 +1,10 @@
 // app/(dashboard)/layout.tsx
+"use client"
 
 import Navbar from "@/components/navbar";
 import { Sidebar } from "@/components/sidebar";
 import { routes } from "@/components/sidebar";
-import { LucideIcon } from "lucide-react";
+import { useState } from "react";
 
 const DashboardLayout = ({
   children,
@@ -13,13 +14,21 @@ const DashboardLayout = ({
   const apiLimitCount = 500; // This should probably be from state or props
   const isPro = false; // This should probably be from state or props
 
+  const [isCollapsed, setIsCollapsed] = useState(false); // lifted collapse state to layout so main content could be dynamic based on toggle
+
+  const toggleSidebar = () => setIsCollapsed(!isCollapsed);
+
   return (
     <div className="min-h-screen relative bg-cover bg-center bg-fixed">
       <div>
-      {/* className="hidden h-full md:flex md:w-72 md:flex-col md:fixed md:inset-y-0 z-80 bg-gray-900" */}
-        <Sidebar isPro={isPro} apiLimitCount={apiLimitCount} />
+        <Sidebar 
+          isPro={isPro} 
+          apiLimitCount={apiLimitCount} 
+          isCollapsed={isCollapsed}
+          toggleSidebar={toggleSidebar}
+        />
       </div>
-      <main className="md:pl-72 min-h-screen">
+      <main className={isCollapsed ? "md:pl-20 min-h-screen" : "md:pl-72 min-h-screen"}>
         <Navbar routes={routes} apiLimitCount={apiLimitCount} isPro={isPro} />
         {children}
       </main>

@@ -6,7 +6,7 @@ import { Montserrat } from 'next/font/google';
 import { Briefcase, ImageIcon, LayoutDashboard } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+// import { useState } from "react";
 import React from "react";
 
 const montserrat = Montserrat({ weight: '600', subsets: ['latin'] });
@@ -70,15 +70,16 @@ export const routes = [
 
 export const Sidebar = ({
   apiLimitCount = 0,
-  isPro = false
+  isPro = false,
+  isCollapsed, // state kept in layout for dynamic changes based on toggle
+  toggleSidebar
 }: {
   apiLimitCount: number;
   isPro: boolean;
+  isCollapsed: boolean;
+  toggleSidebar: () => void;
 }) => {
   const pathname = usePathname();
-  const [isCollapsed, setIsCollapsed] = useState(false);
-
-  const toggleSidebar = () => setIsCollapsed(!isCollapsed);
 
   return (
     <div className="relative transition duration-300 ease-in-out">
