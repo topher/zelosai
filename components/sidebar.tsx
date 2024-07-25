@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Montserrat } from 'next/font/google';
-import { Briefcase, ImageIcon, LayoutDashboard } from "lucide-react";
+import { Briefcase, ImageIcon, LayoutDashboard, Database, Workflow } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 // import { useState } from "react";
@@ -32,7 +32,7 @@ export const routes = [
   },
   {
     label: 'Knowledge Bank',
-    icon: Briefcase,
+    icon: Database,
     href: '/knowledge-bank',
     color: "text-green-500",
     children: [
@@ -44,7 +44,7 @@ export const routes = [
   },
   {
     label: 'Workflows',
-    icon: ImageIcon,
+    icon: Workflow,
     href: '/workflows',
     color: "text-yellow-500",
     children: [
