@@ -6,7 +6,6 @@ import { Montserrat } from 'next/font/google';
 import { Briefcase, ImageIcon, LayoutDashboard, Database, Workflow } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-// import { useState } from "react";
 import React from "react";
 
 const montserrat = Montserrat({ weight: '600', subsets: ['latin'] });
@@ -126,7 +125,7 @@ export const Sidebar = ({
                     {route.label}
                   </span>
                 )}
-                {route.children?.map((child) => (
+                {!isCollapsed && route.children && route.children.map((child) => ( // hide children when sidebar is collapsed
                   <React.Fragment key={child.label}>
                     {child.href.includes("[") && !child.href.includes("/app") ? (
                       <a
@@ -136,7 +135,7 @@ export const Sidebar = ({
                           pathname === child.href ? "text-white bg-white/10" : "text-zinc-400",
                         )}
                       >
-                        {!isCollapsed && child.label}
+                        {child.label}
                       </a>
                     ) : (
                       <Link href={child.href} passHref>
@@ -146,7 +145,7 @@ export const Sidebar = ({
                             pathname === child.href ? "text-white bg-white/10" : "text-zinc-400",
                           )}
                         >
-                          {!isCollapsed && child.label}
+                          {child.label}
                         </div>
                       </Link>
                     )}
@@ -158,14 +157,14 @@ export const Sidebar = ({
         </div>
       </div>
       <button
-        style={{ zIndex: 1000, left: isCollapsed ? '5rem' : '16rem', top: '1rem' }} // Move button on top of other elements and adjust left position
+        style={{ zIndex: 1000, left: isCollapsed ? '4.25rem' : '15.25rem', top: '1.6rem' }} // Adjust button position
         className={cn(
-          "p-2 rounded-full fixed bg-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-left duration-300",
+          "p-1 rounded-full fixed bg-gray-800 border border-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition duration-300",
         )}
         onClick={toggleSidebar}
       >
         <svg
-          className="h-6 w-6 text-white"
+          className="h-4 w-4 text-white"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
