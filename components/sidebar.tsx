@@ -41,6 +41,15 @@ export const routes = [
       { label: 'Connectors', href: '/knowledge-bank/connectors', color: "text-red-500" },
     ],
   },
+    // {
+    //   label: 'Settings',
+    //   icon: Settings,
+    //   href: '/settings',
+    //   color: "text-gray-300",
+    //   children: [
+    //     { label: 'Constants', href: '/settings/constants', color: "text-gray-300" },
+    //   ],
+    // },
   {
     label: 'Workflows',
     icon: Workflow,
