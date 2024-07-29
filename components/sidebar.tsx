@@ -85,7 +85,7 @@ export const Sidebar = ({
       <div
         className={cn(
           "fixed top-0 left-0 z-50 transition-all",
-          isCollapsed ? "w-20" : "w-64", // Adjust width based on collapse state - min 20 so logo remains and doesn't shrink
+          isCollapsed ? "w-20" : "w-64",
           "overflow-y-auto h-screen bg-[#111827] text-white flex flex-col"
         )}
       >
@@ -110,9 +110,9 @@ export const Sidebar = ({
                     className={cn(
                       "flex items-center p-3 w-full justify-center font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
                       pathname === route.href ? "text-white bg-white/10" : "text-zinc-400",
-                      isCollapsed ? "justify-center" : "justify-start" // center icons when sidebar is collapsed
+                      isCollapsed ? "justify-center" : "justify-start"
                     )}
-                    title={isCollapsed ? route.label : ""} // add tooltip with label when hovering icon while sidebar is collapsed
+                    title={isCollapsed ? route.label : ""}
                   >
                     <route.icon className={cn("h-5 w-5", route.color)} />
                     {!isCollapsed && (
@@ -157,7 +157,7 @@ export const Sidebar = ({
         </div>
       </div>
       <button
-        style={{ zIndex: 1000, left: isCollapsed ? '4.25rem' : '15.25rem', top: '1.6rem' }} // Adjust button position
+        style={{ zIndex: 1000, left: isCollapsed ? '4.25rem' : '15.25rem', top: '1.6rem' }}
         className={cn(
           "p-1 rounded-full fixed bg-gray-800 border border-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition duration-300",
         )}
@@ -170,7 +170,7 @@ export const Sidebar = ({
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d={isCollapsed ? "M8 6L16 12L8 18" : "M16 6L8 12L16 18"} // changed toggle button to cleaner triangle pointing direction toggle will push sidebar
+            d={isCollapsed ? "M8 6L16 12L8 18" : "M16 6L8 12L16 18"}
             stroke="currentColor"
             strokeWidth="2"
             strokeLinecap="round"
