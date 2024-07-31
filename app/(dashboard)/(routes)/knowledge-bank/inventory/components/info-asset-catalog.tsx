@@ -55,7 +55,7 @@ export function InfoAssetCatalog({
   defaultCollapsed = false,
   navCollapsedSize,
 }: InfoAssetCatalogProps) {
-  const [isCollapsed, setIsCollapsed] = React.useState(false)
+  const [isCollapsed, setIsCollapsed] = React.useState(defaultCollapsed)
 
   const { infoAsset, updateInfoAsset } = useInfoAsset();
 
@@ -93,8 +93,12 @@ export function InfoAssetCatalog({
           maxSize={30}
           onCollapse={() => {
             setIsCollapsed(true); // Set desired collapsed state
-            document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(isCollapsed)}`;
-        }}
+            document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(true)}`;
+          }}
+          onExpand={() => {
+            setIsCollapsed(false); // Set desired expanded state - titles now reappear on expansion
+            document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(false)}`;
+          }}
               
           className={cn(
             isCollapsed &&
