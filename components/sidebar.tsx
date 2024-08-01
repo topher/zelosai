@@ -3,11 +3,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Montserrat } from 'next/font/google';
-import { Briefcase, ImageIcon, LayoutDashboard, Database, Workflow } from "lucide-react";
+import { Briefcase, ImageIcon, LayoutDashboard, Database, Workflow, ChevronDown, ChevronRight } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
-import React from "react";
+import React, { useState } from "react";
 
 const montserrat = Montserrat({ weight: '600', subsets: ['latin'] });
 
@@ -89,6 +89,24 @@ export const Sidebar = ({
   toggleSidebar: () => void;
 }) => {
   const pathname = usePathname();
+  const [expandedRoutes, setExpandedRoutes] = useState<{ [key: string]: boolean }>({});
+  // Set all routes with children to be expanded by default
+  // const [expandedRoutes, setExpandedRoutes] = useState<{ [key: string]: boolean }>(
+  //   routes.reduce((acc, route) => {
+  //     if (route.children) {
+  //       acc[route.label] = true;
+  //     }
+  //     return acc;
+  //   }, {} as { [key: string]: boolean })
+  // );
+  
+
+  const toggleExpand = (label: string) => {
+    setExpandedRoutes((prev) => ({
+      ...prev,
+      [label]: !prev[label],
+    }));
+  };
 
   return (
     <TooltipProvider>
@@ -128,7 +146,24 @@ export const Sidebar = ({
                         >
                           <route.icon className={cn("h-5 w-5", route.color)} />
                           {!isCollapsed && (
-                            <span className="ml-3">{route.label}</span>
+                            <>
+                              <span className="ml-3 flex-1">{route.label}</span>
+                              {route.children && (
+                                <button
+                                  className="ml-2 p-1"
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    toggleExpand(route.label);
+                                  }}
+                                >
+                                  {expandedRoutes[route.label] ? (
+                                    <ChevronDown className="h-4 w-4" />
+                                  ) : (
+                                    <ChevronRight className="h-4 w-4" />
+                                  )}
+                                </button>
+                              )}
+                            </>
                           )}
                         </div>
                       </Link>
@@ -139,23 +174,13 @@ export const Sidebar = ({
                         className="bg-[#1f2937] text-white border border-gray-700 shadow-lg rounded-md px-3 py-2 transition-opacity duration-200 ease-in-out transform opacity-0 group-hover:opacity-100"
                       >
                         {route.label}
-                      </TooltipContent>                    
+                      </TooltipContent>
                     )}
                   </Tooltip>
-                  {!isCollapsed && route.children && route.children.map((child) => ( // hide children when sidebar is collapsed
-                    <React.Fragment key={child.label}>
-                      {child.href.includes("[") && !child.href.includes("/app") ? (
-                        <a
-                          href={child.href}
-                          className={cn(
-                            "text-xs p-2 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
-                            pathname === child.href ? "text-white bg-white/10" : "text-zinc-400",
-                          )}
-                        >
-                          {child.label}
-                        </a>
-                      ) : (
-                        <Link href={child.href} passHref>
+                  {!isCollapsed && route.children && expandedRoutes[route.label] && (
+                    <div className="ml-8 space-y-1">
+                      {route.children.map((child) => (
+                        <Link key={child.label} href={child.href} passHref>
                           <div
                             className={cn(
                               "text-xs p-2 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
@@ -165,9 +190,9 @@ export const Sidebar = ({
                             {child.label}
                           </div>
                         </Link>
-                      )}
-                    </React.Fragment>
-                  ))}
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
