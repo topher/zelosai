@@ -121,7 +121,7 @@ export const Sidebar = ({
           <div className="py-4 flex items-center pl-3 mb-14">
             <Link href="/dashboard" className="flex items-center">
               <div className="relative rounded-md h-12 w-12 mr-4">
-                <Image fill alt="Logo" src="/zlogo.png"/>
+                <Image fill alt="Logo" src="/zlogo.png" />
               </div>
               {!isCollapsed && (
                 <h1 className={cn("text-3xl font-bold", montserrat.className)}>
@@ -177,20 +177,27 @@ export const Sidebar = ({
                       </TooltipContent>
                     )}
                   </Tooltip>
-                  {!isCollapsed && route.children && expandedRoutes[route.label] && (
-                    <div className="ml-8 space-y-1">
-                      {route.children.map((child) => (
-                        <Link key={child.label} href={child.href} passHref>
-                          <div
-                            className={cn(
-                              "text-xs p-2 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
-                              pathname === child.href ? "text-white bg-white/10" : "text-zinc-400",
-                            )}
-                          >
-                            {child.label}
-                          </div>
-                        </Link>
-                      ))}
+                  {!isCollapsed && route.children && (
+                    <div
+                      className={cn(
+                        "transition-max-height duration-300 ease-in-out overflow-hidden",
+                        expandedRoutes[route.label] ? "max-h-40" : "max-h-0"
+                      )}
+                    >
+                      <div className="ml-8 space-y-1">
+                        {route.children.map((child) => (
+                          <Link key={child.label} href={child.href} passHref>
+                            <div
+                              className={cn(
+                                "text-xs p-2 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
+                                pathname === child.href ? "text-white bg-white/10" : "text-zinc-400"
+                              )}
+                            >
+                              {child.label}
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>
@@ -199,9 +206,9 @@ export const Sidebar = ({
           </div>
         </div>
         <button
-          style={{ zIndex: 1000, left: isCollapsed ? '4.25rem' : '15.25rem', top: '1.6rem' }}
+          style={{ zIndex: 1000, left: isCollapsed ? "4.25rem" : "15.25rem", top: "1.6rem" }}
           className={cn(
-            "p-1 rounded-full fixed bg-gray-800 border border-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition duration-300",
+            "p-1 rounded-full fixed bg-gray-800 border border-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition duration-300"
           )}
           onClick={toggleSidebar}
         >
