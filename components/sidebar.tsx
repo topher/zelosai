@@ -60,10 +60,10 @@ export const routes = [
     href: '/strategy',
     color: "text-orange-500",
     children: [
-      { label: 'Goals', href: '/strategy/goals', color: "text-red-500" },
-      { label: 'Risks', href: '/strategy/risks', color: "text-red-500" },
-      { label: 'Use Cases', href: '/strategy/use-cases', color: "text-red-500" },
-      { label: 'Plan', href: '/strategy/plan', color: "text-red-500" },
+      { label: 'Goals', href: '/strategy/goals', color: "text-red-500", description: "Define the objectives for your organization." },
+      { label: 'Risks', href: '/strategy/risks', color: "text-red-500", description: "Identify potential challenges to your AI strategy." },
+      { label: 'Use Cases', href: '/strategy/use-cases', color: "text-red-500", description: "Set the practical applications for your AI models and products." },
+      { label: 'Plan', href: '/strategy/plan', color: "text-red-500", description: "Develop a strategy to achieve your AI-driven goals." },
     ],
   },
 ];
