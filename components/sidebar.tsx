@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Montserrat } from 'next/font/google';
-import { Briefcase, ImageIcon, LayoutDashboard, Database, Workflow, ChevronDown, ChevronRight } from "lucide-react";
+import { Briefcase, ImageIcon, LayoutDashboard, Database, Workflow, ChevronDown, ChevronRight, Settings } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
@@ -42,15 +42,6 @@ export const routes = [
       { label: 'Connectors', href: '/knowledge-bank/connectors', color: "text-red-500" },
     ],
   },
-    // {
-    //   label: 'Settings',
-    //   icon: Settings,
-    //   href: '/settings',
-    //   color: "text-gray-300",
-    //   children: [
-    //     { label: 'Constants', href: '/settings/constants', color: "text-gray-300" },
-    //   ],
-    // },
   {
     label: 'Workflows',
     icon: Workflow,
@@ -77,6 +68,13 @@ export const routes = [
   },
 ];
 
+const settings = {
+  label: 'Settings',
+  icon: Settings,
+  href: '/settings',
+  color: "text-gray-300",
+};
+
 export const Sidebar = ({
   apiLimitCount = 0,
   isPro = false,
@@ -90,17 +88,7 @@ export const Sidebar = ({
 }) => {
   const pathname = usePathname();
   const [expandedRoutes, setExpandedRoutes] = useState<{ [key: string]: boolean }>({});
-  // Set all routes with children to be expanded by default
-  // const [expandedRoutes, setExpandedRoutes] = useState<{ [key: string]: boolean }>(
-  //   routes.reduce((acc, route) => {
-  //     if (route.children) {
-  //       acc[route.label] = true;
-  //     }
-  //     return acc;
-  //   }, {} as { [key: string]: boolean })
-  // );
   
-
   const toggleExpand = (label: string) => {
     setExpandedRoutes((prev) => ({
       ...prev,
@@ -220,6 +208,36 @@ export const Sidebar = ({
                   )}
                 </div>
               ))}
+            </div>
+          </div>
+          <div>
+            <div key={settings.label} className="relative group">
+              <Tooltip key={isCollapsed ? "collapsed" : "expanded"}>
+                <TooltipTrigger asChild>
+                  <Link href={settings.href} passHref>
+                    <div
+                      className={cn(
+                        "flex items-center p-3 w-full justify-center font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
+                        pathname === settings.href ? "text-white bg-white/10" : "text-zinc-400",
+                        isCollapsed ? "justify-center" : "justify-start"
+                      )}
+                    >
+                      <settings.icon className={cn("h-5 w-5", settings.color)} />
+                      {!isCollapsed && (
+                        <span className="ml-3 flex-1">{settings.label}</span>
+                      )}
+                    </div>
+                  </Link>
+                </TooltipTrigger>
+                {isCollapsed && (
+                  <TooltipContent
+                    side="right"
+                    className="bg-[#1f2937] text-white border border-gray-700 shadow-lg rounded-md px-3 py-2 transition-opacity duration-200 ease-in-out transform opacity-0 group-hover:opacity-100"
+                  >
+                    <div>{settings.label}</div>
+                  </TooltipContent>
+                )}
+              </Tooltip>
             </div>
           </div>
         </div>
