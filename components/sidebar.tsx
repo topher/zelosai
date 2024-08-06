@@ -24,10 +24,10 @@ export const routes = [
     href: '/digital-twin',
     color: "text-sky-500",
     children: [
-      { label: 'My Library', href: '/digital-twin', color: "text-blue-500" },
-      { label: 'Usage', href: '/digital-twin/analytics', color: "text-blue-500" },
-      { label: 'Safety', href: '/digital-twin/safety', color: "text-blue-500" },
-      { label: 'Create New', href: '/digital-twin', color: "text-blue-500" },
+      { label: 'My Library', href: '/digital-twin', color: "text-blue-500", description: "Explore your collection of AI models." },
+      { label: 'Usage', href: '/digital-twin/analytics', color: "text-blue-500", description: "Monitor the performance of your AI models." },
+      { label: 'Safety', href: '/digital-twin/safety', color: "text-blue-500", description: "Ensure the safe and responsible use of your likeness." },
+      { label: 'Create New', href: '/digital-twin', color: "text-blue-500", description: "Build new AI models to expand your digital brand." },
     ],
   },
   {
@@ -36,10 +36,10 @@ export const routes = [
     href: '/knowledge-bank',
     color: "text-green-500",
     children: [
-      { label: 'My Assets', href: '/knowledge-bank/inventory', color: "text-red-500" },
-      { label: 'My Terms', href: '/knowledge-bank/taxonomy', color: "text-red-500" },
-      { label: 'Rules', href: '/knowledge-bank/settings', color: "text-red-500" },
-      { label: 'Connectors', href: '/knowledge-bank/connectors', color: "text-red-500" },
+      { label: 'My Assets', href: '/knowledge-bank/inventory', color: "text-red-500", description: "Manage the core data that shapes the foundation of your AI models." },
+      { label: 'My Terms', href: '/knowledge-bank/taxonomy', color: "text-red-500", description: "Visualize key insights from your data." },
+      { label: 'Rules', href: '/knowledge-bank/settings', color: "text-red-500", description: "Manage your account rules across compliance frameworks." },
+      { label: 'Connectors', href: '/knowledge-bank/connectors', color: "text-red-500", description: "Connect your favorite tools and platforms to streamline your workflow." },
     ],
   },
   {
