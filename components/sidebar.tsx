@@ -31,7 +31,7 @@ export const routes = [
     ],
   },
   {
-    label: 'Knowledge Bank',
+    label: 'Data Vault',
     icon: Database,
     href: '/knowledge-bank',
     color: "text-green-500",
@@ -173,7 +173,25 @@ export const Sidebar = ({
                         side="right"
                         className="bg-[#1f2937] text-white border border-gray-700 shadow-lg rounded-md px-3 py-2 transition-opacity duration-200 ease-in-out transform opacity-0 group-hover:opacity-100"
                       >
-                        {route.label}
+                        <div>
+                          <div>{route.label}</div>
+                          {route.children && route.label !== 'Dashboard' && (
+                            <div className="mt-2">
+                              {route.children.map((child) => (
+                                <Link key={child.label} href={child.href} passHref>
+                                  <div
+                                    className={cn(
+                                      "text-xs p-1 w-full font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded transition",
+                                      pathname === child.href ? "text-white bg-white/10" : "text-zinc-400"
+                                    )}
+                                  >
+                                    {child.label}
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       </TooltipContent>
                     )}
                   </Tooltip>
