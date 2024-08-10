@@ -24,30 +24,30 @@ const DigitalTwin: React.FC = () => {
         {assistantsRoute?.children?.map((child, index) => (
           <li
             key={index}
-            className="border-2 border-gray-200 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 duration-300 group bg-white bg-opacity-75 hover:bg-opacity-100"
+            className="rounded-xl overflow-hidden shadow-lg transition-all transform hover:scale-105 duration-300 group bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20 hover:bg-gradient-to-br hover:from-indigo-500 hover:to-pink-500 hover:text-white hover:bg-opacity-30 hover:backdrop-blur-xl hover:border-opacity-50 hover:shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
           >
             <Link href={child.href}>
-              <div className="p-6">
+              <div className="p-8">
                 <div className="mb-4">
-                  <Image
-                    src="/rocket/rocket-dynamic-premium.png"
-                    alt={child.label}
-                    width={180}
-                    height={180}
-                    className="mx-auto group-hover:hidden transition-opacity duration-300"
-                  />
                   <Image
                     src="/rocket/rocket-dynamic-color.png"
                     alt={child.label}
-                    width={180}
-                    height={180}
+                    width={240}
+                    height={240}
+                    className="mx-auto group-hover:hidden transition-opacity duration-300"
+                  />
+                  <Image
+                    src="/rocket/rocket-dynamic-premium.png"
+                    alt={child.label}
+                    width={240}
+                    height={240}
                     className="mx-auto hidden group-hover:block transition-opacity duration-300"
                   />
                 </div>
-                <h2 className={`text-2xl font-bold ${child.color} group-hover:text-indigo-600 transition-colors duration-300`}>
+                <h2 className={`text-2xl font-bold ${child.color} group-hover:text-white transition-colors duration-300`}>
                   {child.label}
                 </h2>
-                <p className="text-gray-600 group-hover:text-gray-800 mt-2 text-sm transition-colors duration-300">
+                <p className="text-gray-600 group-hover:text-gray-200 mt-2 text-sm transition-colors duration-300">
                   {child.description}
                 </p>
               </div>
