@@ -13,7 +13,7 @@ const DigitalTwin: React.FC = () => {
   const assistantsRoute = routes.find(route => route.label === 'Assistants');
 
   return (
-    <div className={`container mx-auto pb-10 ${montserrat.className}`}>
+    <div className={`container mx-auto pb-10 -translate-y-5 ${montserrat.className}`}>
       <h1 className="text-4xl font-bold mb-8 mt-4 relative text-left">
         <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
           Assistants
