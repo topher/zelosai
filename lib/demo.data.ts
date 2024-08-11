@@ -1,6 +1,4 @@
-// All the demo data that used as fallbacks when there's nothing in the dataset yet
-
-export const title = 'Our  Blog'
+export const title = 'Our Blog';
 
 export const description = [
   {
@@ -10,7 +8,6 @@ export const description = [
       {
         _key: '4a58edd077880',
         _type: 'span',
-        marks: [],
         text: 'Navigate the Intersection of Sports, AI, and Digital Rights.',
       }
     ],
@@ -28,6 +25,6 @@ export const description = [
     ],
     style: 'normal',
   },
-]
+];
 
-export const ogImageTitle = 'A Next.js Blog with a Native Authoring Experience'
+export const ogImageTitle = 'A Next.js Blog with a Native Authoring Experience';

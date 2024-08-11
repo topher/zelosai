@@ -16,12 +16,14 @@ const Handler = async (data: InputType): Promise<ReturnType> => {
 
   const newOrder = demoData.lists.length + 1;
 
+  const cards: any[] = []
+
   let list = {
     id: `list-${Date.now()}`,
     title,
     boardId,
     order: newOrder,
-    cards: [],
+    cards
   };
 
   try {

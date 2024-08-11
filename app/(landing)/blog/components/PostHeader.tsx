@@ -13,7 +13,7 @@ export default function PostHeader(
   const { title, coverImage, date, author, slug } = props
   return (
     <div className="relative mb-8">
-      <CoverImage title={title} image={coverImage} />
+      <CoverImage title={title} image={coverImage} slug={''} priority={false} />
       <div className={`absolute inset-0 flex items-end ${styles.overlay}`}>
         <div className="p-6">
           <h1 className="text-4xl font-bold text-white">{title}</h1>

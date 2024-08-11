@@ -56,7 +56,7 @@ export default defineConfig({
     //   },
     // }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    settingsPlugin({ type: settingsType.name }),
+    // settingsPlugin({ type: settingsType.name }),
     // Add an image asset source for Unsplash
     unsplashImageAsset(),
     // The remaining plugins are only loaded in dev mode
