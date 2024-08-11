@@ -1,0 +1,11 @@
+.overlay {
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
+  }
+  
+.h1 {
+    font-size: 3em;
+    color: #ffffff;
+  }
+  
