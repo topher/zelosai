@@ -48,10 +48,10 @@ export const routes = [
     href: '/workflows',
     color: "text-yellow-500",
     children: [
-      { label: 'Library', href: '/workflows', color: "text-blue-500", description: "Access resources to steamline your workflow processes.", icon: "link" },
-      { label: 'My Tasks', href: '/workflows/tasks', color: "text-blue-500", description: "Track your ongoing tasks and responsibilities.", icon: "tick" },
-      { label: 'Activity', href: '/workflows/analytics', color: "text-blue-500", description: "Review recent actions and updates within your workflows.", icon: "rocket" },
-      { label: 'New Workflow', href: '/workflows/plan', color: "text-blue-500", description: "Create and customize new workflows to optimize your efficiency.", icon: "plus" },
+      { label: 'Library', href: '/workflows/library', color: "text-yellow-500", description: "Access resources to steamline your workflow processes.", icon: "link" },
+      { label: 'My Tasks', href: '/workflows/tasks', color: "text-yellow-500", description: "Track your ongoing tasks and responsibilities.", icon: "tick" },
+      { label: 'Activity', href: '/workflows/analytics', color: "text-yellow-500", description: "Review recent actions and updates within your workflows.", icon: "rocket" },
+      { label: 'New Workflow', href: '/workflows/plan', color: "text-yellow-500", description: "Create and customize new workflows to optimize your efficiency.", icon: "plus" },
     ],
   },
   {
