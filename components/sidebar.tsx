@@ -58,7 +58,7 @@ export const routes = [
     label: 'Strategy',
     icon: Briefcase,
     href: '/strategy',
-    color: "text-orange-500",
+    color: "text-red-500",
     children: [
       { label: 'Goals', href: '/strategy/goals', color: "text-red-500", description: "Define the objectives for your organization.", icon: "target" },
       { label: 'Risks', href: '/strategy/risks', color: "text-red-500", description: "Identify potential challenges to your AI strategy.", icon: "flag" },
