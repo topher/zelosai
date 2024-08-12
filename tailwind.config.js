@@ -17,6 +17,25 @@ module.exports = {
     },
     extend: {
       colors: {
+        // palette
+        // // Neutrals
+        // black: '#1a1a1a',
+        // white: '#ffffff',
+        // darkGray: '#333333',
+        // blueGray: '#111827',
+
+        // // Gold
+        // gold: '#d4af37',
+
+        // // Classy Blue
+        // classyBlue: '#2a52be',
+
+        // // Striking Green
+        // strikingGreen: '#2e8b57',
+
+        // // Red Accent
+        // accentRed: '#a52a2a',
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

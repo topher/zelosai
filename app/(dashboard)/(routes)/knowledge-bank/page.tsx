@@ -25,7 +25,7 @@ const DataVault: React.FC = () => {
         {dataVaultRoute?.children?.map((child, index) => (
           <li
             key={index}
-            className="rounded-xl overflow-hidden shadow-lg transition-all transform hover:scale-105 hover:rotate-2 hover:-translate-y-2 duration-300 group bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20 hover:bg-gradient-to-br hover:from-indigo-500 hover:to-pink-500 hover:text-white hover:bg-opacity-30 hover:backdrop-blur-xl hover:border-opacity-50 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
+            className="rounded-xl overflow-hidden shadow-lg transition-all transform hover:scale-105 hover:-translate-y-2 duration-300 group bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20 hover:bg-gradient-to-br hover:from-indigo-500 hover:to-pink-500 hover:text-white hover:bg-opacity-30 hover:backdrop-blur-xl hover:border-opacity-50 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
           >
             <Link href={child.href}>
               <div className="p-8">
