@@ -17,6 +17,7 @@ const DigitalTwin: React.FC = () => {
       <h1 className="text-4xl font-bold mb-8 mt-4 relative text-left">
         <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
           Assistants
+          {/* add extra context to denote homepage, maybe implement breadcrumb */}
         </span>
         <span className="block h-1 w-16 bg-indigo-600 mt-2 rounded"></span>
       </h1>
