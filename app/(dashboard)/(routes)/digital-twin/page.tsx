@@ -31,14 +31,14 @@ const DigitalTwin: React.FC = () => {
               <div className="p-8">
                 <div className="mb-4">
                   <Image
-                    src="/rocket/rocket-dynamic-color.png"
+                    src={`/${child.icon}/${child.icon}-dynamic-color.png`}
                     alt={child.label}
                     width={240}
                     height={240}
                     className="mx-auto group-hover:hidden transition-opacity duration-300"
                   />
                   <Image
-                    src="/rocket/rocket-dynamic-premium.png"
+                    src={`/${child.icon}/${child.icon}-dynamic-premium.png`}
                     alt={child.label}
                     width={240}
                     height={240}

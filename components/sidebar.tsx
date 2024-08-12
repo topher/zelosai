@@ -24,10 +24,10 @@ export const routes = [
     href: '/digital-twin',
     color: "text-sky-500",
     children: [
-      { label: 'My Library', href: '/digital-twin/library', color: "text-blue-500", description: "Explore your collection of AI models." },
-      { label: 'Usage', href: '/digital-twin/analytics', color: "text-blue-500", description: "Monitor the performance of your AI models." },
-      { label: 'Safety', href: '/digital-twin/safety', color: "text-blue-500", description: "Ensure the safe and responsible use of your likeness." },
-      { label: 'Create New', href: '/digital-twin/library', color: "text-blue-500", description: "Build new AI models to expand your digital brand." },
+      { label: 'My Library', href: '/digital-twin/library', color: "text-blue-500", description: "Explore your collection of AI models.", icon: "folder" },
+      { label: 'Usage', href: '/digital-twin/analytics', color: "text-blue-500", description: "Monitor the performance of your AI models.", icon: "chart" },
+      { label: 'Safety', href: '/digital-twin/safety', color: "text-blue-500", description: "Ensure the safe and responsible use of your likeness.", icon: "lock" },
+      { label: 'Create New', href: '/digital-twin/library', color: "text-blue-500", description: "Build new AI models to expand your digital brand.", icon: "new-folder" },
     ],
   },
   {
@@ -36,10 +36,10 @@ export const routes = [
     href: '/knowledge-bank',
     color: "text-green-500",
     children: [
-      { label: 'My Assets', href: '/knowledge-bank/inventory', color: "text-red-500", description: "Manage the core data that shapes the foundation of your AI models." },
-      { label: 'My Terms', href: '/knowledge-bank/taxonomy', color: "text-red-500", description: "Visualize key insights from your data." },
-      { label: 'Rules', href: '/knowledge-bank/settings', color: "text-red-500", description: "Manage your account rules across compliance frameworks." },
-      { label: 'Connectors', href: '/knowledge-bank/connectors', color: "text-red-500", description: "Connect your favorite tools and platforms to streamline your workflow." },
+      { label: 'My Assets', href: '/knowledge-bank/inventory', color: "text-green-500", description: "Manage the core data that shapes the foundation of your AI models.", icon: "locker" },
+      { label: 'My Terms', href: '/knowledge-bank/taxonomy', color: "text-green-500", description: "Visualize key insights from your data.", icon: "copy" },
+      { label: 'Rules', href: '/knowledge-bank/settings', color: "text-green-500", description: "Manage your account rules across compliance frameworks.", icon: "shield" },
+      { label: 'Connectors', href: '/knowledge-bank/connectors', color: "text-green-500", description: "Connect your favorite tools and platforms to streamline your workflow.", icon: "puzzle" },
     ],
   },
   {
@@ -48,10 +48,10 @@ export const routes = [
     href: '/workflows',
     color: "text-yellow-500",
     children: [
-      { label: 'Library', href: '/workflows', color: "text-blue-500", description: "Access resources to steamline your workflow processes." },
-      { label: 'My Tasks', href: '/workflows/tasks', color: "text-blue-500", description: "Track your ongoing tasks and responsibilities." },
-      { label: 'Activity', href: '/workflows/analytics', color: "text-blue-500", description: "Review recent actions and updates within your workflows." },
-      { label: 'New Workflow', href: '/workflows/plan', color: "text-blue-500", description: "Create and customize new workflows to optimize your efficiency." },
+      { label: 'Library', href: '/workflows', color: "text-blue-500", description: "Access resources to steamline your workflow processes.", icon: "link" },
+      { label: 'My Tasks', href: '/workflows/tasks', color: "text-blue-500", description: "Track your ongoing tasks and responsibilities.", icon: "tick" },
+      { label: 'Activity', href: '/workflows/analytics', color: "text-blue-500", description: "Review recent actions and updates within your workflows.", icon: "rocket" },
+      { label: 'New Workflow', href: '/workflows/plan', color: "text-blue-500", description: "Create and customize new workflows to optimize your efficiency.", icon: "plus" },
     ],
   },
   {
@@ -60,10 +60,10 @@ export const routes = [
     href: '/strategy',
     color: "text-orange-500",
     children: [
-      { label: 'Goals', href: '/strategy/goals', color: "text-red-500", description: "Define the objectives for your organization." },
-      { label: 'Risks', href: '/strategy/risks', color: "text-red-500", description: "Identify potential challenges to your AI strategy." },
-      { label: 'Use Cases', href: '/strategy/use-cases', color: "text-red-500", description: "Set the practical applications for your AI models and products." },
-      { label: 'Plan', href: '/strategy/plan', color: "text-red-500", description: "Develop a strategy to achieve your AI-driven goals." },
+      { label: 'Goals', href: '/strategy/goals', color: "text-red-500", description: "Define the objectives for your organization.", icon: "target" },
+      { label: 'Risks', href: '/strategy/risks', color: "text-red-500", description: "Identify potential challenges to your AI strategy.", icon: "flag" },
+      { label: 'Use Cases', href: '/strategy/use-cases', color: "text-red-500", description: "Set the practical applications for your AI models and products.", icon: "bookmark-fav" },
+      { label: 'Plan', href: '/strategy/plan', color: "text-red-500", description: "Develop a strategy to achieve your AI-driven goals.", icon: "chess" },
     ],
   },
 ];
