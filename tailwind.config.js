@@ -28,13 +28,19 @@ module.exports = {
         // gold: '#d4af37',
 
         // // Classy Blue
-        // classyBlue: '#2a52be',
+        // blue: '#2a52be',
 
         // // Striking Green
-        // strikingGreen: '#2e8b57',
+        // green: '#2e8b57',
+        
+        // // Indigo
+        // indigo: '#4b0082',
+
+        // // Pink
+        // pink: '#ff69b4',
 
         // // Red Accent
-        // accentRed: '#a52a2a',
+        // red: '#a52a2a',
 
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

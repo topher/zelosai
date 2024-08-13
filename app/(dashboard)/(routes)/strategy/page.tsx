@@ -9,7 +9,7 @@ import { Montserrat } from 'next/font/google';
 const montserrat = Montserrat({ weight: '600', subsets: ['latin'] });
 
 const Strategy: React.FC = () => {
-  // find the Assistants route from the sidebar routes array
+  // find the Strategy route from the sidebar routes array
   const strategyRoute = routes.find(route => route.label === 'Strategy');
 
   return (

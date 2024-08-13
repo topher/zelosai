@@ -9,7 +9,7 @@ import { Montserrat } from 'next/font/google';
 const montserrat = Montserrat({ weight: '600', subsets: ['latin'] });
 
 const DataVault: React.FC = () => {
-  // find the Assistants route from the sidebar routes array
+  // find the Data Vault route from the sidebar routes array
   const dataVaultRoute = routes.find(route => route.label === 'Data Vault');
 
   return (
