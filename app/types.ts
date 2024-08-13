@@ -110,24 +110,26 @@ export type Workflow = {
     description: string
 }
 
-export type Rule = {
-    id: string; // Assuming each rule has a unique ID
-    subject: string;
-    attribute: string;
-    operator: string;
-    value: string;
-    duty: string;
-    action: string;
-    target?: string;
-    presides_over?: string;
-    ruleType: string;
-}
 
+// New Statement Type
 export type Statement = {
   attribute: string;
   operator: string;
-  value: string;
-}
+  value: string; // scalar value or entity
+};
+
+// New Rule Type
+export type Rule = {
+  id: string;
+  deontologicalDuty: string; // Prohibited, Allowed, Obligated
+  subjectCondition: Statement;
+  predicate: string;
+  objectCondition: Statement;
+  createdBy: string;
+  ownedBy: string;
+  ruleType: string; // access | content | action
+};
+
 
 export type Goal = {
     Goal: string;
@@ -374,6 +376,7 @@ export enum ENTITY_TYPE {
   LIST = "LIST",
   CARD = "CARD"
 }
+
 
 
 export interface AuditLog {

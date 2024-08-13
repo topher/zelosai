@@ -583,7 +583,7 @@ export const contacts = [
     is_persona: true,
   },
   // Add more contacts following the persona type distribution (0:15, 1:70, 2:15)
-];
+]
 
 // Type Workflow
 export const workflows = [
@@ -1137,13 +1137,20 @@ export const rules = [
   {
     id: "rule-1",
     ruleType: "access",
-    subject: "user",
-    operator: "in",
-    attribute: "location",
-    value: "EU",
-    duty: "obligated",
-    action: "consent_to_share",
-    target: "data",
+    deontologicalDuty: "obligated",
+    subjectCondition: {
+      attribute: "location",
+      operator: "in",
+      value: "EU",
+    },
+    predicate: "requires",
+    objectCondition: {
+      attribute: "action",
+      operator: "equals",
+      value: "consent_to_share",
+    },
+    createdBy: "system",
+    ownedBy: "GDPR",
     rule_nlp_description: JSON.stringify({
       text: "Users located in the European Union (EU) require consent before processing their personal data.",
     }),
@@ -1151,13 +1158,20 @@ export const rules = [
   {
     id: "rule-2",
     ruleType: "access",
-    subject: "user",
-    attribute: "data_usage",
-    operator: "includes",
-    value: "marketing",
-    duty: "inform",
-    action: "opt-out",
-    target: "user",
+    deontologicalDuty: "inform",
+    subjectCondition: {
+      attribute: "data_usage",
+      operator: "includes",
+      value: "marketing",
+    },
+    predicate: "allows",
+    objectCondition: {
+      attribute: "action",
+      operator: "equals",
+      value: "opt-out",
+    },
+    createdBy: "system",
+    ownedBy: "GDPR",
     rule_nlp_description: JSON.stringify({
       text: "Users have the right to be informed about and opt-out of their data being used for marketing purposes.",
     }),
@@ -1165,13 +1179,20 @@ export const rules = [
   {
     id: "rule-3",
     ruleType: "access",
-    subject: "user",
-    attribute: "data_storage",
-    operator: "gt",
-    value: "6", // Assuming value is in months
-    duty: "allow",
-    action: "download",
-    target: "personal_data",
+    deontologicalDuty: "allow",
+    subjectCondition: {
+      attribute: "data_storage",
+      operator: "gt",
+      value: "6", // Assuming value is in months
+    },
+    predicate: "allows",
+    objectCondition: {
+      attribute: "action",
+      operator: "equals",
+      value: "download",
+    },
+    createdBy: "system",
+    ownedBy: "GDPR",
     rule_nlp_description: JSON.stringify({
       text: "Users can download their personal data that has been stored for more than 6 months.",
     }),
@@ -1180,13 +1201,20 @@ export const rules = [
   {
     id: "rule-4",
     ruleType: "action",
-    subject: "content",
-    attribute: "mime_type",
-    operator: "is",
-    value: "image/jpeg",
-    duty: "permit",
-    action: "display",
-    presides_over: "user",
+    deontologicalDuty: "permit",
+    subjectCondition: {
+      attribute: "mime_type",
+      operator: "is",
+      value: "image/jpeg",
+    },
+    predicate: "allows",
+    objectCondition: {
+      attribute: "action",
+      operator: "equals",
+      value: "display",
+    },
+    createdBy: "system",
+    ownedBy: "MPEG21",
     rule_nlp_description: JSON.stringify({
       text: "JPEG image content can be displayed to the user.",
     }),
@@ -1194,13 +1222,20 @@ export const rules = [
   {
     id: "rule-5",
     ruleType: "action",
-    subject: "content",
-    attribute: "copyright_owner",
-    operator: "is",
-    value: "Victor, the Athlete",
-    duty: "restrict",
-    action: "modify",
-    target: "content",
+    deontologicalDuty: "restrict",
+    subjectCondition: {
+      attribute: "copyright_owner",
+      operator: "is",
+      value: "Victor, the Athlete",
+    },
+    predicate: "prohibits",
+    objectCondition: {
+      attribute: "action",
+      operator: "equals",
+      value: "modify",
+    },
+    createdBy: "system",
+    ownedBy: "MPEG21",
     rule_nlp_description: JSON.stringify({
       text: "Content owned by Victor, the Athlete cannot be modified by users.",
     }),
@@ -1208,13 +1243,20 @@ export const rules = [
   {
     id: "rule-6",
     ruleType: "action",
-    subject: "user",
-    attribute: "permission",
-    operator: "has",
-    value: "edit",
-    duty: "permit",
-    action: "modify",
-    target: "content",
+    deontologicalDuty: "permit",
+    subjectCondition: {
+      attribute: "permission",
+      operator: "has",
+      value: "edit",
+    },
+    predicate: "allows",
+    objectCondition: {
+      attribute: "action",
+      operator: "equals",
+      value: "modify",
+    },
+    createdBy: "system",
+    ownedBy: "MPEG21",
     rule_nlp_description: JSON.stringify({
       text: "Users with edit permission can modify content.",
     }),
@@ -1223,13 +1265,20 @@ export const rules = [
   {
     id: "rule-7",
     ruleType: "content",
-    subject: "Victor",
-    attribute: "attire",
-    operator: "should_wear",
-    value: "athletic clothing",
-    duty: "recommend",
-    action: "suggest",
-    target: "Victor",
+    deontologicalDuty: "recommend",
+    subjectCondition: {
+      attribute: "attire",
+      operator: "should_wear",
+      value: "athletic clothing",
+    },
+    predicate: "suggests",
+    objectCondition: {
+      attribute: "target",
+      operator: "equals",
+      value: "Victor",
+    },
+    createdBy: "Victor",
+    ownedBy: "Victor's Guidelines",
     rule_nlp_description: JSON.stringify({
       text: "It is recommended for Victor to wear athletic clothing for training and competition.",
     }),
@@ -1237,13 +1286,20 @@ export const rules = [
   {
     id: "rule-8",
     ruleType: "content",
-    subject: "Victor",
-    attribute: "diet",
-    operator: "should_avoid",
-    value: "processed foods",
-    duty: "prohibit",
-    action: "warn",
-    target: "Victor",
+    deontologicalDuty: "prohibit",
+    subjectCondition: {
+      attribute: "diet",
+      operator: "should_avoid",
+      value: "processed foods",
+    },
+    predicate: "warns",
+    objectCondition: {
+      attribute: "target",
+      operator: "equals",
+      value: "Victor",
+    },
+    createdBy: "Victor",
+    ownedBy: "Victor's Guidelines",
     rule_nlp_description: JSON.stringify({
       text: "Victor should avoid processed foods to maintain a healthy diet.",
     }),
@@ -1251,13 +1307,20 @@ export const rules = [
   {
     id: "rule-9",
     ruleType: "content",
-    subject: "Victor",
-    attribute: "emotions",
-    operator: "should_express",
-    value: "positive",
-    duty: "encourage",
-    action: "motivate",
-    target: "Victor",
+    deontologicalDuty: "encourage",
+    subjectCondition: {
+      attribute: "emotions",
+      operator: "should_express",
+      value: "positive",
+    },
+    predicate: "motivates",
+    objectCondition: {
+      attribute: "target",
+      operator: "equals",
+      value: "Victor",
+    },
+    createdBy: "Victor",
+    ownedBy: "Victor's Guidelines",
     rule_nlp_description: JSON.stringify({
       text: "Victor should strive to express positive emotions for mental well-being and performance.",
     }),
@@ -1265,13 +1328,20 @@ export const rules = [
   {
     id: "rule-10",
     ruleType: "content",
-    subject: "Victor",
-    attribute: "speech",
-    operator: "should_avoid",
-    value: "discouragement",
-    duty: "prohibit",
-    action: "redirect",
-    target: "Victor",
+    deontologicalDuty: "prohibit",
+    subjectCondition: {
+      attribute: "speech",
+      operator: "should_avoid",
+      value: "discouragement",
+    },
+    predicate: "redirects",
+    objectCondition: {
+      attribute: "target",
+      operator: "equals",
+      value: "Victor",
+    },
+    createdBy: "Victor",
+    ownedBy: "Victor's Guidelines",
     rule_nlp_description: JSON.stringify({
       text: "Victor should avoid discouraging self-talk. Redirect negative thoughts to positive affirmations.",
     }),
@@ -1279,18 +1349,26 @@ export const rules = [
   {
     id: "rule-11",
     ruleType: "content",
-    subject: "training",
-    attribute: "frequency",
-    operator: "should_be",
-    value: "regular",
-    duty: "recommend",
-    action: "schedule",
-    target: "Victor",
+    deontologicalDuty: "recommend",
+    subjectCondition: {
+      attribute: "frequency",
+      operator: "should_be",
+      value: "regular",
+    },
+    predicate: "schedules",
+    objectCondition: {
+      attribute: "target",
+      operator: "equals",
+      value: "Victor",
+    },
+    createdBy: "Victor",
+    ownedBy: "Victor's Guidelines",
     rule_nlp_description: JSON.stringify({
       text: "Regular training is recommended for Victor to maintain peak performance.",
     }),
-  }
+  },
 ];
+
   
 // Type DataConnector
 export const connectors = [

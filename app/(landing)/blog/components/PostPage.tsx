@@ -9,6 +9,7 @@ import SectionSeparator from '@/app/(landing)/blog/components/SectionSeparator';
 import PostTitle from '@/app/(landing)/blog/components/PostTitle';
 import styled from 'styled-components';
 import { Post } from '@/lib/sanity.queries';
+import { LandingNavbar } from '@/components/landing-navbar';
 
 export interface PostPageProps {
   preview?: boolean;
@@ -34,6 +35,7 @@ export default function PostPage(props: PostPageProps) {
     <>
       <Layout>
         <Container>
+          <LandingNavbar />
           <BlogHeader title={settings?.title} level={2} />
           <PostContainer>
             {post ? (
