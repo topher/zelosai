@@ -1938,10 +1938,10 @@ export const agents = [
 export const business_model = {
   "companyName": "Amotion",
   "logo": "https://example.com/logo.png",
-  "industry": "Tecnología",
+  "industry": "Technology",
   "location": "San Francisco, CA",
   "foundedYear": 2010,
-  "description": "Amotion es una empresa líder en tecnología especializada en soluciones de IA inmersivas.",
+  "description": "Amotion is a leading technology company specializing in immersive AI solutions.",
   "website": "https://www.gorigogo.com",
   "socialMedia": {
     "linkedin": "https://www.linkedin.com/company/gorigogo",
@@ -1950,128 +1950,128 @@ export const business_model = {
   },
   "customerSegments": {
     "segment1": {
-      "name": "Empresas",
-      "description": "Grandes empresas buscando soluciones con IA para automatización y optimización."
+      "name": "Enterprises",
+      "description": "Large companies looking for AI solutions for automation and optimization."
     },
     "segment2": {
       "name": "Startups",
-      "description": "Startups tecnológicas buscando innovación impulsada por IA para obtener una ventaja competitiva."
+      "description": "Tech startups seeking AI-driven innovation to gain a competitive edge."
     },
     "segment3": {
-      "name": "Educación",
-      "description": "Instituciones educativas interesadas en aplicaciones de IA para el e-learning."
+      "name": "Education",
+      "description": "Educational institutions interested in AI applications for e-learning."
     }
   },
   "valuePropositions": {
     "valueProp1": {
-      "name": "Automatización con IA",
-      "description": "Nuestra tecnología inmersiva con IA simplifica procesos y aumenta la eficiencia."
+      "name": "AI Automation",
+      "description": "Our immersive AI technology simplifies processes and increases efficiency."
     },
     "valueProp2": {
-      "name": "Innovación",
-      "description": "Ofrecemos soluciones de IA de vanguardia para impulsar la innovación y el crecimiento."
+      "name": "Innovation",
+      "description": "We offer cutting-edge AI solutions to drive innovation and growth."
     },
     "valueProp3": {
-      "name": "Personalización",
-      "description": "Soluciones de IA adaptadas para satisfacer necesidades y objetivos empresariales únicos."
+      "name": "Personalization",
+      "description": "AI solutions tailored to meet unique business needs and objectives."
     }
   },
   "channels": {
     "channel1": {
-      "name": "Plataforma en Línea",
-      "description": "Nuestro sitio web y plataforma en línea para la interacción con clientes."
+      "name": "Online Platform",
+      "description": "Our website and online platform for client interaction."
     },
     "channel2": {
-      "name": "Asociaciones B2B",
-      "description": "Colaboración con socios B2B para alcanzar un público más amplio."
+      "name": "B2B Partnerships",
+      "description": "Collaboration with B2B partners to reach a broader audience."
     },
     "channel3": {
-      "name": "Ventas Directas",
-      "description": "Ventas directas y soporte para clientes empresariales."
+      "name": "Direct Sales",
+      "description": "Direct sales and support for enterprise clients."
     }
   },
   "customerRelationships": {
     "relationship1": {
-      "name": "Soporte Personalizado",
-      "description": "Gerentes de cuenta dedicados para un soporte al cliente personalizado."
+      "name": "Personalized Support",
+      "description": "Dedicated account managers for personalized customer support."
     },
     "relationship2": {
-      "name": "Comunidad de Usuarios",
-      "description": "Construir una comunidad de usuarios activa para retroalimentación e interacción."
+      "name": "User Community",
+      "description": "Building an active user community for feedback and interaction."
     },
     "relationship3": {
-      "name": "Actualizaciones Regulares",
-      "description": "Proporcionar actualizaciones regulares y sesiones de formación en IA para clientes."
+      "name": "Regular Updates",
+      "description": "Providing regular updates and AI training sessions for clients."
     }
   },
   "revenueStreams": {
     "stream1": {
-      "name": "Suscripciones SaaS",
-      "description": "Modelo de ingresos basado en suscripciones para software de IA."
+      "name": "SaaS Subscriptions",
+      "description": "Revenue model based on subscriptions for AI software."
     },
     "stream2": {
-      "name": "Servicios de Consultoría",
-      "description": "Servicios de consultoría para estrategias e implementación de IA."
+      "name": "Consulting Services",
+      "description": "Consulting services for AI strategy and implementation."
     },
     "stream3": {
-      "name": "Soluciones Personalizadas",
-      "description": "Ingresos de soluciones de IA personalizadas para clientes."
+      "name": "Customized Solutions",
+      "description": "Revenue from customized AI solutions for clients."
     }
   },
   "keyResources": {
     "resource1": {
-      "name": "Equipo de Investigación en IA",
-      "description": "Un equipo dedicado de investigadores y desarrolladores de IA."
+      "name": "AI Research Team",
+      "description": "A dedicated team of AI researchers and developers."
     },
     "resource2": {
-      "name": "Centros de Datos",
-      "description": "Centros de datos de última generación para entrenamiento de modelos de IA."
+      "name": "Data Centers",
+      "description": "State-of-the-art data centers for AI model training."
     },
     "resource3": {
-      "name": "Propiedad Intelectual",
-      "description": "Patentes valiosas relacionadas con IA y propiedad intelectual."
+      "name": "Intellectual Property",
+      "description": "Valuable patents related to AI and intellectual property."
     }
   },
   "keyActivities": {
     "activity1": {
-      "name": "Desarrollo de IA",
-      "description": "Desarrollo y mejora continua de modelos de IA."
+      "name": "AI Development",
+      "description": "Continuous development and improvement of AI models."
     },
     "activity2": {
-      "name": "Investigación de Mercado",
-      "description": "Investigación de mercado continua para identificar nuevas oportunidades."
+      "name": "Market Research",
+      "description": "Ongoing market research to identify new opportunities."
     },
     "activity3": {
-      "name": "Integración de Clientes",
-      "description": "Integración y capacitación de clientes en soluciones de IA."
+      "name": "Customer Integration",
+      "description": "Integrating and training clients on AI solutions."
     }
   },
   "keyPartners": {
     "partner1": {
       "name": "Zelos",
-      "description": "Colaboración con startups tecnológicas para proyectos conjuntos."
+      "description": "Collaboration with tech startups for joint projects."
     },
     "partner2": {
-      "name": "Proveedores de Nube",
-      "description": "Asociaciones con proveedores de nube para infraestructura."
+      "name": "Cloud Providers",
+      "description": "Partnerships with cloud providers for infrastructure."
     },
     "partner3": {
-      "name": "Universidades",
-      "description": "Colaboración con universidades para investigación en IA."
+      "name": "Universities",
+      "description": "Collaboration with universities for AI research."
     }
   },
   "cost": {
     "cost1": {
-      "name": "Investigación y Desarrollo",
-      "description": "Inversión en investigación y desarrollo de IA."
+      "name": "Research and Development",
+      "description": "Investment in AI research and development."
     },
     "cost2": {
-      "name": "Infraestructura",
-      "description": "Costos asociados con centros de datos y servicios en la nube."
+      "name": "Infrastructure",
+      "description": "Costs associated with data centers and cloud services."
     },
     "cost3": {
-      "name": "Marketing y Ventas",
-      "description": "Gastos relacionados con esfuerzos de marketing y ventas."
+      "name": "Marketing and Sales",
+      "description": "Expenses related to marketing and sales efforts."
     }
   }
 }
