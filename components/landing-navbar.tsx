@@ -23,6 +23,16 @@ export const LandingNavbar = () => {
         </h1>
       </Link>
       <div className="flex items-center gap-x-2">
+        <Link href="/">
+          <Button className="px-6 py-6 text-xl font-bold rounded-xl bg-transparent text-white shadow-lg transform transition duration-300 hover:scale-110 hover:shadow-xl">
+            About
+          </Button>
+        </Link>
+        <Link href="/pricing">
+          <Button className="px-6 py-6 text-xl font-bold rounded-xl bg-transparent text-white shadow-lg transform transition duration-300 hover:scale-110 hover:shadow-xl">
+            Pricing
+          </Button>
+        </Link>
         <Link href="/blog">
           <Button className="px-6 py-6 text-xl font-bold rounded-xl bg-transparent text-white shadow-lg transform transition duration-300 hover:scale-110 hover:shadow-xl">
             Blog
