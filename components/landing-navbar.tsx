@@ -36,30 +36,30 @@ export const LandingNavbar = () => {
       `}</style>
       
       <nav className={cn(
-        "fixed top-0 left-0 w-full py-6 px-8 bg-gradient-to-b from-white/10 to-transparent backdrop-blur-lg rounded-b-3xl shadow-md flex items-center justify-between z-50 transition-all border-b border-white/20"
+        "fixed top-0 left-0 w-full py-4 px-6 sm:py-6 sm:px-8 bg-gradient-to-b from-white/10 to-transparent backdrop-blur-lg rounded-b-3xl shadow-md flex flex-wrap items-center justify-between z-50 transition-all border-b border-white/20"
       )}>
         <Link href="/" className="flex items-center">
-          <div className="relative h-12 w-12 mr-4">
+          <div className="relative h-10 w-10 sm:h-12 sm:w-12 mr-4">
             <Image fill alt="Logo" src="/zlogo.png" />
           </div>
-          <h1 className={cn("text-4xl font-bold text-white", font.className)}>
+          <h1 className={cn("text-2xl sm:text-4xl font-bold text-white", font.className)}>
             Zelos
           </h1>
         </Link>
-        <div className="flex items-center space-x-8">
+        <div className="flex flex-wrap items-center space-x-4 sm:space-x-8 mt-4 sm:mt-0">
           <Link href="/blog">
-            <Button className="px-6 py-3 text-xl font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105">
+            <Button className="px-4 py-2 sm:px-6 sm:py-3 text-lg sm:text-xl font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105">
               Blog
             </Button>
           </Link>
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 mt-2 sm:mt-0">
             <Link href={isSignedIn ? "/dashboard" : "/sign-up"}>
-              <Button className="px-6 py-3 text-xl font-semibold text-white bg-transparent border border-indigo-500 rounded-lg transition-transform transform hover:scale-105 hover:border-indigo-700">
+              <Button className="px-4 py-2 sm:px-6 sm:py-3 text-lg sm:text-xl font-semibold text-white bg-transparent border border-indigo-500 rounded-lg transition-transform transform hover:scale-105 hover:border-indigo-700">
                 Log In
               </Button>
             </Link>
             <Link href="/connect-form">
-              <Button className="px-6 py-3 text-xl font-semibold text-white bg-gradient-to-r from-indigo-500 via-pink-500 to-red-500 rounded-lg transition-transform transform hover:scale-105">
+              <Button className="px-4 py-2 sm:px-6 sm:py-3 text-lg sm:text-xl font-semibold text-white bg-gradient-to-r from-indigo-500 via-pink-500 to-red-500 rounded-lg transition-transform transform hover:scale-105">
                 Get Started
               </Button>
             </Link>
