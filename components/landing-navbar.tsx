@@ -35,7 +35,9 @@ export const LandingNavbar = () => {
         }
       `}</style>
       
-      <nav className="fixed top-0 left-0 w-full py-6 px-8 bg-gradient-to-b from-white/30 to-transparent backdrop-blur-lg rounded-b-3xl shadow-md flex items-center justify-between z-50" style={{ borderBottom: 'none' }}>
+      <nav className={cn(
+        "fixed top-0 left-0 w-full py-6 px-8 bg-gradient-to-b from-white/10 to-transparent backdrop-blur-lg rounded-b-3xl shadow-md flex items-center justify-between z-50 transition-all border-b border-white/20"
+      )}>
         <Link href="/" className="flex items-center">
           <div className="relative h-12 w-12 mr-4">
             <Image fill alt="Logo" src="/zlogo.png" />
