@@ -45,6 +45,7 @@ export type UserDefinedModelCategory = {
 export type AIModel = {
     label: string;
     tags: string[];  
+    emoji?: string;
     description: string;
     iconName: string;
     href: string;
@@ -105,6 +106,7 @@ export type InfoAsset = {
 
 export type Workflow = {
     name: string
+    emoji?: string
     artist: string
     cover: string
     description: string

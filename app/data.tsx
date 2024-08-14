@@ -590,67 +590,189 @@ export const workflows = [
   {
     name: "Social Media Engagement Booster",
     artist: "Victor Amo",
-    description:
-      "Craft personalized social media content to connect with your fans and expand your reach.",
-    cover:
-      "https://images.unsplash.com/photo-1517649763962-0c623066013b",
+    description: "Craft personalized social media content to connect with your fans and expand your reach.",
+    cover: "https://images.unsplash.com/photo-1517649763962-0c623066013b",
+    emoji: "📱",
     workflow_creator: "user_defined"
   },
   {
     name: "Q&A with Victor Amo",
     artist: "Victor Amo",
-    description:
-      "Host interactive Q&A sessions with your fans using AI-powered moderation.",
-    cover:
-      "https://images.unsplash.com/photo-1599508704512-2f19efd1e35f",
+    description: "Host interactive Q&A sessions with your fans using AI-powered moderation.",
+    cover: "https://images.unsplash.com/photo-1599508704512-2f19efd1e35f",
+    emoji: "❓",
     workflow_creator: "user_defined"
   },
   {
     name: "Cycling Performance Analysis",
     artist: "Victor Amo",
-    description:
-      "Analyze your training data to identify strengths and weaknesses. Gain insights to optimize your performance.",
-    cover:
-      "https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86",
+    description: "Analyze your training data to identify strengths and weaknesses. Gain insights to optimize your performance.",
+    cover: "https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86",
+    emoji: "🚴‍♂️",
     workflow_creator: "user_defined"
   },
-    {
-      name: "Train Like Victor",
-      artist: "Victor Amo",
-      cover:
-        "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
-      description:
-        "Get inspired by Victor's training routines and cycling tips.",
-      workflow_creator: "suggested_workflow"
-    },
-    {
-      name: "Fuel Your Ride",
-      artist: "Victor Amo",
-      cover:
-        "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7",
-      description:
-        "Learn about Victor's favorite recipes and explore optimal nutrition strategies for cyclists.",
-      workflow_creator: "suggested_workflow"
-    },
-    {
-      name: "Victor's Recovery Rituals",
-      artist: "Victor Amo",
-      cover:
-        "https://images.unsplash.com/photo-1642755622932-d1e0cb783dc5",
-      description:
-        "Discover Victor's recovery techniques to maximize performance and prevent injuries.",
-      workflow_creator: "suggested_workflow"
-    },
-    {
-      name: "Ask Victor Anything",
-      artist: "Victor Amo",
-      cover:
-        "https://images.unsplash.com/photo-1508882100003-8ae16a4abbaf",
-      description:
-        "Submit your cycling questions and get a chance to be featured in Victor's next Q&A session.",
-      workflow_creator: "suggested_workflow"
-    },
-]
+  {
+    name: "Train Like Victor",
+    artist: "Victor Amo",
+    cover: "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+    description: "Get inspired by Victor's training routines and cycling tips.",
+    emoji: "💪",
+    workflow_creator: "suggested_workflow"
+  },
+  {
+    name: "Fuel Your Ride",
+    artist: "Victor Amo",
+    cover: "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7",
+    description: "Learn about Victor's favorite recipes and explore optimal nutrition strategies for cyclists.",
+    emoji: "🍲",
+    workflow_creator: "suggested_workflow"
+  },
+  {
+    name: "Victor's Recovery Rituals",
+    artist: "Victor Amo",
+    cover: "https://images.unsplash.com/photo-1642755622932-d1e0cb783dc5",
+    description: "Discover Victor's recovery techniques to maximize performance and prevent injuries.",
+    emoji: "🛌",
+    workflow_creator: "suggested_workflow"
+  },
+  {
+    name: "Ask Victor Anything",
+    artist: "Victor Amo",
+    cover: "https://images.unsplash.com/photo-1508882100003-8ae16a4abbaf",
+    description: "Submit your cycling questions and get a chance to be featured in Victor's next Q&A session.",
+    emoji: "🗣️",
+    workflow_creator: "suggested_workflow"
+  },
+  {
+    name: "Merchandise Design Sprint",
+    artist: "Victor Amo",
+    description: "Accelerate the design process of new merchandise, from concept to final design, using AI-generated inspiration and feedback.",
+    cover: "https://images.unsplash.com/photo-1582719478182-3a6e6e25b5b9",
+    emoji: "👕",
+    workflow_creator: "user_defined"
+  },
+  {
+    name: "Sustainability Audit",
+    artist: "Victor Amo",
+    description: "Conduct a sustainability audit of Amotion’s products and processes, identifying areas for improvement and implementing greener practices.",
+    cover: "https://images.unsplash.com/photo-1530268729834-8d6ae9e2f1de",
+    emoji: "🌍",
+    workflow_creator: "user_defined"
+  },
+  {
+    name: "Customer Loyalty Program Enhancement",
+    artist: "Victor Amo",
+    description: "Revamp your loyalty program by analyzing customer behavior and preferences, ensuring the program drives repeat purchases and customer satisfaction.",
+    cover: "https://images.unsplash.com/photo-1499155286265-76e35c9a85bb",
+    emoji: "🎁",
+    workflow_creator: "user_defined"
+  },
+  {
+    name: "Real-Time Event Engagement",
+    artist: "Victor Amo",
+    description: "Boost engagement during live events with real-time interaction strategies, including polls, Q&As, and interactive content suggestions.",
+    cover: "https://images.unsplash.com/photo-1533467910884-765e207178c5",
+    emoji: "🎤",
+    workflow_creator: "suggested_workflow"
+  },
+  {
+    name: "Influencer Partnership Strategy",
+    artist: "Victor Amo",
+    description: "Develop a strategy for identifying and partnering with influencers who align with Amotion’s brand, leveraging their reach to grow your audience.",
+    cover: "https://images.unsplash.com/photo-1600585154340-be6161c45830",
+    emoji: "🤝",
+    workflow_creator: "suggested_workflow"
+  },
+  {
+    name: "Fitness Program Personalization",
+    artist: "Victor Amo",
+    description: "Customize training programs for your followers, incorporating personalized fitness assessments and tailored recommendations.",
+    cover: "https://images.unsplash.com/photo-1494390248081-4e521a5940db",
+    emoji: "🏋️‍♂️",
+    workflow_creator: "suggested_workflow"
+  },
+  {
+    name: "PR Crisis Response Drill",
+    artist: "Victor Amo",
+    description: "Prepare for potential PR crises by simulating scenarios and planning response strategies to protect your brand.",
+    cover: "https://images.unsplash.com/photo-1581093588401-4d3a17f6d77d",
+    emoji: "🚨",
+    workflow_creator: "user_defined"
+  },
+  {
+    name: "Supply Chain Efficiency Boost",
+    artist: "Victor Amo",
+    description: "Analyze and optimize your supply chain to reduce costs, improve delivery times, and increase overall efficiency.",
+    cover: "https://images.unsplash.com/photo-1505839673365-e3971f8d9184",
+    emoji: "🔗",
+    workflow_creator: "user_defined"
+  },
+  {
+    name: "Video Marketing Campaign Creation",
+    artist: "Victor Amo",
+    description: "Create a compelling video marketing campaign using AI-generated content, focusing on promoting new products and engaging with your audience.",
+    cover: "https://images.unsplash.com/photo-1555685812-4b7432f7ec52",
+    emoji: "🎥",
+    workflow_creator: "suggested_workflow"
+  },
+  {
+    name: "Cycling Route Planning",
+    artist: "Victor Amo",
+    description: "Plan personalized cycling routes for your followers, taking into account their preferences, skill levels, and current weather conditions.",
+    cover: "https://images.unsplash.com/photo-1508061253251-7f54e817d1a5",
+    emoji: "🗺️",
+    workflow_creator: "user_defined"
+  },
+  {
+    name: "Product Innovation Brainstorm",
+    artist: "Victor Amo",
+    description: "Collaborate with your team to brainstorm and develop new product ideas, informed by market trends and customer feedback.",
+    cover: "https://images.unsplash.com/photo-1505691938895-1758d7feb511",
+    emoji: "💡",
+    workflow_creator: "user_defined"
+  },
+  {
+    name: "Market & Competitor Analysis",
+    artist: "Victor Amo",
+    description: "Perform a thorough analysis of the cycling gear market and competitors to identify gaps and opportunities for Amotion’s product offerings.",
+    cover: "https://images.unsplash.com/photo-1591696331115-946234b3e865",
+    emoji: "📊",
+    workflow_creator: "suggested_workflow"
+  },
+  {
+    name: "Interactive Social Media Campaign",
+    artist: "Victor Amo",
+    description: "Design and launch an interactive social media campaign that engages your followers with creative content and real-time interaction.",
+    cover: "https://images.unsplash.com/photo-1540479859555-17af45c07d1b",
+    emoji: "💬",
+    workflow_creator: "user_defined"
+  },
+  {
+    name: "Customer Experience Improvement Plan",
+    artist: "Victor Amo",
+    description: "Analyze customer feedback and behavior to develop strategies for improving customer experience across all touchpoints.",
+    cover: "https://images.unsplash.com/photo-1492724441997-5dc865305da7",
+    emoji: "👥",
+    workflow_creator: "suggested_workflow"
+  },
+  {
+    name: "Sponsorship Deal Negotiation Prep",
+    artist: "Victor Amo",
+    description: "Prepare for negotiations with potential sponsors by developing strategies to secure favorable terms and maximize value for your brand.",
+    cover: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
+    emoji: "📝",
+    workflow_creator: "user_defined"
+  },
+  {
+    name: "Health & Wellness Content Series",
+    artist: "Victor Amo",
+    description: "Create a content series focused on health and wellness, sharing tips, routines, and insights with your audience to promote a healthy lifestyle.",
+    cover: "https://images.unsplash.com/photo-1551879409-8fb647ae4a21",
+    emoji: "🍎",
+    workflow_creator: "suggested_workflow"
+  }
+];
+
 
 // Type AIModel
 export const complete_trained_models = [
@@ -1129,6 +1251,291 @@ export const complete_trained_models = [
     subject_prompt_key: "ohwx man",
     subject_prompt_alias: ["Rigo", "Rigoberto", "Rigoberto Uran" ],
   },
+  {
+    label: "Brand Identity Protection Model",
+    tags: ["security", "ip", "text"],
+    default_language: "en",
+    subject_prompt_key: "protection shield",
+    subject_prompt_alias: ["Brand Protection", "IP Shield"],
+    description: "Monitors and identifies potential IP infringements on Victor Amo's brand and products.",
+    emoji: "🛡️",
+    iconName: "",
+    href: "",
+    color: "#FF5733",
+    bgColor: "#FFC300",
+    foundational_model: false,
+    model_file_path: "/models/brand_identity_protection_model.pt",
+    modelId: "BRANDPROT",
+    thumbnail: "/thumbnails/brand_identity_protection_thumbnail.png",
+    prompt_template: "Identify and summarize potential IP infringements related to Victor Amo's brand.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Social Media Content Optimization Model",
+    tags: ["social media", "engagement", "text"],
+    default_language: "en",
+    subject_prompt_key: "social boost",
+    subject_prompt_alias: ["Content Optimization", "Engagement Boost"],
+    description: "Optimizes social media content for better engagement, focusing on brand voice and products.",
+    emoji: "📈",
+    iconName: "",
+    href: "",
+    color: "#1DA1F2",
+    bgColor: "#E8F5FD",
+    foundational_model: false,
+    model_file_path: "/models/social_media_content_optimization_model.pt",
+    modelId: "SOCOPTIM",
+    thumbnail: "/thumbnails/social_media_content_optimization_thumbnail.png",
+    prompt_template: "Analyze Victor Amo’s recent social media performance and suggest optimization strategies.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Customer Experience & Feedback Model",
+    tags: ["customer service", "feedback", "text"],
+    default_language: "en",
+    subject_prompt_key: "feedback loop",
+    subject_prompt_alias: ["Customer Feedback", "CX Improvement"],
+    description: "Analyzes customer feedback across multiple channels for insights into satisfaction and product performance.",
+    emoji: "🗣️",
+    iconName: "",
+    href: "",
+    color: "#28A745",
+    bgColor: "#E6F4EA",
+    foundational_model: false,
+    model_file_path: "/models/customer_experience_feedback_model.pt",
+    modelId: "CUSTFEED",
+    thumbnail: "/thumbnails/customer_experience_feedback_thumbnail.png",
+    prompt_template: "Summarize customer feedback on Amotion’s latest product line and provide actionable insights.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Interactive Digital Twin Model",
+    tags: ["digital twin", "interaction", "voice"],
+    default_language: "en",
+    subject_prompt_key: "twin interaction",
+    subject_prompt_alias: ["Digital Twin", "Interactive Avatar"],
+    description: "Creates an interactive digital twin of Victor Amo for engaging with fans through personalized experiences.",
+    emoji: "🧑‍💻",
+    iconName: "",
+    href: "",
+    color: "#6C757D",
+    bgColor: "#F8F9FA",
+    foundational_model: false,
+    model_file_path: "/models/interactive_digital_twin_model.pt",
+    modelId: "DIGITWIN",
+    thumbnail: "/thumbnails/interactive_digital_twin_thumbnail.png",
+    prompt_template: "Generate responses for a Q&A session with Victor Amo's digital twin.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Marketing Campaign Ideation",
+    tags: ["marketing", "campaign", "text"],
+    default_language: "en",
+    subject_prompt_key: "campaign lightbulb",
+    subject_prompt_alias: ["Campaign Ideas", "Marketing Brainstorm"],
+    description: "Generates ideas and examples for marketing campaigns, tailored to Victor Amo’s brand.",
+    emoji: "💡",
+    iconName: "",
+    href: "",
+    color: "#FFC107",
+    bgColor: "#FFF3CD",
+    foundational_model: false,
+    model_file_path: "/models/marketing_campaign_ideation_model.pt",
+    modelId: "CAMPAIGNID",
+    thumbnail: "/thumbnails/marketing_campaign_ideation_thumbnail.png",
+    prompt_template: "Generate marketing campaign ideas for Amotion’s new product launch.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Affiliate Marketing Optimization",
+    tags: ["affiliate", "optimization", "text"],
+    default_language: "en",
+    subject_prompt_key: "affiliate chain",
+    subject_prompt_alias: ["Affiliate Strategy", "Marketing Optimization"],
+    description: "Optimizes affiliate marketing strategies for increased performance and revenue.",
+    emoji: "🔗",
+    iconName: "",
+    href: "",
+    color: "#007BFF",
+    bgColor: "#CCE5FF",
+    foundational_model: false,
+    model_file_path: "/models/affiliate_marketing_optimization_model.pt",
+    modelId: "AFFILOPT",
+    thumbnail: "/thumbnails/affiliate_marketing_optimization_thumbnail.png",
+    prompt_template: "Suggest optimizations for Amotion’s affiliate marketing strategy.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Product Personalization Model",
+    tags: ["personalization", "product", "image"],
+    default_language: "en",
+    subject_prompt_key: "personal touch",
+    subject_prompt_alias: ["Product Customization", "Personalized Experience"],
+    description: "Provides personalized product recommendations based on customer data and preferences.",
+    emoji: "🎨",
+    iconName: "",
+    href: "",
+    color: "#17A2B8",
+    bgColor: "#D1ECF1",
+    foundational_model: false,
+    model_file_path: "/models/product_personalization_model.pt",
+    modelId: "PRODPERSON",
+    thumbnail: "/thumbnails/product_personalization_thumbnail.png",
+    prompt_template: "Generate personalized product recommendations for Amotion customers.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Injury Prevention & Recovery Guide",
+    tags: ["health", "fitness", "text"],
+    default_language: "en",
+    subject_prompt_key: "health shield",
+    subject_prompt_alias: ["Injury Prevention", "Recovery Advice"],
+    description: "Offers personalized injury prevention techniques and recovery plans for athletes.",
+    emoji: "🏥",
+    iconName: "",
+    href: "",
+    color: "#DC3545",
+    bgColor: "#F8D7DA",
+    foundational_model: false,
+    model_file_path: "/models/injury_prevention_recovery_model.pt",
+    modelId: "INJPREV",
+    thumbnail: "/thumbnails/injury_prevention_recovery_thumbnail.png",
+    prompt_template: "Generate personalized injury prevention and recovery advice for Victor Amo’s followers.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Event Marketing & Management",
+    tags: ["event", "marketing", "text"],
+    default_language: "en",
+    subject_prompt_key: "event star",
+    subject_prompt_alias: ["Event Planning", "Marketing Event"],
+    description: "Assists in planning and promoting cycling events, ensuring maximum attendance and engagement.",
+    emoji: "🌟",
+    iconName: "",
+    href: "",
+    color: "#28A745",
+    bgColor: "#D4EDDA",
+    foundational_model: false,
+    model_file_path: "/models/event_marketing_management_model.pt",
+    modelId: "EVENTMKT",
+    thumbnail: "/thumbnails/event_marketing_management_thumbnail.png",
+    prompt_template: "Develop a promotional strategy for Amotion’s upcoming cycling event.",
+    use_case_ids: [""]
+  },
+  {
+    label: "E-commerce Trend Analysis",
+    tags: ["ecommerce", "trends", "text"],
+    default_language: "en",
+    subject_prompt_key: "trend arrow",
+    subject_prompt_alias: ["Market Trends", "E-commerce Insights"],
+    description: "Analyzes product and e-commerce trends to inform business strategy and product development.",
+    emoji: "📊",
+    iconName: "",
+    href: "",
+    color: "#FFC107",
+    bgColor: "#FFF3CD",
+    foundational_model: false,
+    model_file_path: "/models/ecommerce_trend_analysis_model.pt",
+    modelId: "ECTREND",
+    thumbnail: "/thumbnails/ecommerce_trend_analysis_thumbnail.png",
+    prompt_template: "Analyze current e-commerce trends in the cycling industry.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Voice Cloning for Personalized Ads",
+    tags: ["voice", "advertising", "voice"],
+    default_language: "en",
+    subject_prompt_key: "voice speaker",
+    subject_prompt_alias: ["Ad Voice", "Personalized Ads"],
+    description: "Creates personalized ads with Victor Amo’s voice, enhancing authenticity and brand connection.",
+    emoji: "🔊",
+    iconName: "",
+    href: "",
+    color: "#007BFF",
+    bgColor: "#CCE5FF",
+    foundational_model: false,
+    model_file_path: "/models/voice_cloning_personalized_ads_model.pt",
+    modelId: "VOICEAD",
+    thumbnail: "/thumbnails/voice_cloning_personalized_ads_thumbnail.png",
+    prompt_template: "Generate a personalized advertisement for Amotion using Victor Amo’s voice.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Community Building & Engagement",
+    tags: ["community", "engagement", "text"],
+    default_language: "en",
+    subject_prompt_key: "community group",
+    subject_prompt_alias: ["Community Growth", "Engagement Strategy"],
+    description: "Facilitates community engagement by fostering interactions and creating engaging content for fans.",
+    emoji: "🤝",
+    iconName: "",
+    href: "",
+    color: "#6C757D",
+    bgColor: "#F8F9FA",
+    foundational_model: false,
+    model_file_path: "/models/community_building_engagement_model.pt",
+    modelId: "COMMBUILD",
+    thumbnail: "/thumbnails/community_building_engagement_thumbnail.png",
+    prompt_template: "Suggest strategies for building and engaging an online community around Victor Amo.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Legal Document Drafting Assistant",
+    tags: ["legal", "documents", "text"],
+    default_language: "en",
+    subject_prompt_key: "legal scale",
+    subject_prompt_alias: ["Contract Drafting", "Legal Assistance"],
+    description: "Assists in drafting and reviewing contracts, IP agreements, and other legal documents.",
+    emoji: "⚖️",
+    iconName: "",
+    href: "",
+    color: "#DC3545",
+    bgColor: "#F8D7DA",
+    foundational_model: false,
+    model_file_path: "/models/legal_document_drafting_assistant_model.pt",
+    modelId: "LEGALDOC",
+    thumbnail: "/thumbnails/legal_document_drafting_assistant_thumbnail.png",
+    prompt_template: "Draft a contract template for a partnership agreement involving Victor Amo and Amotion.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Public Perception Monitoring",
+    tags: ["pr", "monitoring", "text"],
+    default_language: "en",
+    subject_prompt_key: "eye monitor",
+    subject_prompt_alias: ["Brand Perception", "Sentiment Analysis"],
+    description: "Monitors public perception and sentiment around Victor Amo and Amotion’s brand.",
+    emoji: "👁️",
+    iconName: "",
+    href: "",
+    color: "#17A2B8",
+    bgColor: "#D1ECF1",
+    foundational_model: false,
+    model_file_path: "/models/public_perception_monitoring_model.pt",
+    modelId: "PUBPERCEPT",
+    thumbnail: "/thumbnails/public_perception_monitoring_thumbnail.png",
+    prompt_template: "Analyze current public sentiment around Victor Amo and Amotion’s brand.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Contract Negotiation & Management",
+    tags: ["contracts", "negotiation", "text"],
+    default_language: "en",
+    subject_prompt_key: "handshake deal",
+    subject_prompt_alias: ["Deal Management", "Contract Negotiation"],
+    description: "Supports the negotiation and management of contracts, ensuring favorable terms for Victor Amo.",
+    emoji: "🤝",
+    iconName: "",
+    href: "",
+    color: "#28A745",
+    bgColor: "#D4EDDA",
+    foundational_model: false,
+    model_file_path: "/models/contract_negotiation_management_model.pt",
+    modelId: "CONTRACTNEG",
+    thumbnail: "/thumbnails/contract_negotiation_management_thumbnail.png",
+    prompt_template: "Generate contract negotiation strategies for securing a sponsorship deal for Victor Amo.",
+    use_case_ids: [""]
+  }
 ];
 
 // Type Rule
