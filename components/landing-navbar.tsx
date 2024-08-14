@@ -1,3 +1,5 @@
+// landing-navbar.tsx
+
 "use client";
 
 import { Montserrat } from "next/font/google";
@@ -47,6 +49,21 @@ export const LandingNavbar = () => {
           </h1>
         </Link>
         <div className="flex flex-wrap items-center space-x-4 sm:space-x-8 mt-4 sm:mt-0">
+          <Link href="#features">
+            <Button className="px-4 py-2 sm:px-6 sm:py-3 text-lg sm:text-xl font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105">
+              Features
+            </Button>
+          </Link>
+          <Link href="#process">
+            <Button className="px-4 py-2 sm:px-6 sm:py-3 text-lg sm:text-xl font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105">
+              How It Works
+            </Button>
+          </Link>
+          <Link href="#pricing">
+            <Button className="px-4 py-2 sm:px-6 sm:py-3 text-lg sm:text-xl font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105">
+              Pricing
+            </Button>
+          </Link>
           <Link href="/blog">
             <Button className="px-4 py-2 sm:px-6 sm:py-3 text-lg sm:text-xl font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105">
               Blog

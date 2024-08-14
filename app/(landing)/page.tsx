@@ -10,10 +10,18 @@ const LandingPage = () => {
     <div className="h-full">
       <LandingNavbar />
       <LandingHero />
-      <LandingFeatures />
-      <LandingProcess />
-      <PricingSection />
-      {/* <LandingHubs /> */}
+      <div className="w-full h-[1px] bg-white/20 mt-16"></div> {/* Thin White Line */}
+      <div id="features" className="pt-16 -mt-16">
+        <LandingFeatures />
+      </div>
+      <div className="w-full h-[1px] bg-white/20 mt-16"></div> {/* Thin White Line */}
+      <div id="process" className="pt-16 -mt-16">
+        <LandingProcess />
+      </div>
+      <div className="w-full h-[1px] bg-white/20 mt-16"></div> {/* Thin White Line */}
+      <div id="pricing" className="pt-16 -mt-16">
+        <PricingSection />
+      </div>
     </div>
   );
 };
