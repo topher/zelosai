@@ -59,7 +59,7 @@ export const LandingNavbar = () => {
               How It Works
             </Button>
           </Link>
-          <Link href="#pricing">
+          <Link href="/pricing">
             <Button className="px-4 py-2 sm:px-6 sm:py-3 text-lg sm:text-xl font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105">
               Pricing
             </Button>
@@ -67,6 +67,11 @@ export const LandingNavbar = () => {
           <Link href="/blog">
             <Button className="px-4 py-2 sm:px-6 sm:py-3 text-lg sm:text-xl font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105">
               Blog
+            </Button>
+          </Link>
+          <Link href="/">
+            <Button className="px-4 py-2 sm:px-6 sm:py-3 text-lg sm:text-xl font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105">
+              About
             </Button>
           </Link>
           <div className="flex items-center space-x-4 mt-2 sm:mt-0">

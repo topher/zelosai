@@ -29,7 +29,7 @@ export default async function Page() {
 
   return (
     <main className="h-full bg-[#111827] overflow-auto">
-      <div className="mx-auto max-w-screen-xl h-full w-full">
+      <div className="mx-auto max-w-screen-xl h-full w-full pt-16">
         <LandingNavbar />
         {draftMode ? (
           <PreviewIndexPage posts={props.posts} settings={props.settings} />

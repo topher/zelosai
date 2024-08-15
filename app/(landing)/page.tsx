@@ -30,8 +30,8 @@ export default async function LandingPage() {
         <LandingProcess />
       </div>
       <div className="w-full h-[1px] bg-white/20 mt-16"></div>
-      <div id="pricing" className="pt-16 -mt-16">
-        <PricingSection />
+      <div id="stories" className="pt-16 -mt-16">
+        <MoreStories posts={posts} />
       </div>
     </div>
   );
