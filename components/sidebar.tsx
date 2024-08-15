@@ -38,7 +38,7 @@ export const routes = [
     children: [
       { label: 'My Assets', href: '/knowledge-bank/inventory', color: "text-red-500" },
       { label: 'My Terms', href: '/knowledge-bank/taxonomy', color: "text-red-500" },
-      { label: 'Rules', href: '/knowledge-bank/rules', color: "text-red-500" },
+      { label: 'Rules', href: '/knowledge-bank/settings', color: "text-red-500" },
       { label: 'Connectors', href: '/knowledge-bank/connectors', color: "text-red-500" },
     ],
   },

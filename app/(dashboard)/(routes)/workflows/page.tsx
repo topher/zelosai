@@ -1,168 +1,63 @@
-import { Metadata } from "next"
-import Image from "next/image"
-import { PlusCircledIcon } from "@radix-ui/react-icons"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
-import { Separator } from "@/components/ui/separator"
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs"
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { routes } from "@/components/sidebar";
+import { Montserrat } from 'next/font/google';
 
-import { WorkflowCard } from "./components/workflow-card"
-import { Menu } from "./components/menu"
-import { WorkflowEmptyPlaceholder } from "./components/workflow-empty-placeholder"
-import { Sidebar } from "./components/sidebar"
-import { workflows } from "@/app/data"
-import { Workflow } from "@/app/types"
+const montserrat = Montserrat({ weight: '600', subsets: ['latin'] });
 
+const Workflows: React.FC = () => {
+  // find the Workflows route from the sidebar routes array
+  const workflowsRoute = routes.find(route => route.label === 'Workflows');
 
-
-export const metadata: Metadata = {
-  title: "Workflows",
-  description: "Example campaign app using the Generative AI Models.",
-}
-
-export default function MusicPage() {
-
-  const user_defined_workflows = workflows.filter(
-    (workflow) => workflow.workflow_creator === "user_defined"
-  );
-  
-  const suggested_workflows = workflows.filter(
-    (workflow) => workflow.workflow_creator === "suggested_workflow"
-  );
- 
   return (
-    <>
-      <div className="md:hidden">
-        <Image
-          src="/examples/music-light.png"
-          width={1280}
-          height={1114}
-          alt="Music"
-          className="block dark:hidden"
-        />
-        <Image
-          src="/examples/music-dark.png"
-          width={1280}
-          height={1114}
-          alt="Music"
-          className="hidden dark:block"
-        />
-      </div>
-      <div className="hidden md:block">
-        {/* <Menu /> */}
-        <div className="border-t">
-          <div className="bg-background">
-            <div className="grid lg:grid-cols-5">
-              <Sidebar workflows={workflows} className="hidden lg:block" />
-              <div className="col-span-3 lg:col-span-4 lg:border-l">
-                <div className="h-full px-4 py-6 lg:px-8">
-                  <Tabs defaultValue="active" className="h-full space-y-6">
-                    <div className="space-between flex items-center">
-                      <TabsList>
-                        <TabsTrigger value="active" className="relative">
-                          Active
-                        </TabsTrigger>
-                        <TabsTrigger value="draft">Drafts</TabsTrigger>
-                        <TabsTrigger value="live" disabled>
-                          Archive
-                        </TabsTrigger>
-                      </TabsList>
-                      <div className="ml-auto mr-4">
-                        <Button>
-                          <PlusCircledIcon className="mr-2 h-4 w-4" />
-                          Create New Workflow
-                        </Button>
-                      </div>
-                    </div>
-                    <TabsContent
-                      value="active"
-                      className="border-none p-0 outline-none"
-                    >
-                      <div className="flex items-center justify-between">
-                        <div className="space-y-1">
-                          <h2 className="text-2xl font-semibold tracking-tight">
-                            Continue working on
-                          </h2>
-                          <p className="text-sm text-muted-foreground">
-                            Your key items today – You got this!
-                          </p>
-                        </div>
-                      </div>
-                      <Separator className="my-4" />
-                      <div className="relative">
-                        <ScrollArea>
-                          <div className="flex space-x-4 pb-4">
-                            {user_defined_workflows.map((campaign: Workflow) => (
-                              <WorkflowCard
-                                key={campaign.name}
-                                album={campaign}
-                                className="w-[250px]"
-                                aspectRatio="portrait"
-                                width={250}
-                                height={330}
-                              />
-                            ))}
-                          </div>
-                          <ScrollBar orientation="horizontal" />
-                        </ScrollArea>
-                      </div>
-                      <div className="mt-6 space-y-1">
-                        <h2 className="text-2xl font-semibold tracking-tight">
-                          Suggested
-                        </h2>
-                        <p className="text-sm text-muted-foreground">
-                        Save time and stress with custom workflows
-                        </p>
-                      </div>
-                      <Separator className="my-4" />
-                      <div className="relative">
-                        <ScrollArea>
-                          <div className="flex space-x-4 pb-4">
-                            {suggested_workflows.map((workflow: Workflow) => (
-                              <WorkflowCard
-                                key={workflow.name}
-                                album={workflow}
-                                className="w-[150px]"
-                                aspectRatio="square"
-                                width={150}
-                                height={150}
-                              />
-                            ))}
-                          </div>
-                          <ScrollBar orientation="horizontal" />
-                        </ScrollArea>
-                      </div>
-                    </TabsContent>
-                    <TabsContent
-                      value="draft"
-                      className="h-full flex-col border-none p-0 data-[state=active]:flex"
-                    >
-                      <div className="flex items-center justify-between">
-                        <div className="space-y-1">
-                          <h2 className="text-2xl font-semibold tracking-tight">
-                            Continue building
-                          </h2>
-                          <p className="text-sm text-muted-foreground">
-                            Tasks, Roles, and automations aligned with you strategic goals.
-                          </p>
-                        </div>
-                      </div>
-                      <Separator className="my-4" />
-                      <WorkflowEmptyPlaceholder />
-                    </TabsContent>
-                  </Tabs>
+    <div className={`container mx-auto pb-10 -translate-y-5 ${montserrat.className}`}>
+      <h1 className="text-4xl font-bold mb-8 mt-4 relative text-left">
+        <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+          Workflows
+          {/* add extra context to denote homepage, maybe implement breadcrumb */}
+        </span>
+        <span className="block h-1 w-16 bg-indigo-600 mt-2 rounded"></span>
+      </h1>
+      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        {workflowsRoute?.children?.map((child, index) => (
+          <li
+            key={index}
+            className="rounded-xl overflow-hidden shadow-lg transition-all transform hover:scale-105 hover:-translate-y-2 duration-300 group bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20 hover:bg-gradient-to-br hover:from-indigo-500 hover:to-pink-500 hover:text-white hover:bg-opacity-30 hover:backdrop-blur-xl hover:border-opacity-50 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
+          >
+            <Link href={child.href}>
+              <div className="p-8">
+                <div className="mb-4">
+                  <Image
+                    src={`/${child.icon}/${child.icon}-dynamic-color.png`}
+                    alt={child.label}
+                    width={240}
+                    height={240}
+                    className="mx-auto group-hover:hidden transition-opacity duration-300"
+                  />
+                  <Image
+                    src={`/${child.icon}/${child.icon}-dynamic-premium.png`}
+                    alt={child.label}
+                    width={240}
+                    height={240}
+                    className="mx-auto hidden group-hover:block transition-opacity duration-300"
+                  />
                 </div>
+                <h2 className={`text-2xl font-bold ${child.color} group-hover:text-white transition-colors duration-300`}>
+                  {child.label}
+                </h2>
+                <p className="text-gray-600 group-hover:text-gray-200 mt-2 text-sm transition-colors duration-300">
+                  {child.description}
+                </p>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  )
-}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default Workflows;
