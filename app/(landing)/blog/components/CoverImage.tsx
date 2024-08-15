@@ -8,6 +8,7 @@ interface CoverImageProps {
   slug?: string
   image: any
   priority?: boolean
+  className?: string;
 }
 
 export default function CoverImage(props: CoverImageProps) {

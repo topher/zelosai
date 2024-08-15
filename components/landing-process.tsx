@@ -11,7 +11,7 @@ export const LandingProcess = () => {
           How It Works
         </h2>
         <p className="text-center text-xl text-gray-400 mb-16 max-w-3xl mx-auto">
-          Our process is simple and effective, tailored to meet your brand's unique needs.
+          Our process is simple and effective, tailored to meet your brand&apos;s unique needs.
         </p>
         <div className="relative flex flex-col space-y-16 mx-auto max-w-5xl">
           {steps.map((step, index) => (

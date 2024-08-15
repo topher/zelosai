@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Montserrat } from 'next/font/google';
-import { Briefcase, ImageIcon, LayoutDashboard, Database, Workflow, ChevronDown, ChevronRight } from "lucide-react";
+import { Briefcase, ImageIcon, LayoutDashboard, Database, Workflow, ChevronDown, ChevronRight, Settings } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
@@ -24,58 +24,56 @@ export const routes = [
     href: '/digital-twin',
     color: "text-sky-500",
     children: [
-      { label: 'My Library', href: '/digital-twin', color: "text-blue-500" },
-      { label: 'Usage', href: '/digital-twin/analytics', color: "text-blue-500" },
-      { label: 'Safety', href: '/digital-twin/safety', color: "text-blue-500" },
-      { label: 'Create New', href: '/digital-twin', color: "text-blue-500" },
+      { label: 'My Library', href: '/digital-twin/library', color: "text-sky-500", description: "Explore your collection of AI models.", icon: "folder" },
+      { label: 'Usage', href: '/digital-twin/analytics', color: "text-sky-500", description: "Monitor the performance of your AI models.", icon: "chart" },
+      { label: 'Safety', href: '/digital-twin/safety', color: "text-sky-500", description: "Ensure the safe and responsible use of your likeness.", icon: "lock" },
+      { label: 'Create New', href: '/digital-twin/library', color: "text-sky-500", description: "Build new AI models to expand your digital brand.", icon: "new-folder" },
     ],
   },
   {
-    label: 'Knowledge Bank',
+    label: 'Data Vault',
     icon: Database,
     href: '/knowledge-bank',
     color: "text-green-500",
     children: [
-      { label: 'My Assets', href: '/knowledge-bank/inventory', color: "text-red-500" },
-      { label: 'My Terms', href: '/knowledge-bank/taxonomy', color: "text-red-500" },
-      { label: 'Rules', href: '/knowledge-bank/settings', color: "text-red-500" },
-      { label: 'Connectors', href: '/knowledge-bank/connectors', color: "text-red-500" },
+      { label: 'My Assets', href: '/knowledge-bank/inventory', color: "text-green-500", description: "Manage the core data that shapes the foundation of your AI models.", icon: "locker" },
+      { label: 'My Terms', href: '/knowledge-bank/taxonomy', color: "text-green-500", description: "Visualize key insights from your data.", icon: "copy" },
+      { label: 'Rules', href: '/knowledge-bank/settings', color: "text-green-500", description: "Manage your account rules across compliance frameworks.", icon: "shield" },
+      { label: 'Connectors', href: '/knowledge-bank/connectors', color: "text-green-500", description: "Connect your favorite tools and platforms to streamline your workflow.", icon: "puzzle" },
     ],
   },
-    // {
-    //   label: 'Settings',
-    //   icon: Settings,
-    //   href: '/settings',
-    //   color: "text-gray-300",
-    //   children: [
-    //     { label: 'Constants', href: '/settings/constants', color: "text-gray-300" },
-    //   ],
-    // },
   {
     label: 'Workflows',
     icon: Workflow,
     href: '/workflows',
     color: "text-yellow-500",
     children: [
-      { label: 'Library', href: '/workflows', color: "text-blue-500" },
-      { label: 'My Tasks', href: '/workflows/tasks', color: "text-blue-500" },
-      { label: 'Activity', href: '/workflows/analytics', color: "text-blue-500" },
-      { label: 'New Workflow', href: '/workflows/plan', color: "text-blue-500" },
+      { label: 'Library', href: '/workflows/library', color: "text-yellow-500", description: "Access resources to steamline your workflow processes.", icon: "link" },
+      { label: 'My Tasks', href: '/workflows/tasks', color: "text-yellow-500", description: "Track your ongoing tasks and responsibilities.", icon: "tick" },
+      { label: 'Activity', href: '/workflows/analytics', color: "text-yellow-500", description: "Review recent actions and updates within your workflows.", icon: "rocket" },
+      { label: 'New Workflow', href: '/workflows/plan', color: "text-yellow-500", description: "Create and customize new workflows to optimize your efficiency.", icon: "plus" },
     ],
   },
   {
     label: 'Strategy',
     icon: Briefcase,
     href: '/strategy',
-    color: "text-orange-500",
+    color: "text-red-500",
     children: [
-      { label: 'Goals', href: '/strategy/goals', color: "text-red-500" },
-      { label: 'Risks', href: '/strategy/risks', color: "text-red-500" },
-      { label: 'Use Cases', href: '/strategy/use-cases', color: "text-red-500" },
-      { label: 'Plan', href: '/strategy/plan', color: "text-red-500" },
+      { label: 'Goals', href: '/strategy/goals', color: "text-red-500", description: "Define the objectives for your organization.", icon: "target" },
+      { label: 'Risks', href: '/strategy/risks', color: "text-red-500", description: "Identify potential challenges to your AI strategy.", icon: "flag" },
+      { label: 'Use Cases', href: '/strategy/use-cases', color: "text-red-500", description: "Set the practical applications for your AI models and products.", icon: "bookmark-fav" },
+      { label: 'Plan', href: '/strategy/plan', color: "text-red-500", description: "Develop a strategy to achieve your AI-driven goals.", icon: "chess" },
     ],
   },
 ];
+
+const settings = {
+  label: 'Settings',
+  icon: Settings,
+  href: '/settings',
+  color: "text-gray-300",
+};
 
 export const Sidebar = ({
   apiLimitCount = 0,
@@ -90,17 +88,7 @@ export const Sidebar = ({
 }) => {
   const pathname = usePathname();
   const [expandedRoutes, setExpandedRoutes] = useState<{ [key: string]: boolean }>({});
-  // Set all routes with children to be expanded by default
-  // const [expandedRoutes, setExpandedRoutes] = useState<{ [key: string]: boolean }>(
-  //   routes.reduce((acc, route) => {
-  //     if (route.children) {
-  //       acc[route.label] = true;
-  //     }
-  //     return acc;
-  //   }, {} as { [key: string]: boolean })
-  // );
   
-
   const toggleExpand = (label: string) => {
     setExpandedRoutes((prev) => ({
       ...prev,
@@ -173,7 +161,25 @@ export const Sidebar = ({
                         side="right"
                         className="bg-[#1f2937] text-white border border-gray-700 shadow-lg rounded-md px-3 py-2 transition-opacity duration-200 ease-in-out transform opacity-0 group-hover:opacity-100"
                       >
-                        {route.label}
+                        <div>
+                          <div>{route.label}</div>
+                          {route.children && route.label !== 'Dashboard' && (
+                            <div className="mt-2">
+                              {route.children.map((child) => (
+                                <Link key={child.label} href={child.href} passHref>
+                                  <div
+                                    className={cn(
+                                      "text-xs p-1 w-full font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded transition",
+                                      pathname === child.href ? "text-white bg-white/10" : "text-zinc-400"
+                                    )}
+                                  >
+                                    {child.label}
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       </TooltipContent>
                     )}
                   </Tooltip>
@@ -202,6 +208,36 @@ export const Sidebar = ({
                   )}
                 </div>
               ))}
+            </div>
+          </div>
+          <div>
+            <div key={settings.label} className="relative group">
+              <Tooltip key={isCollapsed ? "collapsed" : "expanded"}>
+                <TooltipTrigger asChild>
+                  <Link href={settings.href} passHref>
+                    <div
+                      className={cn(
+                        "flex items-center p-3 w-full justify-center font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
+                        pathname === settings.href ? "text-white bg-white/10" : "text-zinc-400",
+                        isCollapsed ? "justify-center" : "justify-start"
+                      )}
+                    >
+                      <settings.icon className={cn("h-5 w-5", settings.color)} />
+                      {!isCollapsed && (
+                        <span className="ml-3 flex-1">{settings.label}</span>
+                      )}
+                    </div>
+                  </Link>
+                </TooltipTrigger>
+                {isCollapsed && (
+                  <TooltipContent
+                    side="right"
+                    className="bg-[#1f2937] text-white border border-gray-700 shadow-lg rounded-md px-3 py-2 transition-opacity duration-200 ease-in-out transform opacity-0 group-hover:opacity-100"
+                  >
+                    <div>{settings.label}</div>
+                  </TooltipContent>
+                )}
+              </Tooltip>
             </div>
           </div>
         </div>
