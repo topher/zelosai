@@ -5,6 +5,8 @@
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation"; // Import useRouter
+import { useEffect } from "react";
 import { useAuth } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -13,6 +15,26 @@ const font = Montserrat({ weight: '600', subsets: ['latin'] });
 
 export const LandingNavbar = () => {
   const { isSignedIn } = useAuth();
+  const router = useRouter();
+
+  // Custom navigation handler
+  const handleNavigation = (href: string) => {
+    if (window.location.pathname === "/") {
+      document.getElementById(href.substring(1))?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      router.push(`/${href}`);
+    }
+  };
+
+  // Scroll to anchor if URL contains hash on landing page load
+  useEffect(() => {
+    if (window.location.hash) {
+      const element = document.getElementById(window.location.hash.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, []);
 
   return (
     <>
@@ -49,16 +71,18 @@ export const LandingNavbar = () => {
           </h1>
         </Link>
         <div className="flex flex-wrap items-center space-x-4 sm:space-x-8 mt-4 sm:mt-0">
-          <Link href="#features">
-            <Button className="px-4 py-2 sm:px-6 sm:py-3 text-lg sm:text-xl font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105">
-              Features
-            </Button>
-          </Link>
-          <Link href="#process">
-            <Button className="px-4 py-2 sm:px-6 sm:py-3 text-lg sm:text-xl font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105">
-              How It Works
-            </Button>
-          </Link>
+          <Button
+            className="px-4 py-2 sm:px-6 sm:py-3 text-lg sm:text-xl font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105"
+            onClick={() => handleNavigation("#features")}
+          >
+            Features
+          </Button>
+          <Button
+            className="px-4 py-2 sm:px-6 sm:py-3 text-lg sm:text-xl font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105"
+            onClick={() => handleNavigation("#process")}
+          >
+            How It Works
+          </Button>
           <Link href="/pricing">
             <Button className="px-4 py-2 sm:px-6 sm:py-3 text-lg sm:text-xl font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105">
               Pricing
