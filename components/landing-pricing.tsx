@@ -9,7 +9,7 @@ export const PricingSection = () => {
       <h2 className="text-6xl text-center font-extrabold mb-12">
         Pricing
       </h2>
-      <p className="text-center text-xl text-gray-400 mb-16 max-w-3xl mx-auto">
+      <p className="text-center text-xl text-gray-400 mb-16 max-w-4xl mx-auto">
         Select the plan that best fits your needs and start building your digital future today.
       </p>
       
