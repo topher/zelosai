@@ -72,7 +72,7 @@ export default async function TaskPage() {
                 </Card>
               ))}
             </div>
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-4 md:grid-cols-1 lg:grid-cols-1">
             <Card className="col-span-2">
                   <CardHeader>
                     <CardTitle>Terms</CardTitle>
@@ -81,14 +81,14 @@ export default async function TaskPage() {
                    <DataTable data={data_categories} columns={columns} />
                   </CardContent>
             </Card>
-            <Card className="col-span-2">
+            {/* <Card className="col-span-2">
                   <CardHeader>
                     <CardTitle>Types</CardTitle>
                   </CardHeader>
                   <CardContent className="pl-2">
                     <TaxonomySunburstOverview />
                   </CardContent>
-                </Card>
+                </Card> */}
                 </div>
       </div>
     </>
