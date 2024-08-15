@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { Crisp } from "crisp-sdk-web";
 
-export const CrispChat = () => {
+export const CrispChat: React.FC = () => {
   useEffect(() => {
     Crisp.configure("8254f25a-eca0-421e-b4de-2bf655c03887");
   }, []);

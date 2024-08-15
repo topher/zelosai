@@ -23,6 +23,8 @@ const Handler = async (data: InputType): Promise<ReturnType> => {
     };
   }
 
+  const lists: any[] = []
+
   let board = {
     id: `board-${Date.now()}`,
     title,
@@ -31,7 +33,7 @@ const Handler = async (data: InputType): Promise<ReturnType> => {
     imageFullUrl,
     imageUserName,
     imageLinkHTML,
-    lists: [],
+    lists
   };
 
   try {

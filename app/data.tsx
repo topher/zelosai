@@ -583,74 +583,196 @@ export const contacts = [
     is_persona: true,
   },
   // Add more contacts following the persona type distribution (0:15, 1:70, 2:15)
-];
+]
 
 // Type Workflow
 export const workflows = [
   {
     name: "Social Media Engagement Booster",
     artist: "Victor Amo",
-    description:
-      "Craft personalized social media content to connect with your fans and expand your reach.",
-    cover:
-      "https://images.unsplash.com/photo-1517649763962-0c623066013b",
+    description: "Craft personalized social media content to connect with your fans and expand your reach.",
+    cover: "https://images.unsplash.com/photo-1517649763962-0c623066013b",
+    emoji: "📱",
     workflow_creator: "user_defined"
   },
   {
     name: "Q&A with Victor Amo",
     artist: "Victor Amo",
-    description:
-      "Host interactive Q&A sessions with your fans using AI-powered moderation.",
-    cover:
-      "https://images.unsplash.com/photo-1599508704512-2f19efd1e35f",
+    description: "Host interactive Q&A sessions with your fans using AI-powered moderation.",
+    cover: "https://images.unsplash.com/photo-1599508704512-2f19efd1e35f",
+    emoji: "❓",
     workflow_creator: "user_defined"
   },
   {
     name: "Cycling Performance Analysis",
     artist: "Victor Amo",
-    description:
-      "Analyze your training data to identify strengths and weaknesses. Gain insights to optimize your performance.",
-    cover:
-      "https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86",
+    description: "Analyze your training data to identify strengths and weaknesses. Gain insights to optimize your performance.",
+    cover: "https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86",
+    emoji: "🚴‍♂️",
     workflow_creator: "user_defined"
   },
-    {
-      name: "Train Like Victor",
-      artist: "Victor Amo",
-      cover:
-        "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
-      description:
-        "Get inspired by Victor's training routines and cycling tips.",
-      workflow_creator: "suggested_workflow"
-    },
-    {
-      name: "Fuel Your Ride",
-      artist: "Victor Amo",
-      cover:
-        "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7",
-      description:
-        "Learn about Victor's favorite recipes and explore optimal nutrition strategies for cyclists.",
-      workflow_creator: "suggested_workflow"
-    },
-    {
-      name: "Victor's Recovery Rituals",
-      artist: "Victor Amo",
-      cover:
-        "https://images.unsplash.com/photo-1642755622932-d1e0cb783dc5",
-      description:
-        "Discover Victor's recovery techniques to maximize performance and prevent injuries.",
-      workflow_creator: "suggested_workflow"
-    },
-    {
-      name: "Ask Victor Anything",
-      artist: "Victor Amo",
-      cover:
-        "https://images.unsplash.com/photo-1508882100003-8ae16a4abbaf",
-      description:
-        "Submit your cycling questions and get a chance to be featured in Victor's next Q&A session.",
-      workflow_creator: "suggested_workflow"
-    },
-]
+  {
+    name: "Train Like Victor",
+    artist: "Victor Amo",
+    cover: "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+    description: "Get inspired by Victor's training routines and cycling tips.",
+    emoji: "💪",
+    workflow_creator: "suggested_workflow"
+  },
+  {
+    name: "Fuel Your Ride",
+    artist: "Victor Amo",
+    cover: "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7",
+    description: "Learn about Victor's favorite recipes and explore optimal nutrition strategies for cyclists.",
+    emoji: "🍲",
+    workflow_creator: "suggested_workflow"
+  },
+  {
+    name: "Victor's Recovery Rituals",
+    artist: "Victor Amo",
+    cover: "https://images.unsplash.com/photo-1642755622932-d1e0cb783dc5",
+    description: "Discover Victor's recovery techniques to maximize performance and prevent injuries.",
+    emoji: "🛌",
+    workflow_creator: "suggested_workflow"
+  },
+  {
+    name: "Ask Victor Anything",
+    artist: "Victor Amo",
+    cover: "https://images.unsplash.com/photo-1508882100003-8ae16a4abbaf",
+    description: "Submit your cycling questions and get a chance to be featured in Victor's next Q&A session.",
+    emoji: "🗣️",
+    workflow_creator: "suggested_workflow"
+  },
+  {
+    name: "Merchandise Design Sprint",
+    artist: "Victor Amo",
+    description: "Accelerate the design process of new merchandise, from concept to final design, using AI-generated inspiration and feedback.",
+    cover: "https://images.unsplash.com/photo-1582719478182-3a6e6e25b5b9",
+    emoji: "👕",
+    workflow_creator: "user_defined"
+  },
+  {
+    name: "Sustainability Audit",
+    artist: "Victor Amo",
+    description: "Conduct a sustainability audit of Amotion’s products and processes, identifying areas for improvement and implementing greener practices.",
+    cover: "https://images.unsplash.com/photo-1530268729834-8d6ae9e2f1de",
+    emoji: "🌍",
+    workflow_creator: "user_defined"
+  },
+  {
+    name: "Customer Loyalty Program Enhancement",
+    artist: "Victor Amo",
+    description: "Revamp your loyalty program by analyzing customer behavior and preferences, ensuring the program drives repeat purchases and customer satisfaction.",
+    cover: "https://images.unsplash.com/photo-1499155286265-76e35c9a85bb",
+    emoji: "🎁",
+    workflow_creator: "user_defined"
+  },
+  {
+    name: "Real-Time Event Engagement",
+    artist: "Victor Amo",
+    description: "Boost engagement during live events with real-time interaction strategies, including polls, Q&As, and interactive content suggestions.",
+    cover: "https://images.unsplash.com/photo-1533467910884-765e207178c5",
+    emoji: "🎤",
+    workflow_creator: "suggested_workflow"
+  },
+  {
+    name: "Influencer Partnership Strategy",
+    artist: "Victor Amo",
+    description: "Develop a strategy for identifying and partnering with influencers who align with Amotion’s brand, leveraging their reach to grow your audience.",
+    cover: "https://images.unsplash.com/photo-1600585154340-be6161c45830",
+    emoji: "🤝",
+    workflow_creator: "suggested_workflow"
+  },
+  {
+    name: "Fitness Program Personalization",
+    artist: "Victor Amo",
+    description: "Customize training programs for your followers, incorporating personalized fitness assessments and tailored recommendations.",
+    cover: "https://images.unsplash.com/photo-1494390248081-4e521a5940db",
+    emoji: "🏋️‍♂️",
+    workflow_creator: "suggested_workflow"
+  },
+  {
+    name: "PR Crisis Response Drill",
+    artist: "Victor Amo",
+    description: "Prepare for potential PR crises by simulating scenarios and planning response strategies to protect your brand.",
+    cover: "https://images.unsplash.com/photo-1581093588401-4d3a17f6d77d",
+    emoji: "🚨",
+    workflow_creator: "user_defined"
+  },
+  {
+    name: "Supply Chain Efficiency Boost",
+    artist: "Victor Amo",
+    description: "Analyze and optimize your supply chain to reduce costs, improve delivery times, and increase overall efficiency.",
+    cover: "https://images.unsplash.com/photo-1505839673365-e3971f8d9184",
+    emoji: "🔗",
+    workflow_creator: "user_defined"
+  },
+  {
+    name: "Video Marketing Campaign Creation",
+    artist: "Victor Amo",
+    description: "Create a compelling video marketing campaign using AI-generated content, focusing on promoting new products and engaging with your audience.",
+    cover: "https://images.unsplash.com/photo-1555685812-4b7432f7ec52",
+    emoji: "🎥",
+    workflow_creator: "suggested_workflow"
+  },
+  {
+    name: "Cycling Route Planning",
+    artist: "Victor Amo",
+    description: "Plan personalized cycling routes for your followers, taking into account their preferences, skill levels, and current weather conditions.",
+    cover: "https://images.unsplash.com/photo-1508061253251-7f54e817d1a5",
+    emoji: "🗺️",
+    workflow_creator: "user_defined"
+  },
+  {
+    name: "Product Innovation Brainstorm",
+    artist: "Victor Amo",
+    description: "Collaborate with your team to brainstorm and develop new product ideas, informed by market trends and customer feedback.",
+    cover: "https://images.unsplash.com/photo-1505691938895-1758d7feb511",
+    emoji: "💡",
+    workflow_creator: "user_defined"
+  },
+  {
+    name: "Market & Competitor Analysis",
+    artist: "Victor Amo",
+    description: "Perform a thorough analysis of the cycling gear market and competitors to identify gaps and opportunities for Amotion’s product offerings.",
+    cover: "https://images.unsplash.com/photo-1591696331115-946234b3e865",
+    emoji: "📊",
+    workflow_creator: "suggested_workflow"
+  },
+  {
+    name: "Interactive Social Media Campaign",
+    artist: "Victor Amo",
+    description: "Design and launch an interactive social media campaign that engages your followers with creative content and real-time interaction.",
+    cover: "https://images.unsplash.com/photo-1540479859555-17af45c07d1b",
+    emoji: "💬",
+    workflow_creator: "user_defined"
+  },
+  {
+    name: "Customer Experience Improvement Plan",
+    artist: "Victor Amo",
+    description: "Analyze customer feedback and behavior to develop strategies for improving customer experience across all touchpoints.",
+    cover: "https://images.unsplash.com/photo-1492724441997-5dc865305da7",
+    emoji: "👥",
+    workflow_creator: "suggested_workflow"
+  },
+  {
+    name: "Sponsorship Deal Negotiation Prep",
+    artist: "Victor Amo",
+    description: "Prepare for negotiations with potential sponsors by developing strategies to secure favorable terms and maximize value for your brand.",
+    cover: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
+    emoji: "📝",
+    workflow_creator: "user_defined"
+  },
+  {
+    name: "Health & Wellness Content Series",
+    artist: "Victor Amo",
+    description: "Create a content series focused on health and wellness, sharing tips, routines, and insights with your audience to promote a healthy lifestyle.",
+    cover: "https://images.unsplash.com/photo-1551879409-8fb647ae4a21",
+    emoji: "🍎",
+    workflow_creator: "suggested_workflow"
+  }
+];
+
 
 // Type AIModel
 export const complete_trained_models = [
@@ -1129,6 +1251,291 @@ export const complete_trained_models = [
     subject_prompt_key: "ohwx man",
     subject_prompt_alias: ["Rigo", "Rigoberto", "Rigoberto Uran" ],
   },
+  {
+    label: "Brand Identity Protection Model",
+    tags: ["security", "ip", "text"],
+    default_language: "en",
+    subject_prompt_key: "protection shield",
+    subject_prompt_alias: ["Brand Protection", "IP Shield"],
+    description: "Monitors and identifies potential IP infringements on Victor Amo's brand and products.",
+    emoji: "🛡️",
+    iconName: "",
+    href: "",
+    color: "#FF5733",
+    bgColor: "#FFC300",
+    foundational_model: false,
+    model_file_path: "/models/brand_identity_protection_model.pt",
+    modelId: "BRANDPROT",
+    thumbnail: "/thumbnails/brand_identity_protection_thumbnail.png",
+    prompt_template: "Identify and summarize potential IP infringements related to Victor Amo's brand.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Social Media Content Optimization Model",
+    tags: ["social media", "engagement", "text"],
+    default_language: "en",
+    subject_prompt_key: "social boost",
+    subject_prompt_alias: ["Content Optimization", "Engagement Boost"],
+    description: "Optimizes social media content for better engagement, focusing on brand voice and products.",
+    emoji: "📈",
+    iconName: "",
+    href: "",
+    color: "#1DA1F2",
+    bgColor: "#E8F5FD",
+    foundational_model: false,
+    model_file_path: "/models/social_media_content_optimization_model.pt",
+    modelId: "SOCOPTIM",
+    thumbnail: "/thumbnails/social_media_content_optimization_thumbnail.png",
+    prompt_template: "Analyze Victor Amo’s recent social media performance and suggest optimization strategies.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Customer Experience & Feedback Model",
+    tags: ["customer service", "feedback", "text"],
+    default_language: "en",
+    subject_prompt_key: "feedback loop",
+    subject_prompt_alias: ["Customer Feedback", "CX Improvement"],
+    description: "Analyzes customer feedback across multiple channels for insights into satisfaction and product performance.",
+    emoji: "🗣️",
+    iconName: "",
+    href: "",
+    color: "#28A745",
+    bgColor: "#E6F4EA",
+    foundational_model: false,
+    model_file_path: "/models/customer_experience_feedback_model.pt",
+    modelId: "CUSTFEED",
+    thumbnail: "/thumbnails/customer_experience_feedback_thumbnail.png",
+    prompt_template: "Summarize customer feedback on Amotion’s latest product line and provide actionable insights.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Interactive Digital Twin Model",
+    tags: ["digital twin", "interaction", "voice"],
+    default_language: "en",
+    subject_prompt_key: "twin interaction",
+    subject_prompt_alias: ["Digital Twin", "Interactive Avatar"],
+    description: "Creates an interactive digital twin of Victor Amo for engaging with fans through personalized experiences.",
+    emoji: "🧑‍💻",
+    iconName: "",
+    href: "",
+    color: "#6C757D",
+    bgColor: "#F8F9FA",
+    foundational_model: false,
+    model_file_path: "/models/interactive_digital_twin_model.pt",
+    modelId: "DIGITWIN",
+    thumbnail: "/thumbnails/interactive_digital_twin_thumbnail.png",
+    prompt_template: "Generate responses for a Q&A session with Victor Amo's digital twin.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Marketing Campaign Ideation",
+    tags: ["marketing", "campaign", "text"],
+    default_language: "en",
+    subject_prompt_key: "campaign lightbulb",
+    subject_prompt_alias: ["Campaign Ideas", "Marketing Brainstorm"],
+    description: "Generates ideas and examples for marketing campaigns, tailored to Victor Amo’s brand.",
+    emoji: "💡",
+    iconName: "",
+    href: "",
+    color: "#FFC107",
+    bgColor: "#FFF3CD",
+    foundational_model: false,
+    model_file_path: "/models/marketing_campaign_ideation_model.pt",
+    modelId: "CAMPAIGNID",
+    thumbnail: "/thumbnails/marketing_campaign_ideation_thumbnail.png",
+    prompt_template: "Generate marketing campaign ideas for Amotion’s new product launch.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Affiliate Marketing Optimization",
+    tags: ["affiliate", "optimization", "text"],
+    default_language: "en",
+    subject_prompt_key: "affiliate chain",
+    subject_prompt_alias: ["Affiliate Strategy", "Marketing Optimization"],
+    description: "Optimizes affiliate marketing strategies for increased performance and revenue.",
+    emoji: "🔗",
+    iconName: "",
+    href: "",
+    color: "#007BFF",
+    bgColor: "#CCE5FF",
+    foundational_model: false,
+    model_file_path: "/models/affiliate_marketing_optimization_model.pt",
+    modelId: "AFFILOPT",
+    thumbnail: "/thumbnails/affiliate_marketing_optimization_thumbnail.png",
+    prompt_template: "Suggest optimizations for Amotion’s affiliate marketing strategy.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Product Personalization Model",
+    tags: ["personalization", "product", "image"],
+    default_language: "en",
+    subject_prompt_key: "personal touch",
+    subject_prompt_alias: ["Product Customization", "Personalized Experience"],
+    description: "Provides personalized product recommendations based on customer data and preferences.",
+    emoji: "🎨",
+    iconName: "",
+    href: "",
+    color: "#17A2B8",
+    bgColor: "#D1ECF1",
+    foundational_model: false,
+    model_file_path: "/models/product_personalization_model.pt",
+    modelId: "PRODPERSON",
+    thumbnail: "/thumbnails/product_personalization_thumbnail.png",
+    prompt_template: "Generate personalized product recommendations for Amotion customers.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Injury Prevention & Recovery Guide",
+    tags: ["health", "fitness", "text"],
+    default_language: "en",
+    subject_prompt_key: "health shield",
+    subject_prompt_alias: ["Injury Prevention", "Recovery Advice"],
+    description: "Offers personalized injury prevention techniques and recovery plans for athletes.",
+    emoji: "🏥",
+    iconName: "",
+    href: "",
+    color: "#DC3545",
+    bgColor: "#F8D7DA",
+    foundational_model: false,
+    model_file_path: "/models/injury_prevention_recovery_model.pt",
+    modelId: "INJPREV",
+    thumbnail: "/thumbnails/injury_prevention_recovery_thumbnail.png",
+    prompt_template: "Generate personalized injury prevention and recovery advice for Victor Amo’s followers.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Event Marketing & Management",
+    tags: ["event", "marketing", "text"],
+    default_language: "en",
+    subject_prompt_key: "event star",
+    subject_prompt_alias: ["Event Planning", "Marketing Event"],
+    description: "Assists in planning and promoting cycling events, ensuring maximum attendance and engagement.",
+    emoji: "🌟",
+    iconName: "",
+    href: "",
+    color: "#28A745",
+    bgColor: "#D4EDDA",
+    foundational_model: false,
+    model_file_path: "/models/event_marketing_management_model.pt",
+    modelId: "EVENTMKT",
+    thumbnail: "/thumbnails/event_marketing_management_thumbnail.png",
+    prompt_template: "Develop a promotional strategy for Amotion’s upcoming cycling event.",
+    use_case_ids: [""]
+  },
+  {
+    label: "E-commerce Trend Analysis",
+    tags: ["ecommerce", "trends", "text"],
+    default_language: "en",
+    subject_prompt_key: "trend arrow",
+    subject_prompt_alias: ["Market Trends", "E-commerce Insights"],
+    description: "Analyzes product and e-commerce trends to inform business strategy and product development.",
+    emoji: "📊",
+    iconName: "",
+    href: "",
+    color: "#FFC107",
+    bgColor: "#FFF3CD",
+    foundational_model: false,
+    model_file_path: "/models/ecommerce_trend_analysis_model.pt",
+    modelId: "ECTREND",
+    thumbnail: "/thumbnails/ecommerce_trend_analysis_thumbnail.png",
+    prompt_template: "Analyze current e-commerce trends in the cycling industry.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Voice Cloning for Personalized Ads",
+    tags: ["voice", "advertising", "voice"],
+    default_language: "en",
+    subject_prompt_key: "voice speaker",
+    subject_prompt_alias: ["Ad Voice", "Personalized Ads"],
+    description: "Creates personalized ads with Victor Amo’s voice, enhancing authenticity and brand connection.",
+    emoji: "🔊",
+    iconName: "",
+    href: "",
+    color: "#007BFF",
+    bgColor: "#CCE5FF",
+    foundational_model: false,
+    model_file_path: "/models/voice_cloning_personalized_ads_model.pt",
+    modelId: "VOICEAD",
+    thumbnail: "/thumbnails/voice_cloning_personalized_ads_thumbnail.png",
+    prompt_template: "Generate a personalized advertisement for Amotion using Victor Amo’s voice.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Community Building & Engagement",
+    tags: ["community", "engagement", "text"],
+    default_language: "en",
+    subject_prompt_key: "community group",
+    subject_prompt_alias: ["Community Growth", "Engagement Strategy"],
+    description: "Facilitates community engagement by fostering interactions and creating engaging content for fans.",
+    emoji: "🤝",
+    iconName: "",
+    href: "",
+    color: "#6C757D",
+    bgColor: "#F8F9FA",
+    foundational_model: false,
+    model_file_path: "/models/community_building_engagement_model.pt",
+    modelId: "COMMBUILD",
+    thumbnail: "/thumbnails/community_building_engagement_thumbnail.png",
+    prompt_template: "Suggest strategies for building and engaging an online community around Victor Amo.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Legal Document Drafting Assistant",
+    tags: ["legal", "documents", "text"],
+    default_language: "en",
+    subject_prompt_key: "legal scale",
+    subject_prompt_alias: ["Contract Drafting", "Legal Assistance"],
+    description: "Assists in drafting and reviewing contracts, IP agreements, and other legal documents.",
+    emoji: "⚖️",
+    iconName: "",
+    href: "",
+    color: "#DC3545",
+    bgColor: "#F8D7DA",
+    foundational_model: false,
+    model_file_path: "/models/legal_document_drafting_assistant_model.pt",
+    modelId: "LEGALDOC",
+    thumbnail: "/thumbnails/legal_document_drafting_assistant_thumbnail.png",
+    prompt_template: "Draft a contract template for a partnership agreement involving Victor Amo and Amotion.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Public Perception Monitoring",
+    tags: ["pr", "monitoring", "text"],
+    default_language: "en",
+    subject_prompt_key: "eye monitor",
+    subject_prompt_alias: ["Brand Perception", "Sentiment Analysis"],
+    description: "Monitors public perception and sentiment around Victor Amo and Amotion’s brand.",
+    emoji: "👁️",
+    iconName: "",
+    href: "",
+    color: "#17A2B8",
+    bgColor: "#D1ECF1",
+    foundational_model: false,
+    model_file_path: "/models/public_perception_monitoring_model.pt",
+    modelId: "PUBPERCEPT",
+    thumbnail: "/thumbnails/public_perception_monitoring_thumbnail.png",
+    prompt_template: "Analyze current public sentiment around Victor Amo and Amotion’s brand.",
+    use_case_ids: [""]
+  },
+  {
+    label: "Contract Negotiation & Management",
+    tags: ["contracts", "negotiation", "text"],
+    default_language: "en",
+    subject_prompt_key: "handshake deal",
+    subject_prompt_alias: ["Deal Management", "Contract Negotiation"],
+    description: "Supports the negotiation and management of contracts, ensuring favorable terms for Victor Amo.",
+    emoji: "🤝",
+    iconName: "",
+    href: "",
+    color: "#28A745",
+    bgColor: "#D4EDDA",
+    foundational_model: false,
+    model_file_path: "/models/contract_negotiation_management_model.pt",
+    modelId: "CONTRACTNEG",
+    thumbnail: "/thumbnails/contract_negotiation_management_thumbnail.png",
+    prompt_template: "Generate contract negotiation strategies for securing a sponsorship deal for Victor Amo.",
+    use_case_ids: [""]
+  }
 ];
 
 // Type Rule
@@ -1137,13 +1544,20 @@ export const rules = [
   {
     id: "rule-1",
     ruleType: "access",
-    subject: "user",
-    operator: "in",
-    attribute: "location",
-    value: "EU",
-    duty: "obligated",
-    action: "consent_to_share",
-    target: "data",
+    deontologicalDuty: "obligated",
+    subjectCondition: {
+      attribute: "location",
+      operator: "in",
+      value: "EU",
+    },
+    predicate: "requires",
+    objectCondition: {
+      attribute: "action",
+      operator: "equals",
+      value: "consent_to_share",
+    },
+    createdBy: "system",
+    ownedBy: "GDPR",
     rule_nlp_description: JSON.stringify({
       text: "Users located in the European Union (EU) require consent before processing their personal data.",
     }),
@@ -1151,13 +1565,20 @@ export const rules = [
   {
     id: "rule-2",
     ruleType: "access",
-    subject: "user",
-    attribute: "data_usage",
-    operator: "includes",
-    value: "marketing",
-    duty: "inform",
-    action: "opt-out",
-    target: "user",
+    deontologicalDuty: "inform",
+    subjectCondition: {
+      attribute: "data_usage",
+      operator: "includes",
+      value: "marketing",
+    },
+    predicate: "allows",
+    objectCondition: {
+      attribute: "action",
+      operator: "equals",
+      value: "opt-out",
+    },
+    createdBy: "system",
+    ownedBy: "GDPR",
     rule_nlp_description: JSON.stringify({
       text: "Users have the right to be informed about and opt-out of their data being used for marketing purposes.",
     }),
@@ -1165,13 +1586,20 @@ export const rules = [
   {
     id: "rule-3",
     ruleType: "access",
-    subject: "user",
-    attribute: "data_storage",
-    operator: "gt",
-    value: "6", // Assuming value is in months
-    duty: "allow",
-    action: "download",
-    target: "personal_data",
+    deontologicalDuty: "allow",
+    subjectCondition: {
+      attribute: "data_storage",
+      operator: "gt",
+      value: "6", // Assuming value is in months
+    },
+    predicate: "allows",
+    objectCondition: {
+      attribute: "action",
+      operator: "equals",
+      value: "download",
+    },
+    createdBy: "system",
+    ownedBy: "GDPR",
     rule_nlp_description: JSON.stringify({
       text: "Users can download their personal data that has been stored for more than 6 months.",
     }),
@@ -1180,13 +1608,20 @@ export const rules = [
   {
     id: "rule-4",
     ruleType: "action",
-    subject: "content",
-    attribute: "mime_type",
-    operator: "is",
-    value: "image/jpeg",
-    duty: "permit",
-    action: "display",
-    presides_over: "user",
+    deontologicalDuty: "permit",
+    subjectCondition: {
+      attribute: "mime_type",
+      operator: "is",
+      value: "image/jpeg",
+    },
+    predicate: "allows",
+    objectCondition: {
+      attribute: "action",
+      operator: "equals",
+      value: "display",
+    },
+    createdBy: "system",
+    ownedBy: "MPEG21",
     rule_nlp_description: JSON.stringify({
       text: "JPEG image content can be displayed to the user.",
     }),
@@ -1194,13 +1629,20 @@ export const rules = [
   {
     id: "rule-5",
     ruleType: "action",
-    subject: "content",
-    attribute: "copyright_owner",
-    operator: "is",
-    value: "Victor, the Athlete",
-    duty: "restrict",
-    action: "modify",
-    target: "content",
+    deontologicalDuty: "restrict",
+    subjectCondition: {
+      attribute: "copyright_owner",
+      operator: "is",
+      value: "Victor, the Athlete",
+    },
+    predicate: "prohibits",
+    objectCondition: {
+      attribute: "action",
+      operator: "equals",
+      value: "modify",
+    },
+    createdBy: "system",
+    ownedBy: "MPEG21",
     rule_nlp_description: JSON.stringify({
       text: "Content owned by Victor, the Athlete cannot be modified by users.",
     }),
@@ -1208,13 +1650,20 @@ export const rules = [
   {
     id: "rule-6",
     ruleType: "action",
-    subject: "user",
-    attribute: "permission",
-    operator: "has",
-    value: "edit",
-    duty: "permit",
-    action: "modify",
-    target: "content",
+    deontologicalDuty: "permit",
+    subjectCondition: {
+      attribute: "permission",
+      operator: "has",
+      value: "edit",
+    },
+    predicate: "allows",
+    objectCondition: {
+      attribute: "action",
+      operator: "equals",
+      value: "modify",
+    },
+    createdBy: "system",
+    ownedBy: "MPEG21",
     rule_nlp_description: JSON.stringify({
       text: "Users with edit permission can modify content.",
     }),
@@ -1223,13 +1672,20 @@ export const rules = [
   {
     id: "rule-7",
     ruleType: "content",
-    subject: "Victor",
-    attribute: "attire",
-    operator: "should_wear",
-    value: "athletic clothing",
-    duty: "recommend",
-    action: "suggest",
-    target: "Victor",
+    deontologicalDuty: "recommend",
+    subjectCondition: {
+      attribute: "attire",
+      operator: "should_wear",
+      value: "athletic clothing",
+    },
+    predicate: "suggests",
+    objectCondition: {
+      attribute: "target",
+      operator: "equals",
+      value: "Victor",
+    },
+    createdBy: "Victor",
+    ownedBy: "Victor's Guidelines",
     rule_nlp_description: JSON.stringify({
       text: "It is recommended for Victor to wear athletic clothing for training and competition.",
     }),
@@ -1237,13 +1693,20 @@ export const rules = [
   {
     id: "rule-8",
     ruleType: "content",
-    subject: "Victor",
-    attribute: "diet",
-    operator: "should_avoid",
-    value: "processed foods",
-    duty: "prohibit",
-    action: "warn",
-    target: "Victor",
+    deontologicalDuty: "prohibit",
+    subjectCondition: {
+      attribute: "diet",
+      operator: "should_avoid",
+      value: "processed foods",
+    },
+    predicate: "warns",
+    objectCondition: {
+      attribute: "target",
+      operator: "equals",
+      value: "Victor",
+    },
+    createdBy: "Victor",
+    ownedBy: "Victor's Guidelines",
     rule_nlp_description: JSON.stringify({
       text: "Victor should avoid processed foods to maintain a healthy diet.",
     }),
@@ -1251,13 +1714,20 @@ export const rules = [
   {
     id: "rule-9",
     ruleType: "content",
-    subject: "Victor",
-    attribute: "emotions",
-    operator: "should_express",
-    value: "positive",
-    duty: "encourage",
-    action: "motivate",
-    target: "Victor",
+    deontologicalDuty: "encourage",
+    subjectCondition: {
+      attribute: "emotions",
+      operator: "should_express",
+      value: "positive",
+    },
+    predicate: "motivates",
+    objectCondition: {
+      attribute: "target",
+      operator: "equals",
+      value: "Victor",
+    },
+    createdBy: "Victor",
+    ownedBy: "Victor's Guidelines",
     rule_nlp_description: JSON.stringify({
       text: "Victor should strive to express positive emotions for mental well-being and performance.",
     }),
@@ -1265,13 +1735,20 @@ export const rules = [
   {
     id: "rule-10",
     ruleType: "content",
-    subject: "Victor",
-    attribute: "speech",
-    operator: "should_avoid",
-    value: "discouragement",
-    duty: "prohibit",
-    action: "redirect",
-    target: "Victor",
+    deontologicalDuty: "prohibit",
+    subjectCondition: {
+      attribute: "speech",
+      operator: "should_avoid",
+      value: "discouragement",
+    },
+    predicate: "redirects",
+    objectCondition: {
+      attribute: "target",
+      operator: "equals",
+      value: "Victor",
+    },
+    createdBy: "Victor",
+    ownedBy: "Victor's Guidelines",
     rule_nlp_description: JSON.stringify({
       text: "Victor should avoid discouraging self-talk. Redirect negative thoughts to positive affirmations.",
     }),
@@ -1279,18 +1756,26 @@ export const rules = [
   {
     id: "rule-11",
     ruleType: "content",
-    subject: "training",
-    attribute: "frequency",
-    operator: "should_be",
-    value: "regular",
-    duty: "recommend",
-    action: "schedule",
-    target: "Victor",
+    deontologicalDuty: "recommend",
+    subjectCondition: {
+      attribute: "frequency",
+      operator: "should_be",
+      value: "regular",
+    },
+    predicate: "schedules",
+    objectCondition: {
+      attribute: "target",
+      operator: "equals",
+      value: "Victor",
+    },
+    createdBy: "Victor",
+    ownedBy: "Victor's Guidelines",
     rule_nlp_description: JSON.stringify({
       text: "Regular training is recommended for Victor to maintain peak performance.",
     }),
-  }
+  },
 ];
+
   
 // Type DataConnector
 export const connectors = [
@@ -1453,10 +1938,10 @@ export const agents = [
 export const business_model = {
   "companyName": "Amotion",
   "logo": "https://example.com/logo.png",
-  "industry": "Tecnología",
+  "industry": "Technology",
   "location": "San Francisco, CA",
   "foundedYear": 2010,
-  "description": "Amotion es una empresa líder en tecnología especializada en soluciones de IA inmersivas.",
+  "description": "Amotion is a leading technology company specializing in immersive AI solutions.",
   "website": "https://www.gorigogo.com",
   "socialMedia": {
     "linkedin": "https://www.linkedin.com/company/gorigogo",
@@ -1465,128 +1950,128 @@ export const business_model = {
   },
   "customerSegments": {
     "segment1": {
-      "name": "Empresas",
-      "description": "Grandes empresas buscando soluciones con IA para automatización y optimización."
+      "name": "Enterprises",
+      "description": "Large companies looking for AI solutions for automation and optimization."
     },
     "segment2": {
       "name": "Startups",
-      "description": "Startups tecnológicas buscando innovación impulsada por IA para obtener una ventaja competitiva."
+      "description": "Tech startups seeking AI-driven innovation to gain a competitive edge."
     },
     "segment3": {
-      "name": "Educación",
-      "description": "Instituciones educativas interesadas en aplicaciones de IA para el e-learning."
+      "name": "Education",
+      "description": "Educational institutions interested in AI applications for e-learning."
     }
   },
   "valuePropositions": {
     "valueProp1": {
-      "name": "Automatización con IA",
-      "description": "Nuestra tecnología inmersiva con IA simplifica procesos y aumenta la eficiencia."
+      "name": "AI Automation",
+      "description": "Our immersive AI technology simplifies processes and increases efficiency."
     },
     "valueProp2": {
-      "name": "Innovación",
-      "description": "Ofrecemos soluciones de IA de vanguardia para impulsar la innovación y el crecimiento."
+      "name": "Innovation",
+      "description": "We offer cutting-edge AI solutions to drive innovation and growth."
     },
     "valueProp3": {
-      "name": "Personalización",
-      "description": "Soluciones de IA adaptadas para satisfacer necesidades y objetivos empresariales únicos."
+      "name": "Personalization",
+      "description": "AI solutions tailored to meet unique business needs and objectives."
     }
   },
   "channels": {
     "channel1": {
-      "name": "Plataforma en Línea",
-      "description": "Nuestro sitio web y plataforma en línea para la interacción con clientes."
+      "name": "Online Platform",
+      "description": "Our website and online platform for client interaction."
     },
     "channel2": {
-      "name": "Asociaciones B2B",
-      "description": "Colaboración con socios B2B para alcanzar un público más amplio."
+      "name": "B2B Partnerships",
+      "description": "Collaboration with B2B partners to reach a broader audience."
     },
     "channel3": {
-      "name": "Ventas Directas",
-      "description": "Ventas directas y soporte para clientes empresariales."
+      "name": "Direct Sales",
+      "description": "Direct sales and support for enterprise clients."
     }
   },
   "customerRelationships": {
     "relationship1": {
-      "name": "Soporte Personalizado",
-      "description": "Gerentes de cuenta dedicados para un soporte al cliente personalizado."
+      "name": "Personalized Support",
+      "description": "Dedicated account managers for personalized customer support."
     },
     "relationship2": {
-      "name": "Comunidad de Usuarios",
-      "description": "Construir una comunidad de usuarios activa para retroalimentación e interacción."
+      "name": "User Community",
+      "description": "Building an active user community for feedback and interaction."
     },
     "relationship3": {
-      "name": "Actualizaciones Regulares",
-      "description": "Proporcionar actualizaciones regulares y sesiones de formación en IA para clientes."
+      "name": "Regular Updates",
+      "description": "Providing regular updates and AI training sessions for clients."
     }
   },
   "revenueStreams": {
     "stream1": {
-      "name": "Suscripciones SaaS",
-      "description": "Modelo de ingresos basado en suscripciones para software de IA."
+      "name": "SaaS Subscriptions",
+      "description": "Revenue model based on subscriptions for AI software."
     },
     "stream2": {
-      "name": "Servicios de Consultoría",
-      "description": "Servicios de consultoría para estrategias e implementación de IA."
+      "name": "Consulting Services",
+      "description": "Consulting services for AI strategy and implementation."
     },
     "stream3": {
-      "name": "Soluciones Personalizadas",
-      "description": "Ingresos de soluciones de IA personalizadas para clientes."
+      "name": "Customized Solutions",
+      "description": "Revenue from customized AI solutions for clients."
     }
   },
   "keyResources": {
     "resource1": {
-      "name": "Equipo de Investigación en IA",
-      "description": "Un equipo dedicado de investigadores y desarrolladores de IA."
+      "name": "AI Research Team",
+      "description": "A dedicated team of AI researchers and developers."
     },
     "resource2": {
-      "name": "Centros de Datos",
-      "description": "Centros de datos de última generación para entrenamiento de modelos de IA."
+      "name": "Data Centers",
+      "description": "State-of-the-art data centers for AI model training."
     },
     "resource3": {
-      "name": "Propiedad Intelectual",
-      "description": "Patentes valiosas relacionadas con IA y propiedad intelectual."
+      "name": "Intellectual Property",
+      "description": "Valuable patents related to AI and intellectual property."
     }
   },
   "keyActivities": {
     "activity1": {
-      "name": "Desarrollo de IA",
-      "description": "Desarrollo y mejora continua de modelos de IA."
+      "name": "AI Development",
+      "description": "Continuous development and improvement of AI models."
     },
     "activity2": {
-      "name": "Investigación de Mercado",
-      "description": "Investigación de mercado continua para identificar nuevas oportunidades."
+      "name": "Market Research",
+      "description": "Ongoing market research to identify new opportunities."
     },
     "activity3": {
-      "name": "Integración de Clientes",
-      "description": "Integración y capacitación de clientes en soluciones de IA."
+      "name": "Customer Integration",
+      "description": "Integrating and training clients on AI solutions."
     }
   },
   "keyPartners": {
     "partner1": {
       "name": "Zelos",
-      "description": "Colaboración con startups tecnológicas para proyectos conjuntos."
+      "description": "Collaboration with tech startups for joint projects."
     },
     "partner2": {
-      "name": "Proveedores de Nube",
-      "description": "Asociaciones con proveedores de nube para infraestructura."
+      "name": "Cloud Providers",
+      "description": "Partnerships with cloud providers for infrastructure."
     },
     "partner3": {
-      "name": "Universidades",
-      "description": "Colaboración con universidades para investigación en IA."
+      "name": "Universities",
+      "description": "Collaboration with universities for AI research."
     }
   },
   "cost": {
     "cost1": {
-      "name": "Investigación y Desarrollo",
-      "description": "Inversión en investigación y desarrollo de IA."
+      "name": "Research and Development",
+      "description": "Investment in AI research and development."
     },
     "cost2": {
-      "name": "Infraestructura",
-      "description": "Costos asociados con centros de datos y servicios en la nube."
+      "name": "Infrastructure",
+      "description": "Costs associated with data centers and cloud services."
     },
     "cost3": {
-      "name": "Marketing y Ventas",
-      "description": "Gastos relacionados con esfuerzos de marketing y ventas."
+      "name": "Marketing and Sales",
+      "description": "Expenses related to marketing and sales efforts."
     }
   }
 }

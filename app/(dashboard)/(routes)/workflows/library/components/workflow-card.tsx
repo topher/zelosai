@@ -1,5 +1,7 @@
+"use client"
 import Image from "next/image"
 import { PlusCircledIcon } from "@radix-ui/react-icons"
+import React, { useState } from "react"
 
 import { cn } from "@/lib/utils"
 import {
@@ -15,7 +17,6 @@ import {
 
 import { Workflow } from "@/app/types"
 import { workflows } from "@/app/data"
-import React from "react"
 
 interface WorkflowCardProps extends React.HTMLAttributes<HTMLDivElement> {
   album: Workflow
@@ -32,21 +33,36 @@ export function WorkflowCard({
   className,
   ...props
 }: WorkflowCardProps) {
+  const [imageError, setImageError] = useState(false)
+
   return (
     <div className={cn("space-y-3", className)} {...props}>
       <ContextMenu>
         <ContextMenuTrigger>
           <div className="overflow-hidden rounded-md">
-            <Image
-              src={album.cover}
-              alt={album.name}
-              width={width}
-              height={height}
-              className={cn(
-                "h-auto w-auto object-cover transition-all hover:scale-105",
-                aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"
-              )}
-            />
+            {!imageError ? (
+              <Image
+                src={album.cover}
+                alt={album.name}
+                width={width}
+                height={height}
+                className={cn(
+                  "h-auto w-auto object-cover transition-all hover:scale-105",
+                  aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"
+                )}
+                onError={() => setImageError(true)}
+              />
+            ) : (
+                <div
+                  className={cn(
+                    "flex items-center justify-center text-white text-4xl font-bold",
+                    aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"
+                  )}
+                  style={{ backgroundColor: '#111827' }} // Custom background color
+                >
+                {album.emoji}
+              </div>
+            )}
           </div>
         </ContextMenuTrigger>
         <ContextMenuContent className="w-40">
