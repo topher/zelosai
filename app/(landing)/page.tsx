@@ -21,9 +21,18 @@ export default async function LandingPage() {
     <div className="h-full">
       <LandingNavbar />
       <LandingHero />
-      <LandingFeatures />
-      <LandingProcess />
-      <MoreStories posts={posts} />
+      <div className="w-full h-[1px] bg-white/20 mt-16"></div>
+      <div id="features" className="pt-16 -mt-16">
+        <LandingFeatures />
+      </div>
+      <div className="w-full h-[1px] bg-white/20 mt-16"></div>
+      <div id="process" className="pt-16 -mt-16">
+        <LandingProcess />
+      </div>
+      <div className="w-full h-[1px] bg-white/20 mt-16"></div>
+      <div id="stories" className="pt-16 -mt-16">
+        <MoreStories posts={posts} title="Check Out Our Resources" />
+      </div>
     </div>
   );
 }

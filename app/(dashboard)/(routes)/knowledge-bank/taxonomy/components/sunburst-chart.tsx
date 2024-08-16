@@ -13,22 +13,23 @@ interface SunburstProps {
 
 function SunburstChart({ width, height, data, nodePadding, margin, link }: SunburstProps) {
     const [chart, setChart] = useState(null);
-  
+
     useEffect(() => {
-      setChart(Sunburst({
+      const svgElement = Sunburst({
         width,
         height,
         data,
         nodePadding,
         margin,
         link
-      }));
+      });
+    
+      setChart(svgElement.outerHTML); // Convert to string for rendering
+    
     }, [width, height, data, nodePadding, margin, link]);
-  
+    
     return (
-      <div>
-        {chart && <> {chart} </>} 
-      </div>
+      <div dangerouslySetInnerHTML={{ __html: chart }} />
     );
   }
 
