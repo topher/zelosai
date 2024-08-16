@@ -17,6 +17,24 @@ module.exports = {
     },
     extend: {
       colors: {
+        black: '#000000',
+        white: '#ffffff',
+        darkGray: '#111827',  // A slightly darker gray for a more modern feel
+        lightGray: '#424242',
+        gold: '#f4e7c3', // Slightly lighter gold for better readability on dark backgrounds
+        indigo: {
+          DEFAULT: '#4b0082',
+          light: '#b366e2', // Lighter indigo for hover effects
+        },
+        pink: {
+          DEFAULT: '#ff69b4',
+          light: '#ff85c5', // Lighter pink for hover effects
+        },
+        red: {
+          DEFAULT: '#b22222',
+          light: '#c23b3b', // Lighter red for hover effects
+        },
+        transparent: 'transparent',
 
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
