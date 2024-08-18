@@ -132,10 +132,10 @@ export const Sidebar = ({
                             isCollapsed ? "justify-center" : "justify-start"
                           )}
                         >
-                          <route.icon className={cn("h-5 w-5", route.color)} />
+                          <route.icon className={cn("h-6 w-6", route.color)} />
                           {!isCollapsed && (
                             <>
-                              <span className="ml-3 flex-1">{route.label}</span>
+                              <span className="ml-4 flex-1">{route.label}</span>
                               {route.children && (
                                 <button
                                   className="ml-2 p-1"
