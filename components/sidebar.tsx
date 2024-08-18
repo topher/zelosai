@@ -7,7 +7,12 @@ import { Briefcase, ImageIcon, LayoutDashboard, Database, Workflow, ChevronDown,
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
-import React, { useState } from "react";
+import React, { useState, useCallback, useContext, useEffect } from "react";
+// import MintTokenGlobe from "../../assets/images/mint_token_globe.png"; // Adjust the path if needed
+import { Link as RNLink } from "react-router-dom";
+import { connectWallet, getMetadataFromApiAsync, getSelectedAddress } from "@/app/(dashboard)/(routes)/mint-token/Web3Client";
+import { ACCOUNT_STATE, TokenContext } from "@/app/(dashboard)/(routes)/mint-token/TokenContext";
+import athleteMetadata from "@/app/(dashboard)/(routes)/mint-token/athlete_metadata.json"; // Ensure correct path
 
 const montserrat = Montserrat({ weight: '600', subsets: ['latin'] });
 
@@ -78,7 +83,7 @@ const settings = {
 export const Sidebar = ({
   apiLimitCount = 0,
   isPro = false,
-  isCollapsed, // state kept in layout for dynamic changes based on toggle
+  isCollapsed, 
   toggleSidebar
 }: {
   apiLimitCount: number;
@@ -89,12 +94,40 @@ export const Sidebar = ({
   const pathname = usePathname();
   const [expandedRoutes, setExpandedRoutes] = useState<{ [key: string]: boolean }>({});
   
+  const { onSetUserProfile, web3BtnState, onAccountState } = useContext(TokenContext);
+
   const toggleExpand = (label: string) => {
     setExpandedRoutes((prev) => ({
       ...prev,
       [label]: !prev[label],
     }));
   };
+
+  const onSetSelectedToken = useCallback(async () => {
+    const token = await getSelectedAddress();
+    
+    if (token && token in athleteMetadata) {  // Use the `in` operator to check the key
+      onAccountState(ACCOUNT_STATE.MINT_TOKEN);
+    } else {
+      onAccountState(ACCOUNT_STATE.GUEST);
+    }
+  }, [onAccountState]);
+  
+  const onSetUserProfileHandler = useCallback(async () => {
+    const userProfile = await getMetadataFromApiAsync();
+    onSetUserProfile(userProfile);
+  }, [onSetUserProfile]);
+
+  const onConnectWallet = useCallback(async () => {
+    await connectWallet();
+    await onSetSelectedToken();
+    await onSetUserProfileHandler();
+  }, [onSetUserProfileHandler, onSetSelectedToken]);
+
+  useEffect(() => {
+    onSetSelectedToken();
+    onSetUserProfileHandler();
+  }, [onSetSelectedToken, onSetUserProfileHandler]);
 
   return (
     <TooltipProvider>
@@ -238,6 +271,39 @@ export const Sidebar = ({
                   </TooltipContent>
                 )}
               </Tooltip>
+            </div>
+          </div>
+          <div className="p-4">
+            {web3BtnState === ACCOUNT_STATE.CONNECT && (
+              <button className="web3-button" onClick={() => onConnectWallet()}>
+                Connect
+              </button>
+            )}
+            <div>
+              {web3BtnState === ACCOUNT_STATE.MINT_TOKEN && (
+                <RNLink to="/mint-token" className="web3-button">
+                  <span>{web3BtnState}</span>
+                  {/* <Image
+                    className="mint-token-globe"
+                    width={56}
+                    height={56}
+                    // src={MintTokenGlobe}
+                    alt={web3BtnState}
+                  /> */}
+                </RNLink>
+              )}
+              {web3BtnState === ACCOUNT_STATE.GUEST && (
+                <RNLink to="/mint-token" className="web3-button">
+                  <span>{web3BtnState}</span>
+                  {/* <Image
+                    className="mint-token-globe"
+                    width={56}
+                    height={56}
+                    src={MintTokenGlobe}
+                    alt={web3BtnState}
+                  /> */}
+                </RNLink>
+              )}
             </div>
           </div>
         </div>
