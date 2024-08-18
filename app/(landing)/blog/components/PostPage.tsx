@@ -34,32 +34,39 @@ export default function PostPage(props: PostPageProps) {
   return (
     <>
       <Layout>
-        <Container>
-          <LandingNavbar />
-          <BlogHeader title={settings?.title} level={2} />
-          <PostContainer>
-            {post ? (
-              <>
-                <PostHeader
-                  title={post.title}
-                  coverImage={post.coverImage}
-                  date={post.date}
-                  author={post.author}
-                />
-                <PostBody content={post.mainContent} />
-                <SectionSeparator />
-                {morePosts.length > 0 && (
-                  <div className="related-posts">
-                    <h1>More Stories</h1>
-                    <MoreStories posts={morePosts} />
-                  </div>
-                )}
-              </>
-            ) : (
-              <PostTitle>Loading…</PostTitle>
-            )}
-          </PostContainer>
-        </Container>
+        <LandingNavbar />
+        <BlogHeader title={settings?.title} level={2} />
+
+        {/* Ensure PostHeader takes full width */}
+        {post && (
+          <div className="w-full -mt-40">
+            <PostHeader
+              title={post.title}
+              coverImage={post.coverImage}
+              date={post.date}
+              author={post.author}
+              slug={post.slug}
+            />
+          </div>
+        )}
+
+        {/* Content Container */}
+        <PostContainer>
+          {post ? (
+            <>
+              <PostBody content={post.mainContent} />
+              <SectionSeparator />
+              {morePosts.length > 0 && (
+                <div className="related-posts">
+                  <h1>More Stories</h1>
+                  <MoreStories posts={morePosts} />
+                </div>
+              )}
+            </>
+          ) : (
+            <PostTitle>Loading…</PostTitle>
+          )}
+        </PostContainer>
       </Layout>
     </>
   );
