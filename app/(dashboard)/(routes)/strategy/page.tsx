@@ -13,12 +13,13 @@ const Strategy: React.FC = () => {
   const strategyRoute = routes.find(route => route.label === 'Strategy');
 
   return (
-    <div className={`container mx-auto pb-10 -translate-y-14 ${montserrat.className}`}>
-      <h1 className="text-6xl font-black mb-8 mt-4 relative text-left tracking-tight leading-tight">
+    <div className={`container mx-auto pb-10 ${montserrat.className}`}>
+      <h1 className="text-6xl font-black mb-8 -mt-10 relative text-left tracking-tight leading-tight">
         <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500">
           Strategy
+          {/* add extra context to denote homepage, maybe implement breadcrumb */}
         </span>
-        <span className="block mt-4 h-1 bg-gradient-to-r from-indigo-600 to-pink-500 rounded-full w-40"></span>
+        <span className="block mt-2 h-1 bg-gradient-to-r from-indigo-600 to-pink-500 rounded-full w-40"></span>
       </h1>
       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-8">
         {strategyRoute?.children?.map((child, index) => (
@@ -27,8 +28,8 @@ const Strategy: React.FC = () => {
             className="rounded-xl overflow-hidden shadow-lg transition-all transform hover:scale-105 hover:-translate-y-2 duration-300 group bg-gradient-to-t from-black/10 to-transparent backdrop-blur-lg hover:bg-gradient-to-br hover:from-indigo-500 hover:to-pink-500 hover:text-white hover:bg-opacity-30 hover:backdrop-blur-xl hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
           >
             <Link href={child.href}>
-              <div className="p-8">
-                <div className="mb-4">
+              <div className="p-6">
+                <div className="mb-2">
                   <Image
                     src={`/${child.icon}/${child.icon}-dynamic-color.png`}
                     alt={child.label}
