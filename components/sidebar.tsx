@@ -17,6 +17,12 @@ export const routes = [
     icon: LayoutDashboard,
     href: '/dashboard',
     color: "text-white-500",
+    children: [
+      { label: 'Assistants', href: '/digital-twin', color: "text-darkGray", description: "Explore your collection of AI models.", icon: "folder" },
+      { label: 'Data Vault', href: '/knowledge-bank', color: "text-darkGray", description: "Monitor the performance of your AI models.", icon: "chart" },
+      { label: 'Workflows', href: '/workflows', color: "text-darkGray", description: "Ensure the safe and responsible use of your likeness.", icon: "lock" },
+      { label: 'Strategy', href: '/strategy', color: "text-darkGray", description: "Build new AI models to expand your digital brand.", icon: "new-folder" },
+    ],
   },
   {
     label: 'Assistants',
