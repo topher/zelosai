@@ -105,30 +105,30 @@ export const Sidebar = ({
 
   const onSetSelectedToken = useCallback(async () => {
     const token = await getSelectedAddress();
-    
-    if (token && token in athleteMetadata) {  // Use the `in` operator to check the key
+    if (token) {
       onAccountState(ACCOUNT_STATE.MINT_TOKEN);
     } else {
       onAccountState(ACCOUNT_STATE.GUEST);
     }
   }, [onAccountState]);
-  
+
   const onSetUserProfileHandler = useCallback(async () => {
     const userProfile = await getMetadataFromApiAsync();
     onSetUserProfile(userProfile);
   }, [onSetUserProfile]);
-
+  
   const onConnectWallet = useCallback(async () => {
     await connectWallet();
     await onSetSelectedToken();
     await onSetUserProfileHandler();
+    console.log(web3BtnState)  // This might not show the updated state immediately
   }, [onSetUserProfileHandler, onSetSelectedToken]);
-
+  
   useEffect(() => {
     onSetSelectedToken();
     onSetUserProfileHandler();
   }, [onSetSelectedToken, onSetUserProfileHandler]);
-
+  
   return (
     <TooltipProvider>
       <div className="relative transition duration-300 ease-in-out">
