@@ -58,6 +58,7 @@ export const LandingNavbar = () => {
       <nav
         className={cn(
           'fixed top-0 left-0 w-full py-4 px-6 lg:py-6 lg:px-8 bg-gradient-to-b from-white/10 to-transparent backdrop-blur-lg rounded-b-3xl shadow-md flex items-center justify-between z-50 transition-all border-b border-white/20',
+          font.className
         )}
       >
         <Link href="/" className="flex items-center">
