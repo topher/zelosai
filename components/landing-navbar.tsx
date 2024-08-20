@@ -123,36 +123,36 @@ export const LandingNavbar = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden flex flex-col space-y-2 mt-4">
+          <div className="lg:hidden absolute top-16 right-0 w-full bg-darkGray backdrop-blur-lg rounded-b-3xl shadow-md p-6 flex flex-col space-y-4 z-50">
             <Button
-              className="px-4 py-2 text-lg font-semibold text-white bg-transparent border border-transparent rounded-lg"
+              className="w-full px-4 py-2 text-lg font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105"
               onClick={() => handleNavigation('#features')}
             >
               Features
             </Button>
             <Button
-              className="px-4 py-2 text-lg font-semibold text-white bg-transparent border border-transparent rounded-lg"
+              className="w-full px-4 py-2 text-lg font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105"
               onClick={() => handleNavigation('#process')}
             >
               How It Works
             </Button>
             <Link href="/pricing">
-              <Button className="px-4 py-2 text-lg font-semibold text-white bg-transparent border border-transparent rounded-lg">
+              <Button className="w-full px-4 py-2 text-lg font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105">
                 Pricing
               </Button>
             </Link>
             <Link href="/blog">
-              <Button className="px-4 py-2 text-lg font-semibold text-white bg-transparent border border-transparent rounded-lg">
+              <Button className="w-full px-4 py-2 text-lg font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105">
                 Blog
               </Button>
             </Link>
             <Link href={isSignedIn ? '/dashboard' : '/sign-up'}>
-              <Button className="px-4 py-2 text-lg font-semibold text-white bg-transparent border border-indigo-500 rounded-lg">
+              <Button className="w-full px-4 py-2 text-lg font-semibold text-white bg-transparent border border-indigo-500 rounded-lg transition-transform transform hover:scale-105 hover:border-indigo-700">
                 Log In
               </Button>
             </Link>
             <Link href="/connect-form">
-              <Button className="px-4 py-2 text-lg font-semibold text-white bg-gradient-to-r from-indigo-500 via-pink-500 to-red-500 rounded-lg">
+              <Button className="w-full px-4 py-2 text-lg font-semibold text-white bg-gradient-to-r from-indigo-500 via-pink-500 to-red-500 rounded-lg transition-transform transform hover:scale-105">
                 Get Started
               </Button>
             </Link>
