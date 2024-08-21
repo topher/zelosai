@@ -36,19 +36,19 @@ export const routes = [
     ],
   },
   {
-    label: 'Data Vault',
+    label: 'Data Bank',
     icon: Database,
     href: '/knowledge-bank',
     color: "text-pink-500",
     children: [
       { label: 'My Assets', href: '/knowledge-bank/inventory', color: "text-pink-500", description: "Manage the core data that shapes the foundation of your AI models.", icon: "locker" },
       { label: 'My Terms', href: '/knowledge-bank/taxonomy', color: "text-pink-500", description: "Visualize key insights from your data.", icon: "copy" },
-      { label: 'Rules', href: '/knowledge-bank/settings', color: "text-pink-500", description: "Manage your account rules across compliance frameworks.", icon: "shield" },
+      { label: 'Rules', href: '/knowledge-bank/rules', color: "text-pink-500", description: "Manage your account rules across compliance frameworks.", icon: "shield" },
       { label: 'Connectors', href: '/knowledge-bank/connectors', color: "text-pink-500", description: "Connect your favorite tools and platforms to streamline your workflow.", icon: "puzzle" },
     ],
   },
   {
-    label: 'Workflows',
+    label: 'Campaigns',
     icon: Workflow,
     href: '/workflows',
     color: "text-red-500",
