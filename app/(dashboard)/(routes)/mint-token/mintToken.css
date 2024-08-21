@@ -1,0 +1,50 @@
+.mint-token--container {
+  color: #fff;
+}
+
+.mint-token--container .heading {
+  font-family: Rubik;
+  font-weight: bold;
+  font-size: 32px;
+  text-align: center;
+}
+
+/*.left__section {
+  padding-right: 100px;
+}*/
+.card_image {
+  height: 600px;
+  width: 600px;
+}
+.right__section {
+  flex: 1;
+  width: 100%;
+}
+
+.mint-token__btn:hover,
+.mint-token__btn {
+  background: #3189b8;
+  color: #fff;
+  border: 0;
+  font-family: Rubik, "sans-serif";
+  font-weight: bold;
+  font-size: 16px;
+  padding: 0 20px;
+  border-radius: 30px;
+  max-height: 56px;
+  min-height: 56px;
+  cursor: pointer;
+  width: 200px;
+}
+
+.multi-token-status__container .message {
+  font-family: Rubik;
+  font-size: 32px;
+}
+
+.multi-token-status__container .icon {
+  width: 550px;
+  margin: 0 auto;
+  color: #fff;
+  text-align: center;
+}

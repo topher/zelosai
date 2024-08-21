@@ -1,0 +1,52 @@
+{
+  "0xbefe7f9cf6dce36b32eca82902a6ecf58df83852": {
+    "token_url": "https://ipfs.io/ipfs/QmVN5T38HpwDrLbR746f79UgAtdtiGVB6hNd8wn8i9fRBF?filename=test_metadata.json",
+    "royalty_group_address":"0x94a270fa25092e35eee5be71dcd685b616ec2320",
+    "role_granted":"Y"
+  },
+  "0x818845ae263b270386ec26fd17895efec12c6c25": {
+    "token_url": "https://ipfs.io/ipfs/QmabXgFzXZsQV2kjghnHHFqfSCBe3Dr34XFr1S2xpEuvQF?filename=9e75114c6105a4a3b2cbc1f1cc1abe98f2952c60378a7b585fd02b6b61e7648d.json",
+    "royalty_group_address":"0x43eecbf36b336bd0c4bde82f33b95aa624ba1d7d",
+    "role_granted":"N"
+  },
+  "0x51b32c67ff68b95feb0e5c98bb3b34839a71d82a": {
+    "token_url": "https://ipfs.io/ipfs/QmXyXHLE5ggGueSb18hstRXmN81htUsRUC4czT74tPhjGL?filename=9bf24e5356e8e7d11b93c42a76b7c0c0866f521170e2197caf92f9ae7be13319.json",
+    "royalty_group_address":"0x44e3ce4e0982fd98678e799b924bc2ce2fe59867",
+    "role_granted":"Y"
+  },
+  "0x8b768fafb2b19ebb5642dfe87ab9ef598b22e1f9": {
+    "token_url": "https://ipfs.io/ipfs/QmYKZ2asnm7G8wqNKU2Ma9kTrV9G4McZunwrxFGhRJsJ59?filename=bd2fff8bf3f9c804aea7ce3df37e7e552876427dcc2ad0130a10be9c81caee33.json",
+    "royalty_group_address":"0x43eecbf36b336bd0c4bde82f33b95aa624ba1d7d",
+    "role_granted":"Y"
+  },
+  "0xc34122e40da322586f945add2a471224010b49ae": {
+    "token_url": "https://ipfs.io/ipfs/QmbuiRBrTDYZXVBK9pnLzAqzLhLN8xCjhmG1BUVrPtzbph?filename=testing_ipfs_metadata.json",
+    "royalty_group_address":"",
+    "role_granted":"Y"
+  },
+  "0xfd4bc63dc7f561eaa14a0ed25c16a5ee96ed454f": {
+    "token_url": "https://ipfs.io/ipfs/QmabXgFzXZsQV2kjghnHHFqfSCBe3Dr34XFr1S2xpEuvQF?filename=9e75114c6105a4a3b2cbc1f1cc1abe98f2952c60378a7b585fd02b6b61e7648d.json",
+    "royalty_group_address": "0x8a3ce06bd166c7fde388b5b48ca5a2b54a829944",
+    "role_granted":"Y"
+  },
+  "0x48119fb427db63901ce2da9cf4799104d78c9413": {
+    "token_url": "https://ipfs.io/ipfs/QmYW8uWUFyHQUXbS5yZEAFPrB9QQVGtitVoXxeWGvNPDkz?filename=4a57365e484c925d6467747cb051ff3048b0f5e9c28bf7f47ccc2fc1abe15e36.json",
+    "royalty_group_address":"0x77555b45844061cedcc7b673f6c6db5e9df2aa34",
+    "role_granted":"Y"
+  },
+  "0xc98643fd22d57a50fdd36c8f5ed1aaef94dd895b": {
+    "token_url": "https://ipfs.io/ipfs/QmWHWh7sFcHRfxdbzMpWb7Rpoysw8fs2STtnta4dCUoeAT?filename=0976d7571b2a07010906388c99c7842e953ace4a40d89e75cff4ca652ab1d397.json",
+    "royalty_group_address":"0x51dbe900164aa4f704616f008eb39fa2887d3100",
+    "role_granted":"Y"
+  },
+  "0x0fa188b99543bcae5dbc363bde977e1b1743ee48": {
+    "token_url": "https://ipfs.io/ipfs/QmVZy8yKQjjJGpirrZgGfovhm3NxeGRExtyNTJmDG3roYv?filename=147db5a5109814f9d3d84786aa9119fc8486a8e6259c02e826298153f59d9a0b.json",
+    "royalty_group_address":"0x833ff7255e178538b52563ead0351a3c261bdc3f",
+    "role_granted":"Y"
+  },
+  "0x8253a1A09fa3508d1c45394220C32AA78259e02B": {
+  "token_url": "https://ipfs.io/ipfs/QmPTJ8vKQV48GD8DFHebrvrZ2HcquMgb5Levofd7CDQQBf?filename=27c0bd0f98c860389fc189782dc11f1c165cb386fabd95663afe5b9eb5c2083a.json",
+  "royalty_group_address":"0xe6055fac1f9e55dbdf18c32519c94fd5d8d7d593",
+  "role_granted":"Y"
+  }
+}
