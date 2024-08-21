@@ -8,21 +8,21 @@ import { Montserrat } from 'next/font/google';
 
 const montserrat = Montserrat({ weight: '600', subsets: ['latin'] });
 
-const DataVault: React.FC = () => {
+const DataBank: React.FC = () => {
   // find the Data Vault route from the sidebar routes array
-  const dataVaultRoute = routes.find(route => route.label === 'Data Vault');
+  const dataBankRoute = routes.find(route => route.label === 'Data Bank');
 
   return (
     <div className={`container mx-auto pb-10 ${montserrat.className}`}>
       <h1 className="text-6xl font-black mb-8 -mt-10 relative text-left tracking-tight leading-tight">
         <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500">
-          Data Vault
+          {dataBankRoute.label}
           {/* add extra context to denote homepage, maybe implement breadcrumb */}
         </span>
         <span className="block mt-2 h-1 bg-gradient-to-r from-indigo-600 to-pink-500 rounded-full w-40"></span>
       </h1>
       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-        {dataVaultRoute?.children?.map((child, index) => (
+        {dataBankRoute?.children?.map((child, index) => (
           <li
             key={index}
             className="rounded-xl overflow-hidden shadow-lg transition-all transform hover:scale-105 hover:-translate-y-2 duration-300 group bg-gradient-to-t from-black/10 to-transparent backdrop-blur-lg hover:bg-gradient-to-br hover:from-indigo-500 hover:to-pink-500 hover:text-white hover:bg-opacity-30 hover:backdrop-blur-xl hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
@@ -60,7 +60,7 @@ const DataVault: React.FC = () => {
   );
 };
 
-export default DataVault;
+export default DataBank;
 
 
 // import { Metadata } from "next"

@@ -16,7 +16,7 @@ const Dashboard: React.FC = () => {
     <div className={`container mx-auto pb-10 ${montserrat.className}`}>
       <h1 className="text-6xl font-black mb-8 -mt-10 relative text-left tracking-tight leading-tight">
         <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500">
-          Dashboard
+          {dashboardRoute.label}
           {/* add extra context to denote homepage, maybe implement breadcrumb */}
         </span>
         <span className="block mt-2 h-1 bg-gradient-to-r from-indigo-600 to-pink-500 rounded-full w-40"></span>
