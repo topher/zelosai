@@ -3,6 +3,7 @@
 import IndexPage from '@/app/(landing)/blog/components/IndexPage';
 import PreviewIndexPage from '@/app/(landing)/blog/components/PreviewIndexPage';
 import { LandingNavbar } from '@/components/landing-navbar';
+import { Footer } from '../components/Footer';
 import { readToken } from '@/lib/sanity.api';
 import { getAllPosts, getClient, getSettings } from '@/lib/sanity.client';
 import { Post, Settings } from '@/lib/sanity.queries';
@@ -28,16 +29,16 @@ export default async function Page() {
   };
 
   return (
-    <main className="h-full bg-[#111827] overflow-auto">
-      <div className="mx-auto max-w-screen-xl h-full w-full pt-16">
-        <LandingNavbar />
+    <main className="h-full bg-[#111827] overflow-auto w-full">
+      <LandingNavbar />
+      <div className="w-full h-full pt-16">
         {draftMode ? (
           <PreviewIndexPage posts={props.posts} settings={props.settings} />
         ) : (
           <IndexPage posts={props.posts} settings={props.settings} />
         )}
       </div>
+      <Footer />
     </main>
   );
 }
- 
