@@ -24,6 +24,18 @@ export const routes = [
     color: "text-white-500",
   },
   {
+    label: 'Strategy',
+    icon: Briefcase,
+    href: '/strategy',
+    color: "text-indigo-500",
+    children: [
+      { label: 'Goals', href: '/strategy/goals', color: "text-indigo-500", description: "Define the objectives for your organization.", icon: "target" },
+      { label: 'Risks', href: '/strategy/risks', color: "text-indigo-500", description: "Identify potential challenges to your AI strategy.", icon: "flag" },
+      { label: 'Use Cases', href: '/strategy/use-cases', color: "text-indigo-500", description: "Set the practical applications for your AI models and products.", icon: "bookmark-fav" },
+      { label: 'Plan', href: '/strategy/plan', color: "text-indigo-500", description: "Develop a strategy to achieve your AI-driven goals.", icon: "chess" },
+    ],
+  },
+  {
     label: 'Assistants',
     icon: ImageIcon,
     href: '/digital-twin',
@@ -34,6 +46,13 @@ export const routes = [
       { label: 'Safety', href: '/digital-twin/safety', color: "text-indigo-light", description: "Ensure the safe and responsible use of your likeness.", icon: "lock" },
       { label: 'Create New', href: '/digital-twin/library', color: "text-indigo-light", description: "Build new AI models to expand your digital brand.", icon: "new-folder" },
     ],
+  },
+  {
+    label: 'Contracts',
+    icon: Briefcase,
+    href: '/contracts',
+    color: "text-indigo-500",
+    children: [],
   },
   {
     label: 'Data Bank',
@@ -57,18 +76,6 @@ export const routes = [
       { label: 'My Tasks', href: '/workflows/tasks', color: "text-red-500", description: "Track your ongoing tasks and responsibilities.", icon: "tick" },
       { label: 'Activity', href: '/workflows/analytics', color: "text-red-500", description: "Review recent actions and updates within your workflows.", icon: "rocket" },
       { label: 'New Workflow', href: '/workflows/plan', color: "text-red-500", description: "Create and customize new workflows to optimize your efficiency.", icon: "plus" },
-    ],
-  },
-  {
-    label: 'Strategy',
-    icon: Briefcase,
-    href: '/strategy',
-    color: "text-indigo-500",
-    children: [
-      { label: 'Goals', href: '/strategy/goals', color: "text-indigo-500", description: "Define the objectives for your organization.", icon: "target" },
-      { label: 'Risks', href: '/strategy/risks', color: "text-indigo-500", description: "Identify potential challenges to your AI strategy.", icon: "flag" },
-      { label: 'Use Cases', href: '/strategy/use-cases', color: "text-indigo-500", description: "Set the practical applications for your AI models and products.", icon: "bookmark-fav" },
-      { label: 'Plan', href: '/strategy/plan', color: "text-indigo-500", description: "Develop a strategy to achieve your AI-driven goals.", icon: "chess" },
     ],
   },
 ];

@@ -35,13 +35,69 @@ export type Task = {
   priority: string;
 }
 
+
+export type Clause = {
+  id: string;
+  title: string;
+  content: string;
+  type: 'obligation' | 'power' | 'definition' | string;
+};
+
+export type Section = {
+  id: string;
+  title: string;
+  order: number;
+  parentId?: string;
+  clauses: Clause[];
+};
+
+export type Event = {
+  id: string;
+  type: string;
+  date: string;
+  description: string;
+  relatedPartyIds: string[];
+};
+
+export type ContractModel = {
+  id: string;
+  title: string;
+  effectiveDate: string;
+  expirationDate: string;
+  status: 'draft' | 'active' | 'expired' | string; // Optional property
+  parties: Array<{ id: string; name: string; role: string; contactInfo: string; }>;
+  sections: Section[] | any[];
+  assets: InfoAsset[] | any[];
+  obligations: Array<{
+    debtorPartyId: string;
+    creditorPartyId: string;
+    status: 'active' | 'fulfilled' | 'breached'| string;
+    dueDate: string;
+  }>;
+  events: Event[] | any[];
+  creationDate: string;
+  lastUpdated: string;
+  contract_creator: string;
+  emoji: string;
+  cover: string;
+  creator: string;
+  description: string;
+  rights: string;
+  schemaDateCreated: string;
+  schemaContentUrl: string;
+  schemaContentType: string;
+  tags: string[];
+  uri: string;
+};
+
+
 export type UserDefinedModelCategory = {
     // account: Account;
     name: string;
     includes?: string[];
     excludes?: string[];
 }
-  
+
 export type AIModel = {
     label: string;
     tags: string[];  
@@ -101,7 +157,7 @@ export type InfoAsset = {
     path?: string; // Path to the asset file (e.g., FBX)
     scale?:  number[];
     tags?: string[];
-    uri?: string; // Optional property for API-based data source
+    // uri?: string; // Optional property for API-based data source
 }
 
 export type Workflow = {
