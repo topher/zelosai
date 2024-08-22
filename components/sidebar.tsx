@@ -282,11 +282,11 @@ export const Sidebar = ({
           <div className="relative group">
             <Tooltip key={isCollapsed ? "collapsed" : "expanded"}>
               <TooltipTrigger asChild>
-                <Link href="/connect" passHref>
+                <Link href="#" passHref>
                   <div
                     className={cn(
                       "flex items-center p-3 w-full justify-center font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
-                      pathname === "/connect" ? "text-white bg-white/10" : "text-zinc-400",
+                      pathname === "#" ? "text-white bg-white/10" : "text-zinc-400",
                       isCollapsed ? "justify-center" : "justify-start"
                     )}
                     onClick={() => onConnectWallet()}
