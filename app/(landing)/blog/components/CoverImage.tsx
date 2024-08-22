@@ -1,47 +1,42 @@
-import cn from 'classnames'
-import { urlForImage } from '@/lib/sanity.image'
-import Image from 'next/image'
-import Link from 'next/link'
+import cn from 'classnames';
+import { urlForImage } from '@/lib/sanity.image';
+import Image from 'next/image';
+import Link from 'next/link';
 
 interface CoverImageProps {
-  title?: string
-  slug?: string
-  image: any
-  priority?: boolean
+  title?: string;
+  slug?: string;
+  image: any;
+  priority?: boolean;
   className?: string;
 }
 
 export default function CoverImage(props: CoverImageProps) {
-  const { title, slug, image: source, priority } = props
+  const { title, slug, image: source, priority } = props;
+
   const image = source?.asset?._ref ? (
-    <div
-      className={cn('shadow-small', {
-        'transition-shadow duration-200 hover:shadow-medium': slug,
-      })}
-    >
+    <div className={cn('shadow-small')}>
       <Image
-        className="h-auto w-full"
+        className="h-auto w-full object-cover" // Ensure the image covers the available space without distorting
         width={2000}
         height={1000}
-        alt=""
+        alt={title}
         src={urlForImage(source).height(1000).width(2000).url()}
         sizes="100vw"
         priority={priority}
       />
     </div>
   ) : (
-    <div style={{ paddingTop: '50%', backgroundColor: '#ddd' }} />
-  )
-
-  return (
-    <div className="sm:mx-0">
-      {slug ? (
-        <Link href={`/blog/posts/${slug}`} aria-label={title}>
-          {image}
-        </Link>
-      ) : (
-        image
-      )}
+    <div className="h-64 bg-gray-300 flex items-center justify-center">
+      <span className="text-gray-500">No image available</span>
     </div>
-  )
+  );
+
+  return slug ? (
+    <Link href={`/blog/posts/${slug}`} aria-label={title}>
+      {image}
+    </Link>
+  ) : (
+    image
+  );
 }

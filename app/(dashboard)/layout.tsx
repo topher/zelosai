@@ -1,4 +1,4 @@
-// app/(dashboard)/layout.tsx
+// layout.tsx (app)
 "use client"
 
 import Navbar from "@/components/navbar";
@@ -19,18 +19,18 @@ const DashboardLayout = ({
   const toggleSidebar = () => setIsCollapsed(!isCollapsed);
 
   return (
-    <div className="min-h-screen relative bg-cover bg-center bg-fixed">
-      <div>
-        <Sidebar 
-          isPro={isPro} 
-          apiLimitCount={apiLimitCount} 
-          isCollapsed={isCollapsed}
-          toggleSidebar={toggleSidebar}
-        />
-      </div>
-      <main className={isCollapsed ? "md:pl-20 min-h-screen" : "md:pl-64 min-h-screen"}>
+    <div className="h-screen flex">
+      <Sidebar 
+        isPro={isPro} 
+        apiLimitCount={apiLimitCount} 
+        isCollapsed={isCollapsed}
+        toggleSidebar={toggleSidebar}
+      />
+      <main className={`flex-1 flex flex-col ${isCollapsed ? "md:pl-20" : "md:pl-64"}`}>
         <Navbar routes={routes} apiLimitCount={apiLimitCount} isPro={isPro} />
-        {children}
+        <div className="flex-1 flex justify-center items-center">
+          {children}
+        </div>
       </main>
     </div>
   );

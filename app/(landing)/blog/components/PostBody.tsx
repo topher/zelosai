@@ -25,7 +25,7 @@ interface PostBodyProps {
 
 export default function PostBody({ content }: PostBodyProps) {
   return (
-    <div className={`mx-auto max-w-2xl ${styles.postBody}`}>
+    <div className={`${styles.postBody}`}>
       <ReactMarkdown 
         remarkPlugins={[remarkGfm]} 
         components={{

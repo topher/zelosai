@@ -1,11 +1,8 @@
 .postBody {
-  max-width: 800px; /* Increase the max-width for better readability */
+  max-width: 80%; /* Increase the max-width for better readability */
   margin: 0 auto; /* Center the content */
-  padding: 20px; /* Add padding around the content */
-  background-color: #ffffff; /* Light background for contrast with dark text */
+  padding-top: 20px; /* Add padding around the content */
   color: #1A1A1A; /* Dark text color */
-  border-radius: 20px; /* Rounded corners for a modern look */
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .postBody h1,

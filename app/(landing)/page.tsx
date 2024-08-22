@@ -19,7 +19,7 @@ export default async function LandingPage() {
   const posts = await getAllPosts(client);
 
   return (
-    <div className="h-full">
+    <div className="mx-auto max-w-screen-xl h-full">
       <LandingNavbar />
       <LandingHero />
       <div className="w-full h-[1px] bg-white/20 mt-16"></div>
@@ -33,8 +33,8 @@ export default async function LandingPage() {
       <div className="w-full h-[1px] bg-white/20 mt-16"></div>
       <div id="stories" className="pt-16 -mt-16">
         <MoreStories posts={posts} title="Check Out Our Resources" />
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Montserrat } from 'next/font/google';
-import { Briefcase, ImageIcon, LayoutDashboard, Database, Workflow, ChevronDown, ChevronRight, Settings } from "lucide-react";
+import { Briefcase, ImageIcon, LayoutDashboard, Database, Workflow, ChevronDown, ChevronRight, Settings, QrCode } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
@@ -22,6 +22,12 @@ export const routes = [
     icon: LayoutDashboard,
     href: '/dashboard',
     color: "text-white-500",
+    children: [
+      { label: 'Assistants', href: '/digital-twin', color: "text-darkGray", description: "Explore your collection of AI models.", icon: "picture" },
+      { label: 'Data Bank', href: '/knowledge-bank', color: "text-darkGray", description: "Monitor the performance of your AI models.", icon: "locker" },
+      { label: 'Campaigns', href: '/workflows', color: "text-darkGray", description: "Ensure the safe and responsible use of your likeness.", icon: "bulb" },
+      { label: 'Strategy', href: '/strategy', color: "text-darkGray", description: "Build new AI models to expand your digital brand.", icon: "travel" },
+    ],
   },
   {
     label: 'Strategy',
@@ -72,10 +78,10 @@ export const routes = [
     href: '/workflows',
     color: "text-red-500",
     children: [
-      { label: 'Library', href: '/workflows/library', color: "text-red-500", description: "Access resources to steamline your workflow processes.", icon: "link" },
+      { label: 'Library', href: '/workflows/library', color: "text-red-500", description: "Access resources to steamline your campaign processes.", icon: "link" },
       { label: 'My Tasks', href: '/workflows/tasks', color: "text-red-500", description: "Track your ongoing tasks and responsibilities.", icon: "tick" },
-      { label: 'Activity', href: '/workflows/analytics', color: "text-red-500", description: "Review recent actions and updates within your workflows.", icon: "rocket" },
-      { label: 'New Workflow', href: '/workflows/plan', color: "text-red-500", description: "Create and customize new workflows to optimize your efficiency.", icon: "plus" },
+      { label: 'Activity', href: '/workflows/analytics', color: "text-red-500", description: "Review recent actions and updates within your campaigns.", icon: "rocket" },
+      { label: 'New Campaign', href: '/workflows/plan', color: "text-red-500", description: "Create and customize new campaigns to optimize your efficiency.", icon: "plus" },
     ],
   },
 ];
@@ -176,7 +182,7 @@ export const Sidebar = ({
                           {!isCollapsed && (
                             <>
                               <span className="ml-4 flex-1">{route.label}</span>
-                              {route.children && (
+                              {route.children && route.label !== "Dashboard" && (
                                 <button
                                   className="ml-2 p-1"
                                   onClick={(e) => {
@@ -262,7 +268,7 @@ export const Sidebar = ({
                         isCollapsed ? "justify-center" : "justify-start"
                       )}
                     >
-                      <settings.icon className={cn("h-5 w-5", settings.color)} />
+                      <settings.icon className={cn("h-6 w-6", settings.color)} />
                       {!isCollapsed && (
                         <span className="ml-3 flex-1">{settings.label}</span>
                       )}
@@ -280,38 +286,34 @@ export const Sidebar = ({
               </Tooltip>
             </div>
           </div>
-          <div className="p-4">
-            {web3BtnState === ACCOUNT_STATE.CONNECT && (
-              <button className="web3-button" onClick={() => onConnectWallet()}>
-                Connect
-              </button>
-            )}
-            <div>
-              {web3BtnState === ACCOUNT_STATE.MINT_TOKEN && (
-                <RNLink to="/mint-token" className="web3-button">
-                  <span>{web3BtnState}</span>
-                  {/* <Image
-                    className="mint-token-globe"
-                    width={56}
-                    height={56}
-                    // src={MintTokenGlobe}
-                    alt={web3BtnState}
-                  /> */}
-                </RNLink>
+          <div className="relative group">
+            <Tooltip key={isCollapsed ? "collapsed" : "expanded"}>
+              <TooltipTrigger asChild>
+                <Link href="#" passHref>
+                  <div
+                    className={cn(
+                      "flex items-center p-3 w-full justify-center font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
+                      pathname === "#" ? "text-white bg-white/10" : "text-zinc-400",
+                      isCollapsed ? "justify-center" : "justify-start"
+                    )}
+                    onClick={() => onConnectWallet()}
+                  >
+                    <QrCode className="h-6 w-6 text-gray-300" />
+                    {!isCollapsed && (
+                      <span className="ml-3 flex-1">Connect</span>
+                    )}
+                  </div>
+                </Link>
+              </TooltipTrigger>
+              {isCollapsed && (
+                <TooltipContent
+                  side="right"
+                  className="bg-[#1f2937] text-white border border-gray-700 shadow-lg rounded-md px-3 py-2 transition-opacity duration-200 ease-in-out transform opacity-0 group-hover:opacity-100"
+                >
+                  Connect
+                </TooltipContent>
               )}
-              {web3BtnState === ACCOUNT_STATE.GUEST && (
-                <RNLink to="/mint-token" className="web3-button">
-                  <span>{web3BtnState}</span>
-                  {/* <Image
-                    className="mint-token-globe"
-                    width={56}
-                    height={56}
-                    src={MintTokenGlobe}
-                    alt={web3BtnState}
-                  /> */}
-                </RNLink>
-              )}
-            </div>
+            </Tooltip>
           </div>
         </div>
         <button
