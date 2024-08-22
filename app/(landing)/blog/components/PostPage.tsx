@@ -49,7 +49,7 @@ export default function PostPage(props: PostPageProps) {
 
         {/* Ensure PostHeader takes full width */}
         {post && (
-          <div className="w-full -mt-40">
+          <div className="relative overflow-hidden w-full -mt-40 rounded-b-[50px]">
             <PostHeader
               title={post.title}
               coverImage={post.coverImage}
