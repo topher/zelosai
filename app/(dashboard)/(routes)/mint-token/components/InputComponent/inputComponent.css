@@ -1,0 +1,68 @@
+.input__container .mint-token__input {
+  border-radius: 10px;
+  height: 45px;
+}
+
+.input__container .with__label {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.input__container .with__label label {
+  margin-bottom: 10px;
+}
+
+.input {
+  border: 1px solid #1b68ff;
+  background: transparent;
+  border-radius: 30px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.input:focus {
+  background: transparent;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.input-group .btn:hover,
+.input-group .btn:focus {
+  background: #1b68ff;
+}
+.input--button {
+  background: #1b68ff;
+  color: #fff;
+  border: 0;
+  min-width: 120px;
+  border-radius: 30px;
+}
+
+.input.input::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #fff;
+}
+.input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #fff;
+  opacity: 1;
+}
+.input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #fff;
+  opacity: 1;
+}
+.input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #fff;
+}
+.input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #fff;
+}
+
+::placeholder {
+  /* Most modern browsers support this now. */
+  color: #fff;
+}

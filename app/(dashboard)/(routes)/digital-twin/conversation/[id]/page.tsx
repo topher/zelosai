@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { useRouter, usePathname } from "next/navigation";
-import { ChatCompletionRequestMessage } from "openai";
+import ChatCompletionRequestMessage from "openai";
 
 import { BotAvatar } from "@/components/bot-avatar";
 import { Heading } from "@/components/heading";
@@ -28,12 +28,18 @@ interface ModelData {
   default_language: string;
 }
 
+interface ChatCompletionMessage {
+  role: 'system' | 'user' | 'assistant';
+  content: string;
+}
+
+
 const ConversationPage = () => {
   const router = useRouter();
   const pathname = usePathname();
   const proModal = useProModal();
   const modelId = pathname.split("/").pop();
-  const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
+  const [messages, setMessages] = useState<ChatCompletionMessage[]>([]);
   const [data, setData] = useState<ModelData | null>(null); // Use the interface for type checking
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -60,21 +66,24 @@ const ConversationPage = () => {
   }, [modelId]);
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log(`✅ fetching ${data}`);
     try {
-      const userMessage: ChatCompletionRequestMessage = { role: "user", content: values.prompt };
+      const userMessage: ChatCompletionMessage = {
+        role: "user",
+        content: values.prompt,
+      };
+  
       const newMessages = [...messages, userMessage];
-
+  
       const response = await axios.post('/api/conversation', {
         messages: newMessages,
-        default_language: data?.default_language
+        default_language: data?.default_language,
       });
-
-      const systemResponse: ChatCompletionRequestMessage = {
+  
+      const systemResponse: ChatCompletionMessage = {
         role: "system",
-        content: response.data[0].generated_text
+        content: response.data[0].generated_text,
       };
-
+  
       setMessages((current) => [...current, userMessage, systemResponse]);
       form.reset();
     } catch (error: any) {
@@ -87,7 +96,7 @@ const ConversationPage = () => {
       router.refresh();
     }
   };
-
+  
   return (
     <div>
       <Heading

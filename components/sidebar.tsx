@@ -7,7 +7,12 @@ import { Briefcase, ImageIcon, LayoutDashboard, Database, Workflow, ChevronDown,
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
-import React, { useState } from "react";
+import React, { useState, useCallback, useContext, useEffect } from "react";
+// import MintTokenGlobe from "../../assets/images/mint_token_globe.png"; // Adjust the path if needed
+import { Link as RNLink } from "react-router-dom";
+import { connectWallet, getMetadataFromApiAsync, getSelectedAddress } from "@/app/(dashboard)/(routes)/mint-token/Web3Client";
+import { ACCOUNT_STATE, TokenContext } from "@/app/(dashboard)/(routes)/mint-token/TokenContext";
+import athleteMetadata from "@/app/(dashboard)/(routes)/mint-token/athlete_metadata.json"; // Ensure correct path
 
 const montserrat = Montserrat({ weight: '600', subsets: ['latin'] });
 
@@ -22,48 +27,48 @@ export const routes = [
     label: 'Assistants',
     icon: ImageIcon,
     href: '/digital-twin',
-    color: "text-sky-500",
+    color: "text-indigo-light",
     children: [
-      { label: 'My Library', href: '/digital-twin/library', color: "text-sky-500", description: "Explore your collection of AI models.", icon: "folder" },
-      { label: 'Usage', href: '/digital-twin/analytics', color: "text-sky-500", description: "Monitor the performance of your AI models.", icon: "chart" },
-      { label: 'Safety', href: '/digital-twin/safety', color: "text-sky-500", description: "Ensure the safe and responsible use of your likeness.", icon: "lock" },
-      { label: 'Create New', href: '/digital-twin/library', color: "text-sky-500", description: "Build new AI models to expand your digital brand.", icon: "new-folder" },
+      { label: 'My Library', href: '/digital-twin/library', color: "text-indigo-light", description: "Explore your collection of AI models.", icon: "folder" },
+      { label: 'Usage', href: '/digital-twin/analytics', color: "text-indigo-light", description: "Monitor the performance of your AI models.", icon: "chart" },
+      { label: 'Safety', href: '/digital-twin/safety', color: "text-indigo-light", description: "Ensure the safe and responsible use of your likeness.", icon: "lock" },
+      { label: 'Create New', href: '/digital-twin/library', color: "text-indigo-light", description: "Build new AI models to expand your digital brand.", icon: "new-folder" },
     ],
   },
   {
-    label: 'Data Vault',
+    label: 'Data Bank',
     icon: Database,
     href: '/knowledge-bank',
-    color: "text-green-500",
+    color: "text-pink-500",
     children: [
-      { label: 'My Assets', href: '/knowledge-bank/inventory', color: "text-green-500", description: "Manage the core data that shapes the foundation of your AI models.", icon: "locker" },
-      { label: 'My Terms', href: '/knowledge-bank/taxonomy', color: "text-green-500", description: "Visualize key insights from your data.", icon: "copy" },
-      { label: 'Rules', href: '/knowledge-bank/settings', color: "text-green-500", description: "Manage your account rules across compliance frameworks.", icon: "shield" },
-      { label: 'Connectors', href: '/knowledge-bank/connectors', color: "text-green-500", description: "Connect your favorite tools and platforms to streamline your workflow.", icon: "puzzle" },
+      { label: 'My Assets', href: '/knowledge-bank/inventory', color: "text-pink-500", description: "Manage the core data that shapes the foundation of your AI models.", icon: "locker" },
+      { label: 'My Terms', href: '/knowledge-bank/taxonomy', color: "text-pink-500", description: "Visualize key insights from your data.", icon: "copy" },
+      { label: 'Rules', href: '/knowledge-bank/rules', color: "text-pink-500", description: "Manage your account rules across compliance frameworks.", icon: "shield" },
+      { label: 'Connectors', href: '/knowledge-bank/connectors', color: "text-pink-500", description: "Connect your favorite tools and platforms to streamline your workflow.", icon: "puzzle" },
     ],
   },
   {
-    label: 'Workflows',
+    label: 'Campaigns',
     icon: Workflow,
     href: '/workflows',
-    color: "text-yellow-500",
+    color: "text-red-500",
     children: [
-      { label: 'Library', href: '/workflows/library', color: "text-yellow-500", description: "Access resources to steamline your workflow processes.", icon: "link" },
-      { label: 'My Tasks', href: '/workflows/tasks', color: "text-yellow-500", description: "Track your ongoing tasks and responsibilities.", icon: "tick" },
-      { label: 'Activity', href: '/workflows/analytics', color: "text-yellow-500", description: "Review recent actions and updates within your workflows.", icon: "rocket" },
-      { label: 'New Workflow', href: '/workflows/plan', color: "text-yellow-500", description: "Create and customize new workflows to optimize your efficiency.", icon: "plus" },
+      { label: 'Library', href: '/workflows/library', color: "text-red-500", description: "Access resources to steamline your workflow processes.", icon: "link" },
+      { label: 'My Tasks', href: '/workflows/tasks', color: "text-red-500", description: "Track your ongoing tasks and responsibilities.", icon: "tick" },
+      { label: 'Activity', href: '/workflows/analytics', color: "text-red-500", description: "Review recent actions and updates within your workflows.", icon: "rocket" },
+      { label: 'New Workflow', href: '/workflows/plan', color: "text-red-500", description: "Create and customize new workflows to optimize your efficiency.", icon: "plus" },
     ],
   },
   {
     label: 'Strategy',
     icon: Briefcase,
     href: '/strategy',
-    color: "text-red-500",
+    color: "text-indigo-500",
     children: [
-      { label: 'Goals', href: '/strategy/goals', color: "text-red-500", description: "Define the objectives for your organization.", icon: "target" },
-      { label: 'Risks', href: '/strategy/risks', color: "text-red-500", description: "Identify potential challenges to your AI strategy.", icon: "flag" },
-      { label: 'Use Cases', href: '/strategy/use-cases', color: "text-red-500", description: "Set the practical applications for your AI models and products.", icon: "bookmark-fav" },
-      { label: 'Plan', href: '/strategy/plan', color: "text-red-500", description: "Develop a strategy to achieve your AI-driven goals.", icon: "chess" },
+      { label: 'Goals', href: '/strategy/goals', color: "text-indigo-500", description: "Define the objectives for your organization.", icon: "target" },
+      { label: 'Risks', href: '/strategy/risks', color: "text-indigo-500", description: "Identify potential challenges to your AI strategy.", icon: "flag" },
+      { label: 'Use Cases', href: '/strategy/use-cases', color: "text-indigo-500", description: "Set the practical applications for your AI models and products.", icon: "bookmark-fav" },
+      { label: 'Plan', href: '/strategy/plan', color: "text-indigo-500", description: "Develop a strategy to achieve your AI-driven goals.", icon: "chess" },
     ],
   },
 ];
@@ -78,7 +83,7 @@ const settings = {
 export const Sidebar = ({
   apiLimitCount = 0,
   isPro = false,
-  isCollapsed, // state kept in layout for dynamic changes based on toggle
+  isCollapsed, 
   toggleSidebar
 }: {
   apiLimitCount: number;
@@ -89,6 +94,8 @@ export const Sidebar = ({
   const pathname = usePathname();
   const [expandedRoutes, setExpandedRoutes] = useState<{ [key: string]: boolean }>({});
   
+  const { onSetUserProfile, web3BtnState, onAccountState } = useContext(TokenContext);
+
   const toggleExpand = (label: string) => {
     setExpandedRoutes((prev) => ({
       ...prev,
@@ -96,6 +103,32 @@ export const Sidebar = ({
     }));
   };
 
+  const onSetSelectedToken = useCallback(async () => {
+    const token = await getSelectedAddress();
+    if (token) {
+      onAccountState(ACCOUNT_STATE.MINT_TOKEN);
+    } else {
+      onAccountState(ACCOUNT_STATE.GUEST);
+    }
+  }, [onAccountState]);
+
+  const onSetUserProfileHandler = useCallback(async () => {
+    const userProfile = await getMetadataFromApiAsync();
+    onSetUserProfile(userProfile);
+  }, [onSetUserProfile]);
+  
+  const onConnectWallet = useCallback(async () => {
+    await connectWallet();
+    await onSetSelectedToken();
+    await onSetUserProfileHandler();
+    console.log(web3BtnState)  // This might not show the updated state immediately
+  }, [onSetUserProfileHandler, onSetSelectedToken]);
+  
+  useEffect(() => {
+    onSetSelectedToken();
+    onSetUserProfileHandler();
+  }, [onSetSelectedToken, onSetUserProfileHandler]);
+  
   return (
     <TooltipProvider>
       <div className="relative transition duration-300 ease-in-out">
@@ -132,10 +165,10 @@ export const Sidebar = ({
                             isCollapsed ? "justify-center" : "justify-start"
                           )}
                         >
-                          <route.icon className={cn("h-5 w-5", route.color)} />
+                          <route.icon className={cn("h-6 w-6", route.color)} />
                           {!isCollapsed && (
                             <>
-                              <span className="ml-3 flex-1">{route.label}</span>
+                              <span className="ml-4 flex-1">{route.label}</span>
                               {route.children && (
                                 <button
                                   className="ml-2 p-1"
@@ -238,6 +271,39 @@ export const Sidebar = ({
                   </TooltipContent>
                 )}
               </Tooltip>
+            </div>
+          </div>
+          <div className="p-4">
+            {web3BtnState === ACCOUNT_STATE.CONNECT && (
+              <button className="web3-button" onClick={() => onConnectWallet()}>
+                Connect
+              </button>
+            )}
+            <div>
+              {web3BtnState === ACCOUNT_STATE.MINT_TOKEN && (
+                <RNLink to="/mint-token" className="web3-button">
+                  <span>{web3BtnState}</span>
+                  {/* <Image
+                    className="mint-token-globe"
+                    width={56}
+                    height={56}
+                    // src={MintTokenGlobe}
+                    alt={web3BtnState}
+                  /> */}
+                </RNLink>
+              )}
+              {web3BtnState === ACCOUNT_STATE.GUEST && (
+                <RNLink to="/mint-token" className="web3-button">
+                  <span>{web3BtnState}</span>
+                  {/* <Image
+                    className="mint-token-globe"
+                    width={56}
+                    height={56}
+                    src={MintTokenGlobe}
+                    alt={web3BtnState}
+                  /> */}
+                </RNLink>
+              )}
             </div>
           </div>
         </div>

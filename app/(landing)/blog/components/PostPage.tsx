@@ -28,6 +28,16 @@ const PostContainer = styled.div`
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 `;
 
+const NavbarBackground = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px; /* match navbar's height */
+  background-color: #111827;
+  z-index: 49; /* Just below the navbar's z-index of 50 */
+`;
+
 export default function PostPage(props: PostPageProps) {
   const { preview, loading, morePosts, post, settings } = props;
 
