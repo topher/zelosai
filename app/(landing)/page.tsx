@@ -33,8 +33,8 @@ export default async function LandingPage() {
       <div className="w-full h-[1px] bg-white/20 mt-16"></div>
       <div id="stories" className="pt-16 -mt-16">
         <MoreStories posts={posts} title="Check Out Our Resources" />
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }

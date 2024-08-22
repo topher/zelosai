@@ -3,6 +3,7 @@
 import IndexPage from '@/app/(landing)/blog/components/IndexPage';
 import PreviewIndexPage from '@/app/(landing)/blog/components/PreviewIndexPage';
 import { LandingNavbar } from '@/components/landing-navbar';
+import { Footer } from '../components/Footer';
 import { readToken } from '@/lib/sanity.api';
 import { getAllPosts, getClient, getSettings } from '@/lib/sanity.client';
 import { Post, Settings } from '@/lib/sanity.queries';
@@ -37,6 +38,7 @@ export default async function Page() {
           <IndexPage posts={props.posts} settings={props.settings} />
         )}
       </div>
+      <Footer />
     </main>
   );
 }

@@ -8,6 +8,7 @@ import SectionSeparator from '@/app/(landing)/blog/components/SectionSeparator';
 import PostTitle from '@/app/(landing)/blog/components/PostTitle';
 import { Post } from '@/lib/sanity.queries';
 import { LandingNavbar } from '@/components/landing-navbar';
+import { Footer } from '../../components/Footer';
 import styled from 'styled-components';
 
 export interface PostPageProps {
@@ -67,6 +68,9 @@ export default function PostPage(props: PostPageProps) {
         ) : (
           <PostTitle>Loading…</PostTitle>
         )}
+        <div className='bg-darkGray'>
+          <Footer />
+        </div>
       </Layout>
     </>
   );
