@@ -314,6 +314,7 @@ export const tier_data = {
 // Type InfoAsset
 export const info_assets = [
   {
+    id: "zelos/victor-amo/biography",
     URI: "zelos/victor-amo/biography",
     name: "Victor Amo - Early Cycling Career",
     category: "Biography",
@@ -326,6 +327,7 @@ export const info_assets = [
     dcma_registrant_email: "admin@vamo.co",
     read: false
   },{
+    id: "zelos/victor-amo/highlight-reel.mp4",
     URI: "zelos/victor-amo/highlight-reel.mp4",
     name: "Victor Amo - 2023 Season Highlights",
     category: "Media",
@@ -340,6 +342,7 @@ export const info_assets = [
     dcma_registrant_email: "admin@vamo.co",
     read: false
   },{
+    id: "zelos/victor-amo/contract-proposal-ac...", // Replace with actual contract ID
     URI: "zelos/victor-amo/contract-proposal-ac...", // Replace with actual contract ID
     name: "Team X - Contract Proposal",
     category: "Contracts",
@@ -352,6 +355,7 @@ export const info_assets = [
     dcma_registrant_email: "admin@vamo.co",
     read: false
   },{
+    id: "zelos/scouting-reports/new-talent.pdf",
     URI: "zelos/scouting-reports/new-talent.pdf",
     name: "U-18 Talent Scouting Report (Europe)",
     category: "Scouting",
@@ -363,6 +367,7 @@ export const info_assets = [
     dcma_registrant_email: "admin@vamo.co",
     read: false
   },{
+    id: "zelos/victor-amo/social-media-analysis.png",
     URI: "zelos/victor-amo/social-media-analysis.png",
     name: "Victor Amo - Social Media Engagement (October)",
     category: "Analytics",
@@ -375,6 +380,7 @@ export const info_assets = [
     dcma_registrant_email: "admin@vamo.co",
     read: false
   },{
+    id: "zelos/victor-amo/performance-data-2023.csv",
     URI: "zelos/victor-amo/performance-data-2023.csv",
     name: "Victor Amo - 2023 Performance Data",
     category: "Raw Core Data",
@@ -390,6 +396,7 @@ export const info_assets = [
     dcma_registrant_email: "admin@vamo.co",
     read: false
   },{
+    id: "zelos/victor-amo/training-recommendations-ai.pdf",
     URI: "zelos/victor-amo/training-recommendations-ai.pdf",
     name: "AI-Generated Training Recommendations for Victor Amo",
     category: "AI Generated Content",
@@ -405,6 +412,7 @@ export const info_assets = [
     dcma_registrant_email: "admin@vamo.co",
     read: false
   },{
+    id: "zelos/victor-amo/medical-records/2023", // Secured access required
     URI: "zelos/victor-amo/medical-records/2023", // Secured access required
     name: "Victor Amo - Medical Records (2023)",
     category: "Health Data",
@@ -416,6 +424,7 @@ export const info_assets = [
     dcma_registrant_email: "admin@vamo.co",
     read: false
   },{
+    id: "zelos/scouting-reports/new-talent-ai.pdf",
     URI: "zelos/scouting-reports/new-talent-ai.pdf",
     name: "U-18 Talent Scouting Report (Europe) with AI Insights",
     category: "Scouting", // Main category
@@ -432,6 +441,7 @@ export const info_assets = [
     read: false
   },
   {
+    id: "zelos/victor-amo/KM200CoolblackSatelite", // Assuming unique identifier
     URI: "zelos/victor-amo/KM200CoolblackSatelite", // Assuming unique identifier
     "schema:contentUrl": "./assets/grg_1/grg_01260434_fbx/model.fbx",
     name: "KM200 COOLBLACK SATELITE",
@@ -443,6 +453,7 @@ export const info_assets = [
     mimetype: "model/fbx", // Assuming FBX format
   },
   {
+    id: "zelos/victor-amo/MangaCortaKM100HeladosTonny", // Assuming unique identifier
     URI: "zelos/victor-amo/MangaCortaKM100HeladosTonny", // Assuming unique identifier
     "schema:contentUrl": "./assets/grg_1/helados_01281702_fbx/model.fbx",
     name: "Manga Corta KM100 Helados Tonny",
@@ -454,6 +465,7 @@ export const info_assets = [
     mimetype: "model/fbx", // Assuming FBX format
   },
   {
+    id: "zelos/victor-amo/OrbeaAlmaM502023OMR", // Assuming unique identifier
     URI: "zelos/victor-amo/OrbeaAlmaM502023OMR", // Assuming unique identifier
     "schema:contentUrl": "./assets/grg_1/helados_01281739_fbx/model.fbx",
     name: "ORBEA ALMA M50 2023 OMR",
@@ -465,6 +477,7 @@ export const info_assets = [
     mimetype: "model/fbx", // Assuming FBX format
   },
   {
+    id: "zelos/victor-amo/FincaCafetera", // Assuming unique identifier
     URI: "zelos/victor-amo/FincaCafetera", // Assuming unique identifier
     "schema:contentUrl": "./assets/grg_1/uploads_files_2040232_mountain_Green_1.fbx",
     name: "Finca Cafetera",
@@ -476,6 +489,7 @@ export const info_assets = [
     mimetype: "model/fbx", // Assuming FBX format
   },
   {
+    id: "zelos/victor-amo/ZapatillaDMTKm0", // Assuming unique identifier
     URI: "zelos/victor-amo/ZapatillaDMTKm0", // Assuming unique identifier
     "schema:contentUrl": "./assets/grg_1/cup_01280337_fbxt/model.fbx",
     name: "Zapatilla DMT Km0",
@@ -487,6 +501,7 @@ export const info_assets = [
     mimetype: "model/fbx", // Assuming FBX format
   },
   {
+    id: "zelos/victor-amo/BTwinTribanBike", // Assuming unique identifier
     URI: "zelos/victor-amo/BTwinTribanBike", // Assuming unique identifier
     "schema:contentUrl": "./assets/grg_1/BTwinTriban.fbx",
     name: "BTwin Triban Bike",
@@ -498,6 +513,7 @@ export const info_assets = [
     mimetype: "model/fbx", // Assuming FBX format
   },
   {
+    id: "zelos/victor-amo/CafeRigo", // Assuming unique identifier
     URI: "zelos/victor-amo/CafeRigo", // Assuming unique identifier
     "schema:contentUrl": "./assets/grg_1/cup_01280414_fbx/model.fbx",
     name: "Cafe Rigo",
@@ -2092,8 +2108,31 @@ export const contracts = [
               "contactInfo": "media@example.com"
           }
       ],
-      "sections": [],
-      "assets": [],
+      "sections": [      {
+        "id": "section-001",
+        "title": "Intellectual Property",
+        "order": 1,
+        "clauses": [
+          {
+            "id": "clause-001",
+            "title": "Ownership of Intellectual Property",
+            "content": "All present and future rights and title, as well as the interest to all intellectual property created during the term of the employment, is transferred from the Employee to the Employer.",
+            "type": "obligation"
+          },
+          {
+            "id": "clause-002",
+            "title": "Rights Transfer",
+            "content": "The Employee agrees to transfer all intellectual property rights to the Employer immediately upon creation.",
+            "type": "obligation"
+          }
+        ]
+      }],
+      "assets": [{
+        "id": "asset-002",
+        "name": "Invisible Ink Formula",
+        "URI": "http://example.com/assets/invisible-ink-formula",
+
+      }],
       "obligations": [
           {
               "debtorPartyId": "party2",
@@ -2102,7 +2141,13 @@ export const contracts = [
               "dueDate": "2024-12-31"
           }
       ],
-      "events": [],
+      "events": [{
+        id: "event-001",
+        type: "contract-signing",
+        date: "2024-04-01",
+        description: "The contract was signed by both parties.",
+        relatedPartyIds: ["party-001", "party-002"]
+      }],
       "creationDate": "2023-12-01",
       "lastUpdated": "2024-01-01",
       "emoji": "🤝",

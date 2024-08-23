@@ -43,7 +43,16 @@ export function ContractCard({
       <ContextMenu>
         <ContextMenuTrigger>
           <div className="overflow-hidden rounded-md">
-            {!imageError ? (
+          <div
+                  className={cn(
+                    "flex items-center justify-center text-white text-4xl font-bold",
+                    aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"
+                  )}
+                  style={{ backgroundColor: '#111827' }} // Custom background color
+                >
+                {contract.emoji}
+              </div>
+            {/* {!imageError ? (
               <Image
                 src={contract.cover}
                 alt={contract.title}
@@ -65,7 +74,7 @@ export function ContractCard({
                 >
                 {contract.emoji}
               </div>
-            )}
+            )} */}
           </div>
         </ContextMenuTrigger>
         <ContextMenuContent className="w-40">

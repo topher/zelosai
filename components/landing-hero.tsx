@@ -11,10 +11,10 @@ export const LandingHero = () => {
   return (
     <div className="text-white font-bold min-h-screen flex flex-col justify-center items-center text-center space-y-10 pt-16">
       <div className="space-y-6">
-        <h1 className={cn("text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold mb-4 drop-shadow-lg animate-fade-in")}>
+        <h1 className={cn("text-6xl sm:text-7xl md:text-8xl lg:text-8xl font-extrabold mb-4 drop-shadow-lg animate-fade-in")}>
           Scale Your Brand.
         </h1>
-        <h1 className={cn("text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold drop-shadow-lg animate-fade-in delay-[200ms]")}>
+        <h1 className={cn("text-6xl sm:text-7xl md:text-8xl lg:text-8xl font-extrabold drop-shadow-lg animate-fade-in delay-[200ms]")}>
           Secure Your Future.
         </h1>
       </div>

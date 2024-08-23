@@ -66,15 +66,15 @@ export type ContractModel = {
   expirationDate: string;
   status: 'draft' | 'active' | 'expired' | string; // Optional property
   parties: Array<{ id: string; name: string; role: string; contactInfo: string; }>;
-  sections: Section[] | any[];
-  assets: InfoAsset[] | any[];
+  sections: Section[];
+  assets: InfoAsset[];
   obligations: Array<{
     debtorPartyId: string;
     creditorPartyId: string;
     status: 'active' | 'fulfilled' | 'breached'| string;
     dueDate: string;
   }>;
-  events: Event[] | any[];
+  events: Event[];
   creationDate: string;
   lastUpdated: string;
   contract_creator: string;
@@ -130,6 +130,7 @@ export type DataConnector = {
 }
 
 export type InfoAsset = {
+    id: string;
     URI: string;
     name: string;
     category?: string;
@@ -157,7 +158,7 @@ export type InfoAsset = {
     path?: string; // Path to the asset file (e.g., FBX)
     scale?:  number[];
     tags?: string[];
-    // uri?: string; // Optional property for API-based data source
+    uri?: string; // Optional property for API-based data source
 }
 
 export type Workflow = {
