@@ -21,56 +21,56 @@ export const routes = [
     label: 'Dashboard',
     icon: LayoutDashboard,
     href: '/dashboard',
-    color: "text-white-500",
+    color: "text-gray-500",  // Adjusted to gray-500 for consistency
     children: [
-      { label: 'Assistants', href: '/digital-twin', color: "text-darkGray", description: "Explore your collection of AI models.", icon: "picture" },
-      { label: 'Data Bank', href: '/knowledge-bank', color: "text-darkGray", description: "Monitor the performance of your AI models.", icon: "locker" },
-      { label: 'Campaigns', href: '/workflows', color: "text-darkGray", description: "Ensure the safe and responsible use of your likeness.", icon: "bulb" },
-      { label: 'Strategy', href: '/strategy', color: "text-darkGray", description: "Build new AI models to expand your digital brand.", icon: "travel" },
+      { label: 'Assistants', href: '/digital-twin', color: "text-gray-600", description: "Explore your collection of AI models.", icon: "picture" },
+      { label: 'Data Bank', href: '/knowledge-bank', color: "text-gray-600", description: "Monitor the performance of your AI models.", icon: "locker" },
+      { label: 'Campaigns', href: '/workflows', color: "text-gray-600", description: "Ensure the safe and responsible use of your likeness.", icon: "bulb" },
+      { label: 'Strategy', href: '/strategy', color: "text-gray-600", description: "Build new AI models to expand your digital brand.", icon: "travel" },
     ],
   },
   {
     label: 'Strategy',
     icon: Briefcase,
     href: '/strategy',
-    color: "text-indigo-500",
+    color: "text-blue-500",
     children: [
-      { label: 'Goals', href: '/strategy/goals', color: "text-indigo-500", description: "Define the objectives for your organization.", icon: "target" },
-      { label: 'Risks', href: '/strategy/risks', color: "text-indigo-500", description: "Identify potential challenges to your AI strategy.", icon: "flag" },
-      { label: 'Use Cases', href: '/strategy/use-cases', color: "text-indigo-500", description: "Set the practical applications for your AI models and products.", icon: "bookmark-fav" },
-      { label: 'Plan', href: '/strategy/plan', color: "text-indigo-500", description: "Develop a strategy to achieve your AI-driven goals.", icon: "chess" },
+      { label: 'Goals', href: '/strategy/goals', color: "text-blue-500", description: "Define the objectives for your organization.", icon: "target" },
+      { label: 'Risks', href: '/strategy/risks', color: "text-blue-500", description: "Identify potential challenges to your AI strategy.", icon: "flag" },
+      { label: 'Use Cases', href: '/strategy/use-cases', color: "text-blue-500", description: "Set the practical applications for your AI models and products.", icon: "bookmark-fav" },
+      { label: 'Plan', href: '/strategy/plan', color: "text-blue-500", description: "Develop a strategy to achieve your AI-driven goals.", icon: "chess" },
     ],
   },
   {
     label: 'Assistants',
     icon: ImageIcon,
     href: '/digital-twin',
-    color: "text-indigo-light",
+    color: "text-green-500",
     children: [
-      { label: 'My Library', href: '/digital-twin/library', color: "text-indigo-light", description: "Explore your collection of AI models.", icon: "folder" },
-      { label: 'Usage', href: '/digital-twin/analytics', color: "text-indigo-light", description: "Monitor the performance of your AI models.", icon: "chart" },
-      { label: 'Safety', href: '/digital-twin/safety', color: "text-indigo-light", description: "Ensure the safe and responsible use of your likeness.", icon: "lock" },
-      { label: 'Create New', href: '/digital-twin/library', color: "text-indigo-light", description: "Build new AI models to expand your digital brand.", icon: "new-folder" },
+      { label: 'My Library', href: '/digital-twin/library', color: "text-green-500", description: "Explore your collection of AI models.", icon: "folder" },
+      { label: 'Usage', href: '/digital-twin/analytics', color: "text-green-500", description: "Monitor the performance of your AI models.", icon: "chart" },
+      { label: 'Safety', href: '/digital-twin/safety', color: "text-green-500", description: "Ensure the safe and responsible use of your likeness.", icon: "lock" },
+      { label: 'Create New', href: '/digital-twin/library', color: "text-green-500", description: "Build new AI models to expand your digital brand.", icon: "new-folder" },
+    ],
+  },
+  {
+    label: 'Data Bank',
+    icon: Database,
+    href: '/knowledge-bank',
+    color: "text-yellow-500",
+    children: [
+      { label: 'My Assets', href: '/knowledge-bank/inventory', color: "text-yellow-500", description: "Manage the core data that shapes the foundation of your AI models.", icon: "locker" },
+      { label: 'My Terms', href: '/knowledge-bank/taxonomy', color: "text-yellow-500", description: "Visualize key insights from your data.", icon: "copy" },
+      { label: 'Rules', href: '/knowledge-bank/rules', color: "text-yellow-500", description: "Manage your account rules across compliance frameworks.", icon: "shield" },
+      { label: 'Connectors', href: '/knowledge-bank/connectors', color: "text-yellow-500", description: "Connect your favorite tools and platforms to streamline your workflow.", icon: "puzzle" },
     ],
   },
   {
     label: 'Contracts',
     icon: Briefcase,
     href: '/contracts',
-    color: "text-indigo-500",
+    color: "text-orange-500",
     children: [],
-  },
-  {
-    label: 'Data Bank',
-    icon: Database,
-    href: '/knowledge-bank',
-    color: "text-pink-500",
-    children: [
-      { label: 'My Assets', href: '/knowledge-bank/inventory', color: "text-pink-500", description: "Manage the core data that shapes the foundation of your AI models.", icon: "locker" },
-      { label: 'My Terms', href: '/knowledge-bank/taxonomy', color: "text-pink-500", description: "Visualize key insights from your data.", icon: "copy" },
-      { label: 'Rules', href: '/knowledge-bank/rules', color: "text-pink-500", description: "Manage your account rules across compliance frameworks.", icon: "shield" },
-      { label: 'Connectors', href: '/knowledge-bank/connectors', color: "text-pink-500", description: "Connect your favorite tools and platforms to streamline your workflow.", icon: "puzzle" },
-    ],
   },
   {
     label: 'Campaigns',
@@ -85,6 +85,7 @@ export const routes = [
     ],
   },
 ];
+
 
 const settings = {
   label: 'Settings',
