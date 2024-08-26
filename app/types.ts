@@ -1,4 +1,12 @@
-export type DataCategory = {  
+  // Profile interface
+export interface Profile {
+    id: string;
+    name: string;
+    sport: string;
+    location: string;
+    imageSrc: string;
+  }
+  export type DataCategory = {  
   fides_key: string; 
   is_default: string;
   name: string;

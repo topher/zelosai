@@ -2,6 +2,30 @@ import { Code, ImageIcon, MessageSquare, Music, VideoIcon } from "lucide-react";
 
 export const MAX_FREE_COUNTS = 50;
 
+// data.tsx
+const userData = [
+  {
+    id: "user_1",
+    email: "user1@example.com",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    emailVerified: new Date(),
+    // other user fields
+  },
+  {
+    id: "user_2",
+    email: "user2@example.com",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    emailVerified: new Date(),
+    // other user fields
+  },
+  // Add more users as needed
+];
+
+export default userData;
+
+
 // Type of Activity
 export const user_activity = [
   {

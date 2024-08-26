@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Montserrat } from 'next/font/google';
-import { Briefcase, ImageIcon, LayoutDashboard, Database, Workflow, ChevronDown, ChevronRight, Settings, QrCode } from "lucide-react";
+import { Briefcase, ImageIcon, LayoutDashboard, Database, Workflow, ChevronDown, ChevronRight, Settings, QrCode, Search } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
@@ -83,6 +83,12 @@ export const routes = [
       { label: 'Activity', href: '/workflows/analytics', color: "text-red-500", description: "Review recent actions and updates within your campaigns.", icon: "rocket" },
       { label: 'New Campaign', href: '/workflows/plan', color: "text-red-500", description: "Create and customize new campaigns to optimize your efficiency.", icon: "plus" },
     ],
+  },
+  {
+    label: 'Profiles',
+    icon: Search,
+    href: '/profiles',
+    color: "text-purple-500"
   },
 ];
 
