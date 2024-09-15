@@ -7,6 +7,7 @@ export interface Profile {
     imageSrc: string;
   }
   export type DataCategory = {  
+  accountId: string;
   fides_key: string; 
   is_default: string;
   name: string;
@@ -26,6 +27,7 @@ export type Account = {
 }
 
 export type UserAction = {
+  accountId: string;
   avatarSrc: string;
   name: string;
   email: string;
@@ -37,6 +39,7 @@ export type UserAction = {
 
 export type Task = {
   id: string;
+  accountId: string;
   title: string;
   status: string;
   label: string;
@@ -69,6 +72,7 @@ export type Event = {
 
 export type ContractModel = {
   id: string;
+  accountId: string;
   title: string;
   effectiveDate: string;
   expirationDate: string;
@@ -101,12 +105,14 @@ export type ContractModel = {
 
 export type UserDefinedModelCategory = {
     // account: Account;
+    accountId: string;
     name: string;
     includes?: string[];
     excludes?: string[];
 }
 
 export type AIModel = {
+    accountId: string;
     label: string;
     tags: string[];  
     emoji?: string;
@@ -126,50 +132,51 @@ export type AIModel = {
     subject_prompt_alias?: string[];
     subject_prompt_key?: string;
     default_language?: string;
+    createdBy: string;
+    createdAt: any;
 }
 
 export type DataConnector = {
-    id: string;
-    name: string;
-    description?: string;
-    icon?: string; // URL to the connector icon
-    form?: React.ComponentType<any>; // Type for the connector form component
-    connectionType: string;
+  id: string;
+  accountId: string;
+  name: string;
+  description?: string;
+  icon?: string; // URL to the connector icon
+  form?: React.ComponentType<any>; // Type for the connector form component
+  connectionType: string;
 }
 
-export type InfoAsset = {
-    id: string;
-    URI: string;
-    name: string;
-    category?: string;
-    content?: string;
-    media_link?: string;
-    mimetype?: string;
-    labels?: string[];
-    creation_date?: string;
-    last_updated?: string;
-    dcma_registrant_email?: string;
-    read?: boolean;
-  
-    // Dublin Core properties
-    "dc:creator"?: string;
-    "dc:description"?: string;
-    "dc:subject"?: string;
-    "dc:rights"?: string;
-  
-    // schema.org properties (consider adding more as needed)
-    "schema:dateCreated"?: string;
-    "schema:contentUrl"?: string;
-    "schema:contentType"?: string;
-  
-    type?: string;
-    path?: string; // Path to the asset file (e.g., FBX)
-    scale?:  number[];
-    tags?: string[];
-    uri?: string; // Optional property for API-based data source
+// app/types.ts
+
+export interface InfoAsset {
+  id: string;
+  accountId: string;
+  URI: string;
+  name: string;
+  category?: string;
+  asset_type?: string;
+  content?: string;
+  media_link?: string;
+  mimetype?: string;
+  dc_creator?: string;
+  dc_description?: string;
+  schema_dateCreated?: string;
+  labels?: string[];
+  status?: string;
+  dcma_registrant_email?: string;
+  read?: boolean;
+  uri: string;
+  creation_date: string;
+  entity_type?: string;
+  image?: string; 
 }
+
+
 
 export type Workflow = {
+    workflow_creator: string;
+    id: string;
+    accountId: string;
     name: string
     emoji?: string
     artist: string
@@ -188,6 +195,7 @@ export type Statement = {
 // New Rule Type
 export type Rule = {
   id: string;
+  accountId: string;
   deontologicalDuty: string; // Prohibited, Allowed, Obligated
   subjectCondition: Statement;
   predicate: string;
@@ -199,6 +207,8 @@ export type Rule = {
 
 
 export type Goal = {
+    id: string;
+    accountId: string;
     Goal: string;
     Description: string;
     StrategicIndicator: string;
@@ -217,6 +227,8 @@ export type StategicIssue = {
 }
 
 export type UseCase = {
+    id: string;
+    accountId: string;
     Description: string;
     Subject: string;
     Target: string;
@@ -226,6 +238,7 @@ export type UseCase = {
 
 export type Agent = {
     id: string;
+    accountId: string;
     Name: string;
     Description: string;
     Type: "Corporate Entity" | "Individual" | string;
@@ -241,144 +254,63 @@ export type Contact = {
 }
 
 export interface BusinessModel {
-    companyName: string;
-    logo: string;
-    industry: string;
-    location: string;
-    foundedYear: number;
-    description: string;
-    website: string;
-    socialMedia: {
+  companyName: string;
+  logo: string;
+  industry: string;
+  location: string;
+  foundedYear: number;
+  description: string;
+  website: string;
+  socialMedia: {
       linkedin: string;
       twitter: string;
       facebook: string;
-    };
-    customerSegments: {
-      segment1: {
-        name: string;
-        description: string;
-      };
-      segment2: {
-        name: string;
-        description: string;
-      };
-      segment3: {
-        name: string;
-        description: string;
-      };
-    };
-    valuePropositions: {
-      valueProp1: {
-        name: string;
-        description: string;
-      };
-      valueProp2: {
-        name: string;
-        description: string;
-      };
-      valueProp3: {
-        name: string;
-        description: string;
-      };
-    };
-    channels: {
-      channel1: {
-        name: string;
-        description: string;
-      };
-      channel2: {
-        name: string;
-        description: string;
-      };
-      channel3: {
-        name: string;
-        description: string;
-      };
-    };
-    customerRelationships: {
-      relationship1: {
-        name: string;
-        description: string;
-      };
-      relationship2: {
-        name: string;
-        description: string;
-      };
-      relationship3: {
-        name: string;
-        description: string;
-      };
-    };
-    revenueStreams: {
-      stream1: {
-        name: string;
-        description: string;
-      };
-      stream2: {
-        name: string;
-        description: string;
-      };
-      stream3: {
-        name: string;
-        description: string;
-      };
-    };
-    keyResources: {
-      resource1: {
-        name: string;
-        description: string;
-      };
-      resource2: {
-        name: string;
-        description: string;
-      };
-      resource3: {
-        name: string;
-        description: string;
-      };
-    };
-    keyActivities: {
-      activity1: {
-        name: string;
-        description: string;
-      };
-      activity2: {
-        name: string;
-        description: string;
-      };
-      activity3: {
-        name: string;
-        description: string;
-      };
-    };
-    keyPartners: {
-      partner1: {
-        name: string;
-        description: string;
-      };
-      partner2: {
-        name: string;
-        description: string;
-      };
-      partner3: {
-        name: string;
-        description: string;
-      };
-    };
-    cost: {
-      cost1: {
-        name: string;
-        description: string;
-      };
-      cost2: {
-        name: string;
-        description: string;
-      };
-      cost3: {
-        name: string;
-        description: string;
-      };
-    };
+  };
+  customerSegments: Array<{
+      id: string;
+      name: string;
+      description: string;
+  }>;
+  valuePropositions: Array<{
+      id: string;
+      name: string;
+      description: string;
+  }>;
+  channels: Array<{
+      id: string;
+      name: string;
+      description: string;
+  }>;
+  customerRelationships: Array<{
+      id: string;
+      name: string;
+      description: string;
+  }>;
+  revenueStreams: Array<{
+      id: string;
+      name: string;
+      description: string;
+  }>;
+  keyResources: Array<{
+      id: string;
+      name: string;
+      description: string;
+  }>;
+  keyActivities: Array<{
+      id: string;
+      name: string;
+      description: string;
+  }>;
+  keyPartners: Array<{
+      id: string;
+      name: string;
+      description: string;
+  }>;
+  cost: Array<{
+      id: string;
+      name: string;
+      description: string;
+  }>;
 }
 
 export interface StatCard {

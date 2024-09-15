@@ -1,38 +1,41 @@
-import { Metadata } from "next";
+"use client"
+import { useEffect, useState } from "react";
 import Image from "next/image";
-// import { PlusCircledIcon } from "@radix-ui/react-icons"
-
 import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs";
-
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ContractCard } from "@/app/(dashboard)/(routes)/contracts/components/contract-card";
-import { Menu } from "@/app/(dashboard)/(routes)/contracts/components/menu";
 import { ContractEmptyPlaceholder } from "@/app/(dashboard)/(routes)/contracts/components/contract-empty-placeholder";
-import { Sidebar } from "@/app/(dashboard)/(routes)/contracts/components/sidebar";
-import { contracts } from "@/app/data";
+import { getContractsByAccountId } from "@/app/actions/contractsActions"; // Import the action
 import { ContractModel } from "@/app/types";
 
-// export const metadata: Metadata = {
-//   title: "Contracts",
-//   description: "Contract library app for managing legal agreements.",
-// };
-
 export default function ContractsPage() {
-    // Filter contracts ensuring that each contract has a status, making it safe to cast to ContractModel
-    const user_defined_contracts = contracts.filter((contract): contract is ContractModel => {
-        return contract.contract_creator === "user_defined";
-      });
-      
-      const suggested_contracts = contracts.filter((contract): contract is ContractModel => {
-        return contract.contract_creator === "suggested_contract";
-      });
+  const accountId = "12345"; // Dummy account ID
+  const [contracts, setContracts] = useState<ContractModel[]>([]);
+
+  useEffect(() => {
+    // Fetch contracts from Elasticsearch for this accountId
+    const fetchContracts = async () => {
+      try {
+        const data = await getContractsByAccountId(accountId);
+        setContracts(data);
+      } catch (error) {
+        console.error("Error fetching contracts:", error);
+      }
+    };
+
+    fetchContracts();
+  }, []);
+
+  // Filter contracts by creator type
+  const user_defined_contracts = contracts.filter(
+    (contract) => contract.contract_creator === "user_defined"
+  );
+
+  const suggested_contracts = contracts.filter(
+    (contract) => contract.contract_creator === "suggested_contract"
+  );
 
   return (
     <>
@@ -53,11 +56,9 @@ export default function ContractsPage() {
         />
       </div>
       <div className="hidden md:block">
-        {/* <Menu /> */}
         <div className="border-t">
           <div className="bg-background">
             <div className="grid lg:grid-cols-5">
-              {/* <Sidebar contracts={contracts} className="hidden lg:block" /> */}
               <div className="col-span-3 lg:col-span-4 lg:border-l">
                 <div className="h-full px-4 py-6 lg:px-8">
                   <Tabs defaultValue="active" className="h-full space-y-6">
@@ -72,24 +73,15 @@ export default function ContractsPage() {
                         </TabsTrigger>
                       </TabsList>
                       <div className="ml-auto mr-4">
-                        <Button>
-                          {/* <PlusCircledIcon className="mr-2 h-4 w-4" /> */}
-                          Create New Contract
-                        </Button>
+                        <Button>Create New Contract</Button>
                       </div>
                     </div>
-                    <TabsContent
-                      value="active"
-                      className="border-none p-0 outline-none"
-                    >
+
+                    <TabsContent value="active" className="border-none p-0 outline-none">
                       <div className="flex items-center justify-between">
                         <div className="space-y-1">
-                          <h2 className="text-2xl font-semibold tracking-tight">
-                            Continue reviewing
-                          </h2>
-                          <p className="text-sm text-muted-foreground">
-                            Your key contracts today – Stay on top of it!
-                          </p>
+                          <h2 className="text-2xl font-semibold tracking-tight">Continue reviewing</h2>
+                          <p className="text-sm text-muted-foreground">Your key contracts today – Stay on top of it!</p>
                         </div>
                       </div>
                       <Separator className="my-4" />
@@ -98,7 +90,7 @@ export default function ContractsPage() {
                           <div className="flex space-x-4 pb-4">
                             {user_defined_contracts.map((contract: ContractModel) => (
                               <ContractCard
-                                key={contract.title}
+                                key={contract.id}
                                 contract={contract}
                                 className="w-[250px]"
                                 aspectRatio="portrait"
@@ -111,12 +103,8 @@ export default function ContractsPage() {
                         </ScrollArea>
                       </div>
                       <div className="mt-6 space-y-1">
-                        <h2 className="text-2xl font-semibold tracking-tight">
-                          Suggested Contracts
-                        </h2>
-                        <p className="text-sm text-muted-foreground">
-                          Save time with pre-built contract templates
-                        </p>
+                        <h2 className="text-2xl font-semibold tracking-tight">Suggested Contracts</h2>
+                        <p className="text-sm text-muted-foreground">Save time with pre-built contract templates</p>
                       </div>
                       <Separator className="my-4" />
                       <div className="relative">
@@ -124,7 +112,7 @@ export default function ContractsPage() {
                           <div className="flex space-x-4 pb-4">
                             {suggested_contracts.map((contract: ContractModel) => (
                               <ContractCard
-                                key={contract.title}
+                                key={contract.id}
                                 contract={contract}
                                 className="w-[150px]"
                                 aspectRatio="square"
@@ -137,15 +125,11 @@ export default function ContractsPage() {
                         </ScrollArea>
                       </div>
                     </TabsContent>
-                    <TabsContent
-                      value="draft"
-                      className="h-full flex-col border-none p-0 data-[state=active]:flex"
-                    >
+
+                    <TabsContent value="draft" className="h-full flex-col border-none p-0 data-[state=active]:flex">
                       <div className="flex items-center justify-between">
                         <div className="space-y-1">
-                          <h2 className="text-2xl font-semibold tracking-tight">
-                            Continue drafting
-                          </h2>
+                          <h2 className="text-2xl font-semibold tracking-tight">Continue drafting</h2>
                           <p className="text-sm text-muted-foreground">
                             Contracts, clauses, and negotiations aligned with your strategic goals.
                           </p>
@@ -162,5 +146,5 @@ export default function ContractsPage() {
         </div>
       </div>
     </>
-  )
+  );
 }

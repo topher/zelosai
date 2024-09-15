@@ -564,3 +564,11 @@ body .MuiAccordionDetails-root {
   transform: translateY(-5px);
   background: linear-gradient(45deg, #5856d6, #ff2d55);
 }
+
+.filters-section {
+  margin-bottom: 24px;
+}
+
+.filters-section h4 {
+  margin-bottom: 8px;
+}

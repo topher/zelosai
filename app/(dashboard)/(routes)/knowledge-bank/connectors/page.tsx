@@ -1,85 +1,100 @@
-"use client"
-import { Metadata } from "next"
-import Image from "next/image"
-import { useState } from "react"
-import ConnectorsList from "./connectors-list"
-import { connectors } from "@/app/data"; // Assuming connectors data is defined here
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+"use client";
+import { useState, useEffect } from "react";
+import SidebarNav from "./sidebar-nav";
 import { Button } from "@/components/ui/button";
-import { DialogOverlay } from "@radix-ui/react-dialog";
+import { ConnectorForm } from "./connector-form";
+import { getConnectorsByAccountId } from "@/app/actions/connectorsActions";
+import { DataConnector } from "@/app/types";
 
+// Interface for connector data
+interface ConnectorCardProps {
+  key: string;
+  connector: DataConnector;
+}
 
 export default function ConnectorsLayout() {
+  const [selectedConnector, setSelectedConnector] = useState<DataConnector | null>(null);
+  const [connectors, setConnectors] = useState<DataConnector[]>([]);
   const [isCreateConnectorModalOpen, setIsCreateConnectorModalOpen] = useState(false);
+
+  // Fetch connectors dynamically on mount
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getConnectorsByAccountId("12345"); // Replace with dynamic accountId
+      setConnectors(data);
+      console.log(connectors)
+    }
+    fetchData();
+  }, []);
 
   const handleOpenCreateConnectorModal = () => setIsCreateConnectorModalOpen(true);
   const handleCloseCreateConnectorModal = () => setIsCreateConnectorModalOpen(false);
 
+  const handleConnectorSelect = (connector: DataConnector) => {
+    setSelectedConnector(connector);
+  };
+
+  const ConnectorCard: React.FC<ConnectorCardProps> = ({ connector }) => (
+    <div className="bg-white rounded-lg shadow-md px-6 py-8 cursor-pointer hover:shadow-lg hover:bg-gray-100 w-full max-w-[300px]">
+      <img src={connector.icon} alt={connector.name} className="w-16 h-16 mx-auto mb-4" />
+      <h3 className="text-lg font-medium text-center">{connector.name}</h3>
+      <p className="text-muted-foreground text-center">
+        {connector.description?.slice(0, 70) + "..."}
+      </p>
+      <Button variant="outline" size="sm" className="mt-4 mx-auto">
+        Connect
+      </Button>
+    </div>
+  );
+
   return (
-    <>
-      <div className="md:hidden">
-        <Image
-          src="/examples/forms-light.png"
-          width={1280}
-          height={791}
-          alt="Forms"
-          className="block dark:hidden"
-        />
-        <Image
-          src="/examples/forms-dark.png"
-          width={1280}
-          height={791}
-          alt="Forms"
-          className="hidden dark:block"
+    <div className="flex">
+      {/* Sidebar for existing connectors */}
+      <div className="w-1/4 bg-gray-100 h-screen p-6 sticky top-0">
+        <h2 className="text-xl font-bold tracking-tight mb-6">My Integrations</h2>
+        <SidebarNav
+          items={connectors.map((connector) => ({
+            href: `#${connector.name}`,
+            title: connector.name,
+          }))}
+          onItemClick={handleConnectorSelect}
         />
       </div>
-      <div className="hidden space-y-6 p-10 pb-16 md:block">
-        <div className="grid grid-cols-12 gap-6">
-          {/* Sidebar for existing connectors */}
-          <div className="col-span-4">
-            <h2 className="text-xl font-bold tracking-tight">Connectors</h2>
-            {/* <ConnectorsList connectors={connectors} /> */}
-          </div>
-          <div className="col-span-8">
-            {/* Main content area */}
-            <div className="space-y-0.5">
-              <h2 className="text-2xl font-bold tracking-tight">Discover Connectors</h2>
-              <p className="text-muted-foreground">
-                Connect your favorite tools and platforms to streamline your workflow.
-              </p>
-            </div>
-            <div className="grid grid-cols-4 gap-4"> {/* Grid layout for new connectors */}
-              {/* {connectors.map((channel) => (
-                <div key={channel.id} className="bg-white rounded-lg px-4 py-3 shadow-sm">
-                  <p className="text-base font-medium">{channel.name}</p>
-                </div>
-              ))} */}
-            </div>
-            {/* <div className="mt-6 text-center">
-              <Button onClick={handleOpenCreateConnectorModal}>
-                <PlusCircledIcon className="mr-2 h-4 w-4" />
-                New Connector
-              </Button>
-            </div> */}
-          </div>
+
+      {/* Main content area */}
+      <div className="w-3/4 p-8">
+        <div className="space-y-0.5">
+          <h2 className="text-2xl font-bold tracking-tight">
+            {selectedConnector ? selectedConnector.name : "Discover Connectors"}
+          </h2>
+          <p className="text-muted-foreground mb-6">
+            {selectedConnector?.description ||
+              "Connect your favorite tools and platforms to streamline your workflow."}
+          </p>
         </div>
-        <div>
-        {/* Create Connector Modal (using radix-ui) */}
-        {isCreateConnectorModalOpen && (
-          <Dialog open={isCreateConnectorModalOpen} onOpenChange={setIsCreateConnectorModalOpen}>
-            <DialogTrigger asChild>
-              <Button>Cancel</Button> {/* Assuming a cancel button exists in the form */}
-            </DialogTrigger>
-            <>
-              <DialogContent>
-                {/* Placeholder content */}
-              </DialogContent>
-            </>
-            <DialogOverlay onClick={handleCloseCreateConnectorModal} />
-          </Dialog>
+
+        {selectedConnector ? (
+          <>
+            {/* Display connector details (icon, description) */}
+            <img
+              src={selectedConnector.icon}
+              alt={selectedConnector.name}
+              className="w-12 h-12 mb-4"
+            />
+            <p>{selectedConnector.description}</p>
+            {/* Render the specific form component for the selected connector */}
+            {selectedConnector.form && <ConnectorForm initialMetadata={selectedConnector} onSubmit={function (data: z.infer<any>): void {
+              throw new Error("Function not implemented.");
+            } } />}
+          </>
+        ) : (
+          <div className="flex flex-wrap gap-6">
+            {connectors.map((connector) => (
+              <ConnectorCard key={connector.id} connector={connector} />
+            ))}
+          </div>
         )}
-        </div>
       </div>
-    </>
-  )
+    </div>
+  );
 }

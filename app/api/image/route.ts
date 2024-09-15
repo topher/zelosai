@@ -1,14 +1,39 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { complete_trained_models } from '@/app/data'; // Adjust the import path as necessary
+import axios from 'axios';
 
 const API_URL = "https://lj85eec5vnb3qkei.us-east-1.aws.endpoints.huggingface.cloud";
 const API_TOKEN = process.env.HUGGING_FACE_API_TOKEN;
+const ELASTICSEARCH_URL = 'http://localhost:9200'; // Update with your Elasticsearch URL
+const MODELS_INDEX = 'complete_trained_models'; // Update with your index name
+
+// Fetch model from Elasticsearch by modelId
+async function fetchModelById(modelId: string) {
+  try {
+    const query = {
+      query: {
+        match: { modelId }
+      }
+    };
+
+    const response = await axios.post(`${ELASTICSEARCH_URL}/${MODELS_INDEX}/_search`, query);
+
+    if (response.data.hits.hits.length > 0) {
+      return response.data.hits.hits[0]._source;
+    } else {
+      return null;
+    }
+  } catch (error) {
+    console.error(`Error fetching model by ID ${modelId}:`, error);
+    return null;
+  }
+}
 
 export async function POST(req: NextRequest) {
   try {
     const { prompt, resolution, modelId } = await req.json();
 
-    const model = complete_trained_models.find(m => m.modelId === modelId);
+    // Fetch the model dynamically from Elasticsearch
+    const model = await fetchModelById(modelId);
 
     console.log(model, "💎");
 
@@ -19,7 +44,7 @@ export async function POST(req: NextRequest) {
     let modifiedPrompt = prompt;
 
     if (model.subject_prompt_alias) {
-      model.subject_prompt_alias.forEach(alias => {
+      model.subject_prompt_alias.forEach((alias: string) => {
         const regex = new RegExp(`\\b${alias}\\b`, 'gi');
         modifiedPrompt = modifiedPrompt.replace(regex, `${model.subject_prompt_key}:1.1`);
       });

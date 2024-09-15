@@ -1,0 +1,244 @@
+[
+    {
+        "id": "rule-1",
+        "accountId": "12345",
+        "ruleType": "access",
+        "deontologicalDuty": "obligated",
+        "subjectCondition": {
+            "attribute": "location",
+            "operator": "in",
+            "value": "EU"
+        },
+        "predicate": "requires",
+        "objectCondition": {
+            "attribute": "action",
+            "operator": "equals",
+            "value": "consent_to_share"
+        },
+        "createdBy": "system",
+        "ownedBy": "GDPR",
+        "rule_nlp_description": {
+            "text": "Users located in the European Union (EU) require consent before processing their personal data."
+        }
+    },
+    {
+        "id": "rule-2",
+        "accountId": "12345",
+        "ruleType": "access",
+        "deontologicalDuty": "inform",
+        "subjectCondition": {
+            "attribute": "data_usage",
+            "operator": "includes",
+            "value": "marketing"
+        },
+        "predicate": "allows",
+        "objectCondition": {
+            "attribute": "action",
+            "operator": "equals",
+            "value": "opt-out"
+        },
+        "createdBy": "system",
+        "ownedBy": "GDPR",
+        "rule_nlp_description": {
+            "text": "Users have the right to be informed about and opt-out of their data being used for marketing purposes."
+        }
+    },
+    {
+        "id": "rule-3",
+        "accountId": "12345",
+        "ruleType": "access",
+        "deontologicalDuty": "allow",
+        "subjectCondition": {
+            "attribute": "data_storage",
+            "operator": "gt",
+            "value": "6"
+        },
+        "predicate": "allows",
+        "objectCondition": {
+            "attribute": "action",
+            "operator": "equals",
+            "value": "download"
+        },
+        "createdBy": "system",
+        "ownedBy": "GDPR",
+        "rule_nlp_description": {
+            "text": "Users can download their personal data that has been stored for more than 6 months."
+        }
+    },
+    {
+        "id": "rule-4",
+        "accountId": "12345",
+        "ruleType": "action",
+        "deontologicalDuty": "permit",
+        "subjectCondition": {
+            "attribute": "mime_type",
+            "operator": "is",
+            "value": "image/jpeg"
+        },
+        "predicate": "allows",
+        "objectCondition": {
+            "attribute": "action",
+            "operator": "equals",
+            "value": "display"
+        },
+        "createdBy": "system",
+        "ownedBy": "MPEG21",
+        "rule_nlp_description": {
+            "text": "JPEG image content can be displayed to the user."
+        }
+    },
+    {
+        "id": "rule-5",
+        "accountId": "12345",
+        "ruleType": "action",
+        "deontologicalDuty": "restrict",
+        "subjectCondition": {
+            "attribute": "copyright_owner",
+            "operator": "is",
+            "value": "Victor, the Athlete"
+        },
+        "predicate": "prohibits",
+        "objectCondition": {
+            "attribute": "action",
+            "operator": "equals",
+            "value": "modify"
+        },
+        "createdBy": "system",
+        "ownedBy": "MPEG21",
+        "rule_nlp_description": {
+            "text": "Content owned by Victor, the Athlete cannot be modified by users."
+        }
+    },
+    {
+        "id": "rule-6",
+        "accountId": "12345",
+        "ruleType": "action",
+        "deontologicalDuty": "permit",
+        "subjectCondition": {
+            "attribute": "permission",
+            "operator": "has",
+            "value": "edit"
+        },
+        "predicate": "allows",
+        "objectCondition": {
+            "attribute": "action",
+            "operator": "equals",
+            "value": "modify"
+        },
+        "createdBy": "system",
+        "ownedBy": "MPEG21",
+        "rule_nlp_description": {
+            "text": "Users with edit permission can modify content."
+        }
+    },
+    {
+        "id": "rule-7",
+        "accountId": "12345",
+        "ruleType": "content",
+        "deontologicalDuty": "recommend",
+        "subjectCondition": {
+            "attribute": "attire",
+            "operator": "should_wear",
+            "value": "athletic clothing"
+        },
+        "predicate": "suggests",
+        "objectCondition": {
+            "attribute": "target",
+            "operator": "equals",
+            "value": "Victor"
+        },
+        "createdBy": "Victor",
+        "ownedBy": "Victor's Guidelines",
+        "rule_nlp_description": {
+            "text": "It is recommended for Victor to wear athletic clothing for training and competition."
+        }
+    },
+    {
+        "id": "rule-8",
+        "accountId": "12345",
+        "ruleType": "content",
+        "deontologicalDuty": "prohibit",
+        "subjectCondition": {
+            "attribute": "diet",
+            "operator": "should_avoid",
+            "value": "processed foods"
+        },
+        "predicate": "warns",
+        "objectCondition": {
+            "attribute": "target",
+            "operator": "equals",
+            "value": "Victor"
+        },
+        "createdBy": "Victor",
+        "ownedBy": "Victor's Guidelines",
+        "rule_nlp_description": {
+            "text": "Victor should avoid processed foods to maintain a healthy diet."
+        }
+    },
+    {
+        "id": "rule-9",
+        "accountId": "12345",
+        "ruleType": "content",
+        "deontologicalDuty": "encourage",
+        "subjectCondition": {
+            "attribute": "emotions",
+            "operator": "should_express",
+            "value": "positive"
+        },
+        "predicate": "motivates",
+        "objectCondition": {
+            "attribute": "target",
+            "operator": "equals",
+            "value": "Victor"
+        },
+        "createdBy": "Victor",
+        "ownedBy": "Victor's Guidelines",
+        "rule_nlp_description": {
+            "text": "Victor should strive to express positive emotions for mental well-being and performance."
+        }
+    },
+    {
+        "id": "rule-10",
+        "accountId": "12345",
+        "ruleType": "content",
+        "deontologicalDuty": "prohibit",
+        "subjectCondition": {
+            "attribute": "speech",
+            "operator": "should_avoid",
+            "value": "discouragement"
+        },
+        "predicate": "redirects",
+        "objectCondition": {
+            "attribute": "target",
+            "operator": "equals",
+            "value": "Victor"
+        },
+        "createdBy": "Victor",
+        "ownedBy": "Victor's Guidelines",
+        "rule_nlp_description": {
+            "text": "Victor should avoid discouraging self-talk. Redirect negative thoughts to positive affirmations."
+        }
+    },
+    {
+        "id": "rule-11",
+        "accountId": "12345",
+        "ruleType": "content",
+        "deontologicalDuty": "recommend",
+        "subjectCondition": {
+            "attribute": "frequency",
+            "operator": "should_be",
+            "value": "regular"
+        },
+        "predicate": "schedules",
+        "objectCondition": {
+            "attribute": "target",
+            "operator": "equals",
+            "value": "Victor"
+        },
+        "createdBy": "Victor",
+        "ownedBy": "Victor's Guidelines",
+        "rule_nlp_description": {
+            "text": "Regular training is recommended for Victor to maintain peak performance."
+        }
+    }
+]

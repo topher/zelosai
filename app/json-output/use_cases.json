@@ -1,0 +1,24 @@
+[
+  {
+    "id": "use_case_1",
+    "accountId": "12345",
+    "Description": "Respond to customer inquiries via chatbot",
+    "Subject": "Customer Support Team",
+    "Target": "Customers",
+    "ForPurpose": [
+      "Increase revenue"
+    ],
+    "Models": 5
+  },
+  {
+    "id": "use_case_2",
+    "accountId": "12345",
+    "Description": "Generate personalized product recommendations",
+    "Subject": "Recommendation Engine",
+    "Target": "Customers",
+    "ForPurpose": [
+      "Increase revenue"
+    ],
+    "Models": 5
+  }
+]

@@ -23,7 +23,7 @@ export const routes = [
     href: '/dashboard',
     color: "text-gray-500",  // Adjusted to gray-500 for consistency
     children: [
-      { label: 'Assistants', href: '/digital-twin', color: "text-gray-600", description: "Explore your collection of AI models.", icon: "picture" },
+      { label: 'Models', href: '/models', color: "text-gray-600", description: "Explore your collection of AI models.", icon: "picture" },
       { label: 'Data Bank', href: '/knowledge-bank', color: "text-gray-600", description: "Monitor the performance of your AI models.", icon: "locker" },
       { label: 'Campaigns', href: '/workflows', color: "text-gray-600", description: "Ensure the safe and responsible use of your likeness.", icon: "bulb" },
       { label: 'Strategy', href: '/strategy', color: "text-gray-600", description: "Build new AI models to expand your digital brand.", icon: "travel" },
@@ -36,7 +36,7 @@ export const routes = [
     color: "text-blue-500",
     children: [
       { label: 'Goals', href: '/strategy/goals', color: "text-blue-500", description: "Define the objectives for your organization.", icon: "target" },
-      { label: 'Risks', href: '/strategy/risks', color: "text-blue-500", description: "Identify potential challenges to your AI strategy.", icon: "flag" },
+      { label: 'User Personas', href: '/strategy/agents', color: "text-blue-500", description: "Identify potential challenges to your AI strategy.", icon: "flag" },
       { label: 'Use Cases', href: '/strategy/use-cases', color: "text-blue-500", description: "Set the practical applications for your AI models and products.", icon: "bookmark-fav" },
       { label: 'Plan', href: '/strategy/plan', color: "text-blue-500", description: "Develop a strategy to achieve your AI-driven goals.", icon: "chess" },
     ],

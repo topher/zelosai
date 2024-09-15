@@ -1,87 +1,71 @@
-"use client"
+// app/components/nav.tsx
 
-import Link from "next/link"
-import { LucideIcon } from "lucide-react"
-
-import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/components/ui/button"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
+import React from 'react';
+import { cn } from '@/lib/utils';
+import { buttonVariants } from '@/components/ui/button';
 
 interface NavProps {
-  isCollapsed: boolean
-  links: {
-    title: string
-    label?: string
-    icon: LucideIcon
-    variant: "default" | "ghost"
-  }[]
+  isCollapsed: boolean;
+  attribute: string;
+  items: {
+    label: string;
+    value: string;
+    count: number;
+    isRefined: boolean;
+  }[];
+  refine: (value: string) => void;
+  currentRefinement: string;
 }
 
-export function Nav({ links, isCollapsed }: NavProps) {
+const NavComponent: React.FC<NavProps> = ({
+  isCollapsed,
+  items,
+  refine,
+  currentRefinement,
+  attribute,
+}) => {
+  const handleRefinement = (value: string) => {
+    if (currentRefinement === value) {
+      // Unselect the current refinement
+      refine('');
+    } else {
+      // Refine to the selected value
+      refine(value);
+    }
+  };
+
   return (
     <div
       data-collapsed={isCollapsed}
       className="group flex flex-col gap-4 py-2 data-[collapsed=true]:py-2"
     >
       <nav className="grid gap-1 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2">
-        {links.map((link, index) =>
-          isCollapsed ? (
-            <Tooltip key={index} delayDuration={0}>
-              <TooltipTrigger asChild>
-                <Link
-                  href="#"
-                  className={cn(
-                    buttonVariants({ variant: link.variant, size: "icon" }),
-                    "h-9 w-9",
-                    link.variant === "default" &&
-                      "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
-                  )}
-                >
-                  <link.icon className="h-4 w-4" />
-                  <span className="sr-only">{link.title}</span>
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent side="right" className="flex items-center gap-4">
-                {link.title}
-                {link.label && (
-                  <span className="ml-auto text-muted-foreground">
-                    {link.label}
-                  </span>
-                )}
-              </TooltipContent>
-            </Tooltip>
-          ) : (
-            <Link
-              key={index}
-              href="#"
+        {items.map((item, index) => {
+          const isActive = item.isRefined;
+          return (
+            <button
+              key={`${item.label}-${index}`}
+              onClick={() => handleRefinement(item.value)}
               className={cn(
-                buttonVariants({ variant: link.variant, size: "sm" }),
-                link.variant === "default" &&
-                  "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white",
-                "justify-start"
+                buttonVariants({
+                  variant: isActive ? 'default' : 'ghost',
+                  size: isCollapsed ? 'icon' : 'sm',
+                }),
+                'justify-start w-full flex items-center'
               )}
             >
-              <link.icon className="mr-2 h-4 w-4" />
-              {link.title}
-              {link.label && (
-                <span
-                  className={cn(
-                    "ml-auto",
-                    link.variant === "default" &&
-                      "text-background dark:text-white"
-                  )}
-                >
-                  {link.label}
-                </span>
+              {/* Replace with appropriate icon */}
+              <span className="mr-2 h-4 w-4">{item.label.charAt(0)}</span>
+              {!isCollapsed && item.label}
+              {item.count !== undefined && (
+                <span className="ml-auto">{item.count}</span>
               )}
-            </Link>
-          )
-        )}
+            </button>
+          );
+        })}
       </nav>
     </div>
-  )
-}
+  );
+};
+
+export const ConnectedNav = NavComponent;

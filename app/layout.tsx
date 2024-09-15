@@ -6,7 +6,11 @@ import { ToasterProvider } from '@/components/toaster-provider'
 import { ModalProvider } from '@/components/modal-provider'
 import { CrispProvider } from '@/components/crisp-provider'
 
-import './globals.css'
+import './globals.css';
+import { headers } from 'next/headers';
+import { cookieToInitialState } from 'wagmi';
+import { config } from '@/config';
+import AppKitProvider from '@/context';
 
 const font = Inter({ subsets: ['latin'] });
 
@@ -20,6 +24,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const initialState = cookieToInitialState(config, headers().get('cookie'));
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
@@ -27,7 +32,9 @@ export default async function RootLayout({
         <body className={font.className}>
           <ToasterProvider />
           <ModalProvider />
+          <AppKitProvider initialState={initialState}>
           {children}
+          </AppKitProvider>
         </body>
       </html>
     </ClerkProvider>
