@@ -1,0 +1,56 @@
+[
+  {
+    "id": "connector-1",
+    "accountId": "12345",
+    "name": "Shopify",
+    "description": "Connect your Shopify store to streamline your workflow.",
+    "icon": "/icons/shopify.svg",
+    "connectionType": "API",
+    "disabled": false,
+    "metadata": {
+      "api_key": "",
+      "shop_name": ""
+    }
+  },
+  {
+    "id": "connector-2",
+    "accountId": "12345",
+    "name": "Instagram",
+    "description": "Manage your Instagram posts and schedule content.",
+    "icon": "/icons/instagram.svg",
+    "connectionType": "Social Media",
+    "disabled": false,
+    "metadata": {
+      "username": "",
+      "password": ""
+    }
+  },
+  {
+    "id": "connector-3",
+    "accountId": "12345",
+    "name": "HTTP Connector",
+    "description": "Connect to any HTTP API using custom URLs and methods.",
+    "icon": "/icons/http.svg",
+    "connectionType": "HTTP",
+    "disabled": false,
+    "metadata": {
+      "url": "",
+      "method": "GET",
+      "headers": {},
+      "body": ""
+    }
+  },
+  {
+    "id": "connector-10",
+    "accountId": "12345",
+    "name": "Mailchimp",
+    "description": "Manage your email marketing campaigns with ease.",
+    "icon": "/icons/mailchimp.svg",
+    "connectionType": "Email Marketing",
+    "disabled": false,
+    "metadata": {
+      "api_key": "",
+      "list_id": ""
+    }
+  }
+]

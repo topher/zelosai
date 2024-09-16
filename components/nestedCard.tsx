@@ -5,14 +5,18 @@ interface NestedCardProps {
   icon: React.ReactNode;
   title: string;
   description: string;
-  bgColor?: string; // Making bgColor optional
+  onUpdate: () => void;  // Function to handle update
+  onDelete: () => void;  // Function to handle delete
+  bgColor?: string; // Optional background color
 }
 
 const NestedCard: React.FC<NestedCardProps> = ({
   icon,
   title,
   description,
-  bgColor = "bg-white", // Default to white background
+  onUpdate,  // Passed in the update handler
+  onDelete,  // Passed in the delete handler
+  bgColor = "bg-white", // Default background color
 }) => {
   const [showMenu, setShowMenu] = useState(false);
 
@@ -21,9 +25,7 @@ const NestedCard: React.FC<NestedCardProps> = ({
   };
 
   return (
-    <div
-      className={`flex items-start ${bgColor} border border-gray-200 rounded-md p-4 mb-2 shadow-sm relative`}
-    >
+    <div className={`flex items-start ${bgColor} border border-gray-200 rounded-md p-4 mb-2 shadow-sm relative`}>
       {/* Icon */}
       <div className="text-2xl text-[#111827] mr-4">{icon}</div>
 
@@ -34,32 +36,46 @@ const NestedCard: React.FC<NestedCardProps> = ({
         </button>
         {showMenu && (
           <div className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            {/* Update Option */}
+            <button
+              onClick={onUpdate}
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+            >
+              Update
+            </button>
+            {/* Delete Option */}
+            <button
+              onClick={onDelete}
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+            >
+              Delete
+            </button>
+            {/* Like Option */}
+            <button
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
             >
               Like
-            </a>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            </button>
+            {/* Dislike Option */}
+            <button
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
             >
               Dislike
-            </a>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            </button>
+            {/* Comment Option */}
+            <button
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
             >
               Comment
-            </a>
+            </button>
           </div>
         )}
       </div>
 
       {/* Card Content */}
       <div className="flex-grow">
-        <h3 className="font-semibold text-[#111827]">{title}</h3>
-        <p className="text-[#111827]">{description}</p>
+        <h3 className="font-semibold text-[#111827]">{title || 'Untitled'}</h3>
+        <p className="text-[#111827]">{description || 'No description available'}</p>
       </div>
     </div>
   );

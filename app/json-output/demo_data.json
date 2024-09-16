@@ -1,0 +1,34 @@
+[{
+    "id": "demo-board",
+    "title": "Demo Board",
+    "lists": [
+      {
+        "id": "list-1",
+        "title": "To Do",
+        "boardId": "demo-board",
+        "order": 1,
+        "cards": [
+          { "id": "card-1", "title": "Task 1","listId":"list-1", "description": "Description for Task 1", "order": 1 },
+          { "id": "card-2", "title": "Task 2", "listId":"list-1","description": "Description for Task 2", "order": 2 }
+        ]
+      },
+      {
+        "id": "list-2",
+        "title": "In Progress",
+        "boardId": "demo-board",
+        "order": 2,
+        "cards": [
+          { "id": "card-3", "title": "Task 3", "listId":"list-2", "description": "Description for Task 3", "order": 1 }
+        ]
+      },
+      {
+        "id": "list-3",
+        "title": "Done",
+        "boardId": "demo-board",
+        "order": 3,
+        "cards": [
+          { "id": "card-4", "title": "Task 4", "listId":"list-3","description": "Description for Task 4", "order": 1 }
+        ]
+      }
+    ]
+  }]

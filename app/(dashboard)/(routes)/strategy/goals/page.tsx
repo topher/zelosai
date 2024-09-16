@@ -1,23 +1,53 @@
-"use client"
-import { useState } from "react";
+"use client";
+import { useEffect, useState } from "react";
 import { Separator } from "@/components/ui/separator";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Switch } from "@/components/ui/switch"; // Import switch component
-import { Badge } from "@/components/ui/badge"; // Import badge component
-import { goals as goalsDemoData } from "@/app/data";
-import { Info } from "lucide-react"; // Import Lucide icons
-import { Goal } from "@/app/types";
+import { Switch } from "@/components/ui/switch";
+import { Badge } from "@/components/ui/badge";
+import { Info } from "lucide-react";
+import {
+  getGoalsByAccountId,
+  createGoal,
+  updateGoal,
+  deleteGoal
+} from "@/app/actions/goalActions"; // Import CRUD actions
+import { Goal } from "@/app/types"; // Import the Goal type
 
 const GoalsPage = () => {
-  const [goals, setGoals] = useState<Goal[]>(goalsDemoData);
+  const [goals, setGoals] = useState<Goal[]>([]);
+  const [accountId] = useState("12345"); // Hardcoded accountId for now
 
-  // Function to toggle goal status
-  const toggleGoalStatus = (index: number) => {
-    setGoals(prevGoals => {
-      const updatedGoals = [...prevGoals];
-      updatedGoals[index].isActive = !updatedGoals[index].isActive;
-      return updatedGoals;
-    });
+  // Fetch goals on component mount
+  useEffect(() => {
+    const fetchGoals = async () => {
+      try {
+        const fetchedGoals = await getGoalsByAccountId(accountId);
+        setGoals(fetchedGoals);
+      } catch (error) {
+        console.error("Error fetching goals:", error);
+      }
+    };
+
+    fetchGoals();
+  }, [accountId]);
+
+  // Function to toggle goal status (active/inactive)
+  const toggleGoalStatus = async (index: number) => {
+    const updatedGoal = { ...goals[index], isActive: !goals[index].isActive };
+
+    try {
+      // Update the goal in Elasticsearch
+      await updateGoal(goals[index].id, { isActive: updatedGoal.isActive });
+
+      // Update the goal status in the local state
+      setGoals((prevGoals) => {
+        const updatedGoals = [...prevGoals];
+        updatedGoals[index] = updatedGoal;
+        return updatedGoals;
+      });
+    } catch (error) {
+      console.error("Error updating goal status:", error);
+    }
   };
 
   return (
@@ -31,7 +61,7 @@ const GoalsPage = () => {
       <Separator />
       <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
         {goals.map((goal, index) => (
-          <Card key={index} className="bg-white border border-gray-200 shadow-md">
+          <Card key={goal.id} className="bg-white border border-gray-200 shadow-md">
             <CardHeader>
               <div className="flex justify-between items-center">
                 <CardTitle>{goal.Goal}</CardTitle>
@@ -39,11 +69,11 @@ const GoalsPage = () => {
               </div>
             </CardHeader>
             <CardContent>
-            <div className="mb-4">
-              <p>{goal.Description}</p>
-            </div>
+              <div className="mb-4">
+                <p>{goal.Description}</p>
+              </div>
               <div className="flex items-center justify-between mt-4">
-              <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2">
                   <span className="text-sm mr-2">Strategic Indicator:</span>
                   <Badge color="primary">{goal.StrategicIndicator}</Badge>
                 </div>
@@ -60,7 +90,9 @@ const GoalsPage = () => {
                 <div className="flex flex-wrap gap-2">
                   <span className="text-sm mr-2">Related Issues:</span>
                   {goal.RelatedIssues.map((issue, i) => (
-                    <Badge key={i} color="warning">{issue}</Badge>
+                    <Badge key={i} color="warning">
+                      {issue}
+                    </Badge>
                   ))}
                 </div>
               </div>
@@ -74,6 +106,6 @@ const GoalsPage = () => {
       </div>
     </div>
   );
-}
+};
 
 export default GoalsPage;

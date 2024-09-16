@@ -1,10 +1,13 @@
-import * as z from "zod";
+"use client";
 import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { FormControl, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { createConnector, updateConnector } from "@/app/actions/connectorsActions"; // Import the actions
 
 // Define Zod schema for core connector fields (email, api_key)
 const connectorFormSchema = z.object({
@@ -15,23 +18,29 @@ const connectorFormSchema = z.object({
   }),
 });
 
-
 // Define type for connector form values
 type ConnectorFormValues = z.infer<typeof connectorFormSchema>;
 
 export const ConnectorForm = ({
   initialMetadata,
   onSubmit,
+  isUpdate = false,
 }: {
   initialMetadata: Partial<ConnectorFormValues>;
   onSubmit: (data: ConnectorFormValues) => void;
+  isUpdate?: boolean; // For distinguishing between create and update
 }) => {
-  const { control, handleSubmit, formState: { errors } } = useForm<ConnectorFormValues>({
+  const { register, handleSubmit, formState: { errors } } = useForm<ConnectorFormValues>({
     resolver: zodResolver(connectorFormSchema),
     defaultValues: initialMetadata,
   });
 
-  const handleFormSubmit = (data: ConnectorFormValues) => {
+  const handleFormSubmit = async (data: ConnectorFormValues) => {
+    if (isUpdate) {
+      await updateConnector(initialMetadata.id as string, data); // Update existing connector
+    } else {
+      await createConnector(data); // Create new connector
+    }
     onSubmit(data);
   };
 
@@ -40,19 +49,19 @@ export const ConnectorForm = ({
       {/* Email Field */}
       <FormControl>
         <FormLabel htmlFor="email">Email</FormLabel>
-        <Input {...control} type="email" name="email" placeholder="Enter email address" />
+        <Input {...register("email")} type="email" placeholder="Enter email address" />
         {errors.email && <FormMessage>{errors.email.message}</FormMessage>}
       </FormControl>
 
       {/* API Key Field */}
       <FormControl>
         <FormLabel htmlFor="api_key">API Key</FormLabel>
-        <Input {...control} type="password" name="api_key" placeholder="Enter API Key" />
+        <Input {...register("api_key")} type="password" placeholder="Enter API Key" />
         {errors.api_key && <FormMessage>{errors.api_key.message}</FormMessage>}
       </FormControl>
 
       {/* Submit Button */}
-      <Button type="submit">Save Connector</Button>
+      <Button type="submit">{isUpdate ? "Update Connector" : "Save Connector"}</Button>
     </form>
   );
 };

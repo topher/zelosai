@@ -1,0 +1,29 @@
+[
+  {
+    "Topic": "Market Expansion",
+    "SWOT Type": "Opportunity",
+    "Subscribed": true,
+    "RelatedGoals": [
+      "Increase revenue"
+    ],
+    "RelatedUseCases": [
+      "Respond to customer inquiries via chatbot"
+    ]
+  },
+  {
+    "Topic": "Product Launch",
+    "SWOT Type": "Opportunity",
+    "Subscribed": true,
+    "RelatedGoals": [
+      "Increase revenue"
+    ]
+  },
+  {
+    "Topic": "Brand Reputation Management",
+    "SWOT Type": "Strength",
+    "Subscribed": false,
+    "RelatedGoals": [
+      "Maintain authenticity"
+    ]
+  }
+]

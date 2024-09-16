@@ -1,40 +1,51 @@
-import { Metadata } from "next"
-import Image from "next/image"
+"use client";
 
-import { Button } from "@/components/ui/button"
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/components/ui/tabs"
-import { CalendarDateRangePicker } from "./components/date-range-picker"
-import { MainNav } from "./components/main-nav"
-import { Overview } from "./components/overview"
-import { RecentActivties } from "@/components/recent-activity"
-import { Search } from "./components/search"
-import TeamSwitcher from "./components/team-switcher"
-import { UserNav } from "./components/user-nav"
-import { allStatCards } from "@/app/data"; // Assuming connectors data defined here
+} from "@/components/ui/tabs";
+import { CalendarDateRangePicker } from "./components/date-range-picker";
+import { Overview } from "./components/overview";
+import { RecentActivties } from "@/components/recent-activity";
+import { getWorkflowAnalytics } from "@/app/actions/analyticsActions";
 
-
-export const metadata: Metadata = {
-  title: "Dashboard",
-  description: "Example dashboard app built using the components.",
-}
-
-const stat_cards_workflow_analytics = allStatCards.filter(
-  (stat) => stat.page === "workflow_analytics"
-);
+const accountId = "12345"; // Replace with actual account ID
 
 export default function DashboardPage() {
+  const [workflowAnalytics, setWorkflowAnalytics] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getWorkflowAnalytics(accountId);
+        setWorkflowAnalytics(data);
+      } catch (err) {
+        setError("Failed to load workflow analytics.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) return <p>Loading workflow analytics...</p>;
+  if (error) return <p>{error}</p>;
+
   return (
     <>
       <div className="md:hidden">
@@ -62,49 +73,48 @@ export default function DashboardPage() {
               <Button>Download</Button>
             </div>
           </div>
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-              {stat_cards_workflow_analytics.map((item) => (
-                <Card key={item.title} className="card"> {/* Add a class name for styling */}
-                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium"> {/* Apply styles to title */}
-                      {item.title}
-                    </CardTitle>
-                    {/* {item.icon && ( // Conditionally render icon if provided
-                      <svg>
-                        <path d={item.icon} />
-                      </svg>
-                    )} */}
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-2xl font-bold">{item.value}</div>
-                    <p className="text-xs text-muted-foreground">{item.subtitle || "This month"}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-                <Card className="col-span-4">
-                  <CardHeader>
-                    <CardTitle>Overview</CardTitle>
-                  </CardHeader>
-                  <CardContent className="pl-2">
-                    <Overview />
-                  </CardContent>
-                </Card>
-                <Card className="col-span-3">
-                  <CardHeader>
-                    <CardTitle>Recent Activity</CardTitle>
-                    <CardDescription>
-                      There were 265 actions this month.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <RecentActivties />
-                  </CardContent>
-                </Card>
-              </div>
+
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {workflowAnalytics.map((item) => (
+              <Card key={item.id} className="card">
+                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                  <CardTitle className="text-sm font-medium">
+                    {item.title || "Untitled"}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-2xl font-bold">{item.value}</div>
+                  <p className="text-xs text-muted-foreground">
+                    {item.subtitle || "This month"}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+            <Card className="col-span-4">
+              <CardHeader>
+                <CardTitle>Overview</CardTitle>
+              </CardHeader>
+              <CardContent className="pl-2">
+                <Overview />
+              </CardContent>
+            </Card>
+            <Card className="col-span-3">
+              <CardHeader>
+                <CardTitle>Recent Activity</CardTitle>
+                <CardDescription>
+                  There were 265 actions this month.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <RecentActivties />
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </>
-  )
+  );
 }

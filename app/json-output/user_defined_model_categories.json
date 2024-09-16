@@ -1,0 +1,30 @@
+[
+    {
+      "accountId": "12345",
+      "name": "Base Models",
+      "includes": ["foundational"]
+    },
+    {
+      "accountId": "12345",
+      "name": "Image Models",
+      "includes": ["image"],
+      "excludes": ["foundational"]
+    },
+    {
+      "accountId": "12345",
+      "name": "Text Models",
+      "includes": ["text"],
+      "excludes": ["foundational"]
+    },
+    {
+      "accountId": "12345",
+      "name": "Voice Models",
+      "includes": ["voice"]
+    },
+    {
+      "accountId": "12345",
+      "name": "Recently Used",
+      "includes": ["recent-used"]
+    }
+  
+  ]

@@ -1,25 +1,38 @@
-import { promises as fs } from "fs"
-import path from "path"
-import { Metadata } from "next"
-import Image from "next/image"
-import { z } from "zod"
+"use client";
 
-import { columns } from "./components/columns"
-import { DataTable } from "./components/data-table"
-import { UserNav } from "./components/user-nav"
-import { tasks, allStatCards } from "@/app/data"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { DataTable } from "./components/data-table";
+import { getTasksByAccountId } from "@/app/actions/taskActions";
+import { Task } from "@/app/types";
+import { UserNav } from "./components/user-nav";
+import { columns } from "./components/columns";
 
-export const metadata: Metadata = {
-  title: "Tasks",
-  description: "A task and issue tracker build using Tanstack Table.",
-}
+const accountId = "12345"; // Replace with dynamic value
 
-const stat_cards_workflow_analytics = allStatCards.filter(
-  (stat) => stat.page === "workflow_analytics"
-);
+export default function TaskPage() {
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-export default async function TaskPage() {
+  useEffect(() => {
+    const fetchTasks = async () => {
+      try {
+        const data = await getTasksByAccountId(accountId);
+        setTasks(data);
+      } catch (err) {
+        setError("Failed to load tasks.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTasks();
+  }, []);
+
+  if (loading) return <p>Loading tasks...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <>
@@ -40,7 +53,6 @@ export default async function TaskPage() {
         />
       </div>
       <div className="hidden h-full flex-1 flex-col space-y-8 p-8 md:flex">
-
         <div className="flex items-center justify-between space-y-2">
           <div>
             <h2 className="text-2xl font-bold tracking-tight">Welcome back!</h2>
@@ -48,29 +60,12 @@ export default async function TaskPage() {
               Here&apos;s a list of your tasks for this month!
             </p>
           </div>
+          <div className="flex items-center space-x-2">
+            <UserNav />
+          </div>
         </div>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-              {stat_cards_workflow_analytics.map((item) => (
-                <Card key={item.title} className="card"> {/* Add a class name for styling */}
-                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium"> {/* Apply styles to title */}
-                      {item.title}
-                    </CardTitle>
-                    {/* {item.icon && ( // Conditionally render icon if provided
-                      <svg>
-                        <path d={item.icon} />
-                      </svg>
-                    )} */}
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-2xl font-bold">{item.value}</div>
-                    <p className="text-xs text-muted-foreground">{item.subtitle || "This month"}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
         <DataTable data={tasks} columns={columns} />
       </div>
     </>
-  )
+  );
 }

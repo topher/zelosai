@@ -1,0 +1,27 @@
+{
+    "mappings": {
+      "properties": {
+        "id": { "type": "keyword" },
+        "accountId": { "type": "keyword" },
+        "URI": { "type": "keyword" },
+        "name": { "type": "text" },
+        "category": { "type": "keyword" },
+        "asset_type": { "type": "keyword" },
+        "status": { "type": "keyword" },
+        "content": { "type": "text" },
+        "media_link": { "type": "keyword" },
+        "mimetype": { "type": "keyword" },
+        "dc_creator": { "type": "keyword" },
+        "dc_description": { "type": "text" },
+        "schema_dateCreated": { "type": "date" },
+        "creation_date": { "type": "date" },
+        "labels": { "type": "keyword" },
+        "dcma_registrant_email": { "type": "keyword" },
+        "read": { "type": "boolean" },
+        "scale": {
+          "type": "float"
+        }
+      }
+    }
+  }
+  

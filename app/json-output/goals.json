@@ -1,0 +1,29 @@
+[
+  {
+    "id": "goal-1",
+    "accountId": "12345",
+    "Goal": "Increase revenue",
+    "Description": "To enhance the company's financial performance and profitability.",
+    "StrategicIndicator": "Revenue Growth",
+    "KPI": "Revenue Growth Rate",
+    "Developer": "Finance Department",
+    "RelatedIssues": [
+      "Market Expansion",
+      "Product Launch"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "goal-2",
+    "accountId": "12345",
+    "Goal": "Maintain authenticity",
+    "Description": "To preserve the genuine and unique identity of the brand or product.",
+    "StrategicIndicator": "Brand Authenticity Index",
+    "KPI": "Customer Trust Score",
+    "Developer": "Marketing Team",
+    "RelatedIssues": [
+      "Brand Reputation Management"
+    ],
+    "isActive": true
+  }
+]

@@ -1,9 +1,9 @@
-"use client"
-import Image from "next/image"
-import { PlusCircledIcon } from "@radix-ui/react-icons"
-import React, { useState } from "react"
+"use client";
+import Image from "next/image";
+import { PlusCircledIcon } from "@radix-ui/react-icons";
+import React, { useState, useEffect } from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 import {
   ContextMenu,
   ContextMenuContent,
@@ -13,16 +13,16 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
-} from "@/components/ui/context-menu"
+} from "@/components/ui/context-menu";
 
-import { Workflow } from "@/app/types"
-import { workflows } from "@/app/data"
+import { Workflow } from "@/app/types";
+import { getWorkflowsByAccountId } from "@/app/actions/workflowsActions"; // Fetch from Elasticsearch
 
 interface WorkflowCardProps extends React.HTMLAttributes<HTMLDivElement> {
-  album: Workflow
-  aspectRatio?: "portrait" | "square"
-  width?: number
-  height?: number
+  album: Workflow;
+  aspectRatio?: "portrait" | "square";
+  width?: number;
+  height?: number;
 }
 
 export function WorkflowCard({
@@ -33,7 +33,28 @@ export function WorkflowCard({
   className,
   ...props
 }: WorkflowCardProps) {
-  const [imageError, setImageError] = useState(false)
+  const [imageError, setImageError] = useState(false);
+  const [workflows, setWorkflows] = useState<Workflow[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Fetch workflows from Elasticsearch using accountId
+    const accountId = "12345"; // Dummy account ID
+    const fetchWorkflows = async () => {
+      try {
+        setLoading(true);
+        const data = await getWorkflowsByAccountId(accountId);
+        setWorkflows(data);
+      } catch (err) {
+        setError("Failed to load workflows.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchWorkflows();
+  }, []);
 
   return (
     <div className={cn("space-y-3", className)} {...props}>
@@ -53,13 +74,13 @@ export function WorkflowCard({
                 onError={() => setImageError(true)}
               />
             ) : (
-                <div
-                  className={cn(
-                    "flex items-center justify-center text-white text-4xl font-bold",
-                    aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"
-                  )}
-                  style={{ backgroundColor: '#111827' }} // Custom background color
-                >
+              <div
+                className={cn(
+                  "flex items-center justify-center text-white text-4xl font-bold",
+                  aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"
+                )}
+                style={{ backgroundColor: "#111827" }} // Custom background color
+              >
                 {album.emoji}
               </div>
             )}
@@ -75,23 +96,29 @@ export function WorkflowCard({
                 New Workflow
               </ContextMenuItem>
               <ContextMenuSeparator />
-              {workflows.map((workflow) => (
-                <ContextMenuItem key={workflow.name}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    className="mr-2 h-4 w-4"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M21 15V6M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM12 12H3M16 6H3M12 18H3" />
-                  </svg>
-                  {workflow.name}
-                </ContextMenuItem>
-              ))}
+              {loading ? (
+                <ContextMenuItem>Loading...</ContextMenuItem>
+              ) : error ? (
+                <ContextMenuItem>{error}</ContextMenuItem>
+              ) : (
+                workflows.map((workflow) => (
+                  <ContextMenuItem key={workflow.id}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      className="mr-2 h-4 w-4"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M21 15V6M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM12 12H3M16 6H3M12 18H3" />
+                    </svg>
+                    {workflow.name}
+                  </ContextMenuItem>
+                ))
+              )}
             </ContextMenuSubContent>
           </ContextMenuSub>
           <ContextMenuSeparator />
@@ -108,5 +135,5 @@ export function WorkflowCard({
         <p className="text-xs text-muted-foreground">{album.artist}</p>
       </div>
     </div>
-  )
+  );
 }
