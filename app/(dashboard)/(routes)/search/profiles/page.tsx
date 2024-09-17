@@ -1,35 +1,42 @@
-"use client"
+"use client";
 import React, { useState } from "react";
-import { InstantSearch, SearchBox, Pagination, RefinementList } from "react-instantsearch-hooks-web";
+import {
+  InstantSearch,
+  SearchBox,
+  Pagination,
+  RefinementList,
+} from "react-instantsearch-hooks-web";
 import { useHits } from "react-instantsearch-hooks-web";
-import { SearchClient } from "instantsearch.js";
 import Client from "@searchkit/instantsearch-client";
-import ProfileSearchCard from "@/app/components/ProfileSearchCard"; // Adjust the path as needed
+import ProfileSearchCard from "@/app/components/ProfileSearchCard";
 import Searchkit from "searchkit";
+import SidebarToggle from "@/app/components/SidebarToggle"; // For toggling the sidebar
+import theme from "@/app/theme"; // If using a theme
+import { ThemeProvider } from "@mui/material/styles";
+import SidebarProfiles from "@/app/components/SidebarProfiles";
 
 const sk = new Searchkit({
   connection: {
-    host: 'http://localhost:9200', // Ensure this is the correct Elasticsearch host
+    host: "http://localhost:9200",
   },
   search_settings: {
     search_attributes: ["name", "sport", "location"],
     result_attributes: ["name", "sport", "location", "imageSrc", "id"],
     highlight_attributes: ["name"],
     facet_attributes: [
-      { attribute: "sport", field: "sport.keyword", type: "string" },
-      { attribute: "location", field: "location.keyword", type: "string" }
+      { attribute: "sport", field: "sport", type: "string" },
+      { attribute: "location", field: "location", type: "string" },
     ],
   },
 });
 
-const searchClient = Client(sk) as unknown as SearchClient;
+const searchClient = Client(sk) as unknown as any;
 
-// Component to render the profile search hits
 const ProfileHits = () => {
   const { hits } = useHits();
 
   if (!hits || hits.length === 0) {
-    return <div>No profiles found.</div>;  // Handle empty search results
+    return <div>No profiles found.</div>;
   }
 
   return (
@@ -45,25 +52,33 @@ const ProfileSearchPage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   return (
-    <InstantSearch indexName="athletes" searchClient={searchClient}>
-      <div className="flex w-full h-full">
-        {/* Sidebar */}
-        {isSidebarOpen && (
-          <div className="w-64 p-4 bg-gray-100 border-r">
-            <h3 className="text-lg font-semibold mb-4">Filters</h3>
-            <RefinementList attribute="sport" /> {/* Filter by sport */}
-            <RefinementList attribute="location" /> {/* Filter by location */}
+    <ThemeProvider theme={theme}>
+      <InstantSearch indexName="athletes" searchClient={searchClient}>
+        <div className="flex w-full h-full relative">
+          {/* Sidebar Toggle Button for Small Screens */}
+          <div className="absolute top-4 left-4 lg:hidden z-10">
+            <SidebarToggle
+              isSidebarOpen={isSidebarOpen}
+              toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
+            />
           </div>
-        )}
 
-        {/* Main content */}
-        <div className="flex-1 p-4">
-          <SearchBox />
-          <ProfileHits />
-          <Pagination />
+          {/* Sidebar */}
+          {isSidebarOpen && (
+            <div className="w-64 p-4 bg-gray-100 border-r overflow-y-auto">
+            <SidebarProfiles/>
+            </div>
+          )}
+
+          {/* Main content */}
+          <div className="flex-1 p-4 overflow-y-auto">
+            <SearchBox />
+            <ProfileHits />
+            <Pagination />
+          </div>
         </div>
-      </div>
-    </InstantSearch>
+      </InstantSearch>
+    </ThemeProvider>
   );
 };
 

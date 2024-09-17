@@ -1,11 +1,14 @@
   // Profile interface
-export interface Profile {
+  export interface Profile {
     id: string;
     name: string;
     sport: string;
     location: string;
     imageSrc: string;
+    similarity_score?: number; // Added property
+    accolades?: string[];      // Added property
   }
+  
   export type DataCategory = {  
   accountId: string;
   fides_key: string; 
@@ -76,14 +79,19 @@ export type ContractModel = {
   title: string;
   effectiveDate: string;
   expirationDate: string;
-  status: 'draft' | 'active' | 'expired' | string; // Optional property
-  parties: Array<{ id: string; name: string; role: string; contactInfo: string; }>;
+  status: 'draft' | 'active' | 'expired' | string;
+  parties: Array<{
+    id: string;
+    name: string;
+    role: string;
+    contactInfo: string;
+  }>;
   sections: Section[];
   assets: InfoAsset[];
   obligations: Array<{
     debtorPartyId: string;
     creditorPartyId: string;
-    status: 'active' | 'fulfilled' | 'breached'| string;
+    status: 'active' | 'fulfilled' | 'breached' | string;
     dueDate: string;
   }>;
   events: Event[];
@@ -100,8 +108,8 @@ export type ContractModel = {
   schemaContentType: string;
   tags: string[];
   uri: string;
+  creatorAvatar?: string; // Added property
 };
-
 
 export type UserDefinedModelCategory = {
     // account: Account;
@@ -112,29 +120,30 @@ export type UserDefinedModelCategory = {
 }
 
 export type AIModel = {
-    accountId: string;
-    label: string;
-    tags: string[];  
-    emoji?: string;
-    description: string;
-    iconName: string;
-    href: string;
-    color: string;
-    bgColor: string;
-    foundational_model: boolean;
-    model_file_path: string;
-    modelId: string;
-    thumbnail: string;
-    prompt_template: string;
-    use_case_ids: string[];
-    elabs_voice_id?: string;
-    elabs_model_id?: string;
-    subject_prompt_alias?: string[];
-    subject_prompt_key?: string;
-    default_language?: string;
-    createdBy: string;
-    createdAt: any;
-}
+  accountId: string;
+  label: string;
+  tags?: string[];
+  emoji?: string;
+  description: string;
+  iconName: string;
+  href: string;
+  color: string;
+  bgColor: string;
+  foundational_model: boolean;
+  model_file_path: string;
+  modelId: string;
+  thumbnail: string;
+  prompt_template: string;
+  use_case_ids: string[];
+  elabs_voice_id?: string;
+  elabs_model_id?: string;
+  subject_prompt_alias?: string[];
+  subject_prompt_key?: string;
+  default_language?: string;
+  createdBy: string;
+  createdAt: any;
+  creatorAvatar?: string; // Added property
+};
 
 export type DataConnector = {
   id: string;

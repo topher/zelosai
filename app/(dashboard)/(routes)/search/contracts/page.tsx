@@ -1,35 +1,43 @@
-"use client"
+"use client";
+
 import React, { useState } from "react";
-import { InstantSearch, SearchBox, Pagination, RefinementList } from "react-instantsearch-hooks-web";
+import {
+  InstantSearch,
+  SearchBox,
+  Pagination,
+} from "react-instantsearch-hooks-web";
 import { useHits } from "react-instantsearch-hooks-web";
-import { SearchClient } from "instantsearch.js";
 import Client from "@searchkit/instantsearch-client";
-import ContractSearchCard from "@/app/components/ContractSearchCard"; // Adjust the path as needed
+import ContractSearchCard from "@/app/components/ContractSearchCard";
 import Searchkit from "searchkit";
+import SidebarToggle from "@/app/components/SidebarToggle";
+import theme from "@/app/theme";
+import { ThemeProvider } from "@mui/material/styles";
+import SidebarContracts from "@/app/components/SidebarContracts";
 
 const sk = new Searchkit({
   connection: {
-    host: 'http://localhost:9200',  // Ensure this is the correct Elasticsearch host
+    host: "http://localhost:9200",
   },
   search_settings: {
-    search_attributes: ["title", "status", "effectiveDate"],
-    result_attributes: ["title", "status", "effectiveDate", "expirationDate", "emoji", "id"],
+    search_attributes: ["title", "status", "tags", "rights"],
+    result_attributes: ["title", "status", "tags", "rights", "effectiveDate", "expirationDate", "id"],
     highlight_attributes: ["title"],
     facet_attributes: [
-      { attribute: "status", field: "status.keyword", type: "string" },
-      { attribute: "expirationDate", field: "expirationDate", type: "date" }
+      { attribute: "tags", field: "tags", type: "string" },
+      { attribute: "status", field: "status", type: "string" },
+      { attribute: "rights", field: "rights", type: "string" },
     ],
   },
 });
 
-const searchClient = Client(sk) as unknown as SearchClient;
+const searchClient = Client(sk) as unknown as any;
 
-// Component to render the contract search hits
 const ContractHits = () => {
   const { hits } = useHits();
 
   if (!hits || hits.length === 0) {
-    return <div>No contracts found.</div>;  // Handle empty search results
+    return <div>No contracts found.</div>;
   }
 
   return (
@@ -41,29 +49,37 @@ const ContractHits = () => {
   );
 };
 
-const ContractSearchPage = () => {
+const ContractSearchPage: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   return (
-    <InstantSearch indexName="contracts" searchClient={searchClient}>
-      <div className="flex w-full h-full">
-        {/* Sidebar */}
-        {isSidebarOpen && (
-          <div className="w-64 p-4 bg-gray-100 border-r">
-            <h3 className="text-lg font-semibold mb-4">Filters</h3>
-            <RefinementList attribute="status" /> {/* Filter by status */}
-            <RefinementList attribute="expirationDate" /> {/* Filter by expiration date */}
+    <ThemeProvider theme={theme}>
+      <InstantSearch indexName="contracts" searchClient={searchClient}>
+        <div className="flex w-full h-full relative">
+          {/* Sidebar Toggle Button for Small Screens */}
+          <div className="absolute top-4 left-4 lg:hidden z-10">
+            <SidebarToggle
+              isSidebarOpen={isSidebarOpen}
+              toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
+            />
           </div>
-        )}
 
-        {/* Main content */}
-        <div className="flex-1 p-4">
-          <SearchBox />
-          <ContractHits />
-          <Pagination />
+          {/* Sidebar */}
+          {isSidebarOpen && (
+            <div className="w-64 p-4 bg-gray-100 border-r overflow-y-auto">
+              <SidebarContracts />
+            </div>
+          )}
+
+          {/* Main content */}
+          <div className="flex-1 p-4 overflow-y-auto">
+            <SearchBox />
+            <ContractHits />
+            <Pagination />
+          </div>
         </div>
-      </div>
-    </InstantSearch>
+      </InstantSearch>
+    </ThemeProvider>
   );
 };
 
