@@ -1,7 +1,9 @@
 import axios from "axios";
 import { Rule } from "@/app/types";
 
-const ELASTICSEARCH_URL = 'http://localhost:9200/rules/_doc/';
+const ELASTICSEARCH_URL = 'http://localhost:9200';
+const RULES_INDEX = "rules";
+
 
 // Fetch all rules for the account
 export const getRulesByAccountId = async (accountId: string): Promise<Rule[]> => {
@@ -14,7 +16,7 @@ export const getRulesByAccountId = async (accountId: string): Promise<Rule[]> =>
       },
     };
 
-    const response = await axios.post(`${ELASTICSEARCH_URL}/_search`, query);
+    const response = await axios.post(`${ELASTICSEARCH_URL}/${RULES_INDEX}/_search`, query);
     return response.data.hits.hits.map((hit: any) => ({
       ...hit._source,
       id: hit._id, // Include Elasticsearch document ID

@@ -1,0 +1,22 @@
+{
+  "mappings": {
+    "properties": {
+      "id": { "type": "keyword" },
+      "noc": { "type": "keyword" },
+      "code": { "type": "keyword" },
+      "name": { "type": "text" },
+      "shortName": { "type": "text" },
+      "sport": { "type": "keyword" },
+      "location": { "type": "keyword" },
+      "description": { "type": "text" },
+      "email": { "type": "keyword", "index": false },
+      "imageSrc": { "type": "keyword", "index": false },
+      "achievements": { "type": "text" },
+      "socialMedia": { "type": "text" },
+      "Medalist_rawScore": { "type": "float" },
+      "Medalist_isCategory": { "type": "boolean" },
+      "createdAt": { "type": "date", "format": "strict_date_optional_time||epoch_millis" },
+      "updatedAt": { "type": "date", "format": "strict_date_optional_time||epoch_millis" }
+    }
+  }
+}

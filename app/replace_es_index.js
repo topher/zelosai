@@ -22,16 +22,18 @@ async function deleteIndex(indexName) {
     }
 }
 
-// Function to create an Elasticsearch index with mapping
+// Function to create an Elasticsearch index with or without mapping
 async function createIndex(indexName, mappingFilePath) {
     try {
-        // Read the mapping file
-        const mappingData = fs.readFileSync(mappingFilePath, 'utf8');
-        const mappingJson = JSON.parse(mappingData);
-
-        // Create the index with the mapping
+        let mappingJson = {};
+        if (mappingFilePath && fs.existsSync(mappingFilePath)) {
+            const mappingData = fs.readFileSync(mappingFilePath, 'utf8');
+            mappingJson = JSON.parse(mappingData);
+        }
+        
+        // Create the index (with or without mapping)
         await axios.put(`${ELASTICSEARCH_URL}/${indexName}`, mappingJson);
-        console.log(`Index ${indexName} created with mapping.`);
+        console.log(`Index ${indexName} created${mappingFilePath ? ' with mapping' : ''}.`);
     } catch (error) {
         console.error(`Failed to create index ${indexName}:`, error.message);
     }
@@ -82,17 +84,11 @@ async function replaceIndex(indexName) {
         return;
     }
 
-    // Check if the mapping file exists
-    if (!fs.existsSync(mappingFilePath)) {
-        console.error(`Mapping file for index ${indexName} does not exist at path ${mappingFilePath}`);
-        return;
-    }
-
     // Delete the existing index if it exists
     await deleteIndex(indexName);
 
-    // Create the index with the mapping
-    await createIndex(indexName, mappingFilePath);
+    // Create the index (with or without mapping)
+    await createIndex(indexName, fs.existsSync(mappingFilePath) ? mappingFilePath : null);
 
     // Upload the new data to Elasticsearch
     await uploadFileToElasticsearch(indexName, filePath);

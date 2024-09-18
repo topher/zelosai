@@ -572,3 +572,15 @@ body .MuiAccordionDetails-root {
 .filters-section h4 {
   margin-bottom: 8px;
 }
+
+
+/* In your global CSS file or Tailwind configuration */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap');
+
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-sans {
+  font-family: 'Roboto', sans-serif;
+}
