@@ -105,6 +105,7 @@ export const Footer = () => (
 
     {/* Footer Section */}
     <div className="flex flex-col md:flex-row w-full max-w-5xl justify-between items-center border-t border-white/20 pt-6">
+      {/* ****** the space-y-2 may be the cause of the vertical alignment issue in the footer ****** */}
       <div className="flex flex-col items-center md:items-start space-y-2 text-center md:text-left">
         <div className="flex items-center mb-2">
           {/* <BrandLogo /> */}
@@ -163,20 +164,24 @@ export const Footer = () => (
         </ul> 
         */}
         <ul className="flex flex-col md:flex-row space-x-0 md:space-x-4 items-center md:items-start">
-          <Link
-            target="_blank"
-            href="https://app.termly.io/document/privacy-policy/b4f9f1c1-a729-4a08-8adb-dba43f6604a7"
-            rel="noreferrer"
-            className="text-white transition-colors hover:text-gray-300"
-          >
-            Privacy
-          </Link>
-          <Link
-            href="/termsOfUse"
-            className="text-white transition-colors hover:text-gray-300"
-          >
-            Terms of Use
-          </Link>
+          <li>
+            <Link
+              target="_blank"
+              href="https://app.termly.io/document/privacy-policy/b4f9f1c1-a729-4a08-8adb-dba43f6604a7"
+              rel="noreferrer"
+              className="text-white transition-colors hover:text-gray-300"
+            >
+              Privacy
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/termsOfUse"
+              className="text-white transition-colors hover:text-gray-300"
+            >
+              Terms of Use
+            </Link>
+          </li>
         </ul>
       </div>
       <div className="flex items-center text-white space-x-2 mt-4 md:mt-0">
