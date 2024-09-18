@@ -19,9 +19,9 @@ export const LandingProcess = () => {
               {/* Step number with dotted line */}
               <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-r from-indigo-500 via-pink-500 to-red-500 flex items-center justify-center text-2xl font-extrabold mb-4 lg:mb-0 relative">
                 {index + 1}
-                {/* Dotted line for connecting steps */}
+                {/* Dotted line for connecting steps - hidden on smaller and mobile screens */}
                 {index < steps.length - 1 && (
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2">
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 hidden lg:block">
                     <div className="w-1 h-16 border-l-2 border-dotted border-gray-400"></div>
                   </div>
                 )}
