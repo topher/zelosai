@@ -27,31 +27,50 @@ export const Footer = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+  
     // Check if the Privacy Policy checkbox is checked
     if (!formData.agreePrivacy) {
       setFormErrors("You must agree to the Privacy Policy.");
       return;
     }
-
+  
     // Reset error messages if the form is valid
     setFormErrors("");
-
-    // Do something with the formData variable (send it to an API)
-    console.log(formData);
-
-    // Reset to default
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      agreePrivacy: false,
-      agreeCommunication: true,
-    })
+  
+    try {
+      const response = await fetch("app/api/newContactLead/route.ts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to submit data");
+      }
+  
+      // Reset form data on success
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        agreePrivacy: false,
+        agreeCommunication: true,
+      });
+  
+      alert("Form submitted successfully!");
+  
+    } catch (error) {
+      console.error("Error submitting form data:", error);
+      setFormErrors("An error occurred while submitting the form. Please try again.");
+    }
   };
+  
 
   return (
     <div
