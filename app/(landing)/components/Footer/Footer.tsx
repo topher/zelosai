@@ -39,10 +39,10 @@ export const Footer = () => {
     // Reset error messages if the form is valid
     setFormErrors("");
 
-    // You can now access all form data in the formData variable
+    // Do something with the formData variable (send it to an API)
     console.log(formData);
 
-    // Do something with the formData variable (send it to an API) then reset to default
+    // Reset to default
     setFormData({
       firstName: "",
       lastName: "",
@@ -58,7 +58,7 @@ export const Footer = () => {
       className={`w-full p-6 bg-gradient-to-b from-white/10 to-transparent backdrop-blur-lg flex flex-col items-center rounded-t-3xl shadow-lg border-t border-white/20 ${font.className}`}
     >
       {/* Contact Section */}
-      <div className="w-full max-w-6xl flex flex-col md:flex-row justify-between items-center mb-6">
+      <div className="w-full max-w-6xl flex flex-col md:flex-row justify-between items-center mt-4 mb-6">
         {/* Left column: Title */}
         <div className="w-full md:w-1/2 text-left md:text-left mb-6 md:mb-0">
           <h2 className="text-6xl sm:text-8xl leading-tight text-white">
