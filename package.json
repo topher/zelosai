@@ -10,11 +10,17 @@
     "format": "npx prettier --write . --ignore-path .gitignore --cache",
     "lint:fix": "npm run format && npm run lint -- --fix",
     "type-check": "tsc --noEmit",
-    "es:start": "docker-compose up -d elasticsearch",
-    "es:stop": "docker-compose down",
-    "es:status": "docker-compose ps",
-    "es:import": "npm run es:start && npm run wait-for-es && node ./utils/import-data.js",
-    "wait-for-es": "node ./utils/wait-for-elasticsearch.js"
+    "es:start": "docker compose up -d elasticsearch",
+    "es:stop": "docker compose down",
+    "es:status": "docker compose ps",
+    "wait-for-es": "node utils/wait-for-elasticsearch.js",
+    "es:import": "npm run es:start && npm run wait-for-es && node utils/import-data.js",
+    "es:replace-index": "npm run es:start && npm run wait-for-es && node utils/replace-index.js",
+    "neo4j:start": "docker compose up -d neo4j",
+    "neo4j:stop": "docker compose stop neo4j",
+    "neo4j:status": "docker compose ps neo4j",
+    "start:all": "docker compose up -d",
+    "stop:all": "docker compose down"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.21.15",
