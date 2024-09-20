@@ -44,13 +44,13 @@ export const routes = [
   {
     label: 'Assistants',
     icon: ImageIcon,
-    href: '/digital-twin',
+    href: '/models',
     color: "text-green-500",
     children: [
-      { label: 'My Library', href: '/digital-twin/library', color: "text-green-500", description: "Explore your collection of AI models.", icon: "folder" },
-      { label: 'Usage', href: '/digital-twin/analytics', color: "text-green-500", description: "Monitor the performance of your AI models.", icon: "chart" },
-      { label: 'Safety', href: '/digital-twin/safety', color: "text-green-500", description: "Ensure the safe and responsible use of your likeness.", icon: "lock" },
-      { label: 'Create New', href: '/digital-twin/library', color: "text-green-500", description: "Build new AI models to expand your digital brand.", icon: "new-folder" },
+      { label: 'My Library', href: '/models/library', color: "text-green-500", description: "Explore your collection of AI models.", icon: "folder" },
+      { label: 'Usage', href: '/models/analytics', color: "text-green-500", description: "Monitor the performance of your AI models.", icon: "chart" },
+      { label: 'Safety', href: '/models/safety', color: "text-green-500", description: "Ensure the safe and responsible use of your likeness.", icon: "lock" },
+      { label: 'Create New', href: '/models/library', color: "text-green-500", description: "Build new AI models to expand your digital brand.", icon: "new-folder" },
     ],
   },
   {

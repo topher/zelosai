@@ -7,7 +7,7 @@
     imageSrc: string;
     similarity_score?: number; // Added property
     accolades?: string[];      // Added property
-  }
+}
   
   export type DataCategory = {  
   accountId: string;
@@ -48,7 +48,6 @@ export type Task = {
   label: string;
   priority: string;
 }
-
 
 export type Clause = {
   id: string;
@@ -120,29 +119,98 @@ export type UserDefinedModelCategory = {
 }
 
 export type AIModel = {
-  accountId: string;
-  label: string;
-  tags?: string[];
-  emoji?: string;
-  description: string;
-  iconName: string;
-  href: string;
-  color: string;
-  bgColor: string;
-  foundational_model: boolean;
-  model_file_path: string;
-  modelId: string;
-  thumbnail: string;
-  prompt_template: string;
-  use_case_ids: string[];
-  elabs_voice_id?: string;
-  elabs_model_id?: string;
-  subject_prompt_alias?: string[];
-  subject_prompt_key?: string;
-  default_language?: string;
-  createdBy: string;
-  createdAt: any;
-  creatorAvatar?: string; // Added property
+  // General Model Information
+  accountId: string;                      // ID of the account associated with the model
+  label: string;                          // Model name or label
+  tags?: string[];                        // Optional tags for categorization or filtering
+  emoji?: string;                         // Optional emoji to represent the model
+  description: string;                    // Model description or summary
+  iconName: string;                       // Icon associated with the model
+  href: string;                           // URL to access or reference the model
+  color: string;                          // Color theme or branding
+  bgColor: string;                        // Background color for branding purposes
+  foundational_model: boolean;            // Flag to indicate if it's a foundational model
+  model_file_path: string;                // Path to the model file or download location
+  modelId: string;                        // Unique identifier for the model
+  thumbnail: string;                      // Thumbnail image URL for the model
+  prompt_template: string;                // Default prompt template for the model
+  use_case_ids: string[];                 // Array of use case IDs that this model is associated with
+  elabs_voice_id?: string;                // Optional ID for associated voice (if any)
+  elabs_model_id?: string;                // Optional ID for associated e-lab model (if any)
+  subject_prompt_alias?: string[];        // Optional aliases for subject prompts
+  subject_prompt_key?: string;            // Optional subject prompt key
+  default_language?: string;              // Default language for the model's operation
+  createdBy: string;                      // User or entity that created the model
+  createdAt: any;                         // Date and time the model was created
+  creatorAvatar?: string;                 // Optional avatar of the model's creator
+
+  // Versioning Information
+  version: number;                        // Version number of the model metadata
+  updatedAt: any;                         // Timestamp for the last update of this version
+  change_log?: string;                    // Log or notes detailing the changes made in this version
+
+  // Safety & Bias Information
+  safety_details: {
+    bias_risks: string;                   // Description of any identified bias risks in the model
+    limitations: string;                  // Known limitations or potential failures of the model
+    out_of_scope_use: string;             // Description of inappropriate or out-of-scope uses for the model
+    recommendations: string;              // Recommendations to mitigate risks or limitations
+  };
+
+  // Training Details
+  training_details: {
+    training_data: string;                // Description or source of the training data used
+    preprocessing_steps?: string;         // Optional preprocessing steps applied to the training data
+    hyperparameters: {
+      training_regime: string;            // Description of the training regime used
+      speeds_sizes_times?: string;        // Optional information about training speed, size, or time
+    };
+  };
+
+  // Evaluation Information
+  evaluation: {
+    testing_data: string;                 // Information about the testing data used
+    factors?: string;                     // Factors or conditions considered during evaluation
+    metrics: string;                      // Performance metrics and how the model was evaluated
+    results: string;                      // Results of the evaluation process
+  };
+
+  // Environmental Impact
+  environmental_impact?: {
+    hardware_type: string;                // Type of hardware used for training (e.g., GPU, TPU)
+    hours_used: number;                   // Total hours spent training the model
+    cloud_provider?: string;              // Optional cloud provider where training was performed
+    compute_region?: string;              // Optional region for the cloud compute used
+    carbon_emitted?: string;              // Optional estimate of carbon emissions
+  };
+
+  // Technical Specifications
+  technical_specifications?: {
+    model_architecture: string;           // Architecture of the model (e.g., Transformer, LSTM)
+    compute_infrastructure: string;       // Compute infrastructure used for training (e.g., AWS, Google Cloud)
+    hardware: string;                     // Description of the hardware setup
+    software: string;                     // Software frameworks and versions used (e.g., TensorFlow 2.x)
+  };
+
+  // Model Sources & Citations
+  model_sources?: {
+    repository: string;                   // URL to the model's repository
+    paper?: string;                       // Optional link to a research paper associated with the model
+    demo?: string;                        // Optional link to a live demo of the model
+  };
+
+  // Versioning Control for Hybrid Approach
+  previous_versions?: {
+    version: number;                      // Previous version number
+    updatedAt: any;                       // Timestamp for the previous version
+    change_log?: string;                  // Notes or change log for the previous version
+  }[];
+
+  // Citation Formats
+  citation?: {
+    bibtex?: string;                      // Optional BibTeX citation format for the model
+    apa?: string;                         // Optional APA citation format for the model
+  };
 };
 
 export type DataConnector = {
@@ -180,8 +248,6 @@ export interface InfoAsset {
   image?: string; 
 }
 
-
-
 export type Workflow = {
     workflow_creator: string;
     id: string;
@@ -192,7 +258,6 @@ export type Workflow = {
     cover: string
     description: string
 }
-
 
 // New Statement Type
 export type Statement = {
@@ -214,7 +279,6 @@ export type Rule = {
   ruleType: string; // access | content | action
 };
 
-
 export type Goal = {
     id: string;
     accountId: string;
@@ -225,7 +289,7 @@ export type Goal = {
     Developer: string;
     RelatedIssues: string[];
     isActive: boolean;
-  };
+};
 
 export type StategicIssue = {
     Topic: string;
@@ -261,7 +325,6 @@ export type Contact = {
     email: string;
     agentTypes: Agent[]
 }
-
 export interface BusinessModel {
   companyName: string;
   logo: string;
@@ -321,7 +384,6 @@ export interface BusinessModel {
       description: string;
   }>;
 }
-
 export interface StatCard {
     title: string;
     value: string | number;
@@ -336,14 +398,12 @@ export interface Scale {
     name: string; // Name of the scale (e.g., Ratio, Ordinal, Interval)
     // ... other properties related to scale definition (optional)
 }
-
 export interface InformationNeed {
     id: string;
     description: string;
     measurableEntity: any;
     // ... other properties related to the information need (optional)
 }
-
 export interface Measure {
     id: string;
     name: string;
@@ -351,13 +411,12 @@ export interface Measure {
     scale?: Scale;
     // ... other properties related to the measure definition (optional)
 }
-
 export interface MeasurementProcedure {
     id: string;
     name: string;
     description: string;
     // ... other properties related to the measurement procedure (optional)
-  }
+}
   
 // export type Account = (typeof accounts)[number]
 // export type Contact = (typeof contacts)[number]
@@ -384,9 +443,6 @@ export enum ENTITY_TYPE {
   LIST = "LIST",
   CARD = "CARD"
 }
-
-
-
 export interface AuditLog {
   id: string;
   orgId: string;
@@ -400,7 +456,6 @@ export interface AuditLog {
   createdAt: Date;
   updatedAt: Date;
 }
-
 export interface OrgLimit {
   id: string;
   orgId: string;
@@ -408,7 +463,6 @@ export interface OrgLimit {
   createdAt: Date;
   updatedAt: Date;
 }
-
 export interface OrgSubscription {
   id: string;
   orgId: string;
@@ -417,7 +471,6 @@ export interface OrgSubscription {
   stripePriceId?: string;
   stripeCurrentPeriodEnd?: Date;
 }
-
 export type Card = {
   id: string;
   title: string;
@@ -427,7 +480,6 @@ export type Card = {
   // createdAt: Date;
   // updatedAt: Date;
 };
-
 export interface List {
   boardId: string | number | readonly string[] | undefined;
   id: string;
@@ -435,13 +487,11 @@ export interface List {
   order: number;
   cards: Card[];
 }
-
 export interface Board {
   id: string;
   title: string;
   lists: List[];
 }
-
 export type ListWithCards = List & { cards: Card[] };
 
 // @/app/types.ts
