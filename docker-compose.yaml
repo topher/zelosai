@@ -9,7 +9,7 @@ services:
       - ES_JAVA_OPTS=-Xms512m -Xmx512m
       - ELASTIC_USERNAME=${ELASTIC_USERNAME}
       - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
-      - xpack.security.enabled=true
+      - xpack.security.enabled=false
       - http.cors.enabled=true
       - http.cors.allow-origin=http://localhost:3000
       - http.cors.allow-headers=X-Requested-With,Content-Type,Content-Length,Authorization
