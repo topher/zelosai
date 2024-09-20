@@ -18,6 +18,7 @@ export const Footer = () => {
   });
 
   const [formErrors, setFormErrors] = useState<string>("");
+  const [successMessage, setSuccessMessage] = useState<string>("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value, type, checked } = e.target;
@@ -29,16 +30,17 @@ export const Footer = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
+
     // Check if the Privacy Policy checkbox is checked
     if (!formData.agreePrivacy) {
       setFormErrors("You must agree to the Privacy Policy.");
       return;
     }
-  
-    // Reset error messages if the form is valid
+
+    // Reset error and success messages if the form is valid
     setFormErrors("");
-  
+    setSuccessMessage("");
+
     try {
       const response = await fetch("/api/newContactLead", {
         method: "POST",
@@ -47,12 +49,13 @@ export const Footer = () => {
         },
         body: JSON.stringify(formData),
       });
-  
+
+      const result = await response.json();
+
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || "Failed to submit data");
+        throw new Error(result.error || "Failed to submit data");
       }
-  
+
       // Reset form data on success
       setFormData({
         firstName: "",
@@ -62,15 +65,15 @@ export const Footer = () => {
         agreePrivacy: false,
         agreeCommunication: true,
       });
-  
-      alert("Form submitted successfully!");
-  
-    } catch (error) {
+
+      // Set success message
+      setSuccessMessage("Thank you for connecting with us! We'll be in touch soon.");
+
+    } catch (error: any) {
       console.error("Error submitting form data:", error);
-      setFormErrors("An error occurred while submitting the form. Please try again.");
+      setFormErrors(error.message || "An error occurred while submitting the form. Please try again.");
     }
   };
-  
 
   return (
     <div
@@ -88,6 +91,19 @@ export const Footer = () => {
 
         {/* Right column: Form */}
         <div className="w-full md:w-1/2">
+          {/* Message Display Section */}
+          <div className="mb-4">
+            {formErrors && (
+              <div className="bg-red-500/90 text-white text-center rounded-lg px-4 py-3 mb-4 shadow-md border border-red-700">
+                {formErrors}
+              </div>
+            )}
+            {successMessage && (
+              <div className="bg-green-500/90 text-white text-center rounded-lg px-4 py-3 mb-4 shadow-md border border-green-700">
+                {successMessage}
+              </div>
+            )}
+          </div>
           <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
             <div className="flex flex-col text-left md:flex-row gap-4">
               <div className="flex flex-col w-full">

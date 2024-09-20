@@ -20,6 +20,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Check if the email already exists in Airtable
+    const existingRecords = await base(tableName).select({
+      filterByFormula: `{email} = "${formData.email}"`,
+    }).firstPage();
+
+    if (existingRecords.length > 0) {
+      return NextResponse.json(
+        { error: 'This email is already in use. Please use a different email.' },
+        { status: 400 }
+      );
+    }
+
     // Create a new record in Airtable
     const records = await base(tableName).create([
       {
