@@ -40,7 +40,7 @@ export const Footer = () => {
     setFormErrors("");
   
     try {
-      const response = await fetch("app/api/newContactLead/route.ts", {
+      const response = await fetch("/api/newContactLead", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

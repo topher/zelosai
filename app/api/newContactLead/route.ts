@@ -1,42 +1,46 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
+import Airtable from 'airtable';
 
-const ELASTICSEARCH_ENDPOINT = "";
+const apiKey = process.env.AIRTABLE_API_KEY;
+const baseId = process.env.AIRTABLE_BASE_ID;
+const tableName = 'NewLeads'; // Your Airtable table name
 
-export async function POST(request: Request) {
+const base = new Airtable({ apiKey }).base(baseId);
+
+export async function POST(request: NextRequest) {
   try {
     const formData = await request.json();
 
+    // Validate form data
     if (!formData.firstName || !formData.lastName || !formData.email) {
       return NextResponse.json(
-        { error: "First name, last name, and email are required." },
+        { error: 'Please provide first name, last name, and email.' },
         { status: 400 }
       );
     }
 
-    // Send data to Elasticsearch
-    const response = await fetch(ELASTICSEARCH_ENDPOINT, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        // If your Elasticsearch instance requires authentication, add the Authorization header here:
-        // 'Authorization': 'Basic ' + btoa('username:password')
+    // Create a new record in Airtable
+    const records = await base(tableName).create([
+      {
+        fields: {
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone || '',
+          agreePrivacy: formData.agreePrivacy || false,
+          agreeCommunication: formData.agreeCommunication || false,
+        },
       },
-      body: JSON.stringify(formData),
-    });
+    ]);
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      return NextResponse.json(
-        { error: errorData.error || "Failed to save data to Elasticsearch." },
-        { status: response.status }
-      );
-    }
+    // Return success response
+    return NextResponse.json({ message: 'Contact information submitted successfully.', records });
 
-    return NextResponse.json({ message: "Data submitted successfully!" });
   } catch (error) {
-    console.error("Error submitting data to Elasticsearch:", error);
+    console.error('Error creating record:', error);
     return NextResponse.json(
-      { error: "An unexpected error occurred while processing the form." },
+      { error: 'An error occurred while submitting contact information.' },
       { status: 500 }
     );
   }
