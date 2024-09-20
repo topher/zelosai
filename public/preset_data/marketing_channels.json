@@ -1,0 +1,104 @@
+{
+    "digital_marketing_channels": {
+        "social_media": [
+            "Facebook",
+            "Instagram",
+            "LinkedIn",
+            "Twitter",
+            "TikTok",
+            "YouTube",
+            "Pinterest",
+            "Snapchat"
+        ],
+        "search_engine_marketing": [
+            "Search Engine Optimization (SEO)",
+            "Pay-Per-Click Advertising (PPC)"
+        ],
+        "email_marketing": [
+            "Email Marketing"
+        ],
+        "content_marketing": [
+            "Blogs",
+            "Podcasts",
+            "Webinars",
+            "Ebooks",
+            "Whitepapers"
+        ],
+        "affiliate_marketing": [
+            "Affiliate Marketing"
+        ],
+        "influencer_marketing": [
+            "Influencer Marketing"
+        ],
+        "mobile_marketing": [
+            "SMS Marketing",
+            "Mobile Apps",
+            "Push Notifications"
+        ],
+        "video_marketing": [
+            "Video Marketing"
+        ],
+        "advertising": [
+            "Display Advertising",
+            "Native Advertising"
+        ]
+    },
+    "traditional_marketing_channels": {
+        "television": [
+            "Television"
+        ],
+        "radio": [
+            "Radio"
+        ],
+        "print_media": [
+            "Newspapers",
+            "Magazines",
+            "Brochures",
+            "Flyers"
+        ],
+        "direct_mail": [
+            "Direct Mail"
+        ],
+        "outdoor_advertising": [
+            "Billboards",
+            "Transit Ads",
+            "Posters"
+        ],
+        "telemarketing": [
+            "Telemarketing"
+        ]
+    },
+    "in_person_marketing_channels": {
+        "events_and_conferences": [
+            "Events and Conferences",
+            "Trade Shows",
+            "Pop-up Shops",
+            "Networking Events",
+            "Workshops and Seminars"
+        ],
+        "sponsorships": [
+            "Sponsorships"
+        ]
+    },
+    "other_channels": {
+        "word_of_mouth_marketing": [
+            "Word-of-Mouth Marketing",
+            "Referral Programs"
+        ],
+        "public_relations": [
+            "Public Relations"
+        ],
+        "guerrilla_marketing": [
+            "Guerrilla Marketing"
+        ],
+        "product_placement": [
+            "Product Placement"
+        ],
+        "packaging": [
+            "Packaging"
+        ],
+        "customer_service": [
+            "Customer Service"
+        ]
+    }
+}

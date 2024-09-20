@@ -1,0 +1,24 @@
+{
+    "regions_and_areas": {
+        "worldwide": "Worldwide.",
+        "africa": "Africa.",
+        "afta": "ASEAN Free Trade Area.",
+        "android_app_store": "Paid apps supporting countries in Android app store.",
+        "android_free_store": "Free apps supporting countries in Android app store.",
+        "apec": "Asia-Pacific Economic Cooperation.",
+        "asia": "Asia.",
+        "caribbean": "Caribbean.",
+        "central_america": "Central America.",
+        "cisfta": "Commonwealth of Independent States Free Trade Area.",
+        "eea": "European Economic Area.",
+        "emerging_markets": "Countries in Emerging Markets.",
+        "europe": "Europe.",
+        "gcc": "Gulf Cooperation Council.",
+        "itunes_app_store": "Supported countries for iTunes app store.",
+        "mercosur": "MERCOSUR.",
+        "nafta": "North American Free Trade Agreement.",
+        "north_america": "North America.",
+        "oceania": "Oceania.",
+        "south_america": "South America."
+    }
+}

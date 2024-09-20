@@ -9,11 +9,11 @@ import { Montserrat } from 'next/font/google';
 const montserrat = Montserrat({ weight: '600', subsets: ['latin'] });
 
 const DigitalTwin: React.FC = () => {
-  // find the Assistants route from the sidebar routes array
+  // Find the Assistants route from the sidebar routes array
   const assistantsRoute = routes.find(route => route.label === 'Assistants');
 
   return (
-    <div className={`container mx-auto flex flex-col justify-center h-full -mt-10 ${montserrat.className}`}>
+    <div className={`w-full mx-auto flex flex-col justify-center h-full -mt-10 ${montserrat.className}`}>
       <h1 className="text-6xl font-black mb-4 tracking-tight leading-tight text-left">
         <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500">
           {assistantsRoute?.label}

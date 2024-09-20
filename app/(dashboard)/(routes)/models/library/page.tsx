@@ -123,7 +123,7 @@ export default function MusicPage() {
                                 {filterModels(models, category).map((model) => (
                                   <Link
                                     key={model.modelId}
-                                    href={`/digital-twin/${model.tags[0]}/${model.modelId}`}
+                                    href={`/models/${model.tags[0]}/${model.modelId}`}
                                   >
                                     <AIModelCard
                                       key={model.modelId} // Use unique key

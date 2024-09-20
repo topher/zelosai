@@ -7,12 +7,13 @@ import { toast } from "react-hot-toast";
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Heading } from "@/components/heading";
-import { ImageIcon } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 import { AIModel } from "@/app/types";
 
-import { ImageGenerationTab } from "./components/ImageGenerationTab";
+import { TextGenerationTab } from "./components/ConversationGenerationTab";
 import { DocumentationTab } from "@/app/(dashboard)/(routes)/models/components/DocumentationTab";
-const ImageModelPage = () => {
+
+const ConversationPage = () => {
   const router = useRouter();
   const pathname = usePathname();
   const modelId = pathname.split("/").pop();
@@ -35,11 +36,11 @@ const ImageModelPage = () => {
   return (
     <div>
       <Heading
-        title={modelData ? modelData.label : "Image Generation"}
-        description={modelData ? modelData.description : "Turn your prompt into an image."}
-        icon={ImageIcon}
-        iconColor="text-pink-700"
-        bgColor="bg-pink-700/10"
+        title={modelData ? modelData.label : "Conversation"}
+        description={modelData ? modelData.description : "Our most advanced conversation model."}
+        icon={MessageSquare}
+        iconColor="text-violet-500"
+        bgColor="bg-violet-500/10"
       />
       <Tabs value={activeTab} onValueChange={setActiveTab} className="mt-4">
         <TabsList>
@@ -47,7 +48,7 @@ const ImageModelPage = () => {
           <TabsTrigger value="documentation">Documentation</TabsTrigger>
         </TabsList>
         <TabsContent value="generation">
-          <ImageGenerationTab modelId={modelId} modelData={modelData} />
+          <TextGenerationTab modelId={modelId} modelData={modelData} />
         </TabsContent>
         <TabsContent value="documentation">
           <DocumentationTab modelData={modelData} />
@@ -57,4 +58,4 @@ const ImageModelPage = () => {
   );
 };
 
-export default ImageModelPage;
+export default ConversationPage;

@@ -1,0 +1,64 @@
+{
+    "total_compensation": [
+        {
+            "activity": "Posting Content",
+            "percentage": 34.0,
+            "recommended": true
+        },
+        {
+            "activity": "Other Activities",
+            "percentage": 17.8,
+            "recommended": true
+        },
+        {
+            "activity": "Licensing Rights",
+            "percentage": 15.9,
+            "recommended": true
+        },
+        {
+            "activity": "Autographs",
+            "percentage": 15.1,
+            "recommended": true
+        },
+        {
+            "activity": "Creating Content",
+            "percentage": 9.7,
+            "recommended": true
+        },
+        {
+            "activity": "Appearances",
+            "percentage": 4.8,
+            "recommended": false
+        },
+        {
+            "activity": "Doing Interviews",
+            "percentage": 1.6,
+            "recommended": false
+        },
+        {
+            "activity": "Providing Instruction",
+            "percentage": 0.4,
+            "recommended": false
+        },
+        {
+            "activity": "Selling Products",
+            "percentage": 0.3,
+            "recommended": false
+        },
+        {
+            "activity": "Testing Products",
+            "percentage": 0.2,
+            "recommended": false
+        },
+        {
+            "activity": "Chatting with Someone",
+            "percentage": 0.1,
+            "recommended": false
+        },
+        {
+            "activity": "Supporting Causes",
+            "percentage": 0.1,
+            "recommended": false
+        }
+    ]
+}
