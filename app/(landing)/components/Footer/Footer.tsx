@@ -66,7 +66,6 @@ export const Footer = () => {
         agreeCommunication: true,
       });
 
-      // Set success message
       setSuccessMessage("Thank you for connecting with us! We'll be in touch soon.");
 
     } catch (error: any) {
