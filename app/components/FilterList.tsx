@@ -54,10 +54,12 @@ export const SingleSelectFilterList: React.FC<SingleSelectFilterListProps> = ({
         <Chip
           key={item.label}
           label={`${item.label} (${item.count})`}
-          onClick={() => (item.isRefined ? refine('') : refine(item.value))}
-          color={item.isRefined ? "primary" : "default"}
-          variant={item.isRefined ? "filled" : "outlined"}
-          style={{ margin: "4px" }}
+          onClick={() => refine(item.value)}
+          style={{
+            margin: "4px",
+            backgroundColor: item.isRefined ? "#4b0082" : "#f4e7c3", // Use your indigo and gold colors
+            color: item.isRefined ? "#ffffff" : "#111827", // White text when selected, darkGray when not
+          }}
         />
       ))}
     </Stack>

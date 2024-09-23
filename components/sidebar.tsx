@@ -70,7 +70,7 @@ export const routes = [
     icon: Briefcase,
     href: '/contracts',
     color: "text-orange-500",
-    children: [],
+    // children: [],
   },
   {
     label: 'Campaigns',
@@ -87,7 +87,7 @@ export const routes = [
   {
     label: 'Profiles',
     icon: Search,
-    href: '/profiles',
+    href: '/search/profiles',
     color: "text-purple-500"
   },
 ];

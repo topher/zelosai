@@ -1,4 +1,3 @@
-
 // app/components/SidebarProfiles.tsx
 
 "use client";
@@ -10,10 +9,14 @@ import { MultiSelectFilterList, SingleSelectFilterList } from "./FilterList";
 const SidebarProfiles: React.FC = () => {
   return (
     <div className="space-y-4">
-    <div>Hi there</div>
-      <FilterSection title="Athlete Profiles">
-        <SingleSelectFilterList attribute="sport" />
-        <SingleSelectFilterList attribute="location" />
+      {/* Sport Filter */}
+      <FilterSection title="Sport">
+        <MultiSelectFilterList attribute="sport" />
+      </FilterSection>
+
+      {/* Location Filter */}
+      <FilterSection title="Location">
+        <MultiSelectFilterList attribute="location" />
       </FilterSection>
     </div>
   );
