@@ -16,9 +16,6 @@ import SidebarToggle from "@/app/components/SidebarToggle"; // For toggling the 
 import SidebarProfiles from "@/app/components/SidebarProfiles";
 import ProfileSearchCard from "@/app/components/ProfileSearchCard";
 
-// Ensure that you have installed @mui/material, @mui/icons-material, and react-icons
-// npm install @mui/material @mui/icons-material react-icons
-
 const sk = new Searchkit({
   connection: {
     host: "http://localhost:9200",
@@ -153,6 +150,10 @@ const ProfileSearchPage = () => {
 
           {/* Main content */}
           <div className="flex-1 p-4 overflow-y-auto">
+            {/* Page Title */}
+            <h1 className="text-3xl font-bold text-darkGray mb-6">
+              Athlete Profiles
+            </h1>
             <CustomSearchBox />
             <ProfileHits />
             <div className="mt-6">

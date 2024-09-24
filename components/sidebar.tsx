@@ -42,7 +42,7 @@ export const routes = [
     ],
   },
   {
-    label: 'Assistants',
+    label: 'Models',
     icon: ImageIcon,
     href: '/models',
     color: "text-green-500",
