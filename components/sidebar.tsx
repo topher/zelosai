@@ -86,6 +86,7 @@ export const routes = [
   },
   {
     label: 'Profiles',
+    // search page with 3 subsections: profiles, contracts, models
     icon: Search,
     href: '/search/profiles',
     color: "text-purple-500"
