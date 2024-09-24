@@ -1,20 +1,12 @@
-// app/components/SidebarAIModels.tsx
-
-"use client";
+// app/pages/ai-models/page.tsx
 
 import React from "react";
-import FilterSection from "./FilterSection";
-import { MultiSelectFilterList, SingleSelectFilterList } from "./FilterList";
+import Sidebar from "../components/Sidebar";
 
 const SidebarAIModels: React.FC = () => {
   return (
-    <div className="space-y-4">
-      <FilterSection title="Tags">
-        <MultiSelectFilterList attribute="tags" />
-      </FilterSection>
-      <FilterSection title="Default Language">
-        <SingleSelectFilterList attribute="default_language" />
-      </FilterSection>
+    <div className="flex">
+      <Sidebar sections={["AI Models"]} />
     </div>
   );
 };

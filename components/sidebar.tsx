@@ -85,11 +85,16 @@ export const routes = [
     ],
   },
   {
-    label: 'Profiles',
+    label: 'Search',
     // search page with 3 subsections: profiles, contracts, models
     icon: Search,
-    href: '/search/profiles',
-    color: "text-purple-500"
+    href: '/search',
+    color: "text-purple-500",
+    children: [
+      { label: 'Profiles', href: '/search/profiles', color: "text-purple-500", description: "Discover athletes and their profiles.", icon: "zoom" },
+      { label: 'Contracts', href: '/search/contracts', color: "text-purple-500", description: "Find contracts that suit your business needs.", icon: "zoom" },
+      { label: 'Models', href: '/search/models', color: "text-purple-500", description: "Search for existing AI models to determine which one is right for you.", icon: "zoom" },
+    ],
   },
 ];
 
