@@ -1,20 +1,18 @@
-// page.tsx
+// app/profiles/page.tsx
+
 "use client";
 
 import React, { useState } from "react";
-import {
-  InstantSearch,
-  useSearchBox,
-  usePagination,
-  useHits,
-} from "react-instantsearch-hooks-web";
+import { InstantSearch, useHits } from "react-instantsearch-hooks-web";
 import Client from "@searchkit/instantsearch-client";
 import Searchkit from "searchkit";
 import { ThemeProvider } from "@mui/material/styles";
-import theme from "@/app/theme"; // If using a custom theme
-import SidebarToggle from "@/app/components/SidebarToggle"; // For toggling the sidebar
+import theme from "@/app/theme";
+import SidebarToggle from "@/app/components/SidebarToggle";
 import SidebarProfiles from "@/app/components/SidebarProfiles";
 import ProfileSearchCard from "@/app/components/ProfileSearchCard";
+import CustomSearchBox from "@/app/components/CustomSearchBox";
+import CustomPagination from "@/app/components/CustomPagination";
 
 const sk = new Searchkit({
   connection: {
@@ -41,7 +39,7 @@ const sk = new Searchkit({
 
 const searchClient = Client(sk);
 
-const ProfileHits = () => {
+const ProfileHits: React.FC = () => {
   const { hits } = useHits();
 
   if (!hits || hits.length === 0) {
@@ -57,76 +55,7 @@ const ProfileHits = () => {
   );
 };
 
-const CustomSearchBox = () => {
-  const { query, refine } = useSearchBox();
-
-  return (
-    <div className="relative mb-6">
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => refine(e.currentTarget.value)}
-        className="w-full rounded-full border border-gray-300 bg-white py-2 px-4 text-darkGray focus:border-indigo focus:outline-none focus:ring-2 focus:ring-indigo-light"
-        placeholder="Search for profiles..."
-      />
-      <svg
-        className="absolute right-3 top-2 h-6 w-6 text-gray-400"
-        fill="currentColor"
-        viewBox="0 0 24 24"
-      >
-        {/* SVG path for a search icon */}
-        <path d="M21.71 20.29l-3.388-3.388A9 9 0 1 0 18 18l3.29 3.29a1 1 0 0 0 1.42-1.42zM11 18a7 7 0 1 1 7-7 7 7 0 0 1-7 7z" />
-      </svg>
-    </div>
-  );
-};
-
-const CustomPagination = () => {
-  const { pages, currentRefinement, refine, isFirstPage, isLastPage } =
-    usePagination();
-
-  return (
-    <div className="flex items-center justify-center space-x-2">
-      <button
-        onClick={() => refine(currentRefinement - 1)}
-        disabled={isFirstPage}
-        className={`px-3 py-1 rounded-full ${
-          isFirstPage
-            ? "cursor-not-allowed text-gray-400"
-            : "text-indigo hover:text-indigo-light"
-        }`}
-      >
-        Previous
-      </button>
-      {pages.map((page) => (
-        <button
-          key={page}
-          onClick={() => refine(page)}
-          className={`px-3 py-1 rounded-full ${
-            currentRefinement === page
-              ? "bg-indigo text-white"
-              : "text-darkGray hover:bg-indigo-light hover:text-white"
-          }`}
-        >
-          {page + 1}
-        </button>
-      ))}
-      <button
-        onClick={() => refine(currentRefinement + 1)}
-        disabled={isLastPage}
-        className={`px-3 py-1 rounded-full ${
-          isLastPage
-            ? "cursor-not-allowed text-gray-400"
-            : "text-indigo hover:text-indigo-light"
-        }`}
-      >
-        Next
-      </button>
-    </div>
-  );
-};
-
-const ProfileSearchPage = () => {
+const ProfileSearchPage: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   return (
@@ -154,7 +83,7 @@ const ProfileSearchPage = () => {
             <h1 className="text-3xl font-bold text-darkGray mb-6">
               Athlete Profiles
             </h1>
-            <CustomSearchBox />
+            <CustomSearchBox placeholder="Search for profiles..." />
             <ProfileHits />
             <div className="mt-6">
               <CustomPagination />

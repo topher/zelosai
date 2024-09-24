@@ -1,19 +1,18 @@
+// contracts/page.tsx
+
 "use client";
 
 import React, { useState } from "react";
-import {
-  InstantSearch,
-  SearchBox,
-  Pagination,
-} from "react-instantsearch-hooks-web";
-import { useHits } from "react-instantsearch-hooks-web";
+import { InstantSearch, useHits } from "react-instantsearch-hooks-web";
 import Client from "@searchkit/instantsearch-client";
-import ContractSearchCard from "@/app/components/ContractSearchCard";
 import Searchkit from "searchkit";
-import SidebarToggle from "@/app/components/SidebarToggle";
-import theme from "@/app/theme";
 import { ThemeProvider } from "@mui/material/styles";
+import theme from "@/app/theme";
+import SidebarToggle from "@/app/components/SidebarToggle";
 import SidebarContracts from "@/app/components/SidebarContracts";
+import ContractSearchCard from "@/app/components/ContractSearchCard";
+import CustomSearchBox from "@/app/components/CustomSearchBox";
+import CustomPagination from "@/app/components/CustomPagination";
 
 const sk = new Searchkit({
   connection: {
@@ -33,7 +32,7 @@ const sk = new Searchkit({
 
 const searchClient = Client(sk) as unknown as any;
 
-const ContractHits = () => {
+const ContractHits: React.FC = () => {
   const { hits } = useHits();
 
   if (!hits || hits.length === 0) {
@@ -66,16 +65,22 @@ const ContractSearchPage: React.FC = () => {
 
           {/* Sidebar */}
           {isSidebarOpen && (
-            <div className="w-64 p-4 bg-gray-100 border-r overflow-y-auto">
+            <div className="w-64 p-4 bg-white border-r shadow-lg overflow-y-auto hidden lg:block">
               <SidebarContracts />
             </div>
           )}
 
           {/* Main content */}
           <div className="flex-1 p-4 overflow-y-auto">
-            <SearchBox />
+            {/* Page Title */}
+            <h1 className="text-3xl font-bold text-darkGray mb-6">
+              Contracts
+            </h1>
+            <CustomSearchBox placeholder="Search for contracts..." />
             <ContractHits />
-            <Pagination />
+            <div className="mt-6">
+              <CustomPagination />
+            </div>
           </div>
         </div>
       </InstantSearch>

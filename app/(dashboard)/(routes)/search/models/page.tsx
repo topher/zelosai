@@ -1,18 +1,18 @@
+// models/page.tsx
+
 "use client";
+
 import React, { useState } from "react";
-import {
-  InstantSearch,
-  SearchBox,
-  Pagination,
-} from "react-instantsearch-hooks-web";
-import { useHits } from "react-instantsearch-hooks-web";
+import { InstantSearch, useHits } from "react-instantsearch-hooks-web";
 import Client from "@searchkit/instantsearch-client";
-import AIModelSearchCard from "@/app/components/AIModelSearchCard";
 import Searchkit from "searchkit";
-import SidebarToggle from "@/app/components/SidebarToggle";
-import theme from "@/app/theme";
 import { ThemeProvider } from "@mui/material/styles";
+import theme from "@/app/theme";
+import SidebarToggle from "@/app/components/SidebarToggle";
 import SidebarAIModels from "@/app/components/SidebarAIModels";
+import AIModelSearchCard from "@/app/components/AIModelSearchCard";
+import CustomSearchBox from "@/app/components/CustomSearchBox";
+import CustomPagination from "@/app/components/CustomPagination";
 
 const sk = new Searchkit({
   connection: {
@@ -64,16 +64,22 @@ const AIModelSearchPage: React.FC = () => {
 
           {/* Sidebar */}
           {isSidebarOpen && (
-            <div className="w-64 p-4 bg-gray-100 border-r overflow-y-auto">
+            <div className="w-64 p-4 bg-white border-r shadow-lg overflow-y-auto hidden lg:block">
               <SidebarAIModels />
             </div>
           )}
 
           {/* Main content */}
           <div className="flex-1 p-4 overflow-y-auto">
-            <SearchBox />
+            {/* Page Title */}
+            <h1 className="text-3xl font-bold text-darkGray mb-6">
+              Models
+            </h1>
+            <CustomSearchBox placeholder="Search for models..." />
             <AIModelHits />
-            <Pagination />
+            <div className="mt-6">
+              <CustomPagination />
+            </div>
           </div>
         </div>
       </InstantSearch>
