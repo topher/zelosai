@@ -72,10 +72,15 @@ const ContractSearchPage: React.FC = () => {
 
           {/* Main content */}
           <div className="flex-1 p-4 overflow-y-auto">
-            {/* Page Title */}
-            <h1 className="text-3xl font-bold text-darkGray mb-6">
-              Contracts
-            </h1>
+            {/* Page Title and Top Pagination */}
+            <div className="flex items-center justify-between mb-6">
+              <h1 className="text-3xl font-bold text-darkGray">
+                Contracts
+              </h1>
+              <div className="hidden sm:block">
+                <CustomPagination />
+              </div>
+            </div>
             <CustomSearchBox placeholder="Search for contracts..." />
             <ContractHits />
             <div className="mt-6">

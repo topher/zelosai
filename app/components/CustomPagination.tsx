@@ -2,15 +2,28 @@
 
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { usePagination } from "react-instantsearch-hooks-web";
 
 const CustomPagination: React.FC = () => {
-  const { pages, currentRefinement, refine, isFirstPage, isLastPage } =
-    usePagination();
+  const {
+    pages,
+    currentRefinement,
+    refine,
+    isFirstPage,
+    isLastPage,
+  } = usePagination();
+
+  // Effect to scroll to top when the page changes
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Change to "auto" for instant scroll
+    });
+  }, [currentRefinement]);
 
   return (
-    <div className="flex items-center justify-center space-x-2">
+    <div className="flex items-center justify-center space-x-2 mt-4">
       <button
         onClick={() => refine(currentRefinement - 1)}
         disabled={isFirstPage}
