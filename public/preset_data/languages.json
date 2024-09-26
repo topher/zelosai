@@ -1,935 +1,1120 @@
 [
     {
+      "id": "aa",
       "code": "aa",
       "name": "Afar",
       "native": "Afar"
     },
     {
+      "id": "ab",
       "code": "ab",
       "name": "Abkhazian",
       "native": "Аҧсуа"
     },
     {
+      "id": "af",
       "code": "af",
       "name": "Afrikaans",
       "native": "Afrikaans"
     },
     {
+      "id": "ak",
       "code": "ak",
       "name": "Akan",
       "native": "Akana"
     },
     {
+      "id": "am",
       "code": "am",
       "name": "Amharic",
       "native": "አማርኛ"
     },
     {
+      "id": "an",
       "code": "an",
       "name": "Aragonese",
       "native": "Aragonés"
     },
     {
+      "id": "ar",
       "code": "ar",
       "name": "Arabic",
       "native": "العربية",
       "rtl": 1
     },
     {
+      "id": "as",
       "code": "as",
       "name": "Assamese",
       "native": "অসমীয়া"
     },
     {
+      "id": "av",
       "code": "av",
       "name": "Avar",
       "native": "Авар"
     },
     {
+      "id": "ay",
       "code": "ay",
       "name": "Aymara",
       "native": "Aymar"
     },
     {
+      "id": "az",
       "code": "az",
       "name": "Azerbaijani",
       "native": "Azərbaycanca"
     },
     {
+      "id": "ba",
       "code": "ba",
       "name": "Bashkir",
       "native": "Башҡорт"
     },
     {
+      "id": "be",
       "code": "be",
       "name": "Belarusian",
       "native": "Беларуская"
     },
     {
+      "id": "bg",
       "code": "bg",
       "name": "Bulgarian",
       "native": "Български"
     },
     {
+      "id": "bh",
       "code": "bh",
       "name": "Bihari",
       "native": "भोजपुरी"
     },
     {
+      "id": "bi",
       "code": "bi",
       "name": "Bislama",
       "native": "Bislama"
     },
     {
+      "id": "bm",
       "code": "bm",
       "name": "Bambara",
       "native": "Bamanankan"
     },
     {
+      "id": "bn",
       "code": "bn",
       "name": "Bengali",
       "native": "বাংলা"
     },
     {
+      "id": "bo",
       "code": "bo",
       "name": "Tibetan",
       "native": "བོད་ཡིག / Bod skad"
     },
     {
+      "id": "br",
       "code": "br",
       "name": "Breton",
       "native": "Brezhoneg"
     },
     {
+      "id": "bs",
       "code": "bs",
       "name": "Bosnian",
       "native": "Bosanski"
     },
     {
+      "id": "ca",
       "code": "ca",
       "name": "Catalan",
       "native": "Català"
     },
     {
+      "id": "ce",
       "code": "ce",
       "name": "Chechen",
       "native": "Нохчийн"
     },
     {
+      "id": "ch",
       "code": "ch",
       "name": "Chamorro",
       "native": "Chamoru"
     },
     {
+      "id": "co",
       "code": "co",
       "name": "Corsican",
       "native": "Corsu"
     },
     {
+      "id": "cr",
       "code": "cr",
       "name": "Cree",
       "native": "Nehiyaw"
     },
     {
+      "id": "cs",
       "code": "cs",
       "name": "Czech",
       "native": "Česky"
     },
     {
+      "id": "cu",
       "code": "cu",
       "name": "Old Church Slavonic / Old Bulgarian",
       "native": "словѣньскъ / slověnĭskŭ"
     },
     {
+      "id": "cv",
       "code": "cv",
       "name": "Chuvash",
       "native": "Чăваш"
     },
     {
+      "id": "cy",
       "code": "cy",
       "name": "Welsh",
       "native": "Cymraeg"
     },
     {
+      "id": "da",
       "code": "da",
       "name": "Danish",
       "native": "Dansk"
     },
     {
+      "id": "de",
       "code": "de",
       "name": "German",
       "native": "Deutsch"
     },
     {
+      "id": "dv",
       "code": "dv",
       "name": "Divehi",
       "native": "ދިވެހިބަސް",
       "rtl": 1
     },
     {
+      "id": "dz",
       "code": "dz",
       "name": "Dzongkha",
       "native": "ཇོང་ཁ"
     },
     {
+      "id": "ee",
       "code": "ee",
       "name": "Ewe",
       "native": "Ɛʋɛ"
     },
     {
+      "id": "el",
       "code": "el",
       "name": "Greek",
       "native": "Ελληνικά"
     },
     {
+      "id": "en",
       "code": "en",
       "name": "English",
       "native": "English"
     },
     {
+      "id": "eo",
       "code": "eo",
       "name": "Esperanto",
       "native": "Esperanto"
     },
     {
+      "id": "es",
       "code": "es",
       "name": "Spanish",
       "native": "Español"
     },
     {
+      "id": "et",
       "code": "et",
       "name": "Estonian",
       "native": "Eesti"
     },
     {
+      "id": "eu",
       "code": "eu",
       "name": "Basque",
       "native": "Euskara"
     },
     {
+      "id": "fa",
       "code": "fa",
       "name": "Persian",
       "native": "فارسی",
       "rtl": 1
     },
     {
+      "id": "ff",
       "code": "ff",
       "name": "Peul",
       "native": "Fulfulde"
     },
     {
+      "id": "fi",
       "code": "fi",
       "name": "Finnish",
       "native": "Suomi"
     },
     {
+      "id": "fj",
       "code": "fj",
       "name": "Fijian",
       "native": "Na Vosa Vakaviti"
     },
     {
+      "id": "fo",
       "code": "fo",
       "name": "Faroese",
       "native": "Føroyskt"
     },
     {
+      "id": "fr",
       "code": "fr",
       "name": "French",
       "native": "Français"
     },
     {
+      "id": "fy",
       "code": "fy",
       "name": "West Frisian",
       "native": "Frysk"
     },
     {
+      "id": "ga",
       "code": "ga",
       "name": "Irish",
       "native": "Gaeilge"
     },
     {
+      "id": "gd",
       "code": "gd",
       "name": "Scottish Gaelic",
       "native": "Gàidhlig"
     },
     {
+      "id": "gl",
       "code": "gl",
       "name": "Galician",
       "native": "Galego"
     },
     {
+      "id": "gn",
       "code": "gn",
       "name": "Guarani",
       "native": "Avañe'ẽ"
     },
     {
+      "id": "gu",
       "code": "gu",
       "name": "Gujarati",
       "native": "ગુજરાતી"
     },
     {
+      "id": "gv",
       "code": "gv",
       "name": "Manx",
       "native": "Gaelg"
     },
     {
+      "id": "ha",
       "code": "ha",
       "name": "Hausa",
       "native": "هَوُسَ",
       "rtl": 1
     },
     {
+      "id": "he",
       "code": "he",
       "name": "Hebrew",
       "native": "עברית",
       "rtl": 1
     },
     {
+      "id": "hi",
       "code": "hi",
       "name": "Hindi",
       "native": "हिन्दी"
     },
     {
+      "id": "ho",
       "code": "ho",
       "name": "Hiri Motu",
       "native": "Hiri Motu"
     },
     {
+      "id": "hr",
       "code": "hr",
       "name": "Croatian",
       "native": "Hrvatski"
     },
     {
+      "id": "ht",
       "code": "ht",
       "name": "Haitian",
       "native": "Krèyol ayisyen"
     },
     {
+      "id": "hu",
       "code": "hu",
       "name": "Hungarian",
       "native": "Magyar"
     },
     {
+      "id": "hy",
       "code": "hy",
       "name": "Armenian",
       "native": "Հայերեն"
     },
     {
+      "id": "hz",
       "code": "hz",
       "name": "Herero",
       "native": "Otsiherero"
     },
     {
+      "id": "ia",
       "code": "ia",
       "name": "Interlingua",
       "native": "Interlingua"
     },
     {
+      "id": "id",
       "code": "id",
       "name": "Indonesian",
       "native": "Bahasa Indonesia"
     },
     {
+      "id": "ie",
       "code": "ie",
       "name": "Interlingue",
       "native": "Interlingue"
     },
     {
+      "id": "ig",
       "code": "ig",
       "name": "Igbo",
       "native": "Igbo"
     },
     {
+      "id": "ii",
       "code": "ii",
       "name": "Sichuan Yi",
       "native": "ꆇꉙ / 四川彝语"
     },
     {
+      "id": "ik",
       "code": "ik",
       "name": "Inupiak",
       "native": "Iñupiak"
     },
     {
+      "id": "io",
       "code": "io",
       "name": "Ido",
       "native": "Ido"
     },
     {
+      "id": "is",
       "code": "is",
       "name": "Icelandic",
       "native": "Íslenska"
     },
     {
+      "id": "it",
       "code": "it",
       "name": "Italian",
       "native": "Italiano"
     },
     {
+      "id": "iu",
       "code": "iu",
       "name": "Inuktitut",
       "native": "ᐃᓄᒃᑎᑐᑦ"
     },
     {
+      "id": "ja",
       "code": "ja",
       "name": "Japanese",
       "native": "日本語"
     },
     {
+      "id": "jv",
       "code": "jv",
       "name": "Javanese",
       "native": "Basa Jawa"
     },
     {
+      "id": "ka",
       "code": "ka",
       "name": "Georgian",
       "native": "ქართული"
     },
     {
+      "id": "kg",
       "code": "kg",
       "name": "Kongo",
       "native": "KiKongo"
     },
     {
+      "id": "ki",
       "code": "ki",
       "name": "Kikuyu",
       "native": "Gĩkũyũ"
     },
     {
+      "id": "kj",
       "code": "kj",
       "name": "Kuanyama",
       "native": "Kuanyama"
     },
     {
+      "id": "kk",
       "code": "kk",
       "name": "Kazakh",
       "native": "Қазақша"
     },
     {
+      "id": "kl",
       "code": "kl",
       "name": "Greenlandic",
       "native": "Kalaallisut"
     },
     {
+      "id": "km",
       "code": "km",
       "name": "Cambodian",
       "native": "ភាសាខ្មែរ"
     },
     {
+      "id": "kn",
       "code": "kn",
       "name": "Kannada",
       "native": "ಕನ್ನಡ"
     },
     {
+      "id": "ko",
       "code": "ko",
       "name": "Korean",
       "native": "한국어"
     },
     {
+      "id": "kr",
       "code": "kr",
       "name": "Kanuri",
       "native": "Kanuri"
     },
     {
+      "id": "ks",
       "code": "ks",
       "name": "Kashmiri",
       "native": "कश्मीरी / كشميري",
       "rtl": 1
     },
     {
+      "id": "ku",
       "code": "ku",
       "name": "Kurdish",
       "native": "Kurdî / كوردی",
       "rtl": 1
     },
     {
+      "id": "kv",
       "code": "kv",
       "name": "Komi",
       "native": "Коми"
     },
     {
+      "id": "kw",
       "code": "kw",
       "name": "Cornish",
       "native": "Kernewek"
     },
     {
+      "id": "ky",
       "code": "ky",
       "name": "Kirghiz",
       "native": "Kırgızca / Кыргызча"
     },
     {
+      "id": "la",
       "code": "la",
       "name": "Latin",
       "native": "Latina"
     },
     {
+      "id": "lb",
       "code": "lb",
       "name": "Luxembourgish",
       "native": "Lëtzebuergesch"
     },
     {
+      "id": "lg",
       "code": "lg",
       "name": "Ganda",
       "native": "Luganda"
     },
     {
+      "id": "li",
       "code": "li",
       "name": "Limburgian",
       "native": "Limburgs"
     },
     {
+      "id": "ln",
       "code": "ln",
       "name": "Lingala",
       "native": "Lingála"
     },
     {
+      "id": "lo",
       "code": "lo",
       "name": "Laotian",
       "native": "ລາວ / Pha xa lao"
     },
     {
+      "id": "lt",
       "code": "lt",
       "name": "Lithuanian",
       "native": "Lietuvių"
     },
     {
+      "id": "lu",
       "code": "lu",
       "name": "Luba-Katanga",
       "native": "Tshiluba"
     },
     {
+      "id": "lv",
       "code": "lv",
       "name": "Latvian",
       "native": "Latviešu"
     },
     {
+      "id": "mg",
       "code": "mg",
       "name": "Malagasy",
       "native": "Malagasy"
     },
     {
+      "id": "mh",
       "code": "mh",
       "name": "Marshallese",
       "native": "Kajin Majel / Ebon"
     },
     {
+      "id": "mi",
       "code": "mi",
       "name": "Maori",
       "native": "Māori"
     },
     {
+      "id": "mk",
       "code": "mk",
       "name": "Macedonian",
       "native": "Македонски"
     },
     {
+      "id": "ml",
       "code": "ml",
       "name": "Malayalam",
       "native": "മലയാളം"
     },
     {
+      "id": "mn",
       "code": "mn",
       "name": "Mongolian",
       "native": "Монгол"
     },
     {
+      "id": "mo",
       "code": "mo",
       "name": "Moldovan",
       "native": "Moldovenească"
     },
     {
+      "id": "mr",
       "code": "mr",
       "name": "Marathi",
       "native": "मराठी"
     },
     {
+      "id": "ms",
       "code": "ms",
       "name": "Malay",
       "native": "Bahasa Melayu"
     },
     {
+      "id": "mt",
       "code": "mt",
       "name": "Maltese",
       "native": "bil-Malti"
     },
     {
+      "id": "my",
       "code": "my",
       "name": "Burmese",
       "native": "မြန်မာစာ"
     },
     {
+      "id": "na",
       "code": "na",
       "name": "Nauruan",
       "native": "Dorerin Naoero"
     },
     {
+      "id": "nb",
       "code": "nb",
       "name": "Norwegian Bokmål",
       "native": "Norsk bokmål"
     },
     {
+      "id": "nd",
       "code": "nd",
       "name": "North Ndebele",
       "native": "Sindebele"
     },
     {
+      "id": "ne",
       "code": "ne",
       "name": "Nepali",
       "native": "नेपाली"
     },
     {
+      "id": "ng",
       "code": "ng",
       "name": "Ndonga",
       "native": "Oshiwambo"
     },
     {
+      "id": "nl",
       "code": "nl",
       "name": "Dutch",
       "native": "Nederlands"
     },
     {
+      "id": "nn",
       "code": "nn",
       "name": "Norwegian Nynorsk",
       "native": "Norsk nynorsk"
     },
     {
+      "id": "no",
       "code": "no",
       "name": "Norwegian",
       "native": "Norsk"
     },
     {
+      "id": "nr",
       "code": "nr",
       "name": "South Ndebele",
       "native": "isiNdebele"
     },
     {
+      "id": "nv",
       "code": "nv",
       "name": "Navajo",
       "native": "Diné bizaad"
     },
     {
+      "id": "ny",
       "code": "ny",
       "name": "Chichewa",
       "native": "Chi-Chewa"
     },
     {
+      "id": "oc",
       "code": "oc",
       "name": "Occitan",
       "native": "Occitan"
     },
     {
+      "id": "oj",
       "code": "oj",
       "name": "Ojibwa",
       "native": "ᐊᓂᔑᓈᐯᒧᐎᓐ / Anishinaabemowin"
     },
     {
+      "id": "om",
       "code": "om",
       "name": "Oromo",
       "native": "Oromoo"
     },
     {
+      "id": "or",
       "code": "or",
       "name": "Oriya",
       "native": "ଓଡ଼ିଆ"
     },
     {
+      "id": "os",
       "code": "os",
       "name": "Ossetian / Ossetic",
       "native": "Иронау"
     },
     {
+      "id": "pa",
       "code": "pa",
       "name": "Panjabi / Punjabi",
       "native": "ਪੰਜਾਬੀ / पंजाबी / پنجابي"
     },
     {
+      "id": "pi",
       "code": "pi",
       "name": "Pali",
       "native": "Pāli / पाऴि"
     },
     {
+      "id": "pl",
       "code": "pl",
       "name": "Polish",
       "native": "Polski"
     },
     {
+      "id": "ps",
       "code": "ps",
       "name": "Pashto",
       "native": "پښتو",
       "rtl": 1
     },
     {
+      "id": "pt",
       "code": "pt",
       "name": "Portuguese",
       "native": "Português"
     },
     {
+      "id": "qu",
       "code": "qu",
       "name": "Quechua",
       "native": "Runa Simi"
     },
     {
+      "id": "rm",
       "code": "rm",
       "name": "Raeto Romance",
       "native": "Rumantsch"
     },
     {
+      "id": "rn",
       "code": "rn",
       "name": "Kirundi",
       "native": "Kirundi"
     },
     {
+      "id": "ro",
       "code": "ro",
       "name": "Romanian",
       "native": "Română"
     },
     {
+      "id": "ru",
       "code": "ru",
       "name": "Russian",
       "native": "Русский"
     },
     {
+      "id": "rw",
       "code": "rw",
       "name": "Rwandi",
       "native": "Kinyarwandi"
     },
     {
+      "id": "sa",
       "code": "sa",
       "name": "Sanskrit",
       "native": "संस्कृतम्"
     },
     {
+      "id": "sc",
       "code": "sc",
       "name": "Sardinian",
       "native": "Sardu"
     },
     {
+      "id": "sd",
       "code": "sd",
       "name": "Sindhi",
       "native": "सिनधि"
     },
     {
+      "id": "se",
       "code": "se",
       "name": "Northern Sami",
       "native": "Sámegiella"
     },
     {
+      "id": "sg",
       "code": "sg",
       "name": "Sango",
       "native": "Sängö"
     },
     {
+      "id": "sh",
       "code": "sh",
       "name": "Serbo-Croatian",
       "native": "Srpskohrvatski / Српскохрватски"
     },
     {
+      "id": "si",
       "code": "si",
       "name": "Sinhalese",
       "native": "සිංහල"
     },
     {
+      "id": "sk",
       "code": "sk",
       "name": "Slovak",
       "native": "Slovenčina"
     },
     {
+      "id": "sl",
       "code": "sl",
       "name": "Slovenian",
       "native": "Slovenščina"
     },
     {
+      "id": "sm",
       "code": "sm",
       "name": "Samoan",
       "native": "Gagana Samoa"
     },
     {
+      "id": "sn",
       "code": "sn",
       "name": "Shona",
       "native": "chiShona"
     },
     {
+      "id": "so",
       "code": "so",
       "name": "Somalia",
       "native": "Soomaaliga"
     },
     {
+      "id": "sq",
       "code": "sq",
       "name": "Albanian",
       "native": "Shqip"
     },
     {
+      "id": "sr",
       "code": "sr",
       "name": "Serbian",
       "native": "Српски"
     },
     {
+      "id": "ss",
       "code": "ss",
       "name": "Swati",
       "native": "SiSwati"
     },
     {
+      "id": "st",
       "code": "st",
       "name": "Southern Sotho",
       "native": "Sesotho"
     },
     {
+      "id": "su",
       "code": "su",
       "name": "Sundanese",
       "native": "Basa Sunda"
     },
     {
+      "id": "sv",
       "code": "sv",
       "name": "Swedish",
       "native": "Svenska"
     },
     {
+      "id": "sw",
       "code": "sw",
       "name": "Swahili",
       "native": "Kiswahili"
     },
     {
+      "id": "ta",
       "code": "ta",
       "name": "Tamil",
       "native": "தமிழ்"
     },
     {
+      "id": "te",
       "code": "te",
       "name": "Telugu",
       "native": "తెలుగు"
     },
     {
+      "id": "tg",
       "code": "tg",
       "name": "Tajik",
       "native": "Тоҷикӣ"
     },
     {
+      "id": "th",
       "code": "th",
       "name": "Thai",
       "native": "ไทย / Phasa Thai"
     },
     {
+      "id": "ti",
       "code": "ti",
       "name": "Tigrinya",
       "native": "ትግርኛ"
     },
     {
+      "id": "tk",
       "code": "tk",
       "name": "Turkmen",
       "native": "Туркмен / تركمن"
     },
     {
+      "id": "tl",
       "code": "tl",
       "name": "Tagalog / Filipino",
       "native": "Tagalog"
     },
     {
+      "id": "tn",
       "code": "tn",
       "name": "Tswana",
       "native": "Setswana"
     },
     {
+      "id": "to",
       "code": "to",
       "name": "Tonga",
       "native": "Lea Faka-Tonga"
     },
     {
+      "id": "tr",
       "code": "tr",
       "name": "Turkish",
       "native": "Türkçe"
     },
     {
+      "id": "ts",
       "code": "ts",
       "name": "Tsonga",
       "native": "Xitsonga"
     },
     {
+      "id": "tt",
       "code": "tt",
       "name": "Tatar",
       "native": "Tatarça"
     },
     {
+      "id": "tw",
       "code": "tw",
       "name": "Twi",
       "native": "Twi"
     },
     {
+      "id": "ty",
       "code": "ty",
       "name": "Tahitian",
       "native": "Reo Mā`ohi"
     },
     {
+      "id": "ug",
       "code": "ug",
       "name": "Uyghur",
       "native": "Uyƣurqə / ئۇيغۇرچە"
     },
     {
+      "id": "uk",
       "code": "uk",
       "name": "Ukrainian",
       "native": "Українська"
     },
     {
+      "id": "ur",
       "code": "ur",
       "name": "Urdu",
       "native": "اردو",
       "rtl": 1
     },
     {
+      "id": "uz",
       "code": "uz",
       "name": "Uzbek",
       "native": "Ўзбек"
     },
     {
+      "id": "ve",
       "code": "ve",
       "name": "Venda",
       "native": "Tshivenḓa"
     },
     {
+      "id": "vi",
       "code": "vi",
       "name": "Vietnamese",
       "native": "Tiếng Việt"
     },
     {
+      "id": "vo",
       "code": "vo",
       "name": "Volapük",
       "native": "Volapük"
     },
     {
+      "id": "wa",
       "code": "wa",
       "name": "Walloon",
       "native": "Walon"
     },
     {
+      "id": "wo",
       "code": "wo",
       "name": "Wolof",
       "native": "Wollof"
     },
     {
+      "id": "xh",
       "code": "xh",
       "name": "Xhosa",
       "native": "isiXhosa"
     },
     {
+      "id": "yi",
       "code": "yi",
       "name": "Yiddish",
       "native": "ייִדיש",
       "rtl": 1
     },
     {
+      "id": "yo",
       "code": "yo",
       "name": "Yoruba",
       "native": "Yorùbá"
     },
     {
+      "id": "za",
       "code": "za",
       "name": "Zhuang",
       "native": "Cuengh / Tôô / 壮语"
     },
     {
+      "id": "zh",
       "code": "zh",
       "name": "Chinese",
       "native": "中文"
     },
     {
+      "id": "zu",
       "code": "zu",
       "name": "Zulu",
       "native": "isiZulu"
