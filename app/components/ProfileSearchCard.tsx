@@ -1,17 +1,26 @@
-// ProfileSearchCard.tsx
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { FaMapMarkerAlt, FaRunning } from "react-icons/fa";
-import SearchSimilarityComponent from "./SearchSimilarityComponent";
-import SearchCardBadgeDetail from "./SearchCardBadgeDetail";
-import { Profile } from "@/app/types";
+// app/components/ProfileSearchCard.tsx
+
+"use client"
+
+import React from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { FaMapMarkerAlt, FaRunning } from "react-icons/fa"
+import SearchSimilarityComponent from "./SearchSimilarityComponent"
+import SearchCardBadgeDetail from "./SearchCardBadgeDetail"
+import { Profile } from "@/app/types"
+import { countryMap, sportsMap } from "../../lib/utils" // Adjust the path accordingly
 
 interface ProfileSearchCardProps {
-  data: Profile;
+  data: Profile
 }
 
 const ProfileSearchCard: React.FC<ProfileSearchCardProps> = ({ data }) => {
+  // Map data.location to country name and emoji
+  const mappedLocation = data.location ? countryMap[data.location] : undefined
+  // Map data.sport to sport description
+  const mappedSport = data.sport ? sportsMap[data.sport] : undefined
+
   return (
     <Link href={`/profiles/${data.id}`}>
       <div
@@ -41,12 +50,14 @@ const ProfileSearchCard: React.FC<ProfileSearchCardProps> = ({ data }) => {
               <h2 className="text-white text-xl font-bold mb-1">{data.name}</h2>
               <div className="flex items-center text-white text-sm mb-1">
                 <FaRunning className="mr-2 text-gold" />
-                <span className="uppercase tracking-wide">{data.sport}</span>
+                <span className="tracking-wide">{mappedSport || data.sport}</span>
               </div>
-              {data.location && (
+              {mappedLocation && (
                 <div className="flex items-center text-white text-sm mb-2">
                   <FaMapMarkerAlt className="mr-2 text-gold" />
-                  <span>{data.location}</span>
+                  <span>
+                    {mappedLocation.name}
+                  </span>
                 </div>
               )}
               {data.accolades && data.accolades.length > 0 && (
@@ -57,7 +68,7 @@ const ProfileSearchCard: React.FC<ProfileSearchCardProps> = ({ data }) => {
         </div>
       </div>
     </Link>
-  );
-};
+  )
+}
 
-export default ProfileSearchCard;
+export default ProfileSearchCard

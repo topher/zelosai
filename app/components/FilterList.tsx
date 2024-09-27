@@ -1,20 +1,55 @@
 // app/components/FilterList.tsx
 
-"use client";
+"use client"
 
-import React from "react";
+import React from "react"
 import {
   useRefinementList,
   useMenu,
-} from "react-instantsearch-hooks-web";
-import { Chip, Stack } from "@mui/material";
+} from "react-instantsearch-hooks-web"
+import { Chip, Stack } from "@mui/material"
+import { languageMap, countryMap, sportsMap } from "../../lib/utils" // Adjust the path accordingly
 
 interface MultiSelectFilterListProps {
-  attribute: string;
+  attribute: string
 }
 
 interface SingleSelectFilterListProps {
-  attribute: string;
+  attribute: string
+}
+
+// Helper function to map labels
+const mapLabel = (attribute: string, label: string): React.ReactNode => {
+  // Attributes that use language codes
+  const languageAttributes = ["default_language", "language"] // Add more if needed
+  // Attributes that use country codes
+  const countryAttributes = ["location", "country"] // Add more if needed
+  // Attributes that use sport codes
+  const sportAttributes = ["sport"] // Add more if needed
+
+  if (languageAttributes.includes(attribute)) {
+    return languageMap[label] || label
+  }
+
+  if (countryAttributes.includes(attribute)) {
+    const country = countryMap[label]
+    if (country) {
+      // Optionally include the emoji
+      return (
+        <>
+          <span style={{ marginRight: "4px" }}>{country.emoji}</span>
+          {country.name}
+        </>
+      )
+    }
+    return label
+  }
+
+  if (sportAttributes.includes(attribute)) {
+    return sportsMap[label] || label
+  }
+
+  return label
 }
 
 export const MultiSelectFilterList: React.FC<MultiSelectFilterListProps> = ({
@@ -23,14 +58,14 @@ export const MultiSelectFilterList: React.FC<MultiSelectFilterListProps> = ({
   const { items, refine } = useRefinementList({
     attribute,
     operator: 'or', // Allows multiple selections
-  });
+  })
 
   return (
     <Stack direction="row" spacing={1} flexWrap="wrap">
       {items.map((item) => (
         <Chip
           key={item.label}
-          label={`${item.label} (${item.count})`}
+          label={mapLabel(attribute, item.label)}
           onClick={() => refine(item.value)}
           color={item.isRefined ? "primary" : "default"}
           variant={item.isRefined ? "filled" : "outlined"}
@@ -38,22 +73,22 @@ export const MultiSelectFilterList: React.FC<MultiSelectFilterListProps> = ({
         />
       ))}
     </Stack>
-  );
-};
+  )
+}
 
 export const SingleSelectFilterList: React.FC<SingleSelectFilterListProps> = ({
   attribute,
 }) => {
   const { items, refine } = useMenu({
     attribute,
-  });
+  })
 
   return (
     <Stack direction="row" spacing={1} flexWrap="wrap">
       {items.map((item) => (
         <Chip
           key={item.label}
-          label={`${item.label} (${item.count})`}
+          label={mapLabel(attribute, item.label)}
           onClick={() => refine(item.value)}
           style={{
             margin: "4px",
@@ -63,5 +98,5 @@ export const SingleSelectFilterList: React.FC<SingleSelectFilterListProps> = ({
         />
       ))}
     </Stack>
-  );
-};
+  )
+}
