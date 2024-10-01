@@ -1,0 +1,123 @@
+[
+    {
+      "id": "worldwide",
+      "name": "Worldwide",
+      "description": "Worldwide.",
+      "region": "Global"
+    },
+    {
+      "id": "africa",
+      "name": "Africa",
+      "description": "Africa.",
+      "region": "Africa"
+    },
+    {
+      "id": "afta",
+      "name": "ASEAN Free Trade Area",
+      "description": "ASEAN Free Trade Area.",
+      "region": "Southeast Asia"
+    },
+    {
+      "id": "android_app_store",
+      "name": "Paid apps supporting countries in Android app store",
+      "description": "Paid apps supporting countries in Android app store.",
+      "region": "Global"
+    },
+    {
+      "id": "android_free_store",
+      "name": "Free apps supporting countries in Android app store",
+      "description": "Free apps supporting countries in Android app store.",
+      "region": "Global"
+    },
+    {
+      "id": "apec",
+      "name": "Asia-Pacific Economic Cooperation",
+      "description": "Asia-Pacific Economic Cooperation.",
+      "region": "Asia-Pacific"
+    },
+    {
+      "id": "asia",
+      "name": "Asia",
+      "description": "Asia.",
+      "region": "Asia"
+    },
+    {
+      "id": "caribbean",
+      "name": "Caribbean",
+      "description": "Caribbean.",
+      "region": "Caribbean"
+    },
+    {
+      "id": "central_america",
+      "name": "Central America",
+      "description": "Central America.",
+      "region": "Central America"
+    },
+    {
+      "id": "cisfta",
+      "name": "Commonwealth of Independent States Free Trade Area",
+      "description": "Commonwealth of Independent States Free Trade Area.",
+      "region": "Eastern Europe"
+    },
+    {
+      "id": "eea",
+      "name": "European Economic Area",
+      "description": "European Economic Area.",
+      "region": "Europe"
+    },
+    {
+      "id": "emerging_markets",
+      "name": "Emerging Markets",
+      "description": "Countries in Emerging Markets.",
+      "region": "Various"
+    },
+    {
+      "id": "europe",
+      "name": "Europe",
+      "description": "Europe.",
+      "region": "Europe"
+    },
+    {
+      "id": "gcc",
+      "name": "Gulf Cooperation Council",
+      "description": "Gulf Cooperation Council.",
+      "region": "Middle East"
+    },
+    {
+      "id": "itunes_app_store",
+      "name": "Supported countries for iTunes app store",
+      "description": "Supported countries for iTunes app store.",
+      "region": "Global"
+    },
+    {
+      "id": "mercosur",
+      "name": "MERCOSUR",
+      "description": "MERCOSUR.",
+      "region": "South America"
+    },
+    {
+      "id": "nafta",
+      "name": "North American Free Trade Agreement",
+      "description": "North American Free Trade Agreement.",
+      "region": "North America"
+    },
+    {
+      "id": "north_america",
+      "name": "North America",
+      "description": "North America.",
+      "region": "North America"
+    },
+    {
+      "id": "oceania",
+      "name": "Oceania",
+      "description": "Oceania.",
+      "region": "Oceania"
+    },
+    {
+      "id": "south_america",
+      "name": "South America",
+      "description": "South America.",
+      "region": "South America"
+    }
+  ]
+  

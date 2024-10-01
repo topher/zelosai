@@ -1,0 +1,74 @@
+[
+    {
+        "id": "1",
+        "name": "Posting Content",
+        "percentage": 34.0,
+        "recommended": true
+    },
+    {
+        "id": "2",
+        "name": "Other Activities",
+        "percentage": 17.8,
+        "recommended": true
+    },
+    {
+        "id": "3",
+        "name": "Licensing Rights",
+        "percentage": 15.9,
+        "recommended": true
+    },
+    {
+        "id": "4",
+        "name": "Autographs",
+        "percentage": 15.1,
+        "recommended": true
+    },
+    {
+        "id": "5",
+        "name": "Creating Content",
+        "percentage": 9.7,
+        "recommended": true
+    },
+    {
+        "id": "6",
+        "name": "Appearances",
+        "percentage": 4.8,
+        "recommended": false
+    },
+    {
+        "id": "7",
+        "name": "Doing Interviews",
+        "percentage": 1.6,
+        "recommended": false
+    },
+    {
+        "id": "8",
+        "name": "Providing Instruction",
+        "percentage": 0.4,
+        "recommended": false
+    },
+    {
+        "id": "9",
+        "name": "Selling Products",
+        "percentage": 0.3,
+        "recommended": false
+    },
+    {
+        "id": "10",
+        "name": "Testing Products",
+        "percentage": 0.2,
+        "recommended": false
+    },
+    {
+        "id": "11",
+        "name": "Chatting with Someone",
+        "percentage": 0.1,
+        "recommended": false
+    },
+    {
+        "id": "12",
+        "name": "Supporting Causes",
+        "percentage": 0.1,
+        "recommended": false
+    }
+]
