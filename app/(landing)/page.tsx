@@ -2,7 +2,8 @@ import { LandingNavbar } from "@/components/landing-navbar";
 import { LandingHero } from "@/components/landing-hero";
 import { LandingFeatures } from "@/components/landing-features";
 import { LandingProcess } from "@/components/landing-process";
-import { PricingSection } from "@/components/landing-pricing";
+import { LandingQuotes } from "@/components/landing-quotes";
+// import { PricingSection } from "@/components/landing-pricing";
 import MoreStories from "@/app/(landing)/blog/components/MoreStories";
 import { getClient, getAllPosts } from "@/lib/sanity.client";
 import { readToken } from "@/lib/sanity.api";
@@ -29,6 +30,10 @@ export default async function LandingPage() {
       <div className="w-full h-[1px] bg-white/20 mt-16"></div>
       <div id="process" className="pt-16 -mt-16">
         <LandingProcess />
+      </div>
+      <div className="w-full h-[1px] bg-white/20 mt-16"></div>
+      <div id="testimonials" className="pt-16 -mt-16">
+        <LandingQuotes />
       </div>
       <div className="w-full h-[1px] bg-white/20 mt-16"></div>
       <div id="stories" className="pt-16 -mt-16">
