@@ -161,6 +161,7 @@
     "@babel/eslint-parser": "^7.24.7",
     "@types/cytoscape": "^3.21.0",
     "@types/imagesloaded": "^4.1.6",
+    "@types/lodash.debounce": "^4.0.9",
     "@types/masonry-layout": "^4.2.8",
     "@types/node": "^22.1.0",
     "@types/react": "^18.3.3",

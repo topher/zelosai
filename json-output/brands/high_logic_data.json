@@ -1,0 +1,54 @@
+{
+  "brand_name": "High-Logic",
+  "mission_vision": null,
+  "sponsorship_activities": [],
+  "channels": [],
+  "industry": {
+    "Primary_Industry": "Software",
+    "Secondary_Industry": "Digital Typography"
+  },
+  "regions": [
+    "Netherlands"
+  ],
+  "interests": [
+    {
+      "category": "Technology and Science Interests",
+      "specifics": [
+        "Software Development",
+        "Computer Science"
+      ]
+    }
+  ],
+  "audience_lifestyle": [],
+  "languages": [],
+  "business_model_canvas": {
+    "Key_Partners": [],
+    "Key_Activities": [
+      "Font Editing",
+      "Font Management"
+    ],
+    "Value_Propositions": [
+      "User-friendly font creation tools",
+      "Comprehensive font management solutions"
+    ],
+    "Customer_Relationships": [],
+    "Customer_Segments": [
+      "Graphic Designers",
+      "Typographers"
+    ],
+    "Channels": [],
+    "Cost_Structure": [],
+    "Revenue_Streams": [
+      "Software Sales",
+      "Licensing Fees"
+    ]
+  },
+  "link": "https://en.wikipedia.org/wiki/High-Logic",
+  "parsed_at": "2024-10-01T14:39:22.379372Z",
+  "country": "Dutch brands",
+  "category": "General",
+  "body_text": "From Wikipedia, the free encyclopedia Private company in the Netherlands This article has multiple issues. Please help improve it or discuss these issues on the talk page . ( Learn how and when to remove these messages ) This article needs additional citations for verification . Please help improve this article by adding citations to reliable sources . Unsourced material may be challenged and removed. Find sources: \"High-Logic\" – news · newspapers · books · scholar · JSTOR ( April 2014 ) ( Learn how and when to remove this message ) This article relies excessively on references to primary sources . Please improve this article by adding secondary or tertiary sources . Find sources: \"High-Logic\" – news · newspapers · books · scholar · JSTOR ( January 2024 ) ( Learn how and when to remove this message ) This article's lead section may be too short to adequately summarize the key points . Please consider expanding the lead to provide an accessible overview of all important aspects of the article. ( January 2024 ) ( Learn how and when to remove this message ) High-Logic , founded in 1997 by Erwin Denissen, [ 1 ] is a privately held company headquartered in De Bilt , the Netherlands. High-Logic produces font editing and font management software. Products [ edit ] FontCreator [ edit ] The company's flagship product is FontCreator (formerly known as Font Creator Program) for Microsoft Windows . Fonts are created using multiple vector drawing aids from free-hand drawing of individual glyphs to importing vector (PDF, EPS, SVG) or bitmap graphics. Highlights of Recent Versions [ edit ] FontCreator 11 introduced support for CFF Postscript outlines FontCreator 12 introduced Anchor-based Composites FontCreator 13 supports SVG colour fonts, and import for Unified Font Object (UFO) . FontCreator 14 supports Variable fonts, import/export of Designspace documents with UFOs. It now has three themes and uses docking/floating palettes instead of dialogs. The latest version, FontCreator 14, was released in June 2021, which was last updated in August 2021. [ 2 ] MainType [ edit ] On December 2, 2005 High-Logic released MainType , a font-management program for Windows, which has also been constantly updated and improved. Tools are provided for installing, uninstalling, loading (temporarily installing a font until your computer is turned off) and unloading fonts to the Windows Font Folder. In addition to providing a visual representation of each glyph and detailed information about each font AND rapid access to huge font collections, they can be easily arranged into user designed groups for seasonal or whatever categories a user can imagine. Even registry repair is included in the package. A free version is available for non-commercial use, with fewer features, and the font library limited to 2,500 fonts. The latest version, MainType 11, was released in May 2021, and was last updated a few days later. [ 3 ] Scanahand [ edit ] On April 23, 2008 High-Logic released Scanahand , a font generator for Windows that allows the user to print out a form, manually fill in the glyphs, scan it into the program and generate new fonts. The most recent version, Scanahand 7.0, was released in January 2020 and last updated in July 2020. [ 4 ] YourFonts [ edit ] YourFonts is a small part of High-Logic, operated by Guido, Jasper and Floris Denissen. High-Logic Web Site FontCreator Review Retrieved from \" https://en.wikipedia.org/w/index.php?title=High-Logic&oldid=1228433696 \" Categories : Companies established in 1997 Digital typography Vector graphics editors Dutch brands Hidden categories: Articles with short description Short description matches Wikidata Articles needing additional references from April 2014 All articles needing additional references Articles lacking reliable references from January 2024 All articles lacking reliable references Wikipedia introduction cleanup from January 2024 All pages needing cleanup Articles covered by WikiProject Wikify from January 2024 All articles covered by WikiProject Wikify Articles with multiple maintenance issues",
+  "infobox": {},
+  "company_name": "Unknown",
+  "logo_url": "No logo available"
+}

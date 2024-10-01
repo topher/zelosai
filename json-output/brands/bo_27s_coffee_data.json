@@ -1,0 +1,112 @@
+{
+  "brand_name": "Bo's Coffee",
+  "mission_vision": null,
+  "sponsorship_activities": [
+    {
+      "activity": "Community Support",
+      "details": "Invested in local farmers and communities through the Navegar Fund."
+    }
+  ],
+  "channels": [
+    {
+      "channel_type": "Online",
+      "specifics": [
+        "Website",
+        "Social Media"
+      ]
+    },
+    {
+      "channel_type": "Physical",
+      "specifics": [
+        "Coffee Shops",
+        "Retail Locations"
+      ]
+    }
+  ],
+  "industry": {
+    "Primary_Industry": "Coffee shop",
+    "Secondary_Industry": "Restaurant"
+  },
+  "regions": [
+    "Philippines",
+    "Qatar",
+    "United Arab Emirates"
+  ],
+  "interests": [
+    {
+      "category": "Social and Lifestyle Interests",
+      "specifics": [
+        "Coffee Culture",
+        "Social Networking"
+      ]
+    },
+    {
+      "category": "Health and Wellness",
+      "specifics": [
+        "Alternative Medicine"
+      ]
+    }
+  ],
+  "audience_lifestyle": [
+    "Experiencers",
+    "Achievers"
+  ],
+  "languages": [
+    "Filipino",
+    "English"
+  ],
+  "business_model_canvas": {
+    "Key_Partners": [
+      "Local Farmers",
+      "Al Majed Grouping",
+      "Al Mulla Business Group"
+    ],
+    "Key_Activities": [
+      "Coffee Sourcing",
+      "Retail Operations"
+    ],
+    "Value_Propositions": [
+      "Locally Sourced Coffee",
+      "Community Engagement"
+    ],
+    "Customer_Relationships": [
+      "In-store Experience",
+      "Loyalty Programs"
+    ],
+    "Customer_Segments": [
+      "Coffee Enthusiasts",
+      "Local Communities"
+    ],
+    "Channels": [
+      "Physical Stores",
+      "Online Ordering"
+    ],
+    "Cost_Structure": [
+      "Coffee Sourcing Costs",
+      "Operational Expenses"
+    ],
+    "Revenue_Streams": [
+      "Coffee Sales",
+      "Merchandise"
+    ]
+  },
+  "link": "https://en.wikipedia.org/wiki/Bo%27s_Coffee",
+  "parsed_at": "2024-10-01T14:39:06.355693Z",
+  "country": "Philippine brands",
+  "category": "Restaurant chains in the Philippines",
+  "body_text": "From Wikipedia, the free encyclopedia Filipino coffeehouse chain This article relies excessively on references to primary sources . Please improve this article by adding secondary or tertiary sources . Find sources: \"Bo's Coffee\" – news · newspapers · books · scholar · JSTOR ( February 2017 ) ( Learn how and when to remove this message ) Bo's Coffees Company type Private Industry Coffee shop Founded June 28, 1996 ; 28 years ago ( 1996-06-28 ) in Cebu City, Philippines [ 1 ] Founder Steve Benitez Headquarters Cebu City , Philippines Number of locations 91 [ 2 ] (2017) Products Coffee Website www .boscoffee .com Bo's Coffee is a Filipino coffee and coffeehouse chain. It was founded by Steve Benitez in 1996 in Cebu City , Philippines. The company operates a total of 91 outlets throughout the Philippines, with about 30 of them located in Metro Cebu , where it is based. [ 3 ] Bo's Coffee sources coffee beans locally from farmers from Sagada, Mountain Province , Mount Kitanglad in Bukidnon , Mount Matutum in Tupi, South Cotabato , and Mount Apo . [ 4 ] [ 5 ] History [ edit ] The idea of starting a coffee shop came to Bo's Coffee founder Steve Benitez when he was a student in Ateneo de Manila University . He always had to drink coffee to stay awake to study. In 1992, his parents wanted to shut down their family-owned and managed Ric's Barbeque located on Ramos Street, Cebu City. Steve, the youngest of the five Benitez siblings, took over the management of the family business and left Ateneo de Manila Law School. [ 6 ] After attending various seminars and training and indications that it was not a viable venture, Steve Benitez stubbornly decided to open Bo's Coffee in Ayala Center Cebu in June 1996. [ 7 ] Two months before the shop opened, he was left alone when his two business partners backed out. [ 8 ] Benitez bought his first coffee machine from a coffee exhibition show in Singapore for 65,000 pesos ($1,300) and hand-carried the machine in his flight going back to Cebu. Starting on an investment of 100,000 pesos ($2,000), [ 9 ] the business did not produce any profit for its first three months on daily sales ranging from 300 to 1000 pesos. At first, Benitez had to give away free samples as the Cebuano market was not yet familiar of his concept. Sales picked up on the sixth month and then steadily increased to turning a profit to enable him to put up another coffee cart in SM City Cebu . [ 10 ] In 2018, the Philippine-focused Navegar Fund decided to invest in the company due to its efforts in helping communities and local farmers, which is one of the thrusts of the Philippine-focused fund. [ 11 ] Etymology [ edit ] Benitez said that the name comes from an Italian-American coffee connoisseur named \"Bo,\" whom he met in a coffee roadshow in New Orleans in the mid-1990s. The 10-minute interaction [ 12 ] had inspired him and had a profound impact in his life. [ 13 ] Branches [ edit ] Bo's Coffee branch at SM City Cebu As of December 6, 2018, Bo's has over 103 branches throughout the Philippines, most of them located in key cities. [ 14 ] A big number of these branches are located in Metro Cebu , where the company is based. [ 15 ] Bo's coffee also opened its first international branch - located in Doha , Qatar - on April 25, 2018. They have collaborated with Al Majed Grouping. [ 16 ] [ 17 ] They also have 2 branches in the United Arab Emirates with Al Mulla Business Group. [ 18 ] Bo's coffee locations as of 2024 displayed as Countries J.CO Donuts List of coffeehouse chains Official website Retrieved from \" https://en.wikipedia.org/w/index.php?title=Bo%27s_Coffee&oldid=1237594103 \" Categories : Companies based in Cebu City Restaurants established in 1996 Coffeehouses and cafés Restaurant chains in the Philippines Philippine brands Philippine companies established in 1996 Privately held companies of the Philippines Hidden categories: Articles with short description Short description is different from Wikidata Articles lacking reliable references from February 2017 All articles lacking reliable references Use mdy dates from May 2024",
+  "infobox": {
+    "logo_url": "https://upload.wikimedia.org/wikipedia/en/3/3f/Bo%27s_Coffee_logo.png",
+    "name": "",
+    "company_type": "Private",
+    "industry": "Coffee shop",
+    "founded": "June 28, 1996 ; 28 years ago ( 1996-06-28 ) in Cebu City, Philippines [ 1 ]",
+    "founder": "Steve Benitez",
+    "headquarters": "Cebu City , Philippines",
+    "number_of_locations": "91 [ 2 ] (2017)",
+    "products": "Coffee",
+    "website": "www .boscoffee .com"
+  },
+  "company_name": "Unknown",
+  "logo_url": "https://upload.wikimedia.org/wikipedia/en/3/3f/Bo%27s_Coffee_logo.png"
+}

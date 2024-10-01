@@ -1,0 +1,14 @@
+[
+    {
+    "userId": "1234",
+    "selectedMarketingChannels": ["1", "2"],
+    "selectedMarkets": ["eea", "north_america"],
+    "selectedIndustries": ["01", "04"],
+    "selectedVALSSegments": ["7"],
+    "selectedLanguages": ["en", "es", "aa"],
+    "selectedNILActivities": ["9"],
+    "selectedInterests": ["1", "2", "3", "10", "50"],
+    "selectedProducts": ["1", "2", "3", "10", "50"],
+    "timestamp": "2024-09-20T08:22:30Z"
+  }
+]

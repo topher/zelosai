@@ -29,6 +29,13 @@ const Sidebar: React.FC = () => {
         <MultiSelectFilterList attribute="tags" />
         <SingleSelectFilterList attribute="default_language" />
       </FilterSection>
+
+      {/* Brands Filters */}
+      <FilterSection title="Brands">
+        <SingleSelectFilterList attribute="industry.Primary_Industry" />
+        <MultiSelectFilterList attribute="regions" />
+        {/* Add more brand-specific filters as needed */}
+      </FilterSection>
     </div>
   );
 };
