@@ -143,6 +143,12 @@ export const LandingNavbar = () => {
             >
               How It Works
             </Button>
+            <Button
+              className="w-full px-4 py-2 text-lg font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105"
+              onClick={() => handleNavigation('#testimonials')}
+            >
+              Testimonials
+            </Button>
             <Link href="/pricing">
               <Button className="w-full px-4 py-2 text-lg font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105">
                 Pricing

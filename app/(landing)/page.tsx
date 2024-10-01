@@ -44,8 +44,8 @@ export default async function LandingPage() {
         <div id="stories" className="pt-8">
           <MoreStories posts={posts} title="Check Out Our Resources" />
         </div>
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }
