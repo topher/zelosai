@@ -100,6 +100,12 @@ export const LandingNavbar = () => {
           >
             How It Works
           </Button>
+          <Button
+            className="px-4 py-2 lg:px-6 lg:py-3 text-lg lg:text-xl font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105 whitespace-nowrap"
+            onClick={() => handleNavigation('#testimonials')}
+          >
+            Testimonials
+          </Button>
           <Link href="/pricing">
             <Button className="px-4 py-2 lg:px-6 lg:py-3 text-lg lg:text-xl font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105">
               Pricing
@@ -136,6 +142,12 @@ export const LandingNavbar = () => {
               onClick={() => handleNavigation('#process')}
             >
               How It Works
+            </Button>
+            <Button
+              className="w-full px-4 py-2 text-lg font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105"
+              onClick={() => handleNavigation('#testimonials')}
+            >
+              Testimonials
             </Button>
             <Link href="/pricing">
               <Button className="w-full px-4 py-2 text-lg font-semibold text-white bg-transparent border border-transparent rounded-lg transition-transform transform hover:scale-105">

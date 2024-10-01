@@ -8,11 +8,14 @@ import { Footer } from '../components/Footer';
 
 const Page: React.FC = () => {
     return (
-        <div className="container mx-auto p-8 bg-gradient-to-b from-0A0E30 to-551AFF text-white">
-            <LandingNavbar />
-            <PricingSection />
+        <>
+            <div className="container mx-auto p-8 bg-gradient-to-b from-0A0E30 to-551AFF text-white">
+                <LandingNavbar />
+                <PricingSection />
+            </div>
             <Footer />
-        </div>
+        </>
+
     );
 }
 
