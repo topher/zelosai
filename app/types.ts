@@ -504,3 +504,22 @@ export interface CardWithList {
   title: string;
   list: List; // Add the list property of type List
 }
+
+export type UserSelectedFacets = {
+  userId: string;
+  selectedMarketingChannels: string[];
+  selectedMarkets: string[];
+  selectedIndustries: string[];
+  selectedVALSSegments: string[];
+  selectedLanguages: string[];
+  selectedNILActivities: string[];
+  selectedInterests: string[];
+  selectedProducts: string[];
+};
+
+export type DropdownOption = {
+  id: string;
+  name: string;
+  parent_id?: string | number | null;
+  [key: string]: any; // For additional fields like 'type', 'region', etc.
+};

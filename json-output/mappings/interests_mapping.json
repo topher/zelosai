@@ -1,0 +1,10 @@
+{
+    "mappings": {
+      "properties": {
+        "id": { "type": "keyword" },
+        "name": { "type": "text" },
+        "parent_id": { "type": "keyword", "null_value": "0" }
+      }
+    }
+  }
+  

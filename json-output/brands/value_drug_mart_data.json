@@ -1,0 +1,107 @@
+{
+  "brand_name": "Value Drug Mart",
+  "mission_vision": null,
+  "sponsorship_activities": [
+    {
+      "activity": "Sports Sponsorship",
+      "details": "Sole sponsor of the annual Value Drug Mart Spring Classic hockey tournament in Calgary, Alberta."
+    }
+  ],
+  "channels": [
+    {
+      "channel_type": "Retail",
+      "specifics": [
+        "Independent Pharmacy Locations",
+        "Post Office Services"
+      ]
+    },
+    {
+      "channel_type": "Online",
+      "specifics": [
+        "Website"
+      ]
+    }
+  ],
+  "industry": {
+    "Primary_Industry": "Pharmacy Retail",
+    "Secondary_Industry": "Health and Wellness"
+  },
+  "regions": [
+    "Alberta",
+    "British Columbia"
+  ],
+  "interests": [
+    {
+      "category": "Health and Wellness",
+      "specifics": [
+        "Medication",
+        "Body Hygiene Products"
+      ]
+    },
+    {
+      "category": "Social and Lifestyle Interests",
+      "specifics": [
+        "Cooking",
+        "Shopping"
+      ]
+    }
+  ],
+  "audience_lifestyle": [
+    "Health-conscious",
+    "Family-oriented"
+  ],
+  "languages": [
+    "English"
+  ],
+  "business_model_canvas": {
+    "Key_Partners": [
+      "Local Pharmacists",
+      "Suppliers of Health Products"
+    ],
+    "Key_Activities": [
+      "Retail Pharmacy Operations",
+      "Community Engagement"
+    ],
+    "Value_Propositions": [
+      "Convenient Access to Medications",
+      "Personalized Customer Service"
+    ],
+    "Customer_Relationships": [
+      "In-store Consultations",
+      "Loyalty Programs"
+    ],
+    "Customer_Segments": [
+      "Local Residents",
+      "Health-conscious Consumers"
+    ],
+    "Channels": [
+      "Physical Stores",
+      "Website"
+    ],
+    "Cost_Structure": [
+      "Inventory Costs",
+      "Operational Expenses"
+    ],
+    "Revenue_Streams": [
+      "Sales of Medications",
+      "Sales of Health Products"
+    ]
+  },
+  "link": "https://en.wikipedia.org/wiki/Value_Drug_Mart",
+  "parsed_at": "2024-10-01T14:37:38.442527Z",
+  "country": "Canadian brands",
+  "category": "Canadian pharmacy brands",
+  "body_text": "From Wikipedia, the free encyclopedia Western Canadian drug store This article needs additional citations for verification . Please help improve this article by adding citations to reliable sources . Unsourced material may be challenged and removed. Find sources: \"Value Drug Mart\" – news · newspapers · books · scholar · JSTOR ( October 2009 ) ( Learn how and when to remove this message ) Value Drug Mart Associates Ltd. Company type Independent Pharmacy Industry Pharmacy Retail Founded Alberta (1978) Area served Alberta & British Columbia Products Medication Food Body Hygiene Products Website Value Drug Mart Value Drug Mart is a Western Canada drug store serving over 36 locations throughout Alberta and British Columbia. History [ edit ] What is now known as Value Drug Mart Associates Ltd. was founded by pharmacist Barry Katz (whose son Daryl Katz would go on to found Canada's largest chain of pharmacies, the Katz Group of Companies ) [ 1 ] and twelve other pharmacists in 1978. [ 2 ] Since 1983, VDMA has been the sole sponsor of the annual Value Drug Mart Spring Classic hockey tournament that takes place in Calgary, Alberta . The tournament is a weekend-long competition of ice hockey teams from across the province of Alberta. [ 3 ] Products [ edit ] In addition to prescription drugs, lottery tickets, snack foods, soda, magazines, movies, books, fragrances, gift ware, and stationery are all sold in most locations. A post office is usually within some stores. Locations [ edit ] Value Drug Mart operates over 35 locations in the provinces of Alberta and British Columbia . [ 4 ] It is not a franchise; rather, the different locations own VDMA as shareholders. [ 5 ] Alberta [ edit ] Athabasca Bonnyville Boyle Calmar Camrose Cardston Castor Cold Lake (2) Cochrane Coronation Didsbury Drayton Valley Drumheller Edmonton Fairview Grande Prairie Grimshaw Lac La Biche Lamont Manning Mayerthorpe Oyen Peace River Red Deer Rimbey Rocky Mountain House St. Paul Stettler Strathmore Sylvan Lake Vegreville Vermilion Wainwright Wetaskiwin British Columbia [ edit ] Fernie Grand Forks Retrieved from \" https://en.wikipedia.org/w/index.php?title=Value_Drug_Mart&oldid=1207033858 \" Categories : Retail companies established in 1978 Canadian pharmacy brands Hidden categories: Webarchive template wayback links Articles with short description Short description matches Wikidata Articles needing additional references from October 2009 All articles needing additional references",
+  "infobox": {
+    "logo_url": "https://upload.wikimedia.org/wikipedia/en/6/6c/Value_Drugs_Logo.jpg",
+    "name": "",
+    "company_type": "Independent Pharmacy",
+    "industry": "Pharmacy Retail",
+    "founded": "Alberta (1978)",
+    "area_served": "Alberta & British Columbia",
+    "products": "Medication Food Body Hygiene Products",
+    "website": "Value Drug Mart"
+  },
+  "company_name": "Unknown",
+  "logo_url": "https://upload.wikimedia.org/wikipedia/en/6/6c/Value_Drugs_Logo.jpg"
+}

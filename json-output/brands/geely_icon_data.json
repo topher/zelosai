@@ -1,0 +1,106 @@
+{
+  "brand_name": "Geely Icon",
+  "mission_vision": null,
+  "sponsorship_activities": [],
+  "channels": [
+    {
+      "channel_type": "Online",
+      "specifics": [
+        "Online streaming platform",
+        "Pre-order system"
+      ]
+    }
+  ],
+  "industry": {
+    "Primary_Industry": "Automotive",
+    "Secondary_Industry": "Manufacturing"
+  },
+  "regions": [
+    "China"
+  ],
+  "interests": [
+    {
+      "category": "Technology and Science Interests",
+      "specifics": [
+        "Robotics",
+        "Artificial Intelligence"
+      ]
+    },
+    {
+      "category": "Health and Wellness",
+      "specifics": [
+        "Alternative Medicine"
+      ]
+    }
+  ],
+  "audience_lifestyle": [
+    "Innovators",
+    "Achievers"
+  ],
+  "languages": [
+    "Chinese",
+    "English"
+  ],
+  "business_model_canvas": {
+    "Key_Partners": [
+      "Suppliers",
+      "Dealerships"
+    ],
+    "Key_Activities": [
+      "Vehicle Design",
+      "Manufacturing",
+      "Marketing"
+    ],
+    "Value_Propositions": [
+      "Innovative SUV design",
+      "Advanced safety features",
+      "Eco-friendly options"
+    ],
+    "Customer_Relationships": [
+      "Online customer support",
+      "Social media engagement"
+    ],
+    "Customer_Segments": [
+      "Young professionals",
+      "Families"
+    ],
+    "Channels": [
+      "Dealerships",
+      "Online platforms"
+    ],
+    "Cost_Structure": [
+      "Production costs",
+      "Marketing expenses"
+    ],
+    "Revenue_Streams": [
+      "Vehicle sales",
+      "After-sales services"
+    ]
+  },
+  "link": "https://en.wikipedia.org/wiki/Geely_Icon",
+  "parsed_at": "2024-10-01T14:39:17.697551Z",
+  "country": "Chinese brands",
+  "category": "Cars of China",
+  "body_text": "From Wikipedia, the free encyclopedia Motor vehicle Geely Icon Overview Manufacturer Geely Auto Model code SX12 [ 1 ] Production 2020–present Designer Guy Burgoyne (design chief) Rong Ma (exterior designer) Body and chassis Class Subcompact crossover SUV Body style 5-door SUV Layout Front engine, front-wheel-drive Front engine, all-wheel-drive Platform Geely BMA platform Related Geely Binyue Proton X50 Lynk & Co 06 Powertrain Engine 1.5 L JLH-3G15TD I3 turbo Transmission 7-speed DCT Dimensions Wheelbase 2,640 mm (103.9 in) Length 4,350 mm (171.3 in) Width 1,810 mm (71.3 in) Height 1,615 mm (63.6 in) The Geely Icon (stylised as ICON, Chinese : 吉利ICON ) is a subcompact crossover SUV produced by Chinese auto manufacturer Geely Auto . It was introduced on 24 February 2020. History [ edit ] Geely Icon rear The car was previewed as the ICON SUV Concept at the 2018 Beijing Auto Show . [ 2 ] The car was designed in Geely Design's studio in Shanghai under the lead of the centre's design chief, Guy Burgoyne. The Icon was launched through an online streaming platform at the height of COVID-19 pandemic in China . [ 3 ] As a response, the car was released with an 'Intelligent Air Purification System' that was claimed as N95 certified. The feature was claimed to work in tandem with the Icon's air conditioner to isolate and eliminate harmful elements in the cabin air including bacteria and viruses. [ 4 ] The car is equipped with level two driver-assist features enabled by 12 ultrasonic radars, millimetre wave radar, and five cameras. It features adaptive cruise control, lane-keep assistance, autonomous emergency braking and pedestrian recognition, one-button automatic parking, and a 360-degree camera. Geely Auto received over 30,000 orders in the hours leading up to its launch through online pre-order. [ 5 ] Powertrain [ edit ] The Geely Icon is powered by a 1.5-liter turbocharged engine that produces 175 hp (130 kW; 177 PS) and 255 N⋅m (188 lb⋅ft) of torque. A mild hybrid setup is available with a 48V electric system that ups the total output to 188 hp (140 kW; 191 PS) and 300 N⋅m (221 lb⋅ft). Fuel consumption for the mild hybrid setup is a claimed to be 17.5 km/L (5.7 L/100 km; 41 mpg ‑US ). The sole transmission option available is a seven-speed dual-clutch transmission. The 0-100 km/h (0-62 mph) acceleration is in 7.9 seconds. [ 6 ] ^ Anderson, Brad (2019-03-21). \"Geely's SX12 Production SUV Stays True To Concept Icon's Styling\" . Carscoops . Retrieved 2024-05-23 . ^ \"Geely ICON SUV started as a concept & now looks like reality\" . www.dsf.my . Retrieved 2020-04-13 . ^ Chan, Tony. \"Geely Auto Newest ICON Released\" . Geely Global Media Center . Retrieved 2020-04-13 . ^ \"2020 Geely Icon launched, nets 30k digital orders | CarAdvice\" . CarAdvice.com . Retrieved 2020-04-13 . ^ Yap, Chips (2020-02-25). \"New Geely ICON compact SUV launched in China\" . News and reviews on Malaysian cars, motorcycles and automotive lifestyle . Retrieved 2020-04-13 . ^ \"Geely's new Icon SUV has an N95-certified air-purification system\" . Top Gear PH . 2020-02-25 . Retrieved 2020-04-13 . Retrieved from \" https://en.wikipedia.org/w/index.php?title=Geely_Icon&oldid=1225222890 \" Categories : 2020s cars Cars introduced in 2020 Cars of China Crossover sport utility vehicles Front-wheel-drive vehicles Geely vehicles Mini sport utility vehicles Hidden categories: Articles with short description Short description matches Wikidata Articles containing simplified Chinese-language text",
+  "infobox": {
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Geely_Icon_007.jpg/280px-Geely_Icon_007.jpg",
+    "name": "",
+    "manufacturer": "Geely Auto",
+    "model_code": "SX12 [ 1 ]",
+    "production": "2020–present",
+    "designer": "Guy Burgoyne (design chief) Rong Ma (exterior designer)",
+    "class": "Subcompact crossover SUV",
+    "body_style": "5-door SUV",
+    "layout": "Front engine, front-wheel-drive Front engine, all-wheel-drive",
+    "platform": "Geely BMA platform",
+    "related": "Geely Binyue Proton X50 Lynk & Co 06",
+    "engine": "1.5 L JLH-3G15TD I3 turbo",
+    "transmission": "7-speed DCT",
+    "wheelbase": "2,640 mm (103.9 in)",
+    "length": "4,350 mm (171.3 in)",
+    "width": "1,810 mm (71.3 in)",
+    "height": "1,615 mm (63.6 in)"
+  },
+  "company_name": "Unknown",
+  "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Geely_Icon_007.jpg/280px-Geely_Icon_007.jpg"
+}

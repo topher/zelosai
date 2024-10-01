@@ -1,0 +1,89 @@
+{
+    "mappings": {
+      "properties": {
+        "brand_name": {
+          "type": "text",
+          "analyzer": "standard",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "logo_url": {
+          "type": "keyword"
+        },
+        "mission_vision": {
+          "type": "text"
+        },
+        "sponsorship_activities": {
+          "type": "nested",
+          "properties": {
+            "activity": { "type": "text" },
+            "details": { "type": "text" }
+          }
+        },
+        "channels": {
+          "type": "nested",
+          "properties": {
+            "channel_type": { "type": "text" },
+            "specifics": { "type": "keyword" }
+          }
+        },
+        "industry": {
+          "type": "object",
+          "properties": {
+            "Primary_Industry": {
+              "type": "text",
+              "fielddata":true,
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "Secondary_Industry": { "type": "text" }
+          }
+        },
+        "regions": {
+          "type": "keyword"
+        },
+        "interests": {
+          "type": "nested",
+          "properties": {
+            "category": { "type": "keyword" },
+            "specifics": { "type": "keyword" }
+          }
+        },
+        "audience_lifestyle": {
+          "type": "keyword"
+        },
+        "languages": {
+          "type": "keyword"
+        },
+        "business_model_canvas": {
+          "type": "object",
+          "properties": {
+            "Key_Partners": { "type": "keyword" },
+            "Key_Activities": { "type": "keyword" },
+            "Value_Propositions": { "type": "keyword" },
+            "Customer_Relationships": { "type": "keyword" },
+            "Customer_Segments": { "type": "keyword" },
+            "Channels": { "type": "keyword" },
+            "Cost_Structure": { "type": "keyword" },
+            "Revenue_Streams": { "type": "keyword" }
+          }
+        },
+        "link": {
+          "type": "keyword"
+        },
+        "parsed_at": {
+          "type": "date",
+          "format": "strict_date_optional_time||epoch_millis"
+        }
+      }
+    }
+  }
+  
