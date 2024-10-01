@@ -15,31 +15,37 @@ interface LandingPageProps {
 }
 
 export default async function LandingPage() {
-  const draftMode = false; // Adjust this according to your draft mode logic
+  const draftMode = false;
   const client = getClient(draftMode ? { token: readToken } : undefined);
   const posts = await getAllPosts(client);
 
   return (
-    <div className="mx-auto max-w-screen-xl h-full">
-      <LandingNavbar />
-      <LandingHero />
-      <div className="w-full h-[1px] bg-white/20 mt-16"></div>
-      <div id="features" className="pt-16 -mt-16">
-        <LandingFeatures />
+    <div className="h-full">
+      <div className="mx-auto max-w-screen-xl">
+        <LandingNavbar />
+        <LandingHero />
+        <div className="w-full h-[1px] bg-white/20 mt-8"></div>
+        <div id="features" className="pt-8">
+          <LandingFeatures />
+        </div>
+        <div className="w-full h-[1px] bg-white/20 mt-8"></div>
+        <div id="process" className="pt-8">
+          <LandingProcess />
+        </div>
+        <div className="w-full h-[1px] bg-white/20 mt-8"></div>
       </div>
-      <div className="w-full h-[1px] bg-white/20 mt-16"></div>
-      <div id="process" className="pt-16 -mt-16">
-        <LandingProcess />
-      </div>
-      <div className="w-full h-[1px] bg-white/20 mt-16"></div>
-      <div id="testimonials" className="pt-16 -mt-16">
+
+      <div id="testimonials" className="pt-8">
         <LandingQuotes />
       </div>
-      <div className="w-full h-[1px] bg-white/20 mt-16"></div>
-      <div id="stories" className="pt-16 -mt-16">
-        <MoreStories posts={posts} title="Check Out Our Resources" />
+
+      <div className="mx-auto max-w-screen-xl">
+        <div className="w-full h-[1px] bg-white/20 mt-8"></div>
+        <div id="stories" className="pt-8">
+          <MoreStories posts={posts} title="Check Out Our Resources" />
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 }
