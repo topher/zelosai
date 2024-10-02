@@ -64,7 +64,7 @@ const AIModelSearchPage: React.FC = () => {
 
           {/* Sidebar */}
           {isSidebarOpen && (
-            <div className="w-64 p-4 bg-white border-r shadow-lg overflow-y-auto hidden lg:block">
+            <div className="w-64 p-4 bg-offWhite border-r shadow-lg overflow-y-auto hidden lg:block">
               <SidebarAIModels />
             </div>
           )}

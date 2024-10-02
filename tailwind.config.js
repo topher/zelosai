@@ -21,18 +21,19 @@ module.exports = {
         white: '#ffffff',
         darkGray: '#111827',  // A slightly darker gray for a more modern feel
         lightGray: '#424242',
+        offWhite: '#f7f7f7',
         gold: '#f4e7c3', // Slightly lighter gold for better readability on dark backgrounds
         indigo: {
           DEFAULT: '#4b0082',
-          light: '#b366e2', // Lighter indigo for hover effects
+          light: '#b366e2',
         },
         pink: {
           DEFAULT: '#ff69b4',
-          light: '#ff85c5', // Lighter pink for hover effects
+          light: '#ff85c5',
         },
         red: {
           DEFAULT: '#b22222',
-          light: '#c23b3b', // Lighter red for hover effects
+          light: '#c23b3b',
         },
         transparent: 'transparent',
 

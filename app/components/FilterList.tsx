@@ -67,9 +67,14 @@ export const MultiSelectFilterList: React.FC<MultiSelectFilterListProps> = ({
           key={item.label}
           label={mapLabel(attribute, item.label)}
           onClick={() => refine(item.value)}
-          color={item.isRefined ? "primary" : "default"}
           variant={item.isRefined ? "filled" : "outlined"}
-          style={{ margin: "4px" }}
+          style={{ 
+            margin: "4px", 
+            backgroundImage: item.isRefined ? "linear-gradient(to right, #4b0082, #ff69b4)" : "none",
+            backgroundColor: item.isRefined ? "transparent" : "white",
+            color: item.isRefined ? "white" : "#111827",
+            border: "none"
+          }}
         />
       ))}
     </Stack>
@@ -90,10 +95,12 @@ export const SingleSelectFilterList: React.FC<SingleSelectFilterListProps> = ({
           key={item.label}
           label={mapLabel(attribute, item.label)}
           onClick={() => refine(item.value)}
-          style={{
-            margin: "4px",
-            backgroundColor: item.isRefined ? "#4b0082" : "#f4e7c3", // Use your indigo and gold colors
-            color: item.isRefined ? "#ffffff" : "#111827", // White text when selected, darkGray when not
+          style={{ 
+            margin: "4px", 
+            backgroundImage: item.isRefined ? "linear-gradient(to right, #4b0082, #ff69b4)" : "none",
+            backgroundColor: item.isRefined ? "transparent" : "#f4e7c3",
+            color: item.isRefined ? "white" : "#111827",
+            border: "none"
           }}
         />
       ))}

@@ -72,7 +72,7 @@ const ProfileSearchPage: React.FC = () => {
 
           {/* Sidebar */}
           {isSidebarOpen && (
-            <div className="w-64 p-4 bg-white border-r shadow-lg overflow-y-auto hidden lg:block">
+            <div className="w-64 p-4 bg-offWhite shadow-lg overflow-y-auto hidden lg:block">
               <SidebarProfiles />
             </div>
           )}
