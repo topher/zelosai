@@ -1,13 +1,25 @@
-// app/pages/ai-models/page.tsx
+// app/components/SidebarAIModels.tsx
+
+"use client";
 
 import React from "react";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "./Sidebar";
 
-const SidebarAIModels: React.FC = () => {
+interface SidebarAIModelsProps {
+  hitsPerPage: number;
+  onChangeHitsPerPage: (value: number) => void;
+}
+
+const SidebarAIModels: React.FC<SidebarAIModelsProps> = ({
+  hitsPerPage,
+  onChangeHitsPerPage,
+}) => {
   return (
-    <div className="flex">
-      <Sidebar sections={["AI Models"]} />
-    </div>
+    <Sidebar
+      sections={["AI Models"]}
+      hitsPerPage={hitsPerPage}
+      onChangeHitsPerPage={onChangeHitsPerPage}
+    />
   );
 };
 

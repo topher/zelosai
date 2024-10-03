@@ -1,13 +1,23 @@
-// app/pages/profiles/page.tsx
+// app/components/SidebarProfiles.tsx
 
 import React from "react";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "./Sidebar";
 
-const SidebarProfiles: React.FC = () => {
+interface SidebarProfilesProps {
+  hitsPerPage: number;
+  onChangeHitsPerPage: (value: number) => void;
+}
+
+const SidebarProfiles: React.FC<SidebarProfilesProps> = ({
+  hitsPerPage,
+  onChangeHitsPerPage,
+}) => {
   return (
-    <div className="flex">
-      <Sidebar sections={["Athlete Profiles"]} />
-    </div>
+    <Sidebar
+      sections={["Athlete Profiles"]}
+      hitsPerPage={hitsPerPage}
+      onChangeHitsPerPage={onChangeHitsPerPage}
+    />
   );
 };
 

@@ -41,7 +41,7 @@ const CustomPagination: React.FC = () => {
           onClick={() => refine(page)}
           className={`px-3 py-1 rounded-full ${
             currentRefinement === page
-              ? "bg-indigo text-white"
+              ? "bg-gradient-to-r from-indigo to-pink-500 text-white"
               : "text-darkGray hover:bg-indigo-light hover:text-white"
           }`}
         >

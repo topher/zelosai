@@ -1,13 +1,25 @@
-// app/pages/contracts/page.tsx
+// app/components/SidebarContracts.tsx
+
+"use client";
 
 import React from "react";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "./Sidebar";
 
-const SidebarContracts: React.FC = () => {
+interface SidebarContractsProps {
+  hitsPerPage: number;
+  onChangeHitsPerPage: (value: number) => void;
+}
+
+const SidebarContracts: React.FC<SidebarContractsProps> = ({
+  hitsPerPage,
+  onChangeHitsPerPage,
+}) => {
   return (
-    <div className="flex">
-      <Sidebar sections={["Contracts"]} />
-    </div>
+    <Sidebar
+      sections={["Contracts"]}
+      hitsPerPage={hitsPerPage}
+      onChangeHitsPerPage={onChangeHitsPerPage}
+    />
   );
 };
 

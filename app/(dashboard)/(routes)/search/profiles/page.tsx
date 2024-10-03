@@ -3,7 +3,11 @@
 "use client";
 
 import React, { useState } from "react";
-import { InstantSearch, useHits } from "react-instantsearch-hooks-web";
+import {
+  InstantSearch,
+  useHits,
+  Configure,
+} from "react-instantsearch-hooks-web";
 import Client from "@searchkit/instantsearch-client";
 import Searchkit from "searchkit";
 import { ThemeProvider } from "@mui/material/styles";
@@ -13,6 +17,7 @@ import SidebarProfiles from "@/app/components/SidebarProfiles";
 import ProfileSearchCard from "@/app/components/ProfileSearchCard";
 import CustomSearchBox from "@/app/components/CustomSearchBox";
 import CustomPagination from "@/app/components/CustomPagination";
+import { SearchParameters } from "algoliasearch-helper";
 
 const sk = new Searchkit({
   connection: {
@@ -57,10 +62,14 @@ const ProfileHits: React.FC = () => {
 
 const ProfileSearchPage: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [hitsPerPage, setHitsPerPage] = useState(16); // Default value
 
   return (
     <ThemeProvider theme={theme}>
       <InstantSearch indexName="athletes" searchClient={searchClient}>
+        {/* Configure component with explicit type */}
+        <Configure {...({ hitsPerPage } as SearchParameters)} />
+
         <div className="flex w-full h-full relative">
           {/* Sidebar Toggle Button for Small Screens */}
           <div className="absolute top-4 left-4 lg:hidden z-10">
@@ -72,8 +81,23 @@ const ProfileSearchPage: React.FC = () => {
 
           {/* Sidebar */}
           {isSidebarOpen && (
-            <div className="w-64 p-4 bg-offWhite shadow-lg overflow-y-auto hidden lg:block">
-              <SidebarProfiles />
+            <div
+              className="w-64 p-4 shadow-lg overflow-y-auto hidden lg:block"
+              style={{
+                backgroundColor: 'rgba(245, 245, 245, 0.9)',
+                backgroundImage: 'linear-gradient(to right, rgba(245, 245, 245, 0.5) 50%, rgba(255, 255, 255, 0)), url("/bg-marble.jpg")',
+                backgroundPosition: 'top left',
+                backgroundRepeat: 'repeat',
+                backgroundAttachment: 'fixed',
+                backgroundSize: 'fixed',
+                backdropFilter: 'blur(10px)',
+                boxShadow: 'rgba(0, 0, 0, 0.1) 0px 4px 12px',
+              }}
+            >
+              <SidebarProfiles
+                hitsPerPage={hitsPerPage}
+                onChangeHitsPerPage={(value) => setHitsPerPage(value)}
+              />
             </div>
           )}
 

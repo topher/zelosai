@@ -20,7 +20,7 @@ module.exports = {
         black: '#000000',
         white: '#ffffff',
         darkGray: '#111827',  // A slightly darker gray for a more modern feel
-        lightGray: '#424242',
+        lightGray: '#6e6e6e',
         offWhite: '#f7f7f7',
         gold: '#f4e7c3', // Slightly lighter gold for better readability on dark backgrounds
         indigo: {

@@ -57,53 +57,66 @@ export const MultiSelectFilterList: React.FC<MultiSelectFilterListProps> = ({
 }) => {
   const { items, refine } = useRefinementList({
     attribute,
-    operator: 'or', // Allows multiple selections
-  })
+    operator: "or", // Allows multiple selections
+  });
 
   return (
-    <Stack direction="row" spacing={1} flexWrap="wrap">
+    <Stack direction="row" flexWrap="wrap">
       {items.map((item) => (
         <Chip
           key={item.label}
           label={mapLabel(attribute, item.label)}
           onClick={() => refine(item.value)}
-          variant={item.isRefined ? "filled" : "outlined"}
-          style={{ 
-            margin: "4px", 
-            backgroundImage: item.isRefined ? "linear-gradient(to right, #4b0082, #ff69b4)" : "none",
+          sx={{
+            margin: "4px",
+            backgroundImage: item.isRefined
+              ? "linear-gradient(to right, #4b0082, #ff69b4)"
+              : "none",
             backgroundColor: item.isRefined ? "transparent" : "white",
             color: item.isRefined ? "white" : "#111827",
-            border: "none"
+            border: "none",
+            cursor: "pointer",
+            "&:hover": {
+              backgroundColor: "#b366e2",
+              color: "white",
+            },
           }}
         />
       ))}
     </Stack>
-  )
-}
+  );
+};
 
 export const SingleSelectFilterList: React.FC<SingleSelectFilterListProps> = ({
   attribute,
 }) => {
   const { items, refine } = useMenu({
     attribute,
-  })
+  });
 
   return (
-    <Stack direction="row" spacing={1} flexWrap="wrap">
+    <Stack direction="row" flexWrap="wrap">
       {items.map((item) => (
         <Chip
           key={item.label}
           label={mapLabel(attribute, item.label)}
           onClick={() => refine(item.value)}
-          style={{ 
-            margin: "4px", 
-            backgroundImage: item.isRefined ? "linear-gradient(to right, #4b0082, #ff69b4)" : "none",
+          sx={{
+            margin: "4px",
+            backgroundImage: item.isRefined
+              ? "linear-gradient(to right, #4b0082, #ff69b4)"
+              : "none",
             backgroundColor: item.isRefined ? "transparent" : "#f4e7c3",
             color: item.isRefined ? "white" : "#111827",
-            border: "none"
+            border: "none",
+            cursor: "pointer",
+            "&:hover": {
+              backgroundColor: "#b366e2",
+              color: "white",
+            },
           }}
         />
       ))}
     </Stack>
-  )
-}
+  );
+};

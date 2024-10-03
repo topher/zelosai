@@ -5,15 +5,25 @@
 import React from "react";
 import { ClearRefinements } from "react-instantsearch-hooks-web";
 import FilterSection from "./FilterSection";
-import { MultiSelectFilterList, SingleSelectFilterList } from "./FilterList";
+import {
+  MultiSelectFilterList,
+  SingleSelectFilterList,
+} from "./FilterList";
+import ResultsPerPageSlider from "./ResultsPerPageSlider"; // Import the slider
 
 interface SidebarProps {
   sections: string[]; // Array of section names to display filters for
+  hitsPerPage: number;
+  onChangeHitsPerPage: (value: number) => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ sections }) => {
+const Sidebar: React.FC<SidebarProps> = ({
+  sections,
+  hitsPerPage,
+  onChangeHitsPerPage,
+}) => {
   return (
-    <div className="w-64 space-y-4 overflow-x-hidden">
+    <div className="w-56 space-y-4 overflow-x-hidden">
       {/* Filters Title and Reset Button */}
       <div className="flex flex-wrap items-center justify-between mb-4">
         <h2 className="text-2xl font-bold text-darkGray">Filters</h2>
@@ -29,6 +39,12 @@ const Sidebar: React.FC<SidebarProps> = ({ sections }) => {
           }}
         />
       </div>
+
+      {/* Results Per Page Slider */}
+      <ResultsPerPageSlider
+        hitsPerPage={hitsPerPage}
+        onChangeHitsPerPage={onChangeHitsPerPage}
+      />
 
       {/* Athlete Profiles Filters */}
       {sections.includes("Athlete Profiles") && (

@@ -23,7 +23,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({ title, children }) => {
     <div className="mb-4">
       <button
         onClick={toggleCollapse}
-        className="flex items-center justify-between w-full p-2 text-left text-lightGray bg-white rounded-xl focus:outline-none"
+        className="flex items-center justify-between w-full p-2 text-left text-darkGray bg-white rounded-xl focus:outline-none"
       >
         <span className="font-semibold">{title}</span>
         <IconContext.Provider value={{ size: "1.2em" }}>
