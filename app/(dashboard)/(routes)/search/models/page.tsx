@@ -77,7 +77,7 @@ const AIModelSearchPage: React.FC = () => {
         {/* Configure component to set hitsPerPage */}
         <Configure {...({ hitsPerPage } as SearchParameters)} />
 
-        <div className="flex w-full h-full relative">
+        <div className="flex w-full h-screen relative">
           {/* Sidebar Toggle Button for Small Screens */}
           <div className="absolute top-4 left-4 lg:hidden z-10">
             <SidebarToggle
