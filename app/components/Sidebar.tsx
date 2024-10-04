@@ -23,7 +23,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   onChangeHitsPerPage,
 }) => {
   return (
-    <div className="w-56 space-y-4 overflow-x-hidden sticky top-0">
+    <div className="w-56 space-y-4 overflow-x-hidden sticky top-0 px-1 py-2">
       {/* Filters Title and Reset Button */}
       <div className="flex flex-wrap items-center justify-between mb-4">
         <h2 className="text-2xl font-bold text-darkGray">Filters</h2>

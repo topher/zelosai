@@ -121,6 +121,12 @@
         "FRA_Description": "Boxe"
     },
     {
+        "Code": "BSB-------------------------------",
+        "Id": "BSB",
+        "ENG_Description": "Baseball",
+        "FRA_Description": "Baseball"
+    },
+    {
         "Code": "BSK-------------------------------",
         "Id": "BSK",
         "NonSport": "N",
@@ -128,8 +134,8 @@
         "EventOrder": "DATE",
         "Scheduled": "N",
         "IF": "FIBA",
-        "ENG_Description": "Basketball (Sport)",
-        "FRA_Description": "Basketball (Sport)"
+        "ENG_Description": "Basketball",
+        "FRA_Description": "Basketball"
     },
     {
         "Code": "CAS-------------------------------",
