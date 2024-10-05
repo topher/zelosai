@@ -1,3 +1,5 @@
+// library/page.tsx
+
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -8,27 +10,22 @@ import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AIModelCard } from "./components/album-artwork";
 import Link from "next/link";
-import { getAIModelsByAccountId, getModelCategoriesByAccountId } from "@/app/actions/modelsActions"; // Assuming we fetch models with this action
+import { getAIModelsByAccountId, getModelCategoriesByAccountId } from "@/app/actions/modelsActions";
 import { UserDefinedModelCategory, AIModel } from "@/app/types";
 
-const accountId = "12345"; // Fetch based on the current accountId
+const accountId = "12345"; // Replace with dynamic accountId
 
-export default function MusicPage() {
+export default function ModelsPage() {
   const [models, setModels] = useState<AIModel[]>([]);
   const [categories, setCategories] = useState<UserDefinedModelCategory[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch data from the backend (models and categories by accountId)
+  // Fetch data from the backend
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log(`Fetching models and categories for accountId: ${accountId}`);
-
-        const fetchedModels = await getAIModelsByAccountId(accountId); // Replace with your action method to fetch models
-        console.log("Fetched models:", fetchedModels);
-
-        const fetchedCategories = await getModelCategoriesByAccountId(accountId); // Assuming you fetch categories too
-        console.log("Fetched categories:", fetchedCategories);
+        const fetchedModels = await getAIModelsByAccountId(accountId);
+        const fetchedCategories = await getModelCategoriesByAccountId(accountId);
 
         setModels(fetchedModels);
         setCategories(fetchedCategories);
@@ -44,13 +41,7 @@ export default function MusicPage() {
 
   // Function to filter models based on categories
   const filterModels = (models: AIModel[], category: UserDefinedModelCategory) => {
-    console.log(`Filtering models for category: ${category.name}`);
-
-    const filteredModels = models.filter((model: AIModel) => {
-      if (!model.tags) {
-        console.warn(`Model ${model.modelId} does not have tags. Skipping...`);
-        return false;
-      }
+    return models.filter((model: AIModel) => {
       const includes = category.includes || [];
       const excludes = category.excludes || [];
 
@@ -59,9 +50,6 @@ export default function MusicPage() {
 
       return includesMatch && excludesMatch;
     });
-
-    console.log(`Filtered models for ${category.name}:`, filteredModels);
-    return filteredModels;
   };
 
   if (loading) {
@@ -71,7 +59,7 @@ export default function MusicPage() {
   return (
     <>
       <div className="md:hidden">
-        {/* Dynamic images with fallback */}
+        {/* Mobile view images */}
         <Image
           src="/examples/music-light.png"
           width={1280}
@@ -91,47 +79,49 @@ export default function MusicPage() {
         <div className="border-t">
           <div className="bg-background">
             <div className="grid lg:grid-cols-5">
-              <div className="col-span-3 lg:col-span-4 lg:border-l">
+              <div className="col-span-5 lg:border-l">
                 <div className="h-full px-4 py-6 lg:px-8">
-                  <Tabs defaultValue="music" className="h-full space-y-6">
-                    <div className="space-between flex items-center">
+
+                  {/* Title and Description */}
+                  <div className="mb-8">
+                    <h1 className="text-4xl font-bold tracking-tight mb-4">AI Model Library</h1>
+                    <p className="text-lg text-muted-foreground">
+                      Explore the collection of AI models, or build your own.
+                    </p>
+                  </div>
+
+                  {/* Tabs and Content */}
+                  <Tabs defaultValue="recent" className="h-full space-y-6">
+                    <div className="flex items-center justify-between mb-6">
                       <TabsList>
-                        <TabsTrigger value="music" className="relative">
-                          Recent
-                        </TabsTrigger>
-                        <TabsTrigger value="podcasts">Archive</TabsTrigger>
-                        <TabsTrigger value="live" disabled>
-                          All
-                        </TabsTrigger>
+                        <TabsTrigger value="recent">Recent</TabsTrigger>
+                        <TabsTrigger value="archive">Archive</TabsTrigger>
+                        <TabsTrigger value="all">All</TabsTrigger>
                       </TabsList>
-                      <div className="ml-auto mr-4">
-                        <Button>
-                          <PlusCircledIcon className="mr-2 h-4 w-4" />
-                          New AI Model
-                        </Button>
-                      </div>
+                      <Button>
+                        <PlusCircledIcon className="mr-2 h-5 w-5" />
+                        New AI Model
+                      </Button>
                     </div>
-                    <TabsContent value="music" className="border-none p-0 outline-none">
+                    <TabsContent value="recent">
                       {categories.map((category) => (
-                        <div key={category.name}>
-                          <h2 className="text-2xl font-semibold tracking-tight">
+                        <div key={category.name} className="mb-8">
+                          <h2 className="text-2xl font-semibold tracking-tight mb-4">
                             {category.name}
                           </h2>
                           <div className="relative">
                             <ScrollArea>
-                              <div className="flex space-x-4 pb-4">
+                              <div className="flex space-x-6 p-4">
                                 {filterModels(models, category).map((model) => (
                                   <Link
                                     key={model.modelId}
                                     href={`/models/${model.tags[0]}/${model.modelId}`}
                                   >
                                     <AIModelCard
-                                      key={model.modelId} // Use unique key
                                       tool={model}
-                                      className="w-[150px]"
-                                      aspectRatio="square"
-                                      width={150}
-                                      height={150}
+                                      aspectRatio="landscape"
+                                      width={300}
+                                      height={225}
                                     />
                                   </Link>
                                 ))}
@@ -142,8 +132,12 @@ export default function MusicPage() {
                         </div>
                       ))}
                     </TabsContent>
-                    <TabsContent value="podcasts" className="h-full flex-col border-none p-0 data-[state=active]:flex">
-                      {/* <AnalyticsPage /> */}
+                    <TabsContent value="archive">
+                      {/* Archive content goes here */}
+                      <Separator className="my-4" />
+                    </TabsContent>
+                    <TabsContent value="all">
+                      {/* All content goes here */}
                       <Separator className="my-4" />
                     </TabsContent>
                   </Tabs>
@@ -152,7 +146,7 @@ export default function MusicPage() {
             </div>
           </div>
         </div>
-      </div>
+      </div>    
     </>
   );
 }

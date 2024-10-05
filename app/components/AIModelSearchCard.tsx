@@ -34,7 +34,7 @@ const AIModelSearchCard: React.FC<AIModelSearchCardProps> = ({ data }) => {
   }
 
   // Set a default background color or use data.bgColor
-  const backgroundColor = data.bgColor || "rgba(0, 0, 0, 0.5)"; // Adjust as needed
+  const backgroundColor = data.bgColor || "rgba(0, 0, 0, 0.5)";
 
   return (
     <div className="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg h-64">

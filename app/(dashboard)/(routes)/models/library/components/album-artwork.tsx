@@ -1,72 +1,115 @@
+// library/components/album-artwork.tsx
+
 import { cn } from "@/lib/utils";
-import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuSeparator, ContextMenuTrigger } from "@/components/ui/context-menu";
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuSeparator,
+  ContextMenuTrigger,
+} from "@/components/ui/context-menu";
 import Image from "next/image";
 import { AIModel } from "@/app/types";
+import { useState } from "react";
 
-// Interface for AIModelCard props (unchanged)
 interface AIModelCardProps extends React.HTMLAttributes<HTMLDivElement> {
   tool: AIModel;
-  aspectRatio?: "portrait" | "square";
-  width: number;
-  height: number;
+  aspectRatio?: "portrait" | "landscape" | "square";
+  width?: number;
+  height?: number;
 }
 
+export function AIModelCard({
+  tool,
+  className,
+  width = 300,
+  height = 225,
+  aspectRatio = "landscape",
+  ...props
+}: AIModelCardProps) {
+  const [expanded, setExpanded] = useState(false);
+  const imageUrl = tool.iconName ? `/${tool.iconName.replace(/^\//, "")}` : null;
 
-// Define the single background color with low opacity
-const backgroundColor = 'rgba(17, 24, 39, .85)'; // Very dark blue with low opacity
+  const emoji = tool.tags.includes("voice")
+    ? "🔊"
+    : tool.tags.includes("text")
+    ? "✏️"
+    : "🚀";
 
-export function AIModelCard({ tool, className, width, height, ...props }: { tool: AIModel } & AIModelCardProps) {
-  // Ensure the iconName starts with a slash if it doesn't already
-  const imageUrl = tool.iconName ? `/${tool.iconName.replace(/^\//, '')}` : null;
+  const aspectRatioClass =
+    aspectRatio === "portrait"
+      ? "aspect-[2/3]"
+      : aspectRatio === "landscape"
+      ? "aspect-[4/3]"
+      : "aspect-square";
 
-  // Determine the appropriate emoji based on the model type
-  const emoji = tool.tags.includes("voice") ? "🔊" : tool.tags.includes("text") ? "✏️" : "🚀";
-
-  // Wrapper to enforce aspect ratio
-  const aspectRatioClass = props.aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square";
+  const handleExpand = () => setExpanded(true);
+  const handleCollapse = () => setExpanded(false);
 
   return (
-    <div className={cn("space-y-3", className)} {...props}>
+    <div
+      className={cn(
+        "relative overflow-hidden rounded-lg shadow group transition-all duration-500 ease-out",
+        expanded ? "max-h-[300px]" : "max-h-[225px]",
+        aspectRatioClass,
+        className
+      )}
+      style={{ width, height }}
+      onMouseEnter={handleExpand}
+      onMouseLeave={handleCollapse}
+      {...props}
+    >
       <ContextMenu>
         <ContextMenuTrigger>
-          <div className={cn("overflow-hidden rounded-lg relative", aspectRatioClass, "transition-transform transform hover:scale-105")} style={{ width, height }}>
-            {imageUrl ? (
-              <div className="absolute inset-0">
+          <div className="relative w-full h-full">
+            <div
+              className={cn(
+                "absolute inset-0 transition-transform duration-500 ease-out",
+                imageUrl ? "group-hover:scale-105 group-hover:shadow-lg" : ""
+              )}
+            >
+              {imageUrl ? (
                 <Image
                   src={imageUrl}
                   alt={tool.label}
                   layout="fill"
                   objectFit="cover"
-                  className="rounded-lg shadow-lg"
+                  objectPosition="center"
+                  className="rounded-lg"
                 />
-              </div>
-            ) : (
-              <div
-                className="absolute inset-0 flex items-center justify-center text-white font-bold"
-                style={{
-                  backgroundColor: backgroundColor, // Apply the single color with low opacity
-                  backdropFilter: 'blur(12px)', // Apply a slightly stronger blur for more glass effect
-                  WebkitBackdropFilter: 'blur(12px)', // Support for Safari
-                  borderRadius: '16px', // Rounded corners for the glass effect
-                  border: '1px solid rgba(255, 255, 255, 0.18)', // Subtle border for glassmorphism
-                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', // Subtle shadow for depth
-                }}
-              >
-                <span style={{ fontSize: '3.5rem' }}>{emoji}</span> {/* Larger and more elegant emoji */}
-              </div>
-            )}
+              ) : (
+                <div
+                  className="absolute inset-0 flex items-center justify-center text-white font-bold"
+                  style={{
+                    backgroundColor: "rgba(17, 24, 39, 0.85)",
+                    backdropFilter: "blur(12px)",
+                    WebkitBackdropFilter: "blur(12px)",
+                  }}
+                >
+                  <span style={{ fontSize: "3rem" }}>{emoji}</span>
+                </div>
+              )}
+            </div>
+            {/* Label and Description Overlay */}
+            <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/80 to-black/10 rounded-b-lg">
+              <h3 className="text-white text-base font-semibold tracking-wide group-hover:text-opacity-90 transition-all duration-300 ease-out">
+                {tool.label}
+              </h3>
+              {expanded && (
+                <p className="text-white text-sm mt-2 transition-opacity duration-300">
+                  {tool.description}
+                </p>
+              )}
+            </div>
           </div>
         </ContextMenuTrigger>
-        <ContextMenuContent className="w-40">
+        <ContextMenuContent className="w-48">
           <ContextMenuItem>{tool.label}</ContextMenuItem>
           <p className="text-sm text-muted-foreground">{tool.description}</p>
           <ContextMenuSeparator />
           <ContextMenuItem>Learn More</ContextMenuItem>
         </ContextMenuContent>
       </ContextMenu>
-      <div className="space-y-1 text-sm">
-        <h3 className="font-medium leading-none text-gray-900">{tool.label}</h3>
-      </div>
     </div>
   );
 }
