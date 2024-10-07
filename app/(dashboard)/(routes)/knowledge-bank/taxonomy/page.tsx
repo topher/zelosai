@@ -60,7 +60,7 @@ const DataCategoryPage: React.FC = () => {
       {/* Left Column: Statistics and D3 Visualizations */}
       <div className="flex-1 flex flex-col space-y-8">
         {/* 4-Card Statistics Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
           {/* Public Categories Card */}
           <Card>
             <CardHeader>
@@ -101,20 +101,6 @@ const DataCategoryPage: React.FC = () => {
             </CardContent>
           </Card>
         </div>
-
-        {/* Visualization Card */}
-        <Card className="flex-1">
-          <CardHeader>
-            <CardTitle>Hierarchical View</CardTitle>
-          </CardHeader>
-          <CardContent className="flex justify-center items-center" style={{ width: '100%', height: '600px' }}>
-            {view === "sunburst" ? (
-              <TaxonomySunburstOverview data={treeData} />
-            ) : (
-              <TreeDiagramComponent data={treeData} options={commonOptions} />
-            )}
-          </CardContent>
-        </Card>
       </div>
 
       {/* Right Column: Existing Data Categories Card */}
