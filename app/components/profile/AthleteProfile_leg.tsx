@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import { SafeAthlete } from "@/app/types";
 import Container from "@/app/components/Container";
-import AthleteHead from "@/app/components/profile/AthleteHead";
-import AthleteInfo from "@/app/components/profile/AthleteInfo";
+import AthleteHead from "@/app/components/profile/ProfileHead";
+import AthleteInfo from "@/app/components/profile/ProfileInfo";
 import Description from "@/app/components/profile/Description";
 import CollaborationRequest from "./CollaborationRequest";
 

@@ -1,21 +1,23 @@
+'use client'
+
 import React from 'react';
 import Image from "next/image";
 import SkyboxBanner from './SkyboxBanner'; // Import the SkyboxBanner component
 
-interface AthleteHeadProps {
+interface ProfileHeadProps {
   name: string;
   imageSrc: string; // Athlete's profile picture
   hdriPath: string; // HDRI image path for the skybox
 }
 
-const AthleteHead: React.FC<AthleteHeadProps> = ({ name, imageSrc, hdriPath }) => {
+const ProfileHead: React.FC<ProfileHeadProps> = ({ name, imageSrc, hdriPath }) => {
   
   const handleBannerClick = () => {
     // Logic to handle transitioning to full-screen 3D scene
   };
 
   return (
-    <div className="relative athlete-head" style={{ minHeight: '250px' }}>
+    <div className="relative" style={{ minHeight: '250px' }}>
       <div style={{ minHeight: '150px' }}>
         <SkyboxBanner hdriPath={hdriPath} onClick={handleBannerClick} />
       </div>
@@ -28,4 +30,4 @@ const AthleteHead: React.FC<AthleteHeadProps> = ({ name, imageSrc, hdriPath }) =
   );
 };
 
-export default AthleteHead;
+export default ProfileHead;

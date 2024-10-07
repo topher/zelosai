@@ -1,4 +1,4 @@
-// app/components/profile/AthleteProfile.tsx
+// app/components/profile/BrandProfile.tsx
 
 'use client';
 
@@ -6,17 +6,17 @@ import React from 'react';
 import Profile from './Profile';
 import { Triple } from '@/app/types';
 
-interface AthleteProfileProps {
+interface BrandProfileProps {
   resource: Triple[];
 }
 
-const AthleteProfile: React.FC<AthleteProfileProps> = ({ resource }) => {
+const BrandProfile: React.FC<BrandProfileProps> = ({ resource }) => {
   return (
     <Profile 
       resource={resource}
-      type="athlete"
+      type="brand"
     />
   );
 };
 
-export default AthleteProfile;
+export default BrandProfile;

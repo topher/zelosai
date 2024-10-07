@@ -9,50 +9,55 @@ import { PMREMGenerator } from 'three/src/extras/PMREMGenerator';
 interface SkyboxBannerProps {
   hdriPath: string;
   onClick: () => void;
-  style?: React.CSSProperties; // Add this line
+  style?: React.CSSProperties;
 }
 
 const SkyboxBanner: React.FC<SkyboxBannerProps> = ({ hdriPath, onClick }) => {
   const mountRef = useRef<HTMLDivElement>(null);
-  
+
+  console.log(hdriPath, 'SkyboxBanner 💦');
 
   useEffect(() => {
     let frameId: number | null = null;
     let localMount = mountRef.current;
-    
 
     if (localMount) {
-      
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(75, localMount.clientWidth / localMount.clientHeight, 0.1, 1000);
       const renderer = new THREE.WebGLRenderer();
       renderer.setSize(localMount.clientWidth, localMount.clientHeight);
       localMount.appendChild(renderer.domElement);
 
-
       // PMREM Generator for HDR Environment
       const pmremGenerator = new PMREMGenerator(renderer);
-      
+      pmremGenerator.compileEquirectangularShader();
+
       // HDRI Skybox
-      new RGBELoader()
-  .setDataType(THREE.UnsignedByteType)
-  .load(hdriPath, (texture) => {
-    // Ensure 'texture' is defined and has the 'image' property
-    console.log(texture,"texture")
-    if (texture && texture.image) {
-      const envMap = pmremGenerator.fromEquirectangular(texture).texture;
-      scene.background = envMap;
-      texture.dispose();
-      pmremGenerator.dispose();
-    } else {
-      // Handle the case where 'texture' is not as expected
-      console.error('Failed to load texture or texture data is invalid');
-    }
-  }, undefined, (
-    error) => {
-      console.error('An error occurred while loading the HDRI:', error);
-      });
-    
+      const rgbeLoader = new RGBELoader();
+      rgbeLoader.setDataType(THREE.UnsignedByteType);
+
+      rgbeLoader.load(
+        hdriPath,
+        (texture) => {
+          if (texture) {
+            console.log(texture, 'texture');
+            // Correctly set the environment texture
+            texture.mapping = THREE.EquirectangularReflectionMapping;
+            const envMap = pmremGenerator.fromEquirectangular(texture).texture;
+            scene.background = envMap;
+
+            // Clean up
+            texture.dispose();
+            pmremGenerator.dispose();
+          } else {
+            console.error('Texture is not defined.');
+          }
+        },
+        undefined,
+        (error) => {
+          console.error('An error occurred while loading the HDRI:', error);
+        }
+      );
 
       // Orbit Controls
       const controls = new OrbitControls(camera, renderer.domElement);
@@ -69,7 +74,7 @@ const SkyboxBanner: React.FC<SkyboxBannerProps> = ({ hdriPath, onClick }) => {
         controls.update();
         renderer.render(scene, camera);
       };
-      
+
       frameId = requestAnimationFrame(animate);
       localMount.addEventListener('click', onClick);
     }
@@ -84,7 +89,7 @@ const SkyboxBanner: React.FC<SkyboxBannerProps> = ({ hdriPath, onClick }) => {
     };
   }, [hdriPath, onClick]);
 
-  return <div ref={mountRef} className="banner-skybox" />;
+  return <div ref={mountRef} className="banner-skybox" style={{ width: '100%', height: '100%' }} />;
 };
 
 export default SkyboxBanner;

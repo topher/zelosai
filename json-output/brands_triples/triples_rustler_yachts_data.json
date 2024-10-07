@@ -1,0 +1,244 @@
+{
+    "subject": "http://zelos.ai/knowledge/rustler_yachts",
+    "triples": [
+        {
+            "predicate": "has name",
+            "object": "Rustler Yachts",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "has mission",
+            "object": "To handbuild high quality, semi-custom yachts for cruising.",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "uses channel",
+            "object": "Website",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "uses channel",
+            "object": "Social Media",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "belongs to industry",
+            "object": "Yacht building",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "operates in region",
+            "object": "United Kingdom",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "has interest",
+            "object": "Yachting",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "has interest",
+            "object": "Water sports",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "has key partner",
+            "object": "Falmouth Maritime Group",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "has key partner",
+            "object": "Bowman Yachts",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "performs key activity",
+            "object": "Yacht manufacturing",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "performs key activity",
+            "object": "Designing semi-custom yachts",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "offers value proposition",
+            "object": "High quality craftsmanship",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "offers value proposition",
+            "object": "Customizable yacht designs",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "has customer relationship",
+            "object": "Direct sales",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "has customer relationship",
+            "object": "Customer support",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "targets customer segment",
+            "object": "Yacht enthusiasts",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "targets customer segment",
+            "object": "Luxury consumers",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "has cost structure",
+            "object": "Manufacturing costs",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "has cost structure",
+            "object": "Labor costs",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "has revenue stream",
+            "object": "Yacht sales",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "has revenue stream",
+            "object": "Service and maintenance",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "has audience lifestyle",
+            "object": "Luxury lifestyle",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "has audience lifestyle",
+            "object": "Adventure seekers",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "supports language",
+            "object": "English",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "has wiki logo_url",
+            "object": "https://upload.wikimedia.org/wikipedia/en/a/a5/Rustler_Yachts_logo.jpg",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "has wiki name",
+            "object": "",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "has wiki company_type",
+            "object": "Limited company",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "has wiki industry",
+            "object": "Yacht building",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "has wiki predecessor",
+            "object": "Ralph Hogg",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "has wiki headquarters",
+            "object": "Falmouth , Cornwall , UK",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "has wiki parent",
+            "object": "Falmouth Maritime Group",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "has wiki divisions",
+            "object": "Bowman Yachts",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        },
+        {
+            "predicate": "has wiki website",
+            "object": "www .rustleryachts .com",
+            "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
+        }
+    ],
+    "brand_name": "Rustler Yachts",
+    "mission_vision": "To handbuild high quality, semi-custom yachts for cruising.",
+    "sponsorship_activities": [],
+    "channels": [
+        "Website",
+        "Social Media"
+    ],
+    "primary_industry": "Yacht building",
+    "secondary_industry": null,
+    "regions": [
+        "United Kingdom"
+    ],
+    "interests": [
+        "Yachting",
+        "Water sports"
+    ],
+    "audience_lifestyle": [
+        "Luxury lifestyle",
+        "Adventure seekers"
+    ],
+    "languages": [
+        "English"
+    ],
+    "key_partners": [
+        "Falmouth Maritime Group",
+        "Bowman Yachts"
+    ],
+    "key_activities": [
+        "Yacht manufacturing",
+        "Designing semi-custom yachts"
+    ],
+    "value_propositions": [
+        "High quality craftsmanship",
+        "Customizable yacht designs"
+    ],
+    "customer_relationships": [
+        "Direct sales",
+        "Customer support"
+    ],
+    "customer_segments": [
+        "Yacht enthusiasts",
+        "Luxury consumers"
+    ],
+    "cost_structure": [
+        "Manufacturing costs",
+        "Labor costs"
+    ],
+    "revenue_streams": [
+        "Yacht sales",
+        "Service and maintenance"
+    ],
+    "link": "https://en.wikipedia.org/wiki/Rustler_Yachts",
+    "parsed_at": "2024-10-02T21:15:03.860501Z",
+    "country": "British brands",
+    "category": "General",
+    "body_text": "From Wikipedia, the free encyclopedia British yachtbuilder Rustler Yachts Company type Limited company Industry Yacht building Predecessor Ralph Hogg Headquarters Falmouth , Cornwall , UK Parent Falmouth Maritime Group Divisions Bowman Yachts Website www .rustleryachts .com Rustler Yachts is a British yachtbuilder based in Falmouth , Cornwall , with a reputation for handbuilding high quality, semi-custom yachts. The yachts are primarily cruising-orientated designs, [ 1 ] built from glassfibre composite , with traditional hull forms and heavily built construction. [ 2 ] The origins of Rustler are in the mid-1960s, when Kim Holman designed the Rustler 31 for Russell Anstey of Poole (hence the name Rustler, a play on Russell). Russell started Anstey Yachts and built the first thirty five or so. The molds were then sold on and she was built by various companies. [ 3 ] In the early 1980s, Orion Marine and its founder Ralph Hogg began building the traditional Rustler 36 design. [ 4 ] The Rustler 42, launched in 1999, was the first in the new direction for Rustler. Designed by Stephen Jones, designer of the Starlight 35,and Starlight 39, the Rustler 42 was seen as the quintessential bluewater cruiser. [ citation needed ] She marked the start of an ongoing relationship with Stephen Jones (now having designed its 33, 37, 42, 44, and most recently the 57) In 2005 Rustler moved to a newly built waterside factory in Penryn. [ 1 ] Rustler also built yachts under the Bowman brand since the acquisition of Rival Bowman in 2002, [ 5 ] and until 2011 also produced yachts under the Starlight brand. In 2007, Rustler introduced the Rustler 44, an elongated, taller version of the Rustler 42 , with a raised deck saloon. In 2009, the first daysailer was introduced, the Rustler 24 , followed by the Rustler 33 in 2011. In 2014, the modern replacement for the long-keel Ruster 36 was introduced. Although the Rustler 36 is still available, the Rustler 37 offers increased hull volume and an encapsulated long fin keel, instead of the long keel on the Kim Holman design. Its largest yachts to date is the Rustler 57, launched in 2019 (2021) Range [ edit ] Rustler 24 Rustler 33 Rustler 36 Rustler 37 Rustler 42 Rustler 44 Rustler 57 Bowman Yachts List of sailboat designers and manufacturers Rustler Yachts homepage Rustler range Retrieved from \" https://en.wikipedia.org/w/index.php?title=Rustler_Yachts&oldid=1158365208 \" Categories : Yacht building companies British boat builders British brands Manufacturing companies of England Companies based in Cornwall British companies established in 2000 Vehicle manufacturing companies established in 2000 2000 establishments in England Falmouth, Cornwall Hidden categories: Articles with short description Short description matches Wikidata Use dmy dates from July 2017 Use British English from July 2017 All articles with unsourced statements Articles with unsourced statements from March 2021",
+    "infobox": {
+        "logo_url": "https://upload.wikimedia.org/wikipedia/en/a/a5/Rustler_Yachts_logo.jpg",
+        "name": "",
+        "company_type": "Limited company",
+        "industry": "Yacht building",
+        "predecessor": "Ralph Hogg",
+        "headquarters": "Falmouth , Cornwall , UK",
+        "parent": "Falmouth Maritime Group",
+        "divisions": "Bowman Yachts",
+        "website": "www .rustleryachts .com"
+    },
+    "company_name": "Unknown",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/en/a/a5/Rustler_Yachts_logo.jpg"
+}

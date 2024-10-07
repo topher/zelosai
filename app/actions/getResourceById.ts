@@ -35,7 +35,7 @@ export default async function getResourceById(id: string) {
       return null;
     }
 
-    console.log("Resource triples:", triples);
+    // console.log("Resource triples:", triples);
 
     return { id, triples };
   } catch (error) {

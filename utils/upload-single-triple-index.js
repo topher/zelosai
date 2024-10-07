@@ -1,5 +1,3 @@
-// utils/upload-single-index.js
-
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
@@ -7,27 +5,26 @@ require('dotenv').config();
 
 // Elasticsearch configuration from environment variables
 const ELASTICSEARCH_URL = process.env.ELASTICSEARCH_URL || 'http://localhost:9200';
-// Removed ELASTIC_USERNAME and ELASTIC_PASSWORD since security is disabled
 
 /**
  * Displays usage instructions.
  */
 function showUsage() {
     console.log(`
-Usage: node ./utils/upload-single-index.js <index_name>
+Usage: node ./utils/upload-single-triples-index.js <index_name>
 
 Description:
-    Uploads a single Elasticsearch index with data and optional mappings.
+    Uploads a single Elasticsearch index with data and mappings.
     The index name must match the data and mapping filenames.
 
 Parameters:
     <index_name>    Name of the Elasticsearch index to create/upload.
                     The script expects the following files:
-                      - json-output/<index_name>.json
+                      - json-output/brands_triples/<index_name>.json
                       - json-output/mappings/<index_name>_mapping.json
 
 Example:
-    node ./utils/upload-single-index.js user_selected_facets
+    node ./utils/upload-single-index.js brands_triples
     `);
     process.exit(1);
 }
@@ -35,7 +32,7 @@ Example:
 /**
  * Reads and parses a JSON file.
  * @param {string} filePath - Path to the JSON file.
- * @returns {Object|Array} - Parsed JSON content.
+ * @returns {Object} - Parsed JSON content.
  */
 function readJSONFile(filePath) {
     try {
@@ -101,7 +98,7 @@ async function uploadData(indexName, data) {
 
         // Prepare bulk request body
         const bulkBody = data.flatMap(doc => {
-            const action = { index: { _index: indexName, _id: doc.userId || undefined } };
+            const action = { index: { _index: indexName, _id: doc.subject } };
             return [action, doc];
         });
 
@@ -135,6 +132,53 @@ async function uploadData(indexName, data) {
 }
 
 /**
+ * Reads and parses JSON files from a directory.
+ * @param {string} dirPath - Path to the directory containing JSON files.
+ * @returns {Array} - Array of documents to index.
+ */
+function readJSONFiles(dirPath) {
+    const files = fs.readdirSync(dirPath);
+    console.log(`Reading files from: ${dirPath}`);
+    const data = [];
+
+    files.forEach((file) => {
+        if (file.endsWith('.json')) {
+            const filePath = path.join(dirPath, file);
+            const content = fs.readFileSync(filePath, 'utf8');
+            let parsedContent;
+            try {
+                parsedContent = JSON.parse(content);
+            } catch (error) {
+                console.error(`❌ Failed to parse JSON in file "${file}": ${error.message}`);
+                return; // Skip this file
+            }
+
+            if (parsedContent && parsedContent.subject && Array.isArray(parsedContent.triples)) {
+                // Filter out triples with null or undefined objects
+                const validTriples = parsedContent.triples.filter(triple => triple.object !== null && triple.object !== undefined);
+                if (validTriples.length > 0) {
+                    // Assign back the valid triples
+                    parsedContent.triples = validTriples.map(triple => ({
+                        predicate: triple.predicate,
+                        object: triple.object,
+                        citation: triple.citation
+                    }));
+                    // Push the entire document, including flat fields
+                    data.push(parsedContent);
+                } else {
+                    console.warn(`⚠️  No valid triples found in file "${file}". Skipping.`);
+                }
+            } else {
+                console.warn(`⚠️  Invalid structure in file "${file}". Expected "subject" and "triples". Skipping.`);
+            }
+        }
+    });
+
+    return data;
+}
+
+
+/**
  * Main function to upload a single index.
  */
 async function main() {
@@ -147,20 +191,14 @@ async function main() {
     const indexName = args[0];
 
     // Define paths relative to project root
-    const dataFilePath = path.join(process.cwd(), 'json-output', `${indexName}.json`);
+    const dataDirPath = path.join(process.cwd(), 'json-output', 'brands_triples'); // Directory containing the triple files
     const mappingFilePath = path.join(process.cwd(), 'json-output', 'mappings', `${indexName}_mapping.json`);
 
-    // Check if data file exists
-    if (!fs.existsSync(dataFilePath)) {
-        console.error(`❌ Data file not found at path: ${dataFilePath}`);
-        process.exit(1);
-    }
+    // Read data from JSON files
+    const data = readJSONFiles(dataDirPath);
 
-    // Read data
-    const data = readJSONFile(dataFilePath);
-
-    if (!Array.isArray(data)) {
-        console.error('❌ JSON data must be an array of documents.');
+    if (!Array.isArray(data) || data.length === 0) {
+        console.error('❌ No data found to upload.');
         process.exit(1);
     }
 
@@ -181,5 +219,8 @@ async function main() {
     console.log(`🎉 Upload process for index "${indexName}" completed successfully.`);
     process.exit(0);
 }
+
+// Include createIndex function from earlier
+// (If you have it in a separate module, you can import it. Otherwise, ensure it's included here.)
 
 main();

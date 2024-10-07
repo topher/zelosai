@@ -1,0 +1,196 @@
+{
+    "subject": "http://zelos.ai/knowledge/stancorp_financial_group",
+    "triples": [
+        {
+            "predicate": "has name",
+            "object": "StanCorp Financial Group",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "belongs to industry",
+            "object": "insurance",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "operates in region",
+            "object": "United States",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "has key partner",
+            "object": "Meiji Yasuda Life Insurance Company",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "performs key activity",
+            "object": "Insurance services",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "performs key activity",
+            "object": "Financial services",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "offers value proposition",
+            "object": "Group life insurance",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "offers value proposition",
+            "object": "Annuities",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "offers value proposition",
+            "object": "Group dental insurance",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "offers value proposition",
+            "object": "Group retirement plans",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "has revenue stream",
+            "object": "Insurance premiums",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "has revenue stream",
+            "object": "Investment income",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "has wiki logo_url",
+            "object": "https://upload.wikimedia.org/wikipedia/en/b/b7/StanCorplogo.png",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "has wiki name",
+            "object": "Footnotes / references financial data [ 1 ]",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "has wiki company_type",
+            "object": "Subsidiary",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "has wiki industry",
+            "object": "insurance",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "has wiki founded",
+            "object": "1906",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "has wiki headquarters",
+            "object": "Standard Plaza Portland, Oregon , United States",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "has wiki key_people",
+            "object": "J. Gregory Ness (CEO)",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "has wiki products",
+            "object": "group life insurance , annuities , group dental insurance , group retirement plans",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "has wiki revenue",
+            "object": "$2,492,900,000 (2006)",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "has wiki operating_income",
+            "object": "$309,700,000 (2006)",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "has wiki net_income",
+            "object": "$203,800,000 (2006)",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "has wiki number_of_employees",
+            "object": "3,280",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "has wiki parent",
+            "object": "Meiji Yasuda Life Insurance Company",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "has wiki subsidiaries",
+            "object": "Standard Insurance Company , The Standard Life Insurance Company of New York, StanCorp Investment Advisers, Inc., StanCorp Mortgage Investors, LLC, Standard Retirement Services, Inc.",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        },
+        {
+            "predicate": "has wiki website",
+            "object": "www.StanCorpFinancial.com",
+            "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
+        }
+    ],
+    "brand_name": "StanCorp Financial Group",
+    "mission_vision": null,
+    "sponsorship_activities": [],
+    "channels": [],
+    "primary_industry": "insurance",
+    "secondary_industry": null,
+    "regions": [
+        "United States"
+    ],
+    "interests": [],
+    "audience_lifestyle": null,
+    "languages": null,
+    "key_partners": [
+        "Meiji Yasuda Life Insurance Company"
+    ],
+    "key_activities": [
+        "Insurance services",
+        "Financial services"
+    ],
+    "value_propositions": [
+        "Group life insurance",
+        "Annuities",
+        "Group dental insurance",
+        "Group retirement plans"
+    ],
+    "customer_relationships": null,
+    "customer_segments": null,
+    "cost_structure": null,
+    "revenue_streams": [
+        "Insurance premiums",
+        "Investment income"
+    ],
+    "link": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group",
+    "parsed_at": "2024-10-02T21:15:03.042420Z",
+    "country": "Japanese brands",
+    "category": "Meiji Yasuda Life",
+    "body_text": "From Wikipedia, the free encyclopedia Insurance and finance company StanCorp Financial Group Company type Subsidiary Industry insurance Founded 1906 Headquarters Standard Plaza Portland, Oregon , United States Key people J. Gregory Ness (CEO) Products group life insurance , annuities , group dental insurance , group retirement plans Revenue $2,492,900,000 (2006) Operating income $309,700,000 (2006) Net income $203,800,000 (2006) Number of employees 3,280 Parent Meiji Yasuda Life Insurance Company Subsidiaries Standard Insurance Company , The Standard Life Insurance Company of New York, StanCorp Investment Advisers, Inc., StanCorp Mortgage Investors, LLC, Standard Retirement Services, Inc. Website www.StanCorpFinancial.com Footnotes / references financial data [ 1 ] StanCorp Financial Group, Inc. is an insurance and financial services company based in Portland, Oregon , United States . In 2006 it ranked as number 731 on the Fortune list with in excess of $2 billion in annual revenues. Founded in 1906, the company's main subsidiary is Standard Insurance Company . From 1999 until 2016, StanCorp was publicly traded on the New York Stock Exchange . [ citation needed ] History [ edit ] The company was founded in Oregon in 1906. [ 2 ] On February 24, Leo Samuel founded the Oregon Life Insurance Company. [ 3 ] In 1946 the company name was changed to Standard Insurance Company. [ 2 ] Then in 1962, the company moved its headquarters into the newly constructed Standard Plaza building. [ 4 ] Thirty years later, Standard Insurance acquired the Georgia-Pacific Building in 1982 when Georgia-Pacific moved its headquarters to Atlanta, GA. Then in 1998, StanCorp Financial Group, Inc. was created as the holding company for all the business divisions of the company. [ 2 ] The following year the company went public, trading on the New York Stock Exchange . [ 5 ] StanCorp's Standard Insurance purchased part of Teachers Insurance and Annuity Association (TIAA) group life and disability portfolio in 2002 for $75 million. [ 6 ] In May 2004, Ron Timpe was succeeded by CEO Eric Parsons as the company's chairman of the board of directors. [ 7 ] In January 2006, StanCorp was named to the Platinum 400 by Forbes magazine for the fourth year. [ 8 ] Later in 2006, the company purchased investment services firm Invesmart for $85 million. [ 9 ] In 2007, StanCorp made the Fortune 1000 list at number 746. [ 10 ] The company purchased several retirement plan administrators in July 2007 to add to their Retirement Services division. [ 11 ] As of 2007, all of the divisions employ a total of 3,280 people at approximately 90 offices across the United States. [ 2 ] They are headquartered in the Standard Insurance Center and the Standard Plaza buildings in downtown Portland. Meiji Yasuda Life Insurance Company announced it would purchase StanCorp for $5 billion in July 2015. [ 12 ] The deal was completed in March 2016. [ 13 ] List of companies based in Oregon About StanCorp Retrieved from \" https://en.wikipedia.org/w/index.php?title=StanCorp_Financial_Group&oldid=1135298081 \" Categories : Companies based in Portland, Oregon Insurance companies of the United States Companies formerly listed on the New York Stock Exchange Financial services companies established in 1906 1906 establishments in Oregon Meiji Yasuda Life 1999 initial public offerings 2016 mergers and acquisitions American subsidiaries of foreign companies Hidden categories: Articles with short description Short description matches Wikidata All articles with unsourced statements Articles with unsourced statements from April 2020",
+    "infobox": {
+        "logo_url": "https://upload.wikimedia.org/wikipedia/en/b/b7/StanCorplogo.png",
+        "name": "Footnotes / references financial data [ 1 ]",
+        "company_type": "Subsidiary",
+        "industry": "insurance",
+        "founded": "1906",
+        "headquarters": "Standard Plaza Portland, Oregon , United States",
+        "key_people": "J. Gregory Ness (CEO)",
+        "products": "group life insurance , annuities , group dental insurance , group retirement plans",
+        "revenue": "$2,492,900,000 (2006)",
+        "operating_income": "$309,700,000 (2006)",
+        "net_income": "$203,800,000 (2006)",
+        "number_of_employees": "3,280",
+        "parent": "Meiji Yasuda Life Insurance Company",
+        "subsidiaries": "Standard Insurance Company , The Standard Life Insurance Company of New York, StanCorp Investment Advisers, Inc., StanCorp Mortgage Investors, LLC, Standard Retirement Services, Inc.",
+        "website": "www.StanCorpFinancial.com"
+    },
+    "company_name": "Footnotes / references financial data [ 1 ]",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/en/b/b7/StanCorplogo.png"
+}
