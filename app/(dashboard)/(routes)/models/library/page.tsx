@@ -1,6 +1,7 @@
 // library/page.tsx
 
 "use client";
+
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { PlusCircledIcon } from "@radix-ui/react-icons";
@@ -61,89 +62,91 @@ export default function ModelsPage() {
 
   return (
     <>
-      <div className="md:hidden">
-        {/* Mobile view images */}
-        <Image
-          src="/examples/music-light.png"
-          width={1280}
-          height={1114}
-          alt="Music"
-          className="block dark:hidden"
-        />
-        <Image
-          src="/examples/music-dark.png"
-          width={1280}
-          height={1114}
-          alt="Music"
-          className="hidden dark:block"
-        />
-      </div>
-      <div className="hidden md:block">
-        <div className="border-t">
-          <div className="bg-background">
-            <div className="grid lg:grid-cols-5">
-              <div className="col-span-5 lg:border-l">
-                <div className="h-full px-4 py-6 lg:px-8">
+      <div className="min-h-screen flex flex-col">
+        <div className="md:hidden">
+          {/* Mobile view images */}
+          <Image
+            src="/examples/music-light.png"
+            width={1280}
+            height={1114}
+            alt="Music"
+            className="block dark:hidden"
+          />
+          <Image
+            src="/examples/music-dark.png"
+            width={1280}
+            height={1114}
+            alt="Music"
+            className="hidden dark:block"
+          />
+        </div>
+        <div className="hidden md:block flex-grow">
+          <div className="border-t">
+            <div className="bg-background">
+              <div className="grid lg:grid-cols-5">
+                <div className="col-span-5 lg:border-l">
+                  <div className="h-full px-4 py-6 lg:px-8 flex flex-col">
 
-                  {/* Title and Description */}
-                  <div className="mb-8">
-                    <h1 className={`text-4xl font-bold tracking-tight mb-4 ${montserrat.className}`}>AI Model Library</h1>
-                    <p className="text-lg text-muted-foreground">
-                      Explore the collection of AI models, or build your own.
-                    </p>
-                  </div>
-
-                  {/* Tabs and Content */}
-                  <Tabs defaultValue="recent" className="h-full space-y-6">
-                    <div className="flex items-center justify-between mb-6">
-                      <TabsList>
-                        <TabsTrigger value="recent">Recent</TabsTrigger>
-                        <TabsTrigger value="archive">Archive</TabsTrigger>
-                        <TabsTrigger value="all">All</TabsTrigger>
-                      </TabsList>
-                      <Button>
-                        <PlusCircledIcon className="mr-2 h-5 w-5" />
-                        New AI Model
-                      </Button>
+                    {/* Title and Description */}
+                    <div className="mb-8">
+                      <h1 className={`text-4xl font-bold tracking-tight mb-4 ${montserrat.className}`}>AI Model Library</h1>
+                      <p className="text-lg text-muted-foreground">
+                        Explore the collection of AI models, or build your own.
+                      </p>
                     </div>
-                    <TabsContent value="recent">
-                      {categories.map((category) => (
-                        <div key={category.name} className="mb-8">
-                          <h2 className={`text-2xl font-semibold tracking-tight mb-4 ${montserrat.className}`}>
-                            {category.name}
-                          </h2>
-                          <div className="relative">
-                            <ScrollArea>
-                              <div className="flex space-x-6 p-4">
-                                {filterModels(models, category).map((model) => (
-                                  <Link
-                                    key={model.modelId}
-                                    href={`/models/${model.tags[0]}/${model.modelId}`}
-                                  >
-                                    <AIModelCard
-                                      tool={model}
-                                      aspectRatio="landscape"
-                                      width={300}
-                                      height={225}
-                                    />
-                                  </Link>
-                                ))}
-                              </div>
-                              <ScrollBar orientation="horizontal" />
-                            </ScrollArea>
+
+                    {/* Tabs and Content */}
+                    <Tabs defaultValue="recent" className="h-full space-y-6">
+                      <div className="flex items-center justify-between mb-6">
+                        <TabsList>
+                          <TabsTrigger value="recent">Recent</TabsTrigger>
+                          <TabsTrigger value="archive">Archive</TabsTrigger>
+                          <TabsTrigger value="all">All</TabsTrigger>
+                        </TabsList>
+                        <Button>
+                          <PlusCircledIcon className="mr-2 h-5 w-5" />
+                          New AI Model
+                        </Button>
+                      </div>
+                      <TabsContent value="recent">
+                        {categories.map((category) => (
+                          <div key={category.name} className="mb-8">
+                            <h2 className={`text-2xl font-semibold tracking-tight mb-4 ${montserrat.className}`}>
+                              {category.name}
+                            </h2>
+                            <div className="relative">
+                              <ScrollArea>
+                                <div className="flex space-x-6 p-4">
+                                  {filterModels(models, category).map((model) => (
+                                    <Link
+                                      key={model.modelId}
+                                      href={`/models/${model.tags[0]}/${model.modelId}`}
+                                    >
+                                      <AIModelCard
+                                        tool={model}
+                                        aspectRatio="landscape"
+                                        width={300}
+                                        height={225}
+                                      />
+                                    </Link>
+                                  ))}
+                                </div>
+                                <ScrollBar orientation="horizontal" />
+                              </ScrollArea>
+                            </div>
                           </div>
-                        </div>
-                      ))}
-                    </TabsContent>
-                    <TabsContent value="archive">
-                      {/* Archive content goes here */}
-                      <Separator className="my-4" />
-                    </TabsContent>
-                    <TabsContent value="all">
-                      {/* All content goes here */}
-                      <Separator className="my-4" />
-                    </TabsContent>
-                  </Tabs>
+                        ))}
+                      </TabsContent>
+                      <TabsContent value="archive">
+                        {/* Archive content goes here */}
+                        <Separator className="my-4" />
+                      </TabsContent>
+                      <TabsContent value="all">
+                        {/* All content goes here */}
+                        <Separator className="my-4" />
+                      </TabsContent>
+                    </Tabs>
+                  </div>
                 </div>
               </div>
             </div>
