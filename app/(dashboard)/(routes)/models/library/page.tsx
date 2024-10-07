@@ -12,6 +12,9 @@ import { AIModelCard } from "./components/album-artwork";
 import Link from "next/link";
 import { getAIModelsByAccountId, getModelCategoriesByAccountId } from "@/app/actions/modelsActions";
 import { UserDefinedModelCategory, AIModel } from "@/app/types";
+import { Montserrat } from 'next/font/google';
+
+const montserrat = Montserrat({ weight: '600', subsets: ['latin'] });
 
 const accountId = "12345"; // Replace with dynamic accountId
 
@@ -84,7 +87,7 @@ export default function ModelsPage() {
 
                   {/* Title and Description */}
                   <div className="mb-8">
-                    <h1 className="text-4xl font-bold tracking-tight mb-4">AI Model Library</h1>
+                    <h1 className={`text-4xl font-bold tracking-tight mb-4 ${montserrat.className}`}>AI Model Library</h1>
                     <p className="text-lg text-muted-foreground">
                       Explore the collection of AI models, or build your own.
                     </p>
@@ -106,7 +109,7 @@ export default function ModelsPage() {
                     <TabsContent value="recent">
                       {categories.map((category) => (
                         <div key={category.name} className="mb-8">
-                          <h2 className="text-2xl font-semibold tracking-tight mb-4">
+                          <h2 className={`text-2xl font-semibold tracking-tight mb-4 ${montserrat.className}`}>
                             {category.name}
                           </h2>
                           <div className="relative">
