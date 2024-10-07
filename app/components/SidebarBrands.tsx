@@ -11,12 +11,13 @@ const SidebarBrands: React.FC = () => {
     <div className="space-y-4">
       {/* Brands Filters */}
       <FilterSection title="Brands">
-        <SingleSelectFilterList attribute="industry.Primary_Industry" />
+        <SingleSelectFilterList attribute="industries" />
         <MultiSelectFilterList attribute="regions" />
-        {/* Add more brand-specific filters as needed */}
-        <MultiSelectFilterList attribute="interests" />
-        <SingleSelectFilterList attribute="size" />
+        <MultiSelectFilterList attribute="audience_lifestyle" />
+        <MultiSelectFilterList attribute="languages" />
+        {/* Add more filters as needed */}
       </FilterSection>
+
     </div>
   );
 };

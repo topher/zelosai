@@ -5,18 +5,17 @@
 import React, { useState } from "react";
 import SunburstChart from './sunburst-chart';
 import TreeDiagramComponent from './tree-diagram';
-import { convertToTree } from "@/lib/convert-to-tree";
 import { DataCategory } from "@/app/types";
 
 interface TaxonomySunburstOverviewProps {
-  data: DataCategory[];
+  data: DataCategory[]; // Assuming data is already in tree format
 }
 
 export function TaxonomySunburstOverview({ data }: TaxonomySunburstOverviewProps) {
   const [view, setView] = useState<"sunburst" | "tree">("sunburst"); // State to toggle views
 
-  // Convert data to tree structure
-  const treeData = convertToTree(data);
+  // Remove the second conversion
+  // const treeData = convertToTree(data); // Remove this line
 
   // Common options for D3 visualizations
   const commonOptions = {
@@ -35,7 +34,7 @@ export function TaxonomySunburstOverview({ data }: TaxonomySunburstOverviewProps
           }`}
           onClick={() => setView("sunburst")}
         >
-          Sunburst Chart
+          Ring
         </button>
         <button
           className={`px-4 py-2 rounded ${
@@ -43,25 +42,29 @@ export function TaxonomySunburstOverview({ data }: TaxonomySunburstOverviewProps
           }`}
           onClick={() => setView("tree")}
         >
-          Tree Diagram
+          Tree
         </button>
       </div>
 
       {/* Visualization */}
       <div className="flex-1">
-        {treeData ? (
+        {data ? (
           view === "sunburst" ? (
-            <SunburstChart data={treeData} width={0} height={0} nodePadding={0} margin={{
-              left: 0,
-              right: 0,
-              top: 0,
-              bottom: 0
-            }} link={{
-              stroke: "",
-              strokeWidth: 0
-            }} />
+            <SunburstChart
+              width={1200} // Increased width
+              height={600} // Increased height
+              data={data} // Use the data directly
+              nodePadding={0.005} // Adjusted padding
+              margin={{
+                left: 150,
+                right: 150,
+                top: 80,
+                bottom: 80,
+              }}
+              link={{ stroke: '#2ca02c', strokeWidth: 2 }} // Thicker and darker links
+            />
           ) : (
-            <TreeDiagramComponent data={treeData} options={commonOptions} />
+            <TreeDiagramComponent data={data} options={commonOptions} />
           )
         ) : (
           <p>No data available for visualization.</p>

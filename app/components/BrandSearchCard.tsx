@@ -1,5 +1,3 @@
-// app/components/BrandSearchCard.tsx
-
 "use client";
 
 import React from "react";
@@ -10,12 +8,10 @@ import { isValidUrl } from "@/app/utils/validateUrl"; // Adjust the import path 
 interface BrandSearchCardProps {
   data: {
     id: string;
-    brand_name: string;
+    brand_name?: string; // Ensure it's optional if it can be missing
     logo_url?: string | null;
-    industry?: {
-      Primary_Industry?: string;
-      Secondary_Industry?: string;
-    };
+    primary_industry?: string; // Reflects the flat structure
+    secondary_industry?: string; // Reflects the flat structure
     mission_vision?: string;
     regions?: string[];
     // Add any other fields you need from your brand data
@@ -23,10 +19,12 @@ interface BrandSearchCardProps {
 }
 
 const BrandSearchCard: React.FC<BrandSearchCardProps> = ({ data }) => {
-  const industry = data.industry?.Primary_Industry || "Unknown Industry";
-  
-  // Determine the correct logo URL
-  let logoUrl = "/placeholder-logo.png"; // Default placeholder
+  console.log("Data passed to BrandSearchCard:", data); // Add this for debugging
+
+  const primaryIndustry = data.primary_industry || "Unknown Industry";
+  const secondaryIndustry = data.secondary_industry ? `, ${data.secondary_industry}` : "";
+  let logoUrl = "/truchet_avatar.png";
+
   if (data.logo_url) {
     if (isValidUrl(data.logo_url)) {
       logoUrl = data.logo_url;
@@ -37,25 +35,28 @@ const BrandSearchCard: React.FC<BrandSearchCardProps> = ({ data }) => {
 
   return (
     <div className="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg bg-white">
-      <Link href={`/brands/${data.id}`}>
+      <Link href={`search/brands/${data.id}`}>
         <div className="relative">
           {/* Brand Logo */}
           <div className="flex items-center justify-center h-48 bg-gray-100">
             <Image
               src={logoUrl}
-              alt={data.brand_name}
+              alt={data.brand_name || "Brand Logo"}
               width={200}
               height={200}
               className="object-contain"
               onError={(e) => {
-                (e.target as HTMLImageElement).src = "/placeholder-logo.png";
+                (e.target as HTMLImageElement).src = "/truchet_avatar.png";
               }}
             />
           </div>
           {/* Overlay */}
           <div className="p-4">
-            <h2 className="text-xl font-bold">{data.brand_name}</h2>
-            <p className="text-gray-600">{industry}</p>
+            <h2 className="text-xl font-bold">{data.brand_name || "Unknown Brand"}</h2>
+            <p className="text-gray-600">
+              {primaryIndustry}
+              {secondaryIndustry && <span>{secondaryIndustry}</span>}
+            </p>
             {data.mission_vision && (
               <p className="text-gray-700 mt-2">{data.mission_vision}</p>
             )}
@@ -71,5 +72,6 @@ const BrandSearchCard: React.FC<BrandSearchCardProps> = ({ data }) => {
     </div>
   );
 };
+
 
 export default BrandSearchCard;

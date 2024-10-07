@@ -1,4 +1,4 @@
-  // Profile interface
+// Profile interface
   export interface Profile {
     id: string;
     name: string;

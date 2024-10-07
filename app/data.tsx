@@ -2,6 +2,28 @@ import { Code, ImageIcon, MessageSquare, Music, VideoIcon } from "lucide-react";
 
 export const MAX_FREE_COUNTS = 50;
 
+
+// data/dummyData.ts
+
+export interface DataCategory {
+  id: string;
+  name: string;
+  visibility: 'public' | 'private';
+  isMonetizable: boolean;
+  parentId?: string;
+}
+
+export const dummyDataCategories: DataCategory[] = [
+  { id: '1', name: 'Root', visibility: 'public', isMonetizable: false },
+  { id: '2', name: 'Finance', visibility: 'private', isMonetizable: true, parentId: '1' },
+  { id: '3', name: 'HR', visibility: 'public', isMonetizable: false, parentId: '1' },
+  { id: '4', name: 'Payroll', visibility: 'private', isMonetizable: true, parentId: '2' },
+  { id: '5', name: 'Recruitment', visibility: 'public', isMonetizable: false, parentId: '3' },
+  { id: '6', name: 'Benefits', visibility: 'public', isMonetizable: true, parentId: '3' },
+  // Add more dummy data as needed
+];
+
+
 // data.tsx
 const userData = [
   {

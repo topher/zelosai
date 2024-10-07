@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react';
 import TripleCardPredicate from './TripleCardPredicate';
 import TripleCardObject from './TripleCardObject';
 import TripleCardSubject from './TripleCardSubject';
-import AthleteHead from './AthleteHead';
-import AthleteInfo from './AthleteInfo';
+import ProfileHead from './ProfileHead';
+import AthleteInfo from './ProfileInfo';
 import CollaborationRequest from './CollaborationRequest';
 import ProfileUserActions from './ProfileUserActions';
 import ProfileHighlightCards from './ProfileHighlightCards';
@@ -58,7 +58,7 @@ const AthleteProfile: React.FC<AthleteProfileProps> = ({ resource }) => {
   return (
     <div className="athlete-profile bg-gradient-to-r from-dark-blue to-midnight-blue p-8">
               {/* Conditional rendering of the header */}
-      <header>{showName ? 'Person’s Name' : <AthleteHead name={"John Doe"} imageSrc={"/placeholder_avatar.png"} hdriPath={"/christmas_photo_studio_03_4k.exr"} /> }</header>
+      <header>{showName ? 'Person’s Name' : <ProfileHead name={"John Doe"} imageSrc={"/placeholder_avatar.png"} hdriPath={"/christmas_photo_studio_03_4k.exr"} /> }</header>
       
       <ProfileHighlightCards athlete={triples[3]} />
     <div style={{ minHeight: '100px' /* Adjust as needed */ }}>
