@@ -8,7 +8,21 @@
     similarity_score?: number; // Added property
     accolades?: string[];      // Added property
 }
-  
+
+export type ResourceType = 'athlete' | 'brand';
+
+export interface Triple {
+  subject: string;
+  predicate: string;
+  object: string;
+  citation?: string;
+}
+
+export interface Resource {
+  subject: string;
+  triples: Triple[];
+}
+
   export type DataCategory = {  
   accountId: string;
   fides_key: string; 
