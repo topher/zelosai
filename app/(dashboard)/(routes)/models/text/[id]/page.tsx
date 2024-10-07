@@ -1,3 +1,5 @@
+// models/text/page.tsx
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -5,15 +7,14 @@ import { useRouter, usePathname } from "next/navigation";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Heading } from "@/components/heading";
+import ModelPageLayout from "app/(dashboard)/(routes)/models/components/ModelPageLayout";
 import { MessageSquare } from "lucide-react";
 import { AIModel } from "@/app/types";
 
 import { TextGenerationTab } from "./components/ConversationGenerationTab";
 import { DocumentationTab } from "@/app/(dashboard)/(routes)/models/components/DocumentationTab";
 
-const ConversationPage = () => {
+const TextModelPage = () => {
   const router = useRouter();
   const pathname = usePathname();
   const modelId = pathname.split("/").pop();
@@ -33,29 +34,30 @@ const ConversationPage = () => {
     fetchModelData();
   }, [modelId]);
 
+  const tabs = [
+    {
+      value: "generation",
+      label: "Generation",
+      content: <TextGenerationTab modelId={modelId} modelData={modelData} />,
+    },
+    {
+      value: "documentation",
+      label: "Documentation",
+      content: <DocumentationTab modelData={modelData} />,
+    },
+  ];
+
   return (
-    <div>
-      <Heading
-        title={modelData ? modelData.label : "Conversation"}
-        description={modelData ? modelData.description : "Our most advanced conversation model."}
-        icon={MessageSquare}
-        iconColor="text-violet-500"
-        bgColor="bg-violet-500/10"
-      />
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="mt-4">
-        <TabsList>
-          <TabsTrigger value="generation">Generation</TabsTrigger>
-          <TabsTrigger value="documentation">Documentation</TabsTrigger>
-        </TabsList>
-        <TabsContent value="generation">
-          <TextGenerationTab modelId={modelId} modelData={modelData} />
-        </TabsContent>
-        <TabsContent value="documentation">
-          <DocumentationTab modelData={modelData} />
-        </TabsContent>
-      </Tabs>
-    </div>
+    <ModelPageLayout
+      modelData={modelData}
+      activeTab={activeTab}
+      setActiveTab={setActiveTab}
+      tabs={tabs}
+      icon={MessageSquare}
+      iconColor="text-violet-500"
+      bgColor="bg-violet-500/10"
+    />
   );
 };
 
-export default ConversationPage;
+export default TextModelPage;

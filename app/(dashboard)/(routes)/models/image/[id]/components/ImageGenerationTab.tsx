@@ -15,21 +15,19 @@ import { Button } from "@/components/ui/button";
 import { Loader } from "lucide-react";
 import { Empty } from "@/components/ui/empty";
 import { parameterDefinitions, imageFormSchema } from "../../../components/constants";
-import { ParameterField } from "../../../components/generationForms/ParameterField"; 
-
+import { ParameterField } from "../../../components/generationForms/ParameterField";
 
 import { constructImagePrompt } from "@/utils/promptBuilder";
 
 interface ImageGenerationTabProps {
   modelId: string | undefined;
-  modelData: any; // Replace with AIModel type if applicable
+  modelData: any;
 }
 
 export const ImageGenerationTab: React.FC<ImageGenerationTabProps> = ({ modelId, modelData }) => {
   const router = useRouter();
   const [images, setImages] = useState<string[]>([]);
 
-  // Initialize form with imageFormSchema
   const form = useForm<z.infer<typeof imageFormSchema>>({
     resolver: zodResolver(imageFormSchema),
     defaultValues: {
@@ -37,7 +35,7 @@ export const ImageGenerationTab: React.FC<ImageGenerationTabProps> = ({ modelId,
       subject_type: "person",
       setting_location: "urban backdrop",
       style_theme: "cinematic",
-      resolution: "1920x1080", // Example default
+      resolution: "1920x1080",
       lighting: "natural lighting",
       special_effects: "",
       narrative_tone: "",
@@ -51,23 +49,20 @@ export const ImageGenerationTab: React.FC<ImageGenerationTabProps> = ({ modelId,
     try {
       setImages([]);
 
-      // Construct the prompt using helper function
       const constructedPrompt = constructImagePrompt(values);
 
-      // Determine the API endpoint using replicate_id
       const apiUrl = modelData?.replicate_id
         ? `/api/image/${modelData.replicate_id}`
-        : `/api/image/${modelId}`; // Fallback if replicate_id not available
+        : `/api/image/${modelId}`;
 
       const payload = {
         prompt: constructedPrompt,
         resolution: values.resolution,
-        amount: values.amount, // amount is ensured by Zod schema
+        amount: values.amount,
       };
 
       const response = await axios.post(apiUrl, payload);
 
-      // Assuming the response contains an array of image URLs
       setImages(response.data.images);
       form.reset();
     } catch (error: any) {
@@ -78,17 +73,14 @@ export const ImageGenerationTab: React.FC<ImageGenerationTabProps> = ({ modelId,
   };
 
   return (
-    <div className="flex min-h-screen bg-white">
-      {/* Sidebar remains unchanged */}
-      <aside className="w-1/4 bg-gray-50 border-r border-gray-200 p-6">
+    <div className="flex flex-1 bg-white">
+      <aside className="w-1/4 bg-gray-50 border-r border-gray-200 p-6 overflow-auto">
         <h2 className="text-xl font-semibold mb-6 text-gray-700">Image Parameters</h2>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            {/* Dynamically render form fields based on txt2image */}
             {parameterDefinitions.txt2image.map((param) => (
               <ParameterField key={param.name} parameter={param} />
             ))}
-            {/* Amount of Generations */}
             <FormField
               name="amount"
               render={({ field }) => (
@@ -118,8 +110,7 @@ export const ImageGenerationTab: React.FC<ImageGenerationTabProps> = ({ modelId,
         </Form>
       </aside>
 
-      {/* Main content */}
-      <main className="w-3/4 flex flex-col justify-center items-center p-12">
+      <main className="w-3/4 flex flex-col justify-center items-center p-12 overflow-auto">
         <h2 className="text-2xl font-bold text-gray-800 mb-8">Generated Images</h2>
         {isLoading && <Loader />}
         {!images.length && !isLoading && <Empty label="No images generated yet." />}

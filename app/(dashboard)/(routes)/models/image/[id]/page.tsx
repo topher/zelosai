@@ -1,3 +1,5 @@
+// models/image/page.tsx
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -5,13 +7,13 @@ import { useRouter, usePathname } from "next/navigation";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Heading } from "@/components/heading";
+import ModelPageLayout from "app/(dashboard)/(routes)/models/components/ModelPageLayout";
 import { ImageIcon } from "lucide-react";
 import { AIModel } from "@/app/types";
 
 import { ImageGenerationTab } from "./components/ImageGenerationTab";
 import { DocumentationTab } from "@/app/(dashboard)/(routes)/models/components/DocumentationTab";
+
 const ImageModelPage = () => {
   const router = useRouter();
   const pathname = usePathname();
@@ -32,28 +34,29 @@ const ImageModelPage = () => {
     fetchModelData();
   }, [modelId]);
 
+  const tabs = [
+    {
+      value: "generation",
+      label: "Generation",
+      content: <ImageGenerationTab modelId={modelId} modelData={modelData} />,
+    },
+    {
+      value: "documentation",
+      label: "Documentation",
+      content: <DocumentationTab modelData={modelData} />,
+    },
+  ];
+
   return (
-    <div>
-      <Heading
-        title={modelData ? modelData.label : "Image Generation"}
-        description={modelData ? modelData.description : "Turn your prompt into an image."}
-        icon={ImageIcon}
-        iconColor="text-pink-700"
-        bgColor="bg-pink-700/10"
-      />
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="mt-4">
-        <TabsList>
-          <TabsTrigger value="generation">Generation</TabsTrigger>
-          <TabsTrigger value="documentation">Documentation</TabsTrigger>
-        </TabsList>
-        <TabsContent value="generation">
-          <ImageGenerationTab modelId={modelId} modelData={modelData} />
-        </TabsContent>
-        <TabsContent value="documentation">
-          <DocumentationTab modelData={modelData} />
-        </TabsContent>
-      </Tabs>
-    </div>
+    <ModelPageLayout
+      modelData={modelData}
+      activeTab={activeTab}
+      setActiveTab={setActiveTab}
+      tabs={tabs}
+      icon={ImageIcon}
+      iconColor="text-pink-700"
+      bgColor="bg-pink-700/10"
+    />
   );
 };
 

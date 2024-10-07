@@ -17,7 +17,6 @@ import { Empty } from "@/components/ui/empty";
 import { parameterDefinitions, voiceFormSchema } from "../../../components/constants";
 import { ParameterField } from "../../../components/generationForms/ParameterField"; 
 
-
 import { constructVoicePrompt } from "@/utils/promptBuilder";
 
 interface VoiceGenerationTabProps {
@@ -66,9 +65,7 @@ export const VoiceGenerationTab: React.FC<VoiceGenerationTabProps> = ({ modelId,
         amount: values.amount, // amount is ensured by Zod schema
       };
 
-      const response = await axios.post(apiUrl, payload, {
-        responseType: "arraybuffer",
-      });
+      const response = await axios.post(apiUrl, payload);
 
       // Assuming the response contains an array of audio URLs
       setVoices(response.data.voices);
@@ -81,9 +78,9 @@ export const VoiceGenerationTab: React.FC<VoiceGenerationTabProps> = ({ modelId,
   };
 
   return (
-    <div className="flex min-h-screen bg-white">
-      {/* Sidebar remains unchanged */}
-      <aside className="w-1/4 bg-gray-50 border-r border-gray-200 p-6">
+    <div className="flex flex-1 bg-white">
+      {/* Sidebar */}
+      <aside className="w-1/4 bg-gray-50 border-r border-gray-200 p-6 overflow-auto">
         <h2 className="text-xl font-semibold mb-6 text-gray-700">Voice Parameters</h2>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -115,16 +112,16 @@ export const VoiceGenerationTab: React.FC<VoiceGenerationTabProps> = ({ modelId,
               )}
             />
             <Button type="submit" disabled={isLoading} className="w-full bg-blue-600 text-white hover:bg-blue-700">
-              {isLoading ? <Loader className="mr-2" /> : "Generate Voice"}
+              {isLoading ? <Loader className="mr-2 animate-spin" /> : "Generate Voice"}
             </Button>
           </form>
         </Form>
       </aside>
 
       {/* Main content */}
-      <main className="w-3/4 flex flex-col justify-center items-center p-12">
+      <main className="w-3/4 flex flex-col justify-center items-center p-12 overflow-auto">
         <h2 className="text-2xl font-bold text-gray-800 mb-8">Generated Voices</h2>
-        {isLoading && <Loader />}
+        {isLoading && <Loader className="animate-spin" />}
         {!voices.length && !isLoading && <Empty label="No voices generated yet." />}
         {voices.length > 0 && (
           <div className="space-y-4 w-full">

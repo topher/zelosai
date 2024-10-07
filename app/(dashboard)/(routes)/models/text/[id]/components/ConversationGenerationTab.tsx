@@ -75,9 +75,9 @@ export const TextGenerationTab: React.FC<TextGenerationTabProps> = ({ modelId, m
   };
 
   return (
-    <div className="flex min-h-screen bg-white">
-      {/* Sidebar remains unchanged */}
-      <aside className="w-1/4 bg-gray-50 border-r border-gray-200 p-6">
+    <div className="flex flex-1 bg-white">
+      {/* Sidebar */}
+      <aside className="w-1/4 bg-gray-50 border-r border-gray-200 p-6 overflow-auto">
         <h2 className="text-xl font-semibold mb-6 text-gray-700">Text Parameters</h2>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -109,16 +109,16 @@ export const TextGenerationTab: React.FC<TextGenerationTabProps> = ({ modelId, m
               )}
             />
             <Button type="submit" disabled={isLoading} className="w-full bg-green-600 text-white hover:bg-green-700">
-              {isLoading ? <Loader className="mr-2" /> : "Generate Text"}
+              {isLoading ? <Loader className="mr-2 animate-spin" /> : "Generate Text"}
             </Button>
           </form>
         </Form>
       </aside>
 
       {/* Main content */}
-      <main className="w-3/4 flex flex-col justify-center items-center p-12">
+      <main className="w-3/4 flex flex-col justify-center items-center p-12 overflow-auto">
         <h2 className="text-2xl font-bold text-gray-800 mb-8">Generated Texts</h2>
-        {isLoading && <Loader />}
+        {isLoading && <Loader className="animate-spin" />}
         {!responseTexts.length && !isLoading && <Empty label="No texts generated yet." />}
         {responseTexts.length > 0 && (
           <div className="space-y-4 w-full">
