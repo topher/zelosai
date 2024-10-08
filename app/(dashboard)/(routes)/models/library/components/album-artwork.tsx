@@ -11,6 +11,9 @@ import {
 import Image from "next/image";
 import { AIModel } from "@/app/types";
 import { useState } from "react";
+import { Montserrat } from 'next/font/google';
+
+const montserrat = Montserrat({ weight: '600', subsets: ['latin'] });
 
 interface AIModelCardProps extends React.HTMLAttributes<HTMLDivElement> {
   tool: AIModel;
@@ -46,6 +49,9 @@ export function AIModelCard({
   const handleExpand = () => setExpanded(true);
   const handleCollapse = () => setExpanded(false);
 
+  // Check if the model is a foundational (base) model based on its tags
+  const isFoundationalModel = tool.tags && tool.tags.includes("foundational");
+
   return (
     <div
       className={cn(
@@ -65,7 +71,7 @@ export function AIModelCard({
             <div
               className={cn(
                 "absolute inset-0 transition-transform duration-500 ease-out",
-                imageUrl ? "group-hover:scale-105 group-hover:shadow-lg" : ""
+                imageUrl ? "group-hover:scale-110 group-hover:shadow-lg" : ""
               )}
             >
               {imageUrl ? (
@@ -73,7 +79,7 @@ export function AIModelCard({
                   src={imageUrl}
                   alt={tool.label}
                   layout="fill"
-                  objectFit="cover"
+                  objectFit={isFoundationalModel ? "contain" : "cover"}
                   objectPosition="center"
                   className="rounded-lg"
                 />
@@ -91,12 +97,14 @@ export function AIModelCard({
               )}
             </div>
             {/* Label and Description Overlay */}
-            <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/80 to-black/10 rounded-b-lg">
-              <h3 className="text-white text-base font-semibold tracking-wide group-hover:text-opacity-90 transition-all duration-300 ease-out">
+            <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/90 to-transparent rounded-b-lg">
+              <h3 className={`text-white text-xl ${montserrat.className} font-bold tracking-wide transition-all duration-300 ease-out 
+                group-hover:text-shadow-lg`} 
+                style={{ textShadow: "2px 2px 6px #111827" }}>  {/* Light gold shadow */}
                 {tool.label}
               </h3>
               {expanded && (
-                <p className="text-white text-sm mt-2 transition-opacity duration-300">
+                <p className="text-white text-md mt-2 transition-opacity duration-300">
                   {tool.description}
                 </p>
               )}
