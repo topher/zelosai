@@ -2,7 +2,7 @@
 
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   InstantSearch,
   useHits,
@@ -67,6 +67,16 @@ const AIModelHits: React.FC = () => {
 const AIModelSearchPage: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [hitsPerPage, setHitsPerPage] = useState(16); // Default value
+  const mainContentRef = useRef<HTMLDivElement>(null);
+
+  const scrollToTop = () => {
+    if (mainContentRef.current) {
+      mainContentRef.current.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -109,20 +119,20 @@ const AIModelSearchPage: React.FC = () => {
           )}
 
           {/* Main content */}
-          <div className="flex-1 p-4 overflow-y-auto">
+          <div ref={mainContentRef} className="flex-1 p-4 overflow-y-auto">
             {/* Page Title and Top Pagination */}
             <div className="flex items-center justify-between mb-6">
               <h1 className="text-3xl font-bold text-darkGray ml-4">
                 Models
               </h1>
               <div className="hidden sm:block">
-                <CustomPagination />
+                <CustomPagination onPageChange={scrollToTop} />
               </div>
             </div>
             <CustomSearchBox placeholder="Search for models..." />
             <AIModelHits />
             <div className="mt-6">
-              <CustomPagination />
+              <CustomPagination onPageChange={scrollToTop} />
             </div>
           </div>
         </div>

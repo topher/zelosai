@@ -5,7 +5,11 @@
 import React, { useEffect } from "react";
 import { usePagination } from "react-instantsearch-hooks-web";
 
-const CustomPagination: React.FC = () => {
+interface CustomPaginationProps {
+  onPageChange?: () => void;
+}
+
+const CustomPagination: React.FC<CustomPaginationProps> = ({ onPageChange }) => {
   const {
     pages,
     currentRefinement,
@@ -15,10 +19,9 @@ const CustomPagination: React.FC = () => {
   } = usePagination();
 
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    if (onPageChange) {
+      onPageChange();
+    }
   }, [currentRefinement]);
 
   return (
