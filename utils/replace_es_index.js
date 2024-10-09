@@ -6,7 +6,7 @@ const axios = require('axios');
 const ELASTICSEARCH_URL = 'http://localhost:9200';
 
 // Directory containing JSON files
-const jsonDir = path.join(__dirname, 'json-output');
+const jsonDir = path.join('json-output');
 
 // Function to delete an Elasticsearch index
 async function deleteIndex(indexName) {
@@ -52,8 +52,32 @@ async function uploadFileToElasticsearch(indexName, filePath) {
             throw new Error('JSON data is not an array');
         }
 
+        // Determine if _id should be set to userId
+        const setIdFromUserId = indexName === 'user_selected_facets';
+
         // Prepare bulk request body
-        const bulkBody = jsonData.flatMap(doc => [{ index: { _index: indexName, _id: doc.id } }, doc]);
+        const bulkBody = jsonData.flatMap(doc => {
+            let _id = undefined;
+
+            if (setIdFromUserId) {
+                if (!doc.userId) {
+                    throw new Error(`Document is missing userId: ${JSON.stringify(doc)}`);
+                }
+                _id = doc.userId;
+            } else {
+                // For other indices, use doc.id if exists, else let Elasticsearch auto-generate
+                if (doc.id) {
+                    _id = doc.id;
+                }
+            }
+
+            const action = { index: { _index: indexName } };
+            if (_id) {
+                action.index._id = _id;
+            }
+
+            return [action, doc];
+        });
 
         // Convert bulk body to NDJSON format
         const ndjson = bulkBody.map(line => JSON.stringify(line)).join('\n') + '\n';

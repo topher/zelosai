@@ -38,7 +38,8 @@ export const routes = [
       { label: 'Goals', href: '/strategy/goals', color: "text-blue-500", description: "Define the objectives for your organization.", icon: "target" },
       { label: 'User Personas', href: '/strategy/agents', color: "text-blue-500", description: "Identify potential challenges to your AI strategy.", icon: "flag" },
       { label: 'Use Cases', href: '/strategy/use-cases', color: "text-blue-500", description: "Set the practical applications for your AI models and products.", icon: "bookmark-fav" },
-      { label: 'Plan', href: '/strategy/plan', color: "text-blue-500", description: "Develop a strategy to achieve your AI-driven goals.", icon: "chess" },
+      { label: 'Business Model', href: '/strategy/plan', color: "text-blue-500", description: "Develop a strategy to achieve your AI-driven goals.", icon: "chess" },
+      { label: 'Branding', href: '/strategy/branding', color: "text-blue-500", description: "Manage your brand strategy and assets.", icon: "tag" },
     ],
   },
   {

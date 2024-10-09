@@ -1,8 +1,10 @@
 // components/navbar.tsx
+"use client"
+import dynamic from 'next/dynamic';
 
-import { UserButton } from "@clerk/nextjs";
-// import { MobileSidebar } from "@/components/mobile-sidebar";
-
+const UserButton = dynamic(() => import('@clerk/nextjs').then((mod) => mod.UserButton), {
+  ssr: false,
+});
 interface NavbarProps {
   routes: {
     label: string;
@@ -22,6 +24,7 @@ interface NavbarProps {
 const Navbar = ({ routes, apiLimitCount, isPro }: NavbarProps) => {
   return (
     <div className="flex items-center p-4">
+      Hello
       {/* <MobileSidebar isPro={isPro} apiLimitCount={apiLimitCount} /> */}
       <div className="flex w-full justify-end">
         <UserButton afterSignOutUrl="/" />

@@ -1,13 +1,11 @@
-// components/tree-diagram.tsx
-
 import * as d3 from "d3";
 
 function TreeDiagram(dataObj, options = {}) {
   const {
     width = 800,
     height = 500,
-    margin = { top: 20, right: 90, bottom: 30, left: 90 },
-    color = "#999",
+    margin = { top: 20, right: 125, bottom: 30, left: 125 },
+    color = "#2563EB",
     strokeWidth = 1.5,
   } = options;
 
@@ -39,22 +37,22 @@ function TreeDiagram(dataObj, options = {}) {
 
   treeLayout(root);
 
-  // Links
+  // Links (exclude root links)
   g.selectAll(".link")
-    .data(root.links())
+    .data(root.links().filter(d => d.source.depth > 0)) // Exclude the root
     .join("path")
     .attr("class", "link")
     .attr("fill", "none")
-    .attr("stroke", "#555")
+    .attr("stroke", "#999")
     .attr("stroke-width", strokeWidth)
     .attr("d", d3.linkHorizontal()
       .x(d => d.y)
       .y(d => d.x)
     );
 
-  // Nodes
+  // Nodes (exclude root node)
   const node = g.selectAll(".node")
-    .data(root.descendants())
+    .data(root.descendants().filter(d => d.depth > 0)) // Exclude the root
     .join("g")
     .attr("class", d => "node" + (d.children ? " node--internal" : " node--leaf"))
     .attr("transform", d => `translate(${d.y},${d.x})`);

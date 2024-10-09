@@ -14,14 +14,11 @@ interface TaxonomySunburstOverviewProps {
 export function TaxonomySunburstOverview({ data }: TaxonomySunburstOverviewProps) {
   const [view, setView] = useState<"sunburst" | "tree">("sunburst"); // State to toggle views
 
-  // Remove the second conversion
-  // const treeData = convertToTree(data); // Remove this line
-
-  // Common options for D3 visualizations
+  // Common options for D3 visualizations, set same width/height for both diagrams
   const commonOptions = {
-    width: 800,
-    height: 500,
-    // Add other common options if necessary
+    width: 800, // Increase width and height to match container
+    height: 600,
+    // Other common options if necessary
   };
 
   return (
@@ -51,20 +48,20 @@ export function TaxonomySunburstOverview({ data }: TaxonomySunburstOverviewProps
         {data ? (
           view === "sunburst" ? (
             <SunburstChart
-              width={1200} // Increased width
-              height={600} // Increased height
-              data={data} // Use the data directly
-              nodePadding={0.005} // Adjusted padding
+              width={commonOptions.width} // Same width
+              height={commonOptions.height} // Same height
+              data={data}
+              nodePadding={0.005}
               margin={{
                 left: 150,
                 right: 150,
                 top: 80,
                 bottom: 80,
               }}
-              link={{ stroke: '#2ca02c', strokeWidth: 2 }} // Thicker and darker links
+              link={{ stroke: '#2ca02c', strokeWidth: 2 }}
             />
           ) : (
-            <TreeDiagramComponent data={data} options={commonOptions} />
+            <TreeDiagramComponent data={data} options={commonOptions} /> // Pass same dimensions
           )
         ) : (
           <p>No data available for visualization.</p>

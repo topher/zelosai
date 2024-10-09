@@ -1,9 +1,6 @@
-// /components/FilterPanel.tsx
-
-import { useState } from 'react';
-import Dropdown from './Dropdown';
+// FilterPanel.tsx
+import React from 'react';
 import { UserSelectedFacets, DropdownOption } from '@/app/types';
-import axios from 'axios';
 
 interface FilterPanelProps {
   selectedFacets: UserSelectedFacets;
@@ -12,156 +9,87 @@ interface FilterPanelProps {
   setDropdownOptions: React.Dispatch<React.SetStateAction<{ [key: string]: DropdownOption[] }>>;
 }
 
+const dropdownKeysMap: { [key in keyof UserSelectedFacets]: string } = {
+  selectedMarketingChannels: 'marketing_channels',
+  selectedMarkets: 'geographic_markets',
+  selectedIndustries: 'industries',
+  selectedVALSSegments: 'vals_segments',
+  selectedLanguages: 'languages',
+  selectedNILActivities: 'nil_activities',
+  selectedInterests: 'interests',
+  selectedProducts: 'products',
+  userId: ''
+};
+
 const FilterPanel: React.FC<FilterPanelProps> = ({
   selectedFacets,
   dropdownOptions,
   setSelectedFacets,
   setDropdownOptions,
 }) => {
-  const handleDropdownOpen = async (category: string) => {
-    const currentOptions = dropdownOptions[category];
-
-    if (!currentOptions) {
-      console.error(`Dropdown options for category "${category}" are undefined.`);
-      return;
-    }
-
-    if (currentOptions.length < 100) { // Adjust the threshold as needed
-      try {
-        const response = await axios.get(`/api/${category}`, { params: { limit: 10000 } }); // Fetch all for large datasets
-        if (response.status === 200) {
-          const data: DropdownOption[] = response.data.data.map((item: DropdownOption) => ({
-            ...item,
-            id: String(item.id), // Ensure ID is a string
-          }));
-          setDropdownOptions(prev => ({
-            ...prev,
-            [category]: data,
-          }));
-        } else {
-          console.error(`Failed to fetch ${category}`);
-        }
-      } catch (error: any) {
-        console.error(`Error fetching ${category}:`, error.message);
+  const handleSelect = (facetName: keyof UserSelectedFacets, optionId: string) => {
+    setSelectedFacets(prev => {
+      const currentSelections = prev[facetName] as string[];
+      if (currentSelections.includes(optionId)) {
+        // Remove the selection
+        return {
+          ...prev,
+          [facetName]: currentSelections.filter(id => id !== optionId),
+        };
+      } else {
+        // Add the selection
+        return {
+          ...prev,
+          [facetName]: [...currentSelections, optionId],
+        };
       }
-    }
+    });
   };
 
-  const handleSaveSelections = async () => {
-    try {
-      const response = await axios.post('/api/user_selected_facets', selectedFacets);
+  const renderFacet = (facetName: keyof UserSelectedFacets, label: string) => {
+    const optionsKey = dropdownKeysMap[facetName];
+    const options = dropdownOptions[optionsKey];
+    const selectedOptions = selectedFacets[facetName] as string[];
 
-      if (response.status === 200) {
-        alert('Selections saved successfully!');
-      } else {
-        alert('Failed to save selections.');
-      }
-    } catch (error: any) {
-      console.error('Error saving selections:', error.message);
-      alert('An error occurred while saving selections.');
+    if (!options) {
+      return null; // Or display a loading indicator or message
     }
+
+    return (
+      <div className="mb-6">
+        <h4 className="text-lg font-medium mb-2">{label}</h4>
+        <div className="flex flex-wrap gap-2">
+          {options.map(option => {
+            const isSelected = selectedOptions.includes(option.id);
+            return (
+              <button
+                key={option.id}
+                onClick={() => handleSelect(facetName, option.id)}
+                className={`px-3 py-1 rounded-full border ${
+                  isSelected
+                    ? 'bg-blue-600 text-white border-blue-600'
+                    : 'bg-gray-200 text-gray-800 border-gray-200'
+                } hover:bg-blue-500 hover:text-white transition-colors duration-200`}
+              >
+                {option.name}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    );
   };
 
   return (
-    <div className="filter-panel">
-      <Dropdown
-        label="Marketing Channels"
-        options={dropdownOptions.marketing_channels}
-        selected={selectedFacets.selectedMarketingChannels}
-        onChange={(selected) =>
-          setSelectedFacets(prev => ({
-            ...prev,
-            selectedMarketingChannels: selected,
-          }))
-        }
-        onDropdownOpen={() => handleDropdownOpen('marketing_channels')}
-      />
-      <Dropdown
-        label="Geographic Markets"
-        options={dropdownOptions.geographic_markets}
-        selected={selectedFacets.selectedMarkets}
-        onChange={(selected) =>
-          setSelectedFacets(prev => ({
-            ...prev,
-            selectedMarkets: selected,
-          }))
-        }
-        onDropdownOpen={() => handleDropdownOpen('geographic_markets')}
-      />
-      <Dropdown
-        label="Industries"
-        options={dropdownOptions.industries}
-        selected={selectedFacets.selectedIndustries}
-        onChange={(selected) =>
-          setSelectedFacets(prev => ({
-            ...prev,
-            selectedIndustries: selected,
-          }))
-        }
-        onDropdownOpen={() => handleDropdownOpen('industries')}
-      />
-      <Dropdown
-        label="VALS Segments"
-        options={dropdownOptions.vals_segments}
-        selected={selectedFacets.selectedVALSSegments}
-        onChange={(selected) =>
-          setSelectedFacets(prev => ({
-            ...prev,
-            selectedVALSSegments: selected,
-          }))
-        }
-        onDropdownOpen={() => handleDropdownOpen('vals_segments')}
-      />
-      <Dropdown
-        label="Languages"
-        options={dropdownOptions.languages}
-        selected={selectedFacets.selectedLanguages}
-        onChange={(selected) =>
-          setSelectedFacets(prev => ({
-            ...prev,
-            selectedLanguages: selected,
-          }))
-        }
-        onDropdownOpen={() => handleDropdownOpen('languages')}
-      />
-      <Dropdown
-        label="NIL Activities"
-        options={dropdownOptions.nil_activities}
-        selected={selectedFacets.selectedNILActivities}
-        onChange={(selected) =>
-          setSelectedFacets(prev => ({
-            ...prev,
-            selectedNILActivities: selected,
-          }))
-        }
-        onDropdownOpen={() => handleDropdownOpen('nil_activities')}
-      />
-
-      {/* New Dropdowns for Interests and Products */}
-      <Dropdown
-        label="Interests"
-        options={dropdownOptions.interests}
-        selected={selectedFacets.selectedInterests}
-        onChange={(selected) =>
-          setSelectedFacets(prev => ({
-            ...prev,
-            selectedInterests: selected,
-          }))
-        }
-        onDropdownOpen={() => handleDropdownOpen('interests')}
-      />
-      <Dropdown
-        label="Products"
-        options={dropdownOptions.products}
-        selected={selectedFacets.selectedProducts}
-        onChange={(selected) =>
-          setSelectedFacets(prev => ({
-            ...prev,
-            selectedProducts: selected,
-          }))
-        }
-        onDropdownOpen={() => handleDropdownOpen('products')}
-      />
+    <div>
+      {renderFacet('selectedMarketingChannels', 'Marketing Channels')}
+      {renderFacet('selectedMarkets', 'Geographic Markets')}
+      {renderFacet('selectedIndustries', 'Industries')}
+      {renderFacet('selectedVALSSegments', 'VALS Segments')}
+      {renderFacet('selectedLanguages', 'Languages')}
+      {renderFacet('selectedNILActivities', 'NIL Activities')}
+      {renderFacet('selectedInterests', 'Interests')}
+      {renderFacet('selectedProducts', 'Products')}
     </div>
   );
 };

@@ -111,32 +111,36 @@ function Sunburst(dataObj, {
         });
 
     // Append labels
+    // Append labels with perpendicular rotation and centered within the sector
     cell.append("text")
         .attr("transform", d => {
-            const angle = (d.x0 + d.x1) / 2; // Radians
+            const angle = (d.x0 + d.x1) / 2; // Midpoint angle in radians
             const r = (d.y0 + d.y1) / 2; // Midpoint radius
             const x = r * Math.cos(angle - Math.PI / 2); // Adjust angle by -90 degrees to start from top
             const y = r * Math.sin(angle - Math.PI / 2);
-            return `translate(${x},${y})`; // Position text at (x, y)
+
+            // Rotate text perpendicular to the radial direction and center it
+            const rotate = angle * 180 / Math.PI; // Convert radians to degrees
+            return `translate(${x},${y}) rotate(${rotate})`; // Rotate by 90 degrees from the radial line
         })
         .attr("dy", "0.35em")
+        .style("text-anchor", "middle") // Center text horizontally
         .style("font-size", d => {
             const angularWidth = d.x1 - d.x0;
-            // Scale font size based on angular width, adjust multiplier as needed
             const size = Math.min(12, angularWidth * 150);
             return size < 8 ? "0" : `${size}px`; // Hide text if too small
         })
-        .style("text-anchor", "middle")
         .style("alignment-baseline", "middle") // Center vertically
         .style("fill", "#000")
         .style("pointer-events", "none") // Prevent text from capturing mouse events
         .text(d => {
-            // Show text only for larger segments
-            if ((d.x1 - d.x0) > 0.02) { // Adjust threshold as needed
+            if ((d.x1 - d.x0) > 0.02) { // Only show text for larger segments
                 return d.data.name.length > 15 ? `${d.data.name.slice(0, 15)}...` : d.data.name;
             }
             return "";
         });
+
+
 
     // Append a circle to allow zooming out
     svg.append("circle")

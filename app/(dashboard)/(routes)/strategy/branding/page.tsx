@@ -1,11 +1,11 @@
-// /brand-personality/page.tsx
-
 'use client';
 
 import { useEffect, useState } from 'react';
 import FilterPanel from '../components/FilterPanel';
 import { UserSelectedFacets, DropdownOption } from '@/app/types';
-import axios from 'axios'; // Ensure Axios is installed
+import axios from 'axios';
+import { Separator } from '@/components/ui/separator';
+import StrategyLayout from '../StrategyLayout';
 
 const BrandPersonalityPage: React.FC = () => {
   const [selectedFacets, setSelectedFacets] = useState<UserSelectedFacets>({
@@ -16,8 +16,8 @@ const BrandPersonalityPage: React.FC = () => {
     selectedVALSSegments: [],
     selectedLanguages: [],
     selectedNILActivities: [],
-    selectedInterests: [], // Corrected
-    selectedProducts: [],  // Corrected
+    selectedInterests: [],
+    selectedProducts: [],
   });
   
   const [dropdownOptions, setDropdownOptions] = useState<{
@@ -40,9 +40,6 @@ const BrandPersonalityPage: React.FC = () => {
     fetchInitialData();
   }, []);
 
-  /**
-   * Fetch initial data including user-selected facets and initial dropdown options.
-   */
   const fetchInitialData = async () => {
     try {
       const userId = getCurrentUserId(); // Implement this function based on your auth system
@@ -60,8 +57,8 @@ const BrandPersonalityPage: React.FC = () => {
         setSelectedFacets(prev => ({
           ...prev,
           userId,
-          selectedInterests: [], // Corrected
-          selectedProducts: [],  // Corrected
+          selectedInterests: [],
+          selectedProducts: [],
         }));
       } else {
         console.error('Failed to fetch user-selected facets');
@@ -87,7 +84,7 @@ const BrandPersonalityPage: React.FC = () => {
       const options = entities.reduce((acc, entity, idx) => {
         acc[entity] = optionsResponses[idx].data.data.map((item: DropdownOption) => ({
           ...item,
-          id: String(item.id), // Convert ID to string
+          id: String(item.id),
         }));
         return acc;
       }, {} as { [key: string]: DropdownOption[] });
@@ -101,19 +98,12 @@ const BrandPersonalityPage: React.FC = () => {
     }
   };
 
-  /**
-   * Mock function to get the current user's ID.
-   * Replace this with your actual authentication logic.
-   */
   const getCurrentUserId = (): string => {
     // Example: Retrieve from context, auth provider, etc.
     // For demonstration, returning a static ID
     return '1234';
   };
 
-  /**
-   * Handle saving of user-selected facets.
-   */
   const handleSaveSelections = async () => {
     try {
       const response = await axios.post('/api/user_selected_facets', selectedFacets);
@@ -129,9 +119,6 @@ const BrandPersonalityPage: React.FC = () => {
     }
   };
 
-  /**
-   * Render loading and error states.
-   */
   if (isLoading) {
     return <div>Loading your preferences...</div>;
   }
@@ -141,43 +128,25 @@ const BrandPersonalityPage: React.FC = () => {
   }
 
   return (
-    <div className="brand-personality-page">
-      <h1>Brand Personality Settings</h1>
-      <FilterPanel
-        selectedFacets={selectedFacets}
-        dropdownOptions={dropdownOptions}
-        setSelectedFacets={setSelectedFacets}
-        setDropdownOptions={setDropdownOptions}
-      />
-      <button onClick={handleSaveSelections} className="save-button">Save</button>
-
-      <style jsx>{`
-        .brand-personality-page {
-          padding: 20px;
-          max-width: 800px;
-          margin: 0 auto;
-        }
-        .save-button {
-          padding: 10px 20px;
-          margin-top: 20px;
-          background-color: #1890ff;
-          color: #fff;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-        }
-        .save-button:hover {
-          background-color: #40a9ff;
-        }
-        .error {
-          color: red;
-          padding: 20px;
-          background-color: #ffe6e6;
-          border: 1px solid red;
-          border-radius: 4px;
-        }
-      `}</style>
+    <StrategyLayout>
+    <div className="space-y-8 p-6">
+      <div>
+        {/* Main content */}
+        <FilterPanel
+          selectedFacets={selectedFacets}
+          dropdownOptions={dropdownOptions}
+          setSelectedFacets={setSelectedFacets}
+          setDropdownOptions={setDropdownOptions}
+        />
+        <button
+          onClick={handleSaveSelections}
+          className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        >
+          Save
+        </button>
+      </div>
     </div>
+  </StrategyLayout>
   );
 };
 

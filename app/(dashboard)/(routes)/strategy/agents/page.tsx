@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Separator } from "@/components/ui/separator";
 import { getAgentsByAccountId, createAgent, updateAgent, deleteAgent } from "@/app/actions/agentsActions"; // Import CRUD actions
 import { Agent } from "@/app/types"; // Import the Agent type
+import StrategyLayout from "../StrategyLayout";
 
 const AgentsPage = () => {
   const [agents, setAgents] = useState<Agent[]>([]);
@@ -44,14 +45,8 @@ const AgentsPage = () => {
   };
 
   return (
+    <StrategyLayout>
     <div className="space-y-8 p-6">
-      <div>
-        <h3 className="text-xl font-medium">Personas</h3>
-        <p className="text-sm text-muted-foreground">
-          Describe the most important stakeholders in your Value Network
-        </p>
-      </div>
-      <Separator />
       <main className="flex-1 p-4">
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
           {agents.map((agent: Agent, index: number) => (
@@ -82,6 +77,7 @@ const AgentsPage = () => {
         </div>
       </main>
     </div>
+  </StrategyLayout>
   );
 }
 

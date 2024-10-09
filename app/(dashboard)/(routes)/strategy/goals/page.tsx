@@ -12,6 +12,7 @@ import {
   deleteGoal
 } from "@/app/actions/goalActions"; // Import CRUD actions
 import { Goal } from "@/app/types"; // Import the Goal type
+import StrategyLayout from "../StrategyLayout";
 
 const GoalsPage = () => {
   const [goals, setGoals] = useState<Goal[]>([]);
@@ -51,14 +52,8 @@ const GoalsPage = () => {
   };
 
   return (
+    <StrategyLayout>
     <div className="space-y-8 p-6">
-      <div>
-        <h3 className="text-lg font-medium">Goals</h3>
-        <p className="text-sm text-muted-foreground">
-          Describe the goals and objectives for your organization.
-        </p>
-      </div>
-      <Separator />
       <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
         {goals.map((goal, index) => (
           <Card key={goal.id} className="bg-white border border-gray-200 shadow-md">
@@ -105,6 +100,7 @@ const GoalsPage = () => {
         ))}
       </div>
     </div>
+  </StrategyLayout>
   );
 };
 

@@ -8,7 +8,7 @@ import { TaxonomySunburstOverview } from "./components/TaxonomySunburstOverview"
 import { getDataCategoriesByAccountId } from "@/app/actions/dataCategoryActions";
 import { DataCategory } from "@/app/types";
 import { convertToTree } from "@/lib/convert-to-tree";
-import TreeDiagramComponent from "./components/tree-diagram"
+import TreeDiagramComponent from "./components/tree-diagram";
 
 const accountId = "12345"; // Replace with dynamic value if needed
 
@@ -17,7 +17,6 @@ const DataCategoryPage: React.FC = () => {
   const [dataCategories, setDataCategories] = useState<DataCategory[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [view, setView] = useState<"sunburst" | "tree">("sunburst"); // State to toggle views
 
   // **Fetch Data**
   useEffect(() => {
@@ -48,59 +47,55 @@ const DataCategoryPage: React.FC = () => {
   // **Convert Data to Tree Structure**
   const treeData = convertToTree(dataCategories);
 
-  // **Common Options for D3 Visualizations**
-  const commonOptions = {
-    width: 800,
-    height: 500,
-    // Add other common options if necessary
-  };
-
   return (
-    <div className="flex flex-col p-8 space-y-8 md:flex-row md:space-y-0 md:space-x-8">
+    <div className="container mx-auto md:space-x-4 max-w-screen-xl p-8 h-screen flex overflow-hidden">
       {/* Left Column: Statistics and D3 Visualizations */}
-      <div className="flex-1 flex flex-col space-y-8">
-        {/* 4-Card Statistics Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
+      <div className="flex-1 flex flex-col space-y-4">
+        {/* 3-Card Statistics Grid */}
+        <div className="grid grid-cols-3 gap-2">
           {/* Public Categories Card */}
-          <Card>
-            <CardHeader>
+          <Card className="p-2">
+            <CardHeader className="p-2">
               <CardTitle>Public Categories</CardTitle>
             </CardHeader>
-            <CardContent>
-              <p className="text-2xl font-bold">{publicCount}</p>
+            <CardContent className="p-2">
+              <p className="text-lg font-bold">{publicCount}</p>
             </CardContent>
           </Card>
 
           {/* Private Categories Card */}
-          <Card>
-            <CardHeader>
+          <Card className="p-2">
+            <CardHeader className="p-2">
               <CardTitle>Private Categories</CardTitle>
             </CardHeader>
-            <CardContent>
-              <p className="text-2xl font-bold">{privateCount}</p>
-            </CardContent>
-          </Card>
-
-          {/* Monetizable Categories Card */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Monetizable Categories</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-2xl font-bold">{monetizableCount}</p>
+            <CardContent className="p-2">
+              <p className="text-lg font-bold">{privateCount}</p>
             </CardContent>
           </Card>
 
           {/* Total Categories Card */}
-          <Card>
-            <CardHeader>
+          <Card className="p-2">
+            <CardHeader className="p-2">
               <CardTitle>Total Categories</CardTitle>
             </CardHeader>
-            <CardContent>
-              <p className="text-2xl font-bold">{totalCount}</p>
+            <CardContent className="p-2">
+              <p className="text-lg font-bold">{totalCount}</p>
             </CardContent>
           </Card>
         </div>
+
+        {/* Visualization Card */}
+        <Card className="flex-1">
+          <CardHeader>
+            <CardTitle>Hierarchical View</CardTitle>
+          </CardHeader>
+          <CardContent
+            className="flex justify-center items-center"
+            style={{ width: '100%', height: '600px' }}
+          >
+            <TaxonomySunburstOverview data={treeData} />
+          </CardContent>
+        </Card>
       </div>
 
       {/* Right Column: Existing Data Categories Card */}

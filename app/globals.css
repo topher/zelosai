@@ -7,6 +7,11 @@ body,
 :root {
   height: 100%;
 }
+
+.banner-skybox {
+  width: 100%;
+  height: 100%;
+}
  
 @layer base {
   :root {

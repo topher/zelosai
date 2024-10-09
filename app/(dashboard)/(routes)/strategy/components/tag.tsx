@@ -1,20 +1,21 @@
-import React from "react";
+// Tag.tsx
+import React from 'react';
+import { AiOutlineClose } from 'react-icons/ai';
 
 interface TagProps {
   label: string;
-  onDelete: () => void;
+  onDelete?: () => void;
 }
 
 const Tag: React.FC<TagProps> = ({ label, onDelete }) => {
   return (
-    <div className="flex items-center bg-gray-100 rounded-full px-4 py-2 mr-2 mb-2 shadow-sm">
-      <span className="text-sm font-medium text-gray-700">{label}</span>
-      <button
-        onClick={onDelete}
-        className="ml-2 text-gray-500 hover:text-gray-700 focus:outline-none"
-      >
-        &times;
-      </button>
+    <div className="flex items-center bg-gray-200 text-gray-800 rounded-full px-3 py-1 text-sm mr-2 mb-2">
+      <span>{label}</span>
+      {onDelete && (
+        <button onClick={onDelete} className="ml-1 focus:outline-none">
+          <AiOutlineClose size={12} />
+        </button>
+      )}
     </div>
   );
 };
