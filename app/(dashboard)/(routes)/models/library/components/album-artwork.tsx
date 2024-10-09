@@ -100,7 +100,7 @@ export function AIModelCard({
             <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/90 to-transparent rounded-b-lg">
               <h3 className={`text-white text-xl ${montserrat.className} font-bold tracking-wide transition-all duration-300 ease-out 
                 group-hover:text-shadow-lg`} 
-                style={{ textShadow: "2px 2px 6px #111827" }}>  {/* Light gold shadow */}
+                style={{ textShadow: "2px 2px 6px #111827" }}>
                 {tool.label}
               </h3>
               {expanded && (

@@ -55,10 +55,16 @@ const AIModelSearchCard: React.FC<AIModelSearchCardProps> = ({ data }) => {
           />
 
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0) 100%)",
+            }}
+          ></div>
 
           {/* Model Type Icon at Top Left */}
-          <div className="absolute top-2 left-2">
+          <div className="absolute top-3 left-3">
             <ModelTypeIcon data={modelType} />
           </div>
 
