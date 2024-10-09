@@ -14,11 +14,10 @@ const CustomPagination: React.FC = () => {
     isLastPage,
   } = usePagination();
 
-  // Effect to scroll to top when the page changes
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // Change to "auto" for instant scroll
+      behavior: "smooth",
     });
   }, [currentRefinement]);
 

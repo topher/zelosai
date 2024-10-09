@@ -19,10 +19,10 @@ module.exports = {
       colors: {
         black: '#000000',
         white: '#ffffff',
-        darkGray: '#111827',  // A slightly darker gray for a more modern feel
+        darkGray: '#111827',
         lightGray: '#6e6e6e',
         offWhite: '#f7f7f7',
-        gold: '#f4e7c3', // Slightly lighter gold for better readability on dark backgrounds
+        gold: '#f4e7c3',
         indigo: {
           DEFAULT: '#4b0082',
           light: '#b366e2',
