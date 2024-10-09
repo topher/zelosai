@@ -9,10 +9,10 @@ import {
   MultiSelectFilterList,
   SingleSelectFilterList,
 } from "./FilterList";
-import ResultsPerPageSlider from "./ResultsPerPageSlider"; // Import the slider
+import ResultsPerPageSlider from "./ResultsPerPageSlider";
 
 interface SidebarProps {
-  sections: string[]; // Array of section names to display filters for
+  sections: string[];
   hitsPerPage: number;
   onChangeHitsPerPage: (value: number) => void;
 }
@@ -22,6 +22,9 @@ const Sidebar: React.FC<SidebarProps> = ({
   hitsPerPage,
   onChangeHitsPerPage,
 }) => {
+  // Define the model type tags
+  const modelTypeTags = ["image", "text", "voice", "foundational"];
+
   return (
     <div className="w-56 space-y-4 overflow-x-hidden sticky top-0 px-1 py-2">
       {/* Filters Title and Reset Button */}
@@ -76,9 +79,25 @@ const Sidebar: React.FC<SidebarProps> = ({
       {/* AI Models Filters */}
       {sections.includes("AI Models") && (
         <>
-          <FilterSection title="Tags">
-            <MultiSelectFilterList attribute="tags" />
+          {/* Model Type Filter */}
+          <FilterSection title="Model Type">
+            <MultiSelectFilterList
+              attribute="tags"
+              transformItems={(items) =>
+                items.filter((item) => modelTypeTags.includes(item.label))
+              }
+            />
           </FilterSection>
+          {/* Tags Filter */}
+          <FilterSection title="Tags">
+            <MultiSelectFilterList
+              attribute="tags"
+              transformItems={(items) =>
+                items.filter((item) => !modelTypeTags.includes(item.label))
+              }
+            />
+          </FilterSection>
+          {/* Default Language Filter */}
           <FilterSection title="Default Language">
             <SingleSelectFilterList attribute="default_language" />
           </FilterSection>
