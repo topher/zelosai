@@ -1,4 +1,4 @@
-// components/generationTabs/ImageGenerationTab.tsx
+// models/components/generationTabs/ImageGenerationTab.tsx
 
 "use client";
 
@@ -15,9 +15,8 @@ import { Button } from "@/components/ui/button";
 import { Loader } from "lucide-react";
 import { Empty } from "@/components/ui/empty";
 import { parameterDefinitions, imageFormSchema } from "../../../components/constants";
-import { ParameterField } from "../../../components/generationForms/ParameterField";
-
 import { constructImagePrompt } from "@/utils/promptBuilder";
+import CustomAmountSlider from "app/(dashboard)/(routes)/models/components/CustomAmountSlider";
 
 interface ImageGenerationTabProps {
   modelId: string | undefined;
@@ -74,12 +73,33 @@ export const ImageGenerationTab: React.FC<ImageGenerationTabProps> = ({ modelId,
 
   return (
     <div className="flex flex-1 bg-white">
-      <aside className="w-1/4 bg-gray-50 border-r border-gray-200 p-6 overflow-auto">
+      <aside className="w-full bg-offWhite p-6">
         <h2 className="text-xl font-semibold mb-6 text-gray-700">Image Parameters</h2>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-w-3xl">
             {parameterDefinitions.txt2image.map((param) => (
-              <ParameterField key={param.name} parameter={param} />
+              <FormItem key={param.name} className="space-y-2">
+                <label className="block text-sm font-medium text-gray-700">{param.label}</label>
+                <div className="flex flex-wrap gap-2">
+                  {param.options.map((option) => {
+                    const watchedValue = form.watch(param.name as keyof z.infer<typeof imageFormSchema>); // Watch the current value of the specific field
+                    const isSelected = watchedValue === option.value; // Check if the current watched value matches the option value
+
+                    return (
+                      <Button
+                        key={option.value}
+                        type="button"
+                        className={`px-4 py-2 text-sm font-medium rounded-md border border-gray-300 
+                          ${isSelected ? 'bg-gradient-to-r from-[#4b0082] to-[#ff69b4] text-white' : 'bg-white text-gray-700 hover:bg-[#b366e2] hover:text-white'}
+                        `}
+                        onClick={() => form.setValue(param.name as keyof z.infer<typeof imageFormSchema>, option.value)}
+                      >
+                        {option.label}
+                      </Button>
+                    );
+                  })}
+                </div>
+              </FormItem>
             ))}
             <FormField
               name="amount"
@@ -89,28 +109,26 @@ export const ImageGenerationTab: React.FC<ImageGenerationTabProps> = ({ modelId,
                     <label className="block text-sm font-medium text-gray-700">Amount</label>
                   </div>
                   <FormControl>
-                    <select
-                      {...field}
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                    >
-                      {[1, 2, 3].map((num) => (
-                        <option key={num} value={num}>
-                          {num}
-                        </option>
-                      ))}
-                    </select>
+                    <CustomAmountSlider
+                      value={field.value}
+                      onChangeValue={(value) => form.setValue("amount", value)}
+                    />
                   </FormControl>
                 </FormItem>
               )}
             />
-            <Button type="submit" disabled={isLoading} className="w-full bg-purple-600 text-white hover:bg-purple-700">
+            <Button
+              type="submit"
+              disabled={isLoading}
+              className="w-full bg-gradient-to-r from-[#4b0082] to-[#ff69b4] text-white transform transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+            >
               {isLoading ? <Loader className="mr-2" /> : "Generate Image"}
             </Button>
           </form>
         </Form>
       </aside>
 
-      <main className="w-3/4 flex flex-col justify-center items-center p-12 overflow-auto">
+      <main className="w-full flex flex-col justify-center items-center p-12 overflow-auto">
         <h2 className="text-2xl font-bold text-gray-800 mb-8">Generated Images</h2>
         {isLoading && <Loader />}
         {!images.length && !isLoading && <Empty label="No images generated yet." />}

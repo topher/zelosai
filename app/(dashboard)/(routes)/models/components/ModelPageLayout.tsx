@@ -28,7 +28,7 @@ const ModelPageLayout: React.FC<ModelPageLayoutProps> = ({
   bgColor,
 }) => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen w-full">
       <Heading
         title={modelData ? modelData.label : "Model"}
         description={modelData ? modelData.description : "Model description."}
@@ -36,7 +36,7 @@ const ModelPageLayout: React.FC<ModelPageLayoutProps> = ({
         iconColor={iconColor}
         bgColor={bgColor}
       />
-      <div className="flex flex-col flex-1 mt-4 w-full">
+      <div className="flex flex-col flex-1 w-full">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="flex flex-col flex-1">
           <TabsList className="flex justify-center mb-4">
             {tabs.map((tab) => (
@@ -46,7 +46,7 @@ const ModelPageLayout: React.FC<ModelPageLayoutProps> = ({
             ))}
           </TabsList>
           {tabs.map((tab) => (
-            <TabsContent key={tab.value} value={tab.value} className="flex-1 flex">
+            <TabsContent key={tab.value} value={tab.value} className="flex-1 flex max-w-3xl">
               {tab.content}
             </TabsContent>
           ))}

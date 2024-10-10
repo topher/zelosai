@@ -1,3 +1,5 @@
+// models/components/DocumentationTab.tsx
+
 "use client";
 
 import { AIModel } from "@/app/types";
@@ -68,11 +70,11 @@ export const DocumentationTab: React.FC<DocumentationTabProps> = ({
   }
 
   return (
-    <div className="px-4 lg:px-12 py-8">
+    <div className="py-4 w-full">
       {/* Main Card */}
       <Card className="max-w-6xl mx-auto bg-white shadow-2xl rounded-3xl border border-gray-200">
         {/* Card Header */}
-        <CardHeader className="flex items-center justify-between bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white p-6 rounded-t-3xl">
+        <CardHeader className="flex items-center justify-between bg-gradient-to-r from-[#4b0082] to-[#ff69b4] text-white p-6 rounded-t-3xl">
           <CardTitle className="flex items-center text-3xl font-bold">
             <Shield className="mr-3 h-7 w-7" />
             Model Documentation
