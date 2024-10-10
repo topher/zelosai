@@ -38,7 +38,7 @@ const ModelPageLayout: React.FC<ModelPageLayoutProps> = ({
       />
       <div className="flex flex-col flex-1 w-full">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="flex flex-col flex-1">
-          <TabsList className="flex justify-center mb-4">
+          <TabsList className="flex justify-center">
             {tabs.map((tab) => (
               <TabsTrigger key={tab.value} value={tab.value}>
                 {tab.label}

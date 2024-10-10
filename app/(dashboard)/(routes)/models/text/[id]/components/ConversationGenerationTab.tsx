@@ -73,12 +73,12 @@ export const TextGenerationTab: React.FC<TextGenerationTabProps> = ({ modelId, m
   return (
     <div className="flex flex-1 bg-white">
       <aside className="w-full bg-offWhite p-6">
-        <h2 className="text-xl font-semibold mb-6 text-gray-700">Text Parameters</h2>
+        <h2 className="text-xl font-semibold mb-6 text-darkGray">Text Parameters</h2>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-w-3xl">
             {parameterDefinitions.txt2txt.map((param) => (
               <FormItem key={param.name} className="space-y-2">
-                <label className="block text-sm font-medium text-gray-700">{param.label}</label>
+                <label className="block text-sm font-medium text-darkGray">{param.label}</label>
                 <div className="flex flex-wrap gap-2">
                   {param.options.map((option) => {
                     const watchedValue = form.watch(param.name as keyof z.infer<typeof textFormSchema>);
@@ -88,8 +88,8 @@ export const TextGenerationTab: React.FC<TextGenerationTabProps> = ({ modelId, m
                       <Button
                         key={option.value}
                         type="button"
-                        className={`px-4 py-2 text-sm font-medium rounded-md border border-gray-300 
-                          ${isSelected ? 'bg-gradient-to-r from-[#4b0082] to-[#ff69b4] text-white' : 'bg-white text-gray-700 hover:bg-[#b366e2] hover:text-white'}
+                        className={`px-4 py-2 text-sm font-medium rounded-md 
+                          ${isSelected ? 'bg-gradient-to-r from-[#4b0082] to-[#ff69b4] text-white' : 'bg-white text-darkGray hover:bg-[#b366e2] hover:text-white'}
                         `}
                         onClick={() => form.setValue(param.name as keyof z.infer<typeof textFormSchema>, option.value)}
                       >
@@ -105,7 +105,7 @@ export const TextGenerationTab: React.FC<TextGenerationTabProps> = ({ modelId, m
               render={({ field }) => (
                 <FormItem className="col-span-12">
                   <div className="flex items-center space-x-2">
-                    <label className="block text-sm font-medium text-gray-700">Amount</label>
+                    <label className="block text-sm font-medium text-darkGray">Amount</label>
                   </div>
                   <FormControl>
                     <CustomAmountSlider
@@ -124,14 +124,14 @@ export const TextGenerationTab: React.FC<TextGenerationTabProps> = ({ modelId, m
       </aside>
 
       <main className="w-full flex flex-col justify-center items-center p-12 overflow-auto">
-        <h2 className="text-2xl font-bold text-gray-800 mb-8">Generated Texts</h2>
+        <h2 className="text-2xl font-bold text-darkGray mb-8">Generated Texts</h2>
         {isLoading && <Loader className="animate-spin" />}
         {!responseTexts.length && !isLoading && <Empty label="No texts generated yet." />}
         {responseTexts.length > 0 && (
           <div className="space-y-4 w-full">
             {responseTexts.map((text, idx) => (
               <div key={idx} className="bg-gray-100 p-6 shadow-md rounded-lg">
-                <p className="text-gray-700 whitespace-pre-line">{text}</p>
+                <p className="text-darkGray whitespace-pre-line">{text}</p>
               </div>
             ))}
           </div>

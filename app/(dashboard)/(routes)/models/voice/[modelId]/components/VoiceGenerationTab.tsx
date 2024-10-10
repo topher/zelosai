@@ -101,7 +101,7 @@ export const VoiceGenerationTab: React.FC<VoiceGenerationTabProps> = ({ modelId,
                       <Button
                         key={option.value}
                         type="button"
-                        className={`px-4 py-2 text-sm font-medium rounded-md border border-gray-300 
+                        className={`px-4 py-2 text-sm font-medium rounded-md 
                           ${
                             isSelected
                               ? "bg-gradient-to-r from-[#4b0082] to-[#ff69b4] text-white"
@@ -211,7 +211,7 @@ export const VoiceGenerationTab: React.FC<VoiceGenerationTabProps> = ({ modelId,
                     <textarea
                       {...field}
                       rows={4}
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm pl-3 py-2"
+                      className="mt-1 block w-full rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm pl-3 py-2"
                       placeholder="Enter text to be converted to speech"
                     />
                   </FormControl>
@@ -236,7 +236,7 @@ export const VoiceGenerationTab: React.FC<VoiceGenerationTabProps> = ({ modelId,
                         min="0"
                         max="1"
                         {...field}
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-10 pl-3"
+                        className="mt-1 block w-full rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-10 pl-3"
                       />
                     </FormControl>
                   </FormItem>
@@ -273,8 +273,8 @@ export const VoiceGenerationTab: React.FC<VoiceGenerationTabProps> = ({ modelId,
       </aside>
 
       {/* Main content */}
-      <main className="w-full flex flex-col justify-center items-center p-12 overflow-auto">
-        <h2 className="text-2xl font-bold text-gray-800 mb-8">Generated Voices</h2>
+      <main className="w-full flex flex-col justify-center items-center p-12">
+        <h2 className="text-2xl font-bold text-darkGray mb-8">Generated Voices</h2>
         {isLoading && <Loader className="animate-spin" />}
         {!voices.length && !isLoading && <Empty label="No voices generated yet." />}
         {voices.length > 0 && (
