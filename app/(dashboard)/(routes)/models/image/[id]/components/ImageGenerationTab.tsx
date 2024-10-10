@@ -1,4 +1,4 @@
-// models/components/generationTabs/ImageGenerationTab.tsx
+// image/components/generationTabs/ImageGenerationTab.tsx
 
 "use client";
 

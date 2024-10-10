@@ -28,7 +28,7 @@ export const textFormSchema = z.object({
 export const voiceFormSchema = z.object({
   prompt: z.string().min(1, "Prompt is required"),
   voice_id: z.string().min(1, "Voice ID is required"),
-  optimize_streaming_latency: z.string().optional(),
+  optimize_streaming_latency: z.boolean(),
   output_format: z.string().min(1, "Output Format is required"),
   text: z.string().min(1, "Text is required"),
   stability: z.number().min(0).max(1).default(0.5),

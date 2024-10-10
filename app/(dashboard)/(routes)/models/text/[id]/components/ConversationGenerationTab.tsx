@@ -1,4 +1,4 @@
-// components/generationTabs/TextGenerationTab.tsx
+// text/components/generationTabs/TextGenerationTab.tsx
 
 "use client";
 
@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Loader } from "lucide-react";
 import { Empty } from "@/components/ui/empty";
 import { parameterDefinitions, textFormSchema } from "../../../components/constants";
-import { ParameterField } from "../../../components/generationForms/ParameterField"; 
+import CustomAmountSlider from "app/(dashboard)/(routes)/models/components/CustomAmountSlider";
 
 import { constructTextPrompt } from "@/utils/promptBuilder";
 
@@ -27,7 +27,7 @@ interface TextGenerationTabProps {
 export const TextGenerationTab: React.FC<TextGenerationTabProps> = ({ modelId, modelData }) => {
   const router = useRouter();
   const [responseTexts, setResponseTexts] = useState<string[]>([]);
-  
+
   // Initialize form with textFormSchema
   const form = useForm<z.infer<typeof textFormSchema>>({
     resolver: zodResolver(textFormSchema),
@@ -49,22 +49,18 @@ export const TextGenerationTab: React.FC<TextGenerationTabProps> = ({ modelId, m
     try {
       setResponseTexts([]);
 
-      // Construct the prompt using helper function
       const constructedPrompt = constructTextPrompt(values);
 
-      // Determine the API endpoint using replicate_id
       const apiUrl = modelData?.replicate_id
         ? `/api/text/${modelData.replicate_id}`
-        : `/api/text/${modelId}`; // Fallback if replicate_id not available
+        : `/api/text/${modelId}`;
 
       const payload = {
         prompt: constructedPrompt,
-        amount: values.amount, // amount is ensured by Zod schema
+        amount: values.amount,
       };
 
       const response = await axios.post(apiUrl, payload);
-
-      // Assuming the response contains an array of generated texts
       setResponseTexts(response.data.generated_texts);
       form.reset();
     } catch (error: any) {
@@ -76,16 +72,34 @@ export const TextGenerationTab: React.FC<TextGenerationTabProps> = ({ modelId, m
 
   return (
     <div className="flex flex-1 bg-white">
-      {/* Sidebar */}
-      <aside className="w-1/4 bg-gray-50 border-r border-gray-200 p-6 overflow-auto">
+      <aside className="w-full bg-offWhite p-6">
         <h2 className="text-xl font-semibold mb-6 text-gray-700">Text Parameters</h2>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            {/* Dynamically render form fields based on txt2txt */}
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-w-3xl">
             {parameterDefinitions.txt2txt.map((param) => (
-              <ParameterField key={param.name} parameter={param} />
+              <FormItem key={param.name} className="space-y-2">
+                <label className="block text-sm font-medium text-gray-700">{param.label}</label>
+                <div className="flex flex-wrap gap-2">
+                  {param.options.map((option) => {
+                    const watchedValue = form.watch(param.name as keyof z.infer<typeof textFormSchema>);
+                    const isSelected = watchedValue === option.value;
+
+                    return (
+                      <Button
+                        key={option.value}
+                        type="button"
+                        className={`px-4 py-2 text-sm font-medium rounded-md border border-gray-300 
+                          ${isSelected ? 'bg-gradient-to-r from-[#4b0082] to-[#ff69b4] text-white' : 'bg-white text-gray-700 hover:bg-[#b366e2] hover:text-white'}
+                        `}
+                        onClick={() => form.setValue(param.name as keyof z.infer<typeof textFormSchema>, option.value)}
+                      >
+                        {option.label}
+                      </Button>
+                    );
+                  })}
+                </div>
+              </FormItem>
             ))}
-            {/* Amount of Generations */}
             <FormField
               name="amount"
               render={({ field }) => (
@@ -94,29 +108,22 @@ export const TextGenerationTab: React.FC<TextGenerationTabProps> = ({ modelId, m
                     <label className="block text-sm font-medium text-gray-700">Amount</label>
                   </div>
                   <FormControl>
-                    <select
-                      {...field}
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                    >
-                      {[1, 2, 3].map((num) => (
-                        <option key={num} value={num}>
-                          {num}
-                        </option>
-                      ))}
-                    </select>
+                    <CustomAmountSlider
+                      value={field.value}
+                      onChangeValue={(value) => form.setValue("amount", value)}
+                    />
                   </FormControl>
                 </FormItem>
               )}
             />
-            <Button type="submit" disabled={isLoading} className="w-full bg-green-600 text-white hover:bg-green-700">
+            <Button type="submit" disabled={isLoading} className="w-full bg-gradient-to-r from-[#4b0082] to-[#ff69b4] text-white transform transition-transform duration-300 hover:scale-105 hover:shadow-lg">
               {isLoading ? <Loader className="mr-2 animate-spin" /> : "Generate Text"}
             </Button>
           </form>
         </Form>
       </aside>
 
-      {/* Main content */}
-      <main className="w-3/4 flex flex-col justify-center items-center p-12 overflow-auto">
+      <main className="w-full flex flex-col justify-center items-center p-12 overflow-auto">
         <h2 className="text-2xl font-bold text-gray-800 mb-8">Generated Texts</h2>
         {isLoading && <Loader className="animate-spin" />}
         {!responseTexts.length && !isLoading && <Empty label="No texts generated yet." />}

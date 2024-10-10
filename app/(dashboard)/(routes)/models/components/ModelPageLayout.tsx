@@ -46,7 +46,7 @@ const ModelPageLayout: React.FC<ModelPageLayoutProps> = ({
             ))}
           </TabsList>
           {tabs.map((tab) => (
-            <TabsContent key={tab.value} value={tab.value} className="flex-1 flex max-w-3xl">
+            <TabsContent key={tab.value} value={tab.value} className="flex-1 flex max-w-4xl">
               {tab.content}
             </TabsContent>
           ))}

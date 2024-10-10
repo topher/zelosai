@@ -3,7 +3,7 @@
 interface Txt2AudioParams {
     prompt?: string;
     voice_id?: string;
-    optimize_streaming_latency?: string;
+    optimize_streaming_latency?: boolean;
     output_format?: string;
     text?: string;
     stability?: number;
