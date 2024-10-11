@@ -12,13 +12,13 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-  CardFooter,
-} from "@/components/ui/card"; // Ensure these components are available
+// import {
+//   Card,
+//   CardHeader,
+//   CardTitle,
+//   CardContent,
+//   CardFooter,
+// } from "@/components/ui/card";
 import {
   Edit3,
   Save,
@@ -32,8 +32,9 @@ import {
   Code,
   ExternalLink,
   Calendar,
-} from "lucide-react"; // Import necessary icons from lucide-react
-import { cn } from "@/lib/utils"; // Utility for conditional classNames
+  Loader2,
+} from "lucide-react";
+import Image from "next/image";
 
 interface DocumentationTabProps {
   modelData: AIModel | null;
@@ -70,21 +71,22 @@ export const DocumentationTab: React.FC<DocumentationTabProps> = ({
   }
 
   return (
-    <div className="py-4 w-full">
-      {/* Main Card */}
-      <Card className="max-w-6xl mx-auto bg-white shadow-2xl rounded-3xl border border-gray-200">
-        {/* Card Header */}
-        <CardHeader className="flex items-center justify-between bg-gradient-to-r from-[#4b0082] to-[#ff69b4] text-white p-6 rounded-t-3xl">
-          <CardTitle className="flex items-center text-3xl font-bold">
-            <Shield className="mr-3 h-7 w-7" />
+    <div className="py-8 w-full bg-offWhite">
+      {/* Main Container */}
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-8">
+          <h1 className="text-3xl font-bold text-darkGray">
+            <Shield className="inline-block h-8 w-8 text-indigo mr-2" />
             Model Documentation
-          </CardTitle>
+          </h1>
           {!isEditing ? (
             <Button
               variant="outline"
               size="sm"
               onClick={() => setIsEditing(true)}
-              className="flex items-center bg-white text-indigo-600 hover:bg-indigo-50 transition-colors duration-300"
+              className="flex items-center bg-indigo text-white hover:bg-indigo-light transition-colors duration-300"
+              aria-label="Edit Model Documentation"
             >
               <Edit3 className="mr-2 h-5 w-5" />
               Edit
@@ -96,9 +98,14 @@ export const DocumentationTab: React.FC<DocumentationTabProps> = ({
                 form="documentation-form"
                 disabled={isSubmitting}
                 size="sm"
-                className="flex items-center bg-green-500 text-white hover:bg-green-600 transition-colors duration-300"
+                className="flex items-center bg-gold text-darkGray hover:bg-gold-light transition-colors duration-300"
+                aria-label="Save Changes"
               >
-                <Save className="mr-2 h-5 w-5" />
+                {isSubmitting ? (
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                ) : (
+                  <Save className="mr-2 h-5 w-5" />
+                )}
                 Save
               </Button>
               <Button
@@ -108,892 +115,672 @@ export const DocumentationTab: React.FC<DocumentationTabProps> = ({
                   setIsEditing(false);
                   reset(modelData);
                 }}
-                className="flex items-center bg-red-500 text-white hover:bg-red-600 transition-colors duration-300"
+                className="flex items-center bg-red text-white hover:bg-red-light transition-colors duration-300"
+                aria-label="Cancel Editing"
               >
                 <XCircle className="mr-2 h-5 w-5" />
                 Cancel
               </Button>
             </div>
           )}
-        </CardHeader>
+        </div>
 
-        {/* Card Content */}
+        {/* Content */}
         <form id="documentation-form" onSubmit={handleSubmit(onSubmit)}>
-          <CardContent className="p-8 space-y-8">
-            {/* General Information Section */}
-            <Card className="border border-gray-300 rounded-xl shadow-md">
-              <CardHeader className="bg-gray-50 p-5 rounded-t-xl flex items-center">
-                <Info className="mr-3 h-6 w-6 text-indigo-500" />
-                <CardTitle className="text-xl font-semibold">General Information</CardTitle>
-              </CardHeader>
-              <CardContent className="p-5 grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Account ID */}
-                <div>
-                  <label className="flex items-center text-sm font-medium text-gray-700 mb-1">
-                    <Database className="mr-2 h-4 w-4 text-indigo-400" />
-                    Account ID:
-                  </label>
+          <div className="space-y-10">
+            {/* General Information */}
+            <section className="bg-white rounded-xl shadow-sm p-6">
+              <h2 className="text-2xl font-semibold text-darkGray mb-6 flex items-center">
+                <Info className="h-7 w-7 text-indigo mr-2" />
+                General Information
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Thumbnail and Basic Info */}
+                <div className="flex flex-col items-center md:items-start">
                   {isEditing ? (
-                    <div>
-                      <Input
-                        type="text"
-                        {...register("accountId")}
-                        className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                        placeholder="Enter Account ID"
-                      />
-                      {errors.accountId && (
-                        <p className="text-red-500 text-sm mt-1">{errors.accountId.message}</p>
-                      )}
-                    </div>
-                  ) : (
-                    <p className="text-gray-700">{modelData.accountId || "Not provided."}</p>
-                  )}
-                </div>
-
-                {/* Label */}
-                <div>
-                  <label className="flex items-center text-sm font-medium text-gray-700 mb-1">
-                    <Info className="mr-2 h-4 w-4 text-indigo-400" />
-                    Label:
-                  </label>
-                  {isEditing ? (
-                    <div>
-                      <Input
-                        type="text"
-                        {...register("label")}
-                        className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                        placeholder="Enter Model Label"
-                      />
-                      {errors.label && (
-                        <p className="text-red-500 text-sm mt-1">{errors.label.message}</p>
-                      )}
-                    </div>
-                  ) : (
-                    <p className="text-gray-700">{modelData.label || "Not provided."}</p>
-                  )}
-                </div>
-
-                {/* Tags */}
-                <div>
-                  <label className="flex items-center text-sm font-medium text-gray-700 mb-1">
-                    <TrendingUp className="mr-2 h-4 w-4 text-indigo-400" />
-                    Tags:
-                  </label>
-                  {isEditing ? (
-                    <div>
-                      <Input
-                        type="text"
-                        {...register("tags")}
-                        className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                        placeholder="Enter tags separated by commas"
-                      />
-                      {errors.tags && (
-                        <p className="text-red-500 text-sm mt-1">{errors.tags.message}</p>
-                      )}
-                    </div>
-                  ) : (
-                    <p className="text-gray-700">
-                      {modelData.tags?.join(", ") || "Not provided."}
-                    </p>
-                  )}
-                </div>
-
-                {/* Default Language */}
-                <div>
-                  <label className="flex items-center text-sm font-medium text-gray-700 mb-1">
-                    <Code className="mr-2 h-4 w-4 text-indigo-400" />
-                    Default Language:
-                  </label>
-                  {isEditing ? (
-                    <div>
-                      <Input
-                        type="text"
-                        {...register("default_language")}
-                        className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                        placeholder="Enter Default Language"
-                      />
-                      {errors.default_language && (
-                        <p className="text-red-500 text-sm mt-1">{errors.default_language.message}</p>
-                      )}
-                    </div>
-                  ) : (
-                    <p className="text-gray-700">{modelData.default_language || "Not provided."}</p>
-                  )}
-                </div>
-
-                {/* Subject Prompt Key */}
-                <div>
-                  <label className="flex items-center text-sm font-medium text-gray-700 mb-1">
-                    <Info className="mr-2 h-4 w-4 text-indigo-400" />
-                    Subject Prompt Key:
-                  </label>
-                  {isEditing ? (
-                    <div>
-                      <Input
-                        type="text"
-                        {...register("subject_prompt_key")}
-                        className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                        placeholder="Enter Subject Prompt Key"
-                      />
-                      {errors.subject_prompt_key && (
-                        <p className="text-red-500 text-sm mt-1">{errors.subject_prompt_key.message}</p>
-                      )}
-                    </div>
-                  ) : (
-                    <p className="text-gray-700">{modelData.subject_prompt_key || "Not provided."}</p>
-                  )}
-                </div>
-
-                {/* Subject Prompt Alias */}
-                <div>
-                  <label className="flex items-center text-sm font-medium text-gray-700 mb-1">
-                    <Info className="mr-2 h-4 w-4 text-indigo-400" />
-                    Subject Prompt Alias:
-                  </label>
-                  {isEditing ? (
-                    <div>
-                      <Input
-                        type="text"
-                        {...register("subject_prompt_alias")}
-                        className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                        placeholder="Enter aliases separated by commas"
-                      />
-                      {errors.subject_prompt_alias && (
-                        <p className="text-red-500 text-sm mt-1">{errors.subject_prompt_alias.message}</p>
-                      )}
-                    </div>
-                  ) : (
-                    <p className="text-gray-700">
-                      {modelData.subject_prompt_alias?.join(", ") || "Not provided."}
-                    </p>
-                  )}
-                </div>
-
-                {/* Description */}
-                <div className="md:col-span-2">
-                  <label className="flex items-center text-sm font-medium text-gray-700 mb-1">
-                    <Info className="mr-2 h-4 w-4 text-indigo-400" />
-                    Description:
-                  </label>
-                  {isEditing ? (
-                    <div>
-                      <Textarea
-                        {...register("description")}
-                        className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                        placeholder="Enter model description..."
-                      />
-                      {errors.description && (
-                        <p className="text-red-500 text-sm mt-1">{errors.description.message}</p>
-                      )}
-                    </div>
-                  ) : (
-                    <p className="text-gray-700">{modelData.description || "Not provided."}</p>
-                  )}
-                </div>
-
-                {/* Foundational Model */}
-                <div>
-                  <label className="flex items-center text-sm font-medium text-gray-700 mb-1">
-                    <Server className="mr-2 h-4 w-4 text-indigo-400" />
-                    Foundational Model:
-                  </label>
-                  {isEditing ? (
-                    <div className="flex items-center">
-                      <input
-                        type="checkbox"
-                        {...register("foundational_model")}
-                        className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
-                      />
-                    </div>
-                  ) : (
-                    <p className="text-gray-700">
-                      {modelData.foundational_model ? "Yes" : "No"}
-                    </p>
-                  )}
-                </div>
-
-                {/* Model ID */}
-                <div>
-                  <label className="flex items-center text-sm font-medium text-gray-700 mb-1">
-                    <Database className="mr-2 h-4 w-4 text-indigo-400" />
-                    Model ID:
-                  </label>
-                  <p className="text-gray-700">{modelData.modelId || "Not provided."}</p>
-                </div>
-
-                {/* Thumbnail */}
-                <div>
-                  <label className="flex items-center text-sm font-medium text-gray-700 mb-1">
-                    <ExternalLink className="mr-2 h-4 w-4 text-indigo-400" />
-                    Thumbnail URL:
-                  </label>
-                  {isEditing ? (
-                    <div>
+                    <div className="w-full">
+                      <label
+                        htmlFor="thumbnail"
+                        className="block text-sm font-medium text-lightGray mb-2"
+                      >
+                        Thumbnail URL
+                      </label>
                       <Input
                         type="url"
+                        id="thumbnail"
                         {...register("thumbnail")}
-                        className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        className="w-full p-2 border border-lightGray rounded focus:outline-none focus:ring-2 focus:ring-indigo"
                         placeholder="Enter Thumbnail URL"
                       />
                       {errors.thumbnail && (
-                        <p className="text-red-500 text-sm mt-1">{errors.thumbnail.message}</p>
+                        <p className="text-red text-sm mt-1">
+                          {errors.thumbnail.message}
+                        </p>
                       )}
                     </div>
+                  ) : modelData.thumbnail ? (
+                    <Image
+                      src={modelData.thumbnail}
+                      alt={`${modelData.label} Thumbnail`}
+                      width={200}
+                      height={200}
+                      className="object-cover rounded-lg mb-4"
+                    />
                   ) : (
-                    <div className="flex items-center">
-                      {modelData.thumbnail ? (
-                        <img
-                          src={modelData.iconName}
-                          alt={`${modelData.label} Thumbnail`}
-                          className="h-24 w-24 object-cover rounded-lg mr-4"
-                        />
-                      ) : (
-                        <div className="h-24 w-24 bg-gray-200 rounded-lg mr-4 flex items-center justify-center">
-                          <span className="text-gray-500">No Image</span>
-                        </div>
-                      )}
-                      <a
-                        href={modelData.thumbnail}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-indigo-600 hover:underline"
-                      >
-                        {modelData.thumbnail || "Not provided."}
-                      </a>
+                    <div className="h-48 w-48 bg-lightGray rounded-lg flex items-center justify-center mb-4">
+                      <span className="text-white">No Image</span>
                     </div>
                   )}
+
+                  <div className="text-center md:text-left">
+                    <h3 className="text-xl font-semibold text-darkGray">
+                      {modelData.label || "Model Label"}
+                    </h3>
+                    <p className="text-lightGray">
+                      {modelData.description || "No description provided."}
+                    </p>
+                  </div>
                 </div>
 
-                {/* Prompt Template */}
-                <div className="md:col-span-2">
-                  <label className="flex items-center text-sm font-medium text-gray-700 mb-1">
-                    <Code className="mr-2 h-4 w-4 text-indigo-400" />
-                    Prompt Template:
+                {/* Details */}
+                <div className="space-y-4">
+                  {/* Account ID */}
+                  <div>
+                    <label
+                      htmlFor="accountId"
+                      className="block text-sm font-medium text-lightGray"
+                    >
+                      Account ID
+                    </label>
+                    {isEditing ? (
+                      <div>
+                        <Input
+                          type="text"
+                          id="accountId"
+                          {...register("accountId")}
+                          className="w-full p-2 border border-lightGray rounded focus:outline-none focus:ring-2 focus:ring-indigo"
+                          placeholder="Enter Account ID"
+                        />
+                        {errors.accountId && (
+                          <p className="text-red text-sm mt-1">
+                            {errors.accountId.message}
+                          </p>
+                        )}
+                      </div>
+                    ) : (
+                      <p className="text-darkGray">
+                        {modelData.accountId || "Not provided."}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Tags */}
+                  <div>
+                    <label
+                      htmlFor="tags"
+                      className="block text-sm font-medium text-lightGray"
+                    >
+                      Tags
+                    </label>
+                    {isEditing ? (
+                      <div>
+                        <Input
+                          type="text"
+                          id="tags"
+                          {...register("tags")}
+                          className="w-full p-2 border border-lightGray rounded focus:outline-none focus:ring-2 focus:ring-indigo"
+                          placeholder="Enter tags separated by commas"
+                        />
+                        {errors.tags && (
+                          <p className="text-red text-sm mt-1">
+                            {errors.tags.message}
+                          </p>
+                        )}
+                      </div>
+                    ) : (
+                      <div className="flex flex-wrap">
+                        {modelData.tags?.length ? (
+                          modelData.tags.map((tag, index) => (
+                            <span
+                              key={index}
+                              className="mr-2 mb-2 px-3 py-1 bg-indigo-light text-white rounded-full text-sm"
+                            >
+                              {tag}
+                            </span>
+                          ))
+                        ) : (
+                          <p className="text-darkGray">No tags provided.</p>
+                        )}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Default Language */}
+                  <div>
+                    <label
+                      htmlFor="default_language"
+                      className="block text-sm font-medium text-lightGray"
+                    >
+                      Default Language
+                    </label>
+                    {isEditing ? (
+                      <div>
+                        <Input
+                          type="text"
+                          id="default_language"
+                          {...register("default_language")}
+                          className="w-full p-2 border border-lightGray rounded focus:outline-none focus:ring-2 focus:ring-indigo"
+                          placeholder="Enter Default Language"
+                        />
+                        {errors.default_language && (
+                          <p className="text-red text-sm mt-1">
+                            {errors.default_language.message}
+                          </p>
+                        )}
+                      </div>
+                    ) : (
+                      <p className="text-darkGray">
+                        {modelData.default_language || "Not provided."}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Foundational Model */}
+                  <div>
+                    <label
+                      htmlFor="foundational_model"
+                      className="block text-sm font-medium text-lightGray"
+                    >
+                      Foundational Model
+                    </label>
+                    {isEditing ? (
+                      <div className="flex items-center mt-2">
+                        <input
+                          type="checkbox"
+                          id="foundational_model"
+                          {...register("foundational_model")}
+                          className="h-4 w-4 text-indigo border-lightGray rounded focus:ring-indigo"
+                        />
+                        <label
+                          htmlFor="foundational_model"
+                          className="ml-2 text-sm text-lightGray"
+                        >
+                          Yes
+                        </label>
+                      </div>
+                    ) : (
+                      <p className="text-darkGray">
+                        {modelData.foundational_model ? "Yes" : "No"}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Safety Details */}
+            <section className="bg-white rounded-xl shadow-sm p-6">
+              <h2 className="text-2xl font-semibold text-darkGray mb-6 flex items-center">
+                <Shield className="h-7 w-7 text-indigo mr-2" />
+                Safety Details
+              </h2>
+              <div className="space-y-6">
+                {/* Bias Risks */}
+                <div>
+                  <label
+                    htmlFor="bias_risks"
+                    className="block text-sm font-medium text-lightGray mb-2"
+                  >
+                    Bias Risks
                   </label>
                   {isEditing ? (
                     <div>
                       <Textarea
-                        {...register("prompt_template")}
-                        className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                        placeholder="Enter prompt template..."
+                        id="bias_risks"
+                        {...register("safety_details.bias_risks")}
+                        className="w-full p-2 border border-lightGray rounded focus:outline-none focus:ring-2 focus:ring-indigo"
+                        placeholder="Describe bias risks..."
                       />
-                      {errors.prompt_template && (
-                        <p className="text-red-500 text-sm mt-1">{errors.prompt_template.message}</p>
-                      )}
-                    </div>
-                  ) : (
-                    <p className="text-gray-700">{modelData.prompt_template || "Not provided."}</p>
-                  )}
-                </div>
-
-                {/* Created At */}
-                <div>
-                  <label className="flex items-center text-sm font-medium text-gray-700 mb-1">
-                    <Calendar className="mr-2 h-4 w-4 text-indigo-400" />
-                    Created At:
-                  </label>
-                  <p className="text-gray-700">
-                    {modelData.createdAt
-                      ? new Date(modelData.createdAt).toLocaleString()
-                      : "Not provided."}
-                  </p>
-                </div>
-
-                {/* Updated At */}
-                <div>
-                  <label className="flex items-center text-sm font-medium text-gray-700 mb-1">
-                    <Calendar className="mr-2 h-4 w-4 text-indigo-400" />
-                    Updated At:
-                  </label>
-                  <p className="text-gray-700">
-                    {modelData.updatedAt
-                      ? new Date(modelData.updatedAt).toLocaleString()
-                      : "Not provided."}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Safety Details Section */}
-            <Card className="border border-gray-300 rounded-xl shadow-md">
-              <CardHeader className="bg-gray-50 p-5 rounded-t-xl flex items-center">
-                <Shield className="mr-3 h-6 w-6 text-indigo-500" />
-                <CardTitle className="text-xl font-semibold">Safety Details</CardTitle>
-              </CardHeader>
-              <CardContent className="p-5 space-y-6">
-                {/* Bias Risks */}
-                <Card className="border border-gray-200 rounded-lg shadow-sm">
-                  <CardHeader className="bg-gray-100 p-4 rounded-t-lg flex items-center">
-                    <Info className="mr-2 h-5 w-5 text-indigo-400" />
-                    <CardTitle className="text-md font-medium">Bias Risks</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-4">
-                    {isEditing ? (
-                      <div>
-                        <Textarea
-                          {...register("safety_details.bias_risks")}
-                          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                          placeholder="Describe bias risks..."
-                        />
-                        {errors.safety_details?.bias_risks && (
-                          <p className="text-red-500 text-sm mt-1">{errors.safety_details.bias_risks.message}</p>
-                        )}
-                      </div>
-                    ) : (
-                      <p className="text-gray-700">
-                        {modelData.safety_details?.bias_risks || "Not provided."}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
-
-                {/* Limitations */}
-                <Card className="border border-gray-200 rounded-lg shadow-sm">
-                  <CardHeader className="bg-gray-100 p-4 rounded-t-lg flex items-center">
-                    <Info className="mr-2 h-5 w-5 text-indigo-400" />
-                    <CardTitle className="text-md font-medium">Limitations</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-4">
-                    {isEditing ? (
-                      <div>
-                        <Textarea
-                          {...register("safety_details.limitations")}
-                          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                          placeholder="Describe limitations..."
-                        />
-                        {errors.safety_details?.limitations && (
-                          <p className="text-red-500 text-sm mt-1">{errors.safety_details.limitations.message}</p>
-                        )}
-                      </div>
-                    ) : (
-                      <p className="text-gray-700">
-                        {modelData.safety_details?.limitations || "Not provided."}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
-
-                {/* Out of Scope Use */}
-                <Card className="border border-gray-200 rounded-lg shadow-sm">
-                  <CardHeader className="bg-gray-100 p-4 rounded-t-lg flex items-center">
-                    <Info className="mr-2 h-5 w-5 text-indigo-400" />
-                    <CardTitle className="text-md font-medium">Out of Scope Use</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-4">
-                    {isEditing ? (
-                      <div>
-                        <Textarea
-                          {...register("safety_details.out_of_scope_use")}
-                          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                          placeholder="Describe out of scope uses..."
-                        />
-                        {errors.safety_details?.out_of_scope_use && (
-                          <p className="text-red-500 text-sm mt-1">{errors.safety_details.out_of_scope_use.message}</p>
-                        )}
-                      </div>
-                    ) : (
-                      <p className="text-gray-700">
-                        {modelData.safety_details?.out_of_scope_use || "Not provided."}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
-
-                {/* Recommendations */}
-                <Card className="border border-gray-200 rounded-lg shadow-sm">
-                  <CardHeader className="bg-gray-100 p-4 rounded-t-lg flex items-center">
-                    <Info className="mr-2 h-5 w-5 text-indigo-400" />
-                    <CardTitle className="text-md font-medium">Recommendations</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-4">
-                    {isEditing ? (
-                      <div>
-                        <Textarea
-                          {...register("safety_details.recommendations")}
-                          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                          placeholder="Provide recommendations..."
-                        />
-                        {errors.safety_details?.recommendations && (
-                          <p className="text-red-500 text-sm mt-1">{errors.safety_details.recommendations.message}</p>
-                        )}
-                      </div>
-                    ) : (
-                      <p className="text-gray-700">
-                        {modelData.safety_details?.recommendations || "Not provided."}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
-              </CardContent>
-            </Card>
-
-            {/* Training Details Section */}
-            <Card className="border border-gray-300 rounded-xl shadow-md">
-              <CardHeader className="bg-gray-50 p-5 rounded-t-xl flex items-center">
-                <Database className="mr-3 h-6 w-6 text-indigo-500" />
-                <CardTitle className="text-xl font-semibold">Training Details</CardTitle>
-              </CardHeader>
-              <CardContent className="p-5 space-y-6">
-                {/* Training Data */}
-                <Card className="border border-gray-200 rounded-lg shadow-sm">
-                  <CardHeader className="bg-gray-100 p-4 rounded-t-lg flex items-center">
-                    <Database className="mr-2 h-5 w-5 text-indigo-400" />
-                    <CardTitle className="text-md font-medium">Training Data</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-4">
-                    {isEditing ? (
-                      <div>
-                        <Textarea
-                          {...register("training_details.training_data")}
-                          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                          placeholder="Describe training data..."
-                        />
-                        {errors.training_details?.training_data && (
-                          <p className="text-red-500 text-sm mt-1">{errors.training_details.training_data.message}</p>
-                        )}
-                      </div>
-                    ) : (
-                      <p className="text-gray-700">
-                        {modelData.training_details?.training_data || "Not provided."}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
-
-                {/* Preprocessing Steps */}
-                <Card className="border border-gray-200 rounded-lg shadow-sm">
-                  <CardHeader className="bg-gray-100 p-4 rounded-t-lg flex items-center">
-                    <Database className="mr-2 h-5 w-5 text-indigo-400" />
-                    <CardTitle className="text-md font-medium">Preprocessing Steps</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-4">
-                    {isEditing ? (
-                      <div>
-                        <Textarea
-                          {...register("training_details.preprocessing_steps")}
-                          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                          placeholder="Describe preprocessing steps..."
-                        />
-                        {errors.training_details?.preprocessing_steps && (
-                          <p className="text-red-500 text-sm mt-1">{errors.training_details.preprocessing_steps.message}</p>
-                        )}
-                      </div>
-                    ) : (
-                      <p className="text-gray-700">
-                        {modelData.training_details?.preprocessing_steps || "Not provided."}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
-
-                {/* Hyperparameters */}
-                <Card className="border border-gray-200 rounded-lg shadow-sm">
-                  <CardHeader className="bg-gray-100 p-4 rounded-t-lg flex items-center">
-                    <Code className="mr-2 h-5 w-5 text-indigo-400" />
-                    <CardTitle className="text-md font-medium">Hyperparameters</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-4 space-y-4">
-                    {/* Training Regime */}
-                    <div>
-                      <label className="flex items-center text-sm font-medium text-gray-700 mb-1">
-                        <Code className="mr-2 h-4 w-4 text-indigo-400" />
-                        Training Regime:
-                      </label>
-                      {isEditing ? (
-                        <div>
-                          <Textarea
-                            {...register("training_details.hyperparameters.training_regime")}
-                            className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                            placeholder="Describe training regime..."
-                          />
-                          {errors.training_details?.hyperparameters?.training_regime && (
-                            <p className="text-red-500 text-sm mt-1">{errors.training_details.hyperparameters.training_regime.message}</p>
-                          )}
-                        </div>
-                      ) : (
-                        <p className="text-gray-700">
-                          {modelData.training_details?.hyperparameters.training_regime || "Not provided."}
+                      {errors.safety_details?.bias_risks && (
+                        <p className="text-red text-sm mt-1">
+                          {errors.safety_details.bias_risks.message}
                         </p>
                       )}
                     </div>
-                  </CardContent>
-                </Card>
-              </CardContent>
-            </Card>
+                  ) : (
+                    <p className="text-darkGray whitespace-pre-wrap">
+                      {modelData.safety_details?.bias_risks || "Not provided."}
+                    </p>
+                  )}
+                </div>
 
-            {/* Evaluation Section */}
-            <Card className="border border-gray-300 rounded-xl shadow-md">
-              <CardHeader className="bg-gray-50 p-5 rounded-t-xl flex items-center">
-                <TrendingUp className="mr-3 h-6 w-6 text-indigo-500" />
-                <CardTitle className="text-xl font-semibold">Evaluation</CardTitle>
-              </CardHeader>
-              <CardContent className="p-5 space-y-6">
-                {/* Testing Data */}
-                <Card className="border border-gray-200 rounded-lg shadow-sm">
-                  <CardHeader className="bg-gray-100 p-4 rounded-t-lg flex items-center">
-                    <Info className="mr-2 h-5 w-5 text-indigo-400" />
-                    <CardTitle className="text-md font-medium">Testing Data</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-4">
-                    {isEditing ? (
-                      <div>
-                        <Textarea
-                          {...register("evaluation.testing_data")}
-                          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                          placeholder="Describe testing data..."
-                        />
-                        {errors.evaluation?.testing_data && (
-                          <p className="text-red-500 text-sm mt-1">{errors.evaluation.testing_data.message}</p>
+                {/* Limitations */}
+                <div>
+                  <label
+                    htmlFor="limitations"
+                    className="block text-sm font-medium text-lightGray mb-2"
+                  >
+                    Limitations
+                  </label>
+                  {isEditing ? (
+                    <div>
+                      <Textarea
+                        id="limitations"
+                        {...register("safety_details.limitations")}
+                        className="w-full p-2 border border-lightGray rounded focus:outline-none focus:ring-2 focus:ring-indigo"
+                        placeholder="Describe limitations..."
+                      />
+                      {errors.safety_details?.limitations && (
+                        <p className="text-red text-sm mt-1">
+                          {errors.safety_details.limitations.message}
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    <p className="text-darkGray whitespace-pre-wrap">
+                      {modelData.safety_details?.limitations || "Not provided."}
+                    </p>
+                  )}
+                </div>
+
+                {/* Out of Scope Use */}
+                <div>
+                  <label
+                    htmlFor="out_of_scope_use"
+                    className="block text-sm font-medium text-lightGray mb-2"
+                  >
+                    Out of Scope Use
+                  </label>
+                  {isEditing ? (
+                    <div>
+                      <Textarea
+                        id="out_of_scope_use"
+                        {...register("safety_details.out_of_scope_use")}
+                        className="w-full p-2 border border-lightGray rounded focus:outline-none focus:ring-2 focus:ring-indigo"
+                        placeholder="Describe out of scope uses..."
+                      />
+                      {errors.safety_details?.out_of_scope_use && (
+                        <p className="text-red text-sm mt-1">
+                          {errors.safety_details.out_of_scope_use.message}
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    <p className="text-darkGray whitespace-pre-wrap">
+                      {modelData.safety_details?.out_of_scope_use ||
+                        "Not provided."}
+                    </p>
+                  )}
+                </div>
+
+                {/* Recommendations */}
+                <div>
+                  <label
+                    htmlFor="recommendations"
+                    className="block text-sm font-medium text-lightGray mb-2"
+                  >
+                    Recommendations
+                  </label>
+                  {isEditing ? (
+                    <div>
+                      <Textarea
+                        id="recommendations"
+                        {...register("safety_details.recommendations")}
+                        className="w-full p-2 border border-lightGray rounded focus:outline-none focus:ring-2 focus:ring-indigo"
+                        placeholder="Provide recommendations..."
+                      />
+                      {errors.safety_details?.recommendations && (
+                        <p className="text-red text-sm mt-1">
+                          {errors.safety_details.recommendations.message}
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    <p className="text-darkGray whitespace-pre-wrap">
+                      {modelData.safety_details?.recommendations ||
+                        "Not provided."}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </section>
+
+            {/* Training Details */}
+            <section className="bg-white rounded-xl shadow-sm p-6">
+              <h2 className="text-2xl font-semibold text-darkGray mb-6 flex items-center">
+                <Database className="h-7 w-7 text-indigo mr-2" />
+                Training Details
+              </h2>
+              <div className="space-y-6">
+                {/* Training Data */}
+                <div>
+                  <label
+                    htmlFor="training_data"
+                    className="block text-sm font-medium text-lightGray mb-2"
+                  >
+                    Training Data
+                  </label>
+                  {isEditing ? (
+                    <div>
+                      <Textarea
+                        id="training_data"
+                        {...register("training_details.training_data")}
+                        className="w-full p-2 border border-lightGray rounded focus:outline-none focus:ring-2 focus:ring-indigo"
+                        placeholder="Describe training data..."
+                      />
+                      {errors.training_details?.training_data && (
+                        <p className="text-red text-sm mt-1">
+                          {errors.training_details.training_data.message}
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    <p className="text-darkGray whitespace-pre-wrap">
+                      {modelData.training_details?.training_data ||
+                        "Not provided."}
+                    </p>
+                  )}
+                </div>
+
+                {/* Preprocessing Steps */}
+                <div>
+                  <label
+                    htmlFor="preprocessing_steps"
+                    className="block text-sm font-medium text-lightGray mb-2"
+                  >
+                    Preprocessing Steps
+                  </label>
+                  {isEditing ? (
+                    <div>
+                      <Textarea
+                        id="preprocessing_steps"
+                        {...register("training_details.preprocessing_steps")}
+                        className="w-full p-2 border border-lightGray rounded focus:outline-none focus:ring-2 focus:ring-indigo"
+                        placeholder="Describe preprocessing steps..."
+                      />
+                      {errors.training_details?.preprocessing_steps && (
+                        <p className="text-red text-sm mt-1">
+                          {errors.training_details.preprocessing_steps.message}
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    <p className="text-darkGray whitespace-pre-wrap">
+                      {modelData.training_details?.preprocessing_steps ||
+                        "Not provided."}
+                    </p>
+                  )}
+                </div>
+
+                {/* Hyperparameters */}
+                <div>
+                  <label
+                    htmlFor="training_regime"
+                    className="block text-sm font-medium text-lightGray mb-2"
+                  >
+                    Training Regime
+                  </label>
+                  {isEditing ? (
+                    <div>
+                      <Textarea
+                        id="training_regime"
+                        {...register(
+                          "training_details.hyperparameters.training_regime"
                         )}
-                      </div>
-                    ) : (
-                      <p className="text-gray-700">
-                        {modelData.evaluation?.testing_data || "Not provided."}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
+                        className="w-full p-2 border border-lightGray rounded focus:outline-none focus:ring-2 focus:ring-indigo"
+                        placeholder="Describe training regime..."
+                      />
+                      {errors.training_details?.hyperparameters
+                        ?.training_regime && (
+                        <p className="text-red text-sm mt-1">
+                          {
+                            errors.training_details.hyperparameters
+                              .training_regime.message
+                          }
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    <p className="text-darkGray whitespace-pre-wrap">
+                      {
+                        modelData.training_details?.hyperparameters
+                          .training_regime || "Not provided."
+                      }
+                    </p>
+                  )}
+                </div>
+              </div>
+            </section>
+
+            {/* Evaluation */}
+            <section className="bg-white rounded-xl shadow-sm p-6">
+              <h2 className="text-2xl font-semibold text-darkGray mb-6 flex items-center">
+                <TrendingUp className="h-7 w-7 text-indigo mr-2" />
+                Evaluation
+              </h2>
+              <div className="space-y-6">
+                {/* Testing Data */}
+                <div>
+                  <label
+                    htmlFor="testing_data"
+                    className="block text-sm font-medium text-lightGray mb-2"
+                  >
+                    Testing Data
+                  </label>
+                  {isEditing ? (
+                    <div>
+                      <Textarea
+                        id="testing_data"
+                        {...register("evaluation.testing_data")}
+                        className="w-full p-2 border border-lightGray rounded focus:outline-none focus:ring-2 focus:ring-indigo"
+                        placeholder="Describe testing data..."
+                      />
+                      {errors.evaluation?.testing_data && (
+                        <p className="text-red text-sm mt-1">
+                          {errors.evaluation.testing_data.message}
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    <p className="text-darkGray whitespace-pre-wrap">
+                      {modelData.evaluation?.testing_data || "Not provided."}
+                    </p>
+                  )}
+                </div>
 
                 {/* Metrics */}
-                <Card className="border border-gray-200 rounded-lg shadow-sm">
-                  <CardHeader className="bg-gray-100 p-4 rounded-t-lg flex items-center">
-                    <TrendingUp className="mr-2 h-5 w-5 text-indigo-400" />
-                    <CardTitle className="text-md font-medium">Metrics</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-4">
-                    {isEditing ? (
-                      <div>
-                        <Textarea
-                          {...register("evaluation.metrics")}
-                          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                          placeholder="Describe metrics..."
-                        />
-                        {errors.evaluation?.metrics && (
-                          <p className="text-red-500 text-sm mt-1">{errors.evaluation.metrics.message}</p>
-                        )}
-                      </div>
-                    ) : (
-                      <p className="text-gray-700">
-                        {modelData.evaluation?.metrics || "Not provided."}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
+                <div>
+                  <label
+                    htmlFor="metrics"
+                    className="block text-sm font-medium text-lightGray mb-2"
+                  >
+                    Metrics
+                  </label>
+                  {isEditing ? (
+                    <div>
+                      <Textarea
+                        id="metrics"
+                        {...register("evaluation.metrics")}
+                        className="w-full p-2 border border-lightGray rounded focus:outline-none focus:ring-2 focus:ring-indigo"
+                        placeholder="Describe metrics..."
+                      />
+                      {errors.evaluation?.metrics && (
+                        <p className="text-red text-sm mt-1">
+                          {errors.evaluation.metrics.message}
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    <p className="text-darkGray whitespace-pre-wrap">
+                      {modelData.evaluation?.metrics || "Not provided."}
+                    </p>
+                  )}
+                </div>
 
                 {/* Results */}
-                <Card className="border border-gray-200 rounded-lg shadow-sm">
-                  <CardHeader className="bg-gray-100 p-4 rounded-t-lg flex items-center">
-                    <TrendingUp className="mr-2 h-5 w-5 text-indigo-400" />
-                    <CardTitle className="text-md font-medium">Results</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-4">
-                    {isEditing ? (
-                      <div>
-                        <Textarea
-                          {...register("evaluation.results")}
-                          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                          placeholder="Describe results..."
-                        />
-                        {errors.evaluation?.results && (
-                          <p className="text-red-500 text-sm mt-1">{errors.evaluation.results.message}</p>
-                        )}
-                      </div>
-                    ) : (
-                      <p className="text-gray-700">
-                        {modelData.evaluation?.results || "Not provided."}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
-              </CardContent>
-            </Card>
+                <div>
+                  <label
+                    htmlFor="results"
+                    className="block text-sm font-medium text-lightGray mb-2"
+                  >
+                    Results
+                  </label>
+                  {isEditing ? (
+                    <div>
+                      <Textarea
+                        id="results"
+                        {...register("evaluation.results")}
+                        className="w-full p-2 border border-lightGray rounded focus:outline-none focus:ring-2 focus:ring-indigo"
+                        placeholder="Describe results..."
+                      />
+                      {errors.evaluation?.results && (
+                        <p className="text-red text-sm mt-1">
+                          {errors.evaluation.results.message}
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    <p className="text-darkGray whitespace-pre-wrap">
+                      {modelData.evaluation?.results || "Not provided."}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </section>
 
-            {/* Environmental Impact Section */}
-            <Card className="border border-gray-300 rounded-xl shadow-md">
-              <CardHeader className="bg-gray-50 p-5 rounded-t-xl flex items-center">
-                <Leaf className="mr-3 h-6 w-6 text-indigo-500" />
-                <CardTitle className="text-xl font-semibold">Environmental Impact</CardTitle>
-              </CardHeader>
-              <CardContent className="p-5 space-y-6">
+            {/* Environmental Impact */}
+            <section className="bg-white rounded-xl shadow-sm p-6">
+              <h2 className="text-2xl font-semibold text-darkGray mb-6 flex items-center">
+                <Leaf className="h-7 w-7 text-indigo mr-2" />
+                Environmental Impact
+              </h2>
+              <div className="space-y-6">
                 {/* Hardware Type */}
-                <Card className="border border-gray-200 rounded-lg shadow-sm">
-                  <CardHeader className="bg-gray-100 p-4 rounded-t-lg flex items-center">
-                    <Server className="mr-2 h-5 w-5 text-indigo-400" />
-                    <CardTitle className="text-md font-medium">Hardware Type</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-4">
-                    {isEditing ? (
-                      <div>
-                        <Input
-                          type="text"
-                          {...register("environmental_impact.hardware_type")}
-                          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                          placeholder="Enter Hardware Type"
-                        />
-                        {errors.environmental_impact?.hardware_type && (
-                          <p className="text-red-500 text-sm mt-1">{errors.environmental_impact.hardware_type.message}</p>
-                        )}
-                      </div>
-                    ) : (
-                      <p className="text-gray-700">
-                        {modelData.environmental_impact?.hardware_type || "Not provided."}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
+                <div>
+                  <label
+                    htmlFor="hardware_type"
+                    className="block text-sm font-medium text-lightGray mb-2"
+                  >
+                    Hardware Type
+                  </label>
+                  {isEditing ? (
+                    <div>
+                      <Input
+                        type="text"
+                        id="hardware_type"
+                        {...register("environmental_impact.hardware_type")}
+                        className="w-full p-2 border border-lightGray rounded focus:outline-none focus:ring-2 focus:ring-indigo"
+                        placeholder="Enter Hardware Type"
+                      />
+                      {errors.environmental_impact?.hardware_type && (
+                        <p className="text-red text-sm mt-1">
+                          {errors.environmental_impact.hardware_type.message}
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    <p className="text-darkGray">
+                      {modelData.environmental_impact?.hardware_type ||
+                        "Not provided."}
+                    </p>
+                  )}
+                </div>
 
                 {/* Hours Used */}
-                <Card className="border border-gray-200 rounded-lg shadow-sm">
-                  <CardHeader className="bg-gray-100 p-4 rounded-t-lg flex items-center">
-                    <TrendingUp className="mr-2 h-5 w-5 text-indigo-400" />
-                    <CardTitle className="text-md font-medium">Hours Used</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-4">
-                    {isEditing ? (
-                      <div>
-                        <Input
-                          type="number"
-                          {...register("environmental_impact.hours_used", { valueAsNumber: true })}
-                          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                          placeholder="Enter Hours Used"
-                        />
-                        {errors.environmental_impact?.hours_used && (
-                          <p className="text-red-500 text-sm mt-1">{errors.environmental_impact.hours_used.message}</p>
-                        )}
-                      </div>
-                    ) : (
-                      <p className="text-gray-700">
-                        {modelData.environmental_impact?.hours_used !== undefined
-                          ? modelData.environmental_impact.hours_used
-                          : "Not provided."}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
-
-                {/* Cloud Provider */}
-                <Card className="border border-gray-200 rounded-lg shadow-sm">
-                  <CardHeader className="bg-gray-100 p-4 rounded-t-lg flex items-center">
-                    <Server className="mr-2 h-5 w-5 text-indigo-400" />
-                    <CardTitle className="text-md font-medium">Cloud Provider</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-4">
-                    {isEditing ? (
-                      <div>
-                        <Input
-                          type="text"
-                          {...register("environmental_impact.cloud_provider")}
-                          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                          placeholder="Enter Cloud Provider"
-                        />
-                        {errors.environmental_impact?.cloud_provider && (
-                          <p className="text-red-500 text-sm mt-1">{errors.environmental_impact.cloud_provider.message}</p>
-                        )}
-                      </div>
-                    ) : (
-                      <p className="text-gray-700">
-                        {modelData.environmental_impact?.cloud_provider || "Not provided."}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
-
-                {/* Compute Region */}
-                <Card className="border border-gray-200 rounded-lg shadow-sm">
-                  <CardHeader className="bg-gray-100 p-4 rounded-t-lg flex items-center">
-                    <Server className="mr-2 h-5 w-5 text-indigo-400" />
-                    <CardTitle className="text-md font-medium">Compute Region</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-4">
-                    {isEditing ? (
-                      <div>
-                        <Input
-                          type="text"
-                          {...register("environmental_impact.compute_region")}
-                          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                          placeholder="Enter Compute Region"
-                        />
-                        {errors.environmental_impact?.compute_region && (
-                          <p className="text-red-500 text-sm mt-1">{errors.environmental_impact.compute_region.message}</p>
-                        )}
-                      </div>
-                    ) : (
-                      <p className="text-gray-700">
-                        {modelData.environmental_impact?.compute_region || "Not provided."}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
+                <div>
+                  <label
+                    htmlFor="hours_used"
+                    className="block text-sm font-medium text-lightGray mb-2"
+                  >
+                    Hours Used
+                  </label>
+                  {isEditing ? (
+                    <div>
+                      <Input
+                        type="number"
+                        id="hours_used"
+                        {...register("environmental_impact.hours_used", {
+                          valueAsNumber: true,
+                        })}
+                        className="w-full p-2 border border-lightGray rounded focus:outline-none focus:ring-2 focus:ring-indigo"
+                        placeholder="Enter Hours Used"
+                      />
+                      {errors.environmental_impact?.hours_used && (
+                        <p className="text-red text-sm mt-1">
+                          {errors.environmental_impact.hours_used.message}
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    <p className="text-darkGray">
+                      {modelData.environmental_impact?.hours_used !== undefined
+                        ? modelData.environmental_impact.hours_used
+                        : "Not provided."}
+                    </p>
+                  )}
+                </div>
 
                 {/* Carbon Emitted */}
-                <Card className="border border-gray-200 rounded-lg shadow-sm">
-                  <CardHeader className="bg-gray-100 p-4 rounded-t-lg flex items-center">
-                    <Leaf className="mr-2 h-5 w-5 text-indigo-400" />
-                    <CardTitle className="text-md font-medium">Carbon Emitted</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-4">
-                    {isEditing ? (
-                      <div>
-                        <Input
-                          type="text"
-                          {...register("environmental_impact.carbon_emitted")}
-                          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                          placeholder="Enter Carbon Emitted"
-                        />
-                        {errors.environmental_impact?.carbon_emitted && (
-                          <p className="text-red-500 text-sm mt-1">{errors.environmental_impact.carbon_emitted.message}</p>
-                        )}
-                      </div>
-                    ) : (
-                      <p className="text-gray-700">
-                        {modelData.environmental_impact?.carbon_emitted || "Not provided."}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
-              </CardContent>
-            </Card>
+                <div>
+                  <label
+                    htmlFor="carbon_emitted"
+                    className="block text-sm font-medium text-lightGray mb-2"
+                  >
+                    Carbon Emitted
+                  </label>
+                  {isEditing ? (
+                    <div>
+                      <Input
+                        type="text"
+                        id="carbon_emitted"
+                        {...register("environmental_impact.carbon_emitted")}
+                        className="w-full p-2 border border-lightGray rounded focus:outline-none focus:ring-2 focus:ring-indigo"
+                        placeholder="Enter Carbon Emitted"
+                      />
+                      {errors.environmental_impact?.carbon_emitted && (
+                        <p className="text-red text-sm mt-1">
+                          {errors.environmental_impact.carbon_emitted.message}
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    <p className="text-darkGray">
+                      {modelData.environmental_impact?.carbon_emitted ||
+                        "Not provided."}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </section>
 
-            {/* Technical Specifications Section */}
-            <Card className="border border-gray-300 rounded-xl shadow-md">
-              <CardHeader className="bg-gray-50 p-5 rounded-t-xl flex items-center">
-                <Code className="mr-3 h-6 w-6 text-indigo-500" />
-                <CardTitle className="text-xl font-semibold">Technical Specifications</CardTitle>
-              </CardHeader>
-              <CardContent className="p-5 space-y-6">
-                {/* Model Architecture */}
-                <Card className="border border-gray-200 rounded-lg shadow-sm">
-                  <CardHeader className="bg-gray-100 p-4 rounded-t-lg flex items-center">
-                    <Code className="mr-2 h-5 w-5 text-indigo-400" />
-                    <CardTitle className="text-md font-medium">Model Architecture</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-4">
-                    {isEditing ? (
-                      <div>
-                        <Input
-                          type="text"
-                          {...register("technical_specifications.model_architecture")}
-                          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                          placeholder="Enter Model Architecture"
-                        />
-                        {errors.technical_specifications?.model_architecture && (
-                          <p className="text-red-500 text-sm mt-1">{errors.technical_specifications.model_architecture.message}</p>
-                        )}
-                      </div>
-                    ) : (
-                      <p className="text-gray-700">
-                        {modelData.technical_specifications?.model_architecture || "Not provided."}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
-
-                {/* Compute Infrastructure */}
-                <Card className="border border-gray-200 rounded-lg shadow-sm">
-                  <CardHeader className="bg-gray-100 p-4 rounded-t-lg flex items-center">
-                    <Server className="mr-2 h-5 w-5 text-indigo-400" />
-                    <CardTitle className="text-md font-medium">Compute Infrastructure</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-4">
-                    {isEditing ? (
-                      <div>
-                        <Input
-                          type="text"
-                          {...register("technical_specifications.compute_infrastructure")}
-                          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                          placeholder="Enter Compute Infrastructure"
-                        />
-                        {errors.technical_specifications?.compute_infrastructure && (
-                          <p className="text-red-500 text-sm mt-1">{errors.technical_specifications.compute_infrastructure.message}</p>
-                        )}
-                      </div>
-                    ) : (
-                      <p className="text-gray-700">
-                        {modelData.technical_specifications?.compute_infrastructure || "Not provided."}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
-
-                {/* Hardware */}
-                <Card className="border border-gray-200 rounded-lg shadow-sm">
-                  <CardHeader className="bg-gray-100 p-4 rounded-t-lg flex items-center">
-                    <Server className="mr-2 h-5 w-5 text-indigo-400" />
-                    <CardTitle className="text-md font-medium">Hardware</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-4">
-                    {isEditing ? (
-                      <div>
-                        <Input
-                          type="text"
-                          {...register("technical_specifications.hardware")}
-                          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                          placeholder="Enter Hardware Details"
-                        />
-                        {errors.technical_specifications?.hardware && (
-                          <p className="text-red-500 text-sm mt-1">{errors.technical_specifications.hardware.message}</p>
-                        )}
-                      </div>
-                    ) : (
-                      <p className="text-gray-700">
-                        {modelData.technical_specifications?.hardware || "Not provided."}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
-
-                {/* Software */}
-                <Card className="border border-gray-200 rounded-lg shadow-sm">
-                  <CardHeader className="bg-gray-100 p-4 rounded-t-lg flex items-center">
-                    <Code className="mr-2 h-5 w-5 text-indigo-400" />
-                    <CardTitle className="text-md font-medium">Software</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-4">
-                    {isEditing ? (
-                      <div>
-                        <Input
-                          type="text"
-                          {...register("technical_specifications.software")}
-                          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                          placeholder="Enter Software Details"
-                        />
-                        {errors.technical_specifications?.software && (
-                          <p className="text-red-500 text-sm mt-1">{errors.technical_specifications.software.message}</p>
-                        )}
-                      </div>
-                    ) : (
-                      <p className="text-gray-700">
-                        {modelData.technical_specifications?.software || "Not provided."}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
-              </CardContent>
-            </Card>
-
-            {/* Model Sources Section */}
-            <Card className="border border-gray-300 rounded-xl shadow-md">
-              <CardHeader className="bg-gray-50 p-5 rounded-t-xl flex items-center">
-                <ExternalLink className="mr-3 h-6 w-6 text-indigo-500" />
-                <CardTitle className="text-xl font-semibold">Model Sources</CardTitle>
-              </CardHeader>
-              <CardContent className="p-5 space-y-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Model Sources */}
+            <section className="bg-white rounded-xl shadow-sm p-6">
+              <h2 className="text-2xl font-semibold text-darkGray mb-6 flex items-center">
+                <ExternalLink className="h-7 w-7 text-indigo mr-2" />
+                Model Sources
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Repository */}
                 <div>
-                  <label className="flex items-center text-sm font-medium text-gray-700 mb-1">
-                    <ExternalLink className="mr-2 h-4 w-4 text-indigo-400" />
-                    Repository:
+                  <label
+                    htmlFor="repository"
+                    className="block text-sm font-medium text-lightGray mb-2"
+                  >
+                    Repository
                   </label>
                   {isEditing ? (
                     <div>
                       <Input
                         type="url"
+                        id="repository"
                         {...register("model_sources.repository")}
-                        className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        className="w-full p-2 border border-lightGray rounded focus:outline-none focus:ring-2 focus:ring-indigo"
                         placeholder="Enter Repository URL"
                       />
                       {errors.model_sources?.repository && (
-                        <p className="text-red-500 text-sm mt-1">{errors.model_sources.repository.message}</p>
+                        <p className="text-red text-sm mt-1">
+                          {errors.model_sources.repository.message}
+                        </p>
                       )}
                     </div>
                   ) : (
@@ -1001,7 +788,7 @@ export const DocumentationTab: React.FC<DocumentationTabProps> = ({
                       href={modelData.model_sources?.repository}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-indigo-600 hover:underline"
+                      className="text-indigo hover:underline break-all"
                     >
                       {modelData.model_sources?.repository || "Not provided."}
                     </a>
@@ -1010,38 +797,43 @@ export const DocumentationTab: React.FC<DocumentationTabProps> = ({
 
                 {/* Demo */}
                 <div>
-                  <label className="flex items-center text-sm font-medium text-gray-700 mb-1">
-                    <ExternalLink className="mr-2 h-4 w-4 text-indigo-400" />
-                    Demo:
+                  <label
+                    htmlFor="demo"
+                    className="block text-sm font-medium text-lightGray mb-2"
+                  >
+                    Demo
                   </label>
                   {isEditing ? (
-                    <Input
-                      type="url"
-                      {...register("model_sources.demo")}
-                      className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                      placeholder="Enter Demo URL"
-                    />
+                    <div>
+                      <Input
+                        type="url"
+                        id="demo"
+                        {...register("model_sources.demo")}
+                        className="w-full p-2 border border-lightGray rounded focus:outline-none focus:ring-2 focus:ring-indigo"
+                        placeholder="Enter Demo URL"
+                      />
+                      {errors.model_sources?.demo && (
+                        <p className="text-red text-sm mt-1">
+                          {errors.model_sources.demo.message}
+                        </p>
+                      )}
+                    </div>
                   ) : (
                     <a
                       href={modelData.model_sources?.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-indigo-600 hover:underline"
+                      className="text-indigo hover:underline break-all"
                     >
                       {modelData.model_sources?.demo || "Not provided."}
                     </a>
                   )}
                 </div>
-              </CardContent>
-            </Card>
-          </CardContent>
+              </div>
+            </section>
+          </div>
         </form>
-
-        {/* Card Footer (Optional) */}
-        <CardFooter className="p-6 bg-gray-50 rounded-b-3xl">
-          {/* You can add additional actions or information here if needed */}
-        </CardFooter>
-      </Card>
+      </div>
     </div>
   );
 };
