@@ -1,24 +1,23 @@
 // app/components/SidebarBrands.tsx
 
-"use client";
-
 import React from "react";
-import FilterSection from "./FilterSection";
-import { MultiSelectFilterList, SingleSelectFilterList } from "./FilterList";
+import Sidebar from "./Sidebar";
 
-const SidebarBrands: React.FC = () => {
+interface SidebarBrandsProps {
+  hitsPerPage: number;
+  onChangeHitsPerPage: (value: number) => void;
+}
+
+const SidebarBrands: React.FC<SidebarBrandsProps> = ({
+  hitsPerPage,
+  onChangeHitsPerPage,
+}) => {
   return (
-    <div className="space-y-4">
-      {/* Brands Filters */}
-      <FilterSection title="Brands">
-        <SingleSelectFilterList attribute="industries" />
-        <MultiSelectFilterList attribute="regions" />
-        <MultiSelectFilterList attribute="audience_lifestyle" />
-        <MultiSelectFilterList attribute="languages" />
-        {/* Add more filters as needed */}
-      </FilterSection>
-
-    </div>
+    <Sidebar
+      sections={["Brands"]}
+      hitsPerPage={hitsPerPage}
+      onChangeHitsPerPage={onChangeHitsPerPage}
+    />
   );
 };
 

@@ -87,14 +87,14 @@ export const routes = [
   },
   {
     label: 'Search',
-    // search page with 3 subsections: profiles, contracts, models
     icon: Search,
     href: '/search',
     color: "text-purple-500",
     children: [
-      { label: 'Profiles', href: '/search/profiles', color: "text-purple-500", description: "Discover athletes and their profiles.", icon: "zoom" },
+      { label: 'Athletes', href: '/search/athletes', color: "text-purple-500", description: "Discover athletes and their profiles.", icon: "zoom" },
       { label: 'Contracts', href: '/search/contracts', color: "text-purple-500", description: "Find contracts that suit your business needs.", icon: "zoom" },
       { label: 'Models', href: '/search/models', color: "text-purple-500", description: "Search for existing AI models to determine which one is right for you.", icon: "zoom" },
+      { label: 'Brands', href: '/search/brands', color: "text-purple-500", description: "Search for existing AI models to determine which one is right for you.", icon: "zoom" },
     ],
   },
 ];
@@ -130,31 +130,31 @@ export const Sidebar = ({
     }));
   };
 
-  const onSetSelectedToken = useCallback(async () => {
-    const token = await getSelectedAddress();
-    if (token) {
-      onAccountState(ACCOUNT_STATE.MINT_TOKEN);
-    } else {
-      onAccountState(ACCOUNT_STATE.GUEST);
-    }
-  }, [onAccountState]);
+  // const onSetSelectedToken = useCallback(async () => {
+  //   const token = await getSelectedAddress();
+  //   if (token) {
+  //     onAccountState(ACCOUNT_STATE.MINT_TOKEN);
+  //   } else {
+  //     onAccountState(ACCOUNT_STATE.GUEST);
+  //   }
+  // }, [onAccountState]);
 
-  const onSetUserProfileHandler = useCallback(async () => {
-    const userProfile = await getMetadataFromApiAsync();
-    onSetUserProfile(userProfile);
-  }, [onSetUserProfile]);
+  // const onSetUserProfileHandler = useCallback(async () => {
+  //   const userProfile = await getMetadataFromApiAsync();
+  //   onSetUserProfile(userProfile);
+  // }, [onSetUserProfile]);
   
-  const onConnectWallet = useCallback(async () => {
-    await connectWallet();
-    await onSetSelectedToken();
-    await onSetUserProfileHandler();
-    console.log(web3BtnState)  // This might not show the updated state immediately
-  }, [onSetUserProfileHandler, onSetSelectedToken]);
+  // const onConnectWallet = useCallback(async () => {
+  //   await connectWallet();
+  //   await onSetSelectedToken();
+  //   await onSetUserProfileHandler();
+  //   console.log(web3BtnState)  // This might not show the updated state immediately
+  // }, [onSetUserProfileHandler, onSetSelectedToken]);
   
-  useEffect(() => {
-    onSetSelectedToken();
-    onSetUserProfileHandler();
-  }, [onSetSelectedToken, onSetUserProfileHandler]);
+  // useEffect(() => {
+  //   onSetSelectedToken();
+  //   onSetUserProfileHandler();
+  // }, [onSetSelectedToken, onSetUserProfileHandler]);
   
   return (
     <TooltipProvider>

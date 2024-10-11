@@ -53,11 +53,20 @@ const Sidebar: React.FC<SidebarProps> = ({
       {sections.includes("Athlete Profiles") && (
         <>
           <FilterSection title="Sport">
-            <MultiSelectFilterList attribute="sport" />
+            <SingleSelectFilterList attribute="sport" />
           </FilterSection>
           <FilterSection title="Country">
-            <MultiSelectFilterList attribute="location" />
+            <SingleSelectFilterList attribute="location" />
           </FilterSection>
+          <FilterSection title="Hobbies">
+            <MultiSelectFilterList attribute="hobbies" />
+          </FilterSection>
+          <FilterSection title="Languages Spoken">
+            <MultiSelectFilterList attribute="languages_spoken" />
+          </FilterSection>
+          {/* <FilterSection title="Code">
+            <SingleSelectFilterList attribute="code" />
+          </FilterSection> */}
         </>
       )}
 
@@ -100,6 +109,24 @@ const Sidebar: React.FC<SidebarProps> = ({
           {/* Default Language Filter */}
           <FilterSection title="Default Language">
             <SingleSelectFilterList attribute="default_language" />
+          </FilterSection>
+        </>
+      )}
+
+      {/* Brands Filters */}
+      {sections.includes("Brands") && (
+        <>
+          <FilterSection title="Industries">
+            <SingleSelectFilterList attribute="industries" />
+          </FilterSection>
+          <FilterSection title="Regions">
+            <MultiSelectFilterList attribute="regions" />
+          </FilterSection>
+          <FilterSection title="Audience Lifestyle">
+            <MultiSelectFilterList attribute="audience_lifestyle" />
+          </FilterSection>
+          <FilterSection title="Languages">
+            <MultiSelectFilterList attribute="languages" />
           </FilterSection>
         </>
       )}

@@ -24,7 +24,7 @@ interface NavbarProps {
 const Navbar = ({ routes, apiLimitCount, isPro }: NavbarProps) => {
   return (
     <div className="flex items-center p-4">
-      Hello
+      {/* Hello */}
       {/* <MobileSidebar isPro={isPro} apiLimitCount={apiLimitCount} /> */}
       <div className="flex w-full justify-end">
         <UserButton afterSignOutUrl="/" />

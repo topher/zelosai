@@ -1,4 +1,4 @@
-// app/profiles/page.tsx
+// app/(dashboard)/(routes)/search/athletes/page.tsx
 
 "use client";
 
@@ -24,11 +24,13 @@ const sk = new Searchkit({
     host: "http://localhost:9200",
   },
   search_settings: {
-    search_attributes: ["name", "sport", "location"],
+    search_attributes: ["name", "sport", "location", "hobbies", "languages_spoken"],
     result_attributes: [
       "name",
       "sport",
       "location",
+      "hobbies",
+      "languages_spoken",
       "imageSrc",
       "id",
       "accolades",
@@ -37,7 +39,7 @@ const sk = new Searchkit({
     highlight_attributes: ["name"],
     facet_attributes: [
       { attribute: "sport", field: "sport", type: "string" },
-      { attribute: "location.keyword", field: "location.keyword", type: "string" },
+      { attribute: "location", field: "location", type: "string" },
       { attribute: "hobbies", field: "hobbies", type: "string" },
       { attribute: "languages_spoken", field: "languages_spoken", type: "string" },
       { attribute: "code", field: "code", type: "string" },
