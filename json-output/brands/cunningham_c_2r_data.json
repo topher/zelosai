@@ -1,0 +1,46 @@
+{
+  "brand_name": "Cunningham C-2R",
+  "mission_vision": null,
+  "sponsorship_activities": [],
+  "channels": [],
+  "industry": {
+    "Primary_Industry": "Automotive",
+    "Secondary_Industry": "Motorsports"
+  },
+  "regions": [],
+  "interests": [
+    {
+      "category": "Sports and Outdoor Activities",
+      "specifics": [
+        "Motor racing (Street Racing, Auto Racing)"
+      ]
+    }
+  ],
+  "audience_lifestyle": [],
+  "languages": [],
+  "business_model_canvas": {
+    "Key_Partners": [],
+    "Key_Activities": [],
+    "Value_Propositions": [],
+    "Customer_Relationships": [],
+    "Customer_Segments": [],
+    "Channels": [],
+    "Cost_Structure": [],
+    "Revenue_Streams": []
+  },
+  "link": "https://en.wikipedia.org/wiki/Cunningham_C-2R",
+  "parsed_at": "2024-10-01T14:38:49.617384Z",
+  "country": "American brands",
+  "category": "Cars of the United States",
+  "body_text": "From Wikipedia, the free encyclopedia Racing car model Cunningham C-2R Constructor B. S. Cunningham Company Successor Cunningham C-4R Technical specifications Engine Chrysler FirePower V8 331 cu in (5.4 L) Front Transmission Cadillac 3 + reverse Manual Competition history The Cunningham C-2R was a sports racing car developed in 1951 by the B. S. Cunningham Company . A team of three cars were entered in the 1951 24 Hours of Le Mans . History [ edit ] The C-2R was the successor to the C-1 . Three C-2 cars were built, all to racing specifications, and getting the \"R\" designation. The C-2R's front suspension used Ford parts, while the rear suspension had Oldsmobile springs and the brake system used Cadillac components. Unable to secure a supply of the Cadillac engine that had been used in the C1, Cunningham substituted a version of the Chrysler FirePower Hemi V8 in the C-2R. Motorsports [ edit ] The C-2R debuted at Le Mans in 1951. [ 1 ] [ 2 ] All three cars were entered, driven by teams John Fitch and Phil Walters, George Rand and Fred Wacker Jr. , and Briggs Cunningham and George Huntoon . Two of the three cars ended up retiring on lap 76 and 98 (9 and 11 hours), respectively, after an accident. Although the third car, with drivers John Fitch and Phil Walters , managed to complete 223 laps, they were not classified. They did finish, and placed 18th in class. [ 3 ] [ 4 ] [ 5 ] [ 6 ] [ 7 ] Retrieved from \" https://en.wikipedia.org/w/index.php?title=Cunningham_C-2R&oldid=1102048307 \" Categories : 1950s cars Sports cars Cars of the United States 24 Hours of Le Mans race cars Hidden categories: Articles with short description Short description is different from Wikidata",
+  "infobox": {
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Cunningham_C2-R_no_5103%2C_front_right_%28Greenwich_2018%29.jpg/220px-Cunningham_C2-R_no_5103%2C_front_right_%28Greenwich_2018%29.jpg",
+    "name": "",
+    "constructor": "B. S. Cunningham Company",
+    "successor": "Cunningham C-4R",
+    "engine": "Chrysler FirePower V8 331 cu in (5.4 L)   Front",
+    "transmission": "Cadillac 3 + reverse Manual"
+  },
+  "company_name": "Unknown",
+  "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Cunningham_C2-R_no_5103%2C_front_right_%28Greenwich_2018%29.jpg/220px-Cunningham_C2-R_no_5103%2C_front_right_%28Greenwich_2018%29.jpg"
+}

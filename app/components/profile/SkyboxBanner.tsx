@@ -1,90 +1,161 @@
-'use client'
+// app/components/profile/SkyboxBanner.tsx
 
-import React, { useRef, useEffect } from 'react';
+'use client';
+
+import React, { useRef, useLayoutEffect, useState } from 'react';
 import * as THREE from 'three';
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { PMREMGenerator } from 'three/src/extras/PMREMGenerator';
 
 interface SkyboxBannerProps {
   hdriPath: string;
   onClick: () => void;
-  style?: React.CSSProperties; // Add this line
 }
 
 const SkyboxBanner: React.FC<SkyboxBannerProps> = ({ hdriPath, onClick }) => {
   const mountRef = useRef<HTMLDivElement>(null);
-  
+  const rotationRef = useRef<number>(0); // Tracks rotation angle
+  const [isLoading, setIsLoading] = useState<boolean>(true); // Loading state
 
-  useEffect(() => {
-    let frameId: number | null = null;
-    let localMount = mountRef.current;
-    
+  useLayoutEffect(() => {
+    if (!mountRef.current) return;
 
-    if (localMount) {
-      
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(75, localMount.clientWidth / localMount.clientHeight, 0.1, 1000);
-      const renderer = new THREE.WebGLRenderer();
-      renderer.setSize(localMount.clientWidth, localMount.clientHeight);
-      localMount.appendChild(renderer.domElement);
+    console.log('hdriPath prop:', hdriPath);
 
+    // Initialize Three.js Scene
+    const scene = new THREE.Scene();
 
-      // PMREM Generator for HDR Environment
-      const pmremGenerator = new PMREMGenerator(renderer);
-      
-      // HDRI Skybox
-      new RGBELoader()
-  .setDataType(THREE.UnsignedByteType)
-  .load(hdriPath, (texture) => {
-    // Ensure 'texture' is defined and has the 'image' property
-    console.log(texture,"texture")
-    if (texture && texture.image) {
-      const envMap = pmremGenerator.fromEquirectangular(texture).texture;
-      scene.background = envMap;
-      texture.dispose();
-      pmremGenerator.dispose();
-    } else {
-      // Handle the case where 'texture' is not as expected
-      console.error('Failed to load texture or texture data is invalid');
-    }
-  }, undefined, (
-    error) => {
-      console.error('An error occurred while loading the HDRI:', error);
-      });
-    
+    // Initialize Camera with adjusted FOV for 175px height
+    const camera = new THREE.PerspectiveCamera(
+      65, // Reduced FOV for smaller height
+      mountRef.current.clientWidth / mountRef.current.clientHeight,
+      0.1,
+      1000
+    );
 
-      // Orbit Controls
-      const controls = new OrbitControls(camera, renderer.domElement);
-      controls.enableZoom = false;
-      controls.enablePan = false;
-      controls.enableDamping = true;
-      controls.enabled = false;
+    // Position the camera to create a 45-degree upward angle
+    const cameraDistance = 1.5; // Adjusted for smaller height
+    camera.position.set(0, cameraDistance, cameraDistance);
+    camera.lookAt(new THREE.Vector3(0, 1, 0)); // Looking upward at Y=1
 
-      camera.position.set(0, 0, 2.5);
-      controls.update();
+    // Initialize Renderer
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1;
+    renderer.domElement.style.width = '100%';
+    renderer.domElement.style.height = '100%';
+    mountRef.current.appendChild(renderer.domElement);
 
-      const animate = () => {
-        frameId = requestAnimationFrame(animate);
-        controls.update();
-        renderer.render(scene, camera);
-      };
-      
-      frameId = requestAnimationFrame(animate);
-      localMount.addEventListener('click', onClick);
-    }
+    // PMREM Generator for HDRI
+    const pmremGenerator = new THREE.PMREMGenerator(renderer);
+    pmremGenerator.compileEquirectangularShader();
 
-    return () => {
-      if (frameId !== null) {
-        cancelAnimationFrame(frameId);
+    // Load HDRI
+    const rgbeLoader = new RGBELoader();
+    rgbeLoader.setDataType(THREE.HalfFloatType);
+
+    rgbeLoader.load(
+      hdriPath,
+      (texture) => {
+        console.log('HDRI loaded successfully from:', hdriPath);
+        const envMap = pmremGenerator.fromEquirectangular(texture).texture;
+        scene.background = envMap;
+        scene.environment = envMap;
+
+        texture.dispose();
+        pmremGenerator.dispose();
+
+        setIsLoading(false); // HDRI loaded
+      },
+      (xhr) => {
+        // Progress callback (optional)
+        if (xhr.lengthComputable) {
+          console.log(`HDRI loading progress: ${(xhr.loaded / xhr.total) * 100}%`);
+        }
+      },
+      (error) => {
+        console.error('Error loading HDRI:', error);
+        setIsLoading(false); // Loading failed
       }
-      if (localMount) {
-        localMount.removeEventListener('click', onClick);
-      }
+    );
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableZoom = false;
+    controls.enablePan = true;
+    controls.enableDamping = true;
+    controls.enabled = true;
+
+    controls.update();
+
+    // Animation Loop for Camera Rotation
+    const animate = () => {
+      requestAnimationFrame(animate);
+
+      // Increment rotation angle
+      rotationRef.current += 0.0001; // Adjust speed as needed
+
+      // Calculate new camera position in a circular path around Y-axis
+      const radius = cameraDistance; // Distance from the center
+      camera.position.x = radius * Math.cos(rotationRef.current);
+      camera.position.z = radius * Math.sin(rotationRef.current);
+      camera.lookAt(new THREE.Vector3(0, 3.75, 0)); // Keep looking upward at Y=1
+
+      renderer.render(scene, camera);
     };
-  }, [hdriPath, onClick]);
 
-  return <div ref={mountRef} className="banner-skybox" />;
+    animate();
+
+    // Handle Window Resize
+    const handleResize = () => {
+      if (!mountRef.current) return;
+      camera.aspect = mountRef.current.clientWidth / mountRef.current.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
+      console.log('Resized to:', {
+        width: mountRef.current.clientWidth,
+        height: mountRef.current.clientHeight,
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+
+
+
+
+
+    // Cleanup on Unmount
+    return () => {
+      if (mountRef.current) {
+        mountRef.current.removeChild(renderer.domElement);
+      }
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [hdriPath]);
+
+  return (
+    <div
+      ref={mountRef}
+      className="banner-skybox"
+      style={{
+        position: 'relative',
+        width: '100%',
+        height: '100%', // Fill the parent container's height (175px)
+        overflow: 'hidden',
+        borderBottomLeftRadius: '20px', // Rounded bottom corners
+        borderBottomRightRadius: '20px', // Rounded bottom corners
+      }}
+      onClick={onClick}
+    >
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <span className="text-white">Loading...</span>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default SkyboxBanner;

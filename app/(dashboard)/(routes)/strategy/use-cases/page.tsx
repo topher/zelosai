@@ -17,6 +17,7 @@ import {
   updateUseCase,
   deleteUseCase,
 } from "@/app/actions/useCaseActions"; // Import all CRUD actions
+import StrategyLayout from "../StrategyLayout";
 
 const UseCasesPage = () => {
   const [useCases, setUseCases] = useState<UseCase[]>([]);
@@ -89,15 +90,8 @@ const UseCasesPage = () => {
   };
 
   return (
+    <StrategyLayout>
     <div className="space-y-8 p-6">
-      <div>
-        <h3 className="text-xl font-medium">Use Cases</h3>
-        <p className="text-sm text-muted-foreground">
-          Describe the use cases for your AI Models and Products
-        </p>
-      </div>
-      <Separator />
-
       {/* Add New Use Case Button */}
       <div className="flex justify-end mb-4">
         <button
@@ -182,6 +176,7 @@ const UseCasesPage = () => {
         </Table>
       </main>
     </div>
+    </StrategyLayout>
   );
 };
 

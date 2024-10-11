@@ -1,4 +1,4 @@
-  // Profile interface
+// Profile interface
   export interface Profile {
     id: string;
     name: string;
@@ -8,7 +8,21 @@
     similarity_score?: number; // Added property
     accolades?: string[];      // Added property
 }
-  
+
+export type ResourceType = 'athlete' | 'brand';
+
+export interface Triple {
+  subject: string;
+  predicate: string;
+  object: string;
+  citation?: string;
+}
+
+export interface Resource {
+  subject: string;
+  triples: Triple[];
+}
+
   export type DataCategory = {  
   accountId: string;
   fides_key: string; 
@@ -504,3 +518,22 @@ export interface CardWithList {
   title: string;
   list: List; // Add the list property of type List
 }
+
+export type UserSelectedFacets = {
+  userId: string;
+  selectedMarketingChannels: string[];
+  selectedMarkets: string[];
+  selectedIndustries: string[];
+  selectedVALSSegments: string[];
+  selectedLanguages: string[];
+  selectedNILActivities: string[];
+  selectedInterests: string[];
+  selectedProducts: string[];
+};
+
+export type DropdownOption = {
+  id: string;
+  name: string;
+  parent_id?: string | number | null;
+  [key: string]: any; // For additional fields like 'type', 'region', etc.
+};

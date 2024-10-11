@@ -1,26 +1,24 @@
-// AthleteHighlightCards.jsx
+// app/components/profile/ProfileHighlightCards.tsx
+
+'use client';
+
 import React from 'react';
+import { Triple } from '@/app/types';
 
-const HighlightCard = ({ title, value }) => (
-  <div className="highlight-card bg-white shadow rounded p-4 text-center">
-    <h3 className="text-lg font-bold">{title}</h3>
-    <p>{value}</p>
-  </div>
-);
+interface ProfileHighlightCardsProps {
+  data?: Triple;
+}
 
-const ProfileHighlightCards = ({ athlete }) => {
-  // Example data - replace with actual data
-  const highlights = [
-    { title: 'Achievement', value: athlete.achievement },
-    { title: 'Record', value: athlete.record },
-    { title: 'Ranking', value: athlete.ranking }
-  ];
+const ProfileHighlightCards: React.FC<ProfileHighlightCardsProps> = ({ data }) => {
+  if (!data) return null;
 
   return (
-    <div className="flex space-x-4 overflow-x-auto p-4">
-      {highlights.map((highlight, index) => (
-        <HighlightCard key={index} title={highlight.title} value={highlight.value} />
-      ))}
+    <div className="profile-highlight-cards mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="card p-4 bg-white rounded shadow">
+        <h3 className="text-lg font-semibold">{data.predicate.replace(/_/g, ' ')}</h3>
+        <p>{data.object}</p>
+      </div>
+      {/* Add more cards as needed */}
     </div>
   );
 };

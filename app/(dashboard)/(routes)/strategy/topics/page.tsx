@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Switch } from "@radix-ui/react-switch";
 import { Badge } from "@/components/ui/badge";
 import { StategicIssue } from "@/app/types";
+import StrategyLayout from "../StrategyLayout";
 
 const IssuesPage = () => {
   // Initialize state with empty array
@@ -17,6 +18,7 @@ const IssuesPage = () => {
   }, []);
 
   return (
+    <StrategyLayout>
     <div className="space-y-6 p-4">
       <div>
         <h3 className="text-lg font-medium">Issues</h3>
@@ -63,6 +65,7 @@ const IssuesPage = () => {
       ))}
     </div>
     </div>
+  </StrategyLayout>
   );
 }
 

@@ -1,0 +1,28 @@
+{
+    "mappings": {
+      "properties": {
+        "userId": {
+          "type": "keyword"
+        },
+        "selectedNILActivities": {
+          "type": "keyword"
+        },
+        "selectedMarketingChannels": {
+          "type": "keyword"
+        },
+        "selectedIndustries": {
+          "type": "keyword"
+        },
+        "selectedLanguages": {
+          "type": "keyword"
+        },
+        "selectedMarkets": {
+          "type": "keyword"
+        },
+        "selectedVALSSegments": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+  
