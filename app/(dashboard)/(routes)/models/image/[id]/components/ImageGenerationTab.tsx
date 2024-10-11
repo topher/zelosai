@@ -73,7 +73,7 @@ export const ImageGenerationTab: React.FC<ImageGenerationTabProps> = ({ modelId,
 
   return (
     <div className="flex flex-1 bg-white">
-      <aside className="w-full bg-offWhite p-6">
+      <aside className="w-1/4 bg-offWhite p-6">
         <h2 className="text-xl font-semibold mb-6 text-darkGray">Image Parameters</h2>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-w-3xl">
@@ -128,7 +128,7 @@ export const ImageGenerationTab: React.FC<ImageGenerationTabProps> = ({ modelId,
         </Form>
       </aside>
 
-      <main className="w-full flex flex-col justify-center items-center p-12 overflow-auto">
+      <main className="w-3/4 flex flex-col justify-center items-center p-12 overflow-auto">
         <h2 className="text-2xl font-bold text-darkGray mb-8">Generated Images</h2>
         {isLoading && <Loader />}
         {!images.length && !isLoading && <Empty label="No images generated yet." />}

@@ -83,7 +83,7 @@ export const VoiceGenerationTab: React.FC<VoiceGenerationTabProps> = ({ modelId,
   return (
     <div className="flex flex-1 bg-white">
       {/* Sidebar */}
-      <aside className="w-full bg-offWhite p-6">
+      <aside className="w-1/4 bg-offWhite p-6">
         <h2 className="text-xl font-semibold mb-6 text-darkGray">Voice Parameters</h2>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-w-3xl">
@@ -273,7 +273,7 @@ export const VoiceGenerationTab: React.FC<VoiceGenerationTabProps> = ({ modelId,
       </aside>
 
       {/* Main content */}
-      <main className="w-full flex flex-col justify-center items-center p-12">
+      <main className="w-3/4 flex flex-col justify-center items-center p-12">
         <h2 className="text-2xl font-bold text-darkGray mb-8">Generated Voices</h2>
         {isLoading && <Loader className="animate-spin" />}
         {!voices.length && !isLoading && <Empty label="No voices generated yet." />}

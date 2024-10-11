@@ -72,7 +72,7 @@ export const TextGenerationTab: React.FC<TextGenerationTabProps> = ({ modelId, m
 
   return (
     <div className="flex flex-1 bg-white">
-      <aside className="w-full bg-offWhite p-6">
+      <aside className="w-1/4 bg-offWhite p-6">
         <h2 className="text-xl font-semibold mb-6 text-darkGray">Text Parameters</h2>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-w-3xl">
@@ -123,7 +123,7 @@ export const TextGenerationTab: React.FC<TextGenerationTabProps> = ({ modelId, m
         </Form>
       </aside>
 
-      <main className="w-full flex flex-col justify-center items-center p-12 overflow-auto">
+      <main className="w-3/4 flex flex-col justify-center items-center p-12 overflow-auto">
         <h2 className="text-2xl font-bold text-darkGray mb-8">Generated Texts</h2>
         {isLoading && <Loader className="animate-spin" />}
         {!responseTexts.length && !isLoading && <Empty label="No texts generated yet." />}
