@@ -8,7 +8,7 @@ import ProfileHead from './ProfileHead';
 import ProfileUserActions from './ProfileUserActions';
 import ProfileHighlightCards from './ProfileHighlightCards';
 import { Triple, ResourceType } from '@/app/types';
-import Masonry from 'react-masonry-css';
+import Masonry from 'masonry-layout';
 import './Profile.css'; // Import the CSS for masonry
 
 interface ProfileProps {
@@ -45,6 +45,19 @@ const Profile: React.FC<ProfileProps> = ({ resource, type }) => {
     600: 1,
   };
 
+  useEffect(() => {
+    // Initialize Masonry after triples are set
+    const grid = document.querySelector('.my-masonry-grid');
+    if (grid) {
+      new Masonry(grid, {
+        itemSelector: '.grid-item',
+        columnWidth: '.grid-sizer',
+        percentPosition: true,
+        gutter: 30, // Ensure this matches your CSS gutter size
+      });
+    }
+  }, [triples]);
+
   return (
     <div className={`${type}-profile bg-gray-50 p-8`}>
       {/* Header */}
@@ -67,16 +80,15 @@ const Profile: React.FC<ProfileProps> = ({ resource, type }) => {
         <ProfileUserActions />
       </div>
 
-      {/* Triples Display using react-masonry-css */}
-      <Masonry
-        breakpointCols={breakpointColumnsObj}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column"
-      >
+      {/* Triples Display using Masonry */}
+      <div className="my-masonry-grid">
+        <div className="grid-sizer"></div>
         {triples.map((triple, index) => (
-          <TripleCardObject key={index} triple={triple} />
+          <div className="grid-item" key={index}>
+            <TripleCardObject triple={triple} />
+          </div>
         ))}
-      </Masonry>
+      </div>
     </div>
   );
 };

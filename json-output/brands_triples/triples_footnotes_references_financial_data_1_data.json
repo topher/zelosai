@@ -1,138 +1,138 @@
 {
-    "subject": "http://zelos.ai/knowledge/stancorp_financial_group",
+    "subject": "http://zelos.ai/knowledge/brand/stancorp_financial_group",
     "triples": [
         {
-            "predicate": "has name",
+            "predicate": "has_name",
             "object": "StanCorp Financial Group",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "belongs to industry",
+            "predicate": "belongs_to_industry",
             "object": "insurance",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "operates in region",
+            "predicate": "operates_in_region",
             "object": "United States",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "has key partner",
+            "predicate": "has_key_partner",
             "object": "Meiji Yasuda Life Insurance Company",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "performs key activity",
+            "predicate": "performs_key_activity",
             "object": "Insurance services",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "performs key activity",
+            "predicate": "performs_key_activity",
             "object": "Financial services",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "offers value proposition",
+            "predicate": "offers_value_proposition",
             "object": "Group life insurance",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "offers value proposition",
+            "predicate": "offers_value_proposition",
             "object": "Annuities",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "offers value proposition",
+            "predicate": "offers_value_proposition",
             "object": "Group dental insurance",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "offers value proposition",
+            "predicate": "offers_value_proposition",
             "object": "Group retirement plans",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "has revenue stream",
+            "predicate": "has_revenue_stream",
             "object": "Insurance premiums",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "has revenue stream",
+            "predicate": "has_revenue_stream",
             "object": "Investment income",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "has wiki logo_url",
+            "predicate": "has_wiki_logo_url",
             "object": "https://upload.wikimedia.org/wikipedia/en/b/b7/StanCorplogo.png",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "has wiki name",
+            "predicate": "has_wiki_name",
             "object": "Footnotes / references financial data [ 1 ]",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "has wiki company_type",
+            "predicate": "has_wiki_company_type",
             "object": "Subsidiary",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "has wiki industry",
+            "predicate": "has_wiki_industry",
             "object": "insurance",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "has wiki founded",
+            "predicate": "has_wiki_founded",
             "object": "1906",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "has wiki headquarters",
+            "predicate": "has_wiki_headquarters",
             "object": "Standard Plaza Portland, Oregon , United States",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "has wiki key_people",
+            "predicate": "has_wiki_key_people",
             "object": "J. Gregory Ness (CEO)",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "has wiki products",
+            "predicate": "has_wiki_products",
             "object": "group life insurance , annuities , group dental insurance , group retirement plans",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "has wiki revenue",
+            "predicate": "has_wiki_revenue",
             "object": "$2,492,900,000 (2006)",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "has wiki operating_income",
+            "predicate": "has_wiki_operating_income",
             "object": "$309,700,000 (2006)",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "has wiki net_income",
+            "predicate": "has_wiki_net_income",
             "object": "$203,800,000 (2006)",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "has wiki number_of_employees",
+            "predicate": "has_wiki_number_of_employees",
             "object": "3,280",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "has wiki parent",
+            "predicate": "has_wiki_parent",
             "object": "Meiji Yasuda Life Insurance Company",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "has wiki subsidiaries",
+            "predicate": "has_wiki_subsidiaries",
             "object": "Standard Insurance Company , The Standard Life Insurance Company of New York, StanCorp Investment Advisers, Inc., StanCorp Mortgage Investors, LLC, Standard Retirement Services, Inc.",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         },
         {
-            "predicate": "has wiki website",
+            "predicate": "has_wiki_website",
             "object": "www.StanCorpFinancial.com",
             "citation": "https://en.wikipedia.org/wiki/StanCorp_Financial_Group"
         }

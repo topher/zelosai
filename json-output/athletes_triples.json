@@ -1,6 +1,6 @@
 [
     {
-        "subject": "http://zelos.ai/knowledge/1346266",
+        "subject": "http://zelos.ai/knowledge/athlete/1346266",
         "triples": [
             {
                 "predicate": "represents_noc",
@@ -96,7 +96,7 @@
         "updatedAt": "2024-10-04T15:49:36.254015"
     },
     {
-        "subject": "http://zelos.ai/knowledge/1355250",
+        "subject": "http://zelos.ai/knowledge/athlete/1355250",
         "triples": [
             {
                 "predicate": "represents_noc",
@@ -258,7 +258,7 @@
         "updatedAt": "2024-10-04T15:49:36.254149"
     },
     {
-        "subject": "http://zelos.ai/knowledge/1321381",
+        "subject": "http://zelos.ai/knowledge/athlete/1321381",
         "triples": [
             {
                 "predicate": "represents_noc",
@@ -367,7 +367,7 @@
         "updatedAt": "2024-10-04T15:49:36.254210"
     },
     {
-        "subject": "http://zelos.ai/knowledge/1322233",
+        "subject": "http://zelos.ai/knowledge/athlete/1322233",
         "triples": [
             {
                 "predicate": "represents_noc",
@@ -472,7 +472,7 @@
         "updatedAt": "2024-10-04T15:49:36.254255"
     },
     {
-        "subject": "http://zelos.ai/knowledge/1322271",
+        "subject": "http://zelos.ai/knowledge/athlete/1322271",
         "triples": [
             {
                 "predicate": "represents_noc",
@@ -594,7 +594,7 @@
         "updatedAt": "2024-10-04T15:49:36.254300"
     },
     {
-        "subject": "http://zelos.ai/knowledge/1350409",
+        "subject": "http://zelos.ai/knowledge/athlete/1350409",
         "triples": [
             {
                 "predicate": "represents_noc",
@@ -744,7 +744,7 @@
         "updatedAt": "2024-10-04T15:49:36.254373"
     },
     {
-        "subject": "http://zelos.ai/knowledge/1309960",
+        "subject": "http://zelos.ai/knowledge/athlete/1309960",
         "triples": [
             {
                 "predicate": "represents_noc",
@@ -877,7 +877,7 @@
         "updatedAt": "2024-10-04T15:49:36.254422"
     },
     {
-        "subject": "http://zelos.ai/knowledge/1344792",
+        "subject": "http://zelos.ai/knowledge/athlete/1344792",
         "triples": [
             {
                 "predicate": "represents_noc",
@@ -917,7 +917,7 @@
         "updatedAt": "2024-10-04T15:49:36.254432"
     },
     {
-        "subject": "http://zelos.ai/knowledge/1331787",
+        "subject": "http://zelos.ai/knowledge/athlete/1331787",
         "triples": [
             {
                 "predicate": "represents_noc",
@@ -957,7 +957,7 @@
         "updatedAt": "2024-10-04T15:49:36.254441"
     },
     {
-        "subject": "http://zelos.ai/knowledge/1284763",
+        "subject": "http://zelos.ai/knowledge/athlete/1284763",
         "triples": [
             {
                 "predicate": "represents_noc",

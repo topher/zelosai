@@ -1,33 +1,23 @@
-/* app/components/profile/Profile.css */
+/* app/styles/Profile.css or an imported CSS file */
 
-/* Masonry Grid */
 .my-masonry-grid {
-    display: flex;
-    margin-left: -30px; /* Adjust gutter size offset */
-    width: auto;
-  }
-  
-  /* Masonry Column */
-  .my-masonry-grid_column {
-    padding-left: 30px; /* Adjust gutter size */
-    background-clip: padding-box;
-  }
-  
-  /* Masonry Items */
-  .my-masonry-grid_column > div {
-    margin-bottom: 30px; /* Space between items */
-  }
-  
-  /* Responsive Gutters */
-  @media (max-width: 800px) {
-    .my-masonry-grid {
-      margin-left: -15px; /* gutter size offset */
-    }
-    .my-masonry-grid_column {
-      padding-left: 15px; /* gutter size offset */
-    }
-    .my-masonry-grid_column > div {
-      margin-bottom: 15px; /* space between items */
-    }
-  }
-  
+  display: flex;
+  margin-left: -20px; /* Adjust this based on gutter size */
+  width: auto;
+}
+
+.grid-sizer {
+  width: 25%; /* Adjust to set the number of columns */
+}
+
+.grid-item {
+  width: 25%; /* Must match the grid-sizer width */
+  margin-left: 20px; /* Gutter size, must match JS gutter value */
+  margin-bottom: 20px; /* Gutter size */
+}
+
+/* Adjust the spacing between grid items */
+.grid-item > * {
+  width: 100%;
+  margin: 0;
+}

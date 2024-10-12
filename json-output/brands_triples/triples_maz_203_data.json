@@ -1,188 +1,188 @@
 {
-    "subject": "http://zelos.ai/knowledge/maz_203",
+    "subject": "http://zelos.ai/knowledge/brand/maz_203",
     "triples": [
         {
-            "predicate": "has name",
+            "predicate": "has_name",
             "object": "MAZ-203",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "belongs to industry",
+            "predicate": "belongs_to_industry",
             "object": "Automotive",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "belongs to industry",
+            "predicate": "belongs_to_industry",
             "object": "Public Transport",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "operates in region",
+            "predicate": "operates_in_region",
             "object": "Belarus",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "operates in region",
+            "predicate": "operates_in_region",
             "object": "Poland",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "operates in region",
+            "predicate": "operates_in_region",
             "object": "Ukraine",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "operates in region",
+            "predicate": "operates_in_region",
             "object": "Russia",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "operates in region",
+            "predicate": "operates_in_region",
             "object": "Romania",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "operates in region",
+            "predicate": "operates_in_region",
             "object": "Serbia",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "has key partner",
+            "predicate": "has_key_partner",
             "object": "Vulović Transport",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "has key partner",
+            "predicate": "has_key_partner",
             "object": "BIK (Bus Industries Kragujevac)",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "performs key activity",
+            "predicate": "performs_key_activity",
             "object": "Manufacturing",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "performs key activity",
+            "predicate": "performs_key_activity",
             "object": "Assembly",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "offers value proposition",
+            "predicate": "offers_value_proposition",
             "object": "Low-floor accessibility",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "offers value proposition",
+            "predicate": "offers_value_proposition",
             "object": "Durability",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "offers value proposition",
+            "predicate": "offers_value_proposition",
             "object": "Comfortable public transport solution",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "targets customer segment",
+            "predicate": "targets_customer_segment",
             "object": "Public transport authorities",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "targets customer segment",
+            "predicate": "targets_customer_segment",
             "object": "City municipalities",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "supports language",
+            "predicate": "supports_language",
             "object": "Russian",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "has wiki logo_url",
+            "predicate": "has_wiki_logo_url",
             "object": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/MAZ_203-076_in_Kielce.jpg/280px-MAZ_203-076_in_Kielce.jpg",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "has wiki name",
+            "predicate": "has_wiki_name",
             "object": "MAZ-203",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "has wiki manufacturer",
+            "predicate": "has_wiki_manufacturer",
             "object": "MAZ",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "has wiki production",
+            "predicate": "has_wiki_production",
             "object": "2006–present",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "has wiki assembly",
+            "predicate": "has_wiki_assembly",
             "object": "Minsk , Belarus ( MAZ ) Kragujevac , Serbia (Vulović Transport)",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "has wiki class",
+            "predicate": "has_wiki_class",
             "object": "Single-decker city-bus",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "has wiki doors",
+            "predicate": "has_wiki_doors",
             "object": "3",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "has wiki floor_type",
+            "predicate": "has_wiki_floor_type",
             "object": "Low-floor",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "has wiki chassis",
+            "predicate": "has_wiki_chassis",
             "object": "MAZ",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "has wiki engine",
+            "predicate": "has_wiki_engine",
             "object": "Mercedes-Benz OM 906 LA Deutz TCD 2013LO6 Euro III or Euro IV",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "has wiki power_output",
+            "predicate": "has_wiki_power_output",
             "object": "205 ( Mercedes-Benz ) or 170 (Deutz)",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "has wiki transmission",
+            "predicate": "has_wiki_transmission",
             "object": "automatic or mechanic ZF or Voith Diwa",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "has wiki length",
+            "predicate": "has_wiki_length",
             "object": "12,000 mm (39 ft 4 + 1 ⁄ 2 in)",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "has wiki width",
+            "predicate": "has_wiki_width",
             "object": "2,550 mm (8 ft 4 + 3 ⁄ 8 in)",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "has wiki height",
+            "predicate": "has_wiki_height",
             "object": "2,930 mm (9 ft 7 + 3 ⁄ 8 in) ( 3,050 mm [10 ft 1 ⁄ 8 in] with air-conditioning )",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "has wiki curb_weight",
+            "predicate": "has_wiki_curb_weight",
             "object": "11,100 kg (24,500 lb) (kerb) 18,000 kg (40,000 lb) (full)",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "has wiki predecessor",
+            "predicate": "has_wiki_predecessor",
             "object": "MAZ-103",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         },
         {
-            "predicate": "has wiki successor",
+            "predicate": "has_wiki_successor",
             "object": "MAZ-303",
             "citation": "https://en.wikipedia.org/wiki/MAZ-203"
         }

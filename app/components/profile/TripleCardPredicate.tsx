@@ -1,14 +1,16 @@
 'use client'
 // TripleCard.tsx
 import React, { useState } from 'react';
-import { BiAward, BiLike, BiDislike, BiComment, BiPlusCircle, BiLinkAlt, BiUserPlus } from 'react-icons/bi'; // Example icons
 import TripleCardUserActions from './TripleCardUserActions';
+import Link from "next/link";
 
 interface Triple {
   subject: string;
   predicate: string;
   object: string;
-  source?: string;
+  citation?: string;
+  subjectName?: string;
+  type: 'athlete' | 'brand';
 }
 
 interface TripleCardProps {
@@ -16,11 +18,18 @@ interface TripleCardProps {
 }
 
 const TripleCard: React.FC<TripleCardProps> = ({ triple }) => {
-    const { subject, predicate, object, source } = triple;
-  
-    // State for like/dislike
-    const [likes, setLikes] = useState(0);
-    const [dislikes, setDislikes] = useState(0);
+  const { subject, subjectName, predicate, object, citation, type } = triple;
+
+  const [likes, setLikes] = useState(0);
+  const [dislikes, setDislikes] = useState(0);
+
+  const getSubjectId = (uri: string): string => {
+    const parts = uri.split('/');
+    return parts[parts.length - 1] || parts[parts.length - 2];
+  };
+
+
+  const subjectId = getSubjectId(subject);
   
     // Handlers for actions
     const handleLike = () => {
@@ -40,15 +49,17 @@ const TripleCard: React.FC<TripleCardProps> = ({ triple }) => {
     };
     
     // Use this function in your component to set the title.
-    const title = getURISuffix(triple.predicate); // Assuming triple.subject contains the URI
+    const title = subjectName // Assuming triple.subject contains the URI
     return (
       <div className="triple-card bg-white shadow-lg rounded-lg overflow-hidden p-4 m-2">
         {/* Card Content */}
+        <Link href={`/search/profiles/${type}/${subjectId}`}>
         <div className="p-4">
-          <h3 className="title text-lg font-semibold">{title}</h3>
           <p className="value mt-1">{object}</p>
-          {source && <div className="text-xs text-gray-500 mt-2 italic">{source}</div>}
-        </div>
+            <h3 className="title text-lg font-semibold">{subjectName}</h3>
+            {citation && <div className="text-xs text-gray-500 mt-1 italic">{citation}</div>}
+            </div>
+        </Link>
   
         {/* User Actions */}
           {/* User Actions - Now using the UserActions component */}

@@ -33,6 +33,7 @@ const StrategyLayout: React.FC<StrategyLayoutProps> = ({ children }) => {
           <TabsTrigger value="goals">Goals</TabsTrigger>
           <TabsTrigger value="agents">User Personas</TabsTrigger>
           <TabsTrigger value="use-cases">Use Cases</TabsTrigger>
+          <TabsTrigger value="issues">Issues</TabsTrigger>
         </TabsList>
 
         {/* Content */}

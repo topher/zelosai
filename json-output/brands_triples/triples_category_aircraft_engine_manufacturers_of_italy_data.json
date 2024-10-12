@@ -1,18 +1,18 @@
 {
-    "subject": "http://zelos.ai/knowledge/unknown_brand",
+    "subject": "http://zelos.ai/knowledge/brand/unknown_brand",
     "triples": [
         {
-            "predicate": "has name",
+            "predicate": "has_name",
             "object": null,
             "citation": "https://en.wikipedia.org/wiki/Category:Aircraft_engine_manufacturers_of_Italy"
         },
         {
-            "predicate": "belongs to industry",
+            "predicate": "belongs_to_industry",
             "object": "Aerospace",
             "citation": "https://en.wikipedia.org/wiki/Category:Aircraft_engine_manufacturers_of_Italy"
         },
         {
-            "predicate": "operates in region",
+            "predicate": "operates_in_region",
             "object": "Italy",
             "citation": "https://en.wikipedia.org/wiki/Category:Aircraft_engine_manufacturers_of_Italy"
         }

@@ -2,15 +2,14 @@
 
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import TripleCardPredicate from './TripleCardPredicate';
+import React, { useState, useEffect, useRef } from 'react';
 import TripleCardObject from './TripleCardObject';
-import TripleCardSubject from './TripleCardSubject';
 import ProfileHead from './ProfileHead';
-import AthleteInfo from './ProfileInfo';
-import CollaborationRequest from './CollaborationRequest';
 import ProfileUserActions from './ProfileUserActions';
 import ProfileHighlightCards from './ProfileHighlightCards';
+import './Profile.css'; // Assuming you have necessary styles here
+import Masonry from 'masonry-layout';
+
 
 interface Triple {
   subject: string;
@@ -24,12 +23,10 @@ interface AthleteProfileProps {
 }
 
 const AthleteProfile: React.FC<AthleteProfileProps> = ({ resource }) => {
-  console.log("lezzzgo");
-
   const [triples, setTriples] = useState<Triple[]>([]);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Filter out "ATHLETE" and "URL" predicates
     const filteredTriples = resource.filter(
       (triple) => triple.predicate !== 'ATHLETE' && triple.predicate !== 'URL'
     );
@@ -38,31 +35,39 @@ const AthleteProfile: React.FC<AthleteProfileProps> = ({ resource }) => {
 
   const nameTriple = triples.find((triple) => triple.predicate === 'has_name');
 
+  useEffect(() => {
+    if (gridRef.current) {
+      new Masonry(gridRef.current, {
+        itemSelector: '.grid-item',
+        columnWidth: '.grid-sizer',
+        gutter: 30,
+        percentPosition: true,
+      });
+    }
+  }, [triples]);
+
   return (
     <div className="athlete-profile bg-gradient-to-r from-dark-blue to-midnight-blue p-8">
-      {/* Always render ProfileHead */}
       <header>
         <ProfileHead
           name={nameTriple?.object || 'Name Unavailable'}
-          imageSrc="/placeholder_avatar.png" // Ensure this path is correct
-          // hdriPath="/sepulchral_chapel_rotunda_4k.hdr" // Ensure this path is correct
+          imageSrc="/placeholder_avatar.png"
         />
       </header>
 
-      {/* Highlight Cards */}
-      <ProfileHighlightCards
-        athlete={triples[3]} // Ensure triples[3] exists and is the correct data
-      />
+      {/* {triples[3] && <ProfileHighlightCards triple={triples[3]} />} */}
 
-      {/* User Actions */}
-      <div style={{ minHeight: '100px' /* Adjust as needed */ }}>
+      <div style={{ minHeight: '100px' }}>
         <ProfileUserActions />
       </div>
 
-      {/* Triples Display using react-masonry-css */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      {/* Triples Display using Masonry */}
+      <div className="athlete-masonry-grid" ref={gridRef}>
+        <div className="grid-sizer"></div>
         {triples.map((triple, index) => (
-          <TripleCardObject key={index} triple={triple} />
+          <div className="grid-item" key={index}>
+            <TripleCardObject triple={triple} />
+          </div>
         ))}
       </div>
     </div>

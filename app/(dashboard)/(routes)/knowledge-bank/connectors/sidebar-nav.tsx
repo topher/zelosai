@@ -1,18 +1,18 @@
+// SidebarNav.tsx
 import React from "react";
-import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
-import { getConnectorsByAccountId } from "@/app/actions/connectorsActions";
+import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
+import { getConnectorsByAccountId } from "@/app/actions/connectorsActions"; // Ensure this import is present
 
 interface SidebarNavProps {
-  items: { href: string; title: string }[];
-  onItemClick: (connector: any) => void;
+  onItemClick: (item: any) => void;
   className?: string;
 }
 
-// SidebarNav component fetching data dynamically
 function SidebarNav({ onItemClick, className, ...props }: SidebarNavProps) {
   const [connectors, setConnectors] = React.useState<any[]>([]);
+  const [newAlerts, setNewAlerts] = React.useState<number>(5); // Example alert count
 
   // Fetch connectors on mount
   React.useEffect(() => {
@@ -24,13 +24,32 @@ function SidebarNav({ onItemClick, className, ...props }: SidebarNavProps) {
   }, []);
 
   return (
-    <nav className={cn("flex flex-col space-y-2", className)} {...props}>
+    <nav className={cn("flex flex-col space-y-4", className)} {...props}>
+      {/* Topics Chip */}
+      <button
+        type="button"
+        className="flex items-center space-x-2 px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+        onClick={() => onItemClick({ type: 'topics' })}
+      >
+        <span>Topics</span>
+        {newAlerts > 0 && (
+          <Badge variant="destructive" className="ml-1">
+            {newAlerts}
+          </Badge>
+        )}
+      </button>
+
+      {/* Separator */}
+      <Separator className="my-4" />
+
+      {/* Connectors Section */}
+      <p className="text-sm font-semibold text-muted-foreground mb-2">Connectors</p>
       {connectors.map((connector) => (
         <button
           key={connector.id}
           type="button"
           className="text-left hover:text-muted font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-inset focus:ring-primary-500 px-4 py-2 rounded-md"
-          onClick={() => onItemClick(connector)}
+          onClick={() => onItemClick({ type: 'connector', data: connector })}
         >
           {connector.name}
         </button>
