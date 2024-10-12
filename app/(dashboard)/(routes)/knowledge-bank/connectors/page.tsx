@@ -1,19 +1,17 @@
+// ConnectorsLayout.tsx
 "use client";
+
 import { useState, useEffect } from "react";
 import SidebarNav from "./sidebar-nav";
 import { Button } from "@/components/ui/button";
 import { ConnectorForm } from "./connector-form";
 import { getConnectorsByAccountId } from "@/app/actions/connectorsActions";
-import { DataConnector } from "@/app/types";
-
-// Interface for connector data
-interface ConnectorCardProps {
-  key: string;
-  connector: DataConnector;
-}
+import { DataConnector, } from "@/app/types"; // Ensure ConnectorFormValues is exported from types
+import TopicsPage from "./topics/page"; // Ensure the path is correct
+import { ConnectorFormValues } from "./connectorFormSchema";
 
 export default function ConnectorsLayout() {
-  const [selectedConnector, setSelectedConnector] = useState<DataConnector | null>(null);
+  const [selectedItem, setSelectedItem] = useState<any | null>(null);
   const [connectors, setConnectors] = useState<DataConnector[]>([]);
   const [isCreateConnectorModalOpen, setIsCreateConnectorModalOpen] = useState(false);
 
@@ -22,20 +20,22 @@ export default function ConnectorsLayout() {
     async function fetchData() {
       const data = await getConnectorsByAccountId("12345"); // Replace with dynamic accountId
       setConnectors(data);
-      console.log(connectors)
     }
     fetchData();
   }, []);
 
+  const handleItemClick = (item: any) => {
+    setSelectedItem(item);
+  };
+
   const handleOpenCreateConnectorModal = () => setIsCreateConnectorModalOpen(true);
   const handleCloseCreateConnectorModal = () => setIsCreateConnectorModalOpen(false);
 
-  const handleConnectorSelect = (connector: DataConnector) => {
-    setSelectedConnector(connector);
-  };
-
-  const ConnectorCard: React.FC<ConnectorCardProps> = ({ connector }) => (
-    <div className="bg-white rounded-lg shadow-md px-6 py-8 cursor-pointer hover:shadow-lg hover:bg-gray-100 w-full max-w-[300px]">
+  const ConnectorCard: React.FC<{ connector: DataConnector }> = ({ connector }) => (
+    <div
+      className="bg-white rounded-lg shadow-md px-6 py-8 cursor-pointer hover:shadow-lg hover:bg-gray-100 w-full max-w-[300px]"
+      onClick={() => handleItemClick({ type: 'connector', data: connector })}
+    >
       <img src={connector.icon} alt={connector.name} className="w-16 h-16 mx-auto mb-4" />
       <h3 className="text-lg font-medium text-center">{connector.name}</h3>
       <p className="text-muted-foreground text-center">
@@ -47,52 +47,84 @@ export default function ConnectorsLayout() {
     </div>
   );
 
-  return (
-    <div className="flex">
-      {/* Sidebar for existing connectors */}
-      <div className="w-1/4 bg-gray-100 h-screen p-6 sticky top-0">
-        <h2 className="text-xl font-bold tracking-tight mb-6">My Integrations</h2>
-        <SidebarNav
-          items={connectors.map((connector) => ({
-            href: `#${connector.name}`,
-            title: connector.name,
-          }))}
-          onItemClick={handleConnectorSelect}
+  const ConnectorDetails = ({ connector }: { connector: DataConnector }) => {
+    // Map connectionType to form type
+    const typeMapping: Record<string, string> = {
+      "API": "api_key",
+      "Social Media": "social_media",
+      "Email Marketing": "email_marketing",
+      "HTTP": "http",
+    };
+  
+    const formType = typeMapping[connector.connectionType] || "http"; // Default to 'http' if not mapped
+  
+    return (
+      <div>
+        <h2 className="text-2xl font-bold mb-4">{connector.name} Connector</h2>
+        <ConnectorForm
+          initialMetadata={{
+            type: formType as ConnectorFormValues["type"],
+            name: connector.name,
+            email: connector.metadata.email || "",
+            api_key: connector.metadata.api_key || "",
+            username: connector.metadata.username || "",
+            password: connector.metadata.password || "",
+            whitelist: connector.metadata.whitelist
+              ? connector.metadata.whitelist.map((url: string) => ({ url }))
+              : [{ url: "https://dummyurl1.com" }, { url: "https://dummyurl2.com" }], // Pre-populated dummy URLs
+          }}
+          onSubmit={(data: ConnectorFormValues) => {
+            console.log("Connector Submitted:", data);
+          }}
+          isUpdate={true}
         />
       </div>
+    );
+  };
+  
+  const DefaultContent = ({ connectors }: { connectors: DataConnector[] }) => (
+    <>
+      <div className="space-y-0.5">
+        <h2 className="text-2xl font-bold tracking-tight">Discover Connectors</h2>
+        <p className="text-muted-foreground mb-6">
+          Connect your favorite tools and platforms to streamline your workflow.
+        </p>
+      </div>
+      <div className="flex flex-wrap gap-6">
+        {connectors.map((connector) => (
+          <ConnectorCard key={connector.id} connector={connector} />
+        ))}
+      </div>
+    </>
+  );
 
-      {/* Main content area */}
-      <div className="w-3/4 p-8">
-        <div className="space-y-0.5">
-          <h2 className="text-2xl font-bold tracking-tight">
-            {selectedConnector ? selectedConnector.name : "Discover Connectors"}
-          </h2>
-          <p className="text-muted-foreground mb-6">
-            {selectedConnector?.description ||
-              "Connect your favorite tools and platforms to streamline your workflow."}
-          </p>
-        </div>
+  return (
+    <div className="flex">
+      {/* Sidebar Navigation */}
+      <div className="w-1/4 bg-gray-100 h-screen p-6 sticky top-0">
+        <h2 className="text-xl font-bold tracking-tight mb-6">My Integrations</h2>
+        <SidebarNav onItemClick={handleItemClick} />
+        <Button
+          onClick={handleOpenCreateConnectorModal}
+          className="mt-6"
+        >
+          + Add Connector
+        </Button>
+      </div>
 
-        {selectedConnector ? (
-          <>
-            {/* Display connector details (icon, description) */}
-            <img
-              src={selectedConnector.icon}
-              alt={selectedConnector.name}
-              className="w-12 h-12 mb-4"
-            />
-            <p>{selectedConnector.description}</p>
-            {/* Render the specific form component for the selected connector */}
-            {selectedConnector.form && <ConnectorForm initialMetadata={selectedConnector} onSubmit={function (data: z.infer<any>): void {
-              throw new Error("Function not implemented.");
-            } } />}
-          </>
+      {/* Main Content Area */}
+      <div className="w-3/4 p-8 overflow-auto">
+        {selectedItem ? (
+          selectedItem.type === 'connector' ? (
+            // Render Connector Details
+            <ConnectorDetails connector={selectedItem.data} />
+          ) : selectedItem.type === 'topics' ? (
+            // Render Topics Page
+            <TopicsPage />
+          ) : null
         ) : (
-          <div className="flex flex-wrap gap-6">
-            {connectors.map((connector) => (
-              <ConnectorCard key={connector.id} connector={connector} />
-            ))}
-          </div>
+          // Default Content
+          <DefaultContent connectors={connectors} />
         )}
       </div>
     </div>

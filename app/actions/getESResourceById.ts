@@ -1,5 +1,3 @@
-// app/actions/getESResourceById.ts
-
 import { Client } from '@elastic/elasticsearch';
 
 // Define the Triple and Resource types
@@ -20,14 +18,28 @@ const client = new Client({ node: 'http://localhost:9200' });
 
 /**
  * Fetches a resource by ID from a specified Elasticsearch index.
+ * The URI structure changes based on whether it's an athlete or a brand.
  * @param indexName - The name of the Elasticsearch index.
  * @param id - The unique identifier of the resource.
  * @returns The resource object or null if not found.
  */
 export default async function getESResourceById(indexName: string, id: string) {
+  // Determine whether the resource is an athlete or brand
+  let uriPrefix = '';
+  if (indexName === 'athletes_triples') {
+    uriPrefix = 'knowledge/athlete';
+  } else if (indexName === 'brands_triples') {
+    uriPrefix = 'knowledge/brand';
+  } else {
+    throw new Error('Invalid index name. Must be athletes_triples or brands_triples.');
+  }
+
+  // Construct the full URI for the resource
+  const uri = `http://zelos.ai/${uriPrefix}/${id}`;
+
   console.log("Index Name:", indexName);
   console.log("Resource ID:", id);
-  const uri = `http://zelos.ai/knowledge/${id}`;
+  console.log("Full URI:", uri);
 
   try {
     // Search for the resource by its `subject` URI
@@ -37,8 +49,6 @@ export default async function getESResourceById(indexName: string, id: string) {
         term: { "subject": uri }
       }
     });
-
-    // console.log(uri, result, "💦");
 
     // Handle hits.total based on Elasticsearch version
     const totalHits = typeof result.hits.total === 'number'
@@ -62,7 +72,7 @@ export default async function getESResourceById(indexName: string, id: string) {
       citation: triple.citation || null // Handle case where citation might be missing
     }));
 
-    // console.log("Resource triples:", triples);
+    console.log("Resource triples:", triples);
 
     return { id, triples };
   } catch (error) {

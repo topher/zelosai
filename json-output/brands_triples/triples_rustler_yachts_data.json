@@ -1,173 +1,173 @@
 {
-    "subject": "http://zelos.ai/knowledge/rustler_yachts",
+    "subject": "http://zelos.ai/knowledge/brand/rustler_yachts",
     "triples": [
         {
-            "predicate": "has name",
+            "predicate": "has_name",
             "object": "Rustler Yachts",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "has mission",
+            "predicate": "has_mission",
             "object": "To handbuild high quality, semi-custom yachts for cruising.",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "uses channel",
+            "predicate": "uses_channel",
             "object": "Website",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "uses channel",
+            "predicate": "uses_channel",
             "object": "Social Media",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "belongs to industry",
+            "predicate": "belongs_to_industry",
             "object": "Yacht building",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "operates in region",
+            "predicate": "operates_in_region",
             "object": "United Kingdom",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "has interest",
+            "predicate": "has_interest",
             "object": "Yachting",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "has interest",
+            "predicate": "has_interest",
             "object": "Water sports",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "has key partner",
+            "predicate": "has_key_partner",
             "object": "Falmouth Maritime Group",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "has key partner",
+            "predicate": "has_key_partner",
             "object": "Bowman Yachts",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "performs key activity",
+            "predicate": "performs_key_activity",
             "object": "Yacht manufacturing",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "performs key activity",
+            "predicate": "performs_key_activity",
             "object": "Designing semi-custom yachts",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "offers value proposition",
+            "predicate": "offers_value_proposition",
             "object": "High quality craftsmanship",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "offers value proposition",
+            "predicate": "offers_value_proposition",
             "object": "Customizable yacht designs",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "has customer relationship",
+            "predicate": "has_customer_relationship",
             "object": "Direct sales",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "has customer relationship",
+            "predicate": "has_customer_relationship",
             "object": "Customer support",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "targets customer segment",
+            "predicate": "targets_customer_segment",
             "object": "Yacht enthusiasts",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "targets customer segment",
+            "predicate": "targets_customer_segment",
             "object": "Luxury consumers",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "has cost structure",
+            "predicate": "has_cost_structure",
             "object": "Manufacturing costs",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "has cost structure",
+            "predicate": "has_cost_structure",
             "object": "Labor costs",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "has revenue stream",
+            "predicate": "has_revenue_stream",
             "object": "Yacht sales",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "has revenue stream",
+            "predicate": "has_revenue_stream",
             "object": "Service and maintenance",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "has audience lifestyle",
+            "predicate": "has_audience_lifestyle",
             "object": "Luxury lifestyle",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "has audience lifestyle",
+            "predicate": "has_audience_lifestyle",
             "object": "Adventure seekers",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "supports language",
+            "predicate": "supports_language",
             "object": "English",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "has wiki logo_url",
+            "predicate": "has_wiki_logo_url",
             "object": "https://upload.wikimedia.org/wikipedia/en/a/a5/Rustler_Yachts_logo.jpg",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "has wiki name",
+            "predicate": "has_wiki_name",
             "object": "",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "has wiki company_type",
+            "predicate": "has_wiki_company_type",
             "object": "Limited company",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "has wiki industry",
+            "predicate": "has_wiki_industry",
             "object": "Yacht building",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "has wiki predecessor",
+            "predicate": "has_wiki_predecessor",
             "object": "Ralph Hogg",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "has wiki headquarters",
+            "predicate": "has_wiki_headquarters",
             "object": "Falmouth , Cornwall , UK",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "has wiki parent",
+            "predicate": "has_wiki_parent",
             "object": "Falmouth Maritime Group",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "has wiki divisions",
+            "predicate": "has_wiki_divisions",
             "object": "Bowman Yachts",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         },
         {
-            "predicate": "has wiki website",
+            "predicate": "has_wiki_website",
             "object": "www .rustleryachts .com",
             "citation": "https://en.wikipedia.org/wiki/Rustler_Yachts"
         }

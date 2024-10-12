@@ -1,23 +1,23 @@
 {
-    "subject": "http://zelos.ai/knowledge/wf_trac",
+    "subject": "http://zelos.ai/knowledge/brand/wf_trac",
     "triples": [
         {
-            "predicate": "has name",
+            "predicate": "has_name",
             "object": "WF trac",
             "citation": "https://en.wikipedia.org/wiki/WF_trac"
         },
         {
-            "predicate": "belongs to industry",
+            "predicate": "belongs_to_industry",
             "object": "Agriculture",
             "citation": "https://en.wikipedia.org/wiki/WF_trac"
         },
         {
-            "predicate": "belongs to industry",
+            "predicate": "belongs_to_industry",
             "object": "Manufacturing",
             "citation": "https://en.wikipedia.org/wiki/WF_trac"
         },
         {
-            "predicate": "supports language",
+            "predicate": "supports_language",
             "object": "German",
             "citation": "https://en.wikipedia.org/wiki/WF_trac"
         }

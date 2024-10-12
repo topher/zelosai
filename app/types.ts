@@ -227,15 +227,28 @@ export type AIModel = {
   };
 };
 
-export type DataConnector = {
+// types.ts (or wherever your types are defined)
+// types.ts
+export interface DataConnector {
   id: string;
   accountId: string;
   name: string;
-  description?: string;
-  icon?: string; // URL to the connector icon
-  form?: React.ComponentType<any>; // Type for the connector form component
-  connectionType: string;
+  description: string;
+  icon: string;
+  connectionType: "API" | "Social Media" | "Email Marketing" | "HTTP"; // Add other types as needed
+  disabled: boolean;
+  metadata: {
+    email?: string;
+    api_key?: string;
+    username?: string;
+    password?: string;
+    shop_name?: string;
+    whitelist?: string[]; // For HTTP Connector
+    // Add other metadata fields as necessary
+  };
 }
+
+
 
 // app/types.ts
 
