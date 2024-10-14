@@ -57,7 +57,7 @@ const PredicateSidebar: React.FC<PredicateSidebarProps> = ({ currentPredicate, o
         <ul className="max-h-96 overflow-y-auto">
           {predicates.map((predicate) => (
             <li key={predicate} className="py-1">
-              <Link href={`/search/profiles/predicates/${type}/${encodeURIComponent(predicate)}`}>
+              <Link href={`/search/predicates/${type}/${encodeURIComponent(predicate)}`}>
                 <div
                   className={`text-gray-700 hover:text-blue-600 ${
                     predicate === currentPredicate ? 'font-bold' : ''

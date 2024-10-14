@@ -35,7 +35,7 @@ const BrandSearchCard: React.FC<BrandSearchCardProps> = ({ data }) => {
 
   return (
     <div className="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg bg-white">
-      <Link href={`search/brands/${data.id}`}>
+      <Link href={`/profiles/brands/${data.id}`}>
         <div className="relative">
           {/* Brand Logo */}
           <div className="flex items-center justify-center h-48 bg-gray-100">

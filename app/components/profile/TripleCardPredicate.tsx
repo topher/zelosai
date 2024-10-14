@@ -53,7 +53,7 @@ const TripleCard: React.FC<TripleCardProps> = ({ triple }) => {
     return (
       <div className="triple-card bg-white shadow-lg rounded-lg overflow-hidden p-4 m-2">
         {/* Card Content */}
-        <Link href={`/search/profiles/${type}/${subjectId}`}>
+        <Link href={`/profiles/${type}/${subjectId}`}>
         <div className="p-4">
           <p className="value mt-1">{object}</p>
             <h3 className="title text-lg font-semibold">{subjectName}</h3>

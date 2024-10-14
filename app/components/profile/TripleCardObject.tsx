@@ -51,7 +51,7 @@ const TripleCardObject: React.FC<TripleCardObjectProps> = ({ triple }) => {
   const cardStyles = isGradientStyle ? gradientCardStyles : plainCardStyles;
 
   return (
-    <Link href={`/search/profiles/predicates/${type}/${predicate}`} passHref>
+    <Link href={`/search/predicates/${type}/${predicate}`} passHref>
       <div className={cardStyles}>
         {/* Card Content */}
         <div className="content">

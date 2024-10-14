@@ -1,4 +1,4 @@
-// app/(dashboard)/(routes)/search/profiles/[type]/[id]/page.tsx
+// app/(dashboard)/(routes)/profiles/[type]/[id]/page.tsx
 
 import React from 'react';
 import getESResourceById from "@/app/actions/getESResourceById";

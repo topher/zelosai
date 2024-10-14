@@ -28,7 +28,7 @@ const sk = new Searchkit({
     result_attributes: [
       "name",
       "sport",
-      "location",
+      "noc",
       "hobbies",
       "languages_spoken",
       "imageSrc",
@@ -39,7 +39,7 @@ const sk = new Searchkit({
     highlight_attributes: ["name"],
     facet_attributes: [
       { attribute: "sport", field: "sport", type: "string" },
-      { attribute: "location", field: "location", type: "string" },
+      { attribute: "location", field: "noc", type: "string" },
       { attribute: "hobbies", field: "hobbies", type: "string" },
       { attribute: "languages_spoken", field: "languages_spoken", type: "string" },
       { attribute: "code", field: "code", type: "string" },
@@ -83,7 +83,7 @@ const AthleteSearchPage: React.FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <InstantSearch indexName="athletes" searchClient={searchClient}>
+      <InstantSearch indexName="athletes_triples" searchClient={searchClient}>
         {/* Configure component with explicit type */}
         <Configure {...({ hitsPerPage } as SearchParameters)} />
 
