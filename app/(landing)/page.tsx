@@ -35,12 +35,12 @@ export default async function LandingPage() {
         <div className="w-full h-[1px] bg-white/20 mt-8"></div>
       </div>
 
-      <div id="testimonials" className="pt-8">
+      {/* <div id="testimonials" className="pt-8">
         <LandingQuotes />
-      </div>
+      </div> */}
 
       <div className="mx-auto max-w-screen-xl">
-        <div className="w-full h-[1px] bg-white/20 mt-8"></div>
+        {/* <div className="w-full h-[1px] bg-white/20 mt-8"></div> */}
         <div id="stories" className="pt-8">
           <MoreStories posts={posts} title="Check Out Our Resources" />
         </div>
