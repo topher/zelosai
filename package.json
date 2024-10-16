@@ -167,7 +167,7 @@
     "@types/imagesloaded": "^4.1.6",
     "@types/lodash.debounce": "^4.0.9",
     "@types/masonry-layout": "^4.2.8",
-    "@types/node": "^22.1.0",
+    "@types/node": "^22.7.5",
     "@types/react": "^18.3.3",
     "@types/react-beautiful-dnd": "^13.1.8",
     "@types/react-instantsearch-dom": "^6.12.8",
@@ -182,7 +182,8 @@
     "prettier": "3.3.2",
     "prettier-plugin-packagejson": "2.5.0",
     "prettier-plugin-tailwindcss": "0.6.5",
-    "typescript": "^5.4.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3",
     "vite-tsconfig-paths": "^4.3.2"
   },
   "engines": {
