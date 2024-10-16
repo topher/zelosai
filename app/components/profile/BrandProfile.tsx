@@ -31,7 +31,10 @@ const BrandProfile: React.FC<BrandProfileProps> = ({ resource }) => {
     setTriples(filteredTriples);
   }, [resource]);
 
-  const nameTriple = resource.find((triple) => triple.predicate === 'has name');
+  const nameTriple = resource.find((triple) => triple.predicate === 'has_name');
+  const imageTriple = resource.find((triple) => triple.predicate === 'image');
+
+  const imageSrc = imageTriple?.object || '/brand_avatar.png'; // Use brand image or fallback
 
   useEffect(() => {
     if (gridRef.current) {
@@ -49,7 +52,7 @@ const BrandProfile: React.FC<BrandProfileProps> = ({ resource }) => {
       <header>
         <ProfileHead
           name={nameTriple?.object || 'Unnamed Brand'}
-          imageSrc="/placeholder_brand.png" // Update with appropriate brand image
+          imageSrc={imageSrc} // Set appropriate image source
         />
       </header>
 
