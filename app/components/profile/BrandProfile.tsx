@@ -6,7 +6,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import TripleCardObject from './TripleCardObject';
 import ProfileHead from './ProfileHead';
 import ProfileUserActions from './ProfileUserActions';
-import './Profile.css'; // Assuming you have necessary styles here
+import './Profile.css';
 import Masonry from 'masonry-layout';
 
 interface Triple {
@@ -26,15 +26,15 @@ const BrandProfile: React.FC<BrandProfileProps> = ({ resource }) => {
 
   useEffect(() => {
     const filteredTriples = resource.filter(
-      (triple) => triple.predicate !== 'has name' && triple.predicate !== 'URL'
+      (triple) => triple.predicate !== 'has_name' && triple.predicate !== 'URL'
     );
     setTriples(filteredTriples);
   }, [resource]);
 
   const nameTriple = resource.find((triple) => triple.predicate === 'has_name');
-  const imageTriple = resource.find((triple) => triple.predicate === 'image');
+  const imageTriple = resource.find((triple) => triple.predicate === 'has_wiki_logo_url');
 
-  const imageSrc = imageTriple?.object || '/brand_avatar.png'; // Use brand image or fallback
+  const imageSrc = imageTriple?.object || '/brand_avatar.png';
 
   useEffect(() => {
     if (gridRef.current) {
@@ -48,16 +48,16 @@ const BrandProfile: React.FC<BrandProfileProps> = ({ resource }) => {
   }, [triples]);
 
   return (
-    <div className="brand-profile bg-gradient-to-r from-dark-blue to-midnight-blue p-8">
+    <div className="brand-profile bg-offWhite p-8">
       <header>
         <ProfileHead
           name={nameTriple?.object || 'Unnamed Brand'}
-          imageSrc={imageSrc} // Set appropriate image source
+          imageSrc={imageSrc}
         />
       </header>
 
       <div style={{ minHeight: '100px' }}>
-        <ProfileUserActions />
+        <ProfileUserActions type="brand" />
       </div>
 
       {/* Triples Display using Masonry */}

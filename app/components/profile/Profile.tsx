@@ -77,7 +77,7 @@ const Profile: React.FC<ProfileProps> = ({ resource, type }) => {
 
       {/* User Actions */}
       <div className="my-6">
-        <ProfileUserActions />
+        <ProfileUserActions type={type}/>
       </div>
 
       {/* Triples Display using Masonry */}

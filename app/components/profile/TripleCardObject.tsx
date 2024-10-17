@@ -1,3 +1,5 @@
+// app/components/profile/TripleCardObject.tsx
+
 import React, { useState, useEffect } from 'react';
 import TripleCardUserActions from './TripleCardUserActions';
 import Link from 'next/link';

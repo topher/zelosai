@@ -26,7 +26,7 @@ const ProfileInfo: React.FC<ProfileInfoProps> = ({ triples, type }) => {
 
   return (
     <div className="profile-info mt-4">
-      <h2 className="text-xl font-semibold">Information</h2>
+      <h2 className="text-xl text-white font-semibold">Information</h2>
       <ul className="list-disc list-inside">
         {specificTriples.map((triple, index) => (
           <li key={index}>

@@ -58,7 +58,7 @@ const AthleteProfile: React.FC<AthleteProfileProps> = ({ resource }) => {
       {/* {triples[3] && <ProfileHighlightCards triple={triples[3]} />} */}
 
       <div style={{ minHeight: '100px' }}>
-        <ProfileUserActions />
+        <ProfileUserActions type="athlete" />
       </div>
 
       {/* Triples Display using Masonry */}

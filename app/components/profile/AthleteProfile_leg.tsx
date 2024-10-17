@@ -1,3 +1,5 @@
+// app/components/profile/AthleteProfile_leg.tsx
+
 'use client'
 
 import { useEffect, useState } from "react";

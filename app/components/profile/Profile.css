@@ -12,8 +12,8 @@
 
 .grid-item {
   width: 25%; /* Must match the grid-sizer width */
-  margin-left: 20px; /* Gutter size, must match JS gutter value */
-  margin-bottom: 20px; /* Gutter size */
+  margin-left: 30px; /* Gutter size, must match JS gutter value */
+  margin-bottom: 30px; /* Gutter size */
 }
 
 /* Adjust the spacing between grid items */
