@@ -39,7 +39,7 @@ const TripleCardObject: React.FC<TripleCardObjectProps> = ({ triple }) => {
     setIsGradientStyle(Math.random() >= 0.5); // 50% chance for gradient style
   }, []);
 
-  const randomHeight = Math.floor(Math.random() * 200) + 100;
+  const randomHeight = Math.floor(Math.random() * 150) + 150;
 
   const plainCardStyles =
     'group bg-white/20 backdrop-blur-lg shadow-md rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 hover:bg-white/30';

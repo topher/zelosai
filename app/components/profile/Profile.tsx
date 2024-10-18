@@ -1,5 +1,7 @@
 // app/components/profile/Profile.tsx
 
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import ProfileHead from './ProfileHead';
 import ProfileUserActions from './ProfileUserActions';
@@ -22,21 +24,26 @@ const Profile: React.FC<ProfileProps> = ({ resource, type }) => {
     setTriples(filteredTriples);
   }, [resource, type]);
 
-  // Retrieve nameTriple from the original resource before filtering
+  // Retrieve nameTriple and imageTriple from the original resource before filtering
   const nameTriple = resource.find((triple) => triple.predicate === 'has_name');
+  const imageTriple = resource.find((triple) => triple.predicate === 'has_wiki_logo_url');
+
+  // Use different placeholders for athlete and brand
+  const placeholderImage = type === 'athlete' ? '/placeholder_avatar.png' : '/brand_avatar.png';
+  const imageSrc = imageTriple?.object || placeholderImage; // Use placeholder if no image
 
   return (
-    <div className={`${type}-profile`}>
+    <div className="athlete-brand-profile">
       {/* Header */}
       <div className="p-8">
         <ProfileHead
           name={nameTriple?.object || 'Name Unavailable'}
-          imageSrc="/placeholder_avatar.png"
+          imageSrc={imageSrc}
         />
       </div>
 
       {/* Highlight Cards */}
-      <div className="p-8">
+      <div className="p-4">
         <ProfileHighlightCards
           data={
             type === 'athlete'
@@ -47,9 +54,7 @@ const Profile: React.FC<ProfileProps> = ({ resource, type }) => {
       </div>
 
       {/* User Actions */}
-      <div className="my-6">
-        <ProfileUserActions type={type} />
-      </div>
+      <ProfileUserActions type={type} />
 
       {/* Mosaic Grid */}
       <ProfileGrid triples={triples} gridClassName="my-masonry-grid" />

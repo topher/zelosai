@@ -52,6 +52,13 @@ const ProfileGrid: React.FC<ProfileGridProps> = ({ triples, gridClassName }) => 
     }
   }, [triples]);
 
+  // Add a useEffect to re-layout on mount when returning to the page
+  useEffect(() => {
+    if (masonryInstance.current) {
+      masonryInstance.current.layout(); // Force layout recalculation when the component mounts
+    }
+  }, []);
+
   return (
     <div className={`my-masonry-grid ${gridClassName}`} ref={gridRef}>
       <div className="grid-sizer"></div>
