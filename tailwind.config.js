@@ -35,6 +35,10 @@ module.exports = {
           DEFAULT: '#b22222',
           light: '#c23b3b',
         },
+        blue: {
+          DEFAULT: '#3b82f6',
+          light: '#93c5fd',
+        },
         transparent: 'transparent',
 
         border: "hsl(var(--border))",

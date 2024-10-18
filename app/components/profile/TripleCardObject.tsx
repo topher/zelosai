@@ -9,7 +9,6 @@ interface Triple {
   predicate: string;
   object: string;
   citation?: string;
-  // Removed 'type' from the interface as we'll derive it from 'subject'
 }
 
 interface TripleCardObjectProps {
@@ -25,9 +24,7 @@ const TripleCardObject: React.FC<TripleCardObjectProps> = ({ triple }) => {
 
   // Extract 'type' from 'subject' URI
   const getTypeFromSubject = (subjectUri: string): 'athlete' | 'brand' => {
-    console.log(subjectUri)
     const uriParts = subjectUri.split('/');
-    // Assuming the type is always at the 4th index after splitting
     const typeIndex = uriParts.findIndex((part) => part === 'knowledge') + 1;
     const type = uriParts[typeIndex] as 'athlete' | 'brand';
     return type;
@@ -42,14 +39,14 @@ const TripleCardObject: React.FC<TripleCardObjectProps> = ({ triple }) => {
     setIsGradientStyle(Math.random() >= 0.5); // 50% chance for gradient style
   }, []);
 
-  // Define the two styles
+  // Updated plain card style with light gray background
   const plainCardStyles =
-    'group bg-white bg-opacity-20 backdrop-blur-lg shadow-md rounded-lg overflow-hidden p-6 transition-all duration-300 hover:shadow-xl';
+    'group bg-white/20 backdrop-blur-lg shadow-md rounded-lg overflow-hidden p-6 transition-all duration-300 hover:shadow-xl hover:scale-105';
 
   const gradientCardStyles =
-    'group bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-md rounded-lg overflow-hidden p-6 transition-all duration-300 hover:shadow-xl hover:from-purple-600 hover:to-pink-600';
+    'group bg-gradient-to-br from-indigo to-blue text-white shadow-md rounded-lg overflow-hidden p-6 transition-transform duration-300 hover:shadow-xl hover:scale-105 hover:from-blue hover:to-indigo-light';
 
-  // Choose a random style
+  // Choose the style based on the random selection
   const cardStyles = isGradientStyle ? gradientCardStyles : plainCardStyles;
 
   return (
@@ -62,18 +59,18 @@ const TripleCardObject: React.FC<TripleCardObjectProps> = ({ triple }) => {
               object-text text-xl font-semibold transition-colors duration-300 
               truncate ${
                 isGradientStyle
-                  ? 'text-white group-hover:text-blue-800'
-                  : 'text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-500'
+                  ? 'text-white group-hover:text-darkGray'
+                  : 'text-white group-hover:text-indigo-light'
               }
             `}
           >
             {object}
           </p>
-          <p className="predicate-text text-gray-400 text-sm capitalize mt-2">
+          <p className="predicate-text text-white/60 text-sm capitalize mt-2">
             {predicate.replace(/_/g, ' ')}
           </p>
           {citation && (
-            <div className="citation-text text-gray-300 text-xs italic mt-4">
+            <div className="citation-text text-white/40 text-xs italic mt-4">
               {citation}
             </div>
           )}
@@ -90,6 +87,7 @@ const TripleCardObject: React.FC<TripleCardObjectProps> = ({ triple }) => {
           onShare={() => {}}
           onComment={() => {}}
           onGetLink={() => {}}
+          // isGradientStyle={isGradientStyle}
         />
       </div>
     </Link>

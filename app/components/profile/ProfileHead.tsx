@@ -36,7 +36,7 @@ const ProfileHead: React.FC<ProfileHeadProps> = ({ imageSrc, name }) => {
 
       {/* Profile Name */}
       <div className="absolute bottom-4 left-48 z-10">
-        <h1 className={`${font.className} text-4xl font-extrabold text-white drop-shadow-xl`}>
+        <h1 className={`${font.className} text-4xl text-white drop-shadow-xl`}>
           {name}
         </h1>
       </div>
