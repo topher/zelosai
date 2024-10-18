@@ -39,28 +39,32 @@ const TripleCardObject: React.FC<TripleCardObjectProps> = ({ triple }) => {
     setIsGradientStyle(Math.random() >= 0.5); // 50% chance for gradient style
   }, []);
 
-  // Updated plain card style with light gray background
+  const randomHeight = Math.floor(Math.random() * 200) + 100;
+
   const plainCardStyles =
-    'group bg-white/20 backdrop-blur-lg shadow-md rounded-lg overflow-hidden p-6 transition-all duration-300 hover:shadow-xl hover:scale-105';
+    'group bg-white/20 backdrop-blur-lg shadow-md rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 hover:bg-white/30';
 
   const gradientCardStyles =
-    'group bg-gradient-to-br from-indigo to-blue text-white shadow-md rounded-lg overflow-hidden p-6 transition-transform duration-300 hover:shadow-xl hover:scale-105 hover:from-blue hover:to-indigo-light';
+    'group bg-gradient-to-br from-indigo to-blue text-white shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:shadow-xl hover:scale-105 hover:from-blue hover:to-indigo-light';
 
   // Choose the style based on the random selection
   const cardStyles = isGradientStyle ? gradientCardStyles : plainCardStyles;
 
   return (
     <Link href={`/search/predicates/${type}/${predicate}`} passHref>
-      <div className={cardStyles}>
+      <div
+        className={cardStyles}
+        style={{ height: `${randomHeight}px`, padding: '16px' }}
+      >
         {/* Card Content */}
         <div className="content">
           <p
             className={`
-              object-text text-xl font-semibold transition-colors duration-300 
+              object-text text-xl text-white font-semibold transition-colors duration-300 
               truncate ${
                 isGradientStyle
-                  ? 'text-white group-hover:text-darkGray'
-                  : 'text-white group-hover:text-indigo-light'
+                  ? 'group-hover:text-darkGray'
+                  : 'group-hover:text-gold'
               }
             `}
           >
@@ -87,7 +91,6 @@ const TripleCardObject: React.FC<TripleCardObjectProps> = ({ triple }) => {
           onShare={() => {}}
           onComment={() => {}}
           onGetLink={() => {}}
-          // isGradientStyle={isGradientStyle}
         />
       </div>
     </Link>
