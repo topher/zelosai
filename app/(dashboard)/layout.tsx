@@ -26,7 +26,7 @@ const DashboardLayout = ({
         toggleSidebar={toggleSidebar}
       />
       <main className={`flex-1 flex flex-col ${isCollapsed ? "md:pl-20" : "md:pl-64"}`}>
-        <Navbar routes={routes} apiLimitCount={apiLimitCount} isPro={isPro} />
+        {/* <Navbar routes={routes} apiLimitCount={apiLimitCount} isPro={isPro} /> */}
         <div className="flex-1 flex flex-col">
           {children}
         </div>

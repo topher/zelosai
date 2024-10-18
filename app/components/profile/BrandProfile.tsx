@@ -48,7 +48,7 @@ const BrandProfile: React.FC<BrandProfileProps> = ({ resource }) => {
   }, [triples]);
 
   return (
-    <div className="brand-profile bg-offWhite p-8">
+    <div className="brand-profile p-8">
       <header>
         <ProfileHead
           name={nameTriple?.object || 'Unnamed Brand'}

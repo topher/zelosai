@@ -205,8 +205,8 @@ body,
   /* other styles... */
 }
 
-.athlete-profile {
-  background: linear-gradient(to right, #0f172a, #1e293b); /* Example gradient */
+.athlete-profile, .brand-profile {
+  background: linear-gradient(to right, #0f172a, #1e293b, #4b0082); /* Example gradient */
   /* Other styling as needed */
 }
 

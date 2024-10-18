@@ -18,7 +18,7 @@ const ProfileHead: React.FC<ProfileHeadProps> = ({ imageSrc, name }) => {
   };
 
   return (
-    <div className="relative h-64 w-full">
+    <div className="relative h-64 w-full -mt-8">
       <SkyboxBanner
         hdriPath="/sepulchral_chapel_rotunda_4k.hdr"
         onClick={handleBannerClick}

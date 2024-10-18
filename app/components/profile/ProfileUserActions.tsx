@@ -13,7 +13,7 @@ interface ActionButtonProps {
 }
 
 interface ProfileUserActionsProps {
-  type: 'athlete' | 'brand';  // Adjust this type as per your project
+  type: 'athlete' | 'brand';
 }
 
 const ActionButton: React.FC<ActionButtonProps> = ({ icon, label, onClick }) => (

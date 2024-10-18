@@ -23,10 +23,10 @@ export const routes = [
     href: '/dashboard',
     color: "text-gray-500",  // Adjusted to gray-500 for consistency
     children: [
+      { label: 'Strategy', href: '/strategy', color: "text-gray-600", description: "Build new AI models to expand your digital brand.", icon: "travel" },
       { label: 'Models', href: '/models', color: "text-gray-600", description: "Explore your collection of AI models.", icon: "picture" },
       { label: 'Data Bank', href: '/knowledge-bank', color: "text-gray-600", description: "Monitor the performance of your AI models.", icon: "locker" },
       { label: 'Campaigns', href: '/workflows', color: "text-gray-600", description: "Ensure the safe and responsible use of your likeness.", icon: "bulb" },
-      { label: 'Strategy', href: '/strategy', color: "text-gray-600", description: "Build new AI models to expand your digital brand.", icon: "travel" },
     ],
   },
   {
@@ -66,23 +66,23 @@ export const routes = [
     ],
   },
   {
-    label: 'Contracts',
-    icon: Briefcase,
-    href: '/contracts',
-    color: "text-orange-500",
-    // children: [],
-  },
-  {
     label: 'Campaigns',
     icon: Workflow,
     href: '/workflows',
-    color: "text-red-500",
+    color: "text-orange-500",
     children: [
-      { label: 'Library', href: '/workflows/library', color: "text-red-500", description: "Access resources to steamline your campaign processes.", icon: "link" },
-      { label: 'My Tasks', href: '/workflows/tasks', color: "text-red-500", description: "Track your ongoing tasks and responsibilities.", icon: "tick" },
-      { label: 'Activity', href: '/workflows/analytics', color: "text-red-500", description: "Review recent actions and updates within your campaigns.", icon: "rocket" },
-      { label: 'New Campaign', href: '/workflows/plan', color: "text-red-500", description: "Create and customize new campaigns to optimize your efficiency.", icon: "plus" },
+      { label: 'Library', href: '/workflows/library', color: "text-orange-500", description: "Access resources to steamline your campaign processes.", icon: "link" },
+      { label: 'My Tasks', href: '/workflows/tasks', color: "text-orange-500", description: "Track your ongoing tasks and responsibilities.", icon: "tick" },
+      { label: 'Activity', href: '/workflows/analytics', color: "text-orange-500", description: "Review recent actions and updates within your campaigns.", icon: "rocket" },
+      { label: 'New Campaign', href: '/workflows/plan', color: "text-orange-500", description: "Create and customize new campaigns to optimize your efficiency.", icon: "plus" },
     ],
+  },
+  {
+    label: 'Contracts',
+    icon: Briefcase,
+    href: '/contracts',
+    color: "text-red-500",
+    // children: [],
   },
   {
     label: 'Search',

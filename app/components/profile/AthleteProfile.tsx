@@ -7,7 +7,7 @@ import TripleCardObject from './TripleCardObject';
 import ProfileHead from './ProfileHead';
 import ProfileUserActions from './ProfileUserActions';
 import ProfileHighlightCards from './ProfileHighlightCards';
-import './Profile.css'; // Assuming you have necessary styles here
+import './Profile.css';
 import Masonry from 'masonry-layout';
 
 
@@ -47,7 +47,7 @@ const AthleteProfile: React.FC<AthleteProfileProps> = ({ resource }) => {
   }, [triples]);
 
   return (
-    <div className="athlete-profile bg-gradient-to-r from-dark-blue to-midnight-blue p-8">
+    <div className="athlete-profile p-8">
       <header>
         <ProfileHead
           name={nameTriple?.object || 'Name Unavailable'}
