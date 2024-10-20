@@ -98,15 +98,13 @@ const BrandHits: React.FC = () => {
   }
 
   return (
-    <div className="relative z-0">
-      <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {hits.map((hit) => {
-          const uriSegments = hit.subject.split("/");
-          const id = uriSegments[uriSegments.length - 1]; // "maz_203"
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {hits.map((hit) => {
+        const uriSegments = hit.subject.split("/");
+        const id = uriSegments[uriSegments.length - 1]; // "maz_203"
 
-          return <BrandSearchCard key={id} data={{ ...hit, id }} />;
-        })}
-      </div>
+        return <BrandSearchCard key={id} data={{ ...hit, id }} />;
+      })}
     </div>
   );
 };
