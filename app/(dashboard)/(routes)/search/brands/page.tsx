@@ -1,4 +1,5 @@
-// @/app/(dashboard)/(routes)/search/brands/page.tsx
+// app/(dashboard)/(routes)/search/brands/page.tsx
+
 "use client";
 
 import React, { useState, useRef } from "react";

@@ -1,4 +1,4 @@
-// app/contracts/page.tsx
+// app/(dashboard)/(routes)/search/contracts/page.tsx
 
 "use client";
 
