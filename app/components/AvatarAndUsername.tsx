@@ -19,7 +19,7 @@ const AvatarAndUsername: React.FC<AvatarAndUsernameProps> = ({ data }) => (
       height={32}
       className="rounded-full"
     />
-    <span className="ml-2 text-sm text-gray-800">{data.username}</span>
+    <span className="ml-2 text-sm text-white/80">{data.username}</span>
   </div>
 );
 
