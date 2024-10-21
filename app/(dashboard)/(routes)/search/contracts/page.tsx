@@ -13,7 +13,8 @@ import Searchkit from "searchkit";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "@/app/theme";
 import SidebarToggle from "@/app/components/SidebarToggle";
-import SidebarContracts from "@/app/components/SidebarContracts";
+// import SidebarContracts from "@/app/components/SidebarContracts";
+import Sidebar from "@/app/components/Sidebar";
 import ContractSearchCard from "@/app/components/ContractSearchCard";
 import CustomSearchBox from "@/app/components/CustomSearchBox";
 import CustomPagination from "@/app/components/CustomPagination";
@@ -105,7 +106,8 @@ const ContractSearchPage: React.FC = () => {
                 boxShadow: 'rgba(0, 0, 0, 0.1) 0px 4px 12px',
               }}
             >
-              <SidebarContracts
+              <Sidebar
+                sections={["Contracts"]}
                 hitsPerPage={hitsPerPage}
                 onChangeHitsPerPage={(value) => setHitsPerPage(value)}
               />

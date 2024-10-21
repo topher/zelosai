@@ -13,7 +13,8 @@ import Searchkit from "searchkit";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "@/app/theme";
 import SidebarToggle from "@/app/components/SidebarToggle";
-import SidebarBrands from "@/app/components/SidebarBrands";
+// import SidebarBrands from "@/app/components/SidebarBrands";
+import Sidebar from "@/app/components/Sidebar";
 import BrandSearchCard from "@/app/components/BrandSearchCard";
 import CustomSearchBox from "@/app/components/CustomSearchBox";
 import CustomPagination from "@/app/components/CustomPagination";
@@ -154,7 +155,8 @@ const BrandSearchPage: React.FC = () => {
                 boxShadow: 'rgba(0, 0, 0, 0.1) 0px 4px 12px',
               }}
             >
-              <SidebarBrands
+              <Sidebar
+                sections={["Brands"]}
                 hitsPerPage={hitsPerPage}
                 onChangeHitsPerPage={(value) => setHitsPerPage(value)}
               />
