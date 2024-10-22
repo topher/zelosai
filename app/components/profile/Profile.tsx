@@ -5,6 +5,7 @@
 import React, { useState, useEffect } from 'react';
 import ProfileHead from './ProfileHead';
 import ProfileUserActions from './ProfileUserActions';
+import ProfileInfo from './ProfileInfo';
 import ProfileHighlightCards from './ProfileHighlightCards';
 import ProfileGrid from './ProfileGrid';
 import { Triple, ResourceType } from '@/app/types';
@@ -43,7 +44,7 @@ const Profile: React.FC<ProfileProps> = ({ resource, type }) => {
       </div>
 
       {/* Highlight Cards */}
-      <div className="p-4">
+      {/* <div className="p-4">
         <ProfileHighlightCards
           data={
             type === 'athlete'
@@ -51,7 +52,10 @@ const Profile: React.FC<ProfileProps> = ({ resource, type }) => {
               : triples.find((triple) => triple.predicate === 'industry')
           }
         />
-      </div>
+      </div> */}
+      
+      {/* Profile Information */}
+      {/* <ProfileInfo triples={triples} type={type} /> */}
 
       {/* User Actions */}
       <ProfileUserActions type={type} />
