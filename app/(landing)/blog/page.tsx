@@ -2,7 +2,7 @@
 
 import IndexPage from '@/app/(landing)/blog/components/IndexPage';
 import PreviewIndexPage from '@/app/(landing)/blog/components/PreviewIndexPage';
-import { LandingNavbar } from '@/components/landing-navbar';
+import { LandingNavbar } from '@/app/(landing)/components/landing-navbar';
 import { Footer } from '../components/Footer';
 import { readToken } from '@/lib/sanity.api';
 import { getAllPosts, getClient, getSettings } from '@/lib/sanity.client';

@@ -1,9 +1,8 @@
-import { LandingNavbar } from "@/components/landing-navbar";
-import { LandingHero } from "@/components/landing-hero";
-import { LandingFeatures } from "@/components/landing-features";
-import { LandingProcess } from "@/components/landing-process";
-import { LandingQuotes } from "@/components/landing-quotes";
-// import { PricingSection } from "@/components/landing-pricing";
+import { LandingNavbar } from "./components/landing-navbar";
+import { LandingHero } from "./components/landing-hero";
+import { LandingFeatures } from "./components/landing-features";
+import { LandingProcess } from "./components/landing-process";
+import { LandingQuotes } from "./components/landing-quotes";
 import MoreStories from "@/app/(landing)/blog/components/MoreStories";
 import { getClient, getAllPosts } from "@/lib/sanity.client";
 import { readToken } from "@/lib/sanity.api";
