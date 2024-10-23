@@ -1,0 +1,23 @@
+/* app/components/profile/Profile.css */
+
+.my-masonry-grid {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.grid-sizer,
+.grid-item {
+  width: 25%; /* Adjust percentage for the number of columns */
+  box-sizing: border-box;
+}
+
+.grid-item {
+  padding: 15px; /* Half of desired gutter size */
+}
+
+.grid-item > * {
+  width: 100%;
+  height: 100%; /* Ensure the child fills the grid-item */
+}

@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import TripleCardPredicate from '@/app/components/profile/TripleCardPredicate';
+import TripleCardPredicate from '@/app/(dashboard)/(routes)/profiles/[type]/[id]/components/TripleCardPredicate';
 import Loader from '@/app/components/Loader';
 import Masonry from 'masonry-layout';
 import './PredicatePage.css'; // Import the CSS for masonry
-import PredicateSidebar from '@/app/components/profile/PredicateSidebar';
+import PredicateSidebar from '@/app/(dashboard)/(routes)/profiles/[type]/[id]/components/PredicateSidebar';
 
 interface Triple {
   subject: string;

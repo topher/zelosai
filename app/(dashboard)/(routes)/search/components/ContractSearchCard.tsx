@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaFileContract } from "react-icons/fa";
-import AvatarAndUsername from "./AvatarAndUsername";
+import AvatarAndUsername from "../../../../components/AvatarAndUsername";
 import ContractCardTermDetail from "./ContractCardTermDetail";
 import { ContractModel } from "@/app/types";
 

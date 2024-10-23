@@ -1,9 +1,8 @@
-import { LandingNavbar } from "@/components/landing-navbar";
-import { LandingHero } from "@/components/landing-hero";
-import { LandingFeatures } from "@/components/landing-features";
-import { LandingProcess } from "@/components/landing-process";
-import { LandingQuotes } from "@/components/landing-quotes";
-// import { PricingSection } from "@/components/landing-pricing";
+import { LandingNavbar } from "./components/landing-navbar";
+import { LandingHero } from "./components/landing-hero";
+import { LandingFeatures } from "./components/landing-features";
+import { LandingProcess } from "./components/landing-process";
+import { LandingQuotes } from "./components/landing-quotes";
 import MoreStories from "@/app/(landing)/blog/components/MoreStories";
 import { getClient, getAllPosts } from "@/lib/sanity.client";
 import { readToken } from "@/lib/sanity.api";
@@ -35,12 +34,12 @@ export default async function LandingPage() {
         <div className="w-full h-[1px] bg-white/20 mt-8"></div>
       </div>
 
-      <div id="testimonials" className="pt-8">
+      {/* <div id="testimonials" className="pt-8">
         <LandingQuotes />
-      </div>
+      </div> */}
 
       <div className="mx-auto max-w-screen-xl">
-        <div className="w-full h-[1px] bg-white/20 mt-8"></div>
+        {/* <div className="w-full h-[1px] bg-white/20 mt-8"></div> */}
         <div id="stories" className="pt-8">
           <MoreStories posts={posts} title="Check Out Our Resources" />
         </div>

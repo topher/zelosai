@@ -13,7 +13,7 @@ const Strategy: React.FC = () => {
   const strategyRoute = routes.find(route => route.label === 'Strategy');
 
   return (
-    <div className={`container mx-auto flex flex-col justify-center h-full -mt-10 ${montserrat.className}`}>
+    <div className={`container mx-auto flex flex-col justify-center h-full my-8 ${montserrat.className}`}>
       <h1 className="text-6xl font-black mb-4 tracking-tight leading-tight text-left">
         <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500">
           {strategyRoute?.label}

@@ -205,9 +205,11 @@ body,
   /* other styles... */
 }
 
-.athlete-profile {
-  background: linear-gradient(to right, #0f172a, #1e293b); /* Example gradient */
-  /* Other styling as needed */
+.athlete-brand-profile {
+  background: linear-gradient(to right, #0f172a, #1e293b, #4b0082);
+  min-height: 100vh; /* Ensure it covers the full screen height */
+  display: flex;
+  flex-direction: column; /* For better structure */
 }
 
 .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root {

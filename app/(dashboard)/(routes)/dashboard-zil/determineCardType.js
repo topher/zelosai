@@ -14,10 +14,10 @@ import DraftStrategyCard from '@/app/components/dashboard/DraftStrategyCard';
 import MintSmartContractCard from '@/app/components/dashboard/MintSmartContractCard';
 import UploadContractCard from '@/app/components/dashboard/UploadContractCard';
 import SetGoalsCard from '@/app/components/dashboard/SetGoalsCard';
-import TripleCardPredicate from "@/app/components/profile/TripleCardPredicate"
-import TripleCardSubject from "@/app/components/profile/TripleCardSubject"
-import TripleCardObject from "@/app/components/profile/TripleCardObject"
-import TripleCardWhole from "@/app/components/profile/TripleCardWhole"
+import TripleCardPredicate from "@/app/(dashboard)/(routes)/profiles/[type]/[id]/components/TripleCardPredicate"
+import TripleCardSubject from "@/app/(dashboard)/(routes)/profiles/[type]/[id]/components/TripleCardSubject"
+import TripleCardObject from "@/app/(dashboard)/(routes)/profiles/[type]/[id]/components/TripleCardObject"
+import TripleCardWhole from "@/app/(dashboard)/(routes)/profiles/[type]/[id]/components/TripleCardWhole"
 
 const cardTypeMapping = {
   'stat': StatCard,

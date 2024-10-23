@@ -1,11 +1,13 @@
+// app/components/profile/AthleteProfile_leg.tsx
+
 'use client'
 
 import { useEffect, useState } from "react";
 import { SafeAthlete } from "@/app/types";
 import Container from "@/app/components/Container";
-import AthleteHead from "@/app/components/profile/ProfileHead";
-import AthleteInfo from "@/app/components/profile/ProfileInfo";
-import Description from "@/app/components/profile/Description";
+import AthleteHead from "@/app/(dashboard)/(routes)/profiles/[type]/[id]/components/ProfileHead";
+import AthleteInfo from "@/app/(dashboard)/(routes)/profiles/[type]/[id]/components/ProfileInfo";
+import Description from "@/app/(dashboard)/(routes)/profiles/[type]/[id]/components/Description";
 import CollaborationRequest from "./CollaborationRequest";
 
 interface AthleteProfileProps {

@@ -1,3 +1,5 @@
+// app/components/profile/TripleCardObject.tsx
+
 import React, { useState, useEffect } from 'react';
 import TripleCardUserActions from './TripleCardUserActions';
 import Link from 'next/link';
@@ -7,7 +9,6 @@ interface Triple {
   predicate: string;
   object: string;
   citation?: string;
-  // Removed 'type' from the interface as we'll derive it from 'subject'
 }
 
 interface TripleCardObjectProps {
@@ -23,9 +24,7 @@ const TripleCardObject: React.FC<TripleCardObjectProps> = ({ triple }) => {
 
   // Extract 'type' from 'subject' URI
   const getTypeFromSubject = (subjectUri: string): 'athlete' | 'brand' => {
-    console.log(subjectUri)
     const uriParts = subjectUri.split('/');
-    // Assuming the type is always at the 4th index after splitting
     const typeIndex = uriParts.findIndex((part) => part === 'knowledge') + 1;
     const type = uriParts[typeIndex] as 'athlete' | 'brand';
     return type;
@@ -40,38 +39,42 @@ const TripleCardObject: React.FC<TripleCardObjectProps> = ({ triple }) => {
     setIsGradientStyle(Math.random() >= 0.5); // 50% chance for gradient style
   }, []);
 
-  // Define the two styles
+  const randomHeight = Math.floor(Math.random() * 150) + 150;
+
   const plainCardStyles =
-    'group bg-white bg-opacity-20 backdrop-blur-lg shadow-md rounded-lg overflow-hidden p-6 transition-all duration-300 hover:shadow-xl';
+    'group bg-white/20 backdrop-blur-lg shadow-md rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 hover:bg-white/30';
 
   const gradientCardStyles =
-    'group bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-md rounded-lg overflow-hidden p-6 transition-all duration-300 hover:shadow-xl hover:from-purple-600 hover:to-pink-600';
+    'group bg-gradient-to-br from-indigo to-blue text-white shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:shadow-xl hover:scale-105 hover:from-blue hover:to-indigo-light';
 
-  // Choose a random style
+  // Choose the style based on the random selection
   const cardStyles = isGradientStyle ? gradientCardStyles : plainCardStyles;
 
   return (
     <Link href={`/search/predicates/${type}/${predicate}`} passHref>
-      <div className={cardStyles}>
+      <div
+        className={cardStyles}
+        style={{ height: `${randomHeight}px`, padding: '16px' }}
+      >
         {/* Card Content */}
         <div className="content">
           <p
             className={`
-              object-text text-xl font-semibold transition-colors duration-300 
+              object-text text-xl text-white font-semibold transition-colors duration-300 
               truncate ${
                 isGradientStyle
-                  ? 'text-white group-hover:text-blue-800'
-                  : 'text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-500'
+                  ? 'group-hover:text-darkGray'
+                  : 'group-hover:text-gold'
               }
             `}
           >
             {object}
           </p>
-          <p className="predicate-text text-gray-400 text-sm capitalize mt-2">
+          <p className="predicate-text text-white/60 text-sm capitalize mt-2">
             {predicate.replace(/_/g, ' ')}
           </p>
           {citation && (
-            <div className="citation-text text-gray-300 text-xs italic mt-4">
+            <div className="citation-text text-white/40 text-xs italic mt-4">
               {citation}
             </div>
           )}
