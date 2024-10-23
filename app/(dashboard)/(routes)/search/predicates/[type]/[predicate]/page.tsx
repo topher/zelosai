@@ -5,9 +5,8 @@
 import React, { useState, useEffect } from 'react';
 import TripleCardPredicate from '@/app/(dashboard)/(routes)/profiles/[type]/[id]/components/TripleCardPredicate';
 import Loader from '@/app/components/Loader';
-import Masonry from 'masonry-layout';
-import './PredicatePage.css'; // Import the CSS for masonry
-import PredicateSidebar from '@/app/(dashboard)/(routes)/profiles/[type]/[id]/components/PredicateSidebar';
+import PredicateGrid from '@/app/(dashboard)/(routes)/search/predicates/components/PredicateGrid';
+import PredicateDropdown from '@/app/(dashboard)/(routes)/search/predicates/components/PredicateDropdown';
 
 interface Triple {
   subject: string;
@@ -15,6 +14,7 @@ interface Triple {
   object: string;
   citation?: string;
   subjectName?: string;
+  type: 'athlete' | 'brand'; // Add the type property here
 }
 
 const PredicatePage: React.FC<{ params: { predicate: string; type: string } }> = ({ params }) => {
@@ -26,7 +26,6 @@ const PredicatePage: React.FC<{ params: { predicate: string; type: string } }> =
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [totalPages, setTotalPages] = useState<number>(1);
-  const [showSidebar, setShowSidebar] = useState<boolean>(false);
 
   // Handle search input changes
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -71,19 +70,6 @@ const PredicatePage: React.FC<{ params: { predicate: string; type: string } }> =
     fetchTriples(predicate, type, searchQuery, page);
   }, [predicate, type, searchQuery, page]);
 
-  // Initialize Masonry after triples are set
-  useEffect(() => {
-    const grid = document.querySelector('.my-masonry-grid');
-    if (grid) {
-      new Masonry(grid, {
-        itemSelector: '.grid-item',
-        columnWidth: '.grid-sizer',
-        percentPosition: true,
-        gutter: 30, // Ensure this matches your CSS gutter size
-      });
-    }
-  }, [triples]);
-
   // Pagination handlers
   const handlePrevPage = () => {
     setPage((prev) => Math.max(prev - 1, 1));
@@ -95,22 +81,12 @@ const PredicatePage: React.FC<{ params: { predicate: string; type: string } }> =
 
   return (
     <div className="container mx-auto p-4 relative">
-      <h1 className="text-3xl font-bold mb-6">
+      <h1 className="text-3xl font-bold mb-6 flex items-center">
         Triples for Predicate:{' '}
-        <span
-          className="text-blue-600 cursor-pointer"
-          onClick={() => setShowSidebar(true)}
-        >
-          {predicate.replace(/_/g, ' ')}
-        </span>
+        <div className="ml-2">
+          <PredicateDropdown currentPredicate={predicate} type={type} />
+        </div>
       </h1>
-
-      {showSidebar && (
-        <PredicateSidebar
-          currentPredicate={predicate}
-          onClose={() => setShowSidebar(false)}
-        />
-      )}
 
       {/* Search Box */}
       <div className="relative mb-6 flex items-center">
@@ -146,14 +122,7 @@ const PredicatePage: React.FC<{ params: { predicate: string; type: string } }> =
         <Loader />
       ) : triples.length > 0 ? (
         /* Triples Display using Masonry */
-        <div className="my-masonry-grid">
-          <div className="grid-sizer"></div>
-          {triples.map((triple, index) => (
-            <div className="grid-item" key={index}>
-              <TripleCardPredicate triple={triple} />
-            </div>
-          ))}
-        </div>
+        <PredicateGrid triples={triples} gridClassName="my-masonry-grid" />
       ) : (
         /* No Results Message */
         <div className="text-center text-gray-500">No triples found.</div>

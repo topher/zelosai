@@ -3,8 +3,8 @@
 'use client';
 
 import React, { useState, useEffect, useMemo } from 'react';
-import TripleCardPredicate from './TripleCardPredicate';
-import Loader from '../../../../../../components/Loader';
+import TripleCardPredicate from '../../../profiles/[type]/[id]/components/TripleCardPredicate';
+import Loader from '../../../../../components/Loader';
 import Masonry from 'react-masonry-css'; // Use react-masonry-css for React compatibility
 import debounce from 'lodash.debounce';
 import { useRouter, useSearchParams } from 'next/navigation';
