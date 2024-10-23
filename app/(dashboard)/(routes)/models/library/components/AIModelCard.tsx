@@ -1,4 +1,4 @@
-// library/components/album-artwork.tsx
+// library/components/AIModelCard.tsx
 
 import { cn } from "@/lib/utils";
 import {

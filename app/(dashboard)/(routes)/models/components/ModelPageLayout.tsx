@@ -28,7 +28,7 @@ const ModelPageLayout: React.FC<ModelPageLayoutProps> = ({
   bgColor,
 }) => {
   return (
-    <div className="flex flex-col min-h-screen w-full">
+    <div className="flex flex-col min-h-screen w-full mt-8">
       <Heading
         title={modelData ? modelData.label : "Model"}
         description={modelData ? modelData.description : "Model description."}

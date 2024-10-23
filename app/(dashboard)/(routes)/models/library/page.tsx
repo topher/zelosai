@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { AIModelCard } from "./components/album-artwork";
+import { AIModelCard } from "./components/AIModelCard";
 import Link from "next/link";
 import { getAIModelsByAccountId, getModelCategoriesByAccountId } from "@/app/actions/modelsActions";
 import { UserDefinedModelCategory, AIModel } from "@/app/types";
