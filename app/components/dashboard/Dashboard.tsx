@@ -1,7 +1,7 @@
 // pages/dashboard.js
 import React, { useContext, useEffect, useRef } from 'react';
 import { RDFContext } from '@/app/context/RDFContext'; // Adjust the path as needed
-import { determineCardType } from '../../dashboard/determineCardType';
+import { determineCardType } from '../../(dashboard)/(routes)/dashboard-zil/determineCardType';
 import Masonry from 'masonry-layout';
 
 

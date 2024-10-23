@@ -10,7 +10,7 @@ import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/comp
 import React, { useState, useCallback, useContext, useEffect } from "react";
 // import MintTokenGlobe from "../../assets/images/mint_token_globe.png"; // Adjust the path if needed
 import { Link as RNLink } from "react-router-dom";
-import { connectWallet, getMetadataFromApiAsync, getSelectedAddress } from "@/app/(dashboard)/(routes)/mint-token/Web3Client";
+// import { connectWallet, getMetadataFromApiAsync, getSelectedAddress } from "@/app/(dashboard)/(routes)/mint-token/Web3Client";
 import { ACCOUNT_STATE, TokenContext } from "@/app/(dashboard)/(routes)/mint-token/TokenContext";
 import athleteMetadata from "@/app/(dashboard)/(routes)/mint-token/athlete_metadata.json"; // Ensure correct path
 
@@ -309,7 +309,7 @@ export const Sidebar = ({
                       pathname === "#" ? "text-white bg-white/10" : "text-zinc-400",
                       isCollapsed ? "justify-center" : "justify-start"
                     )}
-                    onClick={() => onConnectWallet()}
+                    // onClick={() => onConnectWallet()}
                   >
                     <QrCode className="h-6 w-6 text-gray-300" />
                     {!isCollapsed && (

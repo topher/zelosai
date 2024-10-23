@@ -1,4 +1,6 @@
-'use client';
+// app/(dashboard)/(routes)/search/predicates/[type]/[predicate]/page.tsx
+
+"use client";
 
 import React, { useState, useEffect } from 'react';
 import TripleCardPredicate from '@/app/(dashboard)/(routes)/profiles/[type]/[id]/components/TripleCardPredicate';
@@ -16,7 +18,6 @@ interface Triple {
 }
 
 const PredicatePage: React.FC<{ params: { predicate: string; type: string } }> = ({ params }) => {
-
   const { predicate, type } = params;
 
   const [triples, setTriples] = useState<Triple[]>([]);
@@ -36,13 +37,12 @@ const PredicatePage: React.FC<{ params: { predicate: string; type: string } }> =
   // Function to fetch triples from the API
   const fetchTriples = async (
     predicate: string,
-    type: string,  // Added the type parameter
+    type: string,
     search: string,
     page: number
   ) => {
     setIsLoading(true);
     try {
-      // Include the type in the URL path
       const response = await fetch(
         `/api/predicates/${type}/${encodeURIComponent(predicate)}?q=${encodeURIComponent(
           search
@@ -68,7 +68,7 @@ const PredicatePage: React.FC<{ params: { predicate: string; type: string } }> =
 
   // Fetch triples when predicate, searchQuery, or page changes
   useEffect(() => {
-    fetchTriples(predicate, type, searchQuery, page);  // Pass the type here
+    fetchTriples(predicate, type, searchQuery, page);
   }, [predicate, type, searchQuery, page]);
 
   // Initialize Masonry after triples are set
@@ -113,14 +113,32 @@ const PredicatePage: React.FC<{ params: { predicate: string; type: string } }> =
       )}
 
       {/* Search Box */}
-      <div className="mb-6">
+      <div className="relative mb-6 flex items-center">
         <input
           type="text"
           value={searchQuery}
           onChange={handleSearchChange}
+          className="w-full rounded-full border border-gray-300 bg-white py-2 px-4 pr-14 text-gray-800 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200"
           placeholder="Search within results..."
-          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
+        {/* Search Button */}
+        <button
+          type="button"
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 flex items-center justify-center h-10 w-10 rounded-full"
+          style={{
+            background: 'linear-gradient(to right, #4b0082, #ff69b4)',
+          }}
+        >
+          {/* Simplified magnifying glass */}
+          <svg
+            className="h-5 w-5 text-white"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="2" fill="none" />
+            <line x1="16" y1="16" x2="21" y2="21" stroke="currentColor" strokeWidth="2" />
+          </svg>
+        </button>
       </div>
 
       {/* Loading Indicator */}
