@@ -3,8 +3,8 @@
 "use client";
 
 import React from "react";
-import SearchPageLayout from "@/app/components/SearchPageLayout";
-import ProfileSearchCard from "@/app/components/ProfileSearchCard";
+import SearchPageLayout from "@/app/(dashboard)/(routes)/search/components/SearchPageLayout";
+import ProfileSearchCard from "@/app/(dashboard)/(routes)/search/components/ProfileSearchCard";
 
 const AthleteSearchPage: React.FC = () => {
   const searchSettings = {

@@ -1,4 +1,4 @@
-import Button from "../Button.client";
+import Button from "../../../../../../components/Button.client";
 import { useCallback } from "react";
 import useReservationModal from "@/app/hooks/useReservationModal";
 

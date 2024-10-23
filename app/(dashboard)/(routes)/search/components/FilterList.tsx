@@ -9,7 +9,7 @@ import {
   useMenu,
 } from "react-instantsearch-hooks-web";
 import { Chip, Stack } from "@mui/material";
-import { languageMap, countryMap, sportsMap } from "../../lib/utils";
+import { languageMap, countryMap, sportsMap } from "lib/utils";
 
 interface MultiSelectFilterListProps
   extends Omit<UseRefinementListProps, "attribute"> {

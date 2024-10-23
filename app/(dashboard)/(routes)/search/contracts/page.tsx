@@ -3,8 +3,8 @@
 "use client";
 
 import React from "react";
-import SearchPageLayout from "@/app/components/SearchPageLayout";
-import ContractSearchCard from "@/app/components/ContractSearchCard";
+import SearchPageLayout from "@/app/(dashboard)/(routes)/search/components/SearchPageLayout";
+import ContractSearchCard from "@/app/(dashboard)/(routes)/search/components/ContractSearchCard";
 
 const ContractSearchPage: React.FC = () => {
   const searchSettings = {

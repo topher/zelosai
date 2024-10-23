@@ -3,8 +3,8 @@
 "use client";
 
 import React from "react";
-import SearchPageLayout from "@/app/components/SearchPageLayout";
-import BrandSearchCard from "@/app/components/BrandSearchCard";
+import SearchPageLayout from "@/app/(dashboard)/(routes)/search/components/SearchPageLayout";
+import BrandSearchCard from "@/app/(dashboard)/(routes)/search/components/BrandSearchCard";
 
 const BrandSearchPage: React.FC = () => {
   const searchSettings = {

@@ -9,7 +9,7 @@ import { FaMapMarkerAlt, FaRunning } from "react-icons/fa"
 import SearchSimilarityComponent from "./SearchSimilarityComponent"
 import SearchCardBadgeDetail from "./SearchCardBadgeDetail"
 import { Profile } from "@/app/types"
-import { countryMap, sportsMap } from "../../lib/utils"
+import { countryMap, sportsMap } from "../../../../../lib/utils"
 
 interface ProfileSearchCardProps {
   data: Profile

@@ -3,8 +3,8 @@
 import React from 'react';
 import getESResourceById from "@/app/actions/getESResourceById";
 import ClientOnly from "@/app/components/ClientOnly";
-import EmptyState from "@/app/components/EmptyState";
-import Profile from '@/app/components/profile/Profile'; // Use unified Profile component
+import EmptyState from "../../../search/components/EmptyState";
+import Profile from '@/app/(dashboard)/(routes)/profiles/[type]/[id]/components/Profile'; // Use unified Profile component
 import { ListingProvider } from "@/app/context/ListingContext";
 
 interface Params {

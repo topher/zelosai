@@ -3,8 +3,8 @@
 "use client";
 
 import React from "react";
-import SearchPageLayout from "@/app/components/SearchPageLayout";
-import AIModelSearchCard from "@/app/components/AIModelSearchCard";
+import SearchPageLayout from "@/app/(dashboard)/(routes)/search/components/SearchPageLayout";
+import AIModelSearchCard from "@/app/(dashboard)/(routes)/search/components/AIModelSearchCard";
 
 const AIModelSearchPage: React.FC = () => {
   const searchSettings = {
