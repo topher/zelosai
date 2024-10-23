@@ -5,8 +5,7 @@ import { useState, useEffect } from "react";
 import SidebarNav from "./sidebar-nav";
 import { Button } from "@/components/ui/button";
 import { ConnectorForm } from "./connector-form";
-import { getConnectorsByAccountId } from "@/app/actions/connectorsActions";
-import { DataConnector, } from "@/app/types"; // Ensure ConnectorFormValues is exported from types
+import { DataConnector } from "@/app/types"; // Ensure ConnectorFormValues is exported from types
 import TopicsPage from "./topics/page"; // Ensure the path is correct
 import { ConnectorFormValues } from "./connectorFormSchema";
 
@@ -18,11 +17,21 @@ export default function ConnectorsLayout() {
   // Fetch connectors dynamically on mount
   useEffect(() => {
     async function fetchData() {
-      const data = await getConnectorsByAccountId("12345"); // Replace with dynamic accountId
-      setConnectors(data);
+      try {
+        const response = await fetch("/api/resource/connectors");
+        if (response.ok) {
+          const data = await response.json();
+          setConnectors(data.resources);
+        } else {
+          console.error("Error fetching connectors:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error fetching connectors:", error);
+      }
     }
     fetchData();
   }, []);
+
 
   const handleItemClick = (item: any) => {
     setSelectedItem(item);

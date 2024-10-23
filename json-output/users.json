@@ -1,0 +1,14 @@
+[
+    {
+      "id": "user_member_1",
+      "email": "member1@example.com",
+      "password": "SecurePassword123!",
+      "privateMetadata": {
+        "subscriptionId": "sub_pro_001",
+        "orgIds": ["org_2nc9c87ihMBSTJxcYc4X4dwmdH4", "org_2ncENhn6JwWpZA2lTOdmnXAFjaG"]
+      },
+      "role": "org:member",
+      "groups": ["user"]
+    }
+  ]
+  

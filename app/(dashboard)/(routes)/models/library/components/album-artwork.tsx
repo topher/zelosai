@@ -33,6 +33,8 @@ export function AIModelCard({
   const [expanded, setExpanded] = useState(false);
   const imageUrl = tool.iconName ? `/${tool.iconName.replace(/^\//, "")}` : null;
 
+  console.log("🟡", imageUrl)
+
   const emoji = tool.tags.includes("voice")
     ? "🔊"
     : tool.tags.includes("text")

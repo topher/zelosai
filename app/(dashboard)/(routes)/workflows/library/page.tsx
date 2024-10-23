@@ -10,24 +10,28 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs";
 import { WorkflowCard } from "@/app/(dashboard)/(routes)/workflows/library/components/workflow-card"
-import { getWorkflowsByAccountId } from "@/app/actions/workflowsActions";
 import { Workflow } from "@/app/types";
 
 export default function WorkflowsPage() {
   const [workflows, setWorkflows] = useState<Workflow[]>([]);
-  const accountId = "12345"; // Dummy user ID
 
   useEffect(() => {
-    const fetchWorkflows = async () => {
+    const fetchData = async () => {
       try {
-        const fetchedWorkflows = await getWorkflowsByAccountId(accountId);
-        setWorkflows(fetchedWorkflows);
+        const response = await fetch("/api/resource/workflows");
+        if (response.ok) {
+          const data = await response.json();
+          setWorkflows(data.resources);
+        } else {
+          console.error("Error fetching workflows:", response.statusText);
+        }
       } catch (error) {
         console.error("Error fetching workflows:", error);
       }
     };
-    fetchWorkflows();
-  }, [accountId]);
+    fetchData();
+  }, []);
+
 
   const user_defined_workflows = workflows.filter((workflow) => workflow.workflow_creator === "user_defined");
   const suggested_workflows = workflows.filter((workflow) => workflow.workflow_creator === "suggested_workflow");

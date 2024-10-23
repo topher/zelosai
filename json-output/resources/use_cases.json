@@ -1,0 +1,30 @@
+[
+  {
+    "id": "use_case_1",
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "visibility": "public",
+    "resourceType":"UseCase",
+    "Description": "Respond to customer inquiries via chatbot",
+    "Subject": "Customer Support Team",
+    "Target": "Customers",
+    "ForPurpose": [
+      "Increase revenue"
+    ],
+    "Models": 5
+  },
+  {
+    "id": "use_case_2",
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "visibility": "public",
+    "resourceType":"UseCase",
+    "Description": "Generate personalized product recommendations",
+    "Subject": "Recommendation Engine",
+    "Target": "Customers",
+    "ForPurpose": [
+      "Increase revenue"
+    ],
+    "Models": 5
+  }
+]

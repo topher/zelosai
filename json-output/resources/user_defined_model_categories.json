@@ -1,0 +1,45 @@
+[
+    {
+      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "visibility": "public",
+      "resourceType":"UserDefinedModelCategory",
+      "name": "Base Models",
+      "includes": ["foundational"]
+    },
+    {
+      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "visibility": "public",
+      "resourceType":"UserDefinedModelCategory",
+      "name": "Image Models",
+      "includes": ["image"],
+      "excludes": ["foundational"]
+    },
+    {
+      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "visibility": "public",
+      "resourceType":"UserDefinedModelCategory",
+      "name": "Text Models",
+      "includes": ["text"],
+      "excludes": ["foundational"]
+    },
+    {
+      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "visibility": "public",
+      "resourceType":"UserDefinedModelCategory",
+      "name": "Voice Models",
+      "includes": ["voice"]
+    },
+    {
+      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "visibility": "public",
+      "resourceType":"UserDefinedModelCategory",
+      "name": "Recently Used",
+      "includes": ["recent-used"]
+    }
+  
+  ]

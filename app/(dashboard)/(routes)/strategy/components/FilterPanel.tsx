@@ -1,15 +1,13 @@
-// FilterPanel.tsx
 import React from 'react';
-import { UserSelectedFacets, DropdownOption } from '@/app/types';
+import { BrandModelCard, DropdownOption } from '@/app/types';
 
 interface FilterPanelProps {
-  selectedFacets: UserSelectedFacets;
+  brandModelCards: BrandModelCard[];
   dropdownOptions: { [key: string]: DropdownOption[] };
-  setSelectedFacets: React.Dispatch<React.SetStateAction<UserSelectedFacets>>;
-  setDropdownOptions: React.Dispatch<React.SetStateAction<{ [key: string]: DropdownOption[] }>>;
+  setBrandModelCards: React.Dispatch<React.SetStateAction<BrandModelCard[]>>;
 }
 
-const dropdownKeysMap: { [key in keyof UserSelectedFacets]: string } = {
+const sectionMapping: { [key: string]: string } = {
   selectedMarketingChannels: 'marketing_channels',
   selectedMarkets: 'geographic_markets',
   selectedIndustries: 'industries',
@@ -18,38 +16,47 @@ const dropdownKeysMap: { [key in keyof UserSelectedFacets]: string } = {
   selectedNILActivities: 'nil_activities',
   selectedInterests: 'interests',
   selectedProducts: 'products',
-  userId: ''
 };
 
 const FilterPanel: React.FC<FilterPanelProps> = ({
-  selectedFacets,
+  brandModelCards,
   dropdownOptions,
-  setSelectedFacets,
-  setDropdownOptions,
+  setBrandModelCards,
 }) => {
-  const handleSelect = (facetName: keyof UserSelectedFacets, optionId: string) => {
-    setSelectedFacets(prev => {
-      const currentSelections = prev[facetName] as string[];
-      if (currentSelections.includes(optionId)) {
-        // Remove the selection
-        return {
-          ...prev,
-          [facetName]: currentSelections.filter(id => id !== optionId),
-        };
+  const handleSelect = (sectionName: string, optionId: string) => {
+    setBrandModelCards(prev => {
+      const existingCard = prev.find(
+        card => card.sectionName === sectionName && card.brandFacetId === optionId
+      );
+
+      if (existingCard) {
+        // Remove the selection if it's already selected
+        return prev.filter(card => !(card.sectionName === sectionName && card.brandFacetId === optionId));
       } else {
-        // Add the selection
-        return {
+        // Add the new selection as a card
+        return [
           ...prev,
-          [facetName]: [...currentSelections, optionId],
-        };
+          {
+            id: `card-${sectionName}-${optionId}`,
+            accountId: '12345', // Adjust as needed
+            ownerId: 'user_abc123', // Adjust as needed
+            resourceType: 'BrandModelCard',
+            sectionName,
+            brandFacetId: optionId,
+            createdAt: new Date(),
+            updatedAt: new Date(),
+            visibility: 'public',
+          },
+        ];
       }
     });
   };
 
-  const renderFacet = (facetName: keyof UserSelectedFacets, label: string) => {
-    const optionsKey = dropdownKeysMap[facetName];
-    const options = dropdownOptions[optionsKey];
-    const selectedOptions = selectedFacets[facetName] as string[];
+  const renderFacet = (sectionName: string, label: string) => {
+    const options = dropdownOptions[sectionMapping[sectionName]];
+    const selectedOptions = brandModelCards
+      .filter(card => card.sectionName === sectionName)
+      .map(card => card.brandFacetId);
 
     if (!options) {
       return null; // Or display a loading indicator or message
@@ -64,7 +71,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
             return (
               <button
                 key={option.id}
-                onClick={() => handleSelect(facetName, option.id)}
+                onClick={() => handleSelect(sectionName, option.id)}
                 className={`px-3 py-1 rounded-full border ${
                   isSelected
                     ? 'bg-blue-600 text-white border-blue-600'

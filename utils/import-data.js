@@ -1,95 +1,207 @@
-// utils/scripts/import-data.js
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 require('dotenv').config();
 
-// Elasticsearch endpoint
+// Elasticsearch configuration from environment variables
 const ELASTICSEARCH_URL = process.env.ELASTICSEARCH_URL || 'http://localhost:9200';
+const ELASTICSEARCH_USERNAME = process.env.ELASTICSEARCH_USERNAME;
+const ELASTICSEARCH_PASSWORD = process.env.ELASTICSEARCH_PASSWORD;
 
-// Directory containing JSON files
-const jsonDir = path.join(__dirname, '../json-output');
-
-// Function to upload JSON data to Elasticsearch
-async function uploadFileToElasticsearch(indexName, filePath, mappingFilePath = null) {
+/**
+ * Reads and parses a JSON file.
+ * @param {string} filePath - Path to the JSON file.
+ * @returns {Object|Array} - Parsed JSON content.
+ */
+function readJSONFile(filePath) {
     try {
-        // If a mapping file is provided, set up the index with mappings
-        if (mappingFilePath && fs.existsSync(mappingFilePath)) {
-            const mappingData = fs.readFileSync(mappingFilePath, 'utf8');
-            const mappingJson = JSON.parse(mappingData);
-
-            // Create the index with mapping
-            await axios.put(`${ELASTICSEARCH_URL}/${indexName}`, mappingJson, {
-                auth: {
-                    username: process.env.ELASTIC_USERNAME,
-                    password: process.env.ELASTIC_PASSWORD
-                }
-            });
-            console.log(`Index ${indexName} created with mapping.`);
-        } else {
-            // Create the index without mapping
-            await axios.put(`${ELASTICSEARCH_URL}/${indexName}`, {}, {
-                auth: {
-                    username: process.env.ELASTIC_USERNAME,
-                    password: process.env.ELASTIC_PASSWORD
-                }
-            });
-            console.log(`Index ${indexName} created without mapping.`);
-        }
-
-        // Read the JSON file
         const data = fs.readFileSync(filePath, 'utf8');
-
-        // Parse JSON data
-        const jsonData = JSON.parse(data);
-
-        if (!Array.isArray(jsonData)) {
-            throw new Error('JSON data is not an array');
-        }
-
-        // Prepare bulk request body
-        const bulkBody = jsonData.flatMap(doc => [{ index: { _index: indexName, _id: doc.id || undefined } }, doc]);
-
-        // Convert bulk body to NDJSON format
-        const ndjson = bulkBody.map(line => JSON.stringify(line)).join('\n') + '\n';
-
-        // Send bulk request to Elasticsearch
-        const response = await axios.post(`${ELASTICSEARCH_URL}/_bulk`, ndjson, {
-            headers: { 'Content-Type': 'application/x-ndjson' },
-            auth: {
-                username: process.env.ELASTIC_USERNAME,
-                password: process.env.ELASTIC_PASSWORD
-            }
-        });
-
-        if (response.data.errors) {
-            console.error(`Errors occurred while indexing data to ${indexName}:`, response.data.items);
-        } else {
-            console.log(`Successfully uploaded data to index ${indexName}`);
-        }
+        return JSON.parse(data);
     } catch (error) {
-        console.error(`Failed to upload ${filePath} to index ${indexName}:`, error.message);
+        console.error(`❌ Error reading or parsing JSON file at ${filePath}:`, error.message);
+        return null;
     }
 }
 
-// Read all JSON files in the directory and upload them
+/**
+ * Reads and aggregates data from a directory containing multiple JSON files.
+ * @param {string} dirPath - Path to the directory containing JSON files.
+ * @returns {Array} - Array of parsed documents.
+ */
+function readJSONFilesFromDirectory(dirPath) {
+    const files = fs.readdirSync(dirPath);
+    console.log(`📂 Reading files from directory: ${dirPath}`);
+    const data = [];
+
+    files.forEach((file) => {
+        if (file.endsWith('.json')) {
+            const filePath = path.join(dirPath, file);
+            const fileData = readJSONFile(filePath);
+            if (fileData) {
+                data.push(fileData);
+            }
+        }
+    });
+
+    return data;
+}
+
+/**
+ * Creates an Elasticsearch index with optional mappings.
+ * @param {string} indexName - Name of the index.
+ * @param {Object} [mappings=null] - Optional mappings object.
+ */
+async function createIndex(indexName, mappings = null) {
+    try {
+        const url = `${ELASTICSEARCH_URL}/${indexName}`;
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            auth: ELASTICSEARCH_USERNAME && ELASTICSEARCH_PASSWORD ? {
+                username: ELASTICSEARCH_USERNAME,
+                password: ELASTICSEARCH_PASSWORD
+            } : undefined
+        };
+
+        let body = mappings || {};
+
+        // Check if index already exists
+        try {
+            await axios.head(url, config);
+            console.log(`ℹ️  Index "${indexName}" already exists. Skipping creation.`);
+            return;
+        } catch (headError) {
+            if (headError.response && headError.response.status === 404) {
+                await axios.put(url, body, config);
+                console.log(`✅ Index "${indexName}" created successfully.`);
+            } else {
+                throw headError;
+            }
+        }
+    } catch (error) {
+        console.error(`❌ Failed to create index "${indexName}":`, error.response ? JSON.stringify(error.response.data, null, 2) : error.message);
+    }
+}
+
+/**
+ * Deletes an Elasticsearch index if it exists.
+ * @param {string} indexName - Name of the index to delete.
+ */
+async function deleteIndexIfExists(indexName) {
+    try {
+        const url = `${ELASTICSEARCH_URL}/${indexName}`;
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            auth: ELASTICSEARCH_USERNAME && ELASTICSEARCH_PASSWORD ? {
+                username: ELASTICSEARCH_USERNAME,
+                password: ELASTICSEARCH_PASSWORD
+            } : undefined
+        };
+
+        // Check if the index exists
+        try {
+            await axios.head(url, config);
+            // If it exists, delete it
+            await axios.delete(url, config);
+            console.log(`🗑️  Index "${indexName}" deleted.`);
+        } catch (headError) {
+            if (headError.response && headError.response.status === 404) {
+                console.log(`ℹ️  Index "${indexName}" does not exist. No need to delete.`);
+            } else {
+                throw headError;
+            }
+        }
+    } catch (error) {
+        console.error(`❌ Failed to delete index "${indexName}":`, error.response ? JSON.stringify(error.response.data, null, 2) : error.message);
+    }
+}
+
+
+/**
+ * Uploads data to Elasticsearch using the Bulk API.
+ * @param {string} indexName - Name of the index.
+ * @param {Array} data - Array of documents to upload.
+ */
+async function uploadData(indexName, data) {
+    try {
+        console.log(`📤 Uploading ${data.length} documents to index "${indexName}"...`);
+
+        const bulkBody = data.flatMap(doc => [{ index: { _index: indexName, _id: doc.subject || doc.id } }, doc]);
+        const ndjson = bulkBody.map(line => JSON.stringify(line)).join('\n') + '\n';
+
+        const url = `${ELASTICSEARCH_URL}/_bulk`;
+        const config = {
+            headers: {
+                'Content-Type': 'application/x-ndjson',
+            },
+            auth: ELASTICSEARCH_USERNAME && ELASTICSEARCH_PASSWORD ? {
+                username: ELASTICSEARCH_USERNAME,
+                password: ELASTICSEARCH_PASSWORD
+            } : undefined
+        };
+
+        const response = await axios.post(url, ndjson, config);
+
+        if (response.data.errors) {
+            console.error(`⚠️  Errors occurred while uploading data to "${indexName}":`);
+            response.data.items.forEach((item, idx) => {
+                if (item.index && item.index.error) {
+                    console.error(` - Document ${idx + 1}:`, JSON.stringify(item.index.error, null, 2));
+                }
+            });
+        } else {
+            console.log(`✅ Successfully uploaded ${data.length} documents to index "${indexName}".`);
+        }
+    } catch (error) {
+        console.error(`❌ Failed to upload data to index "${indexName}":`, error.response ? JSON.stringify(error.response.data, null, 2) : error.message);
+    }
+}
+
+/**
+ * Main function to perform bulk import from multiple JSON files.
+ */
 async function bulkImport() {
     try {
+        const jsonDir = path.join(__dirname, '../json-output');
         const files = fs.readdirSync(jsonDir).filter(file => file.endsWith('.json'));
 
         for (const file of files) {
             const indexName = path.basename(file, '.json');
             const filePath = path.join(jsonDir, file);
             const mappingFilePath = path.join(jsonDir, 'mappings', `${indexName}_mapping.json`);
-            await uploadFileToElasticsearch(indexName, filePath, mappingFilePath);
+
+            let mappings = null;
+            if (fs.existsSync(mappingFilePath)) {
+                mappings = readJSONFile(mappingFilePath);
+            } else {
+                console.log(`⚠️  Mapping file not found for index "${indexName}". Proceeding without mappings.`);
+            }
+
+            // Delete the existing index if it exists
+            await deleteIndexIfExists(indexName);
+
+            // Create the index (with or without mappings)
+            await createIndex(indexName, mappings);
+
+            // Read data
+            const data = readJSONFile(filePath);
+
+            if (Array.isArray(data)) {
+                // Upload the data
+                await uploadData(indexName, data);
+            } else {
+                console.error(`❌ Invalid data format in file "${file}". Expected an array of documents.`);
+            }
         }
 
-        console.log('Bulk import completed.');
-        process.exit(0);
+        console.log('🎉 Bulk import completed.');
     } catch (err) {
-        console.error('Failed to perform bulk import:', err);
-        process.exit(1);
+        console.error('❌ Failed to perform bulk import:', err);
     }
 }
+
 
 bulkImport();

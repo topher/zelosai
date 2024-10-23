@@ -1,14 +1,4 @@
-// Profile interface
-  export interface Profile {
-    id: string;
-    name: string;
-    sport: string;
-    location: string;
-    imageSrc: string;
-    similarity_score?: number; // Added property
-    accolades?: string[];      // Added property
-}
-
+// START RDF
 export type ResourceType = 'athlete' | 'brand';
 
 export interface Triple {
@@ -18,12 +8,14 @@ export interface Triple {
   citation?: string;
 }
 
-export interface Resource {
+export interface RDFResource {
   subject: string;
   triples: Triple[];
 }
 
-  export type DataCategory = {  
+// END RDF
+
+export type DataCategory = {  
   accountId: string;
   fides_key: string; 
   is_default: string;
@@ -37,56 +29,77 @@ export interface Resource {
   description: string; 
 }
 
+// START ACCESS CONTROL
+
 export type Account = { 
     label: string;
     email: string;
     icon: any;
 }
 
-export type UserAction = {
-  accountId: string;
-  avatarSrc: string;
+export type Group = {
+  groupId: string;
   name: string;
-  email: string;
-  action: string;
-  content: string;
-  timestamp: string;
-  target: string;
+  type: 'organization' | 'role' | 'custom';
+  // Other group attributes as needed
+};
+
+export interface AuditLog {
+  id: string;
+  orgId: string;
+  action: ACTION;
+  entityId: string;
+  entityType: ENTITY_TYPE;
+  entityTitle: string;
+  userId: string;
+  userImage: string;
+  userName: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+export interface OrgLimit {
+  id: string;
+  orgId: string;
+  count: number;
+  createdAt: Date;
+  updatedAt: Date;
+}
+export interface OrgSubscription {
+  id: string;
+  orgId: string;
+  stripeCustomerId?: string;
+  stripeSubscriptionId?: string;
+  stripePriceId?: string;
+  stripeCurrentPeriodEnd?: Date;
 }
 
-export type Task = {
-  id: string;
-  accountId: string;
-  title: string;
-  status: string;
-  label: string;
-  priority: string;
+// END ACCESS CONTROL
+// START RESOURCES 
+
+// resource.ts
+
+export interface Resource {
+  id: string;             // Unique identifier for the resource
+  accountId: string;      // Account or organization ID the resource belongs to
+  resourceType: string;   // Type of the resource (e.g., 'AIModel', 'InfoAsset')
+  ownerId: string;        // User ID of the owner or creator
+  createdAt: Date;        // Timestamp of creation
+  updatedAt?: Date;       // Timestamp of the last update
+  tags?: string[];        // Optional tags for categorization
+  visibility?: 'public' | 'private' | 'restricted'; // Access level
+  // Add other common attributes as needed
 }
 
-export type Clause = {
-  id: string;
-  title: string;
-  content: string;
-  type: 'obligation' | 'power' | 'definition' | string;
-};
+export interface Topic extends Resource {
+  category: string;             // e.g., 'Cycling', 'AI Entrepreneurship'
+  description: string;          // Detailed description of the topic
+  preferences: string[];        // User preferences related to the topic
+  influencerName: string;       // Name of the influencer associated with the topic
+  brand: string;                // Brand name associated with the influencer
+  // Add other topic-specific properties as needed
+}
 
-export type Section = {
-  id: string;
-  title: string;
-  order: number;
-  parentId?: string;
-  clauses: Clause[];
-};
-
-export type Event = {
-  id: string;
-  type: string;
-  date: string;
-  description: string;
-  relatedPartyIds: string[];
-};
-
-export type ContractModel = {
+export interface ContractModel extends Resource {
   id: string;
   accountId: string;
   title: string;
@@ -123,16 +136,14 @@ export type ContractModel = {
   uri: string;
   creatorAvatar?: string; // Added property
 };
-
-export type UserDefinedModelCategory = {
+export interface UserDefinedModelCategory extends Resource {
     // account: Account;
     accountId: string;
     name: string;
     includes?: string[];
     excludes?: string[];
 }
-
-export type AIModel = {
+export interface AIModel extends Resource {
   // General Model Information
   accountId: string;                      // ID of the account associated with the model
   label: string;                          // Model name or label
@@ -226,10 +237,7 @@ export type AIModel = {
     apa?: string;                         // Optional APA citation format for the model
   };
 };
-
-// types.ts (or wherever your types are defined)
-// types.ts
-export interface DataConnector {
+export interface DataConnector extends Resource {
   id: string;
   accountId: string;
   name: string;
@@ -247,12 +255,7 @@ export interface DataConnector {
     // Add other metadata fields as necessary
   };
 }
-
-
-
-// app/types.ts
-
-export interface InfoAsset {
+export interface InfoAsset extends Resource {
   id: string;
   accountId: string;
   URI: string;
@@ -274,8 +277,7 @@ export interface InfoAsset {
   entity_type?: string;
   image?: string; 
 }
-
-export type Workflow = {
+export interface Workflow extends Resource {
     workflow_creator: string;
     id: string;
     accountId: string;
@@ -285,132 +287,204 @@ export type Workflow = {
     cover: string
     description: string
 }
-
-// New Statement Type
-export type Statement = {
-  attribute: string;
-  operator: string;
-  value: string; // scalar value or entity
-};
-
-// New Rule Type
-export type Rule = {
+export interface Goal extends Resource {
   id: string;
   accountId: string;
-  deontologicalDuty: string; // Prohibited, Allowed, Obligated
-  subjectCondition: Statement;
-  predicate: string;
-  objectCondition: Statement;
+  Goal: string;
+  Description: string;
+  StrategicIndicator: string;
+  KPI: string;
+  Developer: string;
+  RelatedIssues: string[];
+  isActive: boolean;
+};
+export interface StategicIssue extends Resource {
+  Topic: string;
+  "SWOT Type": string;
+  Subscribed: boolean;
+  RelatedGoals?: string[];
+  RelatedUseCases?: string[];
+}
+export interface UseCase extends Resource {
+  id: string;
+  accountId: string;
+  Description: string;
+  Subject: string;
+  Target: string;
+  ForPurpose: string[]; // Array of strings for different purposes
+  Models: number; // Assuming the number of models is an integer
+}
+export interface Agent extends Resource {
+  id: string;
+  accountId: string;
+  Name: string;
+  Description: string;
+  Type: "Corporate Entity" | "Individual" | string;
+  AssociatedUseCases: string[];
+  is_persona: boolean;
+  Image: string;
+}
+export interface Contact extends Resource {
+  name: string;
+  email: string;
+  agentTypes: Agent[]
+}
+export interface BusinessModel extends Resource {
+companyName: string;
+logo: string;
+industry: string;
+location: string;
+foundedYear: number;
+description: string;
+website: string;
+socialMedia: {
+    linkedin: string;
+    twitter: string;
+    facebook: string;
+};
+customerSegments: Array<{
+    id: string;
+    name: string;
+    description: string;
+}>;
+valuePropositions: Array<{
+    id: string;
+    name: string;
+    description: string;
+}>;
+channels: Array<{
+    id: string;
+    name: string;
+    description: string;
+}>;
+customerRelationships: Array<{
+    id: string;
+    name: string;
+    description: string;
+}>;
+revenueStreams: Array<{
+    id: string;
+    name: string;
+    description: string;
+}>;
+keyResources: Array<{
+    id: string;
+    name: string;
+    description: string;
+}>;
+keyActivities: Array<{
+    id: string;
+    name: string;
+    description: string;
+}>;
+keyPartners: Array<{
+    id: string;
+    name: string;
+    description: string;
+}>;
+cost: Array<{
+    id: string;
+    name: string;
+    description: string;
+}>;
+}
+export interface UserSelectedFacets extends Resource {
+  userId: string;
+  selectedMarketingChannels: string[];
+  selectedMarkets: string[];
+  selectedIndustries: string[];
+  selectedVALSSegments: string[];
+  selectedLanguages: string[];
+  selectedNILActivities: string[];
+  selectedInterests: string[];
+  selectedProducts: string[];
+};
+
+export interface BrandModelCard extends Resource {
+  sectionName: string;
+  brandFacetId: string;
+}
+
+// END RESOURCES 
+
+// types.ts
+
+// START POLICY
+
+// app/types/index.ts
+
+export interface Condition {
+  type: 'condition';
+  attribute: string;
+  operator: string;
+  value: string;
+}
+
+export interface ConditionGroup {
+  type: 'group';
+  operator: 'AND' | 'OR';
+  conditions: Array<Condition | ConditionGroup>;
+}
+
+export interface Rule {
+  id: string;
+  ruleType: string; // e.g., 'access', 'action', 'content'
+  deontologicalDuty: string; // 'allowed', 'prohibited', 'obligated'
+  predicate: string[]; // e.g., 'read', 'create', 'update', 'delete'
+  subjectCondition: ConditionGroup;
+  objectCondition: ConditionGroup;
   createdBy: string;
   ownedBy: string;
-  ruleType: string; // access | content | action
-};
-
-export type Goal = {
-    id: string;
-    accountId: string;
-    Goal: string;
-    Description: string;
-    StrategicIndicator: string;
-    KPI: string;
-    Developer: string;
-    RelatedIssues: string[];
-    isActive: boolean;
-};
-
-export type StategicIssue = {
-    Topic: string;
-    "SWOT Type": string;
-    Subscribed: boolean;
-    RelatedGoals?: string[];
-    RelatedUseCases?: string[];
 }
 
-export type UseCase = {
-    id: string;
-    accountId: string;
-    Description: string;
-    Subject: string;
-    Target: string;
-    ForPurpose: string[]; // Array of strings for different purposes
-    Models: number; // Assuming the number of models is an integer
-}
-
-export type Agent = {
-    id: string;
-    accountId: string;
-    Name: string;
-    Description: string;
-    Type: "Corporate Entity" | "Individual" | string;
-    AssociatedUseCases: string[];
-    is_persona: boolean;
-    Image: string;
-}
-
-export type Contact = {
-    name: string;
-    email: string;
-    agentTypes: Agent[]
-}
-export interface BusinessModel {
-  companyName: string;
-  logo: string;
-  industry: string;
-  location: string;
-  foundedYear: number;
+export interface Policy {
+  id: string;
+  accountId: string;
   description: string;
-  website: string;
-  socialMedia: {
-      linkedin: string;
-      twitter: string;
-      facebook: string;
-  };
-  customerSegments: Array<{
-      id: string;
-      name: string;
-      description: string;
-  }>;
-  valuePropositions: Array<{
-      id: string;
-      name: string;
-      description: string;
-  }>;
-  channels: Array<{
-      id: string;
-      name: string;
-      description: string;
-  }>;
-  customerRelationships: Array<{
-      id: string;
-      name: string;
-      description: string;
-  }>;
-  revenueStreams: Array<{
-      id: string;
-      name: string;
-      description: string;
-  }>;
-  keyResources: Array<{
-      id: string;
-      name: string;
-      description: string;
-  }>;
-  keyActivities: Array<{
-      id: string;
-      name: string;
-      description: string;
-  }>;
-  keyPartners: Array<{
-      id: string;
-      name: string;
-      description: string;
-  }>;
-  cost: Array<{
-      id: string;
-      name: string;
-      description: string;
-  }>;
+  rules: Rule[];
 }
+
+// types/user.ts
+export interface User {
+  id: string;
+  subscription: Subscription;
+  orgId: string | null;
+  orgRole: string | null;
+  groups: string[];
+  // Add other user attributes as needed
+}
+
+export interface Subscription {
+  id: string;
+  subscriptionTier: SubscriptionTier;
+  credits: number;
+  featuresUsage: FeaturesUsage;
+  // Include other subscription-related properties if necessary
+}
+
+export interface FeaturesUsage {
+  facetsPerBrandingCardType: number;
+  monthlyProfileViews: number;
+  // Add more features as needed
+}
+
+export type SubscriptionTier = 'FREE' | 'PRO' | 'ENTERPRISE';
+
+
+
+// END POLICY
+// Profile interface
+export interface Profile {
+  id: string;
+  name: string;
+  sport: string;
+  location: string;
+  imageSrc: string;
+  similarity_score?: number; // Added property
+  accolades?: string[];      // Added property
+}
+
+// START ANALYTICS
 export interface StatCard {
     title: string;
     value: string | number;
@@ -420,7 +494,6 @@ export interface StatCard {
     page: string; // Original page
     // ... other properties for customization (optional)
 }
-
 export interface Scale {
     name: string; // Name of the scale (e.g., Ratio, Ordinal, Interval)
     // ... other properties related to scale definition (optional)
@@ -444,21 +517,35 @@ export interface MeasurementProcedure {
     description: string;
     // ... other properties related to the measurement procedure (optional)
 }
-  
-// export type Account = (typeof accounts)[number]
-// export type Contact = (typeof contacts)[number]
-  
-// DEPRECATED  
 
-// export type Tool = {
-//     label: string;
-//     description: string;
-//     iconName?: string; // Make iconName optional
-//     href: string;
-//     color: string;
-//     bgColor: string;
-//   }
 
+// END ANALYTICS
+// START CONTRACT 
+
+export type Clause = {
+  id: string;
+  title: string;
+  content: string;
+  type: 'obligation' | 'power' | 'definition' | string;
+};
+
+export type Section = {
+  id: string;
+  title: string;
+  order: number;
+  parentId?: string;
+  clauses: Clause[];
+};
+
+export type Event = {
+  id: string;
+  type: string;
+  date: string;
+  description: string;
+  relatedPartyIds: string[];
+};
+
+// END CONTRACT 
 export enum ACTION {
   CREATE = "CREATE",
   UPDATE = "UPDATE",
@@ -470,34 +557,27 @@ export enum ENTITY_TYPE {
   LIST = "LIST",
   CARD = "CARD"
 }
-export interface AuditLog {
-  id: string;
-  orgId: string;
-  action: ACTION;
-  entityId: string;
-  entityType: ENTITY_TYPE;
-  entityTitle: string;
-  userId: string;
-  userImage: string;
-  userName: string;
-  createdAt: Date;
-  updatedAt: Date;
+
+export type UserAction = {
+  accountId: string;
+  avatarSrc: string;
+  name: string;
+  email: string;
+  action: string;
+  content: string;
+  timestamp: string;
+  target: string;
 }
-export interface OrgLimit {
+
+export type Task = {
   id: string;
-  orgId: string;
-  count: number;
-  createdAt: Date;
-  updatedAt: Date;
+  accountId: string;
+  title: string;
+  status: string;
+  label: string;
+  priority: string;
 }
-export interface OrgSubscription {
-  id: string;
-  orgId: string;
-  stripeCustomerId?: string;
-  stripeSubscriptionId?: string;
-  stripePriceId?: string;
-  stripeCurrentPeriodEnd?: Date;
-}
+
 export type Card = {
   id: string;
   title: string;
@@ -531,18 +611,6 @@ export interface CardWithList {
   title: string;
   list: List; // Add the list property of type List
 }
-
-export type UserSelectedFacets = {
-  userId: string;
-  selectedMarketingChannels: string[];
-  selectedMarkets: string[];
-  selectedIndustries: string[];
-  selectedVALSSegments: string[];
-  selectedLanguages: string[];
-  selectedNILActivities: string[];
-  selectedInterests: string[];
-  selectedProducts: string[];
-};
 
 export type DropdownOption = {
   id: string;

@@ -10,12 +10,25 @@ import StrategyLayout from "../StrategyLayout";
 
 const IssuesPage = () => {
   // Initialize state with empty array
-  const [issues, setIssues] = useState<StategicIssue[]>(issuesDemoData);
+  const [issues, setIssues] = useState<StategicIssue[]>([]);;
 
   useEffect(() => {
-    // Set issues data when component mounts
-    setIssues(issues);
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/resource/issues");
+        if (response.ok) {
+          const data = await response.json();
+          setIssues(data.resources);
+        } else {
+          console.error("Error fetching strategic issues:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error fetching strategic issues:", error);
+      }
+    };
+    fetchData();
   }, []);
+
 
   return (
     <StrategyLayout>

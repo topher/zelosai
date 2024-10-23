@@ -2,24 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import FilterPanel from '../components/FilterPanel';
-import { UserSelectedFacets, DropdownOption } from '@/app/types';
+import { BrandModelCard, DropdownOption } from '@/app/types';
 import axios from 'axios';
 import { Separator } from '@/components/ui/separator';
 import StrategyLayout from '../StrategyLayout';
 
 const BrandPersonalityPage: React.FC = () => {
-  const [selectedFacets, setSelectedFacets] = useState<UserSelectedFacets>({
-    userId: '',
-    selectedMarketingChannels: [],
-    selectedMarkets: [],
-    selectedIndustries: [],
-    selectedVALSSegments: [],
-    selectedLanguages: [],
-    selectedNILActivities: [],
-    selectedInterests: [],
-    selectedProducts: [],
-  });
-  
+  const [brandModelCards, setBrandModelCards] = useState<BrandModelCard[]>([]);
   const [dropdownOptions, setDropdownOptions] = useState<{
     [key: string]: DropdownOption[];
   }>({
@@ -30,7 +19,7 @@ const BrandPersonalityPage: React.FC = () => {
     languages: [],
     nil_activities: [],
     interests: [],
-    products: []
+    products: [],
   });
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -42,30 +31,18 @@ const BrandPersonalityPage: React.FC = () => {
 
   const fetchInitialData = async () => {
     try {
-      const userId = getCurrentUserId(); // Implement this function based on your auth system
+      // Fetch the user's selected brand model cards
+      const cardsResponse = await axios.get(`/api/resource/brand_model_cards`);
 
-      // Fetch selected facets
-      const facetsResponse = await axios.get(`/api/user_selected_facets`, {
-        params: { userId },
-      });
-
-      if (facetsResponse.status === 200) {
-        const facetsData: UserSelectedFacets = facetsResponse.data;
-        setSelectedFacets(facetsData);
-      } else if (facetsResponse.status === 404) {
-        console.warn('No facets found for the user. Initializing with empty facets.');
-        setSelectedFacets(prev => ({
-          ...prev,
-          userId,
-          selectedInterests: [],
-          selectedProducts: [],
-        }));
+      if (cardsResponse.status === 200) {
+        const cardsData: BrandModelCard[] = cardsResponse.data.resources;
+        setBrandModelCards(cardsData);
       } else {
-        console.error('Failed to fetch user-selected facets');
+        console.error('Failed to fetch brand model cards');
         setError('Failed to fetch your selections. Please try again later.');
       }
 
-      // Fetch initial dropdown options for smaller datasets (limit 10)
+      // Fetch dropdown options for all categories (limit 10)
       const entities = [
         'marketing_channels',
         'geographic_markets',
@@ -76,6 +53,7 @@ const BrandPersonalityPage: React.FC = () => {
         'interests',
         'products',
       ];
+
       const optionsPromises = entities.map(entity =>
         axios.get(`/api/${entity}`, { params: { limit: 10 } })
       );
@@ -98,15 +76,9 @@ const BrandPersonalityPage: React.FC = () => {
     }
   };
 
-  const getCurrentUserId = (): string => {
-    // Example: Retrieve from context, auth provider, etc.
-    // For demonstration, returning a static ID
-    return '1234';
-  };
-
   const handleSaveSelections = async () => {
     try {
-      const response = await axios.post('/api/user_selected_facets', selectedFacets);
+      const response = await axios.post('/api/resource/brand_model_cards', brandModelCards);
 
       if (response.status === 200) {
         alert('Selections saved successfully!');
@@ -129,24 +101,23 @@ const BrandPersonalityPage: React.FC = () => {
 
   return (
     <StrategyLayout>
-    <div className="space-y-8 p-6">
-      <div>
-        {/* Main content */}
-        <FilterPanel
-          selectedFacets={selectedFacets}
-          dropdownOptions={dropdownOptions}
-          setSelectedFacets={setSelectedFacets}
-          setDropdownOptions={setDropdownOptions}
-        />
-        <button
-          onClick={handleSaveSelections}
-          className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-        >
-          Save
-        </button>
+      <div className="space-y-8 p-6">
+        <div>
+          {/* Main content */}
+          <FilterPanel
+            brandModelCards={brandModelCards}
+            dropdownOptions={dropdownOptions}
+            setBrandModelCards={setBrandModelCards}
+          />
+          <button
+            onClick={handleSaveSelections}
+            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          >
+            Save
+          </button>
+        </div>
       </div>
-    </div>
-  </StrategyLayout>
+    </StrategyLayout>
   );
 };
 

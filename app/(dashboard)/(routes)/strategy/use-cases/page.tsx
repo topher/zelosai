@@ -12,7 +12,6 @@ import { Users2 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { UseCase } from "@/app/types"; // Import the UseCase interface
 import {
-  getUseCasesByAccountId,
   createUseCase,
   updateUseCase,
   deleteUseCase,
@@ -26,17 +25,23 @@ const UseCasesPage = () => {
 
   // Fetch use cases on component mount
   useEffect(() => {
-    const fetchUseCases = async () => {
+    const fetchData = async () => {
       try {
-        const fetchedUseCases = await getUseCasesByAccountId(accountId);
-        setUseCases(fetchedUseCases);
+        const response = await fetch("/api/resource/use_cases");
+        if (response.ok) {
+          const data = await response.json();
+          setUseCases(data.resources);
+        } else {
+          console.error("Error fetching use cases:", response.statusText);
+        }
       } catch (error) {
         console.error("Error fetching use cases:", error);
       }
     };
+    fetchData();
+  }, []);
 
-    fetchUseCases();
-  }, [accountId]);
+
 
   // Handle creating a new use case
   const handleCreateUseCase = async () => {

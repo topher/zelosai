@@ -1,0 +1,68 @@
+[
+  {
+    "id": "goal-1",
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Goal",
+    "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "visibility": "public",
+    "Goal": "(orgdaG Vamos public) Increase revenue",
+    "Description": "To enhance the company's financial performance and profitability.",
+    "StrategicIndicator": "Revenue Growth",
+    "KPI": "Revenue Growth Rate",
+    "Developer": "Finance Department",
+    "RelatedIssues": [
+      "Market Expansion",
+      "Product Launch"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "goal-2",
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Goal",
+    "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "visibility": "private",
+    "Goal": "(orgAG Vamos private) Maintain authenticity",
+    "Description": "To preserve the genuine and unique identity of the brand or product.",
+    "StrategicIndicator": "Brand Authenticity Index",
+    "KPI": "Customer Trust Score",
+    "Developer": "Marketing Team",
+    "RelatedIssues": [
+      "Brand Reputation Management"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "goal-3",
+    "orgId": "org_2nc9c87ihMBSTJxcYc4X4dwmdH4",
+    "resourceType": "Goal",
+    "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "visibility": "public",
+    "Goal": "(orgdH4 public) Increase revenue",
+    "Description": "To enhance the company's financial performance and profitability.",
+    "StrategicIndicator": "Revenue Growth",
+    "KPI": "Revenue Growth Rate",
+    "Developer": "Finance Department",
+    "RelatedIssues": [
+      "Market Expansion",
+      "Product Launch"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "goal-4",
+    "orgId": "org_2nc9c87ihMBSTJxcYc4X4dwmdH4",
+    "resourceType": "Goal",
+    "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "visibility": "private",
+    "Goal": "(orgdH4 private) Maintain authenticity",
+    "Description": "To preserve the genuine and unique identity of the brand or product.",
+    "StrategicIndicator": "Brand Authenticity Index",
+    "KPI": "Customer Trust Score",
+    "Developer": "Marketing Team",
+    "RelatedIssues": [
+      "Brand Reputation Management"
+    ],
+    "isActive": true
+  }
+]

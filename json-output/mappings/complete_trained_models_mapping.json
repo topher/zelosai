@@ -1,7 +1,7 @@
 {
   "mappings": {
     "properties": {
-      "accountId": { "type": "keyword" },
+      "orgId": { "type": "keyword" },
       "label": { "type": "text" },
       "tags": { "type": "keyword" },
       "default_language": { "type": "keyword" },

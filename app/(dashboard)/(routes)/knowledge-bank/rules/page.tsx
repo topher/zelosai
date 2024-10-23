@@ -1,4 +1,5 @@
 // app/(dashboard)/(routes)/rules/page.tsx
+
 'use client';
 
 import Image from 'next/image';
@@ -14,6 +15,7 @@ import {
 } from '@radix-ui/react-dialog';
 import AccessRightsForm from './components/rule-form';
 import RulesList from './components/rules-list';
+import PolicyList from './components/policy-list'; // Import PolicyList
 import {
   Tabs,
   TabsContent,
@@ -21,7 +23,8 @@ import {
   TabsTrigger,
 } from '@/components/ui/tabs';
 import { getRulesByAccountId } from '@/app/actions/rulesActions';
-import { Rule } from '@/app/types';
+import { getPoliciesByAccountId } from '@/app/actions/policiesActions'; // Import policies action
+import { Rule, Policy } from '@/app/types'; // Ensure you have Policy interface
 import { useRouter } from 'next/navigation';
 
 const accountId = '12345'; // Replace this with the actual accountId from your context or state
@@ -30,24 +33,26 @@ export default function RulesLayout() {
   const router = useRouter();
   const [isCreateRuleModalOpen, setIsCreateRuleModalOpen] = useState(false);
   const [rules, setRules] = useState<Rule[]>([]);
+  const [policies, setPolicies] = useState<Policy[]>([]); // State for policies
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Fetch the rules from Elasticsearch based on the accountId
+  // Fetch the rules and policies from Elasticsearch based on the accountId
   useEffect(() => {
-    const fetchRules = async () => {
+    const fetchData = async () => {
       try {
         const fetchedRules = await getRulesByAccountId(accountId);
-        console.log(fetchedRules, "hola")
+        const fetchedPolicies = await getPoliciesByAccountId(accountId);
         setRules(fetchedRules);
+        setPolicies(fetchedPolicies);
       } catch (err) {
-        setError('Failed to load rules.');
+        setError('Failed to load data.');
       } finally {
         setLoading(false);
       }
     };
 
-    fetchRules();
+    fetchData();
   }, []);
 
   // Filter rules based on type
@@ -69,7 +74,7 @@ export default function RulesLayout() {
   const handleCloseCreateRuleModal = () =>
     setIsCreateRuleModalOpen(false);
 
-  if (loading) return <p>Loading rules...</p>;
+  if (loading) return <p>Loading data...</p>;
   if (error) return <p>{error}</p>;
 
   return (
@@ -95,10 +100,10 @@ export default function RulesLayout() {
           <div className="flex justify-between items-center mb-12">
             <div>
               <h1 className="text-4xl font-serif font-bold mb-2">
-                My Rules
+                My Rules & Policies
               </h1>
               <p className="text-lg text-gray-600">
-                Manage your account rules across compliance frameworks.
+                Manage your account rules and policies across compliance frameworks.
               </p>
             </div>
             <Button
@@ -129,6 +134,12 @@ export default function RulesLayout() {
               >
                 Content Rules
               </TabsTrigger>
+              <TabsTrigger
+                value="policies"
+                className="px-4 py-2 font-medium text-gray-700 hover:text-gray-900"
+              >
+                Policies
+              </TabsTrigger>
             </TabsList>
             <TabsContent value="access_rules">
               <RulesList rules={accessRules} />
@@ -138,6 +149,9 @@ export default function RulesLayout() {
             </TabsContent>
             <TabsContent value="content_rules">
               <RulesList rules={contentRules} />
+            </TabsContent>
+            <TabsContent value="policies">
+              <PolicyList policies={policies} />
             </TabsContent>
           </Tabs>
         </div>

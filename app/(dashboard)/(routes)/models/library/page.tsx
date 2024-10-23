@@ -11,13 +11,10 @@ import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AIModelCard } from "./components/album-artwork";
 import Link from "next/link";
-import { getAIModelsByAccountId, getModelCategoriesByAccountId } from "@/app/actions/modelsActions";
 import { UserDefinedModelCategory, AIModel } from "@/app/types";
 import { Montserrat } from 'next/font/google';
 
 const montserrat = Montserrat({ weight: '600', subsets: ['latin'] });
-
-const accountId = "12345"; // Replace with dynamic accountId
 
 export default function ModelsPage() {
   const [models, setModels] = useState<AIModel[]>([]);
@@ -28,20 +25,29 @@ export default function ModelsPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const fetchedModels = await getAIModelsByAccountId(accountId);
-        const fetchedCategories = await getModelCategoriesByAccountId(accountId);
+        const modelsResponse = await fetch("/api/resource/complete_trained_models");
+        const categoriesResponse = await fetch("/api/resource/user_defined_model_categories");
 
-        setModels(fetchedModels);
-        setCategories(fetchedCategories);
+        if (modelsResponse.ok && categoriesResponse.ok) {
+          const modelsData = await modelsResponse.json();
+          const categoriesData = await categoriesResponse.json();
+
+          setModels(modelsData.resources);
+          setCategories(categoriesData.resources);
+        } else {
+          console.error("Error fetching AI models or categories");
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
+        // Set loading to false after fetching data (or error occurs)
         setLoading(false);
       }
     };
 
     fetchData();
   }, []);
+
 
   // Function to filter models based on categories
   const filterModels = (models: AIModel[], category: UserDefinedModelCategory) => {

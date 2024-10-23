@@ -1,0 +1,41 @@
+[
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "visibility": "public",
+    "resourceType":"StrategicIssue",
+    "Topic": "Market Expansion",
+    "SWOT Type": "Opportunity",
+    "Subscribed": true,
+    "RelatedGoals": [
+      "Increase revenue"
+    ],
+    "RelatedUseCases": [
+      "Respond to customer inquiries via chatbot"
+    ]
+  },
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "visibility": "public",
+    "resourceType":"StrategicIssue",
+    "Topic": "Product Launch",
+    "SWOT Type": "Opportunity",
+    "Subscribed": true,
+    "RelatedGoals": [
+      "Increase revenue"
+    ]
+  },
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "visibility": "public",
+    "resourceType":"StrategicIssue",
+    "Topic": "Brand Reputation Management",
+    "SWOT Type": "Strength",
+    "Subscribed": false,
+    "RelatedGoals": [
+      "Maintain authenticity"
+    ]
+  }
+]

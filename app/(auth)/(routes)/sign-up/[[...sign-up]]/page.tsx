@@ -1,5 +1,7 @@
-import { SignUp } from "@clerk/nextjs";
+// app/(auth)/sign-up/[[...sign-up]]/page.tsx
 
-export default function Page() {
-  return <SignUp />;
-};
+import { SignUp } from '@clerk/nextjs';
+
+export default function SignUpPage() {
+  return <SignUp afterSignUpUrl="/create-organization" />;
+}

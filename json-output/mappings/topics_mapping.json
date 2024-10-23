@@ -1,0 +1,59 @@
+{
+    "mappings": {
+      "properties": {
+        "id": {
+          "type": "keyword"
+        },
+        "orgId": {
+          "type": "keyword"
+        },
+        "resourceType": {
+          "type": "keyword"
+        },
+        "ownerId": {
+          "type": "keyword"
+        },
+        "createdAt": {
+          "type": "date",
+          "format": "strict_date_optional_time||epoch_millis"
+        },
+        "updatedAt": {
+          "type": "date",
+          "format": "strict_date_optional_time||epoch_millis"
+        },
+        "tags": {
+          "type": "keyword"
+        },
+        "visibility": {
+          "type": "keyword",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "category": {
+          "type": "keyword"
+        },
+        "description": {
+          "type": "text",
+          "analyzer": "standard",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "preferences": {
+          "type": "keyword"
+        },
+        "influencerName": {
+          "type": "keyword"
+        },
+        "brand": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+  

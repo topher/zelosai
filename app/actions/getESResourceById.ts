@@ -1,17 +1,7 @@
 import { Client } from '@elastic/elasticsearch';
+import { RDFResource, Triple } from '../types';
 
 // Define the Triple and Resource types
-interface Triple {
-  subject: string;
-  predicate: string;
-  object: string;
-  citation?: string;
-}
-
-interface Resource {
-  subject: string;
-  triples: Triple[];
-}
 
 // Initialize Elasticsearch client
 const client = new Client({ node: 'http://localhost:9200' });
@@ -62,7 +52,7 @@ export default async function getESResourceById(indexName: string, id: string) {
     }
 
     // Type cast to ensure TypeScript knows the shape of the source
-    const resource = result.hits.hits[0]._source as Resource;
+    const resource = result.hits.hits[0]._source as RDFResource;
 
     // Extract the triples from the found document
     const triples = resource.triples.map((triple: Triple) => ({

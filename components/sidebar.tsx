@@ -10,9 +10,9 @@ import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/comp
 import React, { useState, useCallback, useContext, useEffect } from "react";
 // import MintTokenGlobe from "../../assets/images/mint_token_globe.png"; // Adjust the path if needed
 import { Link as RNLink } from "react-router-dom";
-import { connectWallet, getMetadataFromApiAsync, getSelectedAddress } from "@/app/(dashboard)/(routes)/mint-token/Web3Client";
-import { ACCOUNT_STATE, TokenContext } from "@/app/(dashboard)/(routes)/mint-token/TokenContext";
-import athleteMetadata from "@/app/(dashboard)/(routes)/mint-token/athlete_metadata.json"; // Ensure correct path
+import { connectWallet, getMetadataFromApiAsync, getSelectedAddress } from "@/app/(dashboard)/(routes)/collabs/mint-token/Web3Client";
+import { ACCOUNT_STATE, TokenContext } from "@/app/(dashboard)/(routes)/collabs/mint-token/TokenContext";
+import athleteMetadata from "@/app/(dashboard)/(routes)/collabs/mint-token/athlete_metadata.json"; // Ensure correct path
 
 const montserrat = Montserrat({ weight: '600', subsets: ['latin'] });
 
@@ -21,7 +21,7 @@ export const routes = [
     label: 'Dashboard',
     icon: LayoutDashboard,
     href: '/dashboard',
-    color: "text-gray-500",  // Adjusted to gray-500 for consistency
+    color: "text-gray-500",
     children: [
       { label: 'Models', href: '/models', color: "text-gray-600", description: "Explore your collection of AI models.", icon: "picture" },
       { label: 'Data Bank', href: '/knowledge-bank', color: "text-gray-600", description: "Monitor the performance of your AI models.", icon: "locker" },
@@ -39,6 +39,7 @@ export const routes = [
       { label: 'User Personas', href: '/strategy/agents', color: "text-blue-500", description: "Identify potential challenges to your AI strategy.", icon: "flag" },
       { label: 'Use Cases', href: '/strategy/use-cases', color: "text-blue-500", description: "Set the practical applications for your AI models and products.", icon: "bookmark-fav" },
       { label: 'Plan', href: '/strategy/plan', color: "text-blue-500", description: "Develop a strategy to achieve your AI-driven goals.", icon: "chess" },
+      { label: 'Branding', href: '/strategy/branding', color: "text-blue-500", description: "Create and manage your digital brand identity.", icon: "tag" },
     ],
   },
   {
@@ -66,11 +67,16 @@ export const routes = [
     ],
   },
   {
-    label: 'Contracts',
+    label: 'Collabs',
     icon: Briefcase,
-    href: '/contracts',
+    href: '/marketplace',
     color: "text-orange-500",
-    // children: [],
+    children: [
+      { label: 'Messages', href: '/collabs/messages', color: "text-orange-500", description: "View and manage your messages.", icon: "message-circle" },
+      { label: 'Offers', href: '/collabs/offers', color: "text-orange-500", description: "View and manage your offers.", icon: "gift" },
+      { label: 'History', href: '/collabs/history', color: "text-orange-500", description: "View your collaboration history.", icon: "clock" },
+      { label: 'My Contracts', href: '/collabs/contracts', color: "text-orange-500", description: "Manage your contracts.", icon: "file-text" },
+    ],
   },
   {
     label: 'Campaigns',
@@ -78,7 +84,7 @@ export const routes = [
     href: '/workflows',
     color: "text-red-500",
     children: [
-      { label: 'Library', href: '/workflows/library', color: "text-red-500", description: "Access resources to steamline your campaign processes.", icon: "link" },
+      { label: 'Library', href: '/workflows/library', color: "text-red-500", description: "Access resources to streamline your campaign processes.", icon: "link" },
       { label: 'My Tasks', href: '/workflows/tasks', color: "text-red-500", description: "Track your ongoing tasks and responsibilities.", icon: "tick" },
       { label: 'Activity', href: '/workflows/analytics', color: "text-red-500", description: "Review recent actions and updates within your campaigns.", icon: "rocket" },
       { label: 'New Campaign', href: '/workflows/plan', color: "text-red-500", description: "Create and customize new campaigns to optimize your efficiency.", icon: "plus" },
@@ -97,7 +103,6 @@ export const routes = [
     ],
   },
 ];
-
 
 const settings = {
   label: 'Settings',

@@ -374,3 +374,55 @@ By following this guide, you should be able to set up and manage Elasticsearch w
 If you encounter any issues not covered in this guide, feel free to reach out to the project maintainer or consult the official Elasticsearch and Docker documentation.
 
 ---
+# Notes
+
+// Needs AccountID
+Account
+UserAction
+UserDefinedModelCategory
+AIModel
+DataConnector
+InfoAsset
+Workflow
+Rule
+Goal
+StategicIssue
+UseCase
+Agent
+Contact
+BusinessModel
+
+
+// Needs Refactoring but none are used at the moment
+AuditLog
+OrgLimit
+OrgSubscription
+UserSelectedFacets
+UserAction
+
+
+// Needs Audit Log tracking CRUD + Engaged with on the page or UI components level
+Triple
+DataCategory
+Task
+Clause
+Section
+ContractModel
+UserDefinedModelCategory
+AIModel
+DataConnector
+InfoAsset
+Workflow
+Statement
+Rule
+Goal
+StategicIssue
+UseCase
+Agent
+Contact
+BusinessModel
+StatCard
+InformationNeed
+Contact 
+AuditLog 
+Event

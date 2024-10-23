@@ -37,7 +37,12 @@ const StrategyLayout: React.FC<StrategyLayoutProps> = ({ children }) => {
         </TabsList>
 
         {/* Content */}
+        <TabsContent value="branding">{children}</TabsContent>
         <TabsContent value="plan">{children}</TabsContent>
+        <TabsContent value="goals">{children}</TabsContent>
+        <TabsContent value="agents">{children}</TabsContent>
+        <TabsContent value="use-cases">{children}</TabsContent>
+        <TabsContent value="issues">{children}</TabsContent>
       </Tabs>
     </div>
   );

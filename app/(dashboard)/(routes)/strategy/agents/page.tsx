@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { getAgentsByAccountId, createAgent, updateAgent, deleteAgent } from "@/app/actions/agentsActions"; // Import CRUD actions
+import { createAgent, deleteAgent } from "@/app/actions/agentsActions"; // Import CRUD actions
 import { Agent } from "@/app/types"; // Import the Agent type
 import StrategyLayout from "../StrategyLayout";
 
@@ -12,17 +12,22 @@ const AgentsPage = () => {
 
   // Fetch agents on component mount
   useEffect(() => {
-    const fetchAgents = async () => {
+    const fetchData = async () => {
       try {
-        const fetchedAgents = await getAgentsByAccountId(accountId);
-        setAgents(fetchedAgents);
+        const response = await fetch("/api/resource/agents");
+        if (response.ok) {
+          const data = await response.json();
+          setAgents(data.resources);
+        } else {
+          console.error("Error fetching agents:", response.statusText);
+        }
       } catch (error) {
         console.error("Error fetching agents:", error);
       }
     };
+    fetchData();
+  }, []);
 
-    fetchAgents();
-  }, [accountId]);
 
   // Handle creating a new agent (this could be hooked up to a form or modal)
   const handleCreateAgent = async (newAgentData: Agent) => {

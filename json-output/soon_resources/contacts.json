@@ -1,0 +1,52 @@
+[
+    {
+      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "visibility": "public",
+      "resourceType":"Contact",
+      "name": "Emma Johnson",
+      "email": "emma.johnson@example.com",
+      "agentTypes": ["PSNA-1"],
+      "is_persona": false
+    },
+    {
+      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "visibility": "public",
+      "resourceType":"Contact",
+      "name": "Daniel Garcia",
+      "email": "daniel.garcia@example.com",
+      "agentTypes": ["PSNA-2", "PSNA-3"],
+      "is_persona": true
+    },
+    {
+      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "visibility": "public",
+      "resourceType":"Contact",
+      "name": "Isabella Rodriguez",
+      "email": "isabella.rodriguez@example.com",
+      "agentTypes": [],
+      "is_persona": false
+    },
+    {
+      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "visibility": "public",
+      "resourceType":"Contact",
+      "name": "Sophia Hernandez",
+      "email": "sophia.hernandez@example.com",
+      "agentTypes": ["PSNA-4"],
+      "is_persona": false
+    },
+    {
+      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "visibility": "public",
+      "resourceType":"Contact",
+      "name": "Mateo Ramirez",
+      "email": "mateo.ramirez@example.com",
+      "agentTypes": ["PSNA-1", "PSNA-2"],
+      "is_persona": true
+    }
+  ]

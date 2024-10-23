@@ -13,7 +13,8 @@ const nextConfig = {
       "cdn.sanity.io",
       "source.unsplash.com",
       "res.cloudinary.com",
-      "upload.wikimedia.org"
+      "upload.wikimedia.org",
+      "images.clerk.dev"
     ],
   },
   webpack: (config) => {

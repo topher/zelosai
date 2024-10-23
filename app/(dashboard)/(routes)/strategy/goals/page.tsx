@@ -6,10 +6,7 @@ import { Switch } from "@/components/ui/switch";
 import { Badge } from "@/components/ui/badge";
 import { Info } from "lucide-react";
 import {
-  getGoalsByAccountId,
-  createGoal,
-  updateGoal,
-  deleteGoal
+  updateGoal
 } from "@/app/actions/goalActions"; // Import CRUD actions
 import { Goal } from "@/app/types"; // Import the Goal type
 import StrategyLayout from "../StrategyLayout";
@@ -22,15 +19,20 @@ const GoalsPage = () => {
   useEffect(() => {
     const fetchGoals = async () => {
       try {
-        const fetchedGoals = await getGoalsByAccountId(accountId);
-        setGoals(fetchedGoals);
+        const response = await fetch("/api/resource/goals");
+        if (response.ok) {
+          const data = await response.json();
+          setGoals(data.resources);
+        } else {
+          console.error("Failed to fetch goals:", response.statusText);
+        }
       } catch (error) {
         console.error("Error fetching goals:", error);
       }
     };
-
     fetchGoals();
   }, [accountId]);
+
 
   // Function to toggle goal status (active/inactive)
   const toggleGoalStatus = async (index: number) => {
