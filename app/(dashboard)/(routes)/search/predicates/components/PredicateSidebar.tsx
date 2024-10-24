@@ -1,5 +1,7 @@
 // app/components/profile/PredicateSidebar.tsx
 
+// REPLACED BY PREDICATE DROPDOWN
+
 'use client';
 
 import React, { useState, useEffect } from 'react';

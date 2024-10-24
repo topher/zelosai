@@ -1,4 +1,6 @@
-// app/components/profile/TripleCardObject.tsx
+// app/(dashboard)/(routes)/profiles/[type]/[id]/components/TripleCardObject.tsx
+
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import TripleCardUserActions from './TripleCardUserActions';
@@ -39,8 +41,6 @@ const TripleCardObject: React.FC<TripleCardObjectProps> = ({ triple }) => {
     setIsGradientStyle(Math.random() >= 0.5); // 50% chance for gradient style
   }, []);
 
-  // const randomHeight = Math.floor(Math.random() * 150) + 150;
-
   const plainCardStyles =
     'group bg-white/20 backdrop-blur-lg shadow-md rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 hover:bg-white/30';
 
@@ -52,12 +52,9 @@ const TripleCardObject: React.FC<TripleCardObjectProps> = ({ triple }) => {
 
   return (
     <Link href={`/search/predicates/${type}/${predicate}`} passHref>
-      <div
-        className={cardStyles}
-        style={{ height: '250px', padding: '16px' }}
-      >
+      <div className={`${cardStyles} flex flex-col h-52`}>
         {/* Card Content */}
-        <div className="content">
+        <div className="content flex-grow p-4">
           <p
             className={`
               object-text text-xl text-white font-semibold transition-colors duration-300 
@@ -84,12 +81,12 @@ const TripleCardObject: React.FC<TripleCardObjectProps> = ({ triple }) => {
         <TripleCardUserActions
           likes={likes}
           dislikes={dislikes}
+          comments={0}
           onLike={() => setLikes(likes + 1)}
           onDislike={() => setDislikes(dislikes + 1)}
-          comments={0}
+          onComment={() => {}}
           onBookmark={() => {}}
           onShare={() => {}}
-          onComment={() => {}}
           onGetLink={() => {}}
         />
       </div>

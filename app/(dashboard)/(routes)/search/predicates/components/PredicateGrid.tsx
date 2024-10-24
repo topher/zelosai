@@ -1,9 +1,9 @@
-// PredicateGrid.tsx
+// app/(dashboard)/(routes)/search/predicates/components/PredicateGrid.tsx
 
 import React, { useEffect, useRef } from 'react';
 import TripleCardPredicate from '@/app/(dashboard)/(routes)/profiles/[type]/[id]/components/TripleCardPredicate';
 import Masonry from 'masonry-layout';
-import 'app/(dashboard)/(routes)/profiles/[type]/[id]/components/Profile.css';
+import 'app/(dashboard)/(routes)/profiles/[type]/[id]/components/Profile.css'; // Updated import path
 
 interface Triple {
   subject: string;
@@ -30,6 +30,7 @@ const PredicateGrid: React.FC<PredicateGridProps> = ({ triples, gridClassName })
         itemSelector: '.grid-item',
         columnWidth: '.grid-sizer',
         percentPosition: true,
+        gutter: 0, // Adjust gutter size if needed
       });
 
       // Ensure layout after content is rendered

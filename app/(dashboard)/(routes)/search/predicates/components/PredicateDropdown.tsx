@@ -13,14 +13,14 @@ interface PredicateDropdownProps {
 const PredicateDropdown: React.FC<PredicateDropdownProps> = ({ currentPredicate, type }) => {
   const [predicates, setPredicates] = useState<string[]>([]);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const [dropdownPos, setDropdownPos] = useState<{ top: number; left: number }>({ top: 0, left: 0 });
+  const [currentType, setCurrentType] = useState<'athlete' | 'brand'>(type);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Fetch the list of predicates for the selected type
     const fetchPredicates = async () => {
       try {
-        const response = await fetch(`/api/predicates/list?type=${type}`);
+        const response = await fetch(`/api/predicates/list?type=${currentType}`);
         if (!response.ok) {
           throw new Error('Failed to fetch predicates');
         }
@@ -33,24 +33,39 @@ const PredicateDropdown: React.FC<PredicateDropdownProps> = ({ currentPredicate,
     };
 
     fetchPredicates();
-  }, [type]);
+  }, [currentType]);
 
-  // Calculate dropdown position
+  // Close dropdown when clicking outside
   useEffect(() => {
-    if (isOpen && buttonRef.current) {
-      const rect = buttonRef.current.getBoundingClientRect();
-      setDropdownPos({
-        top: rect.bottom + window.scrollY,
-        left: rect.left + window.scrollX,
-      });
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
     }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, [isOpen]);
 
+  // Handle type toggle
+  const handleTypeToggle = (selectedType: 'athlete' | 'brand') => {
+    setCurrentType(selectedType);
+  };
+
   return (
-    <div className="relative">
+    <div className="relative inline-block" ref={dropdownRef}>
       <button
-        ref={buttonRef}
-        className="text-3xl font-bold mb-6 text-blue-600 cursor-pointer flex items-center"
+        className="text-3xl font-bold text-blue-600 cursor-pointer flex items-center"
         onClick={() => setIsOpen(!isOpen)}
       >
         {currentPredicate.replace(/_/g, ' ')}
@@ -71,18 +86,47 @@ const PredicateDropdown: React.FC<PredicateDropdownProps> = ({ currentPredicate,
 
       {isOpen && (
         <div
-          className="absolute z-50 w-64 rounded-2xl shadow-lg bg-white text-black ring-1 ring-black ring-opacity-5 border border-gray-200"
-          style={{ top: dropdownPos.top, left: dropdownPos.left }}
+          className="absolute left-0 mt-2 z-50 w-64 rounded-2xl shadow-lg bg-gray-800 text-white ring-1 ring-black ring-opacity-5 border border-white/20"
         >
-          <div className="p-2 max-h-96 overflow-y-auto">
+          {/* Type Toggle Tabs */}
+          <div className="flex justify-center border-b border-gray-700">
+            <button
+              onClick={() => handleTypeToggle('athlete')}
+              className={`w-1/2 py-2 text-sm font-medium ${
+                currentType === 'athlete'
+                  ? 'text-white border-b-2 border-blue-500'
+                  : 'text-gray-400 hover:text-white'
+              }`}
+            >
+              Athletes
+            </button>
+            <button
+              onClick={() => handleTypeToggle('brand')}
+              className={`w-1/2 py-2 text-sm font-medium ${
+                currentType === 'brand'
+                  ? 'text-white border-b-2 border-blue-500'
+                  : 'text-gray-400 hover:text-white'
+              }`}
+            >
+              Brands
+            </button>
+          </div>
+
+          <div
+            className="p-2 max-h-96 overflow-y-auto"
+            style={{
+              scrollbarWidth: 'none', /* Firefox */
+              msOverflowStyle: 'none', /* Internet Explorer 10+ */
+            }}
+          >
             {predicates.map((predicate) => (
               <Link
                 key={predicate}
-                href={`/search/predicates/${type}/${encodeURIComponent(predicate)}`}
+                href={`/search/predicates/${currentType}/${encodeURIComponent(predicate)}`}
               >
                 <div
-                  className={`block w-full text-left px-6 py-3 text-base rounded-lg hover:bg-gray-100 transition-colors cursor-pointer ${
-                    predicate === currentPredicate ? 'font-bold' : ''
+                  className={`block w-full text-left px-6 py-3 text-base rounded-lg hover:bg-gray-700 transition-colors cursor-pointer ${
+                    predicate === currentPredicate && currentType === type ? 'font-bold' : ''
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
@@ -93,6 +137,11 @@ const PredicateDropdown: React.FC<PredicateDropdownProps> = ({ currentPredicate,
           </div>
         </div>
       )}
+      <style jsx>{`
+        ::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </div>
   );
 };
