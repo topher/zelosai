@@ -69,7 +69,7 @@ const TripleCardUserActions: React.FC<TripleCardUserActionsProps> = ({
                   <BiLike className="h-5 w-5" />
                 </button>
               </TooltipTrigger>
-              <TooltipContent side="top">
+              <TooltipContent side="bottom">
                 <span>Like</span>
               </TooltipContent>
             </Tooltip>
@@ -87,7 +87,7 @@ const TripleCardUserActions: React.FC<TripleCardUserActionsProps> = ({
                   <BiDislike className="h-5 w-5" />
                 </button>
               </TooltipTrigger>
-              <TooltipContent side="top">
+              <TooltipContent side="bottom">
                 <span>Dislike</span>
               </TooltipContent>
             </Tooltip>
@@ -105,7 +105,7 @@ const TripleCardUserActions: React.FC<TripleCardUserActionsProps> = ({
                   <BiComment className="h-5 w-5" />
                 </button>
               </TooltipTrigger>
-              <TooltipContent side="top">
+              <TooltipContent side="bottom">
                 <span>Comment</span>
               </TooltipContent>
             </Tooltip>
@@ -123,7 +123,7 @@ const TripleCardUserActions: React.FC<TripleCardUserActionsProps> = ({
                   <BiPlusCircle className="h-5 w-5" />
                 </button>
               </TooltipTrigger>
-              <TooltipContent side="top">
+              <TooltipContent side="bottom">
                 <span>Add Content</span>
               </TooltipContent>
             </Tooltip>
@@ -141,7 +141,7 @@ const TripleCardUserActions: React.FC<TripleCardUserActionsProps> = ({
                   <BiLinkAlt className="h-5 w-5" />
                 </button>
               </TooltipTrigger>
-              <TooltipContent side="top">
+              <TooltipContent side="bottom">
                 <span>Get Link</span>
               </TooltipContent>
             </Tooltip>
@@ -159,7 +159,7 @@ const TripleCardUserActions: React.FC<TripleCardUserActionsProps> = ({
                   <BiUserPlus className="h-5 w-5" />
                 </button>
               </TooltipTrigger>
-              <TooltipContent side="top">
+              <TooltipContent side="bottom">
                 <span>Share</span>
               </TooltipContent>
             </Tooltip>
