@@ -1,4 +1,4 @@
-// app/components/profile/ProfileGrid.tsx
+// /app/(dashboard)/(routes)/profiles/[type]/[id]/components/ProfileGrid.tsx
 
 import React, { useEffect, useRef } from 'react';
 import TripleCardObject from './TripleCardObject';
