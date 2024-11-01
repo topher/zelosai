@@ -61,7 +61,7 @@ export const TextGenerationTab: React.FC<TextGenerationTabProps> = ({ modelId, m
       toast.error(errorMessage);
     } finally {
       router.refresh();
-    }    
+    }
   };
 
   const renderSidebarContent = () => (
@@ -86,9 +86,14 @@ export const TextGenerationTab: React.FC<TextGenerationTabProps> = ({ modelId, m
                       key={option.value}
                       type="button"
                       className={`px-4 py-2 text-sm font-medium rounded-md 
-                        ${isSelected ? 'bg-gradient-to-r from-[#4b0082] to-[#ff69b4] text-white' : 'bg-white text-darkGray hover:bg-[#b366e2] hover:text-white'}
-                      `}
-                      onClick={() => form.setValue(param.name as keyof z.infer<typeof textFormSchema>, option.value)}
+                        ${
+                          isSelected
+                            ? "bg-gradient-to-r from-[#4b0082] to-[#ff69b4] text-white"
+                            : "bg-white text-darkGray hover:bg-[#b366e2] hover:text-white"
+                        }`}
+                      onClick={() =>
+                        form.setValue(param.name as keyof z.infer<typeof textFormSchema>, option.value)
+                      }
                     >
                       {option.label}
                     </Button>
@@ -111,7 +116,11 @@ export const TextGenerationTab: React.FC<TextGenerationTabProps> = ({ modelId, m
               </FormItem>
             )}
           />
-          <Button type="submit" disabled={isLoading} className="w-full bg-gradient-to-r from-[#4b0082] to-[#ff69b4] text-white">
+          <Button
+            type="submit"
+            disabled={isLoading}
+            className="w-full bg-gradient-to-r from-[#4b0082] to-[#ff69b4] text-white"
+          >
             {isLoading ? <Loader className="mr-2 animate-spin" /> : "Generate Text"}
           </Button>
         </form>
@@ -120,7 +129,7 @@ export const TextGenerationTab: React.FC<TextGenerationTabProps> = ({ modelId, m
   );
 
   return (
-    <div className="flex flex-1 bg-white">
+    <div className={`flex flex-col md:flex-row flex-1 bg-white`}>
       {isSmallScreen ? (
         <>
           <IconButton
@@ -144,14 +153,16 @@ export const TextGenerationTab: React.FC<TextGenerationTabProps> = ({ modelId, m
           {renderSidebarContent()}
         </aside>
       )}
-      <main className="w-3/4 flex flex-col justify-center items-center p-12 overflow-auto">
-        <h2 className="text-2xl font-bold text-darkGray mb-8">Generated Texts</h2>
+      <main className="flex-1 flex flex-col justify-start items-center p-2 sm:p-6">
+        <h2 className="text-xl sm:text-2xl font-bold text-darkGray mb-4 sm:mb-8">
+          Generated Texts
+        </h2>
         {isLoading && <Loader />}
         {!responseTexts.length && !isLoading && <Empty label="No texts generated yet." />}
         {responseTexts.length > 0 && (
           <div className="space-y-4 w-full">
             {responseTexts.map((text, idx) => (
-              <div key={idx} className="bg-gray-100 p-6 shadow-md rounded-lg">
+              <div key={idx} className="bg-gray-100 p-4 sm:p-6 shadow-md rounded-lg">
                 <p className="text-darkGray whitespace-pre-line">{text}</p>
               </div>
             ))}

@@ -105,8 +105,11 @@ export const VoiceGenerationTab: React.FC<VoiceGenerationTabProps> = ({ modelId,
                       key={option.value}
                       type="button"
                       className={`px-4 py-2 text-sm font-medium rounded-md 
-                        ${isSelected ? "bg-gradient-to-r from-[#4b0082] to-[#ff69b4] text-white" : "bg-white text-darkGray hover:bg-[#b366e2] hover:text-white"}
-                      `}
+                        ${
+                          isSelected
+                            ? "bg-gradient-to-r from-[#4b0082] to-[#ff69b4] text-white"
+                            : "bg-white text-darkGray hover:bg-[#b366e2] hover:text-white"
+                        }`}
                       onClick={() => form.setValue("voice_id", option.value)}
                     >
                       {option.label}
@@ -124,7 +127,11 @@ export const VoiceGenerationTab: React.FC<VoiceGenerationTabProps> = ({ modelId,
                 checked={form.watch("optimize_streaming_latency")}
                 onChange={(checked: boolean) => form.setValue("optimize_streaming_latency", checked)}
                 className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200
-                  ${form.watch("optimize_streaming_latency") ? "bg-gradient-to-r from-[#4b0082] to-[#ff69b4]" : "bg-gray-300"}
+                  ${
+                    form.watch("optimize_streaming_latency")
+                      ? "bg-gradient-to-r from-[#4b0082] to-[#ff69b4]"
+                      : "bg-gray-300"
+                  }
                 `}
               >
                 <span
@@ -267,7 +274,7 @@ export const VoiceGenerationTab: React.FC<VoiceGenerationTabProps> = ({ modelId,
   );
 
   return (
-    <div className="flex flex-1 bg-white">
+    <div className={`flex flex-col md:flex-row flex-1 bg-white`}>
       {isSmallScreen ? (
         <>
           <IconButton
@@ -291,8 +298,10 @@ export const VoiceGenerationTab: React.FC<VoiceGenerationTabProps> = ({ modelId,
           {renderSidebarContent()}
         </aside>
       )}
-      <main className="w-3/4 flex flex-col justify-center items-center p-12">
-        <h2 className="text-2xl font-bold text-darkGray mb-8">Generated Voices</h2>
+      <main className="flex-1 flex flex-col justify-start items-center p-2 sm:p-6">
+        <h2 className="text-xl sm:text-2xl font-bold text-darkGray mb-4 sm:mb-8">
+          Generated Voices
+        </h2>
         {isLoading && <Loader className="animate-spin" />}
         {!voices.length && !isLoading && <Empty label="No voices generated yet." />}
         {voices.length > 0 && (

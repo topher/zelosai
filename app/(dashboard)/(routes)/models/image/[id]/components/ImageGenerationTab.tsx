@@ -91,10 +91,14 @@ export const ImageGenerationTab: React.FC<ImageGenerationTabProps> = ({ modelId,
                     <Button
                       key={option.value}
                       type="button"
-                      className={`px-4 py-2 text-sm font-medium rounded-md 
-                        ${isSelected ? 'bg-gradient-to-r from-[#4b0082] to-[#ff69b4] text-white' : 'bg-white text-darkGray hover:bg-[#b366e2] hover:text-white'}
-                      `}
-                      onClick={() => form.setValue(param.name as keyof z.infer<typeof imageFormSchema>, option.value)}
+                      className={`px-4 py-2 text-sm font-medium rounded-md ${
+                        isSelected
+                          ? "bg-gradient-to-r from-[#4b0082] to-[#ff69b4] text-white"
+                          : "bg-white text-darkGray hover:bg-[#b366e2] hover:text-white"
+                      }`}
+                      onClick={() =>
+                        form.setValue(param.name as keyof z.infer<typeof imageFormSchema>, option.value)
+                      }
                     >
                       {option.label}
                     </Button>
@@ -130,7 +134,7 @@ export const ImageGenerationTab: React.FC<ImageGenerationTabProps> = ({ modelId,
   );
 
   return (
-    <div className="flex flex-1 bg-white">
+    <div className={`flex flex-col md:flex-row flex-1 bg-white`}>
       {isSmallScreen ? (
         <>
           <IconButton
@@ -156,14 +160,21 @@ export const ImageGenerationTab: React.FC<ImageGenerationTabProps> = ({ modelId,
           {renderSidebarContent()}
         </aside>
       )}
-      <main className="w-3/4 flex flex-col justify-center items-center p-12 overflow-auto">
-        <h2 className="text-2xl font-bold text-darkGray mb-8">Generated Images</h2>
+      <main className="flex-1 flex flex-col justify-start items-center p-2 sm:p-6">
+        <h2 className="text-xl sm:text-2xl font-bold text-darkGray mb-4 sm:mb-8">
+          Generated Images
+        </h2>
         {isLoading && <Loader />}
         {!images.length && !isLoading && <Empty label="No images generated yet." />}
         {images.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
             {images.map((src, idx) => (
-              <img key={idx} src={src} alt={`Generated image ${idx + 1}`} className="rounded-lg shadow-md" />
+              <img
+                key={idx}
+                src={src}
+                alt={`Generated image ${idx + 1}`}
+                className="rounded-lg shadow-md w-full h-auto max-w-full"
+              />
             ))}
           </div>
         )}

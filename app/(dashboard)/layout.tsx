@@ -1,15 +1,14 @@
 // /app/(dashboard)/layout.tsx
 
-"use client"
+"use client";
 
 import Navbar from "@/components/navbar";
 import { Sidebar } from "@/components/sidebar";
-import { routes } from "@/components/sidebar";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Montserrat } from "next/font/google";
 
-const montserrat = Montserrat({ weight: '600', subsets: ['latin'] });
+const montserrat = Montserrat({ weight: "600", subsets: ["latin"] });
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const apiLimitCount = 500;
@@ -22,15 +21,19 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const toggleCollapse = () => setIsCollapsed(!isCollapsed);
 
   return (
-    <div className="flex h-screen">
-      <Sidebar
-        isPro={isPro}
-        apiLimitCount={apiLimitCount}
-        isCollapsed={isCollapsed}
-        isSidebarOpen={isSidebarOpen}
-        toggleSidebar={toggleSidebar}
-        toggleCollapse={toggleCollapse}
-      />
+    <div className="flex flex-col md:flex-row h-screen">
+      {/* Sidebar: hidden on small screens */}
+      <div className={`md:block ${isSidebarOpen ? "block" : "hidden"} md:relative md:w-auto`}>
+        <Sidebar
+          isPro={isPro}
+          apiLimitCount={apiLimitCount}
+          isCollapsed={isCollapsed}
+          isSidebarOpen={isSidebarOpen}
+          toggleSidebar={toggleSidebar}
+          toggleCollapse={toggleCollapse}
+        />
+      </div>
+
       {/* Overlay for small screens */}
       {isSidebarOpen && (
         <div
@@ -38,6 +41,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           onClick={toggleSidebar}
         ></div>
       )}
+
       <div className="flex flex-col flex-1">
         {/* Header Bar for Small Screens */}
         {!isSidebarOpen && (
@@ -65,9 +69,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         )}
         <main className="flex-1 overflow-auto">
           {/* Main content */}
-          <div className={cn("min-h-full", !isSidebarOpen && "md:pt-0 pt-0")}>
-            {children}
-          </div>
+          <div className="min-h-full">{children}</div>
         </main>
       </div>
     </div>

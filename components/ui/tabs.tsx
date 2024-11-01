@@ -1,4 +1,4 @@
-// components/ui/tabs.tsx
+// /components/ui/tabs.tsx
 
 "use client";
 
@@ -15,7 +15,7 @@ const TabsList = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <TabsPrimitive.List
     ref={ref}
-    className={cn("inline-flex items-center space-x-2 p-2", className)}
+    className={cn("flex flex-wrap justify-center gap-2 p-2", className)}
     {...props}
   />
 ));
@@ -42,11 +42,7 @@ const TabsContent = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
 >(({ className, ...props }, ref) => (
-  <TabsPrimitive.Content
-    ref={ref}
-    className={cn("flex-1", className)}
-    {...props}
-  />
+  <TabsPrimitive.Content ref={ref} className={cn("w-full", className)} {...props} />
 ));
 TabsContent.displayName = TabsPrimitive.Content.displayName;
 
