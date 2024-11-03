@@ -1,29 +1,28 @@
-// app/api/resource/[resourceName].ts
+// app/api/resource/[resourceName]/route.ts
+
 import { NextResponse } from 'next/server';
 import { getAccessibleResources } from '@/lib/dataFetching';
 import { getUserAttributes } from '@/lib/auth';
 import { NextRequest } from 'next/server';
+import { getAuth } from '@clerk/nextjs/server';
 
 export async function GET(
   request: NextRequest,
   { params }: { params: { resourceName: string } }
 ) {
   try {
-    // Test User Attributes (for testing without Clerk)
-    // Uncomment the following block to use test user attributes
-    /*
-    const testUserAttributes = {
-      userId: 'user_member_1',
-      orgId: 'org_2nc9c87ihMBSTJxcYc4X4dwmdH4',
-      orgRole: 'org:member',
-      groups: [],
-      role: 'user',
-    };
-    */
+    // Get auth context from Clerk
+    const auth = getAuth(request);
+    const { userId, orgId, orgRole } = auth;
 
-    // Retrieve actual user attributes from Clerk
-    const userAttributes = await getUserAttributes();
-    const { userId } = userAttributes;
+    if (!userId) {
+      console.warn('Unauthenticated access to resource API.');
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    // Fetch user attributes
+    const userAttributes = await getUserAttributes(request, { userId, orgId, orgRole });
+
     const resourceName = params.resourceName.toLowerCase(); // e.g., 'goals'
 
     const { searchParams } = new URL(request.url);
@@ -37,11 +36,11 @@ export async function GET(
       action: action,
       resourceName: resourceName, // e.g., 'goals'
       size: size,
-      // testUserAttributes, // Pass this only if you uncomment and use testUserAttributes
+      userAttributes, // Pass user attributes for access control
     });
 
     return NextResponse.json({ resources });
-  } catch (error) {
+  } catch (error: any) {
     console.error(`❌ Error fetching resources of type ${params.resourceName}:`, error);
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }

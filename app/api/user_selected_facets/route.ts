@@ -1,7 +1,7 @@
 // /app/api/user_selected_facets/route.ts
 
 import { NextResponse } from 'next/server';
-import elasticsearch, { ensureIndexExists } from '@/lib/elasticsearch';
+import elasticsearch, { ensureIndexExists } from '@/lib/elasticsearchAxios';
 
 // Define the index name
 const INDEX = 'user_selected_facets';

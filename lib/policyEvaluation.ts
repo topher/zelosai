@@ -1,7 +1,6 @@
 // policyEvaluation.ts
 
 import type { Policy, Rule, Subscription, Condition, ConditionGroup } from 'app/types';
-import { getUserAttributes } from './auth';
 
 export async function evaluateAccess({
   userId,
@@ -110,6 +109,8 @@ export function evaluateCondition(
   resourceAttributes: Record<string, any>
 ): boolean {
   let { attribute, operator, value } = condition;
+  
+  console.log("🔥", condition)
 
   // Replace dynamic values (like $orgId or $accountId)
   if (typeof value === 'string' && value.startsWith('$')) {

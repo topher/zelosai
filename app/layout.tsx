@@ -27,6 +27,7 @@ export default async function RootLayout({
   const initialState = cookieToInitialState(config, headers().get('cookie'));
   return (
     <ClerkProvider>
+      
       <html lang="en" suppressHydrationWarning>
         {/* <CrispProvider /> */}
         <body className={font.className}>

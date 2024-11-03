@@ -1,3 +1,7 @@
+// types.ts
+
+import { Action, FeatureKey, ActionFeatureKey, SubscriptionTier } from "@/config/featuresConfig";
+
 // START RDF
 export type ResourceType = 'athlete' | 'brand';
 
@@ -73,6 +77,33 @@ export interface OrgSubscription {
   stripeCurrentPeriodEnd?: Date;
 }
 
+export interface Membership {
+  userId: string;
+  role: string;
+  // Add other properties if needed
+}
+
+export interface OrganizationWithMemberships extends Organization {
+  memberships?: Membership[]; // Define Membership interface accordingly
+}
+
+export interface Membership {
+  userId: string;
+  role: string;
+  // Add other properties if needed
+}
+
+// Extend OrganizationResource to include memberships and privateMetadata
+export interface OrganizationResource {
+  privateMetadata?: Record<string, any>;
+  memberships?: Membership[];
+}
+
+// Extend Organization class (if applicable)
+export interface Organization {
+  privateMetadata: Record<string, any>;
+  memberships?: Membership[];
+}
 // END ACCESS CONTROL
 // START RESOURCES 
 
@@ -405,9 +436,106 @@ export interface BrandModelCard extends Resource {
   brandFacetId: string;
 }
 
+// types/Offer.ts
+export interface Offer extends Resource {
+  resourceType: 'Offer';
+  name: string;
+  description?: string;
+  price: number;
+  priceCurrency: string; // ISO 4217 currency codes, e.g., 'USD'
+  availability?: 'InStock' | 'OutOfStock' | 'PreOrder' | 'Discontinued';
+  validFrom?: string; // Changed to string for ISO dates
+  validThrough?: string; // Changed to string for ISO dates
+  itemOffered: string; // Reference to the ID of the item being offered
+  sellerId: string;    // User ID of the seller
+  buyerId?: string;    // User ID of the buyer (if already purchased)
+  offerType?: 'Sale' | 'Auction' | 'Rental' | 'Subscription';
+  termsOfService?: string;
+  status: 'Pending' | 'Accepted' | 'Denied' | 'Countered'; // Added status
+}
+
+export interface Recommendation extends Resource {
+  resourceType: 'Recommendation';
+  title: string;
+  description: string;
+  recommendedResourceId?: string; // Optional, only on existing resources
+  recommendedResourceType: string; // Type of the recommended resource
+  action: Action; // e.g., 'CreateGoal', 'EditOffer'
+  featureKey: string; // Add this property
+  reason?: string; // Reason for recommendation
+  recommenderId: string; // User ID of the person/system making the recommendation
+}
+
+// types/Message.ts
+export interface Message extends Resource {
+  labels?: string[];
+  status?: string;
+  resourceType: 'Message';
+  senderId: string;    // User ID of the sender
+  recipientId: string; // User ID of the recipient
+  content: string;
+  sentAt: Date;
+  readAt?: Date;
+  subject?: string;
+  messageType?: 'Text' | 'Image' | 'Video' | 'Audio';
+  attachments?: Attachment[];
+}
+
+export interface Attachment {
+  id: string;
+  url: string;
+  contentType: string; // MIME type, e.g., 'image/png'
+  size: number;        // Size in bytes
+}
+
+// types/ScheduledEvent.ts
+export interface ScheduledEvent extends Resource {
+  resourceType: 'ScheduledEvent';
+  name: string;
+  description?: string;
+  startDate: Date;
+  endDate?: Date;
+  location?: string;
+  organizerId: string; // User ID of the organizer
+  participantIds?: string[]; // User IDs of participants
+  eventStatus?: 'Scheduled' | 'Cancelled' | 'Postponed' | 'Completed';
+  eventType?: 'Webinar' | 'Meetup' | 'Training' | 'Conference';
+}
+
+// types/Transaction.ts
+
+export interface Transaction extends Resource {
+  resourceType: 'Transaction';
+  transactionType: 'Purchase' | 'Sale' | 'Refund' | 'Transfer';
+  amount: number;
+  currency: string; // ISO 4217 currency codes
+  senderId: string;
+  recipientId: string;
+  transactionDate: string; // Changed to string for ISO dates
+  status: 'Pending' | 'Completed' | 'Failed' | 'Cancelled';
+  relatedResourceId?: string; // ID of the resource related to the transaction (e.g., Offer ID)
+  notes?: string;
+}
+export interface UserAction extends Resource {
+  subjectId: string;          // References the User performing the action
+  action: Action;    // 'read', 'create', etc.
+  feature: FeatureKey; // 'Goals', 'Models', etc.
+  resourceId: string;         // References the Resource being acted upon
+  creditsUsed: number;
+  resourceType: 'UserAction';
+}
+
+
+export interface Task extends Resource {
+  resourceType: 'Task';
+  title: string;
+  description?: string;
+  status: 'Not Started' | 'In Progress' | 'Completed' | 'Blocked';
+  priority: 'Low' | 'Medium' | 'High';
+  // Add other task-specific properties
+}
 // END RESOURCES 
 
-// types.ts
 
 // START POLICY
 
@@ -443,34 +571,70 @@ export interface Policy {
   description: string;
   rules: Rule[];
 }
-
-// types/user.ts
 export interface User {
+
+}
+
+import type { User as ClerkUser, Organization as ClerkOrganization } from '@clerk/clerk-sdk-node';
+
+/**
+ * Extended User interface to include organization memberships.
+ */
+export interface User extends ClerkUser {
+  organizationMemberships?: Array<{
+    organization: {
+      id: string;
+      // Add other organization properties if needed
+    };
+    // Add other membership properties if needed
+  }>;
   id: string;
   subscription: Subscription;
   orgId: string | null;
   orgRole: string | null;
   groups: string[];
-  // Add other user attributes as needed
+  avatarSrc: string;
+  name: string;
+  email: string; 
 }
 
+/**
+ * Extended Organization interface to include owner information.
+ */
+export interface Organization extends ClerkOrganization {
+  ownerUserId: string;
+  // Add other organization properties if needed
+}
+
+// app/types.ts
+export interface PaymentSession {
+  url: string;
+}
 export interface Subscription {
-  id: string;
+  createdAt: any;
+  updatedAt: any;
+  subscriptionId: string;
   subscriptionTier: SubscriptionTier;
+  userId: string;
+  organizationId: string;
   credits: number;
-  featuresUsage: FeaturesUsage;
+  creditsUsed: number;
+  monthlyCreditLimit: number;
+  featuresUsage: FeaturesUsage; // Tracks action usage and credits
+  resourceCounts: ResourceCounts; // New property to track resource counts
   // Include other subscription-related properties if necessary
 }
 
-export interface FeaturesUsage {
-  facetsPerBrandingCardType: number;
-  monthlyProfileViews: number;
-  // Add more features as needed
-}
+export type ResourceCounts = {
+  [key in FeatureKey]?: number; // Number of resources per feature
+};
 
-export type SubscriptionTier = 'FREE' | 'PRO' | 'ENTERPRISE';
-
-
+export type FeaturesUsage = {
+  [key in ActionFeatureKey]?: {
+    count: number; // Number of times the action was performed
+    creditsUsed: number; // Total credits used for the action
+  };
+};
 
 // END POLICY
 // Profile interface
@@ -558,26 +722,6 @@ export enum ENTITY_TYPE {
   CARD = "CARD"
 }
 
-export type UserAction = {
-  accountId: string;
-  avatarSrc: string;
-  name: string;
-  email: string;
-  action: string;
-  content: string;
-  timestamp: string;
-  target: string;
-}
-
-export type Task = {
-  id: string;
-  accountId: string;
-  title: string;
-  status: string;
-  label: string;
-  priority: string;
-}
-
 export type Card = {
   id: string;
   title: string;
@@ -618,3 +762,4 @@ export type DropdownOption = {
   parent_id?: string | number | null;
   [key: string]: any; // For additional fields like 'type', 'region', etc.
 };
+

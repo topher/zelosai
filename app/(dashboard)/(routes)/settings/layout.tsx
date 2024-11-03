@@ -16,19 +16,19 @@ const sidebarNavItems = [
   },
   {
     title: "Account",
-    href: "/knowledge-bank/settings/account",
+    href: "/settings/account",
   },
   {
     title: "Appearance",
-    href: "/knowledge-bank/settings/appearance",
+    href: "/settings/appearance",
   },
   {
     title: "Notifications",
-    href: "/knowledge-bank/settings/access-rules",
+    href: "/settings/access-rules",
   },
   {
-    title: "Display",
-    href: "/knowledge-bank/settings/display",
+    title: "Usage",
+    href: "/settings/usage",
   },
 ]
 

@@ -1,33 +1,68 @@
-// app/(dashboard)/(routes)/profiles/[type]/[id]/page.tsx
-
-import React from 'react';
-import getESResourceById from "@/app/actions/getESResourceById";
-import ClientOnly from "@/app/components/ClientOnly";
+import React, { useEffect, useState } from 'react';
+import ClientOnly from "../../../../../../app/components/ClientOnly";
 import EmptyState from "../../../search/components/EmptyState";
-import Profile from '@/app/(dashboard)/(routes)/profiles/[type]/[id]/components/Profile'; // Use unified Profile component
-import { ListingProvider } from "@/app/context/ListingContext";
+import Profile from "./components/Profile";
+import { ListingProvider } from "../../../../../../app/context/ListingContext";
+import { Triple, ResourceType } from "../../../../../../app/types";
 
 interface Params {
   id: string;
-  type: 'athlete' | 'brand';
+  type: ResourceType; // Assuming 'athlete' | 'brand' is covered by ResourceType
+}
+
+interface Resource {
+  id: string;
+  triples: Triple[];
 }
 
 interface ListingPageProps {
   params: Params;
 }
 
-const ListingPage = async ({ params }: ListingPageProps) => {
+const ListingPage = ({ params }: ListingPageProps) => {
   const { id, type } = params;
-  
-  // Determine the index name based on type
-  const indexName = type === 'athlete' ? 'athletes_triples' : 'brands_triples';
+  const [resource, setResource] = useState<Resource | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
-  const resource = await getESResourceById(indexName, id);
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const res = await fetch(`/api/profiles/${type}/${id}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!res.ok) {
+          const errorData = await res.json();
+          setError(errorData.error);
+          return;
+        }
+
+        const data = await res.json();
+        setResource(data);
+      } catch (err) {
+        console.error('Error fetching profile:', err);
+        setError('Failed to fetch profile');
+      }
+    };
+
+    fetchProfile();
+  }, [id, type]);
+
+  if (error) {
+    return (
+      <ClientOnly>
+        <EmptyState title="Error" subtitle={error} />
+      </ClientOnly>
+    );
+  }
 
   if (!resource) {
     return (
       <ClientOnly>
-        <EmptyState />
+        <EmptyState title="Loading..." />
       </ClientOnly>
     );
   }
@@ -39,6 +74,6 @@ const ListingPage = async ({ params }: ListingPageProps) => {
       </ClientOnly>
     </ListingProvider>
   );
-}
+};
 
 export default ListingPage;

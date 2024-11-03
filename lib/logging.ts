@@ -1,32 +1,56 @@
 // lib/logging.ts
 
-import elasticsearch from './elasticsearch'; // Axios instance
+import { FeatureKey, Action } from '@/config/featuresConfig';
+import { toast } from 'react-hot-toast';
+import elasticsearchAxios from './elasticsearchAxios';
+import { UserAction } from '@/app/types';
+import { v4 as uuidv4 } from 'uuid';
 
-interface UserActionLog {
-  userId: string;
-  action: string;
-  resourceId?: string;
-  resourceType: string;
+/**
+ * Interface for Log User Action Parameters
+ */
+interface LogUserActionParams {
+  subjectId: string;
+  orgId: string;
+  action: Action;
+  feature: FeatureKey;
+  resourceId: string;
   creditsUsed: number;
-  timestamp: Date;
+  createdAt: Date;
+  isSystemAction?: boolean; // Flag to identify system actions
 }
 
-export async function logUserAction(log: UserActionLog): Promise<void> {
-  try {
-    await elasticsearch.post('/user-actions/_doc', log);
-    console.log(`User action logged for user "${log.userId}".`);
-  } catch (error: any) {
-    console.error(`Error logging user action for user "${log.userId}":`, error.response?.data || error.message);
-    throw error;
+/**
+ * Log User Action Function
+ */
+export async function logUserAction(params: LogUserActionParams): Promise<void> {
+  const { subjectId, orgId, action, feature, resourceId, creditsUsed, createdAt, isSystemAction } = params;
+
+  // Prevent logging if the action is on the 'user_actions' resource and not a system action
+  if (!isSystemAction && feature === FeatureKey.UserActions) {
+    console.log("Logging of 'user_actions' actions is skipped to prevent recursion.");
+    return;
   }
-}
 
-export async function logUserPageVisit(log: { userId: string; page: string; timestamp: Date }): Promise<void> {
+  const userAction: UserAction = {
+    id: uuidv4(),
+    subjectId,
+    action,
+    feature,
+    resourceId,
+    creditsUsed,
+    createdAt,
+    resourceType: 'UserAction',
+    accountId: orgId,
+    ownerId: subjectId
+  };
+
   try {
-    await elasticsearch.post('/page-visits/_doc', log);
-    console.log(`User page visit logged for user "${log.userId}" on page "${log.page}".`);
-  } catch (error: any) {
-    console.error(`Error logging page visit for user "${log.userId}" on page "${log.page}":`, error.response?.data || error.message);
-    throw error;
+    // Save `userAction` to Elasticsearch
+    await elasticsearchAxios.post('/user_actions/_doc', userAction);
+    console.log("User action logged successfully:", userAction);
+  } catch (error) {
+    console.error("Failed to log user action:", error);
+    toast.error('Failed to log your action.');
   }
 }

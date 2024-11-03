@@ -1,8 +1,7 @@
 "use client"
 
 import Navbar from "@/components/navbar";
-import { Sidebar } from "@/components/sidebar";
-import { routes } from "@/components/sidebar";
+import Sidebar from "@/components/sidebar";
 import { useState } from "react";
 
 const DashboardLayout = ({
@@ -26,7 +25,7 @@ const DashboardLayout = ({
         toggleSidebar={toggleSidebar}
       />
       <main className={`flex-1 flex flex-col ${isCollapsed ? "md:pl-20" : "md:pl-64"}`}>
-        {/* <Navbar routes={routes} apiLimitCount={apiLimitCount} isPro={isPro} /> */}
+        <Navbar />
         <div className="flex-1 flex flex-col">
           {children}
         </div>

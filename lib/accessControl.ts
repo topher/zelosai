@@ -1,5 +1,138 @@
 // lib/accessControl.ts
+
 import { fetchPoliciesFromElasticsearch } from './policyEvaluation';
+/**
+ * Function to check if a user has access to a specific action on a resource.
+ * @param userAttributes - The user's attributes.
+ * @param action - The action the user wants to perform (e.g., 'read', 'create', 'update', 'delete').
+ * @param resourceName - The resource name (e.g., 'goals', 'models').
+ * @param resourceId - The ID of the specific resource the user is trying to access.
+ * @returns A boolean indicating if the user has access or not.
+ */
+export async function checkAccess(
+  userAttributes: Record<string, any>,
+  action: string,
+  resourceName: string,
+  resourceId: string
+): Promise<boolean> {
+  try {
+    // Get policies related to the user's organization and the resource they are trying to access.
+    const policies = await fetchPoliciesFromElasticsearch(userAttributes.orgId);
+    
+    // If no policies are found, deny access by default
+    if (!policies || policies.length === 0) {
+      console.warn(`⚠️ No policies found for organizationId: ${userAttributes.orgId}. Denying access by default.`);
+      return false;
+    }
+
+    // Iterate through policies and check for matching rules
+    for (const policy of policies) {
+      for (const rule of policy.rules) {
+        if (!rule.predicate.includes(action) && !rule.predicate.includes('*')) continue;
+
+        // Evaluate whether the user meets the subject conditions of the rule
+        const subjectMatches = evaluateCheckAccessCondition(rule.subjectCondition, userAttributes);
+        if (!subjectMatches) continue;
+
+        // Check if the resource-specific conditions match
+        const objectMatches = await checkObjectConditions(rule.objectCondition, resourceName, resourceId);
+
+        // If both subject and object conditions are satisfied, grant access
+        if (subjectMatches && objectMatches) {
+          return rule.deontologicalDuty.toLowerCase() === 'allowed';
+        }
+      }
+    }
+
+    // If no matching policies are found, deny access
+    return false;
+  } catch (error) {
+    console.error("❌ Error during access control check:", error);
+    return false;
+  }
+}
+
+/**
+ * Function to check resource-specific conditions (object conditions) against Elasticsearch data.
+ * @param objectCondition - The conditions to check against the resource.
+ * @param resourceName - The name of the resource.
+ * @param resourceId - The ID of the resource.
+ * @returns A boolean indicating if the object conditions are satisfied.
+ */
+async function checkObjectConditions(
+  objectCondition: any,
+  resourceName: string,
+  resourceId: string
+): Promise<boolean> {
+  try {
+    // Build a query to fetch the resource from Elasticsearch
+    const query = {
+      bool: {
+        must: [
+          { match: { _id: resourceId } },
+          { match: { resourceType: resourceName } },
+        ],
+      },
+    };
+
+    const response = await fetch(`http://localhost:9200/${resourceName.toLowerCase()}/_search`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query,
+        size: 1,
+      }),
+    });
+
+    const data = await response.json();
+    const resource = data.hits?.hits[0]?._source || null;
+
+    // Evaluate the object conditions against the fetched resource
+    return evaluateCheckAccessCondition(objectCondition, resource);
+  } catch (error) {
+    console.error("❌ Error fetching resource for object condition check:", error);
+    return false;
+  }
+}
+
+/**
+ * Helper function to evaluate a condition against a set of attributes.
+ * @param condition - The condition to evaluate.
+ * @param attributes - The attributes to evaluate the condition against.
+ * @returns A boolean indicating if the condition is satisfied.
+ */
+function evaluateCheckAccessCondition(condition: any, attributes: Record<string, any>): boolean {
+  // Similar logic as before (check for 'exists', 'is', 'contains', etc.)
+  // This function checks if the user's attributes or the resource's data meet the condition.
+  if (!condition) return true;
+
+  if ('conditions' in condition && Array.isArray(condition.conditions)) {
+    const results = condition.conditions.map((subCondition: any) =>
+      evaluateCheckAccessCondition(subCondition, attributes)
+    );
+    return condition.operator === 'AND' ? results.every(Boolean) : results.some(Boolean);
+  } else {
+    const { attribute, operator, value } = condition;
+    const actualValue = attributes[attribute];
+
+    switch (operator) {
+      case 'exists':
+        return actualValue !== undefined;
+      case 'is':
+        return actualValue === value;
+      case 'is_not':
+        return actualValue !== value;
+      case 'contains':
+        return Array.isArray(actualValue) && actualValue.includes(value);
+      case 'not_contains':
+        return !Array.isArray(actualValue) || !actualValue.includes(value);
+      default:
+        return false;
+    }
+  }
+}
 
 export async function buildAccessControlledQuery(
   userAttributes: Record<string, any>,
@@ -9,7 +142,7 @@ export async function buildAccessControlledQuery(
   // Fetch policies relevant to the action and resourceType based on organizationId
   const policies = await fetchPoliciesFromElasticsearch(userAttributes.orgId);
 
-  console.log("❤️ User Attributes:", userAttributes);
+  // console.log("❤️ User Attributes:", userAttributes);
   console.log(`🔍 Action: ${action}, Resource Type: ${resourceType}`);
 
   // If no policies found, default to deny access
@@ -37,12 +170,12 @@ export async function buildAccessControlledQuery(
   for (const policy of policies) {
     console.log("📝 Evaluating Policy:", policy.description);
     for (const rule of policy.rules) {
-      console.log("📝📝📝 rules check predicate:", rule);
+      // console.log("📝📝📝 rules check predicate:", rule);
       if (!rule.predicate.includes(action) && !rule.predicate.includes('*')) continue;
 
       // Evaluate subject conditions against user attributes
       const subjectMatches = evaluateCondition(rule.subjectCondition, userAttributes);
-      console.log(`   🔎 Subject Condition Match: ${subjectMatches}`);
+      // console.log(`   🔎 Subject Condition Match: ${subjectMatches}`);
       if (!subjectMatches) continue;
 
       // Convert object conditions into Elasticsearch queries
@@ -103,7 +236,7 @@ export async function buildAccessControlledQuery(
     query.bool.must_not = mustNotConditions;
   }
 
-  console.log("✅ Final Elasticsearch Query:", JSON.stringify(query, null, 2));
+  // console.log("✅ Final Elasticsearch Query:", JSON.stringify(query, null, 2));
   return query;
 }
 
@@ -120,7 +253,7 @@ function evaluateCondition(
     const result = condition.operator === 'AND'
       ? results.every(Boolean)
       : results.some(Boolean);
-    console.log(`   🔄 Evaluated group condition (${condition.operator}):`, result);
+    // console.log(`   🔄 Evaluated group condition (${condition.operator}):`, result);
     return result;
   } else {
     const { attribute, operator, value } = condition;
@@ -134,7 +267,7 @@ function evaluateCondition(
     const actualValue = attributes[attribute];
 
     let result = false;
-    console.log("❌ ❌ ❌ ",operator)
+    // console.log("❌ ❌ ❌ ",operator)
     switch (operator) {
       case 'exists':
         result = actualValue !== undefined;
@@ -149,7 +282,6 @@ function evaluateCondition(
         result = actualValue !== attributeValue;
         break;
       case 'contains':
-         console.log("❌ ❌ ❌ ")
         result = Array.isArray(actualValue) && actualValue.includes(attributeValue);
         break;
       case 'not_contains':
@@ -159,7 +291,7 @@ function evaluateCondition(
         console.error(`Unsupported operator: ${operator}`);
     }
 
-    console.log(`   🔍 Evaluated condition: { attribute: ${attribute}, operator: ${operator}, value: ${value} } => ${result}`);
+    // console.log(`   🔍 Evaluated condition: { attribute: ${attribute}, operator: ${operator}, value: ${value} } => ${result}`);
     return result;
   }
 }
@@ -221,7 +353,7 @@ function convertConditionToElasticsearchQuery(
     }
 
     if (queryCondition) {
-      console.log(`   ➕ Adding query condition:`, queryCondition);
+      // console.log(`   ➕ Adding query condition:`, queryCondition);
       queries.push(queryCondition);
     }
   }

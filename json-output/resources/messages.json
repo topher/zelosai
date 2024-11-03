@@ -1,0 +1,56 @@
+[
+    {
+      "id": "message-001",
+      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "resourceType": "Message",
+      "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "createdAt": "2024-04-10T12:00:00Z",
+      "senderId": "user_seller1",
+      "recipientId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "content": "Hello! I am interested in your Exclusive Training Session offer.",
+      "sentAt": "2024-04-10T12:00:00Z",
+      "subject": "Inquiry About Training Session",
+      "messageType": "Text",
+      "priority": "high",
+      "visibility": "private"
+    },
+    {
+      "id": "message-002",
+      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "resourceType": "Message",
+      "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "createdAt": "2024-05-18T14:45:00Z",
+      "senderId": "user_seller2",
+      "recipientId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "content": "Your Digital Art NFT bid has been received and is currently pending.",
+      "sentAt": "2024-05-18T14:45:00Z",
+      "subject": "NFT Bid Confirmation",
+      "messageType": "Text",
+      "attachments": [
+        {
+          "id": "attachment-001",
+          "url": "https://example.com/attachments/bid-details.pdf",
+          "contentType": "application/pdf",
+          "size": 204800
+        }
+      ],
+      "priority": "medium",
+      "visibility": "private"
+    },
+    {
+      "id": "message-003",
+      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "resourceType": "Message",
+      "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "createdAt": "2024-06-30T10:30:00Z",
+      "senderId": "org_2nc9c87ihMBSTJxcYc4X4dwmdH4",
+      "recipientId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "content": "Your scheduled event has been successfully updated.",
+      "sentAt": "2024-06-30T10:30:00Z",
+      "subject": "Event Update Notification",
+      "messageType": "Text",
+      "priority": "low",
+      "visibility": "public"
+    }
+  ]
+  

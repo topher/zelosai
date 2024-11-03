@@ -1,362 +1,260 @@
-"use client";
+// components/Sidebar.tsx
 
-import Link from "next/link";
-import Image from "next/image";
-import { Montserrat } from 'next/font/google';
-import { Briefcase, ImageIcon, LayoutDashboard, Database, Workflow, ChevronDown, ChevronRight, Settings, QrCode, Search } from "lucide-react";
-import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
-import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
-import React, { useState, useCallback, useContext, useEffect } from "react";
-// import MintTokenGlobe from "../../assets/images/mint_token_globe.png"; // Adjust the path if needed
-import { Link as RNLink } from "react-router-dom";
-import { connectWallet, getMetadataFromApiAsync, getSelectedAddress } from "@/app/(dashboard)/(routes)/collabs/mint-token/Web3Client";
-import { ACCOUNT_STATE, TokenContext } from "@/app/(dashboard)/(routes)/collabs/mint-token/TokenContext";
-import athleteMetadata from "@/app/(dashboard)/(routes)/collabs/mint-token/athlete_metadata.json"; // Ensure correct path
+'use client';
 
-const montserrat = Montserrat({ weight: '600', subsets: ['latin'] });
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { FaLock } from 'react-icons/fa';
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from '@/components/ui/tooltip';
+import { cn } from '@/lib/utils';
+import { usePathname } from 'next/navigation';
+import { ChevronDown } from 'lucide-react';
+import { useUser, useOrganization } from '@clerk/nextjs';
+import { useFeatureAccess } from '@/hooks/useFeatureAccess';
+import {
+  Feature,
+  FeatureCategory,
+  featureCategoryConfig,
+  features,
+  SubscriptionTier,
+} from '@/config/featuresConfig';
+import { Subscription, FeaturesUsage } from '@/app/types';
 
-export const routes = [
-  {
-    label: 'Dashboard',
-    icon: LayoutDashboard,
-    href: '/dashboard',
-    color: "text-gray-500",
-    children: [
-      { label: 'Models', href: '/models', color: "text-gray-600", description: "Explore your collection of AI models.", icon: "picture" },
-      { label: 'Data Bank', href: '/knowledge-bank', color: "text-gray-600", description: "Monitor the performance of your AI models.", icon: "locker" },
-      { label: 'Campaigns', href: '/workflows', color: "text-gray-600", description: "Ensure the safe and responsible use of your likeness.", icon: "bulb" },
-      { label: 'Strategy', href: '/strategy', color: "text-gray-600", description: "Build new AI models to expand your digital brand.", icon: "travel" },
-    ],
-  },
-  {
-    label: 'Strategy',
-    icon: Briefcase,
-    href: '/strategy',
-    color: "text-blue-500",
-    children: [
-      { label: 'Goals', href: '/strategy/goals', color: "text-blue-500", description: "Define the objectives for your organization.", icon: "target" },
-      { label: 'User Personas', href: '/strategy/agents', color: "text-blue-500", description: "Identify potential challenges to your AI strategy.", icon: "flag" },
-      { label: 'Use Cases', href: '/strategy/use-cases', color: "text-blue-500", description: "Set the practical applications for your AI models and products.", icon: "bookmark-fav" },
-      { label: 'Plan', href: '/strategy/plan', color: "text-blue-500", description: "Develop a strategy to achieve your AI-driven goals.", icon: "chess" },
-      { label: 'Branding', href: '/strategy/branding', color: "text-blue-500", description: "Create and manage your digital brand identity.", icon: "tag" },
-    ],
-  },
-  {
-    label: 'Models',
-    icon: ImageIcon,
-    href: '/models',
-    color: "text-green-500",
-    children: [
-      { label: 'My Library', href: '/models/library', color: "text-green-500", description: "Explore your collection of AI models.", icon: "folder" },
-      { label: 'Usage', href: '/models/analytics', color: "text-green-500", description: "Monitor the performance of your AI models.", icon: "chart" },
-      { label: 'Safety', href: '/models/safety', color: "text-green-500", description: "Ensure the safe and responsible use of your likeness.", icon: "lock" },
-      { label: 'Create New', href: '/models/library', color: "text-green-500", description: "Build new AI models to expand your digital brand.", icon: "new-folder" },
-    ],
-  },
-  {
-    label: 'Data Bank',
-    icon: Database,
-    href: '/knowledge-bank',
-    color: "text-yellow-500",
-    children: [
-      { label: 'My Assets', href: '/knowledge-bank/inventory', color: "text-yellow-500", description: "Manage the core data that shapes the foundation of your AI models.", icon: "locker" },
-      { label: 'My Terms', href: '/knowledge-bank/taxonomy', color: "text-yellow-500", description: "Visualize key insights from your data.", icon: "copy" },
-      { label: 'Rules', href: '/knowledge-bank/rules', color: "text-yellow-500", description: "Manage your account rules across compliance frameworks.", icon: "shield" },
-      { label: 'Connectors', href: '/knowledge-bank/connectors', color: "text-yellow-500", description: "Connect your favorite tools and platforms to streamline your workflow.", icon: "puzzle" },
-    ],
-  },
-  {
-    label: 'Collabs',
-    icon: Briefcase,
-    href: '/marketplace',
-    color: "text-orange-500",
-    children: [
-      { label: 'Messages', href: '/collabs/messages', color: "text-orange-500", description: "View and manage your messages.", icon: "message-circle" },
-      { label: 'Offers', href: '/collabs/offers', color: "text-orange-500", description: "View and manage your offers.", icon: "gift" },
-      { label: 'History', href: '/collabs/history', color: "text-orange-500", description: "View your collaboration history.", icon: "clock" },
-      { label: 'My Contracts', href: '/collabs/contracts', color: "text-orange-500", description: "Manage your contracts.", icon: "file-text" },
-    ],
-  },
-  {
-    label: 'Campaigns',
-    icon: Workflow,
-    href: '/workflows',
-    color: "text-red-500",
-    children: [
-      { label: 'Library', href: '/workflows/library', color: "text-red-500", description: "Access resources to streamline your campaign processes.", icon: "link" },
-      { label: 'My Tasks', href: '/workflows/tasks', color: "text-red-500", description: "Track your ongoing tasks and responsibilities.", icon: "tick" },
-      { label: 'Activity', href: '/workflows/analytics', color: "text-red-500", description: "Review recent actions and updates within your campaigns.", icon: "rocket" },
-      { label: 'New Campaign', href: '/workflows/plan', color: "text-red-500", description: "Create and customize new campaigns to optimize your efficiency.", icon: "plus" },
-    ],
-  },
-  {
-    label: 'Search',
-    icon: Search,
-    href: '/search',
-    color: "text-purple-500",
-    children: [
-      { label: 'Athletes', href: '/search/athletes', color: "text-purple-500", description: "Discover athletes and their profiles.", icon: "zoom" },
-      { label: 'Contracts', href: '/search/contracts', color: "text-purple-500", description: "Find contracts that suit your business needs.", icon: "zoom" },
-      { label: 'Models', href: '/search/models', color: "text-purple-500", description: "Search for existing AI models to determine which one is right for you.", icon: "zoom" },
-      { label: 'Brands', href: '/search/brands', color: "text-purple-500", description: "Search for existing AI models to determine which one is right for you.", icon: "zoom" },
-    ],
-  },
-];
-
-const settings = {
-  label: 'Settings',
-  icon: Settings,
-  href: '/settings',
-  color: "text-gray-300",
-};
-
-export const Sidebar = ({
-  apiLimitCount = 0,
-  isPro = false,
-  isCollapsed, 
-  toggleSidebar
-}: {
-  apiLimitCount: number;
-  isPro: boolean;
+const Sidebar: React.FC<{
   isCollapsed: boolean;
   toggleSidebar: () => void;
-}) => {
+}> = ({ isCollapsed, toggleSidebar }) => {
+  const [expandedCategories, setExpandedCategories] = useState<{ [key: string]: boolean }>({});
+  const [featuresUsage, setFeaturesUsage] = useState<FeaturesUsage>({});
   const pathname = usePathname();
-  const [expandedRoutes, setExpandedRoutes] = useState<{ [key: string]: boolean }>({});
-  
-  const { onSetUserProfile, web3BtnState, onAccountState } = useContext(TokenContext);
 
-  const toggleExpand = (label: string) => {
-    setExpandedRoutes((prev) => ({
+  const { user } = useUser();
+  const { organization } = useOrganization();
+  const [subscriptionTier, setSubscriptionTier] = useState<SubscriptionTier | null>(null);
+  const [subscription, setSubscription] = useState<Subscription | null>(null);
+  const [allowedFeatures, setAllowedFeatures] = useState<{ [key: string]: boolean }>({});
+
+  const [loading, setLoading] = useState<boolean>(true);
+
+  // Default subscription
+  const defaultSubscription: Subscription = {
+    subscriptionId: '',
+    subscriptionTier: SubscriptionTier.FREE,
+    creditsUsed: 0,
+    monthlyCreditLimit: 100,
+    credits: 0,
+    featuresUsage: {},
+    resourceCounts: {},
+    organizationId: '',
+    userId: '',
+    createdAt: '',
+    updatedAt: '',
+  };
+
+  const { isFeatureAllowed } = useFeatureAccess(subscription || defaultSubscription);
+
+  // Fetch user subscription
+  const fetchUserSubscription = async () => {
+    try {
+      const response = await fetch('/api/subscriptions', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log('API Response:', data); // Debugging line
+
+        const subscriptionData: Subscription = data.subscription; // Ensure API returns { subscription }
+
+        if (!subscriptionData) {
+          console.error('Subscription data is undefined.');
+          return;
+        }
+
+        console.log('Fetched Subscription Data:', subscriptionData);
+        setSubscriptionTier(subscriptionData.subscriptionTier as SubscriptionTier);
+        setFeaturesUsage(subscriptionData.featuresUsage);
+        setSubscription(subscriptionData);
+      } else {
+        const errorData = await response.json();
+        console.error('Failed to fetch subscription:', errorData.error);
+      }
+    } catch (error) {
+      console.error('Error fetching subscription:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserSubscription();
+  }, [organization?.id]);
+
+  useEffect(() => {
+    console.log('Updated Subscription Tier:', subscriptionTier, ' for ', featuresUsage);
+  }, [subscriptionTier, featuresUsage]);
+
+  useEffect(() => {
+    const fetchAllowedFeatures = async () => {
+      const allowedStatuses: { [key: string]: boolean } = {};
+
+      for (const feature of features) {
+        const isAllowed = await isFeatureAllowed(feature.key, 'read');
+        allowedStatuses[feature.key] = isAllowed;
+      }
+
+      setAllowedFeatures(allowedStatuses);
+    };
+
+    if (subscription) {
+      fetchAllowedFeatures();
+    }
+  }, [subscription]);
+
+  const toggleCategory = (category: string) => {
+    setExpandedCategories((prev) => ({
       ...prev,
-      [label]: !prev[label],
+      [category]: !prev[category],
     }));
   };
 
-  // const onSetSelectedToken = useCallback(async () => {
-  //   const token = await getSelectedAddress();
-  //   if (token) {
-  //     onAccountState(ACCOUNT_STATE.MINT_TOKEN);
-  //   } else {
-  //     onAccountState(ACCOUNT_STATE.GUEST);
-  //   }
-  // }, [onAccountState]);
+  if (loading || !user || !subscription) {
+    return <div className="p-4 text-center text-white">Loading...</div>;
+  }
 
-  // const onSetUserProfileHandler = useCallback(async () => {
-  //   const userProfile = await getMetadataFromApiAsync();
-  //   onSetUserProfile(userProfile);
-  // }, [onSetUserProfile]);
-  
-  // const onConnectWallet = useCallback(async () => {
-  //   await connectWallet();
-  //   await onSetSelectedToken();
-  //   await onSetUserProfileHandler();
-  //   console.log(web3BtnState)  // This might not show the updated state immediately
-  // }, [onSetUserProfileHandler, onSetSelectedToken]);
-  
-  // useEffect(() => {
-  //   onSetSelectedToken();
-  //   onSetUserProfileHandler();
-  // }, [onSetSelectedToken, onSetUserProfileHandler]);
-  
+  // **Group features by category and exclude Profiles category**
+  const categories = features.reduce((acc: { [key: string]: Feature[] }, feature) => {
+    if (feature.metadata.category === FeatureCategory.Profiles) {
+      return acc; // Exclude Profiles category
+    }
+
+    if (!acc[feature.metadata.category]) {
+      acc[feature.metadata.category] = [];
+    }
+    acc[feature.metadata.category].push(feature);
+    return acc;
+  }, {});
+
   return (
     <TooltipProvider>
       <div className="relative transition duration-300 ease-in-out">
         <div
           className={cn(
-            "fixed top-0 left-0 z-50 transition-all",
-            isCollapsed ? "w-20" : "w-64",
-            "overflow-y-auto h-screen bg-[#111827] text-white flex flex-col"
+            'fixed top-0 left-0 z-50 transition-all',
+            isCollapsed ? 'w-20' : 'w-64',
+            'overflow-y-auto h-screen bg-[#0A0E27] text-white flex flex-col'
           )}
         >
+          {/* Header */}
           <div className="py-4 flex items-center pl-3 mb-14">
             <Link href="/dashboard" className="flex items-center">
               <div className="relative rounded-md h-12 w-12 mr-4">
                 <Image fill alt="Logo" src="/zlogo.png" />
               </div>
               {!isCollapsed && (
-                <h1 className={cn("text-3xl font-bold", montserrat.className)}>
-                  ZELOS
-                </h1>
+                <h1 className={cn('text-3xl font-bold', 'font-montserrat')}>ZELOS</h1>
               )}
             </Link>
           </div>
+          {/* Sidebar Content */}
           <div className="flex-1 overflow-y-auto">
             <div className="space-y-1">
-              {routes.map((route) => (
-                <div key={route.label} className="relative group">
-                  <Tooltip key={isCollapsed ? "collapsed" : "expanded"}>
-                    <TooltipTrigger asChild>
-                      <Link href={route.href} passHref>
-                        <div
-                          className={cn(
-                            "flex items-center p-3 w-full justify-center font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
-                            pathname === route.href ? "text-white bg-white/10" : "text-zinc-400",
-                            isCollapsed ? "justify-center" : "justify-start"
-                          )}
-                        >
-                          <route.icon className={cn("h-6 w-6", route.color)} />
-                          {!isCollapsed && (
-                            <>
-                              <span className="ml-4 flex-1">{route.label}</span>
-                              {route.children && route.label !== "Dashboard" && (
-                                <button
-                                  className="ml-2 p-1"
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    toggleExpand(route.label);
-                                  }}
-                                >
-                                  {expandedRoutes[route.label] ? (
-                                    <ChevronDown className="h-4 w-4" />
-                                  ) : (
-                                    <ChevronRight className="h-4 w-4" />
-                                  )}
-                                </button>
-                              )}
-                            </>
-                          )}
-                        </div>
-                      </Link>
-                    </TooltipTrigger>
-                    {isCollapsed && (
-                      <TooltipContent
-                        side="right"
-                        className="bg-[#1f2937] text-white border border-gray-700 shadow-lg rounded-md px-3 py-2 transition-opacity duration-200 ease-in-out transform opacity-0 group-hover:opacity-100"
-                      >
+              {Object.entries(categories).map(([categoryKey, categoryFeatures]) => {
+                const category = featureCategoryConfig[categoryKey as FeatureCategory];
+                const CategoryIcon = category.icon;
+                const categoryLabel = category.label;
+                const categoryColorHex = category.colorHex;
+
+                return (
+                  <div key={categoryKey} className="relative group">
+                    <Tooltip>
+                      <TooltipTrigger asChild>
                         <div>
-                          <div>{route.label}</div>
-                          {route.children && route.label !== 'Dashboard' && (
-                            <div className="mt-2">
-                              {route.children.map((child) => (
-                                <Link key={child.label} href={child.href} passHref>
-                                  <div
-                                    className={cn(
-                                      "text-xs p-1 w-full font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded transition",
-                                      pathname === child.href ? "text-white bg-white/10" : "text-zinc-400"
-                                    )}
-                                  >
-                                    {child.label}
-                                  </div>
-                                </Link>
-                              ))}
-                            </div>
-                          )}
+                          <button
+                            className={cn(
+                              'flex items-center p-3 w-full justify-center font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition',
+                              isCollapsed ? 'justify-center' : 'justify-start',
+                              'text-zinc-400'
+                            )}
+                            onClick={() => toggleCategory(categoryKey)}
+                          >
+                            <CategoryIcon
+                              className="h-6 w-6"
+                              style={{ color: categoryColorHex }}
+                            />
+                            {!isCollapsed && (
+                              <>
+                                <span className="ml-4 capitalize">{categoryLabel}</span>
+                                <ChevronDown
+                                  className={cn(
+                                    'h-4 w-4 ml-auto transition-transform duration-200',
+                                    expandedCategories[categoryKey] ? 'transform rotate-180' : ''
+                                  )}
+                                />
+                              </>
+                            )}
+                          </button>
                         </div>
-                      </TooltipContent>
-                    )}
-                  </Tooltip>
-                  {!isCollapsed && route.children && (
-                    <div
-                      className={cn(
-                        "transition-max-height duration-300 ease-in-out overflow-hidden",
-                        expandedRoutes[route.label] ? "max-h-40" : "max-h-0"
+                      </TooltipTrigger>
+                      {isCollapsed && (
+                        <TooltipContent
+                          side="right"
+                          className="bg-[#1f2937] text-white border border-gray-700 shadow-lg rounded-md px-3 py-2"
+                        >
+                          <div className="capitalize">{categoryLabel}</div>
+                        </TooltipContent>
                       )}
-                    >
+                    </Tooltip>
+                    {/* Render child features */}
+                    {!isCollapsed && expandedCategories[categoryKey] && (
                       <div className="ml-8 space-y-1">
-                        {route.children.map((child) => (
-                          <Link key={child.label} href={child.href} passHref>
-                            <div
-                              className={cn(
-                                "text-xs p-2 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
-                                pathname === child.href ? "text-white bg-white/10" : "text-zinc-400"
-                              )}
+                        {categoryFeatures.map((feature: Feature) => {
+                          const isAllowed = allowedFeatures[feature.key];
+
+                          // Optionally handle undefined
+                          if (isAllowed === undefined) {
+                            return null; // Or render a loading placeholder
+                          }
+
+                          return (
+                            <Link
+                              key={feature.key}
+                              href={isAllowed ? feature.metadata.href : '#'}
+                              passHref
                             >
-                              {child.label}
-                            </div>
-                          </Link>
-                        ))}
+                              <div
+                                className={cn(
+                                  'flex items-center p-2 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition',
+                                  pathname === feature.metadata.href
+                                    ? 'text-white bg-white/10'
+                                    : 'text-zinc-400',
+                                  !isAllowed && 'opacity-50 cursor-not-allowed'
+                                )}
+                              >
+                                <feature.metadata.icon
+                                  className="h-5 w-5"
+                                  style={{ color: categoryColorHex }}
+                                />
+                                <span className="ml-4 capitalize">{feature.metadata.label}</span>
+                                {!isAllowed && <FaLock className="ml-auto h-4 w-4 text-red-500" />}
+                              </div>
+                            </Link>
+                          );
+                        })}
                       </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-          <div>
-            <div key={settings.label} className="relative group">
-              <Tooltip key={isCollapsed ? "collapsed" : "expanded"}>
-                <TooltipTrigger asChild>
-                  <Link href={settings.href} passHref>
-                    <div
-                      className={cn(
-                        "flex items-center p-3 w-full justify-center font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
-                        pathname === settings.href ? "text-white bg-white/10" : "text-zinc-400",
-                        isCollapsed ? "justify-center" : "justify-start"
-                      )}
-                    >
-                      <settings.icon className={cn("h-6 w-6", settings.color)} />
-                      {!isCollapsed && (
-                        <span className="ml-3 flex-1">{settings.label}</span>
-                      )}
-                    </div>
-                  </Link>
-                </TooltipTrigger>
-                {isCollapsed && (
-                  <TooltipContent
-                    side="right"
-                    className="bg-[#1f2937] text-white border border-gray-700 shadow-lg rounded-md px-3 py-2 transition-opacity duration-200 ease-in-out transform opacity-0 group-hover:opacity-100"
-                  >
-                    <div>{settings.label}</div>
-                  </TooltipContent>
-                )}
-              </Tooltip>
-            </div>
-          </div>
-          <div className="relative group">
-            <Tooltip key={isCollapsed ? "collapsed" : "expanded"}>
-              <TooltipTrigger asChild>
-                <Link href="#" passHref>
-                  <div
-                    className={cn(
-                      "flex items-center p-3 w-full justify-center font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
-                      pathname === "#" ? "text-white bg-white/10" : "text-zinc-400",
-                      isCollapsed ? "justify-center" : "justify-start"
-                    )}
-                    onClick={() => onConnectWallet()}
-                  >
-                    <QrCode className="h-6 w-6 text-gray-300" />
-                    {!isCollapsed && (
-                      <span className="ml-3 flex-1">Connect</span>
                     )}
                   </div>
-                </Link>
-              </TooltipTrigger>
-              {isCollapsed && (
-                <TooltipContent
-                  side="right"
-                  className="bg-[#1f2937] text-white border border-gray-700 shadow-lg rounded-md px-3 py-2 transition-opacity duration-200 ease-in-out transform opacity-0 group-hover:opacity-100"
-                >
-                  Connect
-                </TooltipContent>
-              )}
-            </Tooltip>
+                );
+              })}
+            </div>
           </div>
         </div>
-        <button
-          style={{ zIndex: 1000, left: isCollapsed ? "4.25rem" : "15.25rem", top: "1.6rem" }}
-          className={cn(
-            "p-1 rounded-full fixed bg-gray-800 border border-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition duration-300"
-          )}
-          onClick={toggleSidebar}
-        >
-          <svg
-            className="h-4 w-4 text-white"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d={isCollapsed ? "M8 6L16 12L8 18" : "M16 6L8 12L16 18"}
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
       </div>
     </TooltipProvider>
   );
 };
+
+export default Sidebar;

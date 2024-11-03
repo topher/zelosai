@@ -13,6 +13,7 @@ body,
   height: 100%;
 }
  
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -220,7 +221,7 @@ body,
   background-color: #fff;
   color: rgba(92, 92, 92, 0.87);
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  border-radius: 4px;
+  border-radius: 4px ;
   box-shadow: none !important;
   position: relative;
 }
@@ -590,4 +591,62 @@ body .MuiAccordionDetails-root {
 
 .font-sans {
   font-family: 'Roboto', sans-serif;
+}
+
+
+/* styles/globals.css */
+
+.sidebar {
+  width: 250px;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+.sidebar-section-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-item {
+  margin-bottom: 10px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #555;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.sidebar-link:hover {
+  background-color: #e0e0e0;
+}
+
+.sidebar-link.disabled {
+  cursor: not-allowed;
+  color: #999;
+}
+
+.sidebar-icon {
+  margin-right: 8px;
+}
+
+.sidebar-icon.locked {
+  color: #999;
+}
+
+.clamp-2-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Number of lines to clamp */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

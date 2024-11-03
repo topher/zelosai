@@ -15,7 +15,7 @@ const ELASTICSEARCH_PASSWORD = process.env.ELASTICSEARCH_PASSWORD;
  */
 function showUsage() {
     console.log(`
-Usage: node ./utils/upload-index.js <index_name> [--folder] [--limit <number>]
+Usage: node ./utils/upload-index.js <index_name> [--folder] [--resource] [--limit <number>]
 
 Description:
     Uploads data to an Elasticsearch index with optional mappings.
@@ -26,12 +26,18 @@ Parameters:
                     The script expects the following files based on input type:
                       - If --folder is not used:
                           - json-output/<index_name>.json
+                          - If --resource is used:
+                              - json-output/resources/<index_name>.json
                       - If --folder is used:
                           - json-output/<index_name>/ (directory containing multiple JSON files)
+                          - If --resource is used:
+                              - json-output/resources/<index_name>/ (directory containing multiple JSON files)
                     - Optional mapping file:
                           - json-output/mappings/<index_name>_mapping.json
 
     --folder        (Optional) Indicates that the input path is a directory containing multiple JSON files.
+    
+    --resource      (Optional) Indicates that the input data is a resource and should be fetched from the 'resources' subdirectory.
     
     --limit <num>   (Optional) Number of documents to process. Defaults to 10 if not specified.
 
@@ -41,6 +47,12 @@ Examples:
 
     # Upload from a directory containing multiple JSON files
     node ./utils/upload-index.js athletes_triples --folder
+
+    # Upload from a resource single JSON file
+    node ./utils/upload-index.js athletes_triples --resource
+
+    # Upload from a resource directory containing multiple JSON files
+    node ./utils/upload-index.js athletes_triples --folder --resource
 
     # Upload with a specific limit
     node ./utils/upload-index.js athletes_triples --folder --limit 20
@@ -262,18 +274,21 @@ function processCommasAndCitationsHelper(text) {
 async function main() {
     const args = process.argv.slice(2);
 
-    if (args.length < 1 || args.length > 3) {
+    if (args.length < 1 || args.length > 4) {
         showUsage();
     }
 
     const indexName = args[0];
     let isFolder = false;
+    let isResource = false;
     let limit = 10; // Default limit
 
     // Parse additional arguments
     for (let i = 1; i < args.length; i++) {
         if (args[i] === '--folder') {
             isFolder = true;
+        } else if (args[i] === '--resource') {
+            isResource = true;
         } else if (args[i] === '--limit') {
             if (i + 1 < args.length) {
                 limit = parseInt(args[i + 1], 10);
@@ -292,9 +307,15 @@ async function main() {
         }
     }
 
+    // Define base path based on --resource flag
+    let basePath = path.join(process.cwd(), 'json-output');
+    if (isResource) {
+        basePath = path.join(basePath, 'resources');
+    }
+
     // Define file paths based on index name and input type
-    const dataFilePath = path.join(process.cwd(), 'json-output', `${indexName}.json`);
-    const dataDirPath = path.join(process.cwd(), 'json-output', `${indexName}`);
+    const dataFilePath = path.join(basePath, `${indexName}.json`);
+    const dataDirPath = path.join(basePath, `${indexName}`);
     const mappingFilePath = path.join(process.cwd(), 'json-output', 'mappings', `${indexName}_mapping.json`);
 
     // Read mappings if exists

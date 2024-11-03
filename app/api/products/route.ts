@@ -1,7 +1,7 @@
 // /app/api/products/route.ts
 
 import { NextResponse } from 'next/server';
-import { searchIndex, ensureIndexExists } from '@/lib/elasticsearch';
+import { searchIndex, ensureIndexExists } from '@/lib/elasticsearchAxios';
 
 const INDEX = 'products'; // Ensure this index exists
 

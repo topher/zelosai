@@ -1,0 +1,178 @@
+[
+  {
+    "id": "TASK-8782",
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Task",
+    "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "createdAt": "2024-04-27T12:34:56.789Z",
+    "tags": ["Recommendations", "medium"],
+    "visibility": "restricted",
+    "title": "Update Recommendation Engine for Player Matching",
+    "priority": "medium"
+  },
+  {
+    "id": "TASK-7878",
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Task",
+    "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "createdAt": "2024-04-27T12:34:56.789Z",
+    "tags": ["Goals", "medium"],
+    "visibility": "private",
+    "title": "Define Quarterly Marketing Goals for Athlete Promotions",
+    "priority": "medium"
+  },
+  {
+    "id": "TASK-7839",
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Task",
+    "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "createdAt": "2024-04-27T12:34:56.789Z",
+    "tags": ["Issues", "high"],
+    "visibility": "private",
+    "title": "Resolve Issues with Athlete Data Synchronization",
+    "priority": "high"
+  },
+  {
+    "id": "TASK-5562",
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Task",
+    "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "createdAt": "2024-04-27T12:34:56.789Z",
+    "tags": ["BusinessModel", "medium"],
+    "visibility": "private",
+    "title": "Review and Update Business Model for Sponsorships",
+    "priority": "medium"
+  },
+  {
+    "id": "TASK-8686",
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Task",
+    "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "createdAt": "2024-04-27T12:34:56.789Z",
+    "tags": ["Branding", "medium"],
+    "visibility": "private",
+    "title": "Enhance Branding Strategy for New Marketing Campaign",
+    "priority": "medium"
+  },
+  {
+    "id": "TASK-1280",
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Task",
+    "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "createdAt": "2024-04-27T12:34:56.789Z",
+    "tags": ["Policies", "high"],
+    "visibility": "public",
+    "title": "Update Data Privacy Policies for Athlete Profiles",
+    "priority": "high"
+  },
+  {
+    "id": "TASK-7262",
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Task",
+    "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "createdAt": "2024-04-27T12:34:56.789Z",
+    "tags": ["CustomModels", "high"],
+    "visibility": "public",
+    "title": "Develop Custom Models for Predicting Athlete Performance",
+    "priority": "high"
+  },
+  {
+    "id": "TASK-1138",
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Task",
+    "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "createdAt": "2024-04-27T12:34:56.789Z",
+    "tags": ["Goals", "medium"],
+    "visibility": "restricted",
+    "title": "Set Marketing Goals for Upcoming Sports Season",
+    "priority": "medium"
+  },
+  {
+    "id": "TASK-7184",
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Task",
+    "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "createdAt": "2024-04-27T12:34:56.789Z",
+    "tags": ["Workflows", "low"],
+    "visibility": "private",
+    "title": "Design Workflows for Athlete Onboarding Process",
+    "priority": "low"
+  },
+  {
+    "id": "TASK-5160",
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Task",
+    "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "createdAt": "2024-04-27T12:34:56.789Z",
+    "tags": ["Tasks", "high"],
+    "visibility": "restricted",
+    "title": "Organize Tasks for Upcoming Marketing Campaign Launch",
+    "priority": "high"
+  },
+  {
+    "id": "TASK-5618",
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Task",
+    "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "createdAt": "2024-04-27T12:34:56.789Z",
+    "tags": ["Offers", "medium"],
+    "visibility": "public",
+    "title": "Create Special Offers for New Athlete Sign-Ups",
+    "priority": "medium"
+  },
+  {
+    "id": "TASK-4136",
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Task",
+    "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "createdAt": "2024-04-27T12:34:56.789Z",
+    "tags": ["Issues", "medium"],
+    "visibility": "private",
+    "title": "Address Issues with Athlete Profile Visibility Settings",
+    "priority": "medium"
+  },
+  {
+    "id": "TASK-3939",
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Task",
+    "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "createdAt": "2024-04-27T12:34:56.789Z",
+    "tags": ["ProfileBrands", "low"],
+    "visibility": "public",
+    "title": "Update Brand Profiles with Latest Sponsorship Deals",
+    "priority": "low"
+  },
+  {
+    "id": "TASK-2007",
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Task",
+    "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "createdAt": "2024-04-27T12:34:56.789Z",
+    "tags": ["TrainModels", "high"],
+    "visibility": "private",
+    "title": "Train Models to Enhance Athlete Performance Predictions",
+    "priority": "high"
+  },
+  {
+    "id": "TASK-7516",
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Task",
+    "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "createdAt": "2024-04-27T12:34:56.789Z",
+    "tags": ["Contracts", "medium"],
+    "visibility": "public",
+    "title": "Generate Contracts for New Athlete Partnerships",
+    "priority": "medium"
+  },
+  {
+    "id": "TASK-6906",
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Task",
+    "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "createdAt": "2024-04-27T12:34:56.789Z",
+    "tags": ["Messages", "high"],
+    "visibility": "public",
+    "title": "Reboot Online Messaging System for Enhanced Communication",
+    "priority": "high"
+  }
+]

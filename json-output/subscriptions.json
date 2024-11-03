@@ -1,15 +1,158 @@
 [
-    {
-      "id": "sub_pro_001",
-      "organizationId": "org_2nc9c87ihMBSTJxcYc4X4dwmdH4",
-      "subscriptionTier": "PRO",
-      "credits": 1000,
-      "featuresUsage": {
-        "facetsPerBrandingCardType": 10,
-        "monthlyProfileViews": 100
+  {
+    "subscriptionId": "sub_free_001",
+    "userId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "subscriptionTier": "FREE",
+    "creditsUsed": 50,
+    "monthlyCreditLimit": 100,
+    "featuresUsage": {
+      "CreateGoal": {
+        "count": 1,
+        "creditsUsed": 20
       },
-      "createdAt": "2024-04-27T12:00:00Z",
-      "updatedAt": "2024-04-27T12:00:00Z"
-    }
-  ]
-  
+      "ReadGoal": {
+        "count": 10,
+        "creditsUsed": 5
+      },
+      "EditGoal": {
+        "count": 2,
+        "creditsUsed": 10
+      },
+      "DeleteGoal": {
+        "count": 0,
+        "creditsUsed": 0
+      },
+      "CreateUseCase": {
+        "count": 1,
+        "creditsUsed": 15
+      },
+      "ReadUseCase": {
+        "count": 5,
+        "creditsUsed": 5
+      },
+      "EditUseCase": {
+        "count": 1,
+        "creditsUsed": 5
+      },
+      "DeleteUseCase": {
+        "count": 0,
+        "creditsUsed": 0
+      }
+    },
+    "resourceCounts": {
+      "Goals": 3,
+      "UseCases": 2,
+      "Models": 1,
+      "Analytics": 1,
+      "Wallet": 1,
+      "AccountManagement": 0
+    },
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-02T00:00:00.000Z",
+    "credits": 50
+  },
+  {
+    "subscriptionId": "sub_pro_001",
+    "organizationId": "org_2nc9c87ihMBSTJxcYc4X4dwmdH4",
+    "subscriptionTier": "PRO",
+    "creditsUsed": 250,
+    "monthlyCreditLimit": 500,
+    "featuresUsage": {
+      "CreateGoal": {
+        "count": 5,
+        "creditsUsed": 100
+      },
+      "ReadGoal": {
+        "count": 50,
+        "creditsUsed": 20
+      },
+      "EditGoal": {
+        "count": 10,
+        "creditsUsed": 50
+      },
+      "DeleteGoal": {
+        "count": 2,
+        "creditsUsed": 10
+      },
+      "CreateUseCase": {
+        "count": 8,
+        "creditsUsed": 60
+      },
+      "ReadUseCase": {
+        "count": 25,
+        "creditsUsed": 10
+      },
+      "EditUseCase": {
+        "count": 5,
+        "creditsUsed": 15
+      },
+      "DeleteUseCase": {
+        "count": 1,
+        "creditsUsed": 5
+      }
+    },
+    "resourceCounts": {
+      "Goals": 8,
+      "UseCases": 5,
+      "Models": 10,
+      "Analytics": 3,
+      "Wallet": 2,
+      "AccountManagement": 1
+    },
+    "createdAt": "2023-02-01T00:00:00.000Z",
+    "updatedAt": "2023-02-02T00:00:00.000Z",
+    "credits": 250
+  },
+  {
+    "subscriptionId": "sub_pro_002",
+    "organizationId": "org_2nc9c87ihMBSTJxcYc4X4dwmdH4",
+    "subscriptionTier": "ENTERPRISE",
+    "creditsUsed": 700,
+    "monthlyCreditLimit": 1000,
+    "featuresUsage": {
+      "CreateGoal": {
+        "count": 20,
+        "creditsUsed": 400
+      },
+      "ReadGoal": {
+        "count": 500,
+        "creditsUsed": 100
+      },
+      "EditGoal": {
+        "count": 50,
+        "creditsUsed": 100
+      },
+      "DeleteGoal": {
+        "count": 10,
+        "creditsUsed": 50
+      },
+      "CreateUseCase": {
+        "count": 15,
+        "creditsUsed": 120
+      },
+      "ReadUseCase": {
+        "count": 100,
+        "creditsUsed": 50
+      },
+      "EditUseCase": {
+        "count": 25,
+        "creditsUsed": 75
+      },
+      "DeleteUseCase": {
+        "count": 5,
+        "creditsUsed": 25
+      }
+    },
+    "resourceCounts": {
+      "Goals": 15,
+      "UseCases": 12,
+      "Models": 25,
+      "Analytics": 10,
+      "Wallet": 5,
+      "AccountManagement": 3
+    },
+    "createdAt": "2023-03-01T00:00:00.000Z",
+    "updatedAt": "2023-03-02T00:00:00.000Z",
+    "credits": 700
+  }
+]

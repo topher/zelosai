@@ -4,19 +4,20 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { routes } from "@/components/sidebar";
+// import { featureRoutes, Category, Feature } from '@/config/featuresConfig';
 import { Montserrat } from 'next/font/google';
+import { features } from "@/config/featuresConfig";
 
 const montserrat = Montserrat({ weight: '600', subsets: ['latin'] });
 
 const Dashboard: React.FC = () => {
-  const dashboardRoute = routes.find(route => route.label === 'Dashboard');
+  const dashboardRoute = features.find(feature => feature.metadata.label === 'Dashboard');
 
   return (
     <div className={`container mx-auto flex flex-col justify-center h-full my-8 ${montserrat.className}`}>
       <h1 className="text-6xl font-black mb-4 tracking-tight leading-tight text-left">
         <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500">
-          {dashboardRoute?.label}
+          {dashboardRoute?.metadata.label}
         </span>
         <span className="block mb-2 h-1 bg-gradient-to-r from-indigo-600 to-pink-500 rounded-full w-40"></span>
       </h1>
