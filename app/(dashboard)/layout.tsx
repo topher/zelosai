@@ -26,7 +26,7 @@ const DashboardLayout = ({
         toggleSidebar={toggleCollapse} // Rename to toggleCollapse
         toggleCollapse={toggleCollapse} // Pass the toggleCollapse function
       />
-      <main className={`flex-1 flex flex-col ${isCollapsed ? "md:pl-20" : "md:pl-64"}`}>
+      <main className={`flex-1 flex flex-col ${isCollapsed ? "md:pl-20" : ""}`}>
         <Navbar />
         <div className="flex-1 flex flex-col">
           {children}

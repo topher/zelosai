@@ -67,6 +67,7 @@ export interface FeatureCategoryMetadata {
   label: string;
   icon: LucideIcon; // Use LucideIcon type;
   colorHex: string; // Use hex code instead of Tailwind classes
+  href: string;
 }
 
 export const featureCategoryConfig: { [key in FeatureCategory]: FeatureCategoryMetadata } = {
@@ -74,41 +75,49 @@ export const featureCategoryConfig: { [key in FeatureCategory]: FeatureCategoryM
     label: 'Dashboard',
     icon: LayoutDashboard,
     colorHex: '#6B7280', // Gray
+    href: "/dashboard/Dashboard"
   },
   [FeatureCategory.Strategy]: {
     label: 'Strategy',
     icon: Briefcase,
     colorHex: '#3B82F6', // Blue
+    href: "/dashboard/Strategy"
   },
   [FeatureCategory.Models]: {
     label: 'Models',
     icon: ImageIcon,
     colorHex: '#10B981', // Green
+    href: "/dashboard/Models"
   },
   [FeatureCategory.KnowledgeBank]: {
     label: 'Knowledge Bank',
     icon: Database,
     colorHex: '#F59E0B', // Gold
+    href: "/dashboard/Knowledge"
   },
   [FeatureCategory.Marketplace]: {
     label: 'Marketplace',
     icon: ShoppingCart,
     colorHex: '#F97316', // Orange
+    href: "/dashboard/Marketplace"
   },
   [FeatureCategory.Workflows]: {
     label: 'Workflows',
     icon: Workflow,
     colorHex: '#EF4444', // Red
+    href: "/dashboard/Workflows"
   },
   [FeatureCategory.Search]: {
     label: 'Search',
     icon: Search,
     colorHex: '#8B5CF6', // Purple
+    href: "/dashboard/Search"
   },
   [FeatureCategory.Profiles]: {
     label: 'Profiles',
     icon: User,
     colorHex: '#EC4899', // Pink
+    href: "/dashboard/Profiles"
   },
 };
 
@@ -123,19 +132,22 @@ export enum FeatureKey {
   // Dashboard Features
   Recommendations = 'Recommendations',
   UserActions = 'UserActions',
+  Analytics = 'Analytics',
+  Alerts = 'Alerts',
 
   // Strategy Features
   Goals = 'Goals',
   UseCases = 'UseCases',
-  Agents = 'Agents',
+  Personas = 'Personas',
   Issues = 'Issues',
   BusinessModel = 'BusinessModel',
   Branding = 'Branding',
 
   // Models Features
   Models = 'Models',
-  CustomModels = 'CustomModels',
   TrainModels = 'TrainModels',
+  ModelSubjects = 'ModelSubjects',
+  ModelTrainings = 'ModelTrainings',
 
   // Knowledge Bank Features
   Connectors = 'Connectors',
@@ -147,10 +159,11 @@ export enum FeatureKey {
   // Marketplace Features
   Messages = 'Messages',
   Offers = 'Offers',
-  Contracts = 'Contracts',
   Transactions = 'Transactions',
+  Contracts = 'Contracts',
 
-  // Campaigns Features
+  // Workflows Features
+  Agents = 'Agents',
   Workflows = 'Workflows',
   Tasks = 'Tasks',
   Calendar = "Calendar",
@@ -168,10 +181,8 @@ export enum FeatureKey {
   SearchableModels = 'SearchableModels',
   SearchableBrands = 'SearchableBrands',
   SearchableUsers = 'SearchableUsers',
-
-
-  // Add more feature keys as needed
 }
+
 
 // app/types.ts
 
@@ -199,12 +210,6 @@ export enum ActionFeatureKey {
   ReadUseCase = 'ReadUseCase',
   EditUseCase = 'EditUseCase',
   DeleteUseCase = 'DeleteUseCase',
-
-  // Agents Actions
-  CreateAgent = 'CreateAgent',
-  ReadAgent = 'ReadAgent',
-  EditAgent = 'EditAgent',
-  DeleteAgent = 'DeleteAgent',
 
   // Issues Actions
   CreateIssue = 'CreateIssue',
@@ -385,6 +390,43 @@ export enum ActionFeatureKey {
   DeleteBrandingCard = 'DeleteBrandingCard',
   FacetsPerBrandingCardType = 'FacetsPerBrandingCardType',
 
+  // New Analytics Actions
+  CreateStatistic = 'CreateStatistic',
+  ReadStatistic = 'ReadStatistic',
+  EditStatistic = 'EditStatistic',
+  DeleteStatistic = 'DeleteStatistic',
+
+  // New Alerts Actions
+  CreateAlert = 'CreateAlert',
+  ReadAlert = 'ReadAlert',
+  EditAlert = 'EditAlert',
+  DeleteAlert = 'DeleteAlert',
+
+  // New Personas Actions
+  CreatePersona = 'CreatePersona',
+  ReadPersona = 'ReadPersona',
+  EditPersona = 'EditPersona',
+  DeletePersona = 'DeletePersona',
+
+  // New Agents Actions in Workflows
+  CreateAgent = 'CreateAgent',
+  ReadAgent = 'ReadAgent',
+  EditAgent = 'EditAgent',
+  DeleteAgent = 'DeleteAgent',
+
+  // New ModelSubjects Actions
+  CreateModelSubject = 'CreateModelSubject',
+  ReadModelSubject = 'ReadModelSubject',
+  EditModelSubject = 'EditModelSubject',
+  DeleteModelSubject = 'DeleteModelSubject',
+
+  // New ModelTrainings Actions
+  CreateModelTraining = 'CreateModelTraining',
+  ReadModelTraining = 'ReadModelTraining',
+  EditModelTraining = 'EditModelTraining',
+  DeleteModelTraining = 'DeleteModelTraining',
+
+
   // Profiles Actions
   ReadProfileView = 'ReadProfileView',
   EditProfile = 'EditProfile',
@@ -460,6 +502,7 @@ export function getActionKey(featureKey: string, action: string): string {
  * Unified Feature Configuration
  */
 export const features: Feature[] = [
+  // Dashboard Features
   {
     key: FeatureKey.UserActions,
     metadata: {
@@ -503,7 +546,6 @@ export const features: Feature[] = [
       },
     ],
   },
-  // Dashboard Features
   {
     key: FeatureKey.Recommendations,
     metadata: {
@@ -546,7 +588,45 @@ export const features: Feature[] = [
         creditCost: 3,
       },
     ],
+  },  
+  {
+    key: FeatureKey.Analytics,
+    metadata: {
+      category: FeatureCategory.Dashboard,
+      icon: LayoutDashboard,
+      label: 'Analytics',
+      href: '/dashboard/analytics',
+      description: 'View analytics statistics.',
+      isInProd: true,
+      resourceName: 'agents',
+    },
+    actions: [
+      { actionKey: ActionFeatureKey.ReadStatistic, action: 'read', baseTier: SubscriptionTier.FREE, resourceLimits: [10, 50, 200], creditCost: 1 },
+      { actionKey: ActionFeatureKey.CreateStatistic, action: 'create', baseTier: SubscriptionTier.PRO, resourceLimits: [5, 25, 100], creditCost: 2 },
+      { actionKey: ActionFeatureKey.EditStatistic, action: 'edit', baseTier: SubscriptionTier.PRO, resourceLimits: [5, 25, 100], creditCost: 2 },
+      { actionKey: ActionFeatureKey.DeleteStatistic, action: 'delete', baseTier: SubscriptionTier.ENTERPRISE, resourceLimits: [2, 10, 50], creditCost: 3 },
+    ],
   },
+  {
+    key: FeatureKey.Alerts,
+    metadata: {
+      category: FeatureCategory.Dashboard,
+      icon: AlertTriangle,
+      label: 'Alerts',
+      href: '/dashboard/alerts',
+      description: 'Manage alert notifications.',
+      isInProd: true,
+      resourceName: 'alerts',
+    },
+    actions: [
+      { actionKey: ActionFeatureKey.ReadAlert, action: 'read', baseTier: SubscriptionTier.FREE, resourceLimits: [5, 20, 100], creditCost: 1 },
+      { actionKey: ActionFeatureKey.CreateAlert, action: 'create', baseTier: SubscriptionTier.PRO, resourceLimits: [2, 10, 50], creditCost: 2 },
+      { actionKey: ActionFeatureKey.EditAlert, action: 'edit', baseTier: SubscriptionTier.PRO, resourceLimits: [2, 10, 50], creditCost: 2 },
+      { actionKey: ActionFeatureKey.DeleteAlert, action: 'delete', baseTier: SubscriptionTier.ENTERPRISE, resourceLimits: [1, 5, 20], creditCost: 3 },
+    ],
+  },
+
+
 
   // Strategy Features
   {
@@ -593,97 +673,29 @@ export const features: Feature[] = [
     ],
   },
   {
-    key: FeatureKey.UseCases,
-    metadata: {
-      category: FeatureCategory.Strategy,
-      icon: Lightbulb,
-      label: 'Use Cases',
-      href: '/strategy/use-cases',
-      description: 'Set the practical applications for your AI models and products.',
-      isInProd: true,
-      resourceName: 'use_cases',
-      maxResourceCount: [0, 5, 15],
-    },
-    actions: [
-      {
-       actionKey: ActionFeatureKey.ReadUseCase,
-        action: 'read',
-        baseTier: SubscriptionTier.PRO,
-        resourceLimits: [0, 5, 15],
-        creditCost: 1,
-      },
-      {
-        actionKey: ActionFeatureKey.CreateUseCase,
-        action: 'create',
-        baseTier: SubscriptionTier.PRO,
-        resourceLimits: [0, 3, 10],
-        creditCost: 2,
-      },
-      {
-        actionKey: ActionFeatureKey.EditUseCase,
-        action: 'edit',
-        baseTier: SubscriptionTier.PRO,
-        resourceLimits: [0, 3, 10],
-        creditCost: 2,
-      },
-      {
-       actionKey: ActionFeatureKey.DeleteUseCase,
-        action: 'delete',
-        baseTier: SubscriptionTier.ENTERPRISE,
-        resourceLimits: [0, 1, 5],
-        creditCost: 3,
-      },
-    ],
-  },
-  {
-    key: FeatureKey.Agents,
+    key: FeatureKey.Personas,
     metadata: {
       category: FeatureCategory.Strategy,
       icon: UserPlus,
-      label: 'Agents',
-      href: '/strategy/agents',
-      description: 'Identify potential challenges to your AI strategy.',
+      label: 'Personas',
+      href: '/strategy/personas',
+      description: 'Define target personas.',
       isInProd: true,
-      resourceName: 'agents',
-      maxResourceCount: [0, 5, 15],
+      resourceName: 'persona',
     },
     actions: [
-      {
-       actionKey: ActionFeatureKey.ReadAgent,
-        action: 'read',
-        baseTier: SubscriptionTier.PRO,
-        resourceLimits: [0, 5, 15],
-        creditCost: 1,
-      },
-      {
-        actionKey: ActionFeatureKey.CreateAgent,
-        action: 'create',
-        baseTier: SubscriptionTier.PRO,
-        resourceLimits: [0, 3, 10],
-        creditCost: 2,
-      },
-      {
-        actionKey: ActionFeatureKey.EditAgent,
-        action: 'edit',
-        baseTier: SubscriptionTier.PRO,
-        resourceLimits: [0, 3, 10],
-        creditCost: 2,
-      },
-      {
-       actionKey: ActionFeatureKey.DeleteAgent,
-        action: 'delete',
-        baseTier: SubscriptionTier.ENTERPRISE,
-        resourceLimits: [0, 1, 5],
-        creditCost: 3,
-      },
+      { actionKey: ActionFeatureKey.ReadPersona, action: 'read', baseTier: SubscriptionTier.FREE, resourceLimits: [10, 50, 200], creditCost: 1 },
+      { actionKey: ActionFeatureKey.CreatePersona, action: 'create', baseTier: SubscriptionTier.PRO, resourceLimits: [5, 25, 100], creditCost: 2 },
+      { actionKey: ActionFeatureKey.EditPersona, action: 'edit', baseTier: SubscriptionTier.PRO, resourceLimits: [5, 25, 100], creditCost: 2 },
+      { actionKey: ActionFeatureKey.DeletePersona, action: 'delete', baseTier: SubscriptionTier.ENTERPRISE, resourceLimits: [2, 10, 50], creditCost: 3 },
     ],
   },
   {
     key: FeatureKey.Issues,
     metadata: {
       category: FeatureCategory.Strategy,
-      icon: AlertTriangle,
-      label: 'Issues',
+      icon: Lightbulb,
+      label: 'Strategic Issues',
       href: '/strategy/issues',
       description: 'Manage strategic issues.',
       isInProd: true,
@@ -727,10 +739,10 @@ export const features: Feature[] = [
       category: FeatureCategory.Strategy,
       icon: Building,
       label: 'Business Model',
-      href: '/strategy/business-model',
+      href: '/strategy/plan',
       description: 'Manage business models.',
       isInProd: true,
-      resourceName: 'business_model',
+      resourceName: 'business_model_cards',
       maxResourceCount: [1, 5, 15],
     },
     actions: [
@@ -769,7 +781,7 @@ export const features: Feature[] = [
     metadata: {
       category: FeatureCategory.Strategy,
       icon: Building,
-      label: 'Branding',
+      label: 'Brand Identity',
       href: '/strategy/branding',
       description: 'Manage branding models.',
       isInProd: true,
@@ -853,92 +865,84 @@ export const features: Feature[] = [
     ],
   },
   {
-    key: FeatureKey.CustomModels,
+    key: FeatureKey.ModelSubjects,
     metadata: {
       category: FeatureCategory.Models,
-      icon: Briefcase,
-      label: 'Custom Models',
-      href: '/models/custom',
-      description: 'Create custom AI models.',
+      icon: LayoutDashboard,
+      label: 'Model Subjects',
+      href: '/models/model-subjects',
+      description: 'Define model subjects.',
       isInProd: true,
-      resourceName: 'custom_models',
-      maxResourceCount: [0, 10, 100],
+      resourceName: 'model_subjects',
     },
     actions: [
-      {
-       actionKey: ActionFeatureKey.ReadCustomModel,
-        action: 'read',
-        baseTier: SubscriptionTier.PRO,
-        resourceLimits: [0, 10, 100],
-        creditCost: 2,
-      },
-      {
-        actionKey: ActionFeatureKey.CreateCustomModel,
-        action: 'create',
-        baseTier: SubscriptionTier.PRO,
-        resourceLimits: [0, 5, 50],
-        creditCost: 3,
-      },
-      {
-        actionKey: ActionFeatureKey.EditCustomModel,
-        action: 'edit',
-        baseTier: SubscriptionTier.PRO,
-        resourceLimits: [0, 5, 50],
-        creditCost: 3,
-      },
-      {
-       actionKey: ActionFeatureKey.DeleteCustomModel,
-        action: 'delete',
-        baseTier: SubscriptionTier.ENTERPRISE,
-        resourceLimits: [0, 2, 20],
-        creditCost: 4,
-      },
+      { actionKey: ActionFeatureKey.ReadModelSubject, action: 'read', baseTier: SubscriptionTier.FREE, resourceLimits: [10, 50, 200], creditCost: 1 },
+      { actionKey: ActionFeatureKey.CreateModelSubject, action: 'create', baseTier: SubscriptionTier.PRO, resourceLimits: [5, 25, 100], creditCost: 2 },
+      { actionKey: ActionFeatureKey.EditModelSubject, action: 'edit', baseTier: SubscriptionTier.PRO, resourceLimits: [5, 25, 100], creditCost: 2 },
+      { actionKey: ActionFeatureKey.DeleteModelSubject, action: 'delete', baseTier: SubscriptionTier.ENTERPRISE, resourceLimits: [2, 10, 50], creditCost: 3 },
     ],
   },
   {
-    key: FeatureKey.TrainModels,
+    key: FeatureKey.ModelTrainings,
     metadata: {
       category: FeatureCategory.Models,
-      icon: LayoutDashboard, // Replace with BarChart if desired
-      label: 'Train Models',
-      href: '/models/train',
-      description: 'Train your AI models.',
-      isInProd: false,
-      resourceName: 'train_models',
-      maxResourceCount: [0, 10, 100],
+      icon: Database,
+      label: 'Model Trainings',
+      href: '/models/model-trainings',
+      description: 'Manage model training sessions.',
+      isInProd: true,
+      resourceName: 'model_training',
+    },
+    actions: [
+      { actionKey: ActionFeatureKey.ReadModelTraining, action: 'read', baseTier: SubscriptionTier.FREE, resourceLimits: [10, 50, 200], creditCost: 1 },
+      { actionKey: ActionFeatureKey.CreateModelTraining, action: 'create', baseTier: SubscriptionTier.PRO, resourceLimits: [5, 25, 100], creditCost: 2 },
+      { actionKey: ActionFeatureKey.EditModelTraining, action: 'edit', baseTier: SubscriptionTier.PRO, resourceLimits: [5, 25, 100], creditCost: 2 },
+      { actionKey: ActionFeatureKey.DeleteModelTraining, action: 'delete', baseTier: SubscriptionTier.ENTERPRISE, resourceLimits: [2, 10, 50], creditCost: 3 },
+    ],
+  },
+  {
+    key: FeatureKey.UseCases,
+    metadata: {
+      category: FeatureCategory.Models,
+      icon: AlertTriangle,
+      label: 'Safety',
+      href: '/models/use-cases',
+      description: 'Set the practical applications for your AI models and products.',
+      isInProd: true,
+      resourceName: 'use_cases',
+      maxResourceCount: [0, 5, 15],
     },
     actions: [
       {
-       actionKey: ActionFeatureKey.ReadTrainModel,
+       actionKey: ActionFeatureKey.ReadUseCase,
         action: 'read',
         baseTier: SubscriptionTier.PRO,
-        resourceLimits: [0, 10, 100],
+        resourceLimits: [0, 5, 15],
+        creditCost: 1,
+      },
+      {
+        actionKey: ActionFeatureKey.CreateUseCase,
+        action: 'create',
+        baseTier: SubscriptionTier.PRO,
+        resourceLimits: [0, 3, 10],
         creditCost: 2,
       },
       {
-        actionKey: ActionFeatureKey.CreateTrainModel,
-        action: 'create',
-        baseTier: SubscriptionTier.PRO,
-        resourceLimits: [0, 5, 50],
-        creditCost: 3,
-      },
-      {
-        actionKey: ActionFeatureKey.EditTrainModel,
+        actionKey: ActionFeatureKey.EditUseCase,
         action: 'edit',
         baseTier: SubscriptionTier.PRO,
-        resourceLimits: [0, 5, 50],
-        creditCost: 3,
+        resourceLimits: [0, 3, 10],
+        creditCost: 2,
       },
       {
-       actionKey: ActionFeatureKey.DeleteTrainModel,
+       actionKey: ActionFeatureKey.DeleteUseCase,
         action: 'delete',
         baseTier: SubscriptionTier.ENTERPRISE,
-        resourceLimits: [0, 2, 20],
-        creditCost: 4,
+        resourceLimits: [0, 1, 5],
+        creditCost: 3,
       },
     ],
   },
-
   // Knowledge Bank Features
   {
     key: FeatureKey.Connectors,
@@ -1121,7 +1125,7 @@ export const features: Feature[] = [
       href: '/knowledge-bank/terms',
       description: 'Manage terms and conditions.',
       isInProd: true,
-      resourceName: 'terms',
+      resourceName: 'data_category',
       maxResourceCount: [0, 10, 100],
     },
     actions: [
@@ -1458,6 +1462,24 @@ export const features: Feature[] = [
         resourceLimits: [0, 2, 20],
         creditCost: 3,
       },
+    ],
+  },
+  {
+    key: FeatureKey.Agents,
+    metadata: {
+      category: FeatureCategory.Workflows,
+      icon: User,
+      label: 'Agents',
+      href: '/workflows/agents',
+      description: 'Manage agents within workflows.',
+      isInProd: true,
+      resourceName: 'agents',
+    },
+    actions: [
+      { actionKey: ActionFeatureKey.ReadAgent, action: 'read', baseTier: SubscriptionTier.FREE, resourceLimits: [10, 50, 200], creditCost: 1 },
+      { actionKey: ActionFeatureKey.CreateAgent, action: 'create', baseTier: SubscriptionTier.PRO, resourceLimits: [5, 25, 100], creditCost: 2 },
+      { actionKey: ActionFeatureKey.EditAgent, action: 'edit', baseTier: SubscriptionTier.PRO, resourceLimits: [5, 25, 100], creditCost: 2 },
+      { actionKey: ActionFeatureKey.DeleteAgent, action: 'delete', baseTier: SubscriptionTier.ENTERPRISE, resourceLimits: [2, 10, 50], creditCost: 3 },
     ],
   },
   // Profiles Features

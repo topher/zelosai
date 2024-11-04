@@ -1,3 +1,5 @@
+// utils/import-data.js
+
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
@@ -38,7 +40,13 @@ function readJSONFilesFromDirectory(dirPath) {
             const filePath = path.join(dirPath, file);
             const fileData = readJSONFile(filePath);
             if (fileData) {
-                data.push(fileData);
+                // If the JSON file contains an array of documents
+                if (Array.isArray(fileData)) {
+                    data.push(...fileData);
+                } else {
+                    // Single document
+                    data.push(fileData);
+                }
             }
         }
     });
@@ -119,7 +127,6 @@ async function deleteIndexIfExists(indexName) {
     }
 }
 
-
 /**
  * Uploads data to Elasticsearch using the Bulk API.
  * @param {string} indexName - Name of the index.
@@ -161,39 +168,55 @@ async function uploadData(indexName, data) {
 }
 
 /**
- * Main function to perform bulk import from multiple JSON files.
+ * Main function to perform bulk import from both general and resources directories.
  */
 async function bulkImport() {
     try {
-        const jsonDir = path.join(__dirname, '../json-output');
-        const files = fs.readdirSync(jsonDir).filter(file => file.endsWith('.json'));
+        const baseJsonDir = path.join(__dirname, '../json-output');
+        const resourcesDir = path.join(baseJsonDir, 'resources');
 
-        for (const file of files) {
-            const indexName = path.basename(file, '.json');
-            const filePath = path.join(jsonDir, file);
-            const mappingFilePath = path.join(jsonDir, 'mappings', `${indexName}_mapping.json`);
+        // Define directories to process: general json-output and resources
+        const directoriesToProcess = [
+            { path: baseJsonDir, isResource: false },
+            { path: resourcesDir, isResource: true }
+        ];
 
-            let mappings = null;
-            if (fs.existsSync(mappingFilePath)) {
-                mappings = readJSONFile(mappingFilePath);
+        for (const dir of directoriesToProcess) {
+            if (fs.existsSync(dir.path) && fs.statSync(dir.path).isDirectory()) {
+                const files = fs.readdirSync(dir.path).filter(file => file.endsWith('.json'));
+
+                for (const file of files) {
+                    const indexName = path.basename(file, '.json');
+                    const filePath = path.join(dir.path, file);
+                    const mappingFilePath = path.join(baseJsonDir, 'mappings', `${indexName}_mapping.json`);
+
+                    let mappings = null;
+                    if (fs.existsSync(mappingFilePath)) {
+                        mappings = readJSONFile(mappingFilePath);
+                    } else {
+                        console.log(`⚠️  Mapping file not found for index "${indexName}". Proceeding without mappings.`);
+                    }
+
+                    // Delete the existing index if it exists
+                    await deleteIndexIfExists(indexName);
+
+                    // Create the index (with or without mappings)
+                    await createIndex(indexName, mappings);
+
+                    // Read data
+                    const data = readJSONFile(filePath);
+
+                    if (Array.isArray(data)) {
+                        // Upload the data
+                        await uploadData(indexName, data);
+                    } else if (typeof data === 'object') {
+                        await uploadData(indexName, [data]);
+                    } else {
+                        console.error(`❌ Invalid data format in file "${file}". Expected an array of documents or a single document.`);
+                    }
+                }
             } else {
-                console.log(`⚠️  Mapping file not found for index "${indexName}". Proceeding without mappings.`);
-            }
-
-            // Delete the existing index if it exists
-            await deleteIndexIfExists(indexName);
-
-            // Create the index (with or without mappings)
-            await createIndex(indexName, mappings);
-
-            // Read data
-            const data = readJSONFile(filePath);
-
-            if (Array.isArray(data)) {
-                // Upload the data
-                await uploadData(indexName, data);
-            } else {
-                console.error(`❌ Invalid data format in file "${file}". Expected an array of documents.`);
+                console.log(`ℹ️  Directory not found or not a directory: ${dir.path}. Skipping.`);
             }
         }
 
@@ -202,6 +225,5 @@ async function bulkImport() {
         console.error('❌ Failed to perform bulk import:', err);
     }
 }
-
 
 bulkImport();

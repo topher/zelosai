@@ -1,62 +1,96 @@
 [
   {
-    "id": "PSNA-0",
+    "id": "zelos/agents/ai-scout-bot-01",
     "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-    "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "ownerId": "user_5iNop9rQvxzrVSDe6RXW6LddXH",
+    "resourceType": "Agent",
     "visibility": "public",
-    "resourceType":"Agent",
-    "Name": "John Doe",
-    "Description": "Marketing Lead of Sponsors Inc.",
-    "Type": "Corporate Entity",
-    "AssociatedUseCases": [
-      "Respond to customer inquiries via chatbot"
+    "URI": "zelos/agents/ai-scout-bot-01",
+    "agentType": "AI",
+    "name": "ScoutBot X",
+    "expertiseAreas": [
+      "Player Scouting",
+      "Performance Analysis",
+      "Injury Prediction"
     ],
-    "is_persona": true,
-    "Image": "/image57.png"
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": ["English", "French", "German"],
+      "responseTime": 150,
+      "integrations": ["Slack", "Microsoft Teams", "Email"]
+    },
+    "tags": ["AI", "Scouting", "Analytics"]
   },
   {
-    "id": "PSNA-1",
+    "id": "zelos/agents/human-agent-02",
     "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-    "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
-    "visibility": "public",
-    "resourceType":"Agent",
-    "Name": "Alice Smith",
-    "Description": "Longtime customer of the company",
-    "Type": "Individual",
-    "AssociatedUseCases": [
-      "Generate personalized product recommendations"
+    "ownerId": "user_6jOpq0sRwyasWTFe7SYX7MffZI",
+    "resourceType": "Agent",
+    "visibility": "restricted",
+    "URI": "zelos/agents/human-agent-02",
+    "agentType": "Human",
+    "name": "Alexandra Martinez",
+    "expertiseAreas": [
+      "Marketing Strategy",
+      "Sponsorship Negotiation",
+      "Brand Management"
     ],
-    "is_persona": true,
-    "Image": "/image266.png"
+    "availabilityStatus": "busy",
+    "contactInfo": {
+      "email": "alex.martinez@vamo.co",
+      "phone": "+19876543210",
+      "socialMedia": {
+        "LinkedIn": "linkedin.com/in/alexandramartinez",
+        "Twitter": "@AlexMartinezMarketing"
+      }
+    },
+    "tags": ["Human", "Marketing", "Sponsorship"]
   },
   {
-    "id": "PSNA-2",
+    "id": "zelos/agents/ai-marketing-genie-03",
     "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-    "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "ownerId": "user_7kPqr1tSwzbtXUGf8TZY8NgghJ",
+    "resourceType": "Agent",
     "visibility": "public",
-    "resourceType":"Agent",
-    "Name": "Karly Carmicheal",
-    "Description": "Disgruntled Shopper",
-    "Type": "Corporate Entity",
-    "AssociatedUseCases": [
-      "Respond to customer inquiries via chatbot"
+    "URI": "zelos/agents/ai-marketing-genie-03",
+    "agentType": "AI",
+    "name": "MarketingGenie Pro",
+    "expertiseAreas": [
+      "Campaign Optimization",
+      "Customer Segmentation",
+      "Social Media Analytics"
     ],
-    "is_persona": true,
-    "Image": "/image58.png"
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": ["English", "Spanish"],
+      "responseTime": 200,
+      "integrations": ["Google Analytics", "HubSpot", "Salesforce"]
+    },
+    "tags": ["AI", "Marketing", "Optimization"]
   },
   {
-    "id": "PSNA-3",
+    "id": "zelos/agents/human-agent-04",
     "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-    "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+    "resourceType": "Agent",
     "visibility": "public",
-    "resourceType":"Agent",
-    "Name": "Superman Inc.",
-    "Description": "Regular data provider of the company",
-    "Type": "Individual",
-    "AssociatedUseCases": [
-      "Generate personalized product recommendations"
+    "URI": "zelos/agents/human-agent-04",
+    "agentType": "Human",
+    "name": "Michael Thompson",
+    "expertiseAreas": [
+      "Financial Planning",
+      "Revenue Forecasting",
+      "Budget Management"
     ],
-    "is_persona": true,
-    "Image": "/image269.png"
+    "availabilityStatus": "offline",
+    "contactInfo": {
+      "email": "michael.thompson@vamo.co",
+      "phone": "+11234567890",
+      "socialMedia": {
+        "LinkedIn": "linkedin.com/in/michaelthompson",
+        "Twitter": "@MikeThompsonFinance"
+      }
+    },
+    "tags": ["Human", "Finance", "Budgeting"]
   }
 ]

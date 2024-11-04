@@ -1,6 +1,9 @@
 [
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "data_category",
       "is_default": "",
       "name": "Data Category",
@@ -14,6 +17,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "system",
       "is_default": "True",
       "name": "System Data",
@@ -27,6 +33,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "system.authentication",
       "is_default": "True",
       "name": "Authentication Data",
@@ -40,6 +49,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "system.operations",
       "is_default": "True",
       "name": "Operations Data",
@@ -53,6 +65,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user",
       "is_default": "True",
       "name": "User Data",
@@ -66,6 +81,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.account",
       "is_default": "True",
       "name": "Account Information",
@@ -79,6 +97,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.authorization",
       "is_default": "True",
       "name": "Authorization Information",
@@ -92,6 +113,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.behavior",
       "is_default": "True",
       "name": "Observed Behavior",
@@ -105,6 +129,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.biometric",
       "is_default": "True",
       "name": "Biometric Data",
@@ -118,6 +145,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.childrens",
       "is_default": "True",
       "name": "Children's Data",
@@ -131,6 +161,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.contact",
       "is_default": "True",
       "name": "Contact Data",
@@ -144,6 +177,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.content",
       "is_default": "True",
       "name": "User Content",
@@ -157,6 +193,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.demographic",
       "is_default": "True",
       "name": "Demographic Data",
@@ -170,6 +209,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.location",
       "is_default": "True",
       "name": "Location Data",
@@ -183,6 +225,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.device",
       "is_default": "True",
       "name": "Device Data",
@@ -196,6 +241,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.payment",
       "is_default": "True",
       "name": "Payment Data",
@@ -209,6 +257,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.social",
       "is_default": "True",
       "name": "Social Data",
@@ -222,6 +273,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.unique_id",
       "is_default": "True",
       "name": "Unique ID",
@@ -235,6 +289,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.telemetry",
       "is_default": "True",
       "name": "Telemetry Data",
@@ -248,6 +305,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.user_sensor",
       "is_default": "True",
       "name": "User Sensor Data",
@@ -261,6 +321,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.workplace",
       "is_default": "True",
       "name": "Workplace",
@@ -274,6 +337,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.sensor",
       "is_default": "True",
       "name": "Sensor Data",
@@ -287,6 +353,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.financial",
       "is_default": "True",
       "name": "Financial Data",
@@ -300,6 +369,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.government_id",
       "is_default": "True",
       "name": "Government ID",
@@ -313,6 +385,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.health_and_medical",
       "is_default": "True",
       "name": "Health and Medical Data",
@@ -326,6 +401,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.name",
       "is_default": "True",
       "name": "Name",
@@ -339,6 +417,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.criminal_history",
       "is_default": "True",
       "name": "Criminal History",
@@ -352,6 +433,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.privacy_preferences",
       "is_default": "True",
       "name": "Privacy Preferences",
@@ -365,6 +449,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.job_title",
       "is_default": "True",
       "name": "Job Title",
@@ -378,6 +465,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.account.settings",
       "is_default": "True",
       "name": "Account Settings",
@@ -391,6 +481,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.account.username",
       "is_default": "True",
       "name": "Account Username",
@@ -404,6 +497,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.authorization.credentials",
       "is_default": "True",
       "name": "Account password",
@@ -417,6 +513,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.authorization.biometric",
       "is_default": "True",
       "name": "Biometric Credentials",
@@ -430,6 +529,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.authorization.password",
       "is_default": "True",
       "name": "Password",
@@ -443,6 +545,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.behavior.browsing_history",
       "is_default": "True",
       "name": "Browsing History",
@@ -456,6 +561,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.behavior.media_consumption",
       "is_default": "True",
       "name": "Media Consumption",
@@ -469,6 +577,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.behavior.purchase_history",
       "is_default": "True",
       "name": "Purchase History",
@@ -482,6 +593,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.behavior.search_history",
       "is_default": "True",
       "name": "Search History",
@@ -495,6 +609,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.biometric.fingerprint",
       "is_default": "True",
       "name": "Fingerprint",
@@ -508,6 +625,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.biometric.retinal",
       "is_default": "True",
       "name": "Retina Scan",
@@ -521,6 +641,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.biometric.voice",
       "is_default": "True",
       "name": "Voice Recording",
@@ -534,6 +657,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.biometric.health",
       "is_default": "True",
       "name": "Biometric Health Data",
@@ -547,6 +673,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.contact.address",
       "is_default": "True",
       "name": "User Contact Address",
@@ -560,6 +689,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.contact.email",
       "is_default": "True",
       "name": "User Contact Email",
@@ -573,6 +705,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.contact.phone_number",
       "is_default": "True",
       "name": "User Contact Phone Number",
@@ -586,6 +721,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.contact.url",
       "is_default": "True",
       "name": "User Website",
@@ -599,6 +737,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.contact.fax_number",
       "is_default": "True",
       "name": "Fax Number",
@@ -612,6 +753,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.contact.organization",
       "is_default": "True",
       "name": "Organization",
@@ -625,6 +769,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.contact.address.city",
       "is_default": "True",
       "name": "User Contact City",
@@ -638,6 +785,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.contact.address.country",
       "is_default": "True",
       "name": "User Contact Country",
@@ -651,6 +801,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.contact.address.postal_code",
       "is_default": "True",
       "name": "User Contact Postal Code",
@@ -664,6 +817,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.contact.address.state",
       "is_default": "True",
       "name": "User Contact State",
@@ -677,6 +833,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.contact.address.street",
       "is_default": "True",
       "name": "User Contact Street",
@@ -690,6 +849,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.content.private",
       "is_default": "True",
       "name": "Private Content",
@@ -703,6 +865,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.content.public",
       "is_default": "True",
       "name": "Public Content",
@@ -716,6 +881,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.content.self_image",
       "is_default": "True",
       "name": "User Image",
@@ -729,6 +897,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.demographic.age_range",
       "is_default": "True",
       "name": "Age Range",
@@ -742,6 +913,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.demographic.date_of_birth",
       "is_default": "True",
       "name": "Birth Date",
@@ -755,6 +929,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.demographic.gender",
       "is_default": "True",
       "name": "Gender",
@@ -768,6 +945,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.demographic.language",
       "is_default": "True",
       "name": "Language",
@@ -781,6 +961,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.demographic.marital_status",
       "is_default": "True",
       "name": "Marital Status",
@@ -794,6 +977,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.demographic.political_opinion",
       "is_default": "True",
       "name": "Political Opinion",
@@ -807,6 +993,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.demographic.profile",
       "is_default": "True",
       "name": "User Profile Data",
@@ -820,6 +1009,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.demographic.race_ethnicity",
       "is_default": "True",
       "name": "Race",
@@ -833,6 +1025,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.demographic.religious_belief",
       "is_default": "True",
       "name": "Religion",
@@ -846,6 +1041,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.demographic.sexual_orientation",
       "is_default": "True",
       "name": "Sexual Orientation",
@@ -859,6 +1057,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.device.cookie",
       "is_default": "True",
       "name": "Device Cookie",
@@ -872,6 +1073,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.device.cookie_id",
       "is_default": "True",
       "name": "Cookie ID",
@@ -885,6 +1089,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.device.device_id",
       "is_default": "True",
       "name": "Device ID",
@@ -898,6 +1105,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.device.ip_address",
       "is_default": "True",
       "name": "IP Address",
@@ -911,6 +1121,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.financial.bank_account",
       "is_default": "True",
       "name": "Bank Account Information",
@@ -924,6 +1137,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.financial.credit_card",
       "is_default": "True",
       "name": "Credit Card Information",
@@ -937,6 +1153,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.government_id.birth_certificate",
       "is_default": "True",
       "name": "Birth Certificate",
@@ -950,6 +1169,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.government_id.drivers_license_number",
       "is_default": "True",
       "name": "Driver's License Number",
@@ -963,6 +1185,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.government_id.immigration",
       "is_default": "True",
       "name": "Immigration ID",
@@ -976,6 +1201,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.government_id.national_identification_number",
       "is_default": "True",
       "name": "National Identification Number",
@@ -989,6 +1217,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.government_id.passport_number",
       "is_default": "True",
       "name": "Passport Number",
@@ -1002,6 +1233,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.government_id.vehicle_registration",
       "is_default": "True",
       "name": "Vehicle Registration",
@@ -1015,6 +1249,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.health_and_medical.genetic",
       "is_default": "True",
       "name": "User's Genetic Data",
@@ -1028,6 +1265,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.health_and_medical.insurance_beneficiary_id",
       "is_default": "True",
       "name": "Medical Insurance ID",
@@ -1041,6 +1281,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.health_and_medical.record_id",
       "is_default": "True",
       "name": "Medical Record ID",
@@ -1054,6 +1297,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.location.imprecise",
       "is_default": "True",
       "name": "Imprecise Subject Location",
@@ -1067,6 +1313,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.location.precise",
       "is_default": "True",
       "name": "Precise Subject Location",
@@ -1080,6 +1329,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.name.first",
       "is_default": "True",
       "name": "First Name",
@@ -1093,6 +1345,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.name.last",
       "is_default": "True",
       "name": "Last Name",
@@ -1106,6 +1361,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.unique_id.pseudonymous",
       "is_default": "True",
       "name": "Pseudonymous User ID",
@@ -1119,6 +1377,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.personality_rights.tracking",
       "is_default": "True",
       "name": "User Behavior Tracking",
@@ -1132,6 +1393,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.personality_rights.tracking.content",
       "is_default": "True",
       "name": "Content Interaction",
@@ -1145,6 +1409,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.personality_rights.tracking.social",
       "is_default": "True",
       "name": "Social Media Engagement",
@@ -1158,6 +1425,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.personality_rights.tracking.browsing",
       "is_default": "True",
       "name": "Web Browsing Behavior",
@@ -1171,6 +1441,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.personality_rights.security",
       "is_default": "True",
       "name": "Security Preferences",
@@ -1184,6 +1457,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.personality_rights.security.privacy",
       "is_default": "True",
       "name": "Privacy Preferences",
@@ -1197,6 +1473,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.personality_rights.security.authentication",
       "is_default": "True",
       "name": "Authentication Preferences",
@@ -1210,6 +1489,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.personality_rights.security.device",
       "is_default": "True",
       "name": "Device Security Settings",
@@ -1223,6 +1505,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.personality_rights.expression",
       "is_default": "True",
       "name": "Expressive Output",
@@ -1236,6 +1521,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.personality_rights.expression.communication",
       "is_default": "True",
       "name": "Communication Style",
@@ -1249,6 +1537,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.personality_rights.expression.creative_output",
       "is_default": "True",
       "name": "Creative Output",
@@ -1262,6 +1553,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.personality_rights.perception",
       "is_default": "True",
       "name": "Public Perception",
@@ -1275,6 +1569,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.personality_rights.perception.inferred_traits",
       "is_default": "True",
       "name": "Inferred Traits",
@@ -1288,6 +1585,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.personality_rights.perception.sentiment_analysis",
       "is_default": "True",
       "name": "Sentiment Analysis",
@@ -1301,6 +1601,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.personality_rights.preferences",
       "is_default": "True",
       "name": "User Preferences",
@@ -1314,6 +1617,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.personality_rights.preferences.content_preferences",
       "is_default": "True",
       "name": "Content Preferences",
@@ -1327,6 +1633,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.personality_rights.preferences.interaction_style",
       "is_default": "True",
       "name": "Interaction Style",
@@ -1340,6 +1649,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "data_category",
       "is_default": "True",
       "name": "Data Category",
@@ -1353,6 +1665,9 @@
     },
     {
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType":"DataCategory",
+      "visibility": "public",
       "fides_key": "user.personality_rights",
       "is_default": "True",
       "name": "Personality Rights Data",

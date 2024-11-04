@@ -121,6 +121,76 @@ export interface Resource {
   // Add other common attributes as needed
 }
 
+export interface Statistic extends Resource {
+  title: string;
+  value: number;
+  description: string;
+  date: string;
+  tags: string[];
+}
+
+export interface Alert extends Resource {
+  title: string;
+  message: string;
+  severity: 'info' | 'warning' | 'error';
+  date: string;
+  tags: string[];
+}
+
+export interface Persona extends Resource {
+  personaName: string;
+  description: string;
+  attributes: {
+    ageRange: string;
+    interests: string[];
+    profession: string;
+    location: string;
+  };
+}
+
+export interface Agent extends Resource {
+  agentType: 'AI' | 'Human';
+  name: string;
+  expertiseAreas: string[];
+  availabilityStatus: 'online' | 'offline' | 'busy';
+  aiCapabilities?: {
+    supportedLanguages: string[];
+    responseTime: number;
+    integrations: string[];
+  };
+  contactInfo?: {
+    email?: string;
+    phone?: string;
+    socialMedia?: {
+      LinkedIn?: string;
+      Twitter?: string;
+    };
+  };
+}
+
+export interface ModelSubject extends Resource {
+  subjectName: string;
+  description: string;
+  relatedModels: string[];
+  expertiseLevel: 'beginner' | 'intermediate' | 'expert';
+}
+
+export interface ModelTraining extends Resource {
+  modelName: string;
+  description: string;
+  trainingDataSources: string[];
+  trainingStatus: 'pending' | 'in_progress' | 'completed' | 'failed';
+  accuracy: number;
+  lastTrainedAt: string;
+  parameters: {
+    epochs: number;
+    learningRate: number;
+    batchSize: number;
+    optimizer: string;
+    layers: number[];
+  };
+}
+
 export interface Topic extends Resource {
   category: string;             // e.g., 'Cycling', 'AI Entrepreneurship'
   description: string;          // Detailed description of the topic

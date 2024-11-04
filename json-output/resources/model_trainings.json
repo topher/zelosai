@@ -1,0 +1,77 @@
+[
+    {
+      "id": "zelos/model-training/athlete-performance-1",
+      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId": "user_3gJik7pKtsxplQTb4PUV4JbbUF",
+      "resourceType": "ModelTraining",
+      "URI": "zelos/model-training/athlete-performance-1",
+      "modelName": "AthletePerformancePredictor v2.0",
+      "description": "Advanced model for predicting athlete performance based on training data and historical performance metrics.",
+      "trainingDataSources": [
+        "zelos/victor-amo/performance-data-2023.csv",
+        "zelos/victor-amo/training-data-1"
+      ],
+      "trainingStatus": "completed",
+      "accuracy": 95.2,
+      "lastTrainedAt": "2024-02-15T14:30:00Z",
+      "parameters": {
+        "epochs": 100,
+        "learningRate": 0.0005,
+        "batchSize": 32,
+        "optimizer": "Adam",
+        "layers": [128, 256, 128]
+      },
+      "tags": ["AIModel", "Performance Prediction", "Athlete Analytics"],
+      "visibility": "public"
+    },
+    {
+      "id": "zelos/model-training/fan-engagement-1",
+      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId": "user_4hLmn8qMuvyqmRUc5QWV5KccVG",
+      "resourceType": "ModelTraining",
+      "visibility": "public",
+      "URI": "zelos/model-training/fan-engagement-1",
+      "modelName": "FanEngagementOptimizer v1.5",
+      "description": "Model designed to optimize fan engagement strategies by analyzing social media interactions and engagement metrics.",
+      "trainingDataSources": [
+        "zelos/victor-amo/social-media-analysis.png",
+        "zelos/victor-amo/fan-engagement-data-2023.csv"
+      ],
+      "trainingStatus": "in_progress",
+      "accuracy": 88.7,
+      "lastTrainedAt": "2024-03-10T09:15:00Z",
+      "parameters": {
+        "epochs": 75,
+        "learningRate": 0.001,
+        "batchSize": 64,
+        "optimizer": "SGD",
+        "layers": [64, 128, 64]
+      },
+      "tags": ["AIModel", "Fan Engagement", "Marketing Analytics"]    },
+    {
+        "id": "zelos/model-training/injury-prediction-1",
+        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "ownerId": "user_9mRst3vUzbduXVIg0VBY9PggJQ",
+        "resourceType": "ModelTraining",
+        "visibility": "publlic",
+        "URI": "zelos/model-training/injury-prediction-1",
+        "modelName": "InjuryPredictor v3.2",
+        "description": "Model to predict the likelihood of injuries among athletes based on training intensity and historical injury data.",
+        "trainingDataSources": [
+        "zelos/victor-amo/medical-records/2023",
+        "zelos/victor-amo/training-data-1"
+        ],
+        "trainingStatus": "in_progress",
+        "accuracy": 89.4,
+        "lastTrainedAt": "2024-04-01T08:00:00Z",
+        "parameters": {
+        "epochs": 150,
+        "learningRate": 0.0008,
+        "batchSize": 16,
+        "optimizer": "RMSprop",
+        "layers": [256, 512, 256]
+        },
+        "tags": ["AIModel", "Injury Prediction", "Health Analytics"]
+    }
+  ]
+  
