@@ -28,7 +28,7 @@ const ModelPageLayout: React.FC<ModelPageLayoutProps> = ({
   bgColor,
 }) => {
   return (
-    <div className="flex flex-col min-h-screen w-full mt-8">
+    <div className="flex flex-col min-h-screen w-full mt-4 sm:mt-8">
       <Heading
         title={modelData ? modelData.label : "Model"}
         description={modelData ? modelData.description : "Model description."}
@@ -46,7 +46,7 @@ const ModelPageLayout: React.FC<ModelPageLayoutProps> = ({
             ))}
           </TabsList>
           {tabs.map((tab) => (
-            <TabsContent key={tab.value} value={tab.value} className="flex-1 flex w-full">
+            <TabsContent key={tab.value} value={tab.value} className="flex-1 w-full">
               {tab.content}
             </TabsContent>
           ))}

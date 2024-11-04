@@ -1,4 +1,4 @@
-// app/components/Sidebar.tsx
+// /app/(dashboard)/(routes)/search/components/Sidebar.tsx
 
 "use client";
 

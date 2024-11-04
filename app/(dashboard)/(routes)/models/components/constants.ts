@@ -260,7 +260,7 @@ export const parameterDefinitions = {
       required: true,
     },
     {
-      name: "heaker",
+      name: "hearer",
       label: "Hearer",
       description:
         "Identifies who the message is intended for.",

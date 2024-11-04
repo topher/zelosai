@@ -1,11 +1,14 @@
-'use client';
+// app/(dashboard)/(routes)/search/predicates/[type]/[predicate]/page.tsx
+
+"use client";
 
 import React, { useState, useEffect } from 'react';
-import TripleCardPredicate from '@/app/(dashboard)/(routes)/profiles/[type]/[id]/components/TripleCardPredicate';
 import Loader from '@/app/components/Loader';
-import Masonry from 'masonry-layout';
-import './PredicatePage.css'; // Import the CSS for masonry
-import PredicateSidebar from '@/app/(dashboard)/(routes)/profiles/[type]/[id]/components/PredicateSidebar';
+import PredicateGrid from '@/app/(dashboard)/(routes)/search/predicates/components/PredicateGrid';
+import PredicateDropdown from '@/app/(dashboard)/(routes)/search/predicates/components/PredicateDropdown';
+import { Montserrat } from 'next/font/google';
+
+const font = Montserrat({ weight: '600', subsets: ['latin'] });
 
 interface Triple {
   subject: string;
@@ -13,10 +16,10 @@ interface Triple {
   object: string;
   citation?: string;
   subjectName?: string;
+  type: 'athlete' | 'brand';
 }
 
-const PredicatePage: React.FC<{ params: { predicate: string; type: string } }> = ({ params }) => {
-
+const PredicatePage: React.FC<{ params: { predicate: string; type: 'athlete' | 'brand' } }> = ({ params }) => {
   const { predicate, type } = params;
 
   const [triples, setTriples] = useState<Triple[]>([]);
@@ -25,7 +28,6 @@ const PredicatePage: React.FC<{ params: { predicate: string; type: string } }> =
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [totalPages, setTotalPages] = useState<number>(1);
-  const [showSidebar, setShowSidebar] = useState<boolean>(false);
 
   // Handle search input changes
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,13 +38,12 @@ const PredicatePage: React.FC<{ params: { predicate: string; type: string } }> =
   // Function to fetch triples from the API
   const fetchTriples = async (
     predicate: string,
-    type: string,  // Added the type parameter
+    type: string,
     search: string,
     page: number
   ) => {
     setIsLoading(true);
     try {
-      // Include the type in the URL path
       const response = await fetch(
         `/api/predicates/${type}/${encodeURIComponent(predicate)}?q=${encodeURIComponent(
           search
@@ -68,21 +69,8 @@ const PredicatePage: React.FC<{ params: { predicate: string; type: string } }> =
 
   // Fetch triples when predicate, searchQuery, or page changes
   useEffect(() => {
-    fetchTriples(predicate, type, searchQuery, page);  // Pass the type here
+    fetchTriples(predicate, type, searchQuery, page);
   }, [predicate, type, searchQuery, page]);
-
-  // Initialize Masonry after triples are set
-  useEffect(() => {
-    const grid = document.querySelector('.my-masonry-grid');
-    if (grid) {
-      new Masonry(grid, {
-        itemSelector: '.grid-item',
-        columnWidth: '.grid-sizer',
-        percentPosition: true,
-        gutter: 30, // Ensure this matches your CSS gutter size
-      });
-    }
-  }, [triples]);
 
   // Pagination handlers
   const handlePrevPage = () => {
@@ -93,84 +81,92 @@ const PredicatePage: React.FC<{ params: { predicate: string; type: string } }> =
     setPage((prev) => Math.min(prev + 1, totalPages));
   };
 
+  // Capitalize the first letter of the predicate for display
+  const displayPredicate = predicate.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
+
   return (
-    <div className="container mx-auto p-4 relative">
-      <h1 className="text-3xl font-bold mb-6">
-        Triples for Predicate:{' '}
-        <span
-          className="text-blue-600 cursor-pointer"
-          onClick={() => setShowSidebar(true)}
-        >
-          {predicate.replace(/_/g, ' ')}
-        </span>
-      </h1>
-
-      {showSidebar && (
-        <PredicateSidebar
-          currentPredicate={predicate}
-          onClose={() => setShowSidebar(false)}
-        />
-      )}
-
-      {/* Search Box */}
-      <div className="mb-6">
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={handleSearchChange}
-          placeholder="Search within results..."
-          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
+    <div className="min-h-screen bg-gradient-to-r from-gray-900 via-gray-800 to-indigo-900 text-white flex flex-col">
+      {/* Header Section */}
+      <div className="p-8">
+        <h1 className={`text-4xl font-bold flex items-center space-x-2 ${font.className}`}>
+          <span>Triples for Predicate:</span>
+          <PredicateDropdown currentPredicate={predicate} type={type} />
+        </h1>
+        {/* <p className="text-lg text-gray-300">
+          Explore all {type === 'athlete' ? 'athletes' : 'brands'} associated with "{displayPredicate}"
+        </p> */}
       </div>
 
-      {/* Loading Indicator */}
-      {isLoading ? (
-        <Loader />
-      ) : triples.length > 0 ? (
-        /* Triples Display using Masonry */
-        <div className="my-masonry-grid">
-          <div className="grid-sizer"></div>
-          {triples.map((triple, index) => (
-            <div className="grid-item" key={index}>
-              <TripleCardPredicate triple={triple} />
-            </div>
-          ))}
+      {/* Search and Content Section */}
+      <div className="px-8 flex-grow">
+        {/* Search Box */}
+        <div className="relative mb-6 flex items-center">
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={handleSearchChange}
+            className="w-full rounded-full border border-gray-600 bg-gray-800 py-2 px-4 pr-14 text-white placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            placeholder="Search within results..."
+          />
+          {/* Search Button */}
+          <button
+            type="button"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center justify-center h-8 w-8 rounded-full bg-gradient-to-r from-indigo-500 to-pink-500"
+          >
+            {/* Simplified magnifying glass */}
+            <svg
+              className="h-4 w-4 text-white"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="2" fill="none" />
+              <line x1="16" y1="16" x2="21" y2="21" stroke="currentColor" strokeWidth="2" />
+            </svg>
+          </button>
         </div>
-      ) : (
-        /* No Results Message */
-        <div className="text-center text-gray-500">No triples found.</div>
-      )}
 
-      {/* Pagination Controls */}
-      {totalPages > 1 && (
-        <div className="flex justify-center items-center mt-8 space-x-4">
-          <button
-            onClick={handlePrevPage}
-            disabled={page === 1}
-            className={`px-4 py-2 rounded ${
-              page === 1
-                ? 'bg-gray-300 cursor-not-allowed'
-                : 'bg-blue-500 text-white hover:bg-blue-600'
-            }`}
-          >
-            Previous
-          </button>
-          <span className="text-gray-700">
-            Page {page} of {totalPages}
-          </span>
-          <button
-            onClick={handleNextPage}
-            disabled={page === totalPages}
-            className={`px-4 py-2 rounded ${
-              page === totalPages
-                ? 'bg-gray-300 cursor-not-allowed'
-                : 'bg-blue-500 text-white hover:bg-blue-600'
-            }`}
-          >
-            Next
-          </button>
-        </div>
-      )}
+        {/* Loading Indicator */}
+        {isLoading ? (
+          <Loader />
+        ) : triples.length > 0 ? (
+          /* Triples Display using Masonry */
+          <PredicateGrid triples={triples} gridClassName="my-masonry-grid" />
+        ) : (
+          /* No Results Message */
+          <div className="text-center text-gray-500">No results found.</div>
+        )}
+
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="flex justify-center items-center mt-8 space-x-4">
+            <button
+              onClick={handlePrevPage}
+              disabled={page === 1}
+              className={`px-4 py-2 rounded-full ${
+                page === 1
+                  ? 'bg-gray-600 cursor-not-allowed'
+                  : 'bg-indigo-500 hover:bg-indigo-600'
+              }`}
+            >
+              Previous
+            </button>
+            <span className="text-gray-300">
+              Page {page} of {totalPages}
+            </span>
+            <button
+              onClick={handleNextPage}
+              disabled={page === totalPages}
+              className={`px-4 py-2 rounded-full ${
+                page === totalPages
+                  ? 'bg-gray-600 cursor-not-allowed'
+                  : 'bg-indigo-500 hover:bg-indigo-600'
+              }`}
+            >
+              Next
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

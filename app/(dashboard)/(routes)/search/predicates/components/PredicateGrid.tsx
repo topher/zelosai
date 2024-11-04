@@ -1,23 +1,25 @@
-// /app/(dashboard)/(routes)/profiles/[type]/[id]/components/ProfileGrid.tsx
+// app/(dashboard)/(routes)/search/predicates/components/PredicateGrid.tsx
 
 import React, { useEffect, useRef } from 'react';
-import TripleCardObject from './TripleCardObject';
+import TripleCardPredicate from '@/app/(dashboard)/(routes)/profiles/[type]/[id]/components/TripleCardPredicate';
 import Masonry from 'masonry-layout';
-import './Profile.css';
+import 'app/(dashboard)/(routes)/profiles/[type]/[id]/components/Profile.css'; // Updated import path
 
 interface Triple {
   subject: string;
   predicate: string;
   object: string;
   citation?: string;
+  subjectName?: string;
+  type: 'athlete' | 'brand';
 }
 
-interface ProfileGridProps {
+interface PredicateGridProps {
   triples: Triple[];
-  gridClassName: string; // ClassName for the grid type
+  gridClassName: string;
 }
 
-const ProfileGrid: React.FC<ProfileGridProps> = ({ triples, gridClassName }) => {
+const PredicateGrid: React.FC<PredicateGridProps> = ({ triples, gridClassName }) => {
   const gridRef = useRef<HTMLDivElement>(null);
   const masonryInstance = useRef<Masonry | null>(null);
 
@@ -28,6 +30,7 @@ const ProfileGrid: React.FC<ProfileGridProps> = ({ triples, gridClassName }) => 
         itemSelector: '.grid-item',
         columnWidth: '.grid-sizer',
         percentPosition: true,
+        gutter: 0, // Adjust gutter size if needed
       });
 
       // Ensure layout after content is rendered
@@ -52,10 +55,10 @@ const ProfileGrid: React.FC<ProfileGridProps> = ({ triples, gridClassName }) => 
     }
   }, [triples]);
 
-  // Add a useEffect to re-layout on mount when returning to the page
+  // Re-layout on mount when returning to the page
   useEffect(() => {
     if (masonryInstance.current) {
-      masonryInstance.current.layout(); // Force layout recalculation when the component mounts
+      masonryInstance.current.layout();
     }
   }, []);
 
@@ -64,11 +67,11 @@ const ProfileGrid: React.FC<ProfileGridProps> = ({ triples, gridClassName }) => 
       <div className="grid-sizer"></div>
       {triples.map((triple, index) => (
         <div className="grid-item" key={index}>
-          <TripleCardObject triple={triple} />
+          <TripleCardPredicate triple={triple} />
         </div>
       ))}
     </div>
   );
 };
 
-export default ProfileGrid;
+export default PredicateGrid;

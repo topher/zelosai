@@ -1,25 +1,24 @@
-// app/components/SidebarToggle.tsx
+// /app/(dashboard)/(routes)/search/components/SidebarToggle.tsx
 
 "use client";
 
 import React from "react";
-import { FaBars, FaTimes } from "react-icons/fa"; // Example icons
+import { FaBars } from "react-icons/fa";
 import { IconContext } from "react-icons";
 
 interface SidebarToggleProps {
-  isSidebarOpen: boolean;
   toggleSidebar: () => void;
 }
 
-const SidebarToggle: React.FC<SidebarToggleProps> = ({ isSidebarOpen, toggleSidebar }) => {
+const SidebarToggle: React.FC<SidebarToggleProps> = ({ toggleSidebar }) => {
   return (
     <button
       onClick={toggleSidebar}
-      className="p-2 bg-gray-200 rounded-md focus:outline-none lg:hidden"
-      aria-label={isSidebarOpen ? "Close sidebar" : "Open sidebar"}
+      className="p-2 bg-gray-200 text-darkGray rounded-md focus:outline-none"
+      aria-label="Open sidebar"
     >
       <IconContext.Provider value={{ size: "1.5em" }}>
-        {isSidebarOpen ? <FaTimes /> : <FaBars />}
+        <FaBars />
       </IconContext.Provider>
     </button>
   );

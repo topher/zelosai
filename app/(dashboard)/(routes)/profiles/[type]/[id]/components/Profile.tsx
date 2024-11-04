@@ -1,4 +1,4 @@
-// app/components/profile/Profile.tsx
+// /app/(dashboard)/(routes)/profiles/[type]/[id]/components/Profile.tsx
 
 "use client";
 
@@ -36,7 +36,7 @@ const Profile: React.FC<ProfileProps> = ({ resource, type }) => {
   return (
     <div className="athlete-brand-profile">
       {/* Header */}
-      <div className="p-8">
+      <div className="p-6">
         <ProfileHead
           name={nameTriple?.object || 'Name Unavailable'}
           imageSrc={imageSrc}

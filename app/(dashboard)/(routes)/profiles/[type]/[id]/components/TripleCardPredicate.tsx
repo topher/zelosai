@@ -1,8 +1,25 @@
-'use client'
-// TripleCard.tsx
+// app/(dashboard)/(routes)/profiles/[type]/[id]/components/TripleCardPredicate.tsx
+
+'use client';
+
 import React, { useState } from 'react';
 import TripleCardUserActions from './TripleCardUserActions';
-import Link from "next/link";
+import Link from 'next/link';
+import {
+  FaTwitter,
+  FaInstagram,
+  FaFacebook,
+  FaLinkedin,
+  FaYoutube,
+  FaTiktok,
+  FaSnapchat,
+} from 'react-icons/fa';
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipProvider,
+} from '@/components/ui/tooltip'; // Adjust the import path as needed
 
 interface Triple {
   subject: string;
@@ -17,8 +34,8 @@ interface TripleCardProps {
   triple: Triple;
 }
 
-const TripleCard: React.FC<TripleCardProps> = ({ triple }) => {
-  const { subject, subjectName, predicate, object, citation, type } = triple;
+const TripleCardPredicate: React.FC<TripleCardProps> = ({ triple }) => {
+  const { subject, subjectName, object, citation, type, predicate } = triple;
 
   const [likes, setLikes] = useState(0);
   const [dislikes, setDislikes] = useState(0);
@@ -28,63 +45,101 @@ const TripleCard: React.FC<TripleCardProps> = ({ triple }) => {
     return parts[parts.length - 1] || parts[parts.length - 2];
   };
 
-
   const subjectId = getSubjectId(subject);
-  
-    // Handlers for actions
-    const handleLike = () => {
-      // Implement your logic for liking
-      setLikes(likes + 1);
-    };
-  
-    const handleDislike = () => {
-      // Implement your logic for disliking
-      setDislikes(dislikes + 1);
-    };
-  
-    // ... Handlers for comment, add content, collab request, and find similar
-    const getURISuffix = (uri: string) => {
-      const parts = uri.split('/');
-      return parts[parts.length - 1] || parts[parts.length - 2];
-    };
-    
-    // Use this function in your component to set the title.
-    const title = subjectName // Assuming triple.subject contains the URI
-    return (
-      <div className="triple-card bg-white shadow-lg rounded-lg overflow-hidden p-4 m-2">
-        {/* Card Content */}
-        <Link href={`/profiles/${type}/${subjectId}`}>
-        <div className="p-4">
-          <p className="value mt-1">{object}</p>
-            <h3 className="title text-lg font-semibold">{subjectName}</h3>
-            {citation && <div className="text-xs text-gray-500 mt-1 italic">{citation}</div>}
-            </div>
-        </Link>
-  
-        {/* User Actions */}
-          {/* User Actions - Now using the UserActions component */}
-        {/* User Actions */}
-        <TripleCardUserActions
-            likes={likes}
-            dislikes={dislikes}
-            onLike={handleLike}
-            onDislike={handleDislike} 
-            comments={0} 
-            onBookmark={function (): void {
-              throw new Error('Function not implemented.');
-            } } 
-            onShare={function (): void {
-              throw new Error('Function not implemented.');
-            } } 
-            onComment={function (): void {
-              throw new Error('Function not implemented.');
-            } } 
-            onGetLink={function (): void {
-              throw new Error('Function not implemented.');
-            } }          // ... other handlers
-        />
-      </div>
-    );
+
+  // Function to get social media icon with hover effect
+  const getSocialMediaIcon = (url: string) => {
+    const baseClass =
+      'h-20 w-20 text-white cursor-pointer transition-colors duration-200';
+    if (url.includes('twitter.com')) {
+      return <FaTwitter className={`${baseClass} hover:text-blue-400`} />;
+    } else if (url.includes('instagram.com')) {
+      return <FaInstagram className={`${baseClass} hover:text-pink-500`} />;
+    } else if (url.includes('facebook.com')) {
+      return <FaFacebook className={`${baseClass} hover:text-blue-600`} />;
+    } else if (url.includes('linkedin.com')) {
+      return <FaLinkedin className={`${baseClass} hover:text-blue-700`} />;
+    } else if (url.includes('youtube.com')) {
+      return <FaYoutube className={`${baseClass} hover:text-red-600`} />;
+    } else if (url.includes('tiktok.com')) {
+      return <FaTiktok className={`${baseClass} hover:text-black`} />;
+    } else if (url.includes('snapchat.com')) {
+      return <FaSnapchat className={`${baseClass} hover:text-yellow-500`} />;
+    }
+    return null;
   };
-  
-  export default TripleCard;
+
+  const socialMediaIcon =
+    predicate === 'has_social_media' ? getSocialMediaIcon(object) : null;
+
+  return (
+    <div className="group bg-gray-800 hover:bg-gray-700 shadow-lg rounded-lg m-4 transform transition-transform duration-200 hover:scale-105 flex flex-col">
+      {/* Main Content */}
+      <div className="flex-grow h-full">
+        <Link href={`/profiles/${type}/${subjectId}`} className="h-full">
+          {/* Conditionally adjust padding based on whether object text is displayed */}
+          <div
+            className={`transition-colors duration-200 cursor-pointer h-full flex flex-col flex-grow ${
+              predicate !== 'has_social_media' ? 'p-6' : 'p-6 pb-0'
+            }`}
+          >
+            <h3 className="text-2xl font-semibold text-white mb-2 break-words group-hover:text-gold">
+              {subjectName}
+            </h3>
+            {/* Hide the object text if it's a social media link */}
+            {predicate !== 'has_social_media' && (
+              <p className="text-gray-300 flex-grow break-words">{object}</p>
+            )}
+            {citation && (
+              <div
+                className={`text-xs text-gray-500 mt-2 italic break-words ${
+                  predicate === 'has_social_media' ? 'mt-0' : ''
+                }`}
+              >
+                {citation}
+              </div>
+            )}
+          </div>
+        </Link>
+      </div>
+
+      {/* Social Media Icon */}
+      {socialMediaIcon && (
+        <div className="p-4 flex items-center justify-center">
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <a
+                  href={object}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  {socialMediaIcon}
+                </a>
+              </TooltipTrigger>
+              <TooltipContent side="top" className="z-50">
+                <span>{object}</span>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </div>
+      )}
+
+      {/* User Actions */}
+      <TripleCardUserActions
+        likes={likes}
+        dislikes={dislikes}
+        comments={0} // Replace with actual comments count
+        onLike={() => setLikes(likes + 1)}
+        onDislike={() => setDislikes(dislikes + 1)}
+        onComment={() => {}}
+        onBookmark={() => {}}
+        onShare={() => {}}
+        onGetLink={() => {}}
+      />
+    </div>
+  );
+};
+
+export default TripleCardPredicate;
