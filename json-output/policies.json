@@ -1,4 +1,5 @@
-[{
+[
+  {
     "id": "policy-agent-access",
     "organizationId": "*",
     "description": "Agent has read and write access to Agent Org resources.",
@@ -19,7 +20,22 @@
             }
           ]
         },
-        "objectCondition": null,
+        "objectCondition": {
+          "type": "group",
+          "operator": "OR",
+          "conditions": [
+            {
+              "attribute": "orgId",
+              "operator": "is",
+              "value": "$orgId"
+            },
+            {
+              "attribute": "orgId",
+              "operator": "is",
+              "value": "org_platform"
+            }
+          ]
+        },
         "createdBy": "system",
         "ownedBy": "admin"
       },
@@ -39,7 +55,22 @@
             }
           ]
         },
-        "objectCondition": null,
+        "objectCondition": {
+          "type": "group",
+          "operator": "OR",
+          "conditions": [
+            {
+              "attribute": "orgId",
+              "operator": "is",
+              "value": "$orgId"
+            },
+            {
+              "attribute": "orgId",
+              "operator": "is",
+              "value": "org_platform"
+            }
+          ]
+        },
         "createdBy": "system",
         "ownedBy": "admin"
       }
@@ -66,7 +97,22 @@
             }
           ]
         },
-        "objectCondition": null,
+        "objectCondition": {
+          "type": "group",
+          "operator": "OR",
+          "conditions": [
+            {
+              "attribute": "orgId",
+              "operator": "is",
+              "value": "$orgId"
+            },
+            {
+              "attribute": "orgId",
+              "operator": "is",
+              "value": "org_platform"
+            }
+          ]
+        },
         "createdBy": "system",
         "ownedBy": "admin"
       }
@@ -75,7 +121,7 @@
   {
     "id": "policy-member-public-read",
     "organizationId": "*",
-    "description": "Members can read public resources within their organization.",
+    "description": "Members can read public resources within their organization or from the platform.",
     "rules": [
       {
         "id": "rule-member-read-public",
@@ -101,6 +147,11 @@
               "attribute": "visibility",
               "operator": "is",
               "value": "public"
+            },
+            {
+              "attribute": "orgId",
+              "operator": "in",
+              "value": ["$orgId", "org_platform"]
             }
           ]
         },
@@ -157,10 +208,52 @@
             }
           ]
         },
+        "objectCondition": {
+          "type": "group",
+          "operator": "OR",
+          "conditions": [
+            {
+              "attribute": "orgId",
+              "operator": "is",
+              "value": "$orgId"
+            },
+            {
+              "attribute": "orgId",
+              "operator": "is",
+              "value": "org_platform"
+            }
+          ]
+        },
+        "createdBy": "system",
+        "ownedBy": "admin"
+      }
+    ]
+  },
+  {
+    "id": "policy-platform-admin-access",
+    "organizationId": "org_platform",
+    "description": "Platform Admin has full access to all platform resources.",
+    "rules": [
+      {
+        "id": "rule-platform-admin-access",
+        "ruleType": "access",
+        "deontologicalDuty": "allowed",
+        "predicate": ["*"],
+        "subjectCondition": {
+          "type": "group",
+          "operator": "AND",
+          "conditions": [
+            {
+              "attribute": "orgRole",
+              "operator": "is",
+              "value": "platform:admin"
+            }
+          ]
+        },
         "objectCondition": null,
         "createdBy": "system",
         "ownedBy": "admin"
       }
     ]
-  }  
+  }
 ]

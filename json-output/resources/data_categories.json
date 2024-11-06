@@ -1,7 +1,7 @@
 [
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "data_category",
@@ -16,8 +16,8 @@
       "description": ""
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "system",
@@ -32,8 +32,8 @@
       "description": "Data unique to, and under control of the system."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "system.authentication",
@@ -48,8 +48,8 @@
       "description": "Data used to manage access to the system."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "system.operations",
@@ -64,8 +64,8 @@
       "description": "Data used for system operations."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user",
@@ -80,8 +80,8 @@
       "description": "Data related to the user of the system, either provided directly or derived based on their usage."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.account",
@@ -96,8 +96,8 @@
       "description": "Account creation or registration information."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.authorization",
@@ -112,8 +112,8 @@
       "description": "Scope of permissions and access to a system."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.behavior",
@@ -128,8 +128,8 @@
       "description": "Behavioral data about the subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.biometric",
@@ -144,8 +144,8 @@
       "description": "Encoded characteristics provided by a user."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.childrens",
@@ -160,8 +160,8 @@
       "description": "Data relating to children."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.contact",
@@ -176,8 +176,8 @@
       "description": "Contact data collected about a user."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.content",
@@ -192,8 +192,8 @@
       "description": "Content related to, or created by the subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.demographic",
@@ -208,8 +208,8 @@
       "description": "Demographic data about a user."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.location",
@@ -224,8 +224,8 @@
       "description": "Records of the location of a user."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.device",
@@ -240,8 +240,8 @@
       "description": "Data related to a user's device, configuration and setting."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.payment",
@@ -256,8 +256,8 @@
       "description": "Payment data related to user."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.social",
@@ -272,8 +272,8 @@
       "description": "Social activity and interaction data."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.unique_id",
@@ -288,8 +288,8 @@
       "description": "Unique identifier for a user assigned through system use."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.telemetry",
@@ -304,8 +304,8 @@
       "description": "User identifiable measurement data from system sensors and monitoring."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.user_sensor",
@@ -320,8 +320,8 @@
       "description": "Measurement data about a user's environment through system use."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.workplace",
@@ -336,8 +336,8 @@
       "description": "Organization of employment."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.sensor",
@@ -352,8 +352,8 @@
       "description": "Measurement data from sensors and monitoring systems."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.financial",
@@ -368,8 +368,8 @@
       "description": "Payment data and financial history."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.government_id",
@@ -384,8 +384,8 @@
       "description": "State provided identification data."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.health_and_medical",
@@ -400,8 +400,8 @@
       "description": "Health records or individual's personal medical information."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.name",
@@ -416,8 +416,8 @@
       "description": "User's real name."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.criminal_history",
@@ -432,8 +432,8 @@
       "description": "Criminal records or information about the data subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.privacy_preferences",
@@ -448,8 +448,8 @@
       "description": "Privacy preferences or settings set by the subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.job_title",
@@ -464,8 +464,8 @@
       "description": "Professional data."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.account.settings",
@@ -480,8 +480,8 @@
       "description": "Account preferences and settings."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.account.username",
@@ -496,8 +496,8 @@
       "description": "Username associated with account."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.authorization.credentials",
@@ -512,8 +512,8 @@
       "description": "Authentication credentials to a system."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.authorization.biometric",
@@ -528,8 +528,8 @@
       "description": "Credentials for system authentication."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.authorization.password",
@@ -544,8 +544,8 @@
       "description": "Password for system authentication."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.behavior.browsing_history",
@@ -560,8 +560,8 @@
       "description": "Content browsing history of a user."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.behavior.media_consumption",
@@ -576,8 +576,8 @@
       "description": "Content consumption history of the subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.behavior.purchase_history",
@@ -592,8 +592,8 @@
       "description": "Purchase history of the subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.behavior.search_history",
@@ -608,8 +608,8 @@
       "description": "Search history of the subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.biometric.fingerprint",
@@ -624,8 +624,8 @@
       "description": "Fingerprint encoded data about a subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.biometric.retinal",
@@ -640,8 +640,8 @@
       "description": "Retinal data about a subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.biometric.voice",
@@ -656,8 +656,8 @@
       "description": "Voice encoded data about a subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.biometric.health",
@@ -672,8 +672,8 @@
       "description": "Encoded characteristic collected about a user."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.contact.address",
@@ -688,8 +688,8 @@
       "description": "Contact address data collected about a user."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.contact.email",
@@ -704,8 +704,8 @@
       "description": "User's contact email address."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.contact.phone_number",
@@ -720,8 +720,8 @@
       "description": "User's phone number."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.contact.url",
@@ -736,8 +736,8 @@
       "description": "Subject's websites or links to social and personal profiles."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.contact.fax_number",
@@ -752,8 +752,8 @@
       "description": "Data Subject's fax number."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.contact.organization",
@@ -768,8 +768,8 @@
       "description": "Data Subject's Organization."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.contact.address.city",
@@ -784,8 +784,8 @@
       "description": "User's city level address data."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.contact.address.country",
@@ -800,8 +800,8 @@
       "description": "User's country level address data."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.contact.address.postal_code",
@@ -816,8 +816,8 @@
       "description": "User's postal code."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.contact.address.state",
@@ -832,8 +832,8 @@
       "description": "User's state level address data."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.contact.address.street",
@@ -848,8 +848,8 @@
       "description": "User's street level address data."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.content.private",
@@ -864,8 +864,8 @@
       "description": "Private content related to, or created by the subject, not publicly available."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.content.public",
@@ -880,8 +880,8 @@
       "description": "Publicly shared Content related to, or created by the subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.content.self_image",
@@ -896,8 +896,8 @@
       "description": "Photograph or image in which subject is whole or partially recognized."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.demographic.age_range",
@@ -912,8 +912,8 @@
       "description": "Non specific age or age-range of data subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.demographic.date_of_birth",
@@ -928,8 +928,8 @@
       "description": "Date of birth of data subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.demographic.gender",
@@ -944,8 +944,8 @@
       "description": "Gender of data subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.demographic.language",
@@ -960,8 +960,8 @@
       "description": "Spoken or written language of subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.demographic.marital_status",
@@ -976,8 +976,8 @@
       "description": "Marital status of data subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.demographic.political_opinion",
@@ -992,8 +992,8 @@
       "description": "Political opinion or belief of data subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.demographic.profile",
@@ -1008,8 +1008,8 @@
       "description": "Profile or preference information about the data subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.demographic.race_ethnicity",
@@ -1024,8 +1024,8 @@
       "description": "Race or ethnicity of data subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.demographic.religious_belief",
@@ -1040,8 +1040,8 @@
       "description": "Religion or religious beliefs of the data subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.demographic.sexual_orientation",
@@ -1056,8 +1056,8 @@
       "description": "Sexual orientation of data subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.device.cookie",
@@ -1072,8 +1072,8 @@
       "description": "Data related to a subject, stored within a cookie."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.device.cookie_id",
@@ -1088,8 +1088,8 @@
       "description": "Cookie unique identification number."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.device.device_id",
@@ -1104,8 +1104,8 @@
       "description": "Device unique identification number."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.device.ip_address",
@@ -1120,8 +1120,8 @@
       "description": "Unique identifier related to device connection."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.financial.bank_account",
@@ -1136,8 +1136,8 @@
       "description": "Bank account information belonging to the subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.financial.credit_card",
@@ -1152,8 +1152,8 @@
       "description": "Credit card information belonging to the subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.government_id.birth_certificate",
@@ -1168,8 +1168,8 @@
       "description": "State issued certificate of birth."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.government_id.drivers_license_number",
@@ -1184,8 +1184,8 @@
       "description": "State issued driving identification number."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.government_id.immigration",
@@ -1200,8 +1200,8 @@
       "description": "State issued immigration or residency data."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.government_id.national_identification_number",
@@ -1216,8 +1216,8 @@
       "description": "State issued personal identification number."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.government_id.passport_number",
@@ -1232,8 +1232,8 @@
       "description": "State issued passport data."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.government_id.vehicle_registration",
@@ -1248,8 +1248,8 @@
       "description": "State issued license plate or vehicle registration data."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.health_and_medical.genetic",
@@ -1264,8 +1264,8 @@
       "description": "Data about the genetic makeup provided by the subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.health_and_medical.insurance_beneficiary_id",
@@ -1280,8 +1280,8 @@
       "description": "Health insurance beneficiary number of the subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.health_and_medical.record_id",
@@ -1296,8 +1296,8 @@
       "description": "Medical record identifiers belonging to a subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.location.imprecise",
@@ -1312,8 +1312,8 @@
       "description": "Imprecise location derived from sensors (more than 500M)."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.location.precise",
@@ -1328,8 +1328,8 @@
       "description": "Precise location derived from sensors (less than 500M)."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.name.first",
@@ -1344,8 +1344,8 @@
       "description": "Subject's first name."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.name.last",
@@ -1360,8 +1360,8 @@
       "description": "Subject's last, or family, name."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.unique_id.pseudonymous",
@@ -1376,8 +1376,8 @@
       "description": "A pseudonymous, or probabilistic identifier generated from other subject or device data belonging to the subject."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.personality_rights.tracking",
@@ -1392,8 +1392,8 @@
       "description": ""
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.personality_rights.tracking.content",
@@ -1408,8 +1408,8 @@
       "description": ""
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.personality_rights.tracking.social",
@@ -1424,8 +1424,8 @@
       "description": ""
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.personality_rights.tracking.browsing",
@@ -1440,8 +1440,8 @@
       "description": ""
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.personality_rights.security",
@@ -1456,8 +1456,8 @@
       "description": ""
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.personality_rights.security.privacy",
@@ -1472,8 +1472,8 @@
       "description": ""
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.personality_rights.security.authentication",
@@ -1488,8 +1488,8 @@
       "description": ""
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.personality_rights.security.device",
@@ -1504,8 +1504,8 @@
       "description": ""
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.personality_rights.expression",
@@ -1520,8 +1520,8 @@
       "description": "behavior"
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.personality_rights.expression.communication",
@@ -1536,8 +1536,8 @@
       "description": "2.0.0"
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.personality_rights.expression.creative_output",
@@ -1552,8 +1552,8 @@
       "description": ""
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.personality_rights.perception",
@@ -1568,8 +1568,8 @@
       "description": ""
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.personality_rights.perception.inferred_traits",
@@ -1584,8 +1584,8 @@
       "description": "2.0.0"
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.personality_rights.perception.sentiment_analysis",
@@ -1600,8 +1600,8 @@
       "description": ""
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.personality_rights.preferences",
@@ -1616,8 +1616,8 @@
       "description": ""
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.personality_rights.preferences.content_preferences",
@@ -1632,8 +1632,8 @@
       "description": ""
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.personality_rights.preferences.interaction_style",
@@ -1648,8 +1648,8 @@
       "description": ""
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "data_category",
@@ -1664,8 +1664,8 @@
       "description": "and under control of the system."
     },
     {
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
-      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "orgId": "org_platform",
+      "ownerId": "system_user",
       "resourceType":"DataCategory",
       "visibility": "public",
       "fides_key": "user.personality_rights",
