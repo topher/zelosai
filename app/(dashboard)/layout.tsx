@@ -1,37 +1,75 @@
 "use client";
 
-import Navbar from "@/components/navbar";
 import Sidebar from "@/components/sidebar";
 import { useState } from "react";
+import { cn } from "@/lib/utils";
+import { Montserrat } from "next/font/google";
 
-const DashboardLayout = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
-  const apiLimitCount = 500; // This should probably be from state or props
-  const isPro = false; // This should probably be from state or props
+const montserrat = Montserrat({ weight: "400", subsets: ["latin"] });
 
-  // State to control the collapsed state of the sidebar
+const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // For small screens
 
-  // Function to toggle the collapse state of the sidebar
+  const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
   const toggleCollapse = () => setIsCollapsed((prev) => !prev);
 
   return (
-    <div className="h-screen flex">
-      <Sidebar 
-        isCollapsed={isCollapsed}
-        isSidebarOpen={true} // Pass true if you want sidebar to always be open
-        toggleSidebar={toggleCollapse} // Rename to toggleCollapse
-        toggleCollapse={toggleCollapse} // Pass the toggleCollapse function
-      />
-      <main className={`flex-1 flex flex-col ${isCollapsed ? "md:pl-20" : ""}`}>
-        <Navbar />
-        <div className="flex-1 flex flex-col">
-          {children}
-        </div>
-      </main>
+    <div className="flex flex-col md:flex-row h-screen">
+      {/* Sidebar */}
+      <div
+        className={cn(
+          "transition-all duration-300",
+          isCollapsed ? "w-20" : "w-64",
+          "md:block md:relative md:flex-shrink-0"
+        )}
+      >
+        <Sidebar
+          isCollapsed={isCollapsed}
+          isSidebarOpen={isSidebarOpen}
+          toggleSidebar={toggleSidebar}
+          toggleCollapse={toggleCollapse}
+        />
+      </div>
+
+      {/* Overlay for small screens */}
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          onClick={toggleSidebar}
+        ></div>
+      )}
+
+      <div className="flex flex-col flex-1">
+        {/* Header Bar for Small Screens */}
+        {!isSidebarOpen && (
+          <header className="md:hidden bg-darkGray text-white h-16 flex items-center justify-between px-4">
+            <button onClick={toggleSidebar} aria-label="Open sidebar">
+              {/* Hamburger icon */}
+              <svg
+                className="h-6 w-6 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 8h16M4 16h16"
+                />
+              </svg>
+            </button>
+            <h1 className={cn("text-3xl font-bold", montserrat.className)}>
+              ZELOS
+            </h1>
+          </header>
+        )}
+        <main className="flex-1 overflow-auto">
+          {/* Main content */}
+          <div className="min-h-full">{children}</div>
+        </main>
+      </div>
     </div>
   );
 };

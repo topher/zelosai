@@ -2,19 +2,41 @@
 
 'use client';
 
-import { useUser, useOrganizationList, useOrganization, useClerk } from '@clerk/nextjs';
-import { Menu, Transition } from '@headlessui/react';
-import { ChevronDown } from "lucide-react"
-import { Fragment, useEffect } from 'react';
+import {
+  useUser,
+  useOrganizationList,
+  useOrganization,
+  useClerk,
+} from '@clerk/nextjs';
+import { ChevronDown } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { cn } from '@/lib/utils';
+import { Montserrat } from 'next/font/google';
+import {
+  HoverCard,
+  HoverCardTrigger,
+  HoverCardContent,
+} from '@/components/ui/hover-card';
 
-export default function UserOrganizationButton() {
+const font = Montserrat({ weight: '600', subsets: ['latin'] });
+
+interface UserOrganizationButtonProps {
+  isCollapsed: boolean;
+}
+
+export default function UserOrganizationButton({
+  isCollapsed,
+}: UserOrganizationButtonProps) {
   const { user } = useUser();
   const { organizationList, isLoaded } = useOrganizationList();
   const { organization } = useOrganization();
   const clerk = useClerk();
   const router = useRouter();
+
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isLoaded) {
@@ -22,15 +44,38 @@ export default function UserOrganizationButton() {
     }
   }, [organizationList, isLoaded]);
 
+  // Close dropdown when clicking outside (for expanded sidebar)
+  useEffect(() => {
+    if (!isCollapsed) {
+      const handleClickOutside = (event: MouseEvent) => {
+        if (
+          dropdownRef.current &&
+          !dropdownRef.current.contains(event.target as Node)
+        ) {
+          setIsOpen(false);
+        }
+      };
+
+      if (isOpen) {
+        document.addEventListener('mousedown', handleClickOutside);
+      } else {
+        document.removeEventListener('mousedown', handleClickOutside);
+      }
+
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, [isOpen, isCollapsed]);
+
   // Handle loading state
   if (!isLoaded) {
     return <div>Loading...</div>;
   }
 
   // Provide default empty array if organizationList is undefined or null
-  const organizations: Array<{ organization: { id: string; name: string } }> = Array.isArray(organizationList)
-    ? organizationList
-    : [];
+  const organizations: Array<{ organization: { id: string; name: string } }> =
+    Array.isArray(organizationList) ? organizationList : [];
 
   // Handle cases where useOrganization might not have fetched the active organization
   const currentOrganization = organization || null;
@@ -57,130 +102,150 @@ export default function UserOrganizationButton() {
     router.push('/create-organization');
   };
 
-  return (
-    <Menu as="div" className="relative inline-block text-left">
-      <div>
-        <Menu.Button className="flex items-center focus:outline-none">
-          <Image
-            src={user?.profileImageUrl || '/default-avatar.png'}
-            alt="User Avatar"
-            width={40}
-            height={40}
-            className="rounded-full"
-          />
-          <ChevronDown className="w-5 h-5 ml-2" aria-hidden="true" />
-        </Menu.Button>
+  // Menu content extracted for reuse
+  const menuContent = (
+    <>
+      {/* Organization Section */}
+      <div className="px-3 py-2 text-gray-500 text-sm">
+        Current Organization:
       </div>
+      {currentOrganization ? (
+        <div className="px-3 py-2 font-semibold">
+          {currentOrganization.name}
+        </div>
+      ) : (
+        <div className="px-3 py-2 font-semibold">Personal Account</div>
+      )}
 
-      <Transition
-        as={Fragment}
-        enter="transition ease-out duration-100"
-        enterFrom="transform opacity-0 scale-95"
-        enterTo="transform opacity-100 scale-100"
-        leave="transition ease-in duration-75"
-        leaveFrom="transform opacity-100 scale-100"
-        leaveTo="transform opacity-0 scale-95"
-      >
-        <Menu.Items className="absolute right-0 mt-2 w-56 bg-white divide-y divide-gray-200 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
-          {/* Organization Section */}
-          <div className="px-1 py-1 ">
-            <div className="px-3 py-2 text-gray-500 text-sm">
-              Current Organization:
-            </div>
-            {currentOrganization ? (
-              <Menu.Item disabled>
-                <div className="px-3 py-2 font-semibold">
-                  {currentOrganization.name}
-                </div>
-              </Menu.Item>
-            ) : (
-              <Menu.Item disabled>
-                <div className="px-3 py-2 font-semibold">Personal Account</div>
-              </Menu.Item>
-            )}
+      {/* Switch Organizations */}
+      {organizations.length > 0 && (
+        <>
+          <div className="px-3 py-2 text-gray-500 text-sm">
+            Switch Organization
           </div>
+          {organizations.map((org) => (
+            <button
+              key={org.organization.id}
+              onClick={() => handleSwitchOrganization(org.organization.id)}
+              className="flex w-full px-3 py-2 text-left text-sm rounded-lg hover:bg-white/10 transition-colors"
+            >
+              {org.organization.name}
+            </button>
+          ))}
+          {/* Option to switch to personal account */}
+          <button
+            onClick={() => handleSwitchOrganization(null)}
+            className="flex w-full px-3 py-2 text-left text-sm rounded-lg hover:bg-white/10 transition-colors"
+          >
+            Personal Account
+          </button>
 
-          {/* Switch Organizations */}
-          {organizations.length > 0 && (
-            <div className="px-1 py-1 ">
-              <div className="px-3 py-2 text-gray-500 text-sm">
-                Switch Organization
+          {/* Separator */}
+          <div className="my-2 border-t border-gray-700"></div>
+        </>
+      )}
+
+      {/* Organization Actions */}
+      <button
+        onClick={handleCreateOrganization}
+        className="flex w-full px-3 py-2 text-left text-sm rounded-lg hover:bg-white/10 transition-colors"
+      >
+        Create Organization
+      </button>
+
+      {/* User Actions */}
+      <button
+        onClick={handleManageAccount}
+        className="flex w-full px-3 py-2 text-left text-sm rounded-lg hover:bg-white/10 transition-colors"
+      >
+        Manage Account
+      </button>
+      <button
+        onClick={handleSignOut}
+        className="flex w-full px-3 py-2 text-left text-sm text-red-600 rounded-lg hover:bg-white/10 transition-colors"
+      >
+        Sign Out
+      </button>
+    </>
+  );
+
+  return (
+    <div className="relative inline-block w-full" ref={dropdownRef}>
+      {isCollapsed ? (
+        // Use HoverCard when sidebar is collapsed
+        <HoverCard openDelay={0}>
+          <HoverCardTrigger asChild>
+            <button
+              className={cn(
+                `flex items-center space-x-2 text-white px-4 py-2 rounded-lg hover:bg-white/10 transition-colors duration-200`,
+                font.className,
+                'justify-center w-full'
+              )}
+            >
+              <div className="flex items-center">
+                <Image
+                  src={user?.profileImageUrl || '/default-avatar.png'}
+                  alt="User Avatar"
+                  width={40}
+                  height={40}
+                  className="rounded-full"
+                />
               </div>
-              {organizations.map((org) => (
-                <Menu.Item key={org.organization.id}>
-                  {({ active }) => (
-                    <button
-                      onClick={() => handleSwitchOrganization(org.organization.id)}
-                      className={`${
-                        active ? 'bg-gray-100' : ''
-                      } flex w-full px-3 py-2 text-left`}
-                    >
-                      {org.organization.name}
-                    </button>
-                  )}
-                </Menu.Item>
-              ))}
-              {/* Option to switch to personal account */}
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    onClick={() => handleSwitchOrganization(null)}
-                    className={`${
-                      active ? 'bg-gray-100' : ''
-                    } flex w-full px-3 py-2 text-left`}
-                  >
-                    Personal Account
-                  </button>
-                )}
-              </Menu.Item>
+            </button>
+          </HoverCardTrigger>
+          <HoverCardContent
+            side="right"
+            className={cn(
+              'bg-darkGray text-white border border-white/20 shadow-lg rounded-2xl w-64 p-2',
+              font.className
+            )}
+          >
+            {menuContent}
+          </HoverCardContent>
+        </HoverCard>
+      ) : (
+        // Original behavior when sidebar is expanded
+        <>
+          <button
+            className={cn(
+              `flex items-center space-x-2 text-white px-4 py-2 rounded-lg hover:bg-white/10 transition-colors duration-200`,
+              font.className,
+              'justify-between w-full'
+            )}
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <div className="flex items-center">
+              <Image
+                src={user?.profileImageUrl || '/default-avatar.png'}
+                alt="User Avatar"
+                width={40}
+                height={40}
+                className="rounded-full"
+              />
+              <div className="ml-2 text-sm font-medium text-white">
+                {user?.fullName || 'User'}
+              </div>
+            </div>
+            <ChevronDown
+              className={cn(
+                'h-5 w-5 transform transition-transform duration-200',
+                isOpen ? 'rotate-0' : 'rotate-180'
+              )}
+              aria-hidden="true"
+            />
+          </button>
+          {isOpen && (
+            <div
+              className={cn(
+                'absolute left-0 bottom-full mb-2 z-50 w-full rounded-2xl shadow-lg bg-darkGray text-white ring-1 ring-black ring-opacity-5 border border-white/20 p-2',
+                font.className
+              )}
+            >
+              {menuContent}
             </div>
           )}
-
-          {/* Organization Actions */}
-          <div className="px-1 py-1 ">
-            <Menu.Item>
-              {({ active }) => (
-                <button
-                  onClick={handleCreateOrganization}
-                  className={`${
-                    active ? 'bg-gray-100' : ''
-                  } flex w-full px-3 py-2 text-left`}
-                >
-                  Create Organization
-                </button>
-              )}
-            </Menu.Item>
-          </div>
-
-          {/* User Actions */}
-          <div className="px-1 py-1 ">
-            <Menu.Item>
-              {({ active }) => (
-                <button
-                  onClick={handleManageAccount}
-                  className={`${
-                    active ? 'bg-gray-100' : ''
-                  } flex w-full px-3 py-2 text-left`}
-                >
-                  Manage Account
-                </button>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <button
-                  onClick={handleSignOut}
-                  className={`${
-                    active ? 'bg-gray-100' : ''
-                  } flex w-full px-3 py-2 text-left text-red-600`}
-                >
-                  Sign Out
-                </button>
-              )}
-            </Menu.Item>
-          </div>
-        </Menu.Items>
-      </Transition>
-    </Menu>
+        </>
+      )}
+    </div>
   );
 }

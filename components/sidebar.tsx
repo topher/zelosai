@@ -2,11 +2,21 @@
 
 'use client';
 
-import React, { useState, useEffect, useCallback, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from '@/components/ui/tooltip';
+import {
+  HoverCard,
+  HoverCardTrigger,
+  HoverCardContent,
+} from '@/components/ui/hover-card';
+import {
+  TooltipProvider,
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
 import { useUser, useOrganization } from '@clerk/nextjs';
 import { useFeatureAccess } from '@/hooks/useFeatureAccess';
@@ -22,9 +32,7 @@ import { FaLock } from 'react-icons/fa';
 import { ChevronDown } from 'lucide-react';
 import { Montserrat } from 'next/font/google';
 import { QrCode, Settings } from 'lucide-react';
-// Uncomment the imports below when you need them
-// import { connectWallet, getMetadataFromApiAsync, getSelectedAddress } from '@/lib/Web3Client';
-// import { ACCOUNT_STATE, TokenContext } from '@/context/TokenContext';
+import UserOrganizationButton from './UserOrganizationButton';
 
 const montserrat = Montserrat({ subsets: ['latin'], weight: '400' });
 
@@ -41,15 +49,20 @@ const Sidebar: React.FC<SidebarProps> = ({
   toggleSidebar,
   toggleCollapse,
 }) => {
-  const [expandedCategories, setExpandedCategories] = useState<{ [key: string]: boolean }>({});
+  const [expandedCategories, setExpandedCategories] = useState<{
+    [key: string]: boolean;
+  }>({});
   const [featuresUsage, setFeaturesUsage] = useState<FeaturesUsage>({});
   const pathname = usePathname();
 
   const { user } = useUser();
   const { organization } = useOrganization();
-  const [subscriptionTier, setSubscriptionTier] = useState<SubscriptionTier | null>(null);
+  const [subscriptionTier, setSubscriptionTier] =
+    useState<SubscriptionTier | null>(null);
   const [subscription, setSubscription] = useState<Subscription | null>(null);
-  const [allowedFeatures, setAllowedFeatures] = useState<{ [key: string]: boolean }>({});
+  const [allowedFeatures, setAllowedFeatures] = useState<{
+    [key: string]: boolean;
+  }>({});
 
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -83,7 +96,9 @@ const Sidebar: React.FC<SidebarProps> = ({
     updatedAt: '',
   };
 
-  const { isFeatureAllowed } = useFeatureAccess(subscription || defaultSubscription);
+  const { isFeatureAllowed } = useFeatureAccess(
+    subscription || defaultSubscription
+  );
 
   // Fetch user subscription
   const fetchUserSubscription = async () => {
@@ -106,7 +121,9 @@ const Sidebar: React.FC<SidebarProps> = ({
         }
 
         console.log('Fetched Subscription Data:', subscriptionData);
-        setSubscriptionTier(subscriptionData.subscriptionTier as SubscriptionTier);
+        setSubscriptionTier(
+          subscriptionData.subscriptionTier as SubscriptionTier
+        );
         setFeaturesUsage(subscriptionData.featuresUsage);
         setSubscription(subscriptionData);
       } else {
@@ -125,7 +142,12 @@ const Sidebar: React.FC<SidebarProps> = ({
   }, [organization?.id]);
 
   useEffect(() => {
-    console.log('Updated Subscription Tier:', subscriptionTier, ' for ', featuresUsage);
+    console.log(
+      'Updated Subscription Tier:',
+      subscriptionTier,
+      ' for ',
+      featuresUsage
+    );
   }, [subscriptionTier, featuresUsage]);
 
   useEffect(() => {
@@ -146,10 +168,16 @@ const Sidebar: React.FC<SidebarProps> = ({
   }, [subscription]);
 
   const toggleCategory = (category: string) => {
-    setExpandedCategories((prev) => ({
-      ...prev,
-      [category]: !prev[category],
-    }));
+    setExpandedCategories((prev) => {
+      const isExpanded = prev[category];
+      if (isExpanded) {
+        // Collapse the category if it's already expanded
+        return {};
+      } else {
+        // Expand the clicked category and collapse others
+        return { [category]: true };
+      }
+    });
   };
 
   if (loading || !user || !subscription) {
@@ -157,63 +185,34 @@ const Sidebar: React.FC<SidebarProps> = ({
   }
 
   // Group features by category and exclude Profiles category
-  const categories = features.reduce((acc: { [key: string]: Feature[] }, feature) => {
-    if (feature.metadata.category === FeatureCategory.Profiles) {
-      return acc; // Exclude Profiles category
-    }
+  const categories = features.reduce(
+    (acc: { [key: string]: Feature[] }, feature) => {
+      if (feature.metadata.category === FeatureCategory.Profiles) {
+        return acc; // Exclude Profiles category
+      }
 
-    const categoryKey = feature.metadata.category as string;
-    if (!acc[categoryKey]) {
-      acc[categoryKey] = [];
-    }
-    acc[categoryKey].push(feature);
-    return acc;
-  }, {});
-
-  // Uncomment and use the context when needed
-  /*
-  const { onSetUserProfile, web3BtnState, onAccountState } = useContext(TokenContext);
-
-  const onSetSelectedToken = useCallback(async () => {
-    const token = await getSelectedAddress();
-    if (token) {
-      onAccountState(ACCOUNT_STATE.MINT_TOKEN);
-    } else {
-      onAccountState(ACCOUNT_STATE.GUEST);
-    }
-  }, [onAccountState]);
-
-  const onSetUserProfileHandler = useCallback(async () => {
-    const userProfile = await getMetadataFromApiAsync();
-    onSetUserProfile(userProfile);
-  }, [onSetUserProfile]);
-
-  const onConnectWallet = useCallback(async () => {
-    await connectWallet();
-    await onSetSelectedToken();
-    await onSetUserProfileHandler();
-    console.log(web3BtnState); // This might not show the updated state immediately
-  }, [onSetUserProfileHandler, onSetSelectedToken]);
-
-  useEffect(() => {
-    onSetSelectedToken();
-    onSetUserProfileHandler();
-  }, [onSetSelectedToken, onSetUserProfileHandler]);
-  */
+      const categoryKey = feature.metadata.category as string;
+      if (!acc[categoryKey]) {
+        acc[categoryKey] = [];
+      }
+      acc[categoryKey].push(feature);
+      return acc;
+    },
+    {}
+  );
 
   return (
     <TooltipProvider>
       <div
         className={cn(
-          'bg-[#0A0E27] text-white flex flex-col overflow-x-visible transition-all duration-300 z-50',
+          'bg-[#0A0E27] text-white flex flex-col overflow-x-visible transition-all duration-300',
           'h-screen',
           // Width classes: w-20 for collapsed, w-64 for expanded
-          actualIsCollapsed ? 'md:w-20 w-64' : 'w-64',
-          // Positioning: fixed on small screens, relative on medium and above
+          actualIsCollapsed ? 'w-20' : 'w-64',
+          // Positioning
           isSidebarOpen
-            ? 'fixed inset-y-0 left-0 transform translate-x-0'
-            : 'fixed inset-y-0 left-0 transform -translate-x-full',
-          'md:translate-x-0 md:relative md:flex-shrink-0'
+            ? 'fixed inset-y-0 left-0 transform translate-x-0 z-50 md:relative'
+            : 'fixed inset-y-0 left-0 transform -translate-x-full z-50 md:relative md:translate-x-0'
         )}
       >
         {/* Close button for small screens */}
@@ -226,7 +225,12 @@ const Sidebar: React.FC<SidebarProps> = ({
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 6l12 12M6 18L18 6" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 6l12 12M6 18L18 6"
+              />
             </svg>
           </button>
         </div>
@@ -239,7 +243,9 @@ const Sidebar: React.FC<SidebarProps> = ({
                 <Image fill alt="Logo" src="/zlogo.png" />
               </div>
               {!actualIsCollapsed && (
-                <h1 className={cn('text-3xl font-bold', montserrat.className)}>ZELOS</h1>
+                <h1 className={cn('text-3xl font-bold', montserrat.className)}>
+                  ZELOS
+                </h1>
               )}
             </Link>
 
@@ -274,7 +280,9 @@ const Sidebar: React.FC<SidebarProps> = ({
         <div className="flex-1 overflow-y-auto overflow-x-hidden">
           <div className="space-y-1">
             {Object.entries(categories).map(([categoryKey, categoryFeatures]) => {
-              const category = featureCategoryConfig[categoryKey as FeatureCategory];
+              const category = featureCategoryConfig[
+                categoryKey as FeatureCategory
+              ];
               if (!category) return null;
 
               const CategoryIcon = category.icon;
@@ -283,84 +291,150 @@ const Sidebar: React.FC<SidebarProps> = ({
 
               return (
                 <div key={categoryKey} className="relative group">
-                  <Tooltip>
-                    <TooltipTrigger asChild>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
                       <div>
                         <button
                           className={cn(
                             'flex items-center p-3 w-full font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition',
-                            pathname.startsWith(category.href) ? 'text-white bg-white/10' : 'text-zinc-400',
-                            actualIsCollapsed ? 'justify-center' : 'justify-start'
+                            pathname.startsWith(category.href)
+                              ? 'text-white bg-white/10'
+                              : 'text-zinc-400',
+                            actualIsCollapsed
+                              ? 'justify-center'
+                              : 'justify-start'
                           )}
                           onClick={() => toggleCategory(categoryKey)}
                         >
-                          <CategoryIcon className="h-6 w-6" style={{ color: categoryColorHex }} />
+                          <CategoryIcon
+                            className="h-6 w-6"
+                            style={{ color: categoryColorHex }}
+                          />
                           {!actualIsCollapsed && (
                             <>
-                              <span className="ml-4 capitalize">{categoryLabel}</span>
+                              <span className="ml-4 capitalize">
+                                {categoryLabel}
+                              </span>
                               <ChevronDown
                                 className={cn(
                                   'h-4 w-4 ml-auto transition-transform duration-200',
-                                  expandedCategories[categoryKey] ? 'transform rotate-180' : ''
+                                  expandedCategories[categoryKey]
+                                    ? 'transform rotate-180'
+                                    : ''
                                 )}
                               />
                             </>
                           )}
                         </button>
                       </div>
-                    </TooltipTrigger>
+                    </HoverCardTrigger>
                     {actualIsCollapsed && (
-                      <TooltipContent
+                      <HoverCardContent
                         side="right"
-                        className="bg-[#1f2937] text-white border border-gray-700 shadow-lg rounded-md px-3 py-2"
+                        className="bg-[#1f2937] text-white border border-gray-700 shadow-lg rounded-md px-3 py-2 w-64"
                       >
-                        <div className="capitalize">{categoryLabel}</div>
-                      </TooltipContent>
+                        <div className="capitalize font-bold mb-2">
+                          {categoryLabel}
+                        </div>
+                        <div className="space-y-1">
+                          {(categoryFeatures as Feature[]).map(
+                            (feature: Feature) => {
+                              const isAllowed = allowedFeatures[feature.key];
+
+                              if (isAllowed === undefined || !isAllowed) {
+                                return null;
+                              }
+
+                              const FeatureIcon = feature.metadata.icon;
+
+                              return (
+                                <Link
+                                  key={feature.key}
+                                  href={
+                                    isAllowed ? feature.metadata.href : '#'
+                                  }
+                                  passHref
+                                >
+                                  <div
+                                    className={cn(
+                                      'flex items-center text-sm p-2 px-3 w-full font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded transition',
+                                      pathname === feature.metadata.href
+                                        ? 'text-white bg-white/10'
+                                        : 'text-zinc-400',
+                                      !isAllowed &&
+                                        'opacity-50 cursor-not-allowed'
+                                    )}
+                                  >
+                                    <FeatureIcon
+                                      className="h-5 w-5"
+                                      style={{ color: categoryColorHex }}
+                                    />
+                                    <span className="ml-4 capitalize">
+                                      {feature.metadata.label}
+                                    </span>
+                                    {!isAllowed && (
+                                      <FaLock className="ml-auto h-4 w-4 text-red-500" />
+                                    )}
+                                  </div>
+                                </Link>
+                              );
+                            }
+                          )}
+                        </div>
+                      </HoverCardContent>
                     )}
-                  </Tooltip>
+                  </HoverCard>
 
                   {/* Render child features */}
                   {!actualIsCollapsed && (
                     <div
                       className={cn(
                         'ml-8 space-y-1 overflow-hidden transition-all duration-300',
-                        expandedCategories[categoryKey] ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+                        expandedCategories[categoryKey]
+                          ? 'max-h-screen opacity-100'
+                          : 'max-h-0 opacity-0'
                       )}
                     >
-                      {(categoryFeatures as Feature[]).map((feature: Feature) => {
-                        const isAllowed = allowedFeatures[feature.key];
+                      {(categoryFeatures as Feature[]).map(
+                        (feature: Feature) => {
+                          const isAllowed = allowedFeatures[feature.key];
 
-                        // Optionally handle undefined
-                        if (isAllowed === undefined) {
-                          return null; // Or render a loading placeholder
-                        }
+                          if (isAllowed === undefined) {
+                            return null;
+                          }
 
-                        const FeatureIcon = feature.metadata.icon;
+                          const FeatureIcon = feature.metadata.icon;
 
-                        return (
-                          <Link
-                            key={feature.key}
-                            href={isAllowed ? feature.metadata.href : '#'}
-                            passHref
-                          >
-                            <div
-                              className={cn(
-                                'flex items-center text-sm p-2 px-3 w-full font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded transition',
-                                pathname === feature.metadata.href
-                                  ? 'text-white bg-white/10'
-                                  : 'text-zinc-400',
-                                !isAllowed && 'opacity-50 cursor-not-allowed'
-                              )}
+                          return (
+                            <Link
+                              key={feature.key}
+                              href={isAllowed ? feature.metadata.href : '#'}
+                              passHref
                             >
-                              <FeatureIcon className="h-5 w-5" style={{ color: categoryColorHex }} />
-                              <span className="ml-4 capitalize">{feature.metadata.label}</span>
-                              {!isAllowed && (
-                                <FaLock className="ml-auto h-4 w-4 text-red-500" />
-                              )}
-                            </div>
-                          </Link>
-                        );
-                      })}
+                              <div
+                                className={cn(
+                                  'flex items-center text-sm p-2 px-3 w-full font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded transition',
+                                  pathname === feature.metadata.href
+                                    ? 'text-white bg-white/10'
+                                    : 'text-zinc-400',
+                                  !isAllowed && 'opacity-50 cursor-not-allowed'
+                                )}
+                              >
+                                <FeatureIcon
+                                  className="h-5 w-5"
+                                  style={{ color: categoryColorHex }}
+                                />
+                                <span className="ml-4 capitalize">
+                                  {feature.metadata.label}
+                                </span>
+                                {!isAllowed && (
+                                  <FaLock className="ml-auto h-4 w-4 text-red-500" />
+                                )}
+                              </div>
+                            </Link>
+                          );
+                        }
+                      )}
                     </div>
                   )}
                 </div>
@@ -370,7 +444,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         </div>
 
         {/* Settings and Connect Icons */}
-        <div className="space-y-1 mb-4">
+        <div className="space-y-1">
           {/* Settings Link */}
           <div className="relative group">
             <Tooltip>
@@ -379,7 +453,9 @@ const Sidebar: React.FC<SidebarProps> = ({
                   <div
                     className={cn(
                       'flex items-center p-3 w-full font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition',
-                      pathname === '/settings' ? 'text-white bg-white/10' : 'text-zinc-400',
+                      pathname === '/settings'
+                        ? 'text-white bg-white/10'
+                        : 'text-zinc-400',
                       actualIsCollapsed ? 'justify-center' : 'justify-start'
                     )}
                   >
@@ -390,15 +466,14 @@ const Sidebar: React.FC<SidebarProps> = ({
                   </div>
                 </Link>
               </TooltipTrigger>
-              <TooltipContent
-                side="right"
-                className={cn(
-                  'bg-[#1f2937] text-white border border-gray-700 shadow-lg rounded-md px-3 py-2',
-                  !actualIsCollapsed && 'hidden'
-                )}
-              >
-                <div>Settings</div>
-              </TooltipContent>
+              {actualIsCollapsed && (
+                <TooltipContent
+                  side="right"
+                  className="bg-[#1f2937] text-white border border-gray-700 shadow-lg rounded-md px-3 py-2"
+                >
+                  <div>Settings</div>
+                </TooltipContent>
+              )}
             </Tooltip>
           </div>
 
@@ -413,8 +488,6 @@ const Sidebar: React.FC<SidebarProps> = ({
                       pathname === '#' ? 'text-white bg-white/10' : 'text-zinc-400',
                       actualIsCollapsed ? 'justify-center' : 'justify-start'
                     )}
-                    // Uncomment the onClick handler when ready to use
-                    // onClick={() => onConnectWallet()}
                   >
                     <QrCode className="h-6 w-6 text-gray-300" />
                     {!actualIsCollapsed && (
@@ -423,17 +496,21 @@ const Sidebar: React.FC<SidebarProps> = ({
                   </div>
                 </Link>
               </TooltipTrigger>
-              <TooltipContent
-                side="right"
-                className={cn(
-                  'bg-[#1f2937] text-white border border-gray-700 shadow-lg rounded-md px-3 py-2',
-                  !actualIsCollapsed && 'hidden'
-                )}
-              >
-                <div>Connect</div>
-              </TooltipContent>
+              {actualIsCollapsed && (
+                <TooltipContent
+                  side="right"
+                  className="bg-[#1f2937] text-white border border-gray-700 shadow-lg rounded-md px-3 py-2"
+                >
+                  <div>Connect</div>
+                </TooltipContent>
+              )}
             </Tooltip>
           </div>
+        </div>
+
+        {/* User Organization Button */}
+        <div className={cn('p-1', actualIsCollapsed && 'flex justify-center')}>
+          <UserOrganizationButton isCollapsed={actualIsCollapsed} />
         </div>
       </div>
     </TooltipProvider>
