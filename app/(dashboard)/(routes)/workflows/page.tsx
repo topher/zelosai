@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { routes } from "@/components/sidebar";
+import { routes } from "@/app/components/atomic/organisms/sidebar";
 import { Montserrat } from 'next/font/google';
 
 const montserrat = Montserrat({ weight: '600', subsets: ['latin'] });
@@ -30,14 +30,14 @@ const Campaigns: React.FC = () => {
               <div className="flex flex-col justify-center items-center h-full p-6">
                 <div className="mb-4">
                   <Image
-                    src={`/${child.icon}/${child.icon}-dynamic-color.png`}
+                    src={`/3dicons/${child.icon}/${child.icon}-dynamic-color.png`}
                     alt={child.label}
                     width={200}
                     height={200}
                     className="group-hover:hidden transition-opacity duration-300"
                   />
                   <Image
-                    src={`/${child.icon}/${child.icon}-dynamic-premium.png`}
+                    src={`/3dicons/${child.icon}/${child.icon}-dynamic-premium.png`}
                     alt={child.label}
                     width={200}
                     height={200}

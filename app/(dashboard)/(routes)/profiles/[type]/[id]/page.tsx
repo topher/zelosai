@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ClientOnly from "../../../../../../app/components/ClientOnly";
+import ClientOnly from "../../../../../components/common/ClientOnly";
 import EmptyState from "../../../search/components/EmptyState";
 import Profile from "./components/Profile";
 import { ListingProvider } from "../../../../../../app/context/ListingContext";

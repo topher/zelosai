@@ -16,7 +16,7 @@ import {
   updateUseCase,
   deleteUseCase,
 } from "@/app/actions/useCaseActions"; // Import all CRUD actions
-import StrategyLayout from "../StrategyLayout";
+import StrategyLayout from "../../../../components/atomic/templates/StrategyLayout";
 
 const UseCasesPage = () => {
   const [useCases, setUseCases] = useState<UseCase[]>([]);

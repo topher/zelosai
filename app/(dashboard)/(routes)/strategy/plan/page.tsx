@@ -11,7 +11,7 @@ import {
 } from "react-icons/ai";
 import Section from "@/app/(dashboard)/(routes)/strategy/components/businessModelSection";
 import { Separator } from "@/components/ui/separator";
-import StrategyLayout from "../StrategyLayout";
+import StrategyLayout from "../../../../components/atomic/templates/StrategyLayout";
 
 const BusinessPlan = () => {
   const [businessModelCards, setBusinessModelCards] = useState<any[]>([]);

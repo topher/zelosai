@@ -1,7 +1,7 @@
 // app/(dashboard)/(routes)/search/predicates/components/PredicateGrid.tsx
 
 import React, { useEffect, useRef } from 'react';
-import TripleCardPredicate from '@/app/(dashboard)/(routes)/profiles/[type]/[id]/components/TripleCardPredicate';
+import TripleCardPredicate from '@/app/components/atomic/organisms/cards/triple-cards/TripleCardPredicate';
 import Masonry from 'masonry-layout';
 import 'app/(dashboard)/(routes)/profiles/[type]/[id]/components/Profile.css'; // Updated import path
 

@@ -3,7 +3,7 @@
 "use client";
 
 import { AIModel } from "@/app/types";
-import { Loader } from "@/components/loader";
+import { Loader } from "@/app/components/atomic/atoms/loader_b";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";

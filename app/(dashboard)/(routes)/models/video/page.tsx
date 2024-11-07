@@ -9,11 +9,11 @@ import { toast } from "react-hot-toast";
 import { FileAudio } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-import { Heading } from "@/components/heading";
+import { Heading } from "@/app/components/atomic/atoms/heading_b";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
-import { Loader } from "@/components/loader";
+import { Loader } from "@/app/components/atomic/atoms/loader_b";
 import { Empty } from "@/components/ui/empty";
 import { useProModal } from "@/hooks/use-pro-modal";
 

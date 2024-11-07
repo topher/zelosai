@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Separator } from "@/components/ui/separator";
 import { createAgent, deleteAgent } from "@/app/actions/agentsActions"; // Import CRUD actions
 import { Agent } from "@/app/types"; // Import the Agent type
-import StrategyLayout from "../StrategyLayout";
+import StrategyLayout from "@/app/components/atomic/templates/StrategyLayout";
 
 const AgentsPage = () => {
   const [agents, setAgents] = useState<Agent[]>([]);
@@ -65,8 +65,8 @@ const AgentsPage = () => {
                 <p className="mt-4 text-sm">{agent.Type}</p>
                 <p className="mt-2 text-sm font-semibold">Associated Use Cases:</p>
                 <ul className="list-disc ml-4">
-                  {agent.AssociatedUseCases.map((useCase, idx) => (
-                    <li key={idx} className="text-sm">{useCase}</li>
+                  {agent.expertiseAreas.map((area, idx) => (
+                    <li key={idx} className="text-sm">{area}</li>
                   ))}
                 </ul>
                 {/* Example delete button */}

@@ -19,11 +19,11 @@ const AIModelSearchCard: React.FC<AIModelSearchCardProps> = ({ data }) => {
   if (!imageUrl) {
     const tags = data.tags || [];
     if (tags.includes("voice")) {
-      imageUrl = "/mic/mic-dynamic-clay.png";
+      imageUrl = "/3dicons/mic/mic-dynamic-clay.png";
     } else if (tags.includes("text")) {
-      imageUrl = "/chat-bubble/chat-bubble-dynamic-clay.png";
+      imageUrl = "/3dicons/chat-bubble/chat-bubble-dynamic-clay.png";
     } else if (tags.includes("image")) {
-      imageUrl = "/painting-brush/paint-brush-dynamic-clay.png";
+      imageUrl = "/3dicons/painting-brush/paint-brush-dynamic-clay.png";
     } else {
       imageUrl = "/default-image.png"; // Adjust to your default image
     }

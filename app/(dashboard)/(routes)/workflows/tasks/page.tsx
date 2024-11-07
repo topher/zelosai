@@ -4,9 +4,9 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { DataTable } from "@/app/(dashboard)/components/shared/data-table/data-table";
+import { DataTable } from "@/app/components/atomic/organisms/data-table";
 import { Task } from "@/app/types";
-import { UserNav } from "@/app/(dashboard)/components/shared/data-table/user-nav";
+import { UserNav } from "@/app/components/atomic/organisms/user-nav";
 import { columns } from "./components/columns"; // Task-specific columns
 import { useAuth } from "@clerk/nextjs"; // Correct hook for authentication
 import { Montserrat } from "next/font/google";

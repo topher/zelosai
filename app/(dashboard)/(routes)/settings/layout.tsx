@@ -1,3 +1,4 @@
+
 import { Metadata } from "next"
 import Image from "next/image"
 
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 const sidebarNavItems = [
   {
     title: "Profile",
-    href: "/knowledge-bank/settings",
+    href: "/assets/settings",
   },
   {
     title: "Account",

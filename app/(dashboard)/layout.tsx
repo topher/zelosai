@@ -1,7 +1,7 @@
 "use client";
 
-import Navbar from "@/components/navbar";
-import Sidebar from "@/components/sidebar";
+import Navbar from "@/app/components/atomic/organisms/navbar";
+import Sidebar from "@/app/components/atomic/organisms/sidebar";
 import { useState } from "react";
 
 const DashboardLayout = ({

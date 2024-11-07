@@ -1,7 +1,7 @@
 // /app/(dashboard)/(routes)/profiles/[type]/[id]/components/ProfileGrid.tsx
 
 import React, { useEffect, useRef } from 'react';
-import TripleCardObject from './TripleCardObject';
+import TripleCardObject from '@/app/components/atomic/organisms/cards/triple-cards/TripleCardObject';
 import Masonry from 'masonry-layout';
 import './Profile.css';
 

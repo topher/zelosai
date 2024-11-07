@@ -7,7 +7,7 @@ import { Task } from "@/app/types";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowUpIcon, ArrowDownIcon, TrashIcon } from "lucide-react";
-import SelectAllCheckbox from "@/app/(dashboard)/components/shared/data-table/select-all-checkbox";
+import SelectAllCheckbox from "@/app/components/atomic/organisms/select-all-checkbox";
 import { Checkbox } from "@/components/ui/checkbox";
 
 // Optional: Define a delete handler or pass it as a prop
