@@ -10,7 +10,7 @@ import { deductCredits } from '@/lib/credits';
 import { logUserAction } from '@/lib/logging';
 import { FeatureKey } from '@/config/featuresConfig';
 import { featureRoutes, FeatureCategory } from '@/config/featureRoutes';
-import { getFeatureKey } from '@/lib/actionResourceMapping'; // Ensure correct import path
+import { getActionFeatureKey } from '@/lib/actionResourceMapping'; // Ensure correct import path
 
 // Helper function to map HTTP methods to actions
 function getActionFromMethod(method: string): string {
@@ -97,7 +97,7 @@ export default withClerkMiddleware(async (req: NextRequest) => {
         }
     } else {
         // For non-resource routes, map to feature keys based on featureRoutes
-        const featureKey = getFeatureKey(action, resourceName);
+        const featureKey = getActionFeatureKey(action, resourceName);
         if (!featureKey) {
           console.error(`No FeatureKey mapping found for action: ${action}, resourceType: ${resourceName}`);
           return NextResponse.json({ error: 'Invalid Feature' }, { status: 400 });
@@ -144,7 +144,7 @@ export default withClerkMiddleware(async (req: NextRequest) => {
         }
 
         // Map action and resourceType to FeatureKey
-        const featureKey = getFeatureKey(action, resourceName);
+        const featureKey = getActionFeatureKey(action, resourceName);
         if (!featureKey) {
             console.error(`No FeatureKey mapping found for action: ${action}, resourceType: ${resourceName}`);
             return NextResponse.json({ error: 'Invalid Feature' }, { status: 400 });

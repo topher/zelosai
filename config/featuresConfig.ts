@@ -1714,7 +1714,7 @@ export const features: Feature[] = [
       category: FeatureCategory.Search,
       icon: ZoomIn,
       label: 'Athletes',
-      href: '/searchable/athletes',
+      href: '/search/athletes',
       description: 'Search through athlete profiles.',
       isInProd: true,
       resourceName: 'searchable_athletes',
@@ -1798,7 +1798,7 @@ export const features: Feature[] = [
     key: FeatureKey.SearchableModels,
     metadata: {
       category: FeatureCategory.Search,
-      icon: LayoutDashboard,
+      icon: PackageSearch,
       label: 'Models',
       href: '/search/models',
       description: 'Search through AI models.',
