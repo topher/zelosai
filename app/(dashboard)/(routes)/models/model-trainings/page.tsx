@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@clerk/nextjs";
 import { Montserrat } from "next/font/google";
 import { Button } from "@/components/ui/button";
-import { DataTable } from "@/app/(dashboard)/components/shared/data-table/data-table";
+import { DataTable } from "@/app/components/atomic/organisms/data-table";
 import { ModelTraining } from "@/app/types";
 import { columns } from "./components/columns"; // ModelTraining-specific columns
 import Image from "next/image";

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { Switch } from "@radix-ui/react-switch";
 import { Badge } from "@/components/ui/badge";
 import { StategicIssue } from "@/app/types";
-import StrategyLayout from "../StrategyLayout";
+import StrategyLayout from "../../../../components/atomic/templates/StrategyLayout";
 
 const IssuesPage = () => {
   // Initialize state with empty array

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import StrategyLayout from "../../strategy/StrategyLayout";
+import StrategyLayout from "@/app/components/atomic/templates/StrategyLayout";
 import { ModelSubject } from '@/app/types'
 
 const ModelSubjectsPage: React.FC = () => {

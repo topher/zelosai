@@ -1,67 +1,53 @@
-import Stripe from "stripe"
-import { headers } from "next/headers"
-import { NextResponse } from "next/server"
+// app/api/webhooks/stripe/route.ts
 
-// import prismadb from "@/lib/prismadb"
-import stripe from "@/lib/stripe"
+import { NextResponse } from 'next/server';
+import Stripe from 'stripe';
+import stripe from '@/lib/stripe';
+import { buffer } from 'micro';
+import { handleUpgradeSuccess } from '@/lib/subscription';
+import { SubscriptionTier } from '@/config/featuresConfig';
 
-export async function POST(req: Request) {
-  const body = await req.text()
-  const signature = headers().get("Stripe-Signature") as string
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
 
-  let event: Stripe.Event
+export async function POST(request: Request) {
+  const buf = await buffer(request);
+  const sig = request.headers.get('stripe-signature') || '';
+
+  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET || '';
+
+  let event: Stripe.Event;
 
   try {
-    event = stripe.webhooks.constructEvent(
-      body,
-      signature,
-      process.env.STRIPE_WEBHOOK_SECRET!
-    )
-  } catch (error: any) {
-    return new NextResponse(`Webhook Error: ${error.message}`, { status: 400 })
+    event = stripe.webhooks.constructEvent(buf.toString(), sig, webhookSecret);
+  } catch (err) {
+    console.error('Webhook signature verification failed.', err);
+    return NextResponse.json({ error: 'Webhook signature verification failed' }, { status: 400 });
   }
 
-  const session = event.data.object as Stripe.Checkout.Session
+  // Handle the event
+  switch (event.type) {
+    case 'checkout.session.completed':
+      const session = event.data.object as Stripe.Checkout.Session;
+      const userId = session.metadata?.userId;
+      const tier = session.metadata?.tier as SubscriptionTier;
 
-  if (event.type === "checkout.session.completed") {
-    const subscription = await stripe.subscriptions.retrieve(
-      session.subscription as string
-    )
-
-    if (!session?.metadata?.userId) {
-      return new NextResponse("User id is required", { status: 400 });
-    }
-
-  //   await prismadb.userSubscription.create({
-  //     data: {
-  //       userId: session?.metadata?.userId,
-  //       stripeSubscriptionId: subscription.id,
-  //       stripeCustomerId: subscription.customer as string,
-  //       stripePriceId: subscription.items.data[0].price.id,
-  //       stripeCurrentPeriodEnd: new Date(
-  //         subscription.current_period_end * 1000
-  //       ),
-  //     },
-  //   })
+      if (userId && tier) {
+        try {
+          await handleUpgradeSuccess(userId, tier);
+          console.log(`✅ Subscription upgraded for user ${userId} to tier ${tier}.`);
+        } catch (error) {
+          console.error(`❌ Error upgrading subscription for user ${userId}:`, error);
+        }
+      }
+      break;
+    // Handle other events as needed
+    default:
+      console.warn(`Unhandled event type ${event.type}`);
   }
 
-  // if (event.type === "invoice.payment_succeeded") {
-    const subscription = await stripe.subscriptions.retrieve(
-      session.subscription as string
-    )
-
-  //   await prismadb.userSubscription.update({
-  //     where: {
-  //       stripeSubscriptionId: subscription.id,
-  //     },
-  //     data: {
-  //       stripePriceId: subscription.items.data[0].price.id,
-  //       stripeCurrentPeriodEnd: new Date(
-  //         subscription.current_period_end * 1000
-  //       ),
-  //     },
-  //   })
-  // }
-
-  return new NextResponse(null, { status: 200 })
-};
+  return NextResponse.json({ received: true }, { status: 200 });
+}

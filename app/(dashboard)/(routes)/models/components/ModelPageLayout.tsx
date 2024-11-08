@@ -3,7 +3,7 @@
 "use client";
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Heading } from "@/components/heading";
+import { Heading } from "@/app/components/atomic/atoms/heading_b";
 import { AIModel } from "@/app/types";
 import { LucideProps } from "lucide-react";
 import React from "react";

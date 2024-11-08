@@ -64,7 +64,7 @@ export enum FeatureCategory {
   Strategy = 'strategy',
   Models = 'models',
   KnowledgeBank = 'knowledgeBank',
-  Marketplace = 'marketplace',
+  Marketplace = 'deals',
   Workflows = 'workflows',
   Search = 'search',
   Profiles = 'profiles',
@@ -86,31 +86,31 @@ export const featureCategoryConfig: { [key in FeatureCategory]: FeatureCategoryM
     href: "/dashboard/Dashboard"
   },
   [FeatureCategory.Strategy]: {
-    label: 'Strategy',
+    label: 'Strategize',
     icon: Briefcase,
     colorHex: '#3B82F6', // Blue
     href: "/dashboard/Strategy"
   },
   [FeatureCategory.Models]: {
-    label: 'Models',
+    label: 'Generate',
     icon: ImageIcon,
     colorHex: '#10B981', // Green
     href: "/dashboard/Models"
   },
   [FeatureCategory.KnowledgeBank]: {
-    label: 'Knowledge Bank',
+    label: 'My Assets',
     icon: Database,
     colorHex: '#F59E0B', // Gold
     href: "/dashboard/Knowledge"
   },
   [FeatureCategory.Marketplace]: {
-    label: 'Marketplace',
+    label: 'My Deals',
     icon: ShoppingCart,
     colorHex: '#F97316', // Orange
     href: "/dashboard/Marketplace"
   },
   [FeatureCategory.Workflows]: {
-    label: 'Workflows',
+    label: 'My Flows',
     icon: Workflow,
     colorHex: '#EF4444', // Red
     href: "/dashboard/Workflows"
@@ -958,7 +958,7 @@ export const features: Feature[] = [
       category: FeatureCategory.KnowledgeBank,
       icon: Link,
       label: 'Connectors',
-      href: '/knowledge-bank/connectors',
+      href: '/assets/connectors',
       description: 'Manage data connectors.',
       isInProd: true,
       resourceName: 'connectors',
@@ -1001,7 +1001,7 @@ export const features: Feature[] = [
       category: FeatureCategory.KnowledgeBank,
       icon: Book,
       label: 'Topics',
-      href: '/knowledge-bank/topics',
+      href: '/assets/topics',
       description: 'Organize your topics.',
       isInProd: true,
       resourceName: 'topics',
@@ -1044,7 +1044,7 @@ export const features: Feature[] = [
       category: FeatureCategory.KnowledgeBank,
       icon: Info,
       label: 'Info Assets',
-      href: '/knowledge-bank/info-assets',
+      href: '/assets/inventory',
       description: 'Manage information assets.',
       isInProd: true,
       resourceName: 'info_assets',
@@ -1087,7 +1087,7 @@ export const features: Feature[] = [
       category: FeatureCategory.KnowledgeBank,
       icon: Shield,
       label: 'Policies',
-      href: '/knowledge-bank/policies',
+      href: '/assets/policies',
       description: 'Manage organizational policies.',
       isInProd: true,
       resourceName: 'policies',
@@ -1130,7 +1130,7 @@ export const features: Feature[] = [
       category: FeatureCategory.KnowledgeBank,
       icon: BookLock,
       label: 'Terms',
-      href: '/knowledge-bank/terms',
+      href: '/assets/terms',
       description: 'Manage terms and conditions.',
       isInProd: true,
       resourceName: 'data_category',
@@ -1175,7 +1175,7 @@ export const features: Feature[] = [
       category: FeatureCategory.Marketplace,
       icon: MessageCircle,
       label: 'Messages',
-      href: '/marketplace/messages',
+      href: '/deals/messages',
       description: 'Manage your messages.',
       isInProd: false,
       resourceName: 'messages',
@@ -1218,7 +1218,7 @@ export const features: Feature[] = [
       category: FeatureCategory.Marketplace,
       icon: Gift,
       label: 'Offers',
-      href: '/marketplace/offers',
+      href: '/deals/offers',
       description: 'Manage your offers.',
       isInProd: false,
       resourceName: 'offers',
@@ -1304,7 +1304,7 @@ export const features: Feature[] = [
       category: FeatureCategory.Marketplace,
       icon: User,
       label: 'Transactions',
-      href: '/marketplace/transactions',
+      href: '/deals/transactions',
       description: 'Manage your contacts.',
       isInProd: false,
       resourceName: 'transactions',
@@ -1347,7 +1347,7 @@ export const features: Feature[] = [
       category: FeatureCategory.Marketplace,
       icon: ClipboardList,
       label: 'Contracts',
-      href: '/marketplace/contracts',
+      href: '/deals/contracts',
       description: 'Manage your contracts.',
       isInProd: true,
       resourceName: 'contracts',
@@ -1713,7 +1713,7 @@ export const features: Feature[] = [
     metadata: {
       category: FeatureCategory.Search,
       icon: ZoomIn,
-      label: 'Searchable Athletes',
+      label: 'Athletes',
       href: '/searchable/athletes',
       description: 'Search through athlete profiles.',
       isInProd: true,
@@ -1756,11 +1756,11 @@ export const features: Feature[] = [
     metadata: {
       category: FeatureCategory.Search,
       icon: ClipboardList,
-      label: 'Searchable Contracts',
-      href: '/searchable/contracts',
+      label: 'Contracts',
+      href: '/search/contracts',
       description: 'Search through contract documents.',
       isInProd: true,
-      resourceName: 'searchable_contracts',
+      resourceName: 'contracts',
       maxResourceCount: [100, 1000, 10000],
     },
     actions: [
@@ -1798,12 +1798,12 @@ export const features: Feature[] = [
     key: FeatureKey.SearchableModels,
     metadata: {
       category: FeatureCategory.Search,
-      icon: PackageSearch,
-      label: 'Searchable Models',
-      href: '/searchable/models',
+      icon: LayoutDashboard,
+      label: 'Models',
+      href: '/search/models',
       description: 'Search through AI models.',
       isInProd: true,
-      resourceName: 'searchable_models',
+      resourceName: 'complete_trained_models',
       maxResourceCount: [100, 1000, 10000],
     },
     actions: [
@@ -1842,11 +1842,11 @@ export const features: Feature[] = [
     metadata: {
       category: FeatureCategory.Search,
       icon: Briefcase,
-      label: 'Searchable Brands',
-      href: '/searchable/brands',
+      label: 'Brands',
+      href: '/search/brands',
       description: 'Search through brand profiles.',
       isInProd: true,
-      resourceName: 'searchable_brands',
+      resourceName: 'brands',
       maxResourceCount: [100, 1000, 10000],
     },
     actions: [
@@ -1885,11 +1885,11 @@ export const features: Feature[] = [
     metadata: {
       category: FeatureCategory.Search,
       icon: User,
-      label: 'Searchable Users',
-      href: '/searchable/users',
+      label: 'Users',
+      href: '/search/users',
       description: 'Search through user profiles.',
       isInProd: false,
-      resourceName: 'searchable_users',
+      resourceName: 'users',
       maxResourceCount: [0, 1000, 10000],
     },
     actions: [

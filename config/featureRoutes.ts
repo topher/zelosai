@@ -44,7 +44,7 @@
 //   | 'strategy'
 //   | 'dashboard'
 //   | 'campaigns'
-//   | 'marketplace'
+//   | 'deals'
 //   | 'search';
 
 // export type Feature = {
@@ -209,21 +209,21 @@
 //     children: [
 //       {
 //         label: 'Connectors',
-//         href: '/knowledge-bank/connectors',
+//         href: '/assets/connectors',
 //         description: 'Manage data connectors.',
 //         icon: Link,
 //         featureKey: 'connectors', // Corresponds to `knowledgeBank.connectors`
 //       },
 //       {
 //         label: 'Topics',
-//         href: '/knowledge-bank/topics',
+//         href: '/assets/topics',
 //         description: 'Organize your topics.',
 //         icon: Book,
 //         featureKey: 'topics', // Corresponds to `knowledgeBank.topics`
 //       },
 //       {
 //         label: 'Info Assets',
-//         href: '/knowledge-bank/info-assets',
+//         href: '/assets/info-assets',
 //         description: 'Manage informational assets.',
 //         icon: Info,
 //         featureKey: 'infoAssets', // Corresponds to `knowledgeBank.infoAssets`
@@ -267,45 +267,45 @@
 //   //   ],
 //   // },
 //   {
-//     category: 'marketplace',
+//     category: 'deals',
 //     label: 'Marketplace',
 //     icon: Database,
 //     color: 'text-orange-500',
 //     children: [
 //       {
 //         label: 'Messages',
-//         href: '/marketplace/messages',
+//         href: '/deals/messages',
 //         description: 'View and manage your messages.',
 //         icon: MessageCircle, // Corrected from 'LucideMessageCircle' to 'MessageCircle'
-//         featureKey: 'messages', // Corresponds to `marketplace.messages`
+//         featureKey: 'messages', // Corresponds to `deals.messages`
 //       },
 //       {
 //         label: 'Offers',
-//         href: '/marketplace/offers',
+//         href: '/deals/offers',
 //         description: 'View and manage your offers.',
 //         icon: Gift, // Corrected from 'LucideGift' to 'Gift'
-//         featureKey: 'offers', // Corresponds to `marketplace.offers`
+//         featureKey: 'offers', // Corresponds to `deals.offers`
 //       },
 //       {
 //         label: 'Requests',
-//         href: '/marketplace/requests',
+//         href: '/deals/requests',
 //         description: 'View and manage your requests.',
 //         icon: ClipboardList, // Corrected from 'LucideClipboardList' to 'ClipboardList'
-//         featureKey: 'requests', // Corresponds to `marketplace.requests`
+//         featureKey: 'requests', // Corresponds to `deals.requests`
 //       },
 //       {
 //         label: 'CRM',
-//         href: '/marketplace/crm',
+//         href: '/deals/crm',
 //         description: 'Manage your CRM.',
 //         icon: Briefcase,
-//         featureKey: 'crm', // Corresponds to `marketplace.crm`
+//         featureKey: 'crm', // Corresponds to `deals.crm`
 //       },
 //       {
 //         label: 'Contracts',
-//         href: '/marketplace/contracts',
+//         href: '/deals/contracts',
 //         description: 'Manage your contracts.',
 //         icon: FileText, // Corrected from 'LucideFileText' to 'FileText'
-//         featureKey: 'contracts', // Corresponds to `marketplace.contracts`
+//         featureKey: 'contracts', // Corresponds to `deals.contracts`
 //       },
 //     ],
 //   },

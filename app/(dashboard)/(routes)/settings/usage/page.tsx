@@ -12,7 +12,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { FeatureUsageCard } from './components/FeaturesUsageCard';
 import { useAuth } from '@clerk/nextjs';
 import { features as allFeatures, FeatureKey, SubscriptionTier, Feature } from '@/config/featuresConfig'; // Ensure correct import
-import { Loader } from '@/components/loader'; // Implement a Spinner component
+import { Loader } from '@/app/components/atomic/atoms/loader_b'; // Implement a Spinner component
 
 const UsagePage: React.FC = () => {
   // State variables to manage fetched data

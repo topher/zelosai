@@ -1,9 +1,10 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Persona } from "@/app/types";
-import StrategyLayout from "@/app/(dashboard)/(routes)/strategy/StrategyLayout";
+import StrategyLayout from "@/app/components/atomic/templates/StrategyLayout";
 
 const PersonasPage = () => {
   const [personas, setPersonas] = useState<Persona[]>([]);
@@ -11,7 +12,7 @@ const PersonasPage = () => {
   useEffect(() => {
     const fetchPersonas = async () => {
       try {
-        const response = await fetch("/api/resource/persona");
+        const response = await fetch("/api/resource/personas");
         if (response.ok) {
           const data = await response.json();
           setPersonas(data.resources);
@@ -39,20 +40,22 @@ const PersonasPage = () => {
                   <p>{persona.description}</p>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  <Badge color="primary">{persona.attributes.profession}</Badge>
-                  <Badge color="secondary">{persona.attributes.location}</Badge>
-                  <Badge color="success">{persona.attributes.ageRange}</Badge>
+                  <Badge color="primary">{persona.type}</Badge>
+                  <Badge color="secondary">{persona.visibility}</Badge>
                 </div>
                 <div className="mt-2">
-                  <p>Interests:</p>
-                  <div className="flex flex-wrap gap-2">
-                    {persona.attributes.interests.map((interest, idx) => (
-                      <Badge key={idx} color="warning">
-                        {interest}
-                      </Badge>
+                  <p>Associated Use Cases:</p>
+                  <ul className="list-disc list-inside">
+                    {persona.AssociatedUseCases.map((useCase, idx) => (
+                      <li key={idx}>{useCase}</li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
+                {persona.image && (
+                  <div className="mt-4">
+                    <img src={persona.image} alt={`${persona.personaName}'s image`} />
+                  </div>
+                )}
               </CardContent>
             </Card>
           ))}

@@ -1,6 +1,7 @@
 "use client";
 
-import Sidebar from "@/components/sidebar";
+import Navbar from "@/app/components/atomic/organisms/navbar";
+import Sidebar from "@/app/components/atomic/organisms/sidebar";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Montserrat } from "next/font/google";

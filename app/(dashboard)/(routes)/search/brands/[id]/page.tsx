@@ -2,7 +2,7 @@
 
 import React from 'react';
 import getESResourceById from "@/app/actions/getESResourceById";
-import ClientOnly from "@/app/components/ClientOnly";
+import ClientOnly from "@/app/components/common/ClientOnly";
 import EmptyState from "../../components/EmptyState";
 import Profile from '@/app/(dashboard)/(routes)/profiles/[type]/[id]/components/Profile'; // Use unified Profile component
 import { ListingProvider } from "@/app/context/ListingContext";

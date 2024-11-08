@@ -1,9 +1,9 @@
 'use client';
 
 import { useRouter } from "next/navigation";
-
-import Button from "app/components/Button.client";
-import Heading from "app/components/Heading";
+import { AlertTriangle } from "lucide-react";
+import Button from "@/app/components/atomic/atoms/Button.client";
+import { Heading } from "@/app/components/atomic/atoms/heading_b";
 
 interface EmptyStateProps {
   title?: string;
@@ -30,9 +30,9 @@ const EmptyState: React.FC<EmptyStateProps> = ({
       "
     >
       <Heading
-        center
+        icon={AlertTriangle}
         title={title}
-        subtitle={subtitle}
+        description={subtitle}
       />
       <div className="w-48 mt-4">
         {showReset && (
