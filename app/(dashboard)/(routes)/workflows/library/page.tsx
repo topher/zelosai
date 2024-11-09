@@ -1,4 +1,7 @@
+// /app/(dashboard)/(routes)/workflows/library/page.tsx
+
 "use client"
+
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";

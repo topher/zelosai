@@ -6,13 +6,11 @@ import React, { useEffect, useState } from "react";
 import { useUser, useOrganization } from "@clerk/nextjs";
 import { Recommendation, Subscription } from "@/app/types";
 import { useRouter } from "next/navigation";
-import { features, FeatureKey, SubscriptionTier, ActionFeatureKey } from "@/config/featuresConfig";
+import { SubscriptionTier } from "@/config/featuresConfig";
 import { useFeatureAccess } from "@/hooks/useFeatureAccess";
-import { Montserrat } from "next/font/google";
 import { Button } from "@/components/ui/button";
 import ActionResourceRecommendationCard from "./components/ActionResourceRecommendationCard";
-
-const montserrat = Montserrat({ weight: "600", subsets: ["latin"] });
+import HomeDashboardLayout from "@/app/components/atomic/templates/HomeDashboardLayout";
 
 const RecommendationsPage: React.FC = () => {
   const { user } = useUser();
@@ -28,6 +26,7 @@ const RecommendationsPage: React.FC = () => {
   const defaultSubscription: Subscription = {
     subscriptionId: '',
     subscriptionTier: SubscriptionTier.FREE,
+    userId: '',
     creditsUsed: 0,
     monthlyCreditLimit: 100,
     featuresUsage: {},
@@ -84,7 +83,7 @@ const RecommendationsPage: React.FC = () => {
 
         if (response.ok) {
           const data = await response.json();
-          setRecommendations(data.resources); // Ensure 'resources' includes 'description' and 'featureKey'
+          setRecommendations(data.resources);
         } else {
           setError("Failed to load recommendations.");
         }
@@ -118,48 +117,33 @@ const RecommendationsPage: React.FC = () => {
     // Implement handleComment logic
   };
 
-  if (loading || subscriptionLoading) return <p>Loading recommendations...</p>;
-  if (error) return <p className="text-red-500">{error}</p>;
+  const isLoading = loading || subscriptionLoading;
 
   return (
-    <div className="flex flex-col h-full">
-      {/* Sticky Header */}
-      <div className="sticky top-0 bg-gradient-to-b p-8 z-10">
-        <div className="flex items-center justify-between">
-          <div>
-            <h2 className={`text-2xl font-bold tracking-tight ${montserrat.className}`}>
-              Your Recommendations
-            </h2>
-            <p className="text-muted-foreground">
-              Get personalized suggestions to enhance your experience.
-            </p>
-          </div>
-          <div className="flex items-center space-x-2">
-            <Button onClick={() => router.push("/dashboard/features")}>
-              Explore Features
-            </Button>
-          </div>
-        </div>
-      </div>
-
-      {/* Scrollable Recommendations with Gradient Background */}
-      <div className="flex-1 overflow-y-auto" style={{ background: 'linear-gradient(to bottom, #0A0E27, #000000)' }}>
-        <div className="p-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {recommendations.map((rec) => (
-              <ActionResourceRecommendationCard
-                key={rec.id}
-                recommendation={rec}
-                onDo={handleDo}
-                onArchive={handleArchive}
-                onLike={handleLike}
-                onComment={handleComment}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
+    <HomeDashboardLayout
+      header={{
+        title: "Your Recommendations",
+        description: "Get personalized suggestions to enhance your experience.",
+        actions: (
+          <Button onClick={() => router.push("/dashboard/features")}>
+            Explore Features
+          </Button>
+        ),
+      }}
+      isLoading={isLoading}
+      error={error}
+      items={recommendations}
+      renderItem={(rec) => (
+        <ActionResourceRecommendationCard
+          key={rec.id}
+          recommendation={rec}
+          onDo={handleDo}
+          onArchive={handleArchive}
+          onLike={handleLike}
+          onComment={handleComment}
+        />
+      )}
+    />
   );
 };
 
