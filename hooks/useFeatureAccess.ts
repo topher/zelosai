@@ -78,7 +78,7 @@ export const useFeatureAccess = (subscription: Subscription | null) => {
         console.log("🤩 Current Resource Count:", maxCount, actionKey, currentResourceCount);
         if (currentResourceCount >= maxCount) return false;
       } catch (error) {
-        console.error(`Error fetching resource count:`, error);
+        // console.error(`Error fetching resource count:`, error);
         return false;
       }
     }

@@ -1,5 +1,161 @@
 [
     {
+      "id": "workflow-101",
+      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType": "Workflow",
+      "createdAt": "2024-05-01T09:00:00.000Z",
+      "updatedAt": "2024-05-10T10:00:00.000Z",
+      "tags": ["Content", "Marketing"],
+      "visibility": "public",
+      "workflow_creator": "user_defined",
+      "name": "Content Creation Workflow",
+      "emoji": "✍️",
+      "artist": "Jane Doe",
+      "cover": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+      "description": "A workflow to streamline the content creation process from ideation to publication.",
+      "stages": [
+        {
+          "id": "stage-101-1",
+          "workflowId": "workflow-101",
+          "name": "Ideation",
+          "params": {
+            "dueDate": "2024-05-05"
+          }
+        },
+        {
+          "id": "stage-101-2",
+          "workflowId": "workflow-101",
+          "name": "Drafting",
+          "params": {
+            "assignedTo": "writer_team"
+          }
+        },
+        {
+          "id": "stage-101-3",
+          "workflowId": "workflow-101",
+          "name": "Editing",
+          "params": {
+            "reviewers": ["editor_1", "editor_2"]
+          }
+        },
+        {
+          "id": "stage-101-4",
+          "workflowId": "workflow-101",
+          "name": "Publication",
+          "params": {
+            "platforms": ["Blog", "Social Media"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "workflow-102",
+      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType": "Workflow",
+      "createdAt": "2024-06-15T08:30:00.000Z",
+      "updatedAt": "2024-07-01T11:15:00.000Z",
+      "tags": ["Development", "Product"],
+      "visibility": "public",
+      "workflow_creator": "user_defined",
+      "name": "Product Development Workflow",
+      "emoji": "🛠️",
+      "artist": "John Smith",
+      "cover": "https://images.unsplash.com/photo-1518770660439-4636190af475",
+      "description": "A structured workflow for developing new products from conception to launch.",
+      "stages": [
+        {
+          "id": "stage-102-1",
+          "workflowId": "workflow-102",
+          "name": "Research",
+          "params": {
+            "resources": ["market_analysis", "user_feedback"]
+          }
+        },
+        {
+          "id": "stage-102-2",
+          "workflowId": "workflow-102",
+          "name": "Design",
+          "params": {
+            "tools": ["Sketch", "Figma"]
+          }
+        },
+        {
+          "id": "stage-102-3",
+          "workflowId": "workflow-102",
+          "name": "Development",
+          "params": {
+            "languages": ["JavaScript", "TypeScript"]
+          }
+        },
+        {
+          "id": "stage-102-4",
+          "workflowId": "workflow-102",
+          "name": "Testing",
+          "params": {
+            "methods": ["Unit Testing", "Integration Testing"]
+          }
+        },
+        {
+          "id": "stage-102-5",
+          "workflowId": "workflow-102",
+          "name": "Launch",
+          "params": {
+            "platforms": ["Web", "iOS", "Android"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "workflow-103",
+      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "resourceType": "Workflow",
+      "createdAt": "2024-07-20T10:45:00.000Z",
+      "updatedAt": "2024-07-25T14:20:00.000Z",
+      "tags": ["Support", "Customer Service"],
+      "visibility": "public",
+      "workflow_creator": "user_defined",
+      "name": "Customer Support Workflow",
+      "emoji": "📞",
+      "artist": "Alice Johnson",
+      "cover": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+      "description": "A workflow to manage customer support tickets efficiently from submission to resolution.",
+      "stages": [
+        {
+          "id": "stage-103-1",
+          "workflowId": "workflow-103",
+          "name": "Ticket Received",
+          "params": {
+            "autoAssign": true
+          }
+        },
+        {
+          "id": "stage-103-2",
+          "workflowId": "workflow-103",
+          "name": "In Progress",
+          "params": {
+            "assignedTo": "support_team"
+          }
+        },
+        {
+          "id": "stage-103-3",
+          "workflowId": "workflow-103",
+          "name": "Awaiting Customer Response",
+          "params": {}
+        },
+        {
+          "id": "stage-103-4",
+          "workflowId": "workflow-103",
+          "name": "Resolved",
+          "params": {
+            "followUp": true
+          }
+        }
+      ]
+    },
+  {
       "id": "workflow-001",
       "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",

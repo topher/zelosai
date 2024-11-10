@@ -500,81 +500,20 @@ export async function updateOrganizationSubscription(
  */
 export async function updateSubscription(
   subscriptionId: string,
-  featureKey: FeatureKey,
-  action: 'read' | 'create' | 'edit' | 'delete'
-): Promise<Subscription | null> {
+  updates: Partial<Subscription>
+): Promise<boolean> {
   try {
-    // Fetch the current subscription data
-    const response = await axios.get(`/api/subscriptions`, {
-      params: { subscriptionId },
-      headers: { 'Content-Type': 'application/json' },
-      withCredentials: true, // If authentication is required
+    await elasticsearchAxios.post(`/subscriptions/_update/${subscriptionId}`, {
+      doc: updates,
     });
-
-    if (response.status !== 200) {
-      console.log(`Failed to fetch subscription with ID "${subscriptionId}".`);
-      return null;
-    }
-
-    const subscription: Subscription = response.data.subscription;
-
-    // Update credits and usage based on the action
-    const feature = allFeatures.find(f => f.key === featureKey);
-    if (!feature) {
-      console.log(`Feature "${featureKey}" not found for subscription update.`);
-      return null;
-    }
-
-    const actionConfig = feature.actions.find(a => a.action === action);
-    if (!actionConfig) {
-      console.log(`Action "${action}" not found for feature "${featureKey}".`);
-      return null;
-    }
-
-    subscription.creditsUsed += actionConfig.creditCost;
-
-    // Update the featuresUsage
-    const actionKey = actionConfig.actionKey;
-    if (subscription.featuresUsage[actionKey]) {
-      subscription.featuresUsage[actionKey].creditsUsed += actionConfig.creditCost;
-      subscription.featuresUsage[actionKey].count += 1;
-    } else {
-      subscription.featuresUsage[actionKey] = {
-        count: 1,
-        creditsUsed: actionConfig.creditCost,
-      };
-    }
-
-    // Update the subscription in Elasticsearch
-    const updateResponse = await axios.post(
-      `${process.env.ELASTICSEARCH_NODE}/subscriptions/_update/${subscriptionId}`,
-      {
-        doc: {
-          creditsUsed: subscription.creditsUsed,
-          featuresUsage: subscription.featuresUsage,
-        },
-      },
-      {
-        auth: {
-          username: process.env.ELASTICSEARCH_USERNAME,
-          password: process.env.ELASTICSEARCH_PASSWORD,
-        },
-        headers: { 'Content-Type': 'application/json' },
-      }
-    );
-
-    if (updateResponse.status === 200) {
-      console.log(`Successfully updated subscription "${subscriptionId}".`);
-      return subscription;
-    } else {
-      console.log(`Failed to update subscription "${subscriptionId}".`);
-      return null;
-    }
+    console.log(`✅ Subscription "${subscriptionId}" updated successfully.`);
+    return true;
   } catch (error: any) {
-    console.log(`Error updating subscription "${subscriptionId}":`, error);
-    return null;
+    console.error(`❌ Error updating subscription "${subscriptionId}":`, error);
+    return false;
   }
 }
+
 /**
  * Performs the specified action on a resource.
  * @param featureKey - The feature key (e.g., 'Goals').

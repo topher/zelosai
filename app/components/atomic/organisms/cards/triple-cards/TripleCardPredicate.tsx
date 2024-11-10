@@ -3,7 +3,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import TripleCardUserActions from '../../../../../../components/atomic/organisms/cards/triple-cards/TripleCardUserActions';
+import TripleCardUserActions from '@/app/components/atomic/organisms/cards/triple-cards/TripleCardUserActions';
 import Link from 'next/link';
 import {
   FaTwitter,

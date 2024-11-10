@@ -1,6 +1,6 @@
 // lib/logging.ts
 
-import { FeatureKey, Action } from '@/config/featuresConfig';
+import { FeatureKey, Action, ActionFeatureKey } from '@/config/featuresConfig';
 import { toast } from 'react-hot-toast';
 import elasticsearchAxios from './elasticsearchAxios';
 import { UserAction } from '@/app/types';
@@ -13,7 +13,7 @@ interface LogUserActionParams {
   subjectId: string;
   orgId: string;
   action: Action;
-  feature: FeatureKey;
+  actionFeatureKey: ActionFeatureKey;
   resourceId: string;
   creditsUsed: number;
   createdAt: Date;
@@ -24,10 +24,10 @@ interface LogUserActionParams {
  * Log User Action Function
  */
 export async function logUserAction(params: LogUserActionParams): Promise<void> {
-  const { subjectId, orgId, action, feature, resourceId, creditsUsed, createdAt, isSystemAction } = params;
+  const { subjectId, orgId, action, actionFeatureKey, resourceId, creditsUsed, createdAt, isSystemAction } = params;
 
   // Prevent logging if the action is on the 'user_actions' resource and not a system action
-  if (!isSystemAction && feature === FeatureKey.UserActions) {
+  if (!isSystemAction && actionFeatureKey === ActionFeatureKey.ReadUserAction) {
     console.log("Logging of 'user_actions' actions is skipped to prevent recursion.");
     return;
   }
@@ -36,7 +36,7 @@ export async function logUserAction(params: LogUserActionParams): Promise<void> 
     id: uuidv4(),
     subjectId,
     action,
-    feature,
+    actionFeatureKey,
     resourceId,
     creditsUsed,
     createdAt,

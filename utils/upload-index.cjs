@@ -11,6 +11,16 @@ const ELASTICSEARCH_USERNAME = process.env.ELASTICSEARCH_USERNAME;
 const ELASTICSEARCH_PASSWORD = process.env.ELASTICSEARCH_PASSWORD;
 
 /**
+ * Mapping of index names to their respective ID fields.
+ * If an index is not specified here, 'id' will be used as the default.
+ */
+const indexIdFieldMap = {
+    subscriptions: 'subscriptionId',
+    // Add other indices and their ID fields as needed
+    // e.g., athletes_triples: 'athleteId',
+};
+
+/**
  * Displays usage instructions.
  */
 function showUsage() {
@@ -177,11 +187,25 @@ async function uploadData(indexName, data) {
     try {
         console.log(`📤 Uploading ${data.length} documents to index "${indexName}"...`);
 
+        // Determine the ID field for the current index
+        const idField = indexIdFieldMap[indexName.toLowerCase()] || 'id';
+        console.log(`🔑 Using '${idField}' as the _id field for index "${indexName}".`);
+
         // Prepare bulk request body
         const bulkBody = data.flatMap(doc => {
-            const action = { index: { _index: indexName, _id: doc.subject } };
+            const docId = doc[idField];
+            if (!docId) {
+                console.warn(`⚠️  Document missing '${idField}' field. Skipping document:`, doc);
+                return []; // Skip documents without the required ID field
+            }
+            const action = { index: { _index: indexName, _id: docId } };
             return [action, doc];
         });
+
+        if (bulkBody.length === 0) {
+            console.warn(`⚠️  No valid documents to upload for index "${indexName}".`);
+            return;
+        }
 
         // Convert to NDJSON format
         const ndjson = bulkBody.map(line => JSON.stringify(line)).join('\n') + '\n';

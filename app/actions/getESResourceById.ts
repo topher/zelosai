@@ -1,14 +1,13 @@
+// lib/actions/getESResourceById.ts
+
 import { Client } from '@elastic/elasticsearch';
 import { RDFResource, Triple } from '../types';
-
-// Define the Triple and Resource types
 
 // Initialize Elasticsearch client
 const client = new Client({ node: 'http://localhost:9200' });
 
 /**
  * Fetches a resource by ID from a specified Elasticsearch index.
- * The URI structure changes based on whether it's an athlete or a brand.
  * @param indexName - The name of the Elasticsearch index.
  * @param id - The unique identifier of the resource.
  * @returns The resource object or null if not found.
@@ -35,8 +34,10 @@ export default async function getESResourceById(indexName: string, id: string) {
     // Search for the resource by its `subject` URI
     const result = await client.search({
       index: indexName, // Dynamic index name
-      query: {
-        term: { "subject": uri }
+      body: {
+        query: {
+          term: { "subject": uri } // Corrected field
+        }
       }
     });
 
@@ -44,6 +45,8 @@ export default async function getESResourceById(indexName: string, id: string) {
     const totalHits = typeof result.hits.total === 'number'
       ? result.hits.total
       : result.hits.total.value;
+
+    console.log(`Total Hits Found: ${totalHits}`);
 
     // If no hits are found, return null
     if (totalHits === 0) {

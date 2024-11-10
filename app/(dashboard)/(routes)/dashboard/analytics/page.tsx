@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import { Statistic } from "@/app/types";
 import { Montserrat } from "next/font/google";
 import { Button } from "@/components/ui/button";
+import { Overview  as SankeyOverview} from "@/app//components/atomic/organisms/sankey-overview";
+import { Overview as BarChartOverview } from "@/app/components/atomic/organisms/bar-chart-overview";
 
 const montserrat = Montserrat({ weight: "600", subsets: ["latin"] });
 
@@ -15,7 +17,7 @@ const AnalyticsPage: React.FC = () => {
   useEffect(() => {
     const fetchStatistics = async () => {
       try {
-        const response = await fetch("/api/resource/agents"); // Assuming resourceName 'agents' corresponds to statistics
+        const response = await fetch("/api/resource/statstics"); // Assuming resourceName 'agents' corresponds to statistics
         if (response.ok) {
           const data = await response.json();
           setStatistics(data.resources);

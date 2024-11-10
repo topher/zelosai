@@ -1,33 +1,27 @@
-// app/components/message-list.tsx
+// app/components/atomic/organisms/message-list.tsx
 
 'use client';
 
 import React from 'react';
-
-interface Message {
-  id: string;
-  subject: string;
-  content: string;
-  status: string;
-  messageType: string;
-  // Add other relevant fields
-}
+import { SearchHit } from '@/app/types'; // Ensure correct import
 
 interface MessageListProps {
-  messages: Message[];
-  onSelect: (message: Message) => void;
+  messages: SearchHit[];
+  onSelect: (message: SearchHit) => void;
 }
 
 export function MessageList({ messages, onSelect }: MessageListProps) {
+  console.log('Messages in MessageList:', messages); // Debugging
+
   if (messages.length === 0) {
     return <div>No messages found.</div>;
   }
 
   return (
     <ul className="space-y-2">
-      {messages.map(message => (
+      {messages.map((message) => (
         <li
-          key={message.id}
+          key={message.objectID} // Use 'objectID' as key
           className="p-4 border rounded hover:bg-gray-50 cursor-pointer"
           onClick={() => onSelect(message)}
         >

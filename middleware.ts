@@ -6,11 +6,11 @@ import type { NextRequest } from 'next/server';
 import { getUserAttributes } from '@/lib/auth';
 import { evaluateAccess } from '@/lib/policyEvaluation';
 import { checkFeatureLimit } from '@/lib/limits';
-import { deductCredits } from '@/lib/credits';
+import { deductCreditsAndIncrementUsage } from '@/lib/credits';
 import { logUserAction } from '@/lib/logging';
 import { FeatureKey } from '@/config/featuresConfig';
 import { featureRoutes, FeatureCategory } from '@/config/featureRoutes';
-import { getFeatureKey } from '@/lib/actionResourceMapping'; // Ensure correct import path
+import { getFeatureKey } from '@/lib/resourceMapping'; // Ensure correct import path
 
 // Helper function to map HTTP methods to actions
 function getActionFromMethod(method: string): string {

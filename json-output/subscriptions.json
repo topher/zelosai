@@ -142,6 +142,10 @@
       "DeleteUseCase": {
         "count": 5,
         "creditsUsed": 25
+      },
+      "ReadWorkflow": {
+        "count": 5,
+        "creditsUsed": 25
       }
     },
     "resourceCounts": {
@@ -150,7 +154,8 @@
       "Models": 25,
       "Analytics": 10,
       "Wallet": 5,
-      "AccountManagement": 3
+      "AccountManagement": 3,
+      "Workflows": 100
     },
     "createdAt": "2023-03-01T00:00:00.000Z",
     "updatedAt": "2023-03-02T00:00:00.000Z",

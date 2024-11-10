@@ -2,9 +2,11 @@
 
 import { auth, currentUser, clerkClient } from '@clerk/nextjs/server';
 import { getUserAttributes } from '@/lib/auth';
-import { OrganizationWithMemberships } from '@/app/types';
+import { OrganizationWithMemberships, Subscription } from '@/app/types';
 import elasticsearchAxios from './elasticsearchAxios'; // Updated import
-import { SubscriptionTier } from '@/config/featuresConfig';
+import { ActionFeatureKey, FeatureKey, SubscriptionTier } from '@/config/featuresConfig';
+import { getFeatureByActionKey } from '@/lib/featureUtils';
+
 
 interface Membership {
   userId: string;
@@ -53,25 +55,71 @@ export async function getUserSubscriptionTier(userId: string): Promise<string> {
   return user.subscriptionTier;
 }
 
-export async function incrementFeatureCount(userId: string, feature: string, count: number = 1): Promise<void> {
+/**
+ * Increments the feature count in Elasticsearch for a given subscription.
+ * @param userId - The ID of the user.
+ * @param actionFeatureKey - The ActionFeatureKey corresponding to the action performed.
+ * @param subscriptionId - The ID of the subscription.
+ */
+export async function incrementFeatureCount(
+  userId: string,
+  actionFeatureKey: ActionFeatureKey,
+  subscriptionId: string
+): Promise<void> {
+  console.log(`Incrementing feature count for subscriptionId: ${subscriptionId}`);
+
   try {
-    await elasticsearchAxios.post(`/users/_update/${userId}`, {
+    const feature = getFeatureByActionKey(actionFeatureKey);
+    if (!feature) {
+      throw new Error(`Feature not found for ActionFeatureKey: ${actionFeatureKey}`);
+    }
+
+    const updateScript = {
       script: {
         source: `
-          if (ctx._source.featuresUsage.containsKey(params.feature)) {
-            ctx._source.featuresUsage[params.feature] += params.count;
+          if (ctx._source.featuresUsage == null) {
+            ctx._source.featuresUsage = [:];
+          }
+          if (ctx._source.featuresUsage.containsKey(params.featureKey)) {
+            ctx._source.featuresUsage[params.featureKey].count += 1;
+            ctx._source.featuresUsage[params.featureKey].creditsUsed += params.creditsUsed;
           } else {
-            ctx._source.featuresUsage[params.feature] = params.count;
+            ctx._source.featuresUsage[params.featureKey] = ['count': 1, 'creditsUsed': params.creditsUsed];
           }
         `,
-        params: { feature, count },
+        params: {
+          featureKey: actionFeatureKey,
+          creditsUsed: 1, // Adjust as necessary
+        },
+        lang: 'painless',
       },
-    });
-  } catch (error) {
-    console.error(`Error incrementing feature count for user "${userId}":`, error);
+    };
+
+    const endpoint = `/subscriptions/_update/${subscriptionId}`;
+    console.log(`Updating subscription at endpoint: ${endpoint}`);
+
+    const response = await elasticsearchAxios.post(endpoint, updateScript);
+
+    if (response.status === 200 || response.status === 201) {
+      console.log(`✅ Feature "${actionFeatureKey}" count incremented for subscription "${subscriptionId}".`);
+    } else {
+      console.log(`❌ Failed to increment feature count for subscription "${subscriptionId}". Status: ${response.status}`);
+      console.log('Elasticsearch Response:', response.data);
+      throw new Error(`Failed to increment feature count. Status: ${response.status}`);
+    }
+  } catch (error: any) {
+    if (error.response) {
+      console.log(`❌ Elasticsearch Error:`, error.response.data);
+    } else if (error.request) {
+      console.log('❌ No response received from Elasticsearch:', error.request);
+    } else {
+      console.log(`❌ Error incrementing feature count for subscription "${subscriptionId}":`, error.message);
+    }
     throw error;
   }
 }
+
+
 
 export async function updateUserCredits(subscriptionId: string, newCredits: number): Promise<void> {
   // Update the user's credits in Elasticsearch using Axios

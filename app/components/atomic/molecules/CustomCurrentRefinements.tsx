@@ -1,10 +1,8 @@
-// components/CustomCurrentRefinements.tsx
-
-'use client';
+// molecules/CustomCurrentRefinements.tsx
 
 import React from 'react';
 import { connectCurrentRefinements } from 'react-instantsearch-dom';
-import { Chip, Stack } from '@mui/material';
+import Chip from '@/app/components/atomic/atoms/Chip';
 
 interface Refinement {
   attribute: string;
@@ -29,24 +27,18 @@ interface CustomCurrentRefinementsProps {
 }
 
 const CustomCurrentRefinementsComponent: React.FC<CustomCurrentRefinementsProps> = ({ items }) => {
-  const chips = items.flatMap((item) =>
-    item.refinements?.map((refinement) => (
+  const chips = items.flatMap(item =>
+    item.refinements.map(refinement => (
       <Chip
         key={`${item.attribute}-${refinement.label}`}
         label={`${item.label}: ${refinement.label}`}
-        onDelete={() => item.refine(refinement)}
-        color="primary"
-        variant="filled"
-        style={{ margin: '4px' }}
+        onClick={() => item.refine(refinement)}
+        className="m-1 bg-primary text-white"
       />
-    )) ?? []
+    ))
   );
 
-  return (
-    <Stack direction="row" spacing={1} flexWrap="wrap" style={{ marginBottom: '16px' }}>
-      {chips}
-    </Stack>
-  );
+  return <div className="flex flex-wrap mb-4">{chips}</div>;
 };
 
 export const CustomCurrentRefinements = connectCurrentRefinements(CustomCurrentRefinementsComponent);

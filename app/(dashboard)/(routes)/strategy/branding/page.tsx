@@ -5,7 +5,7 @@ import FilterPanel from '../components/FilterPanel';
 import { BrandModelCard, DropdownOption } from '@/app/types';
 import axios from 'axios';
 import { Separator } from '@/components/ui/separator';
-import StrategyLayout from '../../../../components/atomic/templates/StrategyLayout';
+import StrategyLayout from '../../../../components/atomic/ttemplates/StrategyLayout';
 
 const BrandPersonalityPage: React.FC = () => {
   const [brandModelCards, setBrandModelCards] = useState<BrandModelCard[]>([]);

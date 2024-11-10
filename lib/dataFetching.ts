@@ -4,6 +4,7 @@ import elasticsearchAxios from './elasticsearchAxios';
 import { buildAccessControlledQuery } from './accessControl';
 import { integer } from '@elastic/elasticsearch/lib/api/types'; // Retain if used elsewhere
 import { SubscriptionTier, TIER_ORDER } from '@/config/featuresConfig';
+import { Message } from '@/app/types';
 
 // Remove the Client import as it's no longer needed
 
@@ -137,7 +138,7 @@ function mapResourceNameToType(resourceName: string): string | null {
     contacts: 'Contact',
     contracts: 'Contract',
     workflows: 'Workflow',
-    profile_athletes: 'ProfileAthlete',
+    athletes_triples: 'ProfileAthlete',
     profile_contracts: 'ProfileContract',
     profile_models: 'ProfileModel',
     profile_brands: 'ProfileBrand',
@@ -163,31 +164,38 @@ function mapResourceNameToType(resourceName: string): string | null {
 /**
  * Get accessible resources for a user based on access control
  */
+// lib/dataFetching.ts
+
 export async function getAccessibleResources({
   userId,
   action,
   resourceName,
-  size,
+  query = '',
+  size = 100,
+  from = 0,
   userAttributes,
 }: {
   userId: string;
   action: string;
   resourceName: string;
-  size: integer;
+  query?: string;
+  size?: number;
+  from?: number;
   userAttributes: any;
-}): Promise<any[]> {
+}): Promise<Message[]> { // Replace 'Message' with your actual type
   const resourceType = mapResourceNameToType(resourceName);
   if (!resourceType) {
     throw new Error(`Unknown resource name: ${resourceName}`);
   }
 
-  // Build the access-controlled query
-  const query = await buildAccessControlledQuery(userAttributes, action, resourceType);
+  // Build the access-controlled query, possibly incorporating 'query'
+  const constructedQuery = await buildAccessControlledQuery(userAttributes, action, resourceType);
 
   try {
     const response = await elasticsearchAxios.post(`/${resourceName.toLowerCase()}/_search`, {
-      query,
+      query: constructedQuery,
       size,
+      from, // Include 'from' for pagination
     });
 
     if (!response.data || !response.data.hits) {

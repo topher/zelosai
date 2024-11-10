@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 
-import { CardModal } from "@/app/components/atomic/templates/modals/card-modal";
-import { ProModal } from "@/app/components/atomic/templates/modals/pro-modal";
+import { CardModal } from "@/app/components/atomic/ttemplates/modals/card-modal";
+import { ProModal } from "@/app/components/atomic/ttemplates/modals/pro-modal";
 
 export const ModalProvider = () => {
   const [isMounted, setIsMounted] = useState(false);

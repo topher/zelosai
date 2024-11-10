@@ -1,6 +1,7 @@
-// policyEvaluation.ts
+// lib/policyEvaluation.ts
 
 import type { Policy, Rule, Subscription, Condition, ConditionGroup } from 'app/types';
+import { getResourceNameByResourceType } from './featureUtils';
 
 export async function evaluateAccess({
   userId,
@@ -28,7 +29,8 @@ export async function evaluateAccess({
   let resourceAttributes = {};
 
   if (resourceId) {
-    resourceAttributes = await getResourceAttributes(resourceId, resourceType);
+    const resourceName = getResourceNameByResourceType(resourceType)
+    resourceAttributes = await getResourceAttributes(resourceId, resourceName);
     if (!resourceAttributes) {
       console.error(`Resource attributes not found for resourceId: ${resourceId}, resourceType: ${resourceType}`);
       return false;
@@ -52,17 +54,9 @@ export async function evaluateAccess({
     for (const rule of policy.rules) {
       if (!rule.predicate.includes(action)) continue;
 
-      const subjectMatches = evaluateConditionGroup(
-        rule.subjectCondition,
-        { ...userAttributes, ...environmentAttributes },
-        resourceAttributes
-      );
-      const objectMatches = evaluateConditionGroup(
-        rule.objectCondition,
-        { ...userAttributes, ...environmentAttributes },
-        resourceAttributes
-      );
-
+      const subjectMatches = evaluateConditionGroup(rule.subjectCondition, { ...userAttributes, ...environmentAttributes }, resourceAttributes);
+      const objectMatches = evaluateConditionGroup(rule.objectCondition, { ...userAttributes, ...environmentAttributes }, resourceAttributes);
+      console.log(`Rulezzzz: ${subjectMatches} ${objectMatches}}`);
       if (subjectMatches && objectMatches) {
         console.log(`Rule Matched: ${rule.id}`);
         if (rule.deontologicalDuty.toLowerCase() === 'prohibited') {
@@ -86,7 +80,6 @@ export async function evaluateAccess({
   return false;
 }
 
-
 function evaluateConditionGroup(
   condition: ConditionGroup | Condition,
   userAttributes: Record<string, any>,
@@ -109,18 +102,29 @@ export function evaluateCondition(
   resourceAttributes: Record<string, any>
 ): boolean {
   let { attribute, operator, value } = condition;
-  
-  console.log("🔥", condition)
+
+  console.log("🔥 Evaluating Condition:", condition);
 
   // Replace dynamic values (like $orgId or $accountId)
   if (typeof value === 'string' && value.startsWith('$')) {
     const refAttribute = value.substring(1); // Remove '$'
     value = userAttributes[refAttribute] ?? resourceAttributes[refAttribute];
+  } else if (Array.isArray(value)) {
+    value = value.map((v) => {
+      if (typeof v === 'string' && v.startsWith('$')) {
+        const refAttribute = v.substring(1);
+        return userAttributes[refAttribute] ?? resourceAttributes[refAttribute];
+      }
+      return v;
+    });
   }
 
   const attributeValue = userAttributes[attribute] ?? resourceAttributes[attribute];
+  console.log(`Attribute: ${attribute}, Attribute Value: ${attributeValue}, Value: ${JSON.stringify(value)}`);
 
   switch (operator) {
+    case 'in':
+      return Array.isArray(value) && value.includes(attributeValue);
     case 'is':
       return attributeValue === value;
     case 'is_not':
@@ -142,31 +146,35 @@ export function evaluateCondition(
 }
 
 
-// Function to fetch resource attributes
+// lib/policyEvaluation.ts
+
 export async function getResourceAttributes(
   resourceId: string,
-  resourceType: string
+  resourceName: string // Changed from resourceType to resourceName
 ): Promise<Record<string, any> | null> {
   try {
-    const response = await fetch(`http://localhost:9200/${resourceType.toLowerCase()}s/_doc/${resourceId}`, {
+    const endpoint = `http://localhost:9200/${resourceName.toLowerCase()}/_doc/${resourceId}`;
+    console.log("😜", endpoint);
+    const response = await fetch(endpoint, {
       method: 'GET',
     });
 
     if (!response.ok) {
-      console.error(`Failed to fetch resource: ${resourceType} with ID: ${resourceId}`);
+      console.error(`Failed to fetch resource: ${resourceName} with ID: ${resourceId}`);
       return null;
     }
 
     const data = await response.json();
     return {
-      resourceType,
+      resourceName, // Changed from resourceType to resourceName
       ...data._source,
     };
   } catch (error) {
-    console.error(`Error fetching resource attributes: Type=${resourceType}, ID=${resourceId}`, error);
+    console.error(`Error fetching resource attributes: ResourceName=${resourceName}, ID=${resourceId}`, error);
     return null;
   }
 }
+
 
 // Function to fetch policies from Elasticsearch
 export async function fetchPoliciesFromElasticsearch(orgId: string): Promise<Policy[]> {
@@ -179,14 +187,14 @@ export async function fetchPoliciesFromElasticsearch(orgId: string): Promise<Pol
       query: {
         bool: {
           should: [
-          {
-            match: { organizationId: "*" }, // Updated from orgId to organizationId
-          },      
-          {
-            match: { organizationId: orgId }, // Updated from orgId to organizationId
-          }
-        ]
-      }
+            {
+              match: { organizationId: "*" }, // Ensure 'organizationId' matches your mapping
+            },
+            {
+              match: { organizationId: orgId }, // Ensure 'organizationId' matches your mapping
+            }
+          ]
+        }
       }
     }),
   });
@@ -199,98 +207,6 @@ export async function fetchPoliciesFromElasticsearch(orgId: string): Promise<Pol
   const data = await response.json();
   return data.hits?.hits?.map((hit: any) => hit._source) || [];
 }
-
-
-
-
-// export async function evaluateAccess({
-//   userId,
-//   action,
-//   resourceId,
-//   resourceType,
-//   resourceAttributes,
-//   userAttributes
-// }: {
-//   userId: string;
-//   action: string;
-//   resourceId?: string;
-//   resourceType?: string;
-//   resourceAttributes?: Record<string, any>;
-//   userAttributes?: Record<string, any>; // Add this type
-// }): Promise<boolean> {
-//   // console.log("😀 Starting evaluation for:", { userId, action, resourceId, resourceType });
-
-//   // const userAttributes = await getUserAttributes();
-//   console.log("User attributes fetched:", userAttributes);
-
-//   let finalResourceAttributes = resourceAttributes;
-//   if (!resourceAttributes && resourceId && resourceType) {
-//     finalResourceAttributes = await getResourceAttributes(resourceId, resourceType);
-//   }
-
-//   const environmentAttributes = getEnvironmentAttributes();
-//   console.log("Final resource attributes:", finalResourceAttributes);
-
-//   // Fetch policies from Elasticsearch
-//   const policies = await fetchPoliciesFromElasticsearch();
-//   // console.log("Policies fetched:", policies.length, "policies");
-
-//   let isAllowed = false;
-//   let isProhibited = false;
-
-//   // Loop through each policy
-//   for (const policy of policies) {
-//     console.log(`Evaluating policy: ${policy.id} - ${policy.description}`);
-
-//     for (const rule of policy.rules) {
-//       if (rule.predicate !== action) continue;
-
-//       console.log(`\tEvaluating rule: ${rule.id} - Predicate: ${rule.predicate}`);
-
-//       // Check if user matches the subject conditions
-//       const subjectMatches = evaluateConditionGroup(
-//         rule.subjectCondition,
-//         { ...userAttributes, ...environmentAttributes },
-//         finalResourceAttributes
-//       );
-
-//       // Check if resource matches the object conditions
-//       const objectMatches = evaluateConditionGroup(
-//         rule.objectCondition,
-//         { ...userAttributes, ...environmentAttributes },
-//         finalResourceAttributes
-//       );
-
-//       console.log(`\t\tSubject Matches: ${subjectMatches}, Object Matches: ${objectMatches}`);
-
-//       // If both subject and object conditions match
-//       if (subjectMatches && objectMatches) {
-//         if (rule.deontologicalDuty.toLowerCase() === 'prohibited') {
-//           console.log(`\t\t\tAccess explicitly PROHIBITED by rule: ${rule.id}`);
-//           isProhibited = true;
-//         } else if (rule.deontologicalDuty.toLowerCase() === 'allowed') {
-//           console.log(`\t\t\tAccess ALLOWED by rule: ${rule.id}`);
-//           isAllowed = true;
-//         }
-//         // Continue evaluating other rules to catch any prohibitions
-//       }
-//     }
-//   }
-
-//   // Deny overrides allow
-//   if (isProhibited) {
-//     console.log("Final Decision: ACCESS DENIED (Prohibited by at least one rule)");
-//     return false;
-//   }
-
-//   if (isAllowed) {
-//     console.log("Final Decision: ACCESS GRANTED (Allowed by at least one rule)");
-//     return true;
-//   }
-
-//   console.log("Final Decision: ACCESS DENIED (No matching allow rules)");
-//   return false; // Default to deny if no matching rule is found
-// }
 
 // Function to fetch environment attributes (if needed)
 function getEnvironmentAttributes(): Record<string, any> {

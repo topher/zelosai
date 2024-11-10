@@ -381,16 +381,24 @@ export interface InfoAsset extends Resource {
   entity_type?: string;
   image?: string; 
 }
-export interface Workflow extends Resource {
-    workflow_creator: string;
-    id: string;
-    accountId: string;
-    name: string
-    emoji?: string
-    artist: string
-    cover: string
-    description: string
+
+export interface WorkflowStage {
+  id: string;
+  name: string;
+  params?: any; // Optional parameters for the stage
 }
+export interface Workflow extends Resource {
+  workflow_creator: string;
+  id: string;
+  accountId: string;
+  name: string;
+  emoji?: string;
+  artist: string;
+  cover: string;
+  description: string;
+  stages: WorkflowStage[]; // Add stages to Workflow
+}
+
 export interface Goal extends Resource {
   id: string;
   accountId: string;
@@ -539,6 +547,7 @@ export interface Recommendation extends Resource {
   recommenderId: string; // User ID of the person/system making the recommendation
 }
 
+
 // types/Message.ts
 export interface Message extends Resource {
   labels?: string[];
@@ -557,6 +566,7 @@ export interface Message extends Resource {
 export interface Attachment {
   id: string;
   url: string;
+  filename: string;
   contentType: string; // MIME type, e.g., 'image/png'
   size: number;        // Size in bytes
 }
@@ -592,7 +602,7 @@ export interface Transaction extends Resource {
 export interface UserAction extends Resource {
   subjectId: string;          // References the User performing the action
   action: Action;    // 'read', 'create', etc.
-  feature: FeatureKey; // 'Goals', 'Models', etc.
+  actionFeatureKey: ActionFeatureKey; // 'Goals', 'Models', etc.
   resourceId: string;         // References the Resource being acted upon
   creditsUsed: number;
   resourceType: 'UserAction';
@@ -605,8 +615,10 @@ export interface Task extends Resource {
   description?: string;
   status: 'Not Started' | 'In Progress' | 'Completed' | 'Blocked';
   priority: 'Low' | 'Medium' | 'High';
+  stageId: string; // Reference to the WorkflowStage
   // Add other task-specific properties
 }
+
 // END RESOURCES 
 
 
@@ -819,14 +831,9 @@ export interface Board {
 export type ListWithCards = List & { cards: Card[] };
 
 // @/app/types.ts
-export interface CardWithList {
-  id: string;
+export interface CardWithList extends Card {
   boardId: string;
-  description: string;
-  order: string;
-  listId: string;
-  title: string;
-  list: List; // Add the list property of type List
+  list: Omit<List, 'cards'>; // Exclude 'cards' to prevent circular references
 }
 
 export type DropdownOption = {
@@ -835,4 +842,8 @@ export type DropdownOption = {
   parent_id?: string | number | null;
   [key: string]: any; // For additional fields like 'type', 'region', etc.
 };
+
+export interface SearchHit extends Message {
+  objectID: string; // Required by InstantSearch
+}
 

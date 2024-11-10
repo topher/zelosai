@@ -83,30 +83,12 @@ export async function getUserAttributes(
     if (typeof userSubscriptionId === 'string') {
       subscription = await getSubscriptionById(userSubscriptionId);
     } else {
-      console.warn(userSubscriptionId, 'User subscriptionId is not a string:', userSubscriptionId);
+      console.warn('User subscriptionId is not a string:', userSubscriptionId);
     }
   }
 
   // Fetch user
   const user = await clerkClient.users.getUser(userId);
-
-  // Safely extract subscriptionId from privateMetadata
-  const subscriptionIdRaw = user.privateMetadata?.subscriptionId;
-  let subscriptionId: string | null = null;
-
-  if (typeof subscriptionIdRaw === 'string') {
-    subscriptionId = subscriptionIdRaw;
-  } else {
-    console.warn('Invalid subscriptionId type:', subscriptionIdRaw);
-  }
-
-  if (subscriptionId) {
-    try {
-      subscription = await getSubscriptionById(subscriptionId);
-    } catch (error) {
-      console.error('Error fetching subscription by ID:', error);
-    }
-  }
 
   // Extract role and groups
   const role = orgRole || user.publicMetadata?.role || 'user';

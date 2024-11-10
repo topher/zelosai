@@ -1,20 +1,12 @@
-// app/components/message-display.tsx
+// app/components/atomic/organisms/message-display.tsx
 
 'use client';
 
 import React from 'react';
-
-interface Message {
-  id: string;
-  subject: string;
-  content: string;
-  status: string;
-  messageType: string;
-  // Add other relevant fields
-}
+import { SearchHit } from '@/app/types'; // Ensure correct import
 
 interface MessageDisplayProps {
-  message: Message;
+  message: SearchHit;
 }
 
 export function MessageDisplay({ message }: MessageDisplayProps) {

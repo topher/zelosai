@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Persona } from "@/app/types";
-import StrategyLayout from "@/app/components/atomic/templates/StrategyLayout";
+import StrategyLayout from "@/app/components/atomic/ttemplates/StrategyLayout";
 
 const PersonasPage = () => {
   const [personas, setPersonas] = useState<Persona[]>([]);
@@ -46,7 +46,7 @@ const PersonasPage = () => {
                 <div className="mt-2">
                   <p>Associated Use Cases:</p>
                   <ul className="list-disc list-inside">
-                    {persona.AssociatedUseCases.map((useCase, idx) => (
+                    {persona.AssociatedUseCases?.map((useCase, idx) => (
                       <li key={idx}>{useCase}</li>
                     ))}
                   </ul>

@@ -9,7 +9,7 @@ import {
   updateGoal
 } from "@/app/actions/goalActions"; // Import CRUD actions
 import { Goal } from "@/app/types"; // Import the Goal type
-import StrategyLayout from "../../../../components/atomic/templates/StrategyLayout";
+import StrategyLayout from "../../../../components/atomic/ttemplates/StrategyLayout";
 
 const GoalsPage = () => {
   const [goals, setGoals] = useState<Goal[]>([]);

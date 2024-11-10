@@ -4,7 +4,7 @@ import { AuditLog } from "@/app/types";
 import { ActivityIcon } from "lucide-react";
 
 import { Skeleton } from "@/components/ui/skeleton";
-import { ActivityItem } from "@/components/activity-item";
+import { ActivityItem } from "@/app/components/atomic/molecules/activity-item";
 
 interface ActivityProps {
   items: AuditLog[];
