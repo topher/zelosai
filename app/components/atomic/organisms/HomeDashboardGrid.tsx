@@ -5,7 +5,7 @@ interface HomeDashboardGridProps<T> {
   renderItem: (item: T) => React.ReactNode;
 }
 
-function HomeDashboardGrid<T>({ items, renderItem }: HomeDashboardGridProps<T>) {
+const HomeDashboardGrid = <T,>({ items, renderItem }: HomeDashboardGridProps<T>) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {items.map((item, index) => (
@@ -13,6 +13,6 @@ function HomeDashboardGrid<T>({ items, renderItem }: HomeDashboardGridProps<T>) 
       ))}
     </div>
   );
-}
+};
 
 export default HomeDashboardGrid;

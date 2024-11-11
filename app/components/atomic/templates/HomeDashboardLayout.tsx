@@ -19,13 +19,13 @@ interface HomeDashboardLayoutProps<T> {
   renderItem: (item: T) => React.ReactNode;
 }
 
-function HomeDashboardLayout<T>({
+const HomeDashboardLayout = <T,>({
   header,
   isLoading = false,
   error = null,
   items,
   renderItem,
-}: HomeDashboardLayoutProps<T>) {
+}: HomeDashboardLayoutProps<T>) => {
   if (isLoading) return <p className="text-white">Loading...</p>;
   if (error) return <p className="text-red-500">{error}</p>;
 
@@ -57,6 +57,6 @@ function HomeDashboardLayout<T>({
       </div>
     </div>
   );
-}
+};
 
 export default HomeDashboardLayout;
