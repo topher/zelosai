@@ -1,144 +1,116 @@
-"use client";
-import Image from "next/image";
-import { PlusCircledIcon } from "@radix-ui/react-icons";
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
+// contracts/components/ContractCard.tsx
 
+"use client";
+
+import Image from "next/image";
+import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import {
   ContextMenu,
   ContextMenuContent,
   ContextMenuItem,
   ContextMenuSeparator,
-  ContextMenuSub,
-  ContextMenuSubContent,
-  ContextMenuSubTrigger,
   ContextMenuTrigger,
 } from "@/components/ui/context-menu";
-
 import { ContractModel } from "@/app/types";
-import { getContractsByAccountId } from "@/app/actions/contractsActions"; // Import action
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({ weight: "600", subsets: ["latin"] });
 
 interface ContractCardProps extends React.HTMLAttributes<HTMLDivElement> {
   contract: ContractModel;
-  aspectRatio?: "portrait" | "square";
+  aspectRatio?: "portrait" | "landscape" | "square";
   width?: number;
   height?: number;
 }
 
 export function ContractCard({
   contract,
-  aspectRatio = "portrait",
-  width,
-  height,
   className,
+  width = 300,
+  height = 225,
+  aspectRatio = "landscape",
   ...props
 }: ContractCardProps) {
   const [imageError, setImageError] = useState(false);
-  const [contracts, setContracts] = useState<ContractModel[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    // Fetch contracts from Elasticsearch using accountId
-    const accountId = "12345"; // Dummy account ID
-    const fetchContracts = async () => {
-      try {
-        setLoading(true);
-        const data = await getContractsByAccountId(accountId);
-        setContracts(data);
-      } catch (err) {
-        setError("Failed to load contracts.");
-      } finally {
-        setLoading(false);
-      }
-    };
+  const imageUrl = contract.cover || null;
 
-    fetchContracts();
-  }, []);
+  const aspectRatioClass =
+    aspectRatio === "portrait"
+      ? "aspect-[2/3]"
+      : aspectRatio === "landscape"
+      ? "aspect-[4/3]"
+      : "aspect-square";
 
   return (
-    <Link href={`/contracts/${contract.id}`}>
-      <div className={cn("space-y-3", className)} {...props}>
-        <ContextMenu>
-          <ContextMenuTrigger>
-            <div className="overflow-hidden rounded-md">
-              {!imageError ? (
+    <div
+      className={cn(
+        "relative overflow-hidden rounded-lg shadow group transition-all duration-500 ease-out",
+        aspectRatioClass,
+        className
+      )}
+      style={{ width, height }}
+      {...props}
+    >
+      <ContextMenu>
+        <ContextMenuTrigger>
+          <div className="relative w-full h-full">
+            {/* Background Image */}
+            <div className="absolute inset-0">
+              {!imageError && imageUrl ? (
                 <Image
-                  src={contract.cover}
+                  src={imageUrl}
                   alt={contract.title}
-                  width={width}
-                  height={height}
-                  className={cn(
-                    "h-auto w-auto object-cover transition-all hover:scale-105",
-                    aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"
-                  )}
+                  layout="fill"
+                  objectFit="cover"
+                  objectPosition="center"
+                  className="rounded-lg transition-transform duration-500 ease-out group-hover:scale-110"
                   onError={() => setImageError(true)}
                 />
               ) : (
                 <div
-                  className={cn(
-                    "flex items-center justify-center text-white text-4xl font-bold",
-                    aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"
-                  )}
-                  style={{ backgroundColor: "#111827" }} // Custom background color
+                  className="absolute inset-0 flex items-center justify-center text-white font-bold"
+                  style={{
+                    backgroundColor: "rgba(17, 24, 39, 0.85)",
+                    backdropFilter: "blur(12px)",
+                    WebkitBackdropFilter: "blur(12px)",
+                  }}
                 >
-                  {contract.emoji}
+                  <span style={{ fontSize: "3rem" }}>{contract.emoji || "📄"}</span>
                 </div>
               )}
             </div>
-          </ContextMenuTrigger>
-
-          <ContextMenuContent className="w-40">
-            <ContextMenuItem>Add to Library</ContextMenuItem>
-            <ContextMenuSub>
-              <ContextMenuSubTrigger>Add to Contract</ContextMenuSubTrigger>
-              <ContextMenuSubContent className="w-48">
-                <ContextMenuItem>
-                  <PlusCircledIcon className="mr-2 h-4 w-4" />
-                  New Contract
-                </ContextMenuItem>
-                <ContextMenuSeparator />
-                {loading ? (
-                  <ContextMenuItem>Loading...</ContextMenuItem>
-                ) : error ? (
-                  <ContextMenuItem>{error}</ContextMenuItem>
-                ) : (
-                  contracts.map((contract) => (
-                    <ContextMenuItem key={contract.id}>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        className="mr-2 h-4 w-4"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M21 15V6M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM12 12H3M16 6H3M12 18H3" />
-                      </svg>
-                      {contract.title}
-                    </ContextMenuItem>
-                  ))
+            {/* Overlay Content */}
+            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-black/80 via-transparent to-transparent">
+              <h3
+                className={cn(
+                  "text-white text-xl font-bold",
+                  montserrat.className
                 )}
-              </ContextMenuSubContent>
-            </ContextMenuSub>
-            <ContextMenuSeparator />
-            <ContextMenuItem>Review Next</ContextMenuItem>
-            <ContextMenuItem>Review Later</ContextMenuItem>
-            <ContextMenuItem>Create Task</ContextMenuItem>
-            <ContextMenuSeparator />
-            <ContextMenuItem>Like</ContextMenuItem>
-            <ContextMenuItem>Share</ContextMenuItem>
-          </ContextMenuContent>
-        </ContextMenu>
+                style={{ textShadow: "2px 2px 6px #000000" }}
+              >
+                {contract.title}
+              </h3>
+              {contract.description && (
+                <p className="text-white text-sm mt-1 line-clamp-2">
+                  {contract.description}
+                </p>
+              )}
+            </div>
+          </div>
+        </ContextMenuTrigger>
 
-        <div className="space-y-1 text-sm">
-          <h3 className="font-medium leading-none">{contract.title}</h3>
-          <p className="text-xs text-muted-foreground">{contract.creator}</p>
-        </div>
-      </div>
-    </Link>
+        <ContextMenuContent className="w-48">
+          <ContextMenuItem>Edit Contract</ContextMenuItem>
+          <ContextMenuItem>Delete Contract</ContextMenuItem>
+          <ContextMenuSeparator />
+          <ContextMenuItem>Review Next</ContextMenuItem>
+          <ContextMenuItem>Review Later</ContextMenuItem>
+          <ContextMenuSeparator />
+          <ContextMenuItem>Share</ContextMenuItem>
+        </ContextMenuContent>
+      </ContextMenu>
+    </div>
   );
 }

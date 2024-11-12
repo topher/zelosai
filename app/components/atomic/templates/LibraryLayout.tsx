@@ -1,53 +1,125 @@
-import React from 'react'
-import { Montserrat } from 'next/font/google'
-import { cn } from '@/lib/utils';
+// components/layouts/LibraryLayout.tsx
 
-const montserrat = Montserrat({ weight: '600', subsets: ['latin'] })
+import React from "react";
+import FeatureHeader from "../atoms/feature-header";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import Link from "next/link";
 
-interface PageHeaderProps {
-  title: string
-  description: string
-  actions?: React.ReactNode
+interface HeaderProps {
+  title: string;
+  description: string;
+  actions?: React.ReactNode;
 }
 
-interface LibraryLayoutProps<T> {
-  header: PageHeaderProps
-  isLoading?: boolean
-  error?: string | null
+interface ItemType {
+  id: string;
+  [key: string]: any;
 }
 
-const LibraryLayout = <T,>({
+interface CategoryType<TItem extends ItemType> {
+  name: string;
+  items: TItem[];
+  cardProps?: Record<string, any>;
+}
+
+interface TabType<TItem extends ItemType> {
+  value: string;
+  label: string;
+  categories?: CategoryType<TItem>[];
+  content?: React.ReactNode;
+}
+
+interface LibraryLayoutProps<TItem extends ItemType> {
+  header: HeaderProps;
+  tabs: TabType<TItem>[];
+  isLoading?: boolean;
+  error?: string | null;
+  cardComponent: React.ComponentType<{ item: TItem } & any>;
+  itemLink: (item: TItem) => string;
+}
+
+const LibraryLayout = <TItem extends ItemType>({
   header,
+  tabs,
   isLoading = false,
   error = null,
-}: LibraryLayoutProps<T>) => {
-  if (isLoading) return <p className="text-white">Loading...</p>
-  if (error) return <p className="text-red-500">{error}</p>
+  cardComponent: CardComponent,
+  itemLink,
+}: LibraryLayoutProps<TItem>) => {
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <p className="text-white">Loading...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <p className="text-red-500">{error}</p>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-indigo-900">
-      {/* Glassmorphic Sticky Header */}
-      <div className="sticky top-0 z-10">
-        <div
-          className={cn(
-            'backdrop-blur-lg bg-white/10 border-b border-white/20 shadow-md',
-            'p-6 md:p-8 flex items-center justify-between',
-          )}
-        >
-          <div>
-            <h2 className={`text-2xl font-bold tracking-tight text-white ${montserrat.className}`}>
-              {header.title}
-            </h2>
-            <p className="text-gray-200">{header.description}</p>
-          </div>
-          <div className="flex items-center space-x-2">{header.actions}</div>
-        </div>
-      </div>
+      {/* Header Component */}
+      <FeatureHeader
+        title={header.title}
+        description={header.description}
+        actions={header.actions}
+      />
 
       {/* Content Area */}
-
+      <div className="flex-1 overflow-y-auto">
+        <div className="p-6 md:p-8">
+          {/* Tabs and Content */}
+          <Tabs defaultValue={tabs[0]?.value} className="h-full space-y-6">
+            <div className="flex items-center justify-between mb-6">
+              <TabsList>
+                {tabs.map((tab) => (
+                  <TabsTrigger key={tab.value} value={tab.value}>
+                    {tab.label}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
+            {tabs.map((tab) => (
+              <TabsContent key={tab.value} value={tab.value}>
+                {tab.content ? (
+                  // If custom content is provided, render it
+                  <div>{tab.content}</div>
+                ) : (
+                  // Otherwise, render categories and items
+                  tab.categories?.map((category) => (
+                    <div key={category.name} className="mb-8">
+                      <h2 className="text-2xl text-white font-semibold tracking-tight mb-4">
+                        {category.name}
+                      </h2>
+                      <div className="relative">
+                        <ScrollArea>
+                          <div className="flex space-x-4 pb-4">
+                            {category.items.map((item) => (
+                              <Link key={item.id} href={itemLink(item)}>
+                                <CardComponent item={item} {...category.cardProps} />
+                              </Link>
+                            ))}
+                          </div>
+                          <ScrollBar orientation="horizontal" />
+                        </ScrollArea>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </TabsContent>
+            ))}
+          </Tabs>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
-export default LibraryLayout
+export default LibraryLayout;

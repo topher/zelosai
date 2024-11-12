@@ -1,139 +1,116 @@
-"use client";
-import Image from "next/image";
-import { PlusCircledIcon } from "@radix-ui/react-icons";
-import React, { useState, useEffect } from "react";
+// workflows/components/WorkflowCard.tsx
 
+"use client";
+
+import Image from "next/image";
+import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import {
   ContextMenu,
   ContextMenuContent,
   ContextMenuItem,
   ContextMenuSeparator,
-  ContextMenuSub,
-  ContextMenuSubContent,
-  ContextMenuSubTrigger,
   ContextMenuTrigger,
 } from "@/components/ui/context-menu";
-
 import { Workflow } from "@/app/types";
-import { getWorkflowsByAccountId } from "@/app/actions/workflowsActions"; // Fetch from Elasticsearch
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({ weight: "600", subsets: ["latin"] });
 
 interface WorkflowCardProps extends React.HTMLAttributes<HTMLDivElement> {
-  album: Workflow;
-  aspectRatio?: "portrait" | "square";
+  item: Workflow;
+  aspectRatio?: "portrait" | "landscape" | "square";
   width?: number;
   height?: number;
 }
 
 export function WorkflowCard({
-  album,
-  aspectRatio = "portrait",
+  item,
+  className,
   width,
   height,
-  className,
+  aspectRatio = "landscape",
   ...props
 }: WorkflowCardProps) {
   const [imageError, setImageError] = useState(false);
-  const [workflows, setWorkflows] = useState<Workflow[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    // Fetch workflows from Elasticsearch using accountId
-    const accountId = "12345"; // Dummy account ID
-    const fetchWorkflows = async () => {
-      try {
-        setLoading(true);
-        const data = await getWorkflowsByAccountId(accountId);
-        setWorkflows(data);
-      } catch (err) {
-        setError("Failed to load workflows.");
-      } finally {
-        setLoading(false);
-      }
-    };
+  const imageUrl = item.cover || null;
 
-    fetchWorkflows();
-  }, []);
+  const aspectRatioClass =
+    aspectRatio === "portrait"
+      ? "aspect-[2/3]"
+      : aspectRatio === "landscape"
+      ? "aspect-[4/3]"
+      : "aspect-square";
 
   return (
-    <div className={cn("space-y-3", className)} {...props}>
+    <div
+      className={cn(
+        "relative overflow-hidden rounded-lg shadow group",
+        aspectRatioClass,
+        className
+      )}
+      style={{ width, height }}
+      {...props}
+    >
       <ContextMenu>
         <ContextMenuTrigger>
-          <div className="overflow-hidden rounded-md">
-            {!imageError ? (
-              <Image
-                src={album.cover}
-                alt={album.name}
-                width={width}
-                height={height}
+          <div className="relative w-full h-full">
+            {/* Background Image */}
+            <div className="absolute inset-0">
+              {!imageError && imageUrl ? (
+                <Image
+                  src={imageUrl}
+                  alt={item.name}
+                  layout="fill"
+                  objectFit="cover"
+                  objectPosition="center"
+                  className="rounded-lg transition-transform duration-500 ease-out group-hover:scale-110"
+                  onError={() => setImageError(true)}
+                />
+              ) : (
+                <div
+                  className="absolute inset-0 flex items-center justify-center text-white font-bold"
+                  style={{
+                    backgroundColor: "rgba(17, 24, 39, 0.85)",
+                    backdropFilter: "blur(12px)",
+                    WebkitBackdropFilter: "blur(12px)",
+                  }}
+                >
+                  <span style={{ fontSize: "3rem" }}>{item.emoji || "🔄"}</span>
+                </div>
+              )}
+            </div>
+            {/* Overlay Content */}
+            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-black/80 via-transparent to-transparent">
+              <h3
                 className={cn(
-                  "h-auto w-auto object-cover transition-all hover:scale-105",
-                  aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"
+                  "text-white text-xl font-bold",
+                  montserrat.className
                 )}
-                onError={() => setImageError(true)}
-              />
-            ) : (
-              <div
-                className={cn(
-                  "flex items-center justify-center text-white text-4xl font-bold",
-                  aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"
-                )}
-                style={{ backgroundColor: "#111827" }} // Custom background color
+                style={{ textShadow: "2px 2px 6px #000000" }}
               >
-                {album.emoji}
-              </div>
-            )}
+                {item.name}
+              </h3>
+              {item.description && (
+                <p className="text-white text-sm mt-1 line-clamp-2">
+                  {item.description}
+                </p>
+              )}
+            </div>
           </div>
         </ContextMenuTrigger>
-        <ContextMenuContent className="w-40">
-          <ContextMenuItem>Add to Library</ContextMenuItem>
-          <ContextMenuSub>
-            <ContextMenuSubTrigger>Add to Workflow</ContextMenuSubTrigger>
-            <ContextMenuSubContent className="w-48">
-              <ContextMenuItem>
-                <PlusCircledIcon className="mr-2 h-4 w-4" />
-                New Workflow
-              </ContextMenuItem>
-              <ContextMenuSeparator />
-              {loading ? (
-                <ContextMenuItem>Loading...</ContextMenuItem>
-              ) : error ? (
-                <ContextMenuItem>{error}</ContextMenuItem>
-              ) : (
-                workflows.map((workflow) => (
-                  <ContextMenuItem key={workflow.id}>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      className="mr-2 h-4 w-4"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M21 15V6M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM12 12H3M16 6H3M12 18H3" />
-                    </svg>
-                    {workflow.name}
-                  </ContextMenuItem>
-                ))
-              )}
-            </ContextMenuSubContent>
-          </ContextMenuSub>
+
+        <ContextMenuContent className="w-48">
+          <ContextMenuItem>Edit Workflow</ContextMenuItem>
+          <ContextMenuItem>Delete Workflow</ContextMenuItem>
           <ContextMenuSeparator />
-          <ContextMenuItem>Play Next</ContextMenuItem>
-          <ContextMenuItem>Play Later</ContextMenuItem>
-          <ContextMenuItem>Create Station</ContextMenuItem>
+          <ContextMenuItem>Run Now</ContextMenuItem>
+          <ContextMenuItem>Schedule</ContextMenuItem>
           <ContextMenuSeparator />
-          <ContextMenuItem>Like</ContextMenuItem>
           <ContextMenuItem>Share</ContextMenuItem>
         </ContextMenuContent>
       </ContextMenu>
-      <div className="space-y-1 text-sm">
-        <h3 className="font-medium leading-none">{album.name}</h3>
-        <p className="text-xs text-muted-foreground">{album.artist}</p>
-      </div>
     </div>
   );
 }

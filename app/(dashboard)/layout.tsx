@@ -16,7 +16,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const toggleCollapse = () => setIsCollapsed((prev) => !prev);
 
   return (
-    <div className="flex flex-col md:flex-row h-screen">
+    <div className="flex flex-col md:flex-row h-screen overflow-x-hidden">
       {/* Sidebar */}
       <div
         className={cn(
@@ -41,7 +41,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         ></div>
       )}
 
-      <div className="flex flex-col flex-1">
+      <div className="flex flex-col flex-1 overflow-x-hidden">
         {/* Header Bar for Small Screens */}
         {!isSidebarOpen && (
           <header className="md:hidden bg-darkGray text-white h-16 flex items-center justify-between px-4">
@@ -66,7 +66,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
             </h1>
           </header>
         )}
-        <main className="flex-1 overflow-auto">
+        <main className="flex-1 overflow-y-auto overflow-x-hidden">
           {/* Main content */}
           <div className="min-h-full">{children}</div>
         </main>
