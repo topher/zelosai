@@ -5,6 +5,9 @@ import FeatureHeader from "../molecules/feature-header";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Link from "next/link";
+import { Montserrat } from 'next/font/google';
+
+const montserrat = Montserrat({ weight: '600', subsets: ['latin'] });
 
 interface HeaderProps {
   title: string;
@@ -95,12 +98,12 @@ const LibraryLayout = <TItem extends ItemType>({
                   // Otherwise, render categories and items
                   tab.categories?.map((category) => (
                     <div key={category.name} className="mb-8">
-                      <h2 className="text-2xl text-white font-semibold tracking-tight mb-4">
+                      <h2 className={`text-2xl text-white font-semibold tracking-tight mb-4 ${montserrat.className}`}>
                         {category.name}
                       </h2>
                       <div className="relative">
                         <ScrollArea>
-                          <div className="flex space-x-4 pb-4">
+                          <div className="flex space-x-4 py-4">
                             {category.items.map((item) => (
                               <Link key={item.id} href={itemLink(item)}>
                                 <CardComponent item={item} {...category.cardProps} />
