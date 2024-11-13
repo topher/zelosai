@@ -9,7 +9,7 @@ interface FeatureHeaderProps {
   actions?: React.ReactNode;
 }
 
-const FeatureHeader: React.FC<FeatureHeaderProps> = ({ title, description, actions }) => {
+const FeaturePageHeader: React.FC<FeatureHeaderProps> = ({ title, description, actions }) => {
   return (
     <div className="sticky top-0 z-10 backdrop-blur-lg bg-white/10 border-b border-white/20 shadow-md p-6 md:p-8 flex items-center justify-between">
       <div>
@@ -23,4 +23,4 @@ const FeatureHeader: React.FC<FeatureHeaderProps> = ({ title, description, actio
   );
 };
 
-export default FeatureHeader;
+export default FeaturePageHeader;

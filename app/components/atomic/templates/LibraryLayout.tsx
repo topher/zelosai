@@ -1,7 +1,7 @@
 // components/layouts/LibraryLayout.tsx
 
 import React from "react";
-import FeatureHeader from "../molecules/feature-header";
+import FeaturePageHeader from "../molecules/FeaturePageHeader";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Link from "next/link";
@@ -69,7 +69,7 @@ const LibraryLayout = <TItem extends ItemType>({
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-indigo-900">
       {/* Header Component */}
-      <FeatureHeader
+      <FeaturePageHeader
         title={header.title}
         description={header.description}
         actions={header.actions}

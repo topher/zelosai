@@ -1,7 +1,7 @@
 // /app/components/atomic/templates/HomeDashboardLayout.tsx
 
 import React from 'react';
-import FeatureHeader from '../molecules/feature-header';
+import FeaturePageHeader from '../molecules/FeaturePageHeader';
 import HomeDashboardGrid from '../organisms/HomeDashboardGrid';
 
 interface PageHeaderProps {
@@ -31,7 +31,7 @@ const HomeDashboardLayout = <T,>({
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-indigo-900">
       {/* Header Component */}
-      <FeatureHeader title={header.title} description={header.description} actions={header.actions} />
+      <FeaturePageHeader title={header.title} description={header.description} actions={header.actions} />
 
       {/* Content Area */}
       <div className="flex-1 overflow-y-auto">
