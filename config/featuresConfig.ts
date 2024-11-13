@@ -35,6 +35,7 @@ import {
   FileBox,
   Rocket,
   PackageSearch,
+  LineChart,
   LucideIcon,
 } from 'lucide-react';
 
@@ -601,7 +602,7 @@ export const features: Feature[] = [
     key: FeatureKey.Analytics,
     metadata: {
       category: FeatureCategory.Dashboard,
-      icon: LayoutDashboard,
+      icon: LineChart,
       label: 'Analytics',
       href: '/dashboard/analytics',
       description: 'View analytics statistics.',

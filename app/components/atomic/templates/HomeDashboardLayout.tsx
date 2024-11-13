@@ -1,5 +1,7 @@
+// /app/components/atomic/templates/HomeDashboardLayout.tsx
+
 import React from 'react';
-import FeatureHeader from '../atoms/feature-header';
+import FeatureHeader from '../molecules/feature-header';
 import HomeDashboardGrid from '../organisms/HomeDashboardGrid';
 
 interface PageHeaderProps {

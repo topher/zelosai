@@ -1,7 +1,7 @@
 // components/layouts/LibraryLayout.tsx
 
 import React from "react";
-import FeatureHeader from "../atoms/feature-header";
+import FeatureHeader from "../molecules/feature-header";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Link from "next/link";

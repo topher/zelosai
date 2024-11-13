@@ -2,7 +2,7 @@
 
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
   features,
   featureCategoryConfig,
@@ -34,48 +34,43 @@ const ActionResourceRecommendationCard: React.FC<
   onLike,
   onComment,
 }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   // Get the feature corresponding to the recommendation
   const feature = features.find(
     (f) => f.key === (recommendation.featureKey as FeatureKey)
   );
 
-  if (!feature) {
+  const featureMeta = feature?.metadata;
+  const categoryMeta =
+    featureMeta && featureCategoryConfig[featureMeta.category];
+
+  // Common card style for error cases
+  const errorCardStyle =
+    "relative p-4 h-48 w-full flex flex-col justify-between rounded-xl shadow-lg transition-transform duration-300 transform bg-red-900/50 border border-red-700";
+
+  // Render an error card if feature or category metadata is missing
+  if (!feature || !categoryMeta) {
     console.error(
-      `No feature found for featureKey: ${recommendation.featureKey}`
+      `Missing ${
+        !feature ? "feature" : "category"
+      } metadata for featureKey: ${recommendation.featureKey}`
     );
     return (
-      <div className="relative rounded-xl shadow-lg p-4 bg-red-500">
-        <h3 className="text-lg font-semibold text-white mb-1">
-          {recommendation.title}
-        </h3>
-        {recommendation.description && (
-          <p className="text-white/80 text-sm">
-            {recommendation.description}
-          </p>
-        )}
-        <p className="text-white">Error: Missing feature metadata.</p>
-      </div>
-    );
-  }
-
-  const featureMeta = feature.metadata;
-  const categoryMeta = featureCategoryConfig[featureMeta.category];
-
-  if (!categoryMeta) {
-    console.error(
-      `No category metadata found for category: ${featureMeta.category}`
-    );
-    return (
-      <div className="relative rounded-xl shadow-lg p-4 bg-red-500">
-        <h3 className="text-lg font-semibold text-white mb-1">
-          {recommendation.title}
-        </h3>
-        {recommendation.description && (
-          <p className="text-white/80 text-sm">
-            {recommendation.description}
-          </p>
-        )}
-        <p className="text-white">Error: Missing category metadata.</p>
+      <div className={errorCardStyle}>
+        <div>
+          <h3 className="text-lg font-semibold text-white mb-1">
+            {recommendation.title}
+          </h3>
+          {recommendation.description && (
+            <p className="text-white/80 text-sm mt-3">
+              {recommendation.description}
+            </p>
+          )}
+        </div>
+        <p className="text-white mt-2 text-sm">
+          Error: Missing {feature ? "category" : "feature"} metadata.
+        </p>
       </div>
     );
   }
@@ -84,22 +79,38 @@ const ActionResourceRecommendationCard: React.FC<
 
   return (
     <div
-      className="relative p-4 h-48 w-full flex flex-col justify-between rounded-xl shadow-lg transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl cursor-pointer"
+      className="relative p-4 h-48 w-full flex flex-col justify-between rounded-xl transition-transform duration-300 transform cursor-pointer bg-gray-800 overflow-hidden"
       style={{
-        background: `linear-gradient(135deg, ${categoryMeta.colorHex}3D, ${categoryMeta.colorHex}5A)`,
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
         border: `1px solid ${categoryMeta.colorHex}66`,
+        boxShadow: isHovered
+          ? `0 0 15px ${categoryMeta.colorHex}80`
+          : `0 4px 6px -1px rgba(0, 0, 0, 0.1)`,
+        transform: isHovered ? "scale(1.05)" : "scale(1)",
       }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Feature Icon */}
-      <div className="absolute top-4 right-4 text-white opacity-50">
-        <IconComponent size={24} />
+      {/* Background Overlay with Category Color */}
+      <div
+        className="absolute inset-0 rounded-xl"
+        style={{
+          background: `linear-gradient(135deg, transparent 30%, ${categoryMeta.colorHex}20 100%)`,
+        }}
+      ></div>
+
+      {/* Semi-transparent Category Icon as Background */}
+      <div
+        className="absolute inset-y-0 right-2 flex items-center opacity-30"
+        style={{
+          zIndex: 0,
+        }}
+      >
+        <IconComponent size={150} />
       </div>
 
       {/* Recommendation Content */}
-      <div>
-        <h3 className="w-11/12 text-lg font-semibold text-white mb-1">
+      <div className="relative z-10">
+        <h3 className="text-lg font-semibold text-white mb-1">
           {recommendation.title}
         </h3>
         {recommendation.description && (
@@ -110,18 +121,17 @@ const ActionResourceRecommendationCard: React.FC<
       </div>
 
       {/* Actions */}
-      <div className="mt-4 flex items-center space-x-2">
+      <div className="mt-4 flex items-center space-x-2 relative z-10">
         <TooltipProvider>
           {/* Do Action */}
           <Tooltip>
             <TooltipTrigger asChild>
               <button
-                className="p-2 rounded-full text-white hover:opacity-80 transition-opacity"
-                style={{ backgroundColor: "#3B82F6" }} // Blue
+                className="p-3 rounded-xl text-blue-400 bg-gray-800 bg-opacity-80 border border-gray-600 hover:bg-gray-700 hover:shadow-lg transition-colors duration-200"
                 onClick={() => onDo(recommendation.id)}
                 aria-label="Do Action"
               >
-                <Play size={20} />
+                <Play size={18} />
               </button>
             </TooltipTrigger>
             <TooltipContent side="top">Do</TooltipContent>
@@ -131,12 +141,11 @@ const ActionResourceRecommendationCard: React.FC<
           <Tooltip>
             <TooltipTrigger asChild>
               <button
-                className="p-2 rounded-full text-white hover:opacity-80 transition-opacity"
-                style={{ backgroundColor: "#6B7280" }} // Gray
+                className="p-3 rounded-xl text-gray-400 bg-gray-800 bg-opacity-80 border border-gray-600 hover:bg-gray-700 hover:shadow-lg transition-colors duration-200"
                 onClick={() => onArchive(recommendation.id)}
                 aria-label="Archive Recommendation"
               >
-                <Archive size={20} />
+                <Archive size={18} />
               </button>
             </TooltipTrigger>
             <TooltipContent side="top">Archive</TooltipContent>
@@ -146,12 +155,11 @@ const ActionResourceRecommendationCard: React.FC<
           <Tooltip>
             <TooltipTrigger asChild>
               <button
-                className="p-2 rounded-full text-white hover:opacity-80 transition-opacity"
-                style={{ backgroundColor: "#EF4444" }} // Red
+                className="p-3 rounded-xl text-red-400 bg-gray-800 bg-opacity-80 border border-gray-600 hover:bg-gray-700 hover:shadow-lg transition-colors duration-200"
                 onClick={() => onLike(recommendation.id)}
                 aria-label="Like Recommendation"
               >
-                <Heart size={20} />
+                <Heart size={18} />
               </button>
             </TooltipTrigger>
             <TooltipContent side="top">Like</TooltipContent>
@@ -161,12 +169,11 @@ const ActionResourceRecommendationCard: React.FC<
           <Tooltip>
             <TooltipTrigger asChild>
               <button
-                className="p-2 rounded-full text-white hover:opacity-80 transition-opacity"
-                style={{ backgroundColor: "#10B981" }} // Green
+                className="p-3 rounded-xl text-green-400 bg-gray-800 bg-opacity-80 border border-gray-600 hover:bg-gray-700 hover:shadow-lg transition-colors duration-200"
                 onClick={() => onComment(recommendation.id)}
                 aria-label="Comment on Recommendation"
               >
-                <MessageCircle size={20} />
+                <MessageCircle size={18} />
               </button>
             </TooltipTrigger>
             <TooltipContent side="top">Comment</TooltipContent>

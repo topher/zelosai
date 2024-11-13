@@ -1,3 +1,5 @@
+// /app/components/atomic/organisms/HomeDashboardGrid.tsx
+
 import React from 'react';
 
 interface HomeDashboardGridProps<T> {
