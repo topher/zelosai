@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import { Statistic } from "@/app/types";
 import { Button } from "@/components/ui/button";
 import HomeDashboardLayout from "@/app/components/atomic/templates/HomeDashboardLayout";
+import StatisticCard from "./components/StatisticCard";
 
 const AnalyticsPage: React.FC = () => {
   const [statistics, setStatistics] = useState<Statistic[]>([]);
@@ -15,7 +16,7 @@ const AnalyticsPage: React.FC = () => {
   useEffect(() => {
     const fetchStatistics = async () => {
       try {
-        const response = await fetch("/api/resource/agents"); // Adjust the API endpoint as needed
+        const response = await fetch("/api/resource/statistics"); // Adjust the API endpoint as needed
         if (response.ok) {
           const data = await response.json();
           setStatistics(data.resources);
@@ -47,20 +48,7 @@ const AnalyticsPage: React.FC = () => {
       isLoading={isLoading}
       error={error}
       items={statistics}
-      renderItem={(stat) => (
-        <div key={stat.id} className="bg-white p-4 rounded shadow">
-          <h3 className="text-lg font-bold">{stat.title}</h3>
-          <p className="text-2xl">{stat.value}</p>
-          <p className="text-sm text-gray-500">{stat.description}</p>
-          <div className="flex flex-wrap gap-2 mt-2">
-            {stat.tags.map((tag, idx) => (
-              <span key={idx} className="bg-gray-200 text-gray-700 px-2 py-1 rounded">
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-      )}
+      renderItem={(stat) => <StatisticCard key={stat.id} statistic={stat} />}
     />
   );
 };
