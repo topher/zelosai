@@ -1,3 +1,5 @@
+// /app/(dashboard)/(routes)/search/components/CustomSearchBox.tsx
+
 "use client";
 
 import React from "react";

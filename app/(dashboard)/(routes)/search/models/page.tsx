@@ -3,7 +3,7 @@
 "use client";
 
 import React from "react";
-import SearchPageLayout from "@/app/(dashboard)/(routes)/search/components/SearchPageLayout";
+import SearchPageLayout from "@/app/components/atomic/templates/SearchPageLayout";
 import AIModelSearchCard from "@/app/(dashboard)/(routes)/search/components/AIModelSearchCard";
 
 const AIModelSearchPage: React.FC = () => {
@@ -27,9 +27,12 @@ const AIModelSearchPage: React.FC = () => {
 
   return (
     <SearchPageLayout
+      header={{
+        title: "Models",
+        description: "Browse and search through a comprehensive list of AI models.",
+      }}
       indexName="complete_trained_models"
       searchSettings={searchSettings}
-      pageTitle="Models"
       placeholder="Search for models..."
       sidebarSection="AI Models"
       HitComponent={AIModelSearchCard}

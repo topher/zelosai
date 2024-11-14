@@ -22,7 +22,7 @@ const ProfileSearchCard: React.FC<ProfileSearchCardProps> = ({ data }) => {
   return (
     <Link href={`/profiles/athlete/${data.id}`}>
       <div
-        className="relative group cursor-pointer rounded-lg shadow-md bg-white transition-transform duration-300 transform hover:-translate-y-1 hover:shadow-2xl w-full h-[400px] z-10 group-hover:z-20"
+        className="relative group cursor-pointer rounded-lg shadow-md bg-white transition-transform duration-300 transform hover:-translate-y-1 hover:shadow-2xl w-full h-[400px]"
       >
         {/* Image Section */}
         <div className="relative w-full h-full overflow-hidden rounded-lg">

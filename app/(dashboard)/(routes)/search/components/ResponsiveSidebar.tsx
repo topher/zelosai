@@ -1,4 +1,4 @@
-// /app/(dashboard)/(routes)/search/components/ResponsiveSidebar.tsx
+// /app/components/atomic/routes/search/components/ResponsiveSidebar.tsx
 
 "use client";
 
@@ -39,7 +39,7 @@ const ResponsiveSidebar: React.FC<ResponsiveSidebarProps> = ({
       {/* Persistent Sidebar for Large Screens */}
       {isLargeScreen ? (
         <div
-          className="w-64 p-4 shadow-lg overflow-y-auto hidden lg:block"
+          className="w-64 p-4 shadow-lg overflow-x-hidden overflow-y-auto hidden lg:block h-full flex-none"
           style={{
             backgroundColor: "rgba(245, 245, 245, 0.9)",
             backgroundImage:

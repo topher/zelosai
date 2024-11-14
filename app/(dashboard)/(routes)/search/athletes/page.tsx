@@ -3,7 +3,7 @@
 "use client";
 
 import React from "react";
-import SearchPageLayout from "@/app/(dashboard)/(routes)/search/components/SearchPageLayout";
+import SearchPageLayout from "@/app/components/atomic/templates/SearchPageLayout";
 import ProfileSearchCard from "@/app/(dashboard)/(routes)/search/components/ProfileSearchCard";
 
 const AthleteSearchPage: React.FC = () => {
@@ -31,9 +31,12 @@ const AthleteSearchPage: React.FC = () => {
 
   return (
     <SearchPageLayout
+      header={{
+        title: "Athlete Profiles",
+        description: "Browse and search through a comprehensive list of athlete profiles.",
+      }}
       indexName="athletes_triples"
       searchSettings={searchSettings}
-      pageTitle="Athlete Profiles"
       placeholder="Search for profiles..."
       sidebarSection="Athlete Profiles"
       HitComponent={ProfileSearchCard}

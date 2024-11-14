@@ -1,4 +1,4 @@
-// app/components/CustomPagination.tsx
+// /app/(dashboard)/(routes)/search/components/CustomPagination.tsx
 
 "use client";
 
