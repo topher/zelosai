@@ -26,37 +26,42 @@ const CustomPagination: React.FC<CustomPaginationProps> = ({ onPageChange }) => 
 
   return (
     <div className="flex items-center justify-center space-x-2 mt-4">
+      {/* Previous Button */}
       <button
         onClick={() => refine(currentRefinement - 1)}
         disabled={isFirstPage}
-        className={`px-3 py-1 rounded-full ${
+        className={`px-4 py-2 rounded-lg border text-sm font-medium ${
           isFirstPage
-            ? "cursor-not-allowed text-gray-400"
-            : "text-indigo hover:text-indigo-light"
+            ? "cursor-not-allowed border-gray-600 text-gray-600"
+            : "border-gray-600 text-white bg-gray-800 hover:bg-gray-700 hover:shadow transition-colors"
         }`}
       >
         Previous
       </button>
+
+      {/* Page Numbers */}
       {pages.map((page) => (
         <button
           key={page}
           onClick={() => refine(page)}
-          className={`px-3 py-1 rounded-full ${
+          className={`px-4 py-2 rounded-lg border text-sm font-medium transition-colors ${
             currentRefinement === page
-              ? "bg-gradient-to-r from-indigo to-pink-500 text-white"
-              : "text-darkGray hover:bg-indigo-light hover:text-white"
+              ? "bg-primary text-primary-foreground border-gray-400 focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-gray-800"
+              : "bg-gray-800 border-gray-600 text-gray-400 hover:bg-gray-700 hover:text-white"
           }`}
         >
           {page + 1}
         </button>
       ))}
+
+      {/* Next Button */}
       <button
         onClick={() => refine(currentRefinement + 1)}
         disabled={isLastPage}
-        className={`px-3 py-1 rounded-full ${
+        className={`px-4 py-2 rounded-lg border text-sm font-medium ${
           isLastPage
-            ? "cursor-not-allowed text-gray-400"
-            : "text-indigo hover:text-indigo-light"
+            ? "cursor-not-allowed border-gray-600 text-gray-600"
+            : "border-gray-600 text-white bg-gray-800 hover:bg-gray-700 hover:shadow transition-colors"
         }`}
       >
         Next

@@ -118,6 +118,7 @@ const SearchPageLayout: React.FC<SearchPageLayoutProps> = ({
 
               {!isLoading && !error && (
                 <>
+                  {/* Top Pagination */}
                   <div className="mt-1 mb-6 flex justify-end">
                     <CustomPagination />
                   </div>
@@ -130,6 +131,7 @@ const SearchPageLayout: React.FC<SearchPageLayoutProps> = ({
                     <HitsComponent />
                   </div>
 
+                  {/* Bottom Pagination */}
                   <div className="mt-6">
                     <CustomPagination />
                   </div>
