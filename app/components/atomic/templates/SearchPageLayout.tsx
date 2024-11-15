@@ -11,7 +11,7 @@ import {
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "@/app/theme";
 import SidebarToggle from "../../../(dashboard)/(routes)/search/components/SidebarToggle";
-import ResponsiveSidebar from "../../../(dashboard)/(routes)/search/components/ResponsiveSidebar";
+import Sidebar from "../../../(dashboard)/(routes)/search/components/SearchSidebar";
 import CustomSearchBox from "../../../(dashboard)/(routes)/search/components/CustomSearchBox";
 import CustomPagination from "../../../(dashboard)/(routes)/search/components/CustomPagination";
 import { SearchParameters } from "algoliasearch-helper";
@@ -87,7 +87,7 @@ const SearchPageLayout: React.FC<SearchPageLayoutProps> = ({
 
         <div className="flex h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-indigo-900">
           {/* Sidebar */}
-          <ResponsiveSidebar
+          <Sidebar
             isOpen={isSidebarOpen}
             toggleSidebar={() => setIsSidebarOpen(false)}
             sections={[sidebarSection]}

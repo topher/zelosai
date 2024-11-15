@@ -1,4 +1,4 @@
-// app/components/ResultsPerPageSlider.tsx
+// /app/(dashboard)/(routes)/search/components/ResultsPerPageSlider.tsx
 
 "use client";
 
@@ -12,34 +12,34 @@ interface ResultsPerPageSliderProps {
   onChangeHitsPerPage: (value: number) => void;
 }
 
-// Create a styled Slider component with the gradient track
-const GradientSlider = styled(Slider)({
-  color: "#4b0082", // Base color for the thumb and active track
+// Create a styled Slider component with a subtle gradient track
+const CustomSlider = styled(Slider)({
+  color: "#6366F1", // Base color for the thumb and active track
   height: 8,
   "& .MuiSlider-track": {
     border: "none",
-    background: "linear-gradient(to right, #4b0082, #ff69b4, #b22222)",
+    background: "linear-gradient(to right, #6366F1, hsl(var(--primary)))",
   },
   "& .MuiSlider-thumb": {
     height: 20,
     width: 20,
-    background: "linear-gradient(to right, #4b0082, #ff69b4)",
-    border: "2px solid white",
+    backgroundColor: "hsl(var(--primary))",
+    border: "2px solid #FFFFFF",
     "&:focus, &:hover, &.Mui-active, &.Mui-focusVisible": {
-      boxShadow: "inherit",
+      boxShadow: "0 0 0 8px rgba(99, 102, 241, 0.16)",
     },
   },
   "& .MuiSlider-rail": {
     opacity: 0.3,
-    backgroundColor: "#bfbfbf",
+    backgroundColor: "#4B5563",
   },
   "& .MuiSlider-mark": {
-    backgroundColor: "#bfbfbf",
+    backgroundColor: "#4B5563",
     height: 8,
     width: 1,
   },
   "& .MuiSlider-markLabel": {
-    color: "#6e6e6e",
+    color: "#D1D5DB",
   },
 });
 
@@ -60,11 +60,11 @@ const ResultsPerPageSlider: React.FC<ResultsPerPageSliderProps> = ({
   };
 
   return (
-    <div className="mt-4 text-darkGray">
+    <div className="mt-4 text-white">
       <Typography id="results-per-page-slider" gutterBottom>
         Results per page
       </Typography>
-      <GradientSlider
+      <CustomSlider
         aria-labelledby="results-per-page-slider"
         value={value}
         min={6}

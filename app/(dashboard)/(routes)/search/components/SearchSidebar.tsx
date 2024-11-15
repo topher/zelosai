@@ -3,6 +3,9 @@
 "use client";
 
 import React from "react";
+import Drawer from "@mui/material/Drawer";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { ClearRefinements } from "react-instantsearch-hooks-web";
 import FilterSection from "./FilterSection";
 import {
@@ -10,35 +13,43 @@ import {
   SingleSelectFilterList,
 } from "./FilterList";
 import ResultsPerPageSlider from "./ResultsPerPageSlider";
+import { Montserrat } from 'next/font/google';
+
+const montserrat = Montserrat({ weight: '600', subsets: ['latin'] });
 
 interface SidebarProps {
+  isOpen: boolean;
+  toggleSidebar: () => void;
   sections: string[];
   hitsPerPage: number;
   onChangeHitsPerPage: (value: number) => void;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({
+  isOpen,
+  toggleSidebar,
   sections,
   hitsPerPage,
   onChangeHitsPerPage,
 }) => {
-  // Define the model type tags
+  const theme = useTheme();
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
+
   const modelTypeTags = ["image", "text", "voice", "foundational"];
 
-  return (
-    <div className="w-56 space-y-4 overflow-x-hidden sticky top-0 px-1 py-2">
+  const sidebarContent = (
+    <div className="w-64 p-4 space-y-4 overflow-y-auto bg-gray-800 text-white h-full">
       {/* Filters Title and Reset Button */}
-      <div className="flex flex-wrap items-center justify-between mb-4">
-        <h2 className="text-2xl font-bold text-darkGray">Filters</h2>
+      <div className="flex items-center justify-between mb-4">
+        <h2 className={`ml-4 text-2xl font-bold ${montserrat.className}`}>Filters</h2>
         <ClearRefinements
           translations={{
             resetButtonText: "Reset Filters",
           }}
           classNames={{
-            root: "flex-shrink-0",
             button:
-              "text-indigo hover:text-indigo-light focus:outline-none focus:underline",
-            disabledButton: "text-gray-400 cursor-not-allowed",
+              "text-sm text-gray-400 hover:text-white focus:outline-none",
+            disabledButton: "text-gray-600 cursor-not-allowed",
           }}
         />
       </div>
@@ -64,9 +75,6 @@ const Sidebar: React.FC<SidebarProps> = ({
           <FilterSection title="Languages Spoken">
             <MultiSelectFilterList attribute="languages_spoken" />
           </FilterSection>
-          {/* <FilterSection title="Code">
-            <SingleSelectFilterList attribute="code" />
-          </FilterSection> */}
         </>
       )}
 
@@ -132,6 +140,32 @@ const Sidebar: React.FC<SidebarProps> = ({
       )}
     </div>
   );
+
+  if (isLargeScreen) {
+    // Persistent Sidebar for Large Screens
+    return (
+      <div className="w-64 h-full flex-none">
+        {sidebarContent}
+      </div>
+    );
+  } else {
+    // Temporary Drawer for Small Screens
+    return (
+      <Drawer
+        anchor="left"
+        open={isOpen}
+        onClose={toggleSidebar}
+        ModalProps={{
+          keepMounted: true,
+        }}
+        PaperProps={{
+          style: { width: '256px', backgroundColor: '#1F2937' },
+        }}
+      >
+        {sidebarContent}
+      </Drawer>
+    );
+  }
 };
 
 export default Sidebar;
