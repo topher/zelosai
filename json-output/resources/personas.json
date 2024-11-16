@@ -1,7 +1,7 @@
 [
     {
       "id": "PSNA-0",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
       "visibility": "public",
       "resourceType":"Persona",
@@ -16,7 +16,7 @@
     },
     {
       "id": "PSNA-1",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
       "visibility": "public",
       "resourceType":"Persona",
@@ -31,7 +31,7 @@
     },
     {
       "id": "PSNA-2",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
       "visibility": "public",
       "resourceType":"Persona",
@@ -46,7 +46,7 @@
     },
     {
       "id": "PSNA-3",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
       "visibility": "public",
       "resourceType":"Persona",

@@ -54,7 +54,7 @@ const ModelSubjectsPage: React.FC = () => {
                   <div className="mt-2">
                     <p>Related Models:</p>
                     <div className="flex flex-wrap gap-2">
-                      {subject.relatedModels.map((model, idx) => (
+                      {subject.relatedAIModels.map((model, idx) => (
                         <Badge key={idx} color="secondary">
                           {model}
                         </Badge>

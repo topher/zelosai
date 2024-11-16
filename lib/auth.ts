@@ -58,6 +58,7 @@ export async function getUserAttributes(
       orgId: null,
       orgRole: null,
       subscription: null,
+      accountId: null, // Explicitly set to null
     };
   }
 
@@ -94,14 +95,18 @@ export async function getUserAttributes(
   const role = orgRole || user.publicMetadata?.role || 'user';
   const groups = user.publicMetadata?.groups || [];
 
-  console.log('🚀 User Attributes Retrieved:', {
-    userId,
-    orgId,
-    orgRole,
-    role,
-    groups,
-    subscription,
-  });
+  // Map orgId to accountId if orgId exists, else use userId
+  const accountId = orgId || userId;
+
+  // console.log('🚀 User Attributes Retrieved:', {
+  //   userId,
+  //   orgId,
+  //   orgRole,
+  //   role,
+  //   groups,
+  //   accountId, // Include accountId in logs
+  //   subscription,
+  // });
 
   return {
     role,
@@ -109,6 +114,7 @@ export async function getUserAttributes(
     groups,
     orgId,
     orgRole,
+    accountId, // Include accountId in userAttributes
     subscription,
   };
 }

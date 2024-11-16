@@ -25,12 +25,17 @@
           "operator": "OR",
           "conditions": [
             {
-              "attribute": "orgId",
+              "attribute": "accountId",
               "operator": "is",
               "value": "$orgId"
             },
             {
-              "attribute": "orgId",
+              "attribute": "accountId",
+              "operator": "is",
+              "value": "$userId"
+            },
+            {
+              "attribute": "accountId",
               "operator": "is",
               "value": "org_platform"
             }
@@ -43,7 +48,7 @@
         "id": "rule-agent-write",
         "ruleType": "access",
         "deontologicalDuty": "allowed",
-        "predicate": ["write"],
+        "predicate": ["update", "delete", "create"],
         "subjectCondition": {
           "type": "group",
           "operator": "AND",
@@ -60,12 +65,17 @@
           "operator": "OR",
           "conditions": [
             {
-              "attribute": "orgId",
+              "attribute": "accountId",
               "operator": "is",
               "value": "$orgId"
             },
             {
-              "attribute": "orgId",
+              "attribute": "accountId",
+              "operator": "is",
+              "value": "$userId"
+            },
+            {
+              "attribute": "accountId",
               "operator": "is",
               "value": "org_platform"
             }
@@ -102,12 +112,17 @@
           "operator": "OR",
           "conditions": [
             {
-              "attribute": "orgId",
+              "attribute": "accountId",
               "operator": "is",
               "value": "$orgId"
             },
             {
-              "attribute": "orgId",
+              "attribute": "accountId",
+              "operator": "is",
+              "value": "$userId"
+            },
+            {
+              "attribute": "accountId",
               "operator": "is",
               "value": "org_platform"
             }
@@ -149,9 +164,9 @@
               "value": "public"
             },
             {
-              "attribute": "orgId",
+              "attribute": "accountId",
               "operator": "in",
-              "value": ["$orgId", "org_platform"]
+              "value": ["$accountId", "org_platform", "$userId"]
             }
           ]
         },
@@ -196,7 +211,7 @@
         "id": "rule-manager-read-write",
         "ruleType": "access",
         "deontologicalDuty": "allowed",
-        "predicate": ["read", "write"],
+        "predicate": ["read", "update", "delete", "create"],
         "subjectCondition": {
           "type": "group",
           "operator": "AND",
@@ -213,12 +228,17 @@
           "operator": "OR",
           "conditions": [
             {
-              "attribute": "orgId",
+              "attribute": "accountId",
               "operator": "is",
               "value": "$orgId"
             },
             {
-              "attribute": "orgId",
+              "attribute": "accountId",
+              "operator": "is",
+              "value": "$userId"
+            },
+            {
+              "attribute": "accountId",
               "operator": "is",
               "value": "org_platform"
             }
@@ -255,5 +275,89 @@
         "ownedBy": "admin"
       }
     ]
-  }
+  },
+  {
+    "id": "policy-member-update-access",
+    "organizationId": "*",
+    "description": "Members can update resources within their organization.",
+    "rules": [
+      {
+        "id": "rule-member-update",
+        "ruleType": "access",
+        "deontologicalDuty": "allowed",
+        "predicate": ["update"],
+        "subjectCondition": {
+          "type": "group",
+          "operator": "AND",
+          "conditions": [
+            {
+              "attribute": "orgRole",
+              "operator": "is",
+              "value": "org:member"
+            }
+          ]
+        },
+        "objectCondition": {
+          "type": "group",
+          "operator": "OR",
+          "conditions": [
+            {
+              "attribute": "accountId",
+              "operator": "is",
+              "value": "$orgId"
+            },
+            {
+              "attribute": "accountId",
+              "operator": "is",
+              "value": "$userId"
+            },
+            {
+              "attribute": "accountId",
+              "operator": "is",
+              "value": "org_platform"
+            }
+          ]
+        },
+        "createdBy": "system",
+        "ownedBy": "admin"
+      }
+    ]
+  },
+  {
+    "id": "policy-member-delete-own-resources",
+    "organizationId": "*",
+    "description": "Members can delete resources they own.",
+    "rules": [
+      {
+        "id": "rule-member-delete-own-resources",
+        "ruleType": "access",
+        "deontologicalDuty": "allowed",
+        "predicate": ["delete"],
+        "subjectCondition": {
+          "type": "group",
+          "operator": "AND",
+          "conditions": [
+            {
+              "attribute": "orgRole",
+              "operator": "is",
+              "value": "org:member"
+            }
+          ]
+        },
+        "objectCondition": {
+          "type": "group",
+          "operator": "AND",
+          "conditions": [
+            {
+              "attribute": "ownerId",
+              "operator": "is",
+              "value": "$userId"
+            }
+          ]
+        },
+        "createdBy": "system",
+        "ownedBy": "admin"
+      }
+    ]
+  }  
 ]

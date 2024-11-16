@@ -1,23 +1,5 @@
+import { Resource } from "@/app/types";
 import { countIndex } from "./elasticsearchAxios";
-
-// lib/resource.ts
-export function getResourceTypeFromPath(path: string): string | null {
-  const parts = path.split('/');
-  // Ensure that the path is at least 4 segments: ['', 'api', 'resource', 'topics']
-  if (parts.length >= 4 && parts[1] === 'api' && parts[2] === 'resource') {
-    return parts[3]; // This is the resourceName (e.g., 'topics')
-  }
-  return null;
-}
-
-export function getResourceIdFromPath(path: string): string | null {
-  const parts = path.split('/');
-  // Check if there's an ID present
-  if (parts.length >= 5 && parts[1] === 'api' && parts[2] === 'resource') {
-    return parts[4]; // '123' in /api/resource/topics/123
-  }
-  return null; // No ID in path
-}
 
 /**
  * Retrieves the count of a specific resource associated with a subscription.
@@ -60,3 +42,64 @@ export async function getResourceCount(
     return 0; // Default to 0 in case of error to prevent blocking actions
   }
 }
+
+// utils/resourceUtils.ts
+
+export const linkResources = (
+  resource: Resource,
+  targetResourceId: string,
+  targetResourceType: string
+) => {
+  if (!resource.linkedResources) {
+    resource.linkedResources = {};
+  }
+  if (!resource.linkedResources[targetResourceType]) {
+    resource.linkedResources[targetResourceType] = [];
+  }
+  resource.linkedResources[targetResourceType].push(targetResourceId);
+};
+
+export const unlinkResources = (
+  resource: Resource,
+  targetResourceId: string,
+  targetResourceType: string
+) => {
+  if (
+    resource.linkedResources &&
+    resource.linkedResources[targetResourceType]
+  ) {
+    resource.linkedResources[targetResourceType] = resource.linkedResources[
+      targetResourceType
+    ].filter((id) => id !== targetResourceId);
+  }
+};
+
+export const fetchResourcesByType = async (
+  inputValue: string,
+  resourceTypes: string[]
+) => {
+  const results = [];
+
+  for (const resourceType of resourceTypes) {
+    try {
+      const response = await fetch(
+        `/api/resource/${resourceType}?search=${encodeURIComponent(inputValue)}`,
+        {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        results.push(...data);
+      } else {
+        console.error(`Failed to fetch resources for ${resourceType}`);
+      }
+    } catch (error) {
+      console.error(`Error fetching resources for ${resourceType}:`, error);
+    }
+  }
+
+  return results;
+};

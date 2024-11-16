@@ -1,7 +1,7 @@
 [
     {
       "id": "seg-001",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "customerSegments",
@@ -14,7 +14,7 @@
     },
     {
       "id": "seg-002",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "customerSegments",
@@ -27,7 +27,7 @@
     },
     {
       "id": "seg-003",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "customerSegments",
@@ -40,7 +40,7 @@
     },
     {
       "id": "vp-001",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "valuePropositions",
@@ -53,7 +53,7 @@
     },
     {
       "id": "vp-002",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "valuePropositions",
@@ -66,7 +66,7 @@
     },
     {
       "id": "vp-003",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "valuePropositions",
@@ -79,7 +79,7 @@
     },
     {
       "id": "ch-001",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "channels",
@@ -92,7 +92,7 @@
     },
     {
       "id": "ch-002",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "channels",
@@ -105,7 +105,7 @@
     },
     {
       "id": "ch-003",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "channels",
@@ -118,7 +118,7 @@
     },
     {
       "id": "cr-001",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "customerRelationships",
@@ -131,7 +131,7 @@
     },
     {
       "id": "cr-002",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "customerRelationships",
@@ -144,7 +144,7 @@
     },
     {
       "id": "cr-003",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "customerRelationships",
@@ -157,7 +157,7 @@
     },
     {
       "id": "rs-001",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "revenueStreams",
@@ -170,7 +170,7 @@
     },
     {
       "id": "rs-002",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "revenueStreams",
@@ -183,7 +183,7 @@
     },
     {
       "id": "rs-003",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "revenueStreams",
@@ -196,7 +196,7 @@
     },
     {
       "id": "kr-001",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "keyResources",
@@ -209,7 +209,7 @@
     },
     {
       "id": "kr-002",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "keyResources",
@@ -222,7 +222,7 @@
     },
     {
       "id": "kr-003",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "keyResources",
@@ -235,7 +235,7 @@
     },
     {
       "id": "ka-001",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "keyActivities",
@@ -248,7 +248,7 @@
     },
     {
       "id": "ka-002",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "keyActivities",
@@ -261,7 +261,7 @@
     },
     {
       "id": "ka-003",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "keyActivities",
@@ -274,7 +274,7 @@
     },
     {
       "id": "kp-001",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "keyPartners",
@@ -287,7 +287,7 @@
     },
     {
       "id": "kp-002",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "keyPartners",
@@ -300,7 +300,7 @@
     },
     {
       "id": "kp-003",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "keyPartners",
@@ -313,7 +313,7 @@
     },
     {
       "id": "co-001",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "cost",
@@ -326,7 +326,7 @@
     },
     {
       "id": "co-002",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "cost",
@@ -339,7 +339,7 @@
     },
     {
       "id": "co-003",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_abc123",
       "resourceType": "BusinessModelCard",
       "sectionName": "cost",

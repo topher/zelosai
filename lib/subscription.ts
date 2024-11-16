@@ -2,12 +2,86 @@
 import { Clerk } from '@clerk/clerk-sdk-node';
 const clerkClient = Clerk({ apiKey: process.env.CLERK_SECRET_KEY! });
 import { SubscriptionTier, Feature, FeatureKey, ActionFeatureKey, features as allFeatures } from '@/config/featuresConfig';
-import { PaymentSession, User, Organization, } from '@/app/types';
+import { PaymentSession, User, Organization, FeaturesUsage, ResourceCounts, } from '@/app/types';
 import elasticsearchAxios from './elasticsearchAxios';
 import stripe from '@/lib/stripe';
 import axios from 'axios';
 import { Subscription } from '@/app/types';
 import logger from './logger';
+
+/**
+ * Generates a default FeaturesUsage object with all ActionFeatureKeys initialized.
+ * @returns FeaturesUsage object with default values.
+ */
+export function generateDefaultFeaturesUsage(): FeaturesUsage {
+  const defaultUsage: FeaturesUsage = {};
+  const actionKeys = Object.values(ActionFeatureKey);
+
+  actionKeys.forEach((actionKey) => {
+    defaultUsage[actionKey] = {
+      count: 0,
+      creditsUsed: 0,
+    };
+  });
+
+  return defaultUsage;
+}
+
+/**
+ * Generates a default ResourceCounts object with all FeatureKeys initialized.
+ * @returns ResourceCounts object with default values.
+ */
+export function generateDefaultResourceCounts(): ResourceCounts {
+  const defaultCounts: ResourceCounts = {};
+  const featureKeys = Object.values(FeatureKey);
+
+  featureKeys.forEach((featureKey) => {
+    defaultCounts[featureKey] = 0;
+  });
+
+  return defaultCounts;
+}
+
+/**
+ * Generates a new Subscription object with default FeaturesUsage and ResourceCounts.
+ * @param userId - The ID of the user.
+ * @param subscriptionTier - The subscription tier (default is 'FREE').
+ * @returns A Subscription object with initialized values.
+ */
+export function generateNewUserSubscription(userId: string, subscriptionTier: SubscriptionTier = SubscriptionTier.FREE): Subscription {
+  const subscriptionId = `sub_${subscriptionTier.toLowerCase()}_${userId}`;
+  const currentTimestamp = new Date().toISOString();
+
+  const newSubscription: Subscription = {
+    subscriptionId,
+    userId,
+    subscriptionTier,
+    credits: subscriptionTier === SubscriptionTier.FREE ? 100 : 500, // Adjust based on tier
+    creditsUsed: 0,
+    monthlyCreditLimit: subscriptionTier === SubscriptionTier.FREE ? 100 : 500, // Adjust based on tier
+    featuresUsage: generateDefaultFeaturesUsage(),
+    resourceCounts: generateDefaultResourceCounts(),
+    organizationId: '', // Empty for personal subscriptions
+    createdAt: currentTimestamp,
+    updatedAt: currentTimestamp,
+  };
+
+  return newSubscription;
+}
+
+/**
+ * Generates and logs a default subscription object for a given user.
+ * Useful for copying and pasting into static JSON files.
+ * @param userId - The ID of the user.
+ * @param subscriptionTier - The subscription tier (default is 'FREE').
+ */
+export function logDefaultSubscription(userId: string, subscriptionTier: SubscriptionTier = SubscriptionTier.FREE): void {
+  const subscription = generateNewUserSubscription(userId, subscriptionTier);
+  console.log('Copy and paste the following JSON into your static subscription file:\n');
+  console.log(JSON.stringify(subscription, null, 2));
+}
+
+// Subscription Functions
 
 /**
  * Validates the subscription object against the Subscription interface.
@@ -48,7 +122,6 @@ export function isValidSubscription(obj: any): obj is Subscription {
   return true;
 }
 
-
 /**
  * Fetches a subscription by its subscriptionId field.
  * @param subscriptionId - The subscriptionId to search for.
@@ -65,7 +138,7 @@ export async function getSubscriptionById(subscriptionId: string): Promise<Subsc
     });
 
     const hits = response.data.hits.hits;
-    console.log(`Elasticsearch response hits: ${JSON.stringify(hits)}`);
+    // console.log(`Elasticsearch response hits: ${JSON.stringify(hits)}`);
 
     if (hits.length > 0) {
       const subscription = hits[0]._source as Subscription;
@@ -103,7 +176,7 @@ export async function getSubscriptionByUserId(userId: string): Promise<Subscript
     });
 
     const hits = response.data.hits.hits;
-    console.log(`Elasticsearch response hits: ${JSON.stringify(hits)}`);
+    // console.log(`Elasticsearch response hits: ${JSON.stringify(hits)}`);
 
     if (hits.length > 0) {
       const subscription = hits[0]._source as Subscription;

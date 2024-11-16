@@ -35,22 +35,48 @@ export async function getResourceById(resourceName: string, resourceId: string):
 }
 
 /**
- * Create a new resource
+/**
+ * Create a new resource with a predefined _id matching the provided id.
+ * @param resourceName - The name of the Elasticsearch index.
+ * @param resourceData - The data of the resource to index.
+ * @param id - The UUID to set as both the document's _id and id field.
+ * @returns The created resource with its id.
  */
-export async function createResource(resourceName: string, resourceData: any): Promise<any> {
+export async function createResource(
+  resourceName: string,
+  resourceData: any,
+  id: string
+): Promise<any> {
   try {
-    const response = await elasticsearchAxios.post(`/${resourceName.toLowerCase()}/_doc`, resourceData);
+    if (!id) {
+      throw new Error('Resource ID is undefined.');
+    }
 
-    // Optionally, return the created resource with its ID
+    // Ensure the document includes the 'id' field matching the _id
+    const document = {
+      id, // Align the document's id with the _id
+      ...resourceData,
+    };
+
+    // Index the document using PUT to set _id to the provided id
+    const response = await elasticsearchAxios.put(
+      `/${resourceName.toLowerCase()}/_doc/${id}`,
+      document
+    );
+
+    console.log(`✅ Resource created with ID: ${response.data._id}`);
+
+    // Return the created resource with its ID
     return {
       id: response.data._id,
-      ...resourceData,
+      ...document,
     };
   } catch (error: any) {
     console.error(`❌ Error creating resource in ${resourceName}:`, error.response?.data || error.message);
     throw error;
   }
 }
+
 
 /**
  * Update an existing resource by ID

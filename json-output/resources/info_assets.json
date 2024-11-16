@@ -1,7 +1,7 @@
 [
   {
     "id": "zelos/victor-amo/core-data-1",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -20,7 +20,7 @@
   },
   {
     "id": "zelos/victor-amo/creative-work-1",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -40,7 +40,7 @@
   },
   {
     "id": "zelos/victor-amo/training-data-1",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -59,7 +59,7 @@
   },
   {
     "id": "zelos/victor-amo/trained-model-1",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -78,7 +78,7 @@
   },
   {
     "id": "zelos/victor-amo/data-product-1",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -97,7 +97,7 @@
   },
   {
     "id": "zelos/victor-amo/generative-ai-1",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -116,7 +116,7 @@
   },
   {
     "id": "zelos/victor-amo/data-offering-1",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -135,7 +135,7 @@
   },
   {
     "id": "zelos/victor-amo/product-inventory-1",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -154,7 +154,7 @@
   },
   {
     "id": "zelos/victor-amo/archived-document-1",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -173,7 +173,7 @@
   },
   {
     "id": "zelos/victor-amo/trashed-media-1",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -193,7 +193,7 @@
   },
   {
     "id": "zelos/victor-amo/KM200CoolblackSatelite",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -213,7 +213,7 @@
   },
   {
     "id": "zelos/victor-amo/biography",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -233,7 +233,7 @@
   },
   {
     "id": "zelos/victor-amo/highlight-reel.mp4",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -255,7 +255,7 @@
   },
   {
     "id": "zelos/victor-amo/contract-proposal-ac...",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -275,7 +275,7 @@
   },
   {
     "id": "zelos/scouting-reports/new-talent.pdf",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -294,7 +294,7 @@
   },
   {
     "id": "zelos/victor-amo/social-media-analysis.png",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -314,7 +314,7 @@
   },
   {
     "id": "zelos/victor-amo/performance-data-2023.csv",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -337,7 +337,7 @@
   },
   {
     "id": "zelos/victor-amo/training-recommendations-ai.pdf",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -360,7 +360,7 @@
   },
   {
     "id": "zelos/victor-amo/medical-records/2023",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -379,7 +379,7 @@
   },
   {
     "id": "zelos/scouting-reports/new-talent-ai.pdf",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -402,7 +402,7 @@
   },
   {
     "id": "zelos/victor-amo/KM200CoolblackSatelite",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -422,7 +422,7 @@
   },
   {
     "id": "zelos/victor-amo/MangaCortaKM100HeladosTonny",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -442,7 +442,7 @@
   },
   {
     "id": "zelos/victor-amo/OrbeaAlmaM502023OMR",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -462,7 +462,7 @@
   },
   {
     "id": "zelos/victor-amo/FincaCafetera",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -482,7 +482,7 @@
   },
   {
     "id": "zelos/victor-amo/ZapatillaDMTKm0",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -502,7 +502,7 @@
   },
   {
     "id": "zelos/victor-amo/BTwinTribanBike",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",
@@ -522,7 +522,7 @@
   },
   {
     "id": "zelos/victor-amo/CafeRigo",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "resourceType":"InfoAsset",
     "visibility": "public",

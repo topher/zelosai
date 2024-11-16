@@ -118,6 +118,9 @@ export interface Resource {
   updatedAt?: Date;       // Timestamp of the last update
   tags?: string[];        // Optional tags for categorization
   visibility?: 'public' | 'private' | 'restricted'; // Access level
+  linkedResources?: {
+    [resourceType: string]: string[]; // e.g., { 'goals': ['goalId1', 'goalId2'] }
+  };
   // Add other common attributes as needed
 }
 
@@ -127,6 +130,7 @@ export interface Statistic extends Resource {
   description: string;
   date: string;
   tags: string[];
+  relatedGoals?: string[]; // Links to Goal IDs for tracking metrics against goals
 }
 
 export interface Alert extends Resource {
@@ -135,6 +139,7 @@ export interface Alert extends Resource {
   severity: 'info' | 'warning' | 'error';
   date: string;
   tags: string[];
+  associatedRules?: string[]; // Links to Topic IDs for context on alerts
 }
 
 export interface Persona extends Resource {
@@ -148,6 +153,8 @@ export interface Persona extends Resource {
   AssociatedUseCases: string[];      // Corresponds to "AssociatedUseCases" in JSON
   isPersona: boolean;                // Corresponds to "is_persona" in JSON
   image: string;                     // Corresponds to "Image" in JSON
+  relatedContacts?: string[]; // Contact IDs for CRM integration
+  associatedUseCases?: string[]; // Links to specific Use Case IDs
 }
 
 
@@ -161,21 +168,22 @@ export interface Agent extends Resource {
     responseTime: number;
     integrations: string[];
   };
-  contactInfo?: {
-    email?: string;
-    phone?: string;
-    socialMedia?: {
-      LinkedIn?: string;
-      Twitter?: string;
-    };
-  };
+  linkedModels?: string[]; // Related Model IDs
+  linkedPersonas?: string[]; // Related Persona IDs for contextual CRM insights
+  associatedWorkflows?: string[]; // Links to Workflow IDs for task management
+  contactInfo?: Contact; // Direct link to Contact information
 }
 
 export interface ModelSubject extends Resource {
   subjectName: string;
   description: string;
-  relatedModels: string[];
   expertiseLevel: 'beginner' | 'intermediate' | 'expert';
+  relatedAIModels: string[]; // Links to associated AI Model IDs
+  associatedTopics?: string[]; // Links to Topic IDs for subject context
+  relatedTrainingIds?: string[]; // IDs of associated ModelTraining
+  associatedPersonas?: string[]; // Links to Topic IDs for subject context
+  linkedInfoAssets?: string[]; // Links to Info Assets related to this persona
+
 }
 
 export interface ModelTraining extends Resource {
@@ -185,6 +193,7 @@ export interface ModelTraining extends Resource {
   trainingStatus: 'pending' | 'in_progress' | 'completed' | 'failed';
   accuracy: number;
   lastTrainedAt: string;
+  linkedInfoAssets?: string[]; // Links to Info Assets related to this persona
   parameters: {
     epochs: number;
     learningRate: number;
@@ -239,7 +248,12 @@ export interface ContractModel extends Resource {
   tags: string[];
   uri: string;
   creatorAvatar?: string; // Added property
+  relatedInfoAssets?: string[]; // Links to Info Assets for contract documentation
+  associatedAgents?: string[]; // Links to Agent IDs for involved parties
+  relatedOffers?: string[]; // Links to Offer IDs
+  linkedTransactions?: string[]; // Links to transactions related to the contract
 };
+
 export interface UserDefinedModelCategory extends Resource {
     // account: Account;
     accountId: string;
@@ -272,6 +286,12 @@ export interface AIModel extends Resource {
   createdBy: string;                      // User or entity that created the model
   createdAt: any;                         // Date and time the model was created
   creatorAvatar?: string;                 // Optional avatar of the model's creator
+  linkedContracts?: string[]; // Links to CRM contacts using this connector
+  relatedSubjects?: string[]; // Links to related ModelSubject IDs
+  relatedInfoAssets?: string[]; // Links to Info Assets for contract documentation  
+  linkedModelTrainings?: string[]; // Model training sessions related to this model
+  relatedAlerts?: string[]; // Alert IDs to highlight model-related risks
+  associatedWorkflows?: string[]; // IDs of Workflows related to model development
 
   // Versioning Information
   version: number;                        // Version number of the model metadata
@@ -379,7 +399,10 @@ export interface InfoAsset extends Resource {
   uri: string;
   creation_date: string;
   entity_type?: string;
-  image?: string; 
+  image?: string;
+  linkedAIModels?: string[]; // AI Models related to the Info Asset
+  relatedPersonas?: string[]; // Links to Personas who find this asset useful
+  associatedContracts?: string[]; // Links to Contract Models using this asset
 }
 
 export interface WorkflowStage {
@@ -397,6 +420,9 @@ export interface Workflow extends Resource {
   cover: string;
   description: string;
   stages: WorkflowStage[]; // Add stages to Workflow
+  associatedTasks?: string[]; // Links to Task IDs within this workflow
+  associatedAlerts?: string[]; // Contacts who are participants in the workflow
+  relatedAgents?: string[]; // Agents involved in this workflow
 }
 
 export interface Goal extends Resource {
@@ -407,16 +433,22 @@ export interface Goal extends Resource {
   StrategicIndicator: string;
   KPI: string;
   Developer: string;
-  RelatedIssues: string[];
+  RelatedIssues?: string[];
   isActive: boolean;
+  relatedStrategicIssues?: string[]; // Links to Strategic Issues supporting this goal
+  relatedModelTrainings?: string[]; // Model Trainings relevant to goal achievement
 };
+
 export interface StategicIssue extends Resource {
   Topic: string;
   "SWOT Type": string;
   Subscribed: boolean;
   RelatedGoals?: string[];
   RelatedUseCases?: string[];
+  relatedTopics?: string[]; // Topics that align with this strategic issue
+  associatedGoals?: string[]; // Goals this issue supports
 }
+
 export interface UseCase extends Resource {
   id: string;
   accountId: string;
@@ -425,6 +457,8 @@ export interface UseCase extends Resource {
   Target: string;
   ForPurpose: string[]; // Array of strings for different purposes
   Models: number; // Assuming the number of models is an integer
+  associatedModels?: string[]; // AI Models related to this use case
+  relatedPersonas?: string[]; // Agents relevant to the use case
 }
 export interface Agent extends Resource {
   id: string;
@@ -440,7 +474,11 @@ export interface Contact extends Resource {
   name: string;
   email: string;
   agentTypes: Agent[]
+  relatedPersonas?: string[]; // Links to Personas this contact engages with
+  linkedOffers?: string[]; // Offers associated with this contact
+  linkedMessages?: string[]; // Offers associated with this contact
 }
+
 export interface BusinessModel extends Resource {
 companyName: string;
 logo: string;
@@ -561,6 +599,7 @@ export interface Message extends Resource {
   subject?: string;
   messageType?: 'Text' | 'Image' | 'Video' | 'Audio';
   attachments?: Attachment[];
+  relatedContacts?: string[]; // CRM contacts
 }
 
 export interface Attachment {
@@ -583,6 +622,8 @@ export interface ScheduledEvent extends Resource {
   participantIds?: string[]; // User IDs of participants
   eventStatus?: 'Scheduled' | 'Cancelled' | 'Postponed' | 'Completed';
   eventType?: 'Webinar' | 'Meetup' | 'Training' | 'Conference';
+  associatedContacts?: string[]; // CRM Contacts attending the event
+  relatedGoals?: string[]; // Goals related to the event
 }
 
 // types/Transaction.ts
@@ -599,6 +640,7 @@ export interface Transaction extends Resource {
   relatedResourceId?: string; // ID of the resource related to the transaction (e.g., Offer ID)
   notes?: string;
 }
+
 export interface UserAction extends Resource {
   subjectId: string;          // References the User performing the action
   action: Action;    // 'read', 'create', etc.
@@ -616,6 +658,8 @@ export interface Task extends Resource {
   status: 'Not Started' | 'In Progress' | 'Completed' | 'Blocked';
   priority: 'Low' | 'Medium' | 'High';
   stageId: string; // Reference to the WorkflowStage
+  relatedWorkflows?: string[]; // Workflows this task belongs to
+  relatedAgents?: string[]; // Agents assigned to this task
   // Add other task-specific properties
 }
 
@@ -715,11 +759,13 @@ export type ResourceCounts = {
 };
 
 export type FeaturesUsage = {
-  [key in ActionFeatureKey]?: {
-    count: number; // Number of times the action was performed
-    creditsUsed: number; // Total credits used for the action
-  };
+  [key in ActionFeatureKey]?: ActionFeatureUsage;
 };
+export interface ActionFeatureUsage {
+  count: number; // Number of times the action was performed
+  creditsUsed: number; // Total credits used for the action
+}
+
 
 // END POLICY
 // Profile interface

@@ -2,7 +2,7 @@
     "mappings": {
       "properties": {
         "id": { "type": "keyword" },
-        "orgId": { "type": "keyword" },
+        "accountId": { "type": "keyword" },
         "URI": { "type": "keyword" },
         "name": { "type": "text" },
         "category": { "type": "keyword" },

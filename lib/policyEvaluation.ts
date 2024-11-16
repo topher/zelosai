@@ -165,6 +165,7 @@ export async function getResourceAttributes(
     }
 
     const data = await response.json();
+    console.log("😜", JSON.stringify(data));
     return {
       resourceName, // Changed from resourceType to resourceName
       ...data._source,
@@ -188,10 +189,10 @@ export async function fetchPoliciesFromElasticsearch(orgId: string): Promise<Pol
         bool: {
           should: [
             {
-              match: { organizationId: "*" }, // Ensure 'organizationId' matches your mapping
+              term: { organizationId: "*" }, // Ensure 'organizationId' matches your mapping
             },
             {
-              match: { organizationId: orgId }, // Ensure 'organizationId' matches your mapping
+              term: { organizationId: orgId }, // Ensure 'organizationId' matches your mapping
             }
           ]
         }

@@ -1,3 +1,4 @@
+import * as Yup from 'yup';
 // config/featuresConfig.ts
 
 import React, { SVGProps } from 'react';
@@ -29,6 +30,23 @@ import {
   Info,
   LucideIcon,
 } from 'lucide-react';
+
+
+export interface CreditPackage {
+  id: string;
+  name: string;
+  credits: number;
+  price: number;
+}
+
+// Example credit packages (if not already defined)
+export const creditPackages: CreditPackage[] = [
+  { id: "pkg_small", name: "Small Pack", credits: 100, price: 9.99 },
+  { id: "pkg_medium", name: "Medium Pack", credits: 250, price: 19.99 },
+  { id: "pkg_large", name: "Large Pack", credits: 500, price: 34.99 },
+  { id: "pkg_unlimited", name: "Unlimited", credits: 10000, price: 99.99 },
+];
+
 
 /**
  * Enum for Subscription Tiers
@@ -123,7 +141,7 @@ export const featureCategoryConfig: { [key in FeatureCategory]: FeatureCategoryM
 
 // config/featuresConfig.ts
 
-export type Action = 'read' | 'create' | 'edit' | 'delete' ;
+export type Action = 'read' | 'create' | 'update' | 'delete' ;
 
 /**
  * Enum for Feature Keys (Action-Agnostic)
@@ -137,7 +155,6 @@ export enum FeatureKey {
 
   // Strategy Features
   Goals = 'Goals',
-  UseCases = 'UseCases',
   Personas = 'Personas',
   Issues = 'Issues',
   BusinessModel = 'BusinessModel',
@@ -145,7 +162,7 @@ export enum FeatureKey {
 
   // Models Features
   Models = 'Models',
-  TrainModels = 'TrainModels',
+  UseCases = 'UseCases',
   ModelSubjects = 'ModelSubjects',
   ModelTrainings = 'ModelTrainings',
 
@@ -181,6 +198,7 @@ export enum FeatureKey {
   SearchableModels = 'SearchableModels',
   SearchableBrands = 'SearchableBrands',
   SearchableUsers = 'SearchableUsers',
+  ModelGeneration = "ModelGeneration",
 }
 
 
@@ -190,187 +208,187 @@ export enum ActionFeatureKey {
   // Recommendations Actions
   CreateRecommendation = 'CreateRecommendation',
   ReadRecommendation = 'ReadRecommendation',
-  EditRecommendation = 'EditRecommendation',
+  UpdateRecommendation = 'UpdateRecommendation',
   DeleteRecommendation = 'DeleteRecommendation',
 
   // UserActions Actions
   CreateUserAction = 'CreateUserAction',
   ReadUserAction = 'ReadUserAction',
-  EditUserAction = 'EditUserAction',
+  UpdateUserAction = 'UpdateUserAction',
   DeleteUserAction = 'DeleteUserAction',
 
   // Goals Actions
   CreateGoal = 'CreateGoal',
   ReadGoal = 'ReadGoal',
-  EditGoal = 'EditGoal',
+  UpdateGoal = 'UpdateGoal',
   DeleteGoal = 'DeleteGoal',
 
   // UseCases Actions
   CreateUseCase = 'CreateUseCase',
   ReadUseCase = 'ReadUseCase',
-  EditUseCase = 'EditUseCase',
+  UpdateUseCase = 'UpdateUseCase',
   DeleteUseCase = 'DeleteUseCase',
 
   // Issues Actions
   CreateIssue = 'CreateIssue',
   ReadIssue = 'ReadIssue',
-  EditIssue = 'EditIssue',
+  UpdateIssue = 'UpdateIssue',
   DeleteIssue = 'DeleteIssue',
 
   // BusinessModel Actions
   CreateBusinessModel = 'CreateBusinessModel',
   ReadBusinessModel = 'ReadBusinessModel',
-  EditBusinessModel = 'EditBusinessModel',
+  UpdateBusinessModel = 'UpdateBusinessModel',
   DeleteBusinessModel = 'DeleteBusinessModel',
 
   // Branding Actions
   CreateBranding = 'CreateBranding',
   ReadBranding = 'ReadBranding',
-  EditBranding = 'EditBranding',
+  UpdateBranding = 'UpdateBranding',
   DeleteBranding = 'DeleteBranding',
 
   // Models Actions
   CreateModel = 'CreateModel',
   ReadModel = 'ReadModel',
-  EditModel = 'EditModel',
+  UpdateModel = 'UpdateModel',
   DeleteModel = 'DeleteModel',
 
   // TrainModels Actions
   CreateTrainModel = 'CreateTrainModel',
   ReadTrainModel = 'ReadTrainModel',
-  EditTrainModel = 'EditTrainModel',
+  UpdateTrainModel = 'UpdateTrainModel',
   DeleteTrainModel = 'DeleteTrainModel',
 
   // Connectors Actions
   CreateConnector = 'CreateConnector',
   ReadConnector = 'ReadConnector',
-  EditConnector = 'EditConnector',
+  UpdateConnector = 'UpdateConnector',
   DeleteConnector = 'DeleteConnector',
 
   // Topics Actions
   CreateTopic = 'CreateTopic',
   ReadTopic = 'ReadTopic',
-  EditTopic = 'EditTopic',
+  UpdateTopic = 'UpdateTopic',
   DeleteTopic = 'DeleteTopic',
 
   // InfoAssets Actions
   CreateInfoAsset = 'CreateInfoAsset',
   ReadInfoAsset = 'ReadInfoAsset',
-  EditInfoAsset = 'EditInfoAsset',
+  UpdateInfoAsset = 'UpdateInfoAsset',
   DeleteInfoAsset = 'DeleteInfoAsset',
 
   // Policies Actions
   CreatePolicy = 'CreatePolicy',
   ReadPolicy = 'ReadPolicy',
-  EditPolicy = 'EditPolicy',
+  UpdatePolicy = 'UpdatePolicy',
   DeletePolicy = 'DeletePolicy',
 
   // Terms Actions
   CreateTerm = 'CreateTerm',
   ReadTerm = 'ReadTerm',
-  EditTerm = 'EditTerm',
+  UpdateTerm = 'UpdateTerm',
   DeleteTerm = 'DeleteTerm',
 
   // Messages Actions
   CreateMessage = 'CreateMessage',
   ReadMessage = 'ReadMessage',
-  EditMessage = 'EditMessage',
+  UpdateMessage = 'UpdateMessage',
   DeleteMessage = 'DeleteMessage',
 
   // Offers Actions
   CreateOffer = 'CreateOffer',
   ReadOffer = 'ReadOffer',
-  EditOffer = 'EditOffer',
+  UpdateOffer = 'UpdateOffer',
   DeleteOffer = 'DeleteOffer',
 
   // Contracts Actions
   CreateContract = 'CreateContract',
   ReadContract = 'ReadContract',
-  EditContract = 'EditContract',
+  UpdateContract = 'UpdateContract',
   DeleteContract = 'DeleteContract',
 
   // Transactions Actions
   CreateTransaction = 'CreateTransaction',
   ReadTransaction = 'ReadTransaction',
-  EditTransaction = 'EditTransaction',
+  UpdateTransaction = 'UpdateTransaction',
   DeleteTransaction = 'DeleteTransaction',
 
   // Workflows Actions
   CreateWorkflow = 'CreateWorkflow',
   ReadWorkflow = 'ReadWorkflow',
-  EditWorkflow = 'EditWorkflow',
+  UpdateWorkflow = 'UpdateWorkflow',
   DeleteWorkflow = 'DeleteWorkflow',
 
   // Tasks Actions
   CreateTask = 'CreateTask',
   ReadTask = 'ReadTask',
-  EditTask = 'EditTask',
+  UpdateTask = 'UpdateTask',
   DeleteTask = 'DeleteTask',
 
   // Calendar Actions
   CreateScheduledEvent = 'CreateScheduledEvent',
   ReadScheduledEvent = 'ReadScheduledEvent',
-  EditScheduledEvent = 'EditScheduledEvent',
+  UpdateScheduledEvent = 'UpdateScheduledEvent',
   DeleteScheduledEvent = 'DeleteScheduledEvent',
 
   // ProfileAthletes Actions
   CreateProfileAthlete = 'CreateProfileAthlete',
   ReadProfileAthlete = 'ReadProfileAthlete',
-  EditProfileAthlete = 'EditProfileAthlete',
+  UpdateProfileAthlete = 'UpdateProfileAthlete',
   DeleteProfileAthlete = 'DeleteProfileAthlete',
 
   // ProfileContracts Actions
   CreateProfileContract = 'CreateProfileContract',
   ReadProfileContract = 'ReadProfileContract',
-  EditProfileContract = 'EditProfileContract',
+  UpdateProfileContract = 'UpdateProfileContract',
   DeleteProfileContract = 'DeleteProfileContract',
 
   // ProfileModels Actions
   CreateProfileModel = 'CreateProfileModel',
   ReadProfileModel = 'ReadProfileModel',
-  EditProfileModel = 'EditProfileModel',
+  UpdateProfileModel = 'UpdateProfileModel',
   DeleteProfileModel = 'DeleteProfileModel',
 
   // ProfileBrands Actions
   CreateProfileBrand = 'CreateProfileBrand',
   ReadProfileBrand = 'ReadProfileBrand',
-  EditProfileBrand = 'EditProfileBrand',
+  UpdateProfileBrand = 'UpdateProfileBrand',
   DeleteProfileBrand = 'DeleteProfileBrand',
 
   // ProfileUsers Actions
   CreateProfileUser = 'CreateProfileUser',
   ReadProfileUser = 'ReadProfileUser',
-  EditProfileUser = 'EditProfileUser',
+  UpdateProfileUser = 'UpdateProfileUser',
   DeleteProfileUser = 'DeleteProfileUser',
 
   // SearchableAthletes Actions
   CreateSearchableAthlete = 'CreateSearchableAthlete',
   ReadSearchableAthlete = 'ReadSearchableAthlete',
-  EditSearchableAthlete = 'EditSearchableAthlete',
+  UpdateSearchableAthlete = 'UpdateSearchableAthlete',
   DeleteSearchableAthlete = 'DeleteSearchableAthlete',
 
   // SearchableContracts Actions
   CreateSearchableContract = 'CreateSearchableContract',
   ReadSearchableContract = 'ReadSearchableContract',
-  EditSearchableContract = 'EditSearchableContract',
+  UpdateSearchableContract = 'UpdateSearchableContract',
   DeleteSearchableContract = 'DeleteSearchableContract',
 
   // SearchableModels Actions
   CreateSearchableModel = 'CreateSearchableModel',
   ReadSearchableModel = 'ReadSearchableModel',
-  EditSearchableModel = 'EditSearchableModel',
+  UpdateSearchableModel = 'UpdateSearchableModel',
   DeleteSearchableModel = 'DeleteSearchableModel',
 
   // SearchableBrands Actions
   CreateSearchableBrand = 'CreateSearchableBrand',
   ReadSearchableBrand = 'ReadSearchableBrand',
-  EditSearchableBrand = 'EditSearchableBrand',
+  UpdateSearchableBrand = 'UpdateSearchableBrand',
   DeleteSearchableBrand = 'DeleteSearchableBrand',
 
   // SearchableUsers Actions
   CreateSearchableUser = 'CreateSearchableUser',
   ReadSearchableUser = 'ReadSearchableUser',
-  EditSearchableUser = 'EditSearchableUser',
+  UpdateSearchableUser = 'UpdateSearchableUser',
   DeleteSearchableUser = 'DeleteSearchableUser',
 
   // Analytics Actions
@@ -380,56 +398,58 @@ export enum ActionFeatureKey {
   // BrandingCards Actions
   CreateBrandingCard = 'CreateBrandingCard',
   ReadBrandingCard = 'ReadBrandingCard',
-  EditBrandingCard = 'EditBrandingCard',
+  UpdateBrandingCard = 'UpdateBrandingCard',
   DeleteBrandingCard = 'DeleteBrandingCard',
   FacetsPerBrandingCardType = 'FacetsPerBrandingCardType',
 
   // New Analytics Actions
   CreateStatistic = 'CreateStatistic',
   ReadStatistic = 'ReadStatistic',
-  EditStatistic = 'EditStatistic',
+  UpdateStatistic = 'UpdateStatistic',
   DeleteStatistic = 'DeleteStatistic',
 
   // New Alerts Actions
   CreateAlert = 'CreateAlert',
   ReadAlert = 'ReadAlert',
-  EditAlert = 'EditAlert',
+  UpdateAlert = 'UpdateAlert',
   DeleteAlert = 'DeleteAlert',
 
   // New Personas Actions
   CreatePersona = 'CreatePersona',
   ReadPersona = 'ReadPersona',
-  EditPersona = 'EditPersona',
+  UpdatePersona = 'UpdatePersona',
   DeletePersona = 'DeletePersona',
 
   // New Agents Actions in Workflows
   CreateAgent = 'CreateAgent',
   ReadAgent = 'ReadAgent',
-  EditAgent = 'EditAgent',
+  UpdateAgent = 'UpdateAgent',
   DeleteAgent = 'DeleteAgent',
 
   // New ModelSubjects Actions
   CreateModelSubject = 'CreateModelSubject',
   ReadModelSubject = 'ReadModelSubject',
-  EditModelSubject = 'EditModelSubject',
+  UpdateModelSubject = 'UpdateModelSubject',
   DeleteModelSubject = 'DeleteModelSubject',
 
   // New ModelTrainings Actions
   CreateModelTraining = 'CreateModelTraining',
   ReadModelTraining = 'ReadModelTraining',
-  EditModelTraining = 'EditModelTraining',
+  UpdateModelTraining = 'UpdateModelTraining',
   DeleteModelTraining = 'DeleteModelTraining',
 
 
   // Profiles Actions
   ReadProfileView = 'ReadProfileView',
-  EditProfile = 'EditProfile',
+  UpdateProfile = 'UpdateProfile',
 
   // Wallet Actions
   ConnectWallet = 'ConnectWallet',
 
   // Account Actions
   ManageAccount = 'ManageAccount',
+  ReadModelGeneration = "ReadModelGeneration",
+  CreateModelGeneration = "CreateModelGeneration",
 
   // Add any additional specific actions as needed
 }
@@ -453,22 +473,36 @@ export interface FeatureMetadata {
 /**
  * Interface for Feature Actions
  */
-export interface FeatureAction {
+export interface ActionFeature {
   actionKey: ActionFeatureKey;
-  action: 'read' | 'create' | 'edit' | 'delete'; // Define allowed actions
+  action: 'read' | 'create' | 'update' | 'delete'; // Define allowed actions
   baseTier: SubscriptionTier;
   resourceLimits: number[]; // [FREE limit, PRO limit, ENTERPRISE limit]
   creditCost: number; // Credits consumed per action
 }
 
+/**
+ * Interface forFieldConfig
+ */
+interface FieldConfig {
+  name: string; // The name of the field
+  label: string; // The label displayed for the field
+  type: 'text' | 'textarea' | 'autocomplete' | 'checkbox' | 'number' | 'object'; // The type of input
+  required?: boolean; // Indicates if the field is required
+  resourceTypes?: string[]; // Optional array for resource types (for autocomplete fields)
+  multiple?: boolean; // Indicates if multiple selections are allowed (for autocomplete fields)
+  fields?: object;
+}
 
 /**
  * Interface for a Feature
  */
 export interface Feature {
   key: FeatureKey;
+  schema?: Yup.ObjectSchema<any>;
+  fields?: FieldConfig[];
+  actions: ActionFeature[];
   metadata: FeatureMetadata;
-  actions: FeatureAction[];
 }
 
 /**
@@ -524,8 +558,8 @@ export const features: Feature[] = [
         creditCost: 0,
       },
       {
-        actionKey: ActionFeatureKey.EditUserAction,
-        action: 'edit',
+        actionKey: ActionFeatureKey.UpdateUserAction,
+        action: 'update',
         baseTier: SubscriptionTier.PRO,
         resourceLimits: [0, 0, 0],
         creditCost: 0,
@@ -567,8 +601,8 @@ export const features: Feature[] = [
         creditCost: 2,
       },
       {
-        actionKey: ActionFeatureKey.EditRecommendation,
-        action: 'edit',
+        actionKey: ActionFeatureKey.UpdateRecommendation,
+        action: 'update',
         baseTier: SubscriptionTier.PRO,
         resourceLimits: [2, 10, 50],
         creditCost: 2,
@@ -591,7 +625,7 @@ export const features: Feature[] = [
       href: '/dashboard/analytics',
       description: 'View analytics statistics.',
       isInProd: true,
-      resourceName: 'analytics',
+      resourceName: 'statistics',
       resourceType: 'Statistic',
     },
     actions: [
@@ -610,8 +644,8 @@ export const features: Feature[] = [
         creditCost: 2,
       },
       {
-        actionKey: ActionFeatureKey.EditStatistic,
-        action: 'edit',
+        actionKey: ActionFeatureKey.UpdateStatistic,
+        action: 'update',
         baseTier: SubscriptionTier.PRO,
         resourceLimits: [5, 25, 100],
         creditCost: 2,
@@ -653,8 +687,8 @@ export const features: Feature[] = [
         creditCost: 2,
       },
       {
-        actionKey: ActionFeatureKey.EditAlert,
-        action: 'edit',
+        actionKey: ActionFeatureKey.UpdateAlert,
+        action: 'update',
         baseTier: SubscriptionTier.PRO,
         resourceLimits: [2, 10, 50],
         creditCost: 2,
@@ -698,8 +732,8 @@ export const features: Feature[] = [
         creditCost: 2,
       },
       {
-        actionKey: ActionFeatureKey.EditGoal,
-        action: 'edit',
+        actionKey: ActionFeatureKey.UpdateGoal,
+        action: 'update',
         baseTier: SubscriptionTier.PRO,
         resourceLimits: [1, 3, 10],
         creditCost: 2,
@@ -741,8 +775,8 @@ export const features: Feature[] = [
         creditCost: 2,
       },
       {
-        actionKey: ActionFeatureKey.EditPersona,
-        action: 'edit',
+        actionKey: ActionFeatureKey.UpdatePersona,
+        action: 'update',
         baseTier: SubscriptionTier.PRO,
         resourceLimits: [5, 25, 100],
         creditCost: 2,
@@ -785,8 +819,8 @@ export const features: Feature[] = [
         creditCost: 2,
       },
       {
-        actionKey: ActionFeatureKey.EditIssue,
-        action: 'edit',
+        actionKey: ActionFeatureKey.UpdateIssue,
+        action: 'update',
         baseTier: SubscriptionTier.PRO,
         resourceLimits: [0, 3, 10],
         creditCost: 2,
@@ -829,8 +863,8 @@ export const features: Feature[] = [
         creditCost: 2,
       },
       {
-        actionKey: ActionFeatureKey.EditBusinessModel,
-        action: 'edit',
+        actionKey: ActionFeatureKey.UpdateBusinessModel,
+        action: 'update',
         baseTier: SubscriptionTier.PRO,
         resourceLimits: [1, 3, 10],
         creditCost: 2,
@@ -873,8 +907,8 @@ export const features: Feature[] = [
         creditCost: 2,
       },
       {
-        actionKey: ActionFeatureKey.EditBranding,
-        action: 'edit',
+        actionKey: ActionFeatureKey.UpdateBranding,
+        action: 'update',
         baseTier: SubscriptionTier.PRO,
         resourceLimits: [0, 3, 10],
         creditCost: 2,
@@ -918,8 +952,8 @@ export const features: Feature[] = [
         creditCost: 2,
       },
       {
-        actionKey: ActionFeatureKey.EditModel,
-        action: 'edit',
+        actionKey: ActionFeatureKey.UpdateModel,
+        action: 'update',
         baseTier: SubscriptionTier.PRO,
         resourceLimits: [5, 50, 500],
         creditCost: 2,
@@ -961,8 +995,8 @@ export const features: Feature[] = [
         creditCost: 2,
       },
       {
-        actionKey: ActionFeatureKey.EditModelSubject,
-        action: 'edit',
+        actionKey: ActionFeatureKey.UpdateModelSubject,
+        action: 'update',
         baseTier: SubscriptionTier.PRO,
         resourceLimits: [5, 25, 100],
         creditCost: 2,
@@ -1004,8 +1038,8 @@ export const features: Feature[] = [
         creditCost: 2,
       },
       {
-        actionKey: ActionFeatureKey.EditModelTraining,
-        action: 'edit',
+        actionKey: ActionFeatureKey.UpdateModelTraining,
+        action: 'update',
         baseTier: SubscriptionTier.PRO,
         resourceLimits: [5, 25, 100],
         creditCost: 2,
@@ -1048,8 +1082,8 @@ export const features: Feature[] = [
         creditCost: 2,
       },
       {
-        actionKey: ActionFeatureKey.EditUseCase,
-        action: 'edit',
+        actionKey: ActionFeatureKey.UpdateUseCase,
+        action: 'update',
         baseTier: SubscriptionTier.PRO,
         resourceLimits: [0, 3, 10],
         creditCost: 2,
@@ -1093,8 +1127,8 @@ export const features: Feature[] = [
           creditCost: 2,
         },
         {
-          actionKey: ActionFeatureKey.EditConnector,
-          action: 'edit',
+          actionKey: ActionFeatureKey.UpdateConnector,
+          action: 'update',
           baseTier: SubscriptionTier.PRO,
           resourceLimits: [1, 3, 10],
           creditCost: 2,
@@ -1137,8 +1171,8 @@ export const features: Feature[] = [
           creditCost: 2,
         },
         {
-          actionKey: ActionFeatureKey.EditTopic,
-          action: 'edit',
+          actionKey: ActionFeatureKey.UpdateTopic,
+          action: 'update',
           baseTier: SubscriptionTier.PRO,
           resourceLimits: [0, 5, 50],
           creditCost: 2,
@@ -1181,8 +1215,8 @@ export const features: Feature[] = [
           creditCost: 2,
         },
         {
-          actionKey: ActionFeatureKey.EditInfoAsset,
-          action: 'edit',
+          actionKey: ActionFeatureKey.UpdateInfoAsset,
+          action: 'update',
           baseTier: SubscriptionTier.PRO,
           resourceLimits: [5, 50, 500],
           creditCost: 2,
@@ -1225,8 +1259,8 @@ export const features: Feature[] = [
           creditCost: 2,
         },
         {
-          actionKey: ActionFeatureKey.EditPolicy,
-          action: 'edit',
+          actionKey: ActionFeatureKey.UpdatePolicy,
+          action: 'update',
           baseTier: SubscriptionTier.PRO,
           resourceLimits: [0, 5, 50],
           creditCost: 2,
@@ -1269,8 +1303,8 @@ export const features: Feature[] = [
           creditCost: 2,
         },
         {
-          actionKey: ActionFeatureKey.EditTerm,
-          action: 'edit',
+          actionKey: ActionFeatureKey.UpdateTerm,
+          action: 'update',
           baseTier: SubscriptionTier.PRO,
           resourceLimits: [0, 5, 50],
           creditCost: 2,
@@ -1315,8 +1349,8 @@ export const features: Feature[] = [
           creditCost: 2,
         },
         {
-          actionKey: ActionFeatureKey.EditMessage,
-          action: 'edit',
+          actionKey: ActionFeatureKey.UpdateMessage,
+          action: 'update',
           baseTier: SubscriptionTier.PRO,
           resourceLimits: [1, 50, 50],
           creditCost: 2,
@@ -1359,8 +1393,8 @@ export const features: Feature[] = [
           creditCost: 2,
         },
         {
-          actionKey: ActionFeatureKey.EditOffer,
-          action: 'edit',
+          actionKey: ActionFeatureKey.UpdateOffer,
+          action: 'update',
           baseTier: SubscriptionTier.PRO,
           resourceLimits: [1, 50, 50],
           creditCost: 2,
@@ -1403,8 +1437,8 @@ export const features: Feature[] = [
           creditCost: 2,
         },
         {
-          actionKey: ActionFeatureKey.EditScheduledEvent,
-          action: 'edit',
+          actionKey: ActionFeatureKey.UpdateScheduledEvent,
+          action: 'update',
           baseTier: SubscriptionTier.PRO,
           resourceLimits: [0, 20, 200],
           creditCost: 2,
@@ -1447,8 +1481,8 @@ export const features: Feature[] = [
           creditCost: 2,
         },
         {
-          actionKey: ActionFeatureKey.EditTransaction,
-          action: 'edit',
+          actionKey: ActionFeatureKey.UpdateTransaction,
+          action: 'update',
           baseTier: SubscriptionTier.ENTERPRISE,
           resourceLimits: [1, 50, 50],
           creditCost: 2,
@@ -1491,8 +1525,8 @@ export const features: Feature[] = [
           creditCost: 2,
         },
         {
-          actionKey: ActionFeatureKey.EditContract,
-          action: 'edit',
+          actionKey: ActionFeatureKey.UpdateContract,
+          action: 'update',
           baseTier: SubscriptionTier.PRO,
           resourceLimits: [1, 3, 50],
           creditCost: 2,
@@ -1535,8 +1569,8 @@ export const features: Feature[] = [
           creditCost: 2,
         },
         {
-          actionKey: ActionFeatureKey.EditWorkflow,
-          action: 'edit',
+          actionKey: ActionFeatureKey.UpdateWorkflow,
+          action: 'update',
           baseTier: SubscriptionTier.PRO,
           resourceLimits: [0, 5, 50],
           creditCost: 2,
@@ -1579,8 +1613,8 @@ export const features: Feature[] = [
           creditCost: 2,
         },
         {
-          actionKey: ActionFeatureKey.EditTask,
-          action: 'edit',
+          actionKey: ActionFeatureKey.UpdateTask,
+          action: 'update',
           baseTier: SubscriptionTier.PRO,
           resourceLimits: [0, 5, 50],
           creditCost: 2,
@@ -1609,7 +1643,7 @@ export const features: Feature[] = [
       actions: [
         { actionKey: ActionFeatureKey.ReadAgent, action: 'read', baseTier: SubscriptionTier.FREE, resourceLimits: [10, 50, 200], creditCost: 1 },
         { actionKey: ActionFeatureKey.CreateAgent, action: 'create', baseTier: SubscriptionTier.PRO, resourceLimits: [5, 25, 100], creditCost: 2 },
-        { actionKey: ActionFeatureKey.EditAgent, action: 'edit', baseTier: SubscriptionTier.PRO, resourceLimits: [5, 25, 100], creditCost: 2 },
+        { actionKey: ActionFeatureKey.UpdateAgent, action: 'update', baseTier: SubscriptionTier.PRO, resourceLimits: [5, 25, 100], creditCost: 2 },
         { actionKey: ActionFeatureKey.DeleteAgent, action: 'delete', baseTier: SubscriptionTier.ENTERPRISE, resourceLimits: [2, 10, 50], creditCost: 3 },
       ],
     },
@@ -1622,7 +1656,7 @@ export const features: Feature[] = [
         href: '/profiles/athletes',
         description: 'Manage athlete profiles.',
         isInProd: true,
-        resourceName: 'profile_athletes',
+        resourceName: 'athlete_triples',
         resourceType: 'ProfileAthlete',
         maxResourceCount: [10, 100, 1000],
       },
@@ -1642,8 +1676,8 @@ export const features: Feature[] = [
           creditCost: 2,
         },
         {
-          actionKey: ActionFeatureKey.EditProfileAthlete,
-          action: 'edit',
+          actionKey: ActionFeatureKey.UpdateProfileAthlete,
+          action: 'update',
           baseTier: SubscriptionTier.PRO,
           resourceLimits: [5, 50, 500],
           creditCost: 2,
@@ -1686,8 +1720,8 @@ export const features: Feature[] = [
           creditCost: 2,
         },
         {
-          actionKey: ActionFeatureKey.EditProfileContract,
-          action: 'edit',
+          actionKey: ActionFeatureKey.UpdateProfileContract,
+          action: 'update',
           baseTier: SubscriptionTier.PRO,
           resourceLimits: [5, 50, 500],
           creditCost: 2,
@@ -1730,8 +1764,8 @@ export const features: Feature[] = [
           creditCost: 2,
         },
         {
-          actionKey: ActionFeatureKey.EditProfileModel,
-          action: 'edit',
+          actionKey: ActionFeatureKey.UpdateProfileModel,
+          action: 'update',
           baseTier: SubscriptionTier.PRO,
           resourceLimits: [5, 50, 500],
           creditCost: 2,
@@ -1774,8 +1808,8 @@ export const features: Feature[] = [
           creditCost: 2,
         },
         {
-          actionKey: ActionFeatureKey.EditProfileBrand,
-          action: 'edit',
+          actionKey: ActionFeatureKey.UpdateProfileBrand,
+          action: 'update',
           baseTier: SubscriptionTier.PRO,
           resourceLimits: [5, 50, 500],
           creditCost: 2,
@@ -1818,8 +1852,8 @@ export const features: Feature[] = [
           creditCost: 2,
         },
         {
-          actionKey: ActionFeatureKey.EditProfileUser,
-          action: 'edit',
+          actionKey: ActionFeatureKey.UpdateProfileUser,
+          action: 'update',
           baseTier: SubscriptionTier.ENTERPRISE,
           resourceLimits: [0, 50, 500],
           creditCost: 2,
@@ -1862,8 +1896,8 @@ export const features: Feature[] = [
           creditCost: 2,
         },
         {
-          actionKey: ActionFeatureKey.EditSearchableAthlete,
-          action: 'edit',
+          actionKey: ActionFeatureKey.UpdateSearchableAthlete,
+          action: 'update',
           baseTier: SubscriptionTier.PRO,
           resourceLimits: [50, 500, 5000],
           creditCost: 2,
@@ -1906,8 +1940,8 @@ export const features: Feature[] = [
           creditCost: 2,
         },
         {
-          actionKey: ActionFeatureKey.EditSearchableContract,
-          action: 'edit',
+          actionKey: ActionFeatureKey.UpdateSearchableContract,
+          action: 'update',
           baseTier: SubscriptionTier.PRO,
           resourceLimits: [50, 500, 5000],
           creditCost: 2,
@@ -1950,8 +1984,8 @@ export const features: Feature[] = [
           creditCost: 2,
         },
         {
-          actionKey: ActionFeatureKey.EditSearchableModel,
-          action: 'edit',
+          actionKey: ActionFeatureKey.UpdateSearchableModel,
+          action: 'update',
           baseTier: SubscriptionTier.PRO,
           resourceLimits: [50, 500, 5000],
           creditCost: 2,
@@ -1994,8 +2028,8 @@ export const features: Feature[] = [
           creditCost: 2,
         },
         {
-          actionKey: ActionFeatureKey.EditSearchableBrand,
-          action: 'edit',
+          actionKey: ActionFeatureKey.UpdateSearchableBrand,
+          action: 'update',
           baseTier: SubscriptionTier.PRO,
           resourceLimits: [50, 500, 5000],
           creditCost: 2,
@@ -2038,8 +2072,8 @@ export const features: Feature[] = [
           creditCost: 2,
         },
         {
-          actionKey: ActionFeatureKey.EditSearchableUser,
-          action: 'edit',
+          actionKey: ActionFeatureKey.UpdateSearchableUser,
+          action: 'update',
           baseTier: SubscriptionTier.ENTERPRISE,
           resourceLimits: [0, 500, 5000],
           creditCost: 2,

@@ -1,89 +1,63 @@
 // hooks/useFeatureAccess.ts
 
 import { Subscription } from '@/app/types';
-import { features as allFeatures, Feature, SubscriptionTier, FeatureKey, ActionFeatureKey } from '@/config/featuresConfig';
-import { getResourceCount } from '@/lib/resource'; // Ensure correct import
-import { useState, useEffect } from 'react';
+import { FeatureKey, ActionFeatureKey, Action } from '@/config/featuresConfig';
+import { features } from '@/config/features';
+import { getActionFeatureKey } from '@/lib/featureUtils';
 
-export const useFeatureAccess = (subscription: Subscription | null) => {
+/**
+ * Custom hook to manage feature access based on subscription.
+ * @param subscription - The user's subscription data.
+ * @returns Functions to check feature access and perform actions.
+ */
+export function useFeatureAccess(subscription: Subscription | null) {
+  
   /**
-   * Determines if a specific feature action is allowed.
+   * Checks if a user is allowed to perform a specific action on a feature.
    * @param featureKey - The base feature key.
-   * @param action - The action being performed (e.g., 'read', 'create').
-   * @returns Boolean indicating if the action is allowed.
+   * @param action - The action being performed.
+   * @returns A boolean indicating if the action is allowed.
    */
   const isFeatureAllowed = async (
     featureKey: FeatureKey,
-    action: 'read' | 'create' | 'edit' | 'delete'
+    action: Action
   ): Promise<boolean> => {
     if (!subscription) return false;
 
-    // Find the feature object based on featureKey
-    const feature: Feature | undefined = allFeatures.find(f => f.key === featureKey);
-    if (!feature) {
-      console.warn(`Feature "${featureKey}" not found.`);
-      return false;
-    }
+    // Retrieve the feature's metadata to get the resourceType
+    const feature = features[featureKey];
+    if (!feature) return false;
 
-    // Find the action configuration within the feature
-    const actionConfig = feature.actions.find(a => a.action === action);
-    if (!actionConfig) {
-      console.warn(`Action "${action}" not found for feature "${featureKey}".`);
-      return false;
-    }
+    console.log("🧐", action, featureKey)
 
-    // Determine the tier index based on subscription tier
-    let tierIndex = 0; // FREE
-    if (subscription.subscriptionTier === SubscriptionTier.PRO) tierIndex = 1;
-    else if (subscription.subscriptionTier === SubscriptionTier.ENTERPRISE) tierIndex = 2;
 
-    const resourceLimit = actionConfig.resourceLimits[tierIndex];
+    // Get the corresponding ActionFeatureKey
+    const actionFeatureKey = getActionFeatureKey(action, featureKey);
+    if (!actionFeatureKey) return false;
 
-    // Retrieve the corresponding actionKey
-    const actionKey = actionConfig.actionKey; // e.g., 'ReadGoal'
+    console.log("🧐 Retrieve the feature's metadata to get the resourceType", subscription.featuresUsage, actionFeatureKey)
 
-    // Retrieve feature usage based on actionKey
-    const featureUsage = subscription.featuresUsage[actionKey]?.creditsUsed || 0;
 
-    // Check if action resource limit is reached
-    if (resourceLimit !== -1 && featureUsage >= resourceLimit) return false;
+    // Retrieve usage data for the specific ActionFeatureKey
+    const featureUsage = subscription.featuresUsage[actionFeatureKey];
+    if (!featureUsage) return false;
 
-    // Check if enough credits are available
-    if (subscription.creditsUsed + actionConfig.creditCost > subscription.monthlyCreditLimit) return false;
 
-    // Check max resource count at feature level if applicable
-    if (feature.metadata.maxResourceCount) {
-      const maxCount = feature.metadata.maxResourceCount[tierIndex];
-      const resourceName = feature.metadata.resourceName;
-      const subscriptionId = subscription.subscriptionId;
-      const orgId = subscription.organizationId;
-      const userId = subscription.userId;
 
-      // Fetch resource count via API route
-      try {
-        const response = await fetch(
-          `/api/resource-count?resourceName=${resourceName}&orgId=${orgId}&userId=${userId}`,
-          {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-          }
-        );
-        if (!response.ok) {
-          console.error(`Failed to fetch resource count for "${resourceName}".`);
-          return false;
-        }
 
-        const data = await response.json();
-        const currentResourceCount = data.count || 0;
-        console.log("🤩 Current Resource Count:", maxCount, actionKey, currentResourceCount);
-        if (currentResourceCount >= maxCount) return false;
-      } catch (error) {
-        // console.error(`Error fetching resource count:`, error);
-        return false;
-      }
-    }
 
-    return true;
+    // Find the action configuration from the feature
+    const actionConfig = feature.actions.find((a: { action: string; }) => a.action === action);
+    if (!actionConfig) return false;
+
+    // Determine the tier index based on the subscription tier
+    const tierIndex = getTierIndex(subscription.subscriptionTier);
+
+    // Get the current usage count for the action
+    const currentUsage = featureUsage.count;
+
+    // Compare current usage with the resource limits
+    return currentUsage < actionConfig.resourceLimits[tierIndex];
   };
 
   /**
@@ -94,7 +68,7 @@ export const useFeatureAccess = (subscription: Subscription | null) => {
    */
   const performAction = async (
     featureKey: FeatureKey,
-    action: 'read' | 'create' | 'edit' | 'delete'
+    action: Action
   ): Promise<{ success: boolean; message: string }> => {
     const allowed = await isFeatureAllowed(featureKey, action);
     if (!allowed) {
@@ -122,5 +96,23 @@ export const useFeatureAccess = (subscription: Subscription | null) => {
     }
   };
 
+  /**
+   * Maps subscription tier to its corresponding index in resourceLimits.
+   * @param tier - The subscription tier.
+   * @returns The index corresponding to the tier.
+   */
+  const getTierIndex = (tier: string): number => {
+    switch (tier.toUpperCase()) {
+      case 'FREE':
+        return 0;
+      case 'PRO':
+        return 1;
+      case 'ENTERPRISE':
+        return 2;
+      default:
+        return 0;
+    }
+  };
+
   return { isFeatureAllowed, performAction };
-};
+}

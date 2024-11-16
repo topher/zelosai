@@ -1,7 +1,7 @@
 [
     {
       "id": "message-001",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "resourceType": "Message",
       "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
       "createdAt": "2024-04-10T12:00:00Z",
@@ -16,7 +16,7 @@
     },
     {
       "id": "message-002",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "resourceType": "Message",
       "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
       "createdAt": "2024-05-18T14:45:00Z",
@@ -39,7 +39,7 @@
     },
     {
       "id": "message-003",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "resourceType": "Message",
       "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
       "createdAt": "2024-06-30T10:30:00Z",
