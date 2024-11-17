@@ -4,7 +4,8 @@
 
 import React from "react";
 import SearchPageLayout from "@/app/components/atomic/templates/SearchPageLayout";
-import ContractSearchCard from "@/app/(dashboard)/(routes)/search/components/ContractSearchCard";
+// import ContractSearchCard from "@/app/(dashboard)/(routes)/search/components/ContractSearchCard";
+import SearchCard from "../components/SearchCard";
 
 const ContractSearchPage: React.FC = () => {
   const searchSettings = {
@@ -36,7 +37,8 @@ const ContractSearchPage: React.FC = () => {
       searchSettings={searchSettings}
       placeholder="Search for contracts..."
       sidebarSection="Contracts"
-      HitComponent={ContractSearchCard}
+      HitComponent={SearchCard}
+      type="contract"
     />
   );
 };

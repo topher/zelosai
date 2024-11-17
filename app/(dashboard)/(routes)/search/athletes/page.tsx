@@ -4,7 +4,8 @@
 
 import React from "react";
 import SearchPageLayout from "@/app/components/atomic/templates/SearchPageLayout";
-import ProfileSearchCard from "@/app/(dashboard)/(routes)/search/components/ProfileSearchCard";
+// import ProfileSearchCard from "@/app/(dashboard)/(routes)/search/components/ProfileSearchCard";
+import SearchCard from "../components/SearchCard";
 
 const AthleteSearchPage: React.FC = () => {
   const searchSettings = {
@@ -39,7 +40,8 @@ const AthleteSearchPage: React.FC = () => {
       searchSettings={searchSettings}
       placeholder="Search for profiles..."
       sidebarSection="Athlete Profiles"
-      HitComponent={ProfileSearchCard}
+      HitComponent={SearchCard}
+      type="athlete"
     />
   );
 };

@@ -4,7 +4,8 @@
 
 import React from "react";
 import SearchPageLayout from "@/app/components/atomic/templates/SearchPageLayout";
-import BrandSearchCard from "@/app/(dashboard)/(routes)/search/components/BrandSearchCard";
+// import BrandSearchCard from "@/app/(dashboard)/(routes)/search/components/BrandSearchCard";
+import SearchCard from "../components/SearchCard";
 
 const BrandSearchPage: React.FC = () => {
   const searchSettings = {
@@ -74,7 +75,8 @@ const BrandSearchPage: React.FC = () => {
       searchSettings={searchSettings}
       placeholder="Search for brands..."
       sidebarSection="Brands"
-      HitComponent={BrandSearchCard}
+      HitComponent={SearchCard}
+      type="brand"
       extractId={extractIdFromSubject}
     />
   );

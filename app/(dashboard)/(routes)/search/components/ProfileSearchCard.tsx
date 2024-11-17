@@ -1,4 +1,4 @@
-// app/components/ProfileSearchCard.tsx
+// /app/(dashboard)/(routes)/search/components/ProfileSearchCard.tsx
 
 "use client"
 
@@ -64,15 +64,6 @@ const ProfileSearchCard: React.FC<ProfileSearchCardProps> = ({ data }) => {
             </div>
           </div>
         </div>
-
-        {/* Hover Emoji Effect */}
-        {/* {mappedLocation?.emoji && (
-          <div
-            className="absolute top-1/3 left-[60%] transform -translate-x-1/2 -translate-y-1/2 text-8xl opacity-0 group-hover:opacity-100 transition-all duration-700 group-hover:translate-x-5 group-hover:-translate-y-40 group-hover:rotate-12 z-30 pointer-events-none"
-          >
-            {mappedLocation.emoji}
-          </div>
-        )} */}
       </div>
     </Link>
   )

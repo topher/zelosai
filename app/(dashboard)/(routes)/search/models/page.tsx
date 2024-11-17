@@ -4,7 +4,8 @@
 
 import React from "react";
 import SearchPageLayout from "@/app/components/atomic/templates/SearchPageLayout";
-import AIModelSearchCard from "@/app/(dashboard)/(routes)/search/components/AIModelSearchCard";
+// import AIModelSearchCard from "@/app/(dashboard)/(routes)/search/components/AIModelSearchCard";
+import SearchCard from "../components/SearchCard";
 
 const AIModelSearchPage: React.FC = () => {
   const searchSettings = {
@@ -35,7 +36,8 @@ const AIModelSearchPage: React.FC = () => {
       searchSettings={searchSettings}
       placeholder="Search for models..."
       sidebarSection="AI Models"
-      HitComponent={AIModelSearchCard}
+      HitComponent={SearchCard}
+      type="model"
     />
   );
 };

@@ -31,10 +31,11 @@ interface SearchPageLayoutProps {
   searchSettings: any;
   placeholder: string;
   sidebarSection: string;
-  HitComponent: React.FC<{ data: any }>;
+  HitComponent: React.FC<{ data: any; type: string }>;
   extractId?: (hit: any) => string;
   isLoading?: boolean;
   error?: string | null;
+  type: string;
 }
 
 const SearchPageLayout: React.FC<SearchPageLayoutProps> = ({
@@ -47,6 +48,7 @@ const SearchPageLayout: React.FC<SearchPageLayoutProps> = ({
   extractId,
   isLoading = false,
   error = null,
+  type,
 }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [hitsPerPage, setHitsPerPage] = useState(16);
@@ -66,7 +68,7 @@ const SearchPageLayout: React.FC<SearchPageLayoutProps> = ({
     }
 
     return (
-      <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {hits.map((hit: any) => {
           let id = hit.id;
 
@@ -74,7 +76,7 @@ const SearchPageLayout: React.FC<SearchPageLayoutProps> = ({
             id = extractId(hit);
           }
 
-          return <HitComponent key={id} data={{ ...hit, id }} />;
+          return <HitComponent key={id} data={{ ...hit, id }} type={type} />;
         })}
       </div>
     );
