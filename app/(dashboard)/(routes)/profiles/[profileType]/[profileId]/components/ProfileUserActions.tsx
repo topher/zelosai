@@ -14,7 +14,7 @@ interface ActionButtonProps {
 }
 
 interface ProfileUserActionsProps {
-  type: 'athlete' | 'brand';
+  type: 'athlete' | 'brand' | 'user';
 }
 
 // ActionButton Component
@@ -29,7 +29,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({ icon, label, onClick }) => 
 );
 
 // Dropdown for Action Buttons on Small Screens
-const ActionsDropdown: React.FC<{ type: 'athlete' | 'brand' }> = ({ type }) => {
+const ActionsDropdown: React.FC<{ type: 'athlete' | 'brand' | 'user' }> = ({ type }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 

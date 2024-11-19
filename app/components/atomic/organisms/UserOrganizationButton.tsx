@@ -18,7 +18,7 @@ export default function UserOrganizationButton() {
 
   useEffect(() => {
     if (isLoaded) {
-      console.log('Organization List:', organizationList);
+      // console.log('Organization List:', organizationList);
     }
   }, [organizationList, isLoaded]);
 

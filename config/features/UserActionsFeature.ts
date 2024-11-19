@@ -1,5 +1,6 @@
 import * as Yup from 'yup';
-import { UserActions } from 'lucide-react';
+import { ResourceType } from '@/config/resourceTypes'
+import { Target } from 'lucide-react';
 import { FeatureCategory, Feature, FeatureKey, SubscriptionTier, ActionFeatureKey } from '@/config/featuresConfig';
 
 export const userActionsFeature: Feature = {
@@ -42,12 +43,12 @@ export const userActionsFeature: Feature = {
     ],
     metadata: {
         category: FeatureCategory.Dashboard,
-        icon: UserActions,
+        icon: Target,
         label: 'User Actions',
         href: '/settings/usage',
         description: 'View Past Activity.',
         isInProd: false,
         resourceName: 'user_actions',
-        resourceType: 'UserAction'
+        resourceType: ResourceType.UserAction
     },
 };

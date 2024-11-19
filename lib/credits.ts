@@ -6,6 +6,15 @@ import { toast } from 'react-hot-toast';
 import { subscriptionTiers } from '../config/subscriptionTiers';
 import { TIER_ORDER, features, SubscriptionTier, Action, ActionFeatureKey } from '@/config/featuresConfig';
 import { isActionFeatureKeyFn } from './featureUtils';
+import { Any } from 'next-sanity';
+
+// /app/types/CreditsDeducted.ts
+
+export interface CreditsDeducted {
+  success: boolean;
+  creditsDeducted: number;
+  error: string | null;
+}
 
 /**
  * Interface for Deduct Credits and Increment Usage
@@ -18,16 +27,10 @@ export interface DeductAndIncrementParams {
   subscriptionId: string;
 }
 
-/**
- * Deducts credits and increments usage for a user.
- * @param params - The parameters for the operation.
- * @param subscription - The user's subscription object.
- * @returns An object indicating success and relevant data.
- */
 export async function deductCreditsAndIncrementUsage(
   params: DeductAndIncrementParams,
   subscription: Subscription
-): Promise<{ success: boolean; creditsDeducted?: number; error?: string }> {
+): Promise<CreditsDeducted> {
   const { userId, orgId, action, actionFeatureKey, subscriptionId } = params;
 
   console.log("Credits Deduction - Start");
@@ -37,50 +40,50 @@ export async function deductCreditsAndIncrementUsage(
 
   try {
     if (!subscription) {
-      return { success: false, error: 'Subscription not found.' };
+      return { success: false, creditsDeducted: 0, error: 'Subscription not found.' };
     }
 
     const subscriptionTier = subscription.subscriptionTier as SubscriptionTier;
     const tierIndex = TIER_ORDER.indexOf(subscriptionTier);
 
     if (tierIndex === -1) {
-      return { success: false, error: 'Invalid subscription tier.' };
+      return { success: false, creditsDeducted: 0, error: 'Invalid subscription tier.' };
     }
 
     // Find the Feature by ActionFeatureKey
     const feature = features.find(f => f.actions.some(a => a.actionKey === actionFeatureKey));
     if (!feature) {
-      return { success: false, error: 'Feature not found.' };
+      return { success: false, creditsDeducted: 0, error: 'Feature not found.' };
     }
 
     // Find the action configuration
     const actionConfig = feature.actions.find(a => a.actionKey === actionFeatureKey);
     if (!actionConfig) {
-      return { success: false, error: 'Action not allowed for this feature.' };
+      return { success: false, creditsDeducted: 0, error: 'Action not allowed for this feature.' };
     }
 
     // Check if user's subscription tier allows this action
     const requiredTierIndex = TIER_ORDER.indexOf(actionConfig.baseTier);
     if (tierIndex < requiredTierIndex) {
-      return { success: false, error: 'Action not allowed for your subscription tier.' };
+      return { success: false, creditsDeducted: 0, error: 'Action not allowed for your subscription tier.' };
     }
 
     // Ensure actionFeatureKey is valid
     if (!isActionFeatureKeyFn(actionFeatureKey)) {
       console.warn(`Invalid ActionFeatureKey: ${actionFeatureKey}`);
-      return { success: false, error: 'Invalid feature action key.' };
+      return { success: false, creditsDeducted: 0, error: 'Invalid feature action key.' };
     }
 
     const currentUsageCount = subscription.featuresUsage[actionFeatureKey]?.count || 0;
     const resourceLimit = actionConfig.resourceLimits[tierIndex];
 
     if (resourceLimit >= 0 && currentUsageCount >= resourceLimit) {
-      return { success: false, error: 'Resource limit reached for this action.' };
+      return { success: false, creditsDeducted: 0, error: 'Resource limit reached for this action.' };
     }
 
     // Check if user has enough credits
     if (subscription.credits < actionConfig.creditCost) {
-      return { success: false, error: 'Insufficient credits.' };
+      return { success: false, creditsDeducted: 0, error: 'Insufficient credits.' };
     }
 
     // Deduct credits
@@ -102,7 +105,7 @@ export async function deductCreditsAndIncrementUsage(
     });
 
     if (!updateResult) {
-      return { success: false, error: 'Failed to update subscription.' };
+      return { success: false, creditsDeducted: 0, error: 'Failed to update subscription.' };
     }
 
     // Handle credit threshold notifications
@@ -110,10 +113,10 @@ export async function deductCreditsAndIncrementUsage(
 
     console.log("Credits Deduction - End");
 
-    return { success: true, creditsDeducted: actionConfig.creditCost };
+    return { success: true, creditsDeducted: actionConfig.creditCost, error: null };
   } catch (error: any) {
     console.error('Error in deductCreditsAndIncrementUsage:', error);
-    return { success: false, error: 'Internal Server Error.' };
+    return { success: false, creditsDeducted: 0, error: 'Internal Server Error.' };
   }
 }
 

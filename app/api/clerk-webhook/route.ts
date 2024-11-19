@@ -1,4 +1,4 @@
-// app/api/clerk-webhook/route.ts
+// /app/api/clerk-webhook/route.ts
 
 import { NextResponse } from 'next/server';
 import { createFreeTierSubscriptionForUser, createOrganizationSubscription } from '@/lib/subscription';
@@ -6,6 +6,9 @@ import { SubscriptionTier } from '@/config/featuresConfig';
 import { Webhook } from 'svix';
 import { headers } from 'next/headers';
 import { isWebhookProcessed, markWebhookAsProcessed } from '@/lib/webhookUtils';
+import { createProfile } from '@/lib/profile'; // Import profile creation function
+import { ResourceType } from '@/config/resourceTypes';
+import { generateSubjectId } from '@/lib/subjectIdGenerator'; // Function to generate subjectId
 
 const webhookSecret = process.env.CLERK_WEBHOOK_SECRET;
 
@@ -54,7 +57,23 @@ export async function POST(request: Request) {
       case 'user.created':
         {
           const userId = event.data.id;
+          const email = event.data.email_addresses?.[0]?.email_address || 'unknown@example.com'; // Fetch email if available
           console.log(`Handling user.created event for userId: ${userId}`);
+          // Create a user profile
+          await createProfile({
+            id: `profile_${userId}`,
+            accountId: event.data.organization_id || 'default_org_id', // Assign default or fetched orgId
+            resourceType: ResourceType.ProfileUser,
+            ownerId: userId,
+            createdAt: new Date(),
+            name: event.data.first_name + ' ' + event.data.last_name,
+            tags: ['user'],
+            visibility: 'private',
+            subjectId: generateSubjectId(ResourceType.ProfileUser, `profile_${userId}`),
+            type: 'user',
+            email: email,
+          });
+          // Create free tier subscription
           await createFreeTierSubscriptionForUser(userId);
         }
         break;
@@ -62,7 +81,22 @@ export async function POST(request: Request) {
       case 'organization.created':
         {
           const orgId = event.data.id;
+          const orgName = event.data.name || 'Unnamed Organization';
           console.log(`Handling organization.created event for orgId: ${orgId}`);
+          // Create an organization profile
+          await createProfile({
+            id: `profile_${orgId}`,
+            accountId: orgId,
+            resourceType: ResourceType.ProfileBrand, // Assuming organizations are brands
+            ownerId: event.data.owner_id || 'system_owner_id', // Assign appropriate ownerId
+            createdAt: new Date(),
+            name: orgName,
+            tags: ['organization', 'brand'],
+            visibility: 'public',
+            subjectId: generateSubjectId(ResourceType.ProfileBrand, `profile_${orgId}`),
+            type: 'brand'
+          });
+          // Create organization subscription
           const subscriptionTier = SubscriptionTier.PRO;
           await createOrganizationSubscription(orgId, subscriptionTier);
         }

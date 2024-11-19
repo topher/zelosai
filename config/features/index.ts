@@ -41,6 +41,7 @@ import { workflowsFeature } from './WorkflowsFeature';
 
 import { userActionsFeature } from './UserActionsFeature';
 import { useCasesFeature } from './UseCasesFeature';
+import { triplesFeature } from './Triples';
 
 // Assemble the features object
 export const features: Record<FeatureKey, Feature> = {
@@ -80,5 +81,6 @@ export const features: Record<FeatureKey, Feature> = {
   [FeatureKey.UserActions]: userActionsFeature,
   [FeatureKey.UseCases]: useCasesFeature,
   [FeatureKey.ModelTrainings]: modelTrainingsFeature,
-  [FeatureKey.ModelGeneration]: modelGenerationFeature
+  [FeatureKey.ModelGeneration]: modelGenerationFeature,
+  [FeatureKey.Triples]: triplesFeature
 };

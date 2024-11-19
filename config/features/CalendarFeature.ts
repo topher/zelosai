@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { ResourceType } from '@/config/resourceTypes'
 import { Calendar } from 'lucide-react';
 import { FeatureCategory, Feature, FeatureKey, SubscriptionTier, ActionFeatureKey } from '@/config/featuresConfig';
 
@@ -68,7 +69,7 @@ export const calendarFeature: Feature = {
         description: 'Schedule and manage your events.',
         isInProd: true,
         resourceName: 'scheduled_events',
-        resourceType: 'ScheduledEvent',
+        resourceType: ResourceType.ScheduledEvent,
         maxResourceCount: [0, 50, 500],
     },
 };

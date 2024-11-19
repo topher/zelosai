@@ -1,0 +1,21 @@
+[
+    {
+        "id": "profile_user_victor_amo_123e4567-e89b-12d3-a456-426614174000",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "resourceType": "ProfileUser",
+        "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+        "createdAt": "2024-04-27T10:00:00.000Z",
+        "updatedAt": "2024-04-27T10:00:00.000Z",
+        "tags": ["user", "persona"],
+        "visibility": "public",
+        "linkedResources": {
+          "Triple": ["triples_123e4567-e89b-12d3-a456-426614174001", "triples_123e4567-e89b-12d3-a456-426614174002", "triples_123e4567-e89b-12d3-a456-426614174003"]
+        },
+        "subjectId": "zelos.ai/knowledge/ProfileUser/profile_user_victor_amo_123e4567-e89b-12d3-a456-426614174000",
+        "type": "user",
+        "name": "Victor Amo",
+        "email": "victor.amo@example.com",
+        "bio": "A passionate athlete and community leader committed to excellence in sports and personal development."
+      }      
+  ]
+  

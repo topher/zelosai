@@ -73,7 +73,7 @@ const SkyboxBanner: React.FC<SkyboxBannerProps> = ({ hdriPath, onClick }) => {
       (xhr) => {
         // Progress callback (optional)
         if (xhr.lengthComputable) {
-          console.log(`HDRI loading progress: ${(xhr.loaded / xhr.total) * 100}%`);
+          // console.log(`HDRI loading progress: ${(xhr.loaded / xhr.total) * 100}%`);
         }
       },
       (error) => {

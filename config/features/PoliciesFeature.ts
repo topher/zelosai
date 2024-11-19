@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { ResourceType } from '@/config/resourceTypes'
 import { Target } from 'lucide-react';
 import { FeatureCategory, Feature, FeatureKey, SubscriptionTier, ActionFeatureKey } from '@/config/featuresConfig';
 
@@ -54,7 +55,7 @@ export const policiesFeature: Feature = {
         description: 'Manage organizational policies.',
         isInProd: true,
         resourceName: 'policies',
-        resourceType: 'Policy',
+        resourceType: ResourceType.Policy,
         maxResourceCount: [0, 10, 100],
     },
 };

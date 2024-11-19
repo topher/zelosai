@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { ResourceType } from '@/config/resourceTypes'
 import { Target } from 'lucide-react';
 import { FeatureCategory, Feature, FeatureKey, SubscriptionTier, ActionFeatureKey } from '@/config/featuresConfig';
 
@@ -51,8 +52,8 @@ export const modelGenerationFeature: Feature = {
         href: '/models/*/[id]',
         description: 'Manage the Content you generate using AI.',
         isInProd: false,
-        resourceName: 'model_generated_content',
-        resourceType: 'ModelGeneratedContent',
+        resourceName: 'model_inferences',
+        resourceType: ResourceType.ModelInference,
         maxResourceCount: [0, 10, 100],
     },
 };

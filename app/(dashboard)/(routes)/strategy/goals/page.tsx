@@ -14,6 +14,7 @@ import { toast } from "@/components/ui/use-toast";
 
 import { Goal } from "@/app/types";
 import DeleteConfirmationModal from '@/app/components/atomic/ttemplates/modals/DeleteConfirmationModal'; // New import
+import { ResourceType } from "@/config/resourceTypes";
 
 const GoalsPage = () => {
   const [goals, setGoals] = useState<Goal[]>([]);
@@ -132,7 +133,7 @@ const GoalsPage = () => {
               console.log("Create New Goal button clicked");
               openResourceModal(
                 'create',
-                FeatureKey.Goals,
+                ResourceType.Goal,
                 undefined,
                 undefined,
                 handleCreateSuccess
@@ -202,7 +203,7 @@ const GoalsPage = () => {
                     size="sm"
                     onClick={() => openResourceModal(
                       'update',
-                      FeatureKey.Goals,
+                      ResourceType.Goal,
                       goal.id,
                       goal,
                       handleUpdateSuccess

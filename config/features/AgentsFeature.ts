@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { ResourceType } from '@/config/resourceTypes'
 import { Target } from 'lucide-react';
 import { Feature, ActionFeature, FeatureMetadata, ActionFeatureKey, SubscriptionTier, FeatureCategory, FeatureKey } from '@/config/featuresConfig';
 
@@ -66,6 +67,6 @@ export const agentsFeature: Feature = {
         description: 'Manage agents within workflows.',
         isInProd: true,
         resourceName: 'agents',
-        resourceType: 'Agent',
+        resourceType: ResourceType.Agent,
     },
 };

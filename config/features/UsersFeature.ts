@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { ResourceType } from '@/config/resourceTypes'
 import { Search } from 'lucide-react';
 import { FeatureCategory, Feature, FeatureKey, SubscriptionTier, ActionFeatureKey } from '@/config/featuresConfig';
 
@@ -64,7 +65,7 @@ export const searchableUsersFeature: Feature = {
         description: 'Search through user profiles.',
         isInProd: false,
         resourceName: 'users',
-        resourceType: 'SearchableUser',
+        resourceType: ResourceType.SearchableUser,
         maxResourceCount: [0, 1000, 10000],
     },
 };

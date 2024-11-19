@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import LoadingIcon from '@/app/components/Common/icons/Loading_Icon.gif';
+import LoadingIcon from '@/app/components/atomic/atoms/Loading_Icon.gif';
 import { LoaderContainer, LoaderIcon } from './LoaderStyle.js'
 
 const Loader = ({ show }) => {

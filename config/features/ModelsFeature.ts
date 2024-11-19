@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { ResourceType } from '@/config/resourceTypes'
 import { Brain } from 'lucide-react';
 import { FeatureCategory, Feature, FeatureKey, SubscriptionTier, ActionFeatureKey } from '@/config/featuresConfig';
 
@@ -79,7 +80,7 @@ export const modelsFeature: Feature = {
         description: 'Explore your AI models.',
         isInProd: true,
         resourceName: 'complete_trained_models',
-        resourceType: 'AIModel',
+        resourceType: ResourceType.AIModel,
         maxResourceCount: [10, 100, 1000],
     },
 };

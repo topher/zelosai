@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { ResourceType } from '@/config/resourceTypes'
 import { MessageCircle } from 'lucide-react';
 import { FeatureCategory, Feature, FeatureKey, SubscriptionTier, ActionFeatureKey } from '@/config/featuresConfig';
 
@@ -59,7 +60,7 @@ export const messagesFeature: Feature = {
         description: 'Manage your messages.',
         isInProd: false,
         resourceName: 'messages',
-        resourceType: 'Message',
+        resourceType: ResourceType.Message,
         maxResourceCount: [3, 100, 100],
     },
 };

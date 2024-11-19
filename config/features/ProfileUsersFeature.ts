@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { ResourceType } from '@/config/resourceTypes'
 import { Target } from 'lucide-react';
 import { FeatureCategory, Feature, FeatureKey, SubscriptionTier, ActionFeatureKey } from '@/config/featuresConfig';
 
@@ -49,8 +50,8 @@ export const profileUsersFeature: Feature = {
         href: '/profiles/users',
         description: 'Manage user profiles.',
         isInProd: false,
-        resourceName: 'profile_users',
-        resourceType: 'ProfileUser',
+        resourceName: 'users_triples',
+        resourceType: ResourceType.ProfileUser,
         maxResourceCount: [0, 100, 1000],
     },
 };

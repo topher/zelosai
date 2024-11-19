@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { ResourceType } from '@/config/resourceTypes'
 import { Target } from 'lucide-react';
 import { FeatureCategory, Feature, FeatureKey, SubscriptionTier, ActionFeatureKey } from '@/config/featuresConfig';
 
@@ -86,7 +87,7 @@ export const infoAssetsFeature: Feature = {
         description: 'Manage information assets.',
         isInProd: true,
         resourceName: 'info_assets',
-        resourceType: 'InfoAsset',
+        resourceType: ResourceType.InfoAsset,
         maxResourceCount: [5, 100, 1000],
     },
 };

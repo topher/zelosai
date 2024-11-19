@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { ResourceType } from '@/config/resourceTypes'
 import { ClipboardList } from 'lucide-react';
 import { FeatureCategory, Feature, FeatureKey, SubscriptionTier, ActionFeatureKey } from '@/config/featuresConfig';
 
@@ -18,7 +19,7 @@ export const searchableContractsFeature: Feature =     {
       description: 'Search through contract documents.',
       isInProd: true,
       resourceName: 'contracts',
-      resourceType: 'SearchableContract',
+      resourceType: ResourceType.SearchableContract,
       maxResourceCount: [100, 1000, 10000],
     },
     actions: [

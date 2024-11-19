@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { ResourceType } from '@/config/resourceTypes'
 import { BellIcon } from 'lucide-react';
 import { FeatureCategory, Feature, FeatureKey, SubscriptionTier, ActionFeatureKey } from '@/config/featuresConfig';
 
@@ -58,6 +59,6 @@ export const alertsFeature: Feature = {
         description: 'Manage alert notifications.',
         isInProd: true,
         resourceName: 'alerts',
-        resourceType: 'Alert',
-    },
-};
+        resourceType: ResourceType.Alert,\s?
+\s+\},
+\};

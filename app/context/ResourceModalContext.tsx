@@ -1,14 +1,18 @@
-"use client"
+// context/ResourceModalContext.tsx
+
+"use client";
 
 import React, { createContext, useContext, ReactNode, useState, useCallback } from 'react';
-import { DynamicResourceModal, DynamicResourceModalProps } from '@/app/components/atomic/ttemplates/modals/DynamicResourceModal';
+import DynamicResourceModal, { DynamicResourceModalProps } from '@/app/components/atomic/ttemplates/modals/DynamicResourceModal'; // Ensure this path is correct
 import { FeatureKey } from '@/config/featuresConfig';
+import { Resource } from '@/app/types';
+import { ResourceType } from '@/config/resourceTypes';
 
 interface ResourceModalContextProps {
   openResourceModal: (
     action: 'create' | 'read' | 'update' | 'delete',
-    resourceType: FeatureKey,
-    resourceId?: string,
+    resourceType: ResourceType,
+    resourceId?: string, // Changed from resource?: Resource
     initialData?: any,
     onSuccess?: (result: any) => void
   ) => void;
@@ -22,8 +26,8 @@ export const ResourceModalProvider: React.FC<{ children: ReactNode }> = ({ child
   const openResourceModal = useCallback(
     (
       action: 'create' | 'read' | 'update' | 'delete',
-      resourceType: FeatureKey,
-      resourceId?: string,
+      resourceType: ResourceType,
+      resourceId?: string, // Changed
       initialData?: any,
       onSuccess?: (result: any) => void
     ) => {
@@ -32,7 +36,7 @@ export const ResourceModalProvider: React.FC<{ children: ReactNode }> = ({ child
         onClose: () => setModalProps(null),
         action,
         resourceType,
-        resourceId,
+        resourceId, // Set resourceId
         initialData,
         onSuccess,
       });

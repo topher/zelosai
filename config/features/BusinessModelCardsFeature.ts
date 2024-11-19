@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { ResourceType } from '@/config/resourceTypes'
 import { Target } from 'lucide-react';
 import { Feature, FeatureCategory, FeatureKey, SubscriptionTier, ActionFeatureKey } from '@/config/featuresConfig';
 
@@ -102,6 +103,6 @@ export const businessModelFeature: Feature = {
         isInProd: true,
         resourceName: 'business_model_cards',
         maxResourceCount: [1, 5, 15],
-        resourceType: "BusinessModelCard"
+        resourceType: ResourceType.BusinessModelCard
     },
 };

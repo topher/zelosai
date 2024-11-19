@@ -1,6 +1,7 @@
 // lib/featureUtils.ts
 import { features } from '@/config/features';
 import { Action, ActionFeatureKey, FeatureKey, Feature, ActionFeature } from '@/config/featuresConfig';
+import { ResourceType } from '@/config/resourceTypes';
 
 /**
  * Retrieves the ActionFeatureKey based on action and featureKey.
@@ -84,13 +85,16 @@ export function getResourceNameByResourceType(resourceType: string): string | nu
   const featureArray: Feature[] = Object.values(features);
   
   // Find the feature whose resourceType matches the provided resourceType (case-insensitive)
-  const feature = featureArray.find((f: Feature) => 
-    f.metadata.resourceType.toLowerCase() === resourceType.toLowerCase()
-  );
+  const feature = featureArray.find((f: Feature) => {
+    if (!f.metadata.resourceType) {
+      console.warn(`Feature with key "${f.key}" is missing "resourceType" in metadata.`);
+      return false;
+    }
+    return f.metadata.resourceType.toLowerCase() === resourceType.toLowerCase();
+  });
   
   return feature ? feature.metadata.resourceName : null;
 }
-
 /**
  * Type Guard to check if a key is a valid ActionFeatureKey
  * @param key - The key string to check.
@@ -98,4 +102,18 @@ export function getResourceNameByResourceType(resourceType: string): string | nu
  */
 export function isActionFeatureKeyFn(key: string): key is ActionFeatureKey {
   return Object.values(ActionFeatureKey).includes(key as ActionFeatureKey);
+}
+
+/**
+ * Retrieves the FeatureKey based on the given ResourceType.
+ * @param resourceType - The ResourceType enum value.
+ * @returns The corresponding FeatureKey or null if not found.
+ */
+export function getFeatureKeyFromResourceType(resourceType: ResourceType): FeatureKey | null {
+  for (const [key, config] of Object.entries(features)) {
+    if (config.metadata.resourceType === resourceType) {
+      return key as FeatureKey;
+    }
+  }
+  return null;
 }

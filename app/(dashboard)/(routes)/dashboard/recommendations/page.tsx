@@ -35,6 +35,7 @@ const RecommendationsPage: React.FC = () => {
     createdAt: undefined,
     updatedAt: undefined,
     organizationId: "",
+    userId: "",
     credits: 0
   };
 
@@ -99,7 +100,7 @@ const RecommendationsPage: React.FC = () => {
     fetchRecommendations();
   }, []);
 
-  const { isFeatureAllowed, performAction } = useFeatureAccess(subscription || defaultSubscription);
+  const { isFeatureAllowed, performAction } = useFeatureAccess();
 
   // Action Handlers
   const handleDo = async (id: string) => {

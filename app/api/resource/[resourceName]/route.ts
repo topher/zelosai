@@ -46,7 +46,7 @@ export async function GET(
   }
 }
 
-import { createResource } from '@/lib/dataFetching';
+import { createResource } from '@/lib/resource';
 import { v4 as uuidv4 } from 'uuid';
 import { getResourceTypeByResourceName } from '@/lib/featureUtils';
 

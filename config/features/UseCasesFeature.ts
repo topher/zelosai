@@ -1,5 +1,6 @@
 import * as Yup from 'yup';
-import { Safety } from 'lucide-react';
+import { ResourceType } from '@/config/resourceTypes'
+import { Target } from 'lucide-react';
 import { FeatureCategory, Feature, FeatureKey, SubscriptionTier, ActionFeatureKey } from '@/config/featuresConfig';
 
 export const useCasesFeature: Feature = {
@@ -50,13 +51,13 @@ export const useCasesFeature: Feature = {
     ],
     metadata: {
         category: FeatureCategory.Models,
-        icon: Safety,
+        icon: Target,
         label: 'Safety',
         href: '/models/use-cases',
         description: 'Set the practical applications for your AI models and products.',
         isInProd: true,
         resourceName: 'use_cases',
-        resourceType: 'UseCase',
+        resourceType: ResourceType.UseCase,
         maxResourceCount: [0, 5, 15],
     },
 };

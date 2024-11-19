@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { ResourceType } from '@/config/resourceTypes'
 import { Target } from 'lucide-react';
 import { FeatureCategory, Feature, FeatureKey, SubscriptionTier, ActionFeatureKey } from '@/config/featuresConfig';
 
@@ -56,7 +57,7 @@ export const topicsFeature: Feature = {
         description: 'Organize your topics.',
         isInProd: true,
         resourceName: 'topics',
-        resourceType: 'Topic',
+        resourceType: ResourceType.Topic,
         maxResourceCount: [0, 10, 100],
     },
 };

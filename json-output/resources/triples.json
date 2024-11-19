@@ -1,0 +1,48 @@
+[
+    {
+      "id": "triples_123e4567-e89b-12d3-a456-426614174001",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "resourceType": "Triple",
+      "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "createdAt": "2024-04-27T10:05:00.000Z",
+      "updatedAt": "2024-04-27T10:05:00.000Z",
+      "subject": "profile_user_victor_amo_123e4567-e89b-12d3-a456-426614174000",
+      "predicate": "hasAchievement",
+      "object": "Won the national championship in 2023",
+      "citation": "Official Sports Records 2023",
+      "visibility": "public",
+      "profileId": "profile_user_victor_amo_123e4567-e89b-12d3-a456-426614174000",
+      "rdf_uri": "zelos.ai/knowledge/Triple/triples_123e4567-e89b-12d3-a456-426614174001"
+    },
+    {
+      "id": "triples_123e4567-e89b-12d3-a456-426614174002",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "resourceType": "Triple",
+      "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "createdAt": "2024-04-27T10:10:00.000Z",
+      "updatedAt": "2024-04-27T10:10:00.000Z",
+      "subject": "profile_user_victor_amo_123e4567-e89b-12d3-a456-426614174000",
+      "predicate": "participatesIn",
+      "object": "Local youth sports mentoring program",
+      "citation": "Community Outreach Newsletter April 2024",
+      "visibility": "public",
+      "profileId": "profile_user_victor_amo_123e4567-e89b-12d3-a456-426614174000",
+      "rdf_uri": "zelos.ai/knowledge/Triple/triples_123e4567-e89b-12d3-a456-426614174002"
+    },
+    {
+      "id": "triples_123e4567-e89b-12d3-a456-426614174003",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "resourceType": "Triple",
+      "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "createdAt": "2024-04-27T10:15:00.000Z",
+      "updatedAt": "2024-04-27T10:15:00.000Z",
+      "subject": "profile_user_victor_amo_123e4567-e89b-12d3-a456-426614174000",
+      "predicate": "believesIn",
+      "object": "The power of perseverance and continuous improvement",
+      "citation": "Victor Amo's Personal Blog - The Journey to Excellence",
+      "visibility": "public",
+      "profileId": "profile_user_victor_amo_123e4567-e89b-12d3-a456-426614174000",
+      "rdf_uri": "zelos.ai/knowledge/Triple/triples_123e4567-e89b-12d3-a456-426614174003"
+    }
+  ]
+  

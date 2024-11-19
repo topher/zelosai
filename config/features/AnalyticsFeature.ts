@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { ResourceType } from '@/config/resourceTypes'
 import { BarChart } from 'lucide-react';
 import { FeatureCategory, Feature, FeatureKey, SubscriptionTier, ActionFeatureKey } from '@/config/featuresConfig';
 
@@ -58,6 +59,6 @@ export const analyticsFeature: Feature = {
         description: 'View analytics statistics.',
         isInProd: true,
         resourceName: 'statistics',
-        resourceType: 'Statistic',
+        resourceType: ResourceType.Statistic,
     },
 };

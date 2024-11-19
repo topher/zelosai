@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { ResourceType } from '@/config/resourceTypes'
 import { Target } from 'lucide-react';
 import { FeatureCategory, Feature, ActionFeatureKey, SubscriptionTier, FeatureKey } from '@/config/featuresConfig';
 
@@ -92,7 +93,7 @@ export const contractsFeature: Feature = {
         description: 'Manage your contracts.',
         isInProd: true,
         resourceName: 'contracts',
-        resourceType: 'Contract',
+        resourceType: ResourceType.Contract,
         maxResourceCount: [1, 5, 100],
     },
 };

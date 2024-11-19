@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { ResourceType } from '@/config/resourceTypes'
 import { Target } from 'lucide-react';
 import { FeatureCategory, Feature, FeatureKey, SubscriptionTier, ActionFeatureKey } from '@/config/featuresConfig';
 
@@ -57,14 +58,14 @@ export const transactionsFeature: Feature = {
         },
     ],
     metadata: {
-        category: FeatureCategory.Deals,
+        category: FeatureCategory.Marketplace,
         icon: Target,
         label: 'Transactions',
         href: '/deals/transactions',
         description: 'Manage your transactions.',
         isInProd: false,
         resourceName: 'transactions',
-        resourceType: 'Transaction',
+        resourceType: ResourceType.Transaction,
         maxResourceCount: [3, 100, 100],
     },
 };

@@ -1,4 +1,4 @@
-// components/modals/DynamicResourceModal.tsx
+// /app/components/atomic/templates/modals/DynamicResourceModal.tsx
 
 "use client";
 
@@ -8,27 +8,29 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { toast } from "react-hot-toast";
 import { useFeatureAccess } from '@/hooks/useFeatureAccess';
-import { features } from '@/config/features';
+import { features } from '@/config/features'; // Correct Import Path
+
+import { FeatureKey, FieldConfig, Feature } from '@/config/featuresConfig'; // Correct Import Path
+import { getFeatureKeyFromResourceType } from '@/lib/featureUtils'; // Correct Import Path
 import { Button } from '@/components/ui/button';
 import Input from '@/app/components/atomic/atoms/Input';
 import AutocompleteSelect from '@/app/components/atomic/AutocompleteSelect';
-import { Subscription } from '@/app/types';
 import { useRouter } from 'next/navigation';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog';
-import { FeatureKey } from '@/config/featuresConfig'; // Import FeatureKey
 import { Pencil, Trash } from 'lucide-react'; // Import icons
+import { ResourceType } from '@/config/resourceTypes';
 
 export interface DynamicResourceModalProps {
   isOpen: boolean;
   onClose: () => void;
-  resourceType: FeatureKey;
+  resourceType: ResourceType;
   action: 'create' | 'read' | 'update' | 'delete';
   resourceId?: string;
   initialData?: any;
   onSuccess?: (result: any) => void;
 }
 
-export const DynamicResourceModal: React.FC<DynamicResourceModalProps> = ({
+const DynamicResourceModal: React.FC<DynamicResourceModalProps> = ({
   isOpen,
   onClose,
   resourceType,
@@ -39,142 +41,59 @@ export const DynamicResourceModal: React.FC<DynamicResourceModalProps> = ({
 }) => {
   console.log("DynamicResourceModal Props:", { isOpen, resourceType, action, resourceId, initialData });
 
-  const feature = features[resourceType];
-  const [loading, setLoading] = useState(false);
-  const [apiError, setApiError] = useState<string | null>(null);
-  const [subscription, setSubscription] = useState<Subscription | null>(null);
-  const [subLoading, setSubLoading] = useState<boolean>(false);
-  const [subError, setSubError] = useState<string | null>(null);
+  // 1. Retrieve the FeatureKey based on ResourceType
+  const featureKey = getFeatureKeyFromResourceType(resourceType);
 
-  if (!feature) {
-    console.error(`Feature config not found for resource type: ${resourceType}`);
-    return null;
+  if (!featureKey) {
+    console.error(`No FeatureKey found for ResourceType: ${resourceType}`);
+    return null; // Optionally, render an error modal/message
   }
 
-  const schema = feature.schema;
+  // 2. Access the feature configuration
+  const feature: Feature | undefined = features[featureKey as FeatureKey]; // Type Assertion
 
+  if (!feature) {
+    console.error(`Feature config not found for FeatureKey: ${featureKey}`);
+    return null; // Optionally, render an error modal/message
+  }
+
+  // 3. Initialize react-hook-form with Yup resolver
   const {
     register,
     handleSubmit,
     control,
     reset,
     formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
+  } = useForm<any>({
+    resolver: yupResolver(feature.schema),
     defaultValues: initialData || {},
   });
 
+  // 4. Reset form when initialData changes
   useEffect(() => {
     console.log("DynamicResourceModal useEffect: resetting form with initialData:", initialData);
     reset(initialData || {});
   }, [initialData, reset]);
 
-  useEffect(() => {
-    const fetchSubscription = async () => {
-      setSubLoading(true);
-      setSubError(null);
-      try {
-        const response = await fetch('/api/subscriptions', {
-          method: 'GET',
-          headers: { 'Content-Type': 'application/json' },
-          credentials: 'include', // Ensure cookies are sent for authentication
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          console.log('DynamicResourceModal: Fetched subscription data:', data);
-          setSubscription(data.subscription);
-        } else {
-          const errorData = await response.json();
-          console.error('DynamicResourceModal: Failed to fetch subscription:', errorData.error);
-          setSubError(errorData.error || 'Failed to fetch subscription.');
-        }
-      } catch (error) {
-        console.error('DynamicResourceModal: Error fetching subscription:', error);
-        setSubError('Error fetching subscription.');
-      } finally {
-        setSubLoading(false);
-      }
-    };
-
-    if (isOpen) {
-      fetchSubscription();
-    }
-  }, [isOpen]);
-
-  if (!isOpen) {
-    return null; // Do not render the modal if it's not open
-  }
-
-  if (subLoading) {
-    console.log("DynamicResourceModal: Subscription is loading...");
-    return (
-      <Dialog open={isOpen} onOpenChange={onClose}>
-        <DialogContent className="flex items-center justify-center p-6">
-          <div className="text-center">
-            <svg className="animate-spin h-8 w-8 text-blue-600 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
-            </svg>
-            <p className="text-gray-700">Loading subscription...</p>
-          </div>
-        </DialogContent>
-      </Dialog>
-    );
-  }
-
-  if (subError) {
-    console.error("DynamicResourceModal: Subscription error:", subError);
-    return (
-      <Dialog open={isOpen} onOpenChange={onClose}>
-        <DialogContent className="p-6">
-          <DialogHeader>
-            <DialogTitle className="text-red-600">Error</DialogTitle>
-          </DialogHeader>
-          <div className="p-4 text-center text-red-500">Error: {subError}</div>
-          <DialogFooter>
-            <Button variant="secondary" onClick={onClose}>
-              Close
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-    );
-  }
-
-  if (!subscription) {
-    console.error("DynamicResourceModal: No subscription data.");
-    return (
-      <Dialog open={isOpen} onOpenChange={onClose}>
-        <DialogContent className="p-6">
-          <DialogHeader>
-            <DialogTitle className="text-red-600">No Subscription Data</DialogTitle>
-          </DialogHeader>
-          <div className="p-4 text-center text-red-500">No subscription data available.</div>
-          <DialogFooter>
-            <Button variant="secondary" onClick={onClose}>
-              Close
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-    );
-  }
-
-  const { isFeatureAllowed, performAction } = useFeatureAccess(subscription);
+  // 5. Local State for Loading and API Errors
+  const [loading, setLoading] = useState(false);
+  const [apiError, setApiError] = useState<string | null>(null);
 
   const router = useRouter();
 
+  // 6. Use the custom hook for feature access
+  const { isFeatureAllowed, performAction, subscription } = useFeatureAccess();
+
+  // 7. Handle Form Submission
   const onSubmit: SubmitHandler<any> = async (data) => {
     console.log("DynamicResourceModal: Form submitted with data:", data);
     setLoading(true);
     setApiError(null);
 
-    console.log("DynamicResourceModal: isFeatureAllowed", resourceType, action);
-
+    console.log("DynamicResourceModal: isFeatureAllowed", featureKey, action);
 
     // Check if action is allowed
-    const allowed = await isFeatureAllowed(resourceType, action);
+    const allowed = await isFeatureAllowed(featureKey, action);
     if (!allowed) {
       console.log("DynamicResourceModal: Action not allowed.");
       toast.error('Action not allowed due to limits or insufficient credits.');
@@ -221,7 +140,7 @@ export const DynamicResourceModal: React.FC<DynamicResourceModalProps> = ({
 
       if (response.ok) {
         // Update feature usage
-        await performAction(resourceType, action);
+        await performAction(featureKey, action);
         console.log("DynamicResourceModal: Action performed successfully.");
 
         toast.success(`${feature.metadata.label} ${action === 'delete' ? 'deleted' : `${action}d`} successfully.`);
@@ -240,64 +159,140 @@ export const DynamicResourceModal: React.FC<DynamicResourceModalProps> = ({
     }
   };
 
-  // Render form fields dynamically based on featureConfig
+  // 8. Render Form Fields Dynamically Based on Feature Configuration
   const renderFormFields = () => {
     const fields = feature.fields;
 
-    return fields.map((field) => {
-      const { name, label, type, required, resourceTypes, multiple } = field;
+    return fields.map((field: FieldConfig) => {
+      const { name, label, type, required, resourceTypes, multiple, options, placeholder } = field;
 
-      if (type === 'autocomplete') {
-        return (
-          <div key={name} className="mb-4">
-            <label htmlFor={name} className="block font-medium mb-1 text-gray-700">
-              {label}
-              {required && <span className="text-red-500"> *</span>}
-            </label>
-            <Controller
-              name={name}
-              control={control}
-              render={({ field }) => (
-                <AutocompleteSelect
-                  {...field}
-                  multiple={multiple}
-                  resourceTypes={resourceTypes}
-                  placeholder={`Select ${label}`}
-                  disabled={action === 'read'}
-                />
+      // Render based on field type
+      switch (type) {
+        case 'autocomplete':
+          return (
+            <div key={name} className="mb-4">
+              <label htmlFor={name} className="block font-medium mb-1 text-gray-700">
+                {label}
+                {required && <span className="text-red-500"> *</span>}
+              </label>
+              <Controller
+                name={name}
+                control={control}
+                render={({ field }) => (
+                  <AutocompleteSelect
+                    {...field}
+                    multiple={multiple}
+                    resourceTypes={resourceTypes || []}
+                    placeholder={placeholder || `Select ${label}`}
+                    disabled={action === 'read'}
+                  />
+                )}
+              />
+              {errors[name]?.message && (
+                <p className="text-red-500 text-sm mt-1">{String(errors[name]?.message)}</p>
               )}
-            />
-            {errors[name]?.message && (
-              <p className="text-red-500 text-sm mt-1">{String(errors[name]?.message)}</p>
-            )}
-          </div>
-        );
-      }
+            </div>
+          );
 
-      // Handle other field types (text, textarea, date, etc.)
-      return (
-        <div key={name} className="mb-4">
-          <label htmlFor={name} className="block font-medium mb-1 text-gray-700">
-            {label}
-            {required && <span className="text-red-500"> *</span>}
-          </label>
-          <Input
-            id={name}
-            type={type}
-            {...register(name)}
-            disabled={action === 'read'}
-            className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-              errors[name] ? 'border-red-500' : 'border-gray-300'
-            }`}
-          />
-          {errors[name]?.message && (
-            <p className="text-red-500 text-sm mt-1">{String(errors[name]?.message)}</p>
-          )}
-        </div>
-      );
+        case 'select':
+          return (
+            <div key={name} className="mb-4">
+              <label htmlFor={name} className="block font-medium mb-1 text-gray-700">
+                {label}
+                {required && <span className="text-red-500"> *</span>}
+              </label>
+              <select
+                id={name}
+                {...register(name)}
+                disabled={action === 'read'}
+                className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  errors[name] ? 'border-red-500' : 'border-gray-300'
+                }`}
+              >
+                <option value="">Select {label}</option>
+                {options?.map(option => (
+                  <option key={option} value={option}>
+                    {option.charAt(0).toUpperCase() + option.slice(1)}
+                  </option>
+                ))}
+              </select>
+              {errors[name]?.message && (
+                <p className="text-red-500 text-sm mt-1">{String(errors[name]?.message)}</p>
+              )}
+            </div>
+          );
+
+        case 'textarea':
+          return (
+            <div key={name} className="mb-4">
+              <label htmlFor={name} className="block font-medium mb-1 text-gray-700">
+                {label}
+                {required && <span className="text-red-500"> *</span>}
+              </label>
+              <textarea
+                {...register(name)}
+                id={name}
+                placeholder={placeholder || label}
+                disabled={action === 'read'}
+                className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  errors[name] ? 'border-red-500' : 'border-gray-300'
+                }`}
+              />
+              {errors[name]?.message && (
+                <p className="text-red-500 text-sm mt-1">{String(errors[name]?.message)}</p>
+              )}
+            </div>
+          );
+
+        case 'checkbox':
+          return (
+            <div key={name} className="mb-4 flex items-center">
+              <input
+                {...register(name)}
+                type="checkbox"
+                id={name}
+                disabled={action === 'read'}
+                className="mr-2 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+              />
+              <label htmlFor={name} className="block font-medium text-gray-700">
+                {label}
+              </label>
+              {errors[name]?.message && (
+                <p className="text-red-500 text-sm mt-1">{String(errors[name]?.message)}</p>
+              )}
+            </div>
+          );
+
+        // Add more cases for different field types as needed
+
+        default:
+          return (
+            <div key={name} className="mb-4">
+              <label htmlFor={name} className="block font-medium mb-1 text-gray-700">
+                {label}
+                {required && <span className="text-red-500"> *</span>}
+              </label>
+              <Input
+                {...register(name)}
+                id={name}
+                type={type}
+                placeholder={placeholder || label}
+                disabled={action === 'read'}
+                required={required}
+                className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  errors[name] ? 'border-red-500' : 'border-gray-300'
+                }`}
+              />
+              {errors[name]?.message && (
+                <p className="text-red-500 text-sm mt-1">{String(errors[name]?.message)}</p>
+              )}
+            </div>
+          );
+      }
     });
   };
 
+  // 9. Render the Modal with Form
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-2xl">
@@ -315,8 +310,14 @@ export const DynamicResourceModal: React.FC<DynamicResourceModalProps> = ({
                 Cancel
               </Button>
               {action !== 'read' && (
-                <Button type="submit" disabled={loading} className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white">
-                  {loading ? 'Processing...' : (action === 'delete' ? 'Delete' : `${action.charAt(0).toUpperCase() + action.slice(1)}`)}
+                <Button 
+                  type="submit" 
+                  disabled={loading} 
+                  className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white"
+                >
+                  {loading 
+                    ? 'Processing...' 
+                    : (action === 'delete' ? 'Delete' : `${action.charAt(0).toUpperCase() + action.slice(1)}`)}
                 </Button>
               )}
             </DialogFooter>

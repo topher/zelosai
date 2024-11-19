@@ -1,41 +1,51 @@
-// app/api/resource/[resourceName]/[resourceId]/route.ts
+// /app/api/resource/[resourceName]/[resourceId]/route.ts
 
 import { NextResponse } from 'next/server';
 import { getUserAttributes } from '@/lib/auth';
 import { checkFeatureLimit } from '@/lib/limits';
 import { deductCreditsAndIncrementUsage } from '@/lib/credits';
 import { logUserAction } from '@/lib/logging';
-import { getResourceById, createResource, updateResource, deleteResource } from '@/lib/dataFetching';
+import { getResourceById, createResource, updateResource, deleteResource, getTriplesBySubjectId } from '@/lib/resource';
 import { incrementFeatureCount } from '@/lib/user';
 import { evaluateAccess } from '@/lib/policyEvaluation';
-import { Action, FeatureKey, ActionFeatureKey } from '@/config/featuresConfig';
-import { getActionFeatureKey, getResourceTypeByResourceName, getFeatureKeyFromResourceName } from '@/lib/featureUtils';
-import { formatError } from '@/lib/errorFormatter'; // Import the error formatter
-import { handleApiError } from '@/lib/errorHandler'; // Import the centralized error handler
+import { Action, FeatureKey } from '@/config/featuresConfig';
+import { getActionFeatureKey, getFeatureKeyFromResourceName, getResourceTypeByResourceName } from '@/lib/featureUtils';
+import { formatError } from '@/lib/errorFormatter';
+import { handleApiError } from '@/lib/errorHandler';
+import { ErrorResponse, Resource } from '@/app/types';
 
-// Exported HTTP methods
-export async function GET(request: Request, { params }: { params: { resourceName: string; resourceId: string } }) {
-  console.log("😜 GET Request Received");
+export async function GET(
+  request: Request,
+  { params }: { params: { resourceName: string; resourceId: string } }
+) {
+  console.log("😜 GET Request Received", JSON.stringify(params));
   return handleResourceAction('read', request, params);
 }
 
-export async function POST(request: Request, { params }: { params: { resourceName: string; resourceId: string } }) {
+export async function POST(
+  request: Request,
+  { params }: { params: { resourceName: string; resourceId: string } }
+) {
   console.log("😜 POST Request Received");
   return handleResourceAction('create', request, params);
 }
 
-export async function DELETE(request: Request, { params }: { params: { resourceName: string; resourceId: string } }) {
+export async function DELETE(
+  request: Request,
+  { params }: { params: { resourceName: string; resourceId: string } }
+) {
   console.log("😜 DELETE Request Received");
   return handleResourceAction('delete', request, params);
 }
 
-// Adding PUT for the update/edit action
-export async function PUT(request: Request, { params }: { params: { resourceName: string; resourceId: string } }) {
+export async function PUT(
+  request: Request,
+  { params }: { params: { resourceName: string; resourceId: string } }
+) {
   console.log("😜 PUT Request Received");
   return handleResourceAction('update', request, params);
 }
 
-// Handler Function
 async function handleResourceAction(
   action: Action,
   request: Request,
@@ -50,31 +60,25 @@ async function handleResourceAction(
     const { userId, orgId, subscription } = userAttributes;
 
     if (!userId) {
-      const errorResponse = formatError('AUTHENTICATION_FAILURE', 'Please log in to continue.');
+      const errorResponse: ErrorResponse = formatError('AUTHENTICATION_FAILURE', 'Please log in to continue.');
       return NextResponse.json(errorResponse, { status: 401 });
     }
 
-    // Get resourceType from resourceName
+    // Get resourceType from resourceName using featureUtils
     const resourceType = getResourceTypeByResourceName(resourceName);
     if (!resourceType) {
       console.error(`No resourceType mapping found for resourceName: ${resourceName}`);
-      const errorResponse = formatError('INVALID_RESOURCE_TYPE', 'The provided resource type is invalid.');
+      const errorResponse: ErrorResponse = formatError('INVALID_RESOURCE_TYPE', 'The provided resource type is invalid.');
       return NextResponse.json(errorResponse, { status: 400 });
     }
 
-    // Map resourceName to FeatureKey using utility function
     const featureKey = getFeatureKeyFromResourceName(resourceName);
-    if (!featureKey) {
-      console.error(`No FeatureKey mapping found for resourceName: ${resourceName}`);
-      const errorResponse = formatError('INVALID_FEATURE', 'The requested feature is invalid.');
-      return NextResponse.json(errorResponse, { status: 400 });
-    }
 
     // Get the ActionFeatureKey
-    const actionFeatureKey = getActionFeatureKey(action, featureKey); // Pass FeatureKey here
+    const actionFeatureKey = getActionFeatureKey(action, featureKey);
     if (!actionFeatureKey) {
-      console.error(`❌ No ActionFeatureKey mapping found for action: ${action}, featureKey: ${featureKey}`);
-      const errorResponse = formatError('INVALID_FEATURE', 'The requested feature is invalid.');
+      console.error(`❌ No ActionFeatureKey mapping found for action: ${action}, featureKey: ${resourceType}`);
+      const errorResponse: ErrorResponse = formatError('INVALID_FEATURE', 'The requested feature is invalid.');
       return NextResponse.json(errorResponse, { status: 400 });
     }
 
@@ -89,67 +93,85 @@ async function handleResourceAction(
     });
 
     if (!accessGranted) {
-      const errorResponse = formatError('ACCESS_DENIED_BY_POLICY', 'You do not have permission to perform this action.');
+      const errorResponse: ErrorResponse = formatError('ACCESS_DENIED_BY_POLICY', 'You do not have permission to perform this action.');
       return NextResponse.json(errorResponse, { status: 403 });
     }
 
-    // Check feature limit and deduct credits
-    const canProceed = await checkFeatureLimit({ userId, feature: actionFeatureKey }, subscription);
-    if (!canProceed) {
-      // Determine specific error based on featureKey
-      let errorCode = 'FEATURE_LIMIT_REACHED';
-      let errorMessage = 'You have reached your usage limit for this feature.';
+    // Determine if credits should be deducted based on action and resourceType
+    let shouldDeductCredits = false;
+    if (action === 'create' && resourceName.toLowerCase() === 'triples') {
+      shouldDeductCredits = true;
+    }
 
-      if (resourceName.toLowerCase().includes('profile')) {
-        errorCode = 'PROFILE_LIMIT_REACHED';
-        errorMessage = 'You have reached your profile view limit.';
+    // Initialize creditsDeducted with default values
+    let creditsDeducted: { success: boolean; creditsDeducted: number; error: string | null } = { success: false, creditsDeducted: 0, error: null };
+
+    // Check feature limit and deduct credits if necessary
+    if (shouldDeductCredits) {
+      const canProceed = await checkFeatureLimit({ userId, feature: actionFeatureKey }, subscription);
+      if (!canProceed) {
+        const errorResponse: ErrorResponse = formatError('FEATURE_LIMIT_REACHED', 'You have reached your usage limit for this feature.');
+        return NextResponse.json(errorResponse, { status: 403 });
       }
 
-      const errorResponse = formatError(errorCode, errorMessage);
-      return NextResponse.json(errorResponse, { status: 403 });
-    }
+      const deductParams = {
+        userId,
+        orgId,
+        action,
+        actionFeatureKey,
+        subscriptionId: subscription.subscriptionId,
+      };
 
-    const deductParams = {
-      userId,
-      orgId,
-      action,
-      actionFeatureKey,
-      subscriptionId: subscription.subscriptionId,
-    };
-
-    const creditsDeducted = await deductCreditsAndIncrementUsage(deductParams, subscription);
-    if (!creditsDeducted.success) {
-      const errorResponse = formatError('CREDIT_DEDUCTION_FAILED', creditsDeducted.error || 'Failed to deduct credits.');
-      return NextResponse.json(errorResponse, { status: 403 });
+      creditsDeducted = await deductCreditsAndIncrementUsage(deductParams, subscription);
+      if (!creditsDeducted.success) {
+        const errorResponse: ErrorResponse = formatError('CREDIT_DEDUCTION_FAILED', creditsDeducted.error || 'Failed to deduct credits.');
+        return NextResponse.json(errorResponse, { status: 403 });
+      }
     }
 
     // Handle the action
     let result;
     if (action === 'read') {
-      result = await getResourceById(resourceName, resourceId);
-      if (!result) {
-        const errorResponse = formatError('RESOURCE_NOT_FOUND', 'The requested resource was not found.');
+      const resourceData: Resource = await getResourceById(resourceName, resourceId);
+      if (!resourceData) {
+        const errorResponse: ErrorResponse = formatError('RESOURCE_NOT_FOUND', 'The requested resource was not found.');
         return NextResponse.json(errorResponse, { status: 404 });
       }
-    } 
-     else if (action === 'update') {
+
+      // Fetch triples associated with the resource
+      const triples = await getTriplesBySubjectId(resourceData.id);
+      console.log(triples, "straight from the press")
+      // Attach triples to the resource data
+      result = { ...resourceData, triples };
+    } else if (action === 'create') {
+      const resourceData = await request.json();
+
+      // For Triples, credits already deducted if necessary
+      result = await createResource(resourceName, resourceData, resourceId);
+      if (!result) {
+        const errorResponse: ErrorResponse = formatError('RESOURCE_CREATION_FAILED', 'Failed to create the resource.');
+        return NextResponse.json(errorResponse, { status: 500 });
+      }
+    } else if (action === 'update') {
       const updatedData = await request.json();
       result = await updateResource(resourceName, resourceId, updatedData);
       if (!result) {
-        const errorResponse = formatError('RESOURCE_UPDATE_FAILED', 'Failed to update the resource.');
+        const errorResponse: ErrorResponse = formatError('RESOURCE_UPDATE_FAILED', 'Failed to update the resource.');
         return NextResponse.json(errorResponse, { status: 404 });
       }
     } else if (action === 'delete') {
       const deleteSuccess = await deleteResource(resourceName, resourceId);
       if (!deleteSuccess) {
-        const errorResponse = formatError('RESOURCE_DELETION_FAILED', 'Failed to delete the resource.');
+        const errorResponse: ErrorResponse = formatError('RESOURCE_DELETION_FAILED', 'Failed to delete the resource.');
         return NextResponse.json(errorResponse, { status: 404 });
       }
       result = { message: 'Resource deleted successfully.' };
     }
 
-    // Increment feature count
-    await incrementFeatureCount(userId, actionFeatureKey, subscription.subscriptionId);
+    // Increment feature count if credits were deducted
+    if (shouldDeductCredits) {
+      await incrementFeatureCount(userId, actionFeatureKey, subscription.subscriptionId);
+    }
 
     // Log user action
     await logUserAction({
@@ -158,7 +180,7 @@ async function handleResourceAction(
       action,
       actionFeatureKey,
       resourceId,
-      creditsUsed: creditsDeducted.creditsDeducted || 0,
+      creditsUsed: shouldDeductCredits ? creditsDeducted.creditsDeducted : 0,
       createdAt: new Date(),
     });
 
@@ -166,7 +188,7 @@ async function handleResourceAction(
   } catch (error: any) {
     console.error(`Error handling ${action} for ${params.resourceName}/${params.resourceId}:`, error);
     handleApiError(error);
-    const errorResponse = formatError('INTERNAL_SERVER_ERROR', 'An unexpected error occurred.');
+    const errorResponse: ErrorResponse = formatError('INTERNAL_SERVER_ERROR', 'An unexpected error occurred.');
     return NextResponse.json(errorResponse, { status: 500 });
   }
 }

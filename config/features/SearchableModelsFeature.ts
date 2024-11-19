@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { ResourceType } from '@/config/resourceTypes'
 import { LayoutDashboard } from 'lucide-react';
 import { FeatureCategory, Feature, FeatureKey, SubscriptionTier, ActionFeatureKey } from '@/config/featuresConfig';
 
@@ -18,7 +19,7 @@ export const searchableModelsFeature: Feature =     {
       description: 'Search through AI models.',
       isInProd: true,
       resourceName: 'complete_trained_models',
-      resourceType: 'SearchableModel',
+      resourceType: ResourceType.SearchableModel,
       maxResourceCount: [100, 1000, 10000],
     },
     actions: [

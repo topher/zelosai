@@ -134,7 +134,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 
       for (const feature of features) {
         const isAllowed = await isFeatureAllowed(feature.key, 'read');
-        console.log(feature, "hiya");
+
         allowedStatuses[feature.key] = isAllowed;
       }
       console.log(allowedStatuses, "allowed");

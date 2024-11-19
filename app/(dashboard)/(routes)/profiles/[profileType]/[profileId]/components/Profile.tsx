@@ -8,31 +8,32 @@ import ProfileUserActions from './ProfileUserActions';
 import ProfileInfo from './ProfileInfo';
 import ProfileHighlightCards from './ProfileHighlightCards';
 import ProfileGrid from './ProfileGrid';
-import { Triple, ResourceType } from '@/app/types';
+import { Triple, ProfileType } from '@/app/types';
 
 interface ProfileProps {
-  resource: Triple[];
-  type: ResourceType;
+  triples: Triple[];
+  profileType: ProfileType;
 }
 
-const Profile: React.FC<ProfileProps> = ({ resource, type }) => {
-  const [triples, setTriples] = useState<Triple[]>([]);
+const Profile: React.FC<ProfileProps> = ({ triples, profileType }) => {
+  const [filteredTriples, setFilteredTriples] = useState<Triple[]>([]);
 
   useEffect(() => {
-    const filteredTriples = resource.filter(
-      (triple) => triple.predicate !== type.toUpperCase() && triple.predicate !== 'URL'
+    const filteredTriples = triples.filter(
+      (triple) => triple.predicate !== profileType.toUpperCase() && triple.predicate !== 'URL'
     );
-    setTriples(filteredTriples);
-  }, [resource, type]);
+    setFilteredTriples(filteredTriples);
+  }, [triples, profileType]);
 
   // Retrieve nameTriple and imageTriple from the original resource before filtering
-  const nameTriple = resource.find((triple) => triple.predicate === 'has_name');
-  const imageTriple = resource.find((triple) => triple.predicate === 'has_wiki_logo_url');
+  const nameTriple = triples.find((triple) => triple.predicate === 'has_name');
+  const imageTriple = triples.find((triple) => triple.predicate === 'has_wiki_logo_url');
 
   // Use different placeholders for athlete and brand
-  const placeholderImage = type === 'athlete' ? '/placeholder_avatar.png' : '/brand_avatar.png';
+  const placeholderImage = profileType === 'athlete' ? '/placeholder_avatar.png' : '/brand_avatar.png';
   const imageSrc = imageTriple?.object || placeholderImage; // Use placeholder if no image
 
+  console.log(filteredTriples, "filteredTriples")
   return (
     <div className="athlete-brand-profile">
       {/* Header */}
@@ -58,10 +59,10 @@ const Profile: React.FC<ProfileProps> = ({ resource, type }) => {
       {/* <ProfileInfo triples={triples} type={type} /> */}
 
       {/* User Actions */}
-      <ProfileUserActions type={type} />
+      <ProfileUserActions type={profileType} />
 
       {/* Mosaic Grid */}
-      <ProfileGrid triples={triples} gridClassName="my-masonry-grid" />
+      <ProfileGrid triples={filteredTriples} gridClassName="my-masonry-grid" />
     </div>
   );
 };

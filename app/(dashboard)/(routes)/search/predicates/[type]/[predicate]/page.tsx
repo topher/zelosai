@@ -3,7 +3,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import Loader from '@/app/components/Loader';
+import Loader from '@/app/components/atomic/atoms/Loader';
 import PredicateGrid from '@/app/(dashboard)/(routes)/search/predicates/components/PredicateGrid';
 import PredicateDropdown from '@/app/(dashboard)/(routes)/search/predicates/components/PredicateDropdown';
 import { Montserrat } from 'next/font/google';

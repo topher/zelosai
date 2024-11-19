@@ -1,5 +1,6 @@
 import * as Yup from 'yup';
-import { LucideIcon } from 'lucide-react';
+import { ResourceType } from '@/config/resourceTypes'
+import { Target } from 'lucide-react';
 import { FeatureCategory, Feature, FeatureKey, SubscriptionTier, ActionFeatureKey } from '@/config/featuresConfig';
 
 export const tasksFeature: Feature = {
@@ -54,13 +55,13 @@ export const tasksFeature: Feature = {
     ],
     metadata: {
         category: FeatureCategory.Workflows,
-        icon: LucideIcon,
+        icon: Target,
         label: 'Tasks',
         href: '/workflows/tasks',
         description: 'Manage your tasks.',
         isInProd: false,
         resourceName: 'tasks',
-        resourceType: 'Task',
+        resourceType: ResourceType.Task,
         maxResourceCount: [0, 10, 100],
     },
 };

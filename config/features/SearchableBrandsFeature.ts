@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { ResourceType } from '@/config/resourceTypes'
 import { Target } from 'lucide-react';
 import { FeatureCategory, Feature, FeatureKey, SubscriptionTier, ActionFeatureKey } from '@/config/featuresConfig';
 
@@ -48,7 +49,7 @@ export const searchableBrandsFeature: Feature = {
         description: 'Search through brand profiles.',
         isInProd: true,
         resourceName: 'brands_triples',
-        resourceType: 'SearchableBrand',
+        resourceType: ResourceType.SearchableBrand,
         maxResourceCount: [100, 1000, 10000],
     },
 };

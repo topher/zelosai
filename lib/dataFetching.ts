@@ -6,34 +6,6 @@ import { integer } from '@elastic/elasticsearch/lib/api/types'; // Retain if use
 import { SubscriptionTier, TIER_ORDER } from '@/config/featuresConfig';
 import { Message } from '@/app/types';
 
-// Remove the Client import as it's no longer needed
-
-/**
- * Get a specific resource by ID
- */
-export async function getResourceById(resourceName: string, resourceId: string): Promise<any | null> {
-  const endpoint = `/${resourceName.toLowerCase()}/_doc/${resourceId}`;
-  console.log(`🔍 Fetching resource from Elasticsearch: GET ${endpoint}`);
-
-  try {
-    const response = await elasticsearchAxios.get(endpoint);
-
-    if (!response.data || !response.data._source) {
-      console.error(`❌ Resource ${resourceId} not found in ${resourceName}`);
-      return null;
-    }
-
-    return response.data._source; // Return the resource data
-  } catch (error: any) {
-    if (error.response && error.response.status === 404) {
-      console.error(`❌ Resource ${resourceId} not found in ${resourceName}`);
-      return null;
-    }
-    console.error(`❌ Error fetching resource ${resourceId} in ${resourceName}:`, error.response?.data || error.message);
-    throw error;
-  }
-}
-
 /**
 /**
  * Create a new resource with a predefined _id matching the provided id.
@@ -137,6 +109,61 @@ export async function getResourceCount(resourceName: string, subscriptionId: str
 }
 
 /**
+ * Get a specific resource by ID
+ */
+export async function getResourceById(resourceName: string, resourceId: string): Promise<any | null> {
+  const endpoint = `/${resourceName.toLowerCase()}/_doc/${resourceId}`;
+  console.log(`🔍 Fetching resource from Elasticsearch: GET ${endpoint}`);
+
+  try {
+    const response = await elasticsearchAxios.get(endpoint);
+
+    if (!response.data || !response.data._source) {
+      console.error(`❌ Resource ${resourceId} not found in ${resourceName}`);
+      return null;
+    }
+
+    return response.data._source; // Return the resource data
+  } catch (error: any) {
+    if (error.response && error.response.status === 404) {
+      console.error(`❌ Resource ${resourceId} not found in ${resourceName}`);
+      return null;
+    }
+    console.error(`❌ Error fetching resource ${resourceId} in ${resourceName}:`, error.response?.data || error.message);
+    throw error;
+  }
+}
+
+/**
+ * Get triples by subjectId
+ */
+export async function getTriplesBySubjectId(subjectId: string): Promise<any[]> {
+  try {
+    console.log(`🔍 getTriplesBySubjectId ${subjectId}`);
+    const response = await elasticsearchAxios.post('/triples/_search', {
+      query: {
+        term: {
+          'subject.keyword': subjectId,
+        },
+      },
+      size: 1000, // Adjust size as needed
+    });
+
+    if (!response.data || !response.data.hits || response.data.hits.total.value === 0) {
+      console.error(`❌ No triples found for subjectId ${subjectId}`);
+      return [];
+    }
+
+    return response.data.hits.hits.map((hit: any) => hit._source) || [];
+  } catch (error: any) {
+    console.error(`❌ Error fetching triples for subjectId ${subjectId}:`, error.response?.data || error.message);
+    throw error;
+  }
+}
+
+
+
+/**
  * Map resource names to types
  */
 function mapResourceNameToType(resourceName: string): string | null {
@@ -168,7 +195,7 @@ function mapResourceNameToType(resourceName: string): string | null {
     profile_contracts: 'ProfileContract',
     profile_models: 'ProfileModel',
     profile_brands: 'ProfileBrand',
-    profile_users: 'ProfileUser',
+    users_triples: 'ProfileUser',
     searchable_athletes: 'SearchableAthlete',
     searchable_contracts: 'SearchableContract',
     searchable_models: 'SearchableModel',
@@ -178,6 +205,7 @@ function mapResourceNameToType(resourceName: string): string | null {
     scheduled_events: 'ScheduledEvent',
     transactions: 'Transaction',
     user_actions: 'UserAction',
+    triples: 'Triple',
 
     // New mappings
     alerts: 'Alert',
@@ -190,8 +218,6 @@ function mapResourceNameToType(resourceName: string): string | null {
 /**
  * Get accessible resources for a user based on access control
  */
-// lib/dataFetching.ts
-
 export async function getAccessibleResources({
   userId,
   action,

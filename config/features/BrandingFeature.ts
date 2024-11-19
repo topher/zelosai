@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { ResourceType } from '@/config/resourceTypes'
 import { Target } from 'lucide-react'; // Import the specific icon for Branding
 import { FeatureCategory, Feature, FeatureKey, SubscriptionTier, ActionFeatureKey } from '@/config/featuresConfig';
 
@@ -48,7 +49,7 @@ export const brandingFeature: Feature = {
         description: 'Manage branding models.',
         isInProd: true,
         resourceName: 'brand_model_cards',
-        resourceType: 'BrandModelCard',
+        resourceType: ResourceType.BrandModelCard,
         maxResourceCount: [3, 10, 30],
     },
 };

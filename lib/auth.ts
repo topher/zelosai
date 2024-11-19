@@ -12,11 +12,6 @@ export interface AuthContext {
   orgRole: string | null;
 }
 
-export function getAuthContext(req: NextApiRequest): AuthContext {
-  const { userId, orgId, orgRole } = getAuth(req);
-  return { userId, orgId, orgRole };
-}
-
 export async function getUserAttributes(
   req: Request | NextRequest | NextApiRequest,
   authContext?: { userId: string | null; orgId: string | null; orgRole: string | null },

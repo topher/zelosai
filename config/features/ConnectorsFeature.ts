@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { ResourceType } from '@/config/resourceTypes'
 import { Target } from 'lucide-react';
 import { FeatureCategory, Feature, FeatureKey, SubscriptionTier, ActionFeatureKey } from '@/config/featuresConfig';
 
@@ -70,7 +71,7 @@ export const connectorsFeature: Feature = {
         description: 'Manage data connectors.',
         isInProd: true,
         resourceName: 'connectors',
-        resourceType: 'DataConnector',
+        resourceType: ResourceType.DataConnector,
         maxResourceCount: [1, 5, 15],
     },
 };

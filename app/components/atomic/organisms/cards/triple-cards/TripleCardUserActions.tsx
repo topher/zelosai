@@ -1,8 +1,8 @@
-// app/(dashboard)/(routes)/profiles/[type]/[id]/components/TripleCardUserActions.tsx
+// /app/(dashboard)/(routes)/profiles/[type]/[id]/components/TripleCardUserActions.tsx
 
-'use client';
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   BiLike,
   BiDislike,
@@ -10,13 +10,16 @@ import {
   BiPlusCircle,
   BiLinkAlt,
   BiUserPlus,
-} from 'react-icons/bi';
+  BiEdit,
+  BiTrash,
+} from "react-icons/bi";
 import {
   Tooltip,
   TooltipTrigger,
   TooltipContent,
   TooltipProvider,
-} from '@/components/ui/tooltip';
+} from "@/components/ui/tooltip";
+import { Button } from "@/components/ui/button"; // Ensure you have a Button component
 
 interface TripleCardUserActionsProps {
   likes: number;
@@ -28,6 +31,8 @@ interface TripleCardUserActionsProps {
   onLike: () => void;
   onDislike: () => void;
   onGetLink: () => void;
+  onEdit: () => void; // Handler to open edit modal
+  onDelete: () => void; // Handler to delete triple
 }
 
 const TripleCardUserActions: React.FC<TripleCardUserActionsProps> = ({
@@ -40,6 +45,8 @@ const TripleCardUserActions: React.FC<TripleCardUserActionsProps> = ({
   onBookmark,
   onShare,
   onGetLink,
+  onEdit,
+  onDelete,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -47,12 +54,9 @@ const TripleCardUserActions: React.FC<TripleCardUserActionsProps> = ({
     <TooltipProvider>
       <div
         className={`p-4 bg-transparent ${
-          isExpanded ? 'flex flex-col space-y-2' : 'flex items-center justify-between'
+          isExpanded ? "flex flex-col space-y-2" : "flex items-center justify-between"
         }`}
-        onClick={(e) => {
-          e.stopPropagation();
-          setIsExpanded(!isExpanded);
-        }}
+        onClick={(e) => e.stopPropagation()} // Prevent modal from opening when clicking on actions
       >
         {!isExpanded && (
           <div className="flex items-center space-x-4 text-gray-400">
@@ -161,6 +165,42 @@ const TripleCardUserActions: React.FC<TripleCardUserActionsProps> = ({
               </TooltipTrigger>
               <TooltipContent side="bottom">
                 <span>Share</span>
+              </TooltipContent>
+            </Tooltip>
+
+            {/* Edit */}
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onEdit();
+                  }}
+                  className="hover:text-white"
+                >
+                  <BiEdit className="h-5 w-5" />
+                </button>
+              </TooltipTrigger>
+              <TooltipContent side="bottom">
+                <span>Edit</span>
+              </TooltipContent>
+            </Tooltip>
+
+            {/* Delete */}
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onDelete();
+                  }}
+                  className="hover:text-white"
+                >
+                  <BiTrash className="h-5 w-5" />
+                </button>
+              </TooltipTrigger>
+              <TooltipContent side="bottom">
+                <span>Delete</span>
               </TooltipContent>
             </Tooltip>
           </div>

@@ -1,118 +1,47 @@
-// hooks/useFeatureAccess.ts
+// /hooks/useFeatureAccess.ts
 
+import { useState, useEffect } from 'react';
 import { Subscription } from '@/app/types';
-import { FeatureKey, ActionFeatureKey, Action } from '@/config/featuresConfig';
-import { features } from '@/config/features';
-import { getActionFeatureKey } from '@/lib/featureUtils';
+import { FeatureKey, Action } from '@/config/featuresConfig';
 
-/**
- * Custom hook to manage feature access based on subscription.
- * @param subscription - The user's subscription data.
- * @returns Functions to check feature access and perform actions.
- */
-export function useFeatureAccess(subscription: Subscription | null) {
-  
-  /**
-   * Checks if a user is allowed to perform a specific action on a feature.
-   * @param featureKey - The base feature key.
-   * @param action - The action being performed.
-   * @returns A boolean indicating if the action is allowed.
-   */
-  const isFeatureAllowed = async (
-    featureKey: FeatureKey,
-    action: Action
-  ): Promise<boolean> => {
-    if (!subscription) return false;
+// Define the return type of  athe hook
+interface UseFeatureAccessReturn {
+  isFeatureAllowed: (featureKey: FeatureKey, action: Action) => Promise<boolean>;
+  performAction: (featureKey: FeatureKey, action: Action) => Promise<void>;
+  subscription: Subscription | null;
+}
 
-    // Retrieve the feature's metadata to get the resourceType
-    const feature = features[featureKey];
-    if (!feature) return false;
+export function useFeatureAccess(): UseFeatureAccessReturn {
+  const [subscription, setSubscription] = useState<Subscription | null>(null);
 
-    console.log("🧐", action, featureKey)
-
-
-    // Get the corresponding ActionFeatureKey
-    const actionFeatureKey = getActionFeatureKey(action, featureKey);
-    if (!actionFeatureKey) return false;
-
-    console.log("🧐 Retrieve the feature's metadata to get the resourceType", subscription.featuresUsage, actionFeatureKey)
-
-
-    // Retrieve usage data for the specific ActionFeatureKey
-    const featureUsage = subscription.featuresUsage[actionFeatureKey];
-    if (!featureUsage) return false;
-
-
-
-
-
-    // Find the action configuration from the feature
-    const actionConfig = feature.actions.find((a: { action: string; }) => a.action === action);
-    if (!actionConfig) return false;
-
-    // Determine the tier index based on the subscription tier
-    const tierIndex = getTierIndex(subscription.subscriptionTier);
-
-    // Get the current usage count for the action
-    const currentUsage = featureUsage.count;
-
-    // Compare current usage with the resource limits
-    return currentUsage < actionConfig.resourceLimits[tierIndex];
-  };
-
-  /**
-   * Performs an action by calling the backend API to handle credit deduction and usage increment.
-   * @param featureKey - The base feature key.
-   * @param action - The action being performed.
-   * @returns An object indicating success and a message.
-   */
-  const performAction = async (
-    featureKey: FeatureKey,
-    action: Action
-  ): Promise<{ success: boolean; message: string }> => {
-    const allowed = await isFeatureAllowed(featureKey, action);
-    if (!allowed) {
-      return { success: false, message: 'Action not allowed due to limits or insufficient credits.' };
-    }
-
-    // Perform the action via backend API
-    try {
-      const response = await fetch('/api/perform-action', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ featureKey, action }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok && data.success) {
-        return { success: true, message: 'Action performed successfully.' };
-      } else {
-        return { success: false, message: data.error || 'Failed to perform action.' };
+  useEffect(() => {
+    // Fetch subscription data from an API or context
+    const fetchSubscription = async () => {
+      try {
+        const response = await fetch('/api/user/subscription');
+        if (response.ok) {
+          const data = await response.json();
+          setSubscription(data.subscription);
+        } else {
+          console.error('Failed to fetch subscription data.');
+        }
+      } catch (error) {
+        console.error('Error fetching subscription:', error);
       }
-    } catch (error) {
-      console.error('Error performing action:', error);
-      return { success: false, message: 'Internal server error.' };
-    }
+    };
+
+    fetchSubscription();
+  }, []);
+
+  const isFeatureAllowed = async (featureKey: FeatureKey, action: Action): Promise<boolean> => {
+    // Implement your logic to check if the feature is allowed
+    // This is a placeholder implementation
+    return true;
   };
 
-  /**
-   * Maps subscription tier to its corresponding index in resourceLimits.
-   * @param tier - The subscription tier.
-   * @returns The index corresponding to the tier.
-   */
-  const getTierIndex = (tier: string): number => {
-    switch (tier.toUpperCase()) {
-      case 'FREE':
-        return 0;
-      case 'PRO':
-        return 1;
-      case 'ENTERPRISE':
-        return 2;
-      default:
-        return 0;
-    }
+  const performAction = async (featureKey: FeatureKey, action: Action): Promise<void> => {
+    // Implement your logic to perform an action
   };
 
-  return { isFeatureAllowed, performAction };
+  return { isFeatureAllowed, performAction, subscription };
 }

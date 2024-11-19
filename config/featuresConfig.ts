@@ -199,6 +199,7 @@ export enum FeatureKey {
   SearchableBrands = 'SearchableBrands',
   SearchableUsers = 'SearchableUsers',
   ModelGeneration = "ModelGeneration",
+  Triples = "Triples",
 }
 
 
@@ -450,6 +451,10 @@ export enum ActionFeatureKey {
   ManageAccount = 'ManageAccount',
   ReadModelGeneration = "ReadModelGeneration",
   CreateModelGeneration = "CreateModelGeneration",
+  UpdateTriple = "UpdateTriple",
+  DeleteTriple = "DeleteTriple",
+  CreateTriple = "CreateTriple",
+  ReadTriple = "ReadTriple",
 
   // Add any additional specific actions as needed
 }
@@ -484,14 +489,16 @@ export interface ActionFeature {
 /**
  * Interface forFieldConfig
  */
-interface FieldConfig {
-  name: string; // The name of the field
-  label: string; // The label displayed for the field
-  type: 'text' | 'textarea' | 'autocomplete' | 'checkbox' | 'number' | 'object'; // The type of input
-  required?: boolean; // Indicates if the field is required
-  resourceTypes?: string[]; // Optional array for resource types (for autocomplete fields)
-  multiple?: boolean; // Indicates if multiple selections are allowed (for autocomplete fields)
-  fields?: object;
+export interface FieldConfig {
+  name: string;
+  label: string;
+  type: string;
+  required?: boolean;
+  resourceTypes?: string[];
+  multiple?: boolean;
+  options?: string[];
+  predicates?: string[]; // Added predicates property
+  placeholder?: string; // Added placeholder property
 }
 
 /**

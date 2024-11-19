@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { ResourceType } from '@/config/resourceTypes'
 import { Target } from 'lucide-react';
 import { FeatureCategory, Feature, FeatureKey, SubscriptionTier, ActionFeatureKey } from '@/config/featuresConfig';
 
@@ -48,7 +49,7 @@ export const searchableAthletesFeature: Feature = {
         description: 'Search through athlete profiles.',
         isInProd: true,
         resourceName: 'athletes_triples',
-        resourceType: 'SearchableAthlete',
+        resourceType: ResourceType.SearchableAthlete,
         maxResourceCount: [100, 1000, 10000],
     },
 };
