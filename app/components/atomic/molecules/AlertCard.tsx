@@ -4,7 +4,6 @@
 
 import React, { useState } from "react";
 import { Alert } from "@/app/types";
-import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 
 interface AlertCardProps {
   alert: Alert;
@@ -60,16 +59,12 @@ const AlertCard: React.FC<AlertCardProps> = ({ alert }) => {
       {/* Tags */}
       <div className="relative z-10 flex flex-wrap gap-2 mt-4">
         {alert.tags.map((tag, idx) => (
-          <TooltipProvider key={idx}>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <span className="bg-gray-600 text-white text-xs px-3 py-1 rounded-full shadow-md cursor-default">
-                  {tag}
-                </span>
-              </TooltipTrigger>
-              <TooltipContent side="top">{tag}</TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+          <span
+            key={idx}
+            className="bg-gray-600 text-white text-xs px-3 py-1 rounded-full shadow-md"
+          >
+            {tag}
+          </span>
         ))}
       </div>
     </div>
