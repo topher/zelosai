@@ -2,7 +2,7 @@
 
 import React from 'react'
 import FeaturePageHeader from '../molecules/FeaturePageHeader'
-import HomeDashboardGrid from '../organisms/HomeDashboardGrid'
+import CardGrid from '../organisms/CardGrid'
 
 interface PageHeaderProps {
   title: string
@@ -40,7 +40,7 @@ const CardGridLayout = <T,>({
       {/* Content Area */}
       <div className="flex-1 overflow-y-auto">
         <div className="p-6 md:p-8">
-          <HomeDashboardGrid items={items} renderItem={renderItem} />
+          <CardGrid items={items} renderItem={renderItem} />
         </div>
       </div>
     </div>
