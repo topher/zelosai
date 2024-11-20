@@ -34,5 +34,9 @@ export enum ResourceType {
     SearchableContract = 'SearchableContract',
     SearchableModel = 'SearchableModel',
     SearchableBrand = 'SearchableBrand',
-    SearchableUser = 'SearchableUser'
+    SearchableUser = 'SearchableUser',
+    Triple = "Triple",
+    ModelInference = "ModelInference",
+    scalarString = "scalarString",
+    ScalarString = "ScalarString"
 }

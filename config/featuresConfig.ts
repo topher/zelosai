@@ -499,6 +499,7 @@ export interface FieldConfig {
   options?: string[];
   predicates?: string[]; // Added predicates property
   placeholder?: string; // Added placeholder property
+  fetchPredicates?: any;
 }
 
 /**

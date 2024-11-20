@@ -13,6 +13,7 @@ interface AutocompleteSelectProps {
   resourceTypes?: string[]; // Now represents resource types to fetch
   placeholder?: string;
   disabled?: boolean;
+  fetchPredicates?: any;
 }
 
 const AutocompleteSelect: React.FC<AutocompleteSelectProps> = ({

@@ -30,6 +30,18 @@ export interface Triple extends Resource {
   type: 'athlete' | 'brand' | 'user'; // Corresponding profile type
 }
 
+// /config/predicates.json
+export interface Predicate {
+  id: string;
+  description: string;
+  label: string;
+  synonyms: string[];
+  applicableSubjectResourceTypes: ResourceType[];
+  applicableObjectResourceTypes: ResourceType[];
+  enumOptions?: string[];
+  referenceResourceTypes?: ResourceType[];
+}
+
 // END RDF
 
 export type DataCategory = {  

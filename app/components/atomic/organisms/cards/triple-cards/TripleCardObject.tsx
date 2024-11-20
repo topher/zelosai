@@ -5,53 +5,69 @@
 import React, { useState } from "react";
 import TripleCardUserActions from "@/app/components/atomic/organisms/cards/triple-cards/TripleCardUserActions";
 import Link from "next/link";
-import {
-  FaTwitter,
-  FaInstagram,
-  FaFacebook,
-  FaLinkedin,
-  FaYoutube,
-  FaTiktok,
-  FaSnapchat,
-} from "react-icons/fa";
-import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-  TooltipProvider,
-} from "@/components/ui/tooltip";
+import { FaTwitter, FaInstagram, FaFacebook, FaLinkedin, FaYoutube, FaTiktok, FaSnapchat } from "react-icons/fa";
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
 import DynamicResourceModal from "@/app/components/atomic/ttemplates/modals/DynamicResourceModal";
 import { Triple } from "@/app/types";
 import { ResourceType } from "@/config/resourceTypes";
+import { toast } from "react-hot-toast";
 
 interface TripleCardObjectProps {
   triple: Triple;
-  onUpdateTriple: (updatedTriple: Triple) => void;
+  onUpdateTriple: (updatedTriples: Triple[]) => void;
   onDeleteTriple: (deletedTripleId: string) => void;
+  onEditTriple: (triple: Triple) => void; // New prop
 }
 
 const TripleCardObject: React.FC<TripleCardObjectProps> = ({
   triple,
   onUpdateTriple,
   onDeleteTriple,
+  onEditTriple,
 }) => {
-  const { subject, predicate, object, citation, id } = triple;
+  const { subject, predicate, object, citation, id, type } = triple;
 
   const [likes, setLikes] = useState(0);
   const [dislikes, setDislikes] = useState(0);
 
-  // State to manage modal visibility
+  // State to manage modal visibility and action
   const [isModalOpen, setModalOpen] = useState(false);
+  const [modalAction, setModalAction] = useState<'create' | 'update' | 'delete'>('update');
 
-  // Extract 'type' from 'subject' URI
-  const getTypeFromSubject = (subjectUri: string): "athlete" | "brand" | "user" | string => {
-    const uriParts = subjectUri.split("/");
-    const typeIndex = uriParts.findIndex((part) => part === "knowledge") + 1;
-    const type = uriParts[typeIndex] as "athlete" | "brand" | "user" | string;
-    return type;
+  // Function to handle edit action
+  const handleEdit = () => {
+    setModalAction('update');
+    setModalOpen(true);
   };
 
-  const type = getTypeFromSubject(subject);
+  // Function to handle delete action
+  const handleDelete = () => {
+    if (confirm("Are you sure you want to delete this triple?")) {
+      onDeleteTriple(id);
+    }
+  };
+
+  // Extract 'type' from 'subject' URI if not already provided
+  const getProfileTypeFromTripleURI = (subjectUri: string): "athlete" | "brand" | "user" | string => {
+    const temporaryTypeToResourceTypeMapping = {
+      ProfileUser: "user",
+      ProfileAthlete: "athlete",
+      ProfileBrand: "brand",
+    } as const;
+  
+    const uriParts = subjectUri.split("/");
+    const typeIndex = uriParts.findIndex((part) => part === "knowledge") + 1;
+  
+    // Narrow down `type` to match the keys of the mapping object
+    const type = uriParts[typeIndex] as keyof typeof temporaryTypeToResourceTypeMapping;
+  
+    // Map the type using the mapping, or return the original type if not found
+    const mappedType = temporaryTypeToResourceTypeMapping[type] || type;
+  
+    return mappedType;
+  };  
+
+  const resourceType = type || getProfileTypeFromTripleURI(subject);
 
   // Randomly decide on card style
   const [isGradientStyle, setIsGradientStyle] = useState<boolean>(false);
@@ -91,25 +107,23 @@ const TripleCardObject: React.FC<TripleCardObjectProps> = ({
   };
 
   const socialMediaIcon =
-    predicate === "has_social_media" ? getSocialMediaIcon(object) : null;
+    predicate.includes("has_social_media") ? getSocialMediaIcon(object) : null;
 
   return (
     <>
       <div
         className={`${cardStyles} flex flex-col cursor-pointer`}
-        onClick={() => setModalOpen(true)} // Open modal on card click
       >
         {/* Main Content */}
         <div className="flex-grow">
-          <Link href={`/search/predicates/${type}/${predicate}`} passHref>
-            {/* Conditionally adjust padding based on whether object text is displayed */}
+          <Link href={`/search/predicates/${resourceType}/${predicate}`} passHref>
             <div
               className={`content flex-grow ${
-                predicate !== "has_social_media" ? "p-4" : "pl-4 pt-2"
+                !socialMediaIcon ? "p-4" : "pl-4 pt-2"
               }`}
             >
               {/* Hide the object text if it's a social media link */}
-              {predicate !== "has_social_media" && (
+              {!socialMediaIcon && (
                 <p
                   className={`
                       object-text text-xl text-white font-semibold transition-colors duration-300 
@@ -125,7 +139,7 @@ const TripleCardObject: React.FC<TripleCardObjectProps> = ({
               )}
               <p
                 className={`predicate-text text-white/60 text-sm capitalize mt-2 break-words ${
-                  predicate === "has_social_media" ? "mt-0" : ""
+                  socialMediaIcon ? "mt-0" : ""
                 }`}
               >
                 {predicate.replace(/_/g, " ")}
@@ -133,7 +147,7 @@ const TripleCardObject: React.FC<TripleCardObjectProps> = ({
               {citation && (
                 <div
                   className={`citation-text text-white/40 text-xs italic mt-4 break-words ${
-                    predicate === "has_social_media" ? "mt-0" : ""
+                    socialMediaIcon ? "mt-0" : ""
                   }`}
                 >
                   {citation}
@@ -173,18 +187,13 @@ const TripleCardObject: React.FC<TripleCardObjectProps> = ({
           comments={0}
           onLike={() => setLikes(likes + 1)}
           onDislike={() => setDislikes(dislikes + 1)}
-          onComment={() => { } }
-          onBookmark={() => { } }
-          onShare={() => { } }
-          onGetLink={() => setModalOpen(true)}
-          onDelete={() => {
-            if (confirm("Are you sure you want to delete this triple?")) {
-              // Call the delete handler passed from ProfileGrid
-              onDeleteTriple(id);
-            }
-          } } onEdit={function (): void {
-            throw new Error("Function not implemented.");
-          } }        />
+          onComment={() => { /* Handle comment action */ }}
+          onBookmark={() => { /* Handle bookmark action */ }}
+          onShare={() => { /* Handle share action */ }}
+          onGetLink={() => { /* Handle get link action */ }}
+          onDelete={handleDelete}
+          onEdit={handleEdit}
+        />
       </div>
 
       {/* Modal for CRUD operations */}
@@ -192,12 +201,12 @@ const TripleCardObject: React.FC<TripleCardObjectProps> = ({
         <DynamicResourceModal
           isOpen={isModalOpen}
           onClose={() => setModalOpen(false)}
-          resourceType={ResourceType.Triple} // Ensure this matches your resource type mapping
-          action={"update"} // 'update' for editing
-          resourceId={id}
+          resourceType={ResourceType.Triple}
+          action={modalAction}
+          resourceId={id} // Ensure this can handle multiple IDs if needed
           initialData={triple}
-          onSuccess={(updatedTriple: Triple) => {
-            onUpdateTriple(updatedTriple);
+          onSuccess={(updatedTriples: Triple[]) => {
+            onUpdateTriple(updatedTriples);
             setModalOpen(false);
           }}
         />
