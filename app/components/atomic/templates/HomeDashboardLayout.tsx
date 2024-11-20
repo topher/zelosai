@@ -29,7 +29,7 @@ const HomeDashboardLayout = <T,>({
   if (error) return <p className="text-red-500">{error}</p>;
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-indigo-900">
+    <div className="feature-layout">
       {/* Header Component */}
       <FeaturePageHeader title={header.title} description={header.description} actions={header.actions} />
 

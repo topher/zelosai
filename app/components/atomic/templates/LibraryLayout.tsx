@@ -67,7 +67,7 @@ const LibraryLayout = <TItem extends ItemType>({
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-indigo-900">
+    <div className="feature-layout">
       {/* Header Component */}
       <FeaturePageHeader
         title={header.title}
