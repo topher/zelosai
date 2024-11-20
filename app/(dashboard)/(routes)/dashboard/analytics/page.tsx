@@ -6,35 +6,34 @@ import React, { useEffect, useState } from "react";
 import { Statistic } from "@/app/types";
 import { Button } from "@/components/ui/button";
 import HomeDashboardLayout from "@/app/components/atomic/templates/HomeDashboardLayout";
-import StatisticCard from "./components/StatisticCard";
+import StatisticCard from "@/app/components/atomic/molecules/StatisticCard";
 
 const AnalyticsPage: React.FC = () => {
-  const [statistics, setStatistics] = useState<Statistic[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [statistics, setStatistics] = useState<Statistic[]>([
+    {
+      id: "1",
+      title: "Daily Visitors",
+      description: "Number of unique visitors today",
+      value: "1,245",
+      tags: ["Growth", "Engagement"],
+    },
+    {
+      id: "2",
+      title: "Total Revenue",
+      description: "Revenue generated this month",
+      value: "$12,840",
+      tags: ["Profit", "Sales"],
+    },
+    {
+      id: "3",
+      title: "Bounce Rate",
+      description: "Percentage of visitors who left quickly",
+      value: "35%",
+      tags: ["Performance", "Metrics"],
+    },
+  ]);
+  const [loading, setLoading] = useState(false); // No loading when using dummy data
   const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchStatistics = async () => {
-      try {
-        const response = await fetch("/api/resource/statistics"); // Adjust the API endpoint as needed
-        if (response.ok) {
-          const data = await response.json();
-          setStatistics(data.resources);
-        } else {
-          setError("Failed to load analytics data.");
-        }
-      } catch (error) {
-        console.error("Failed to fetch analytics data:", error);
-        setError("Failed to load analytics data.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchStatistics();
-  }, []);
-
-  const isLoading = loading;
 
   return (
     <HomeDashboardLayout
@@ -45,12 +44,13 @@ const AnalyticsPage: React.FC = () => {
           <Button onClick={() => alert("Export Analytics")}>Export</Button>
         ),
       }}
-      isLoading={isLoading}
+      isLoading={loading}
       error={error}
       items={statistics}
       renderItem={(stat) => <StatisticCard key={stat.id} statistic={stat} />}
     />
   );
 };
+
 
 export default AnalyticsPage;
