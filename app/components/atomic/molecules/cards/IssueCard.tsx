@@ -1,4 +1,4 @@
-// /app/components/atomic/molecules/IssueCard.tsx
+// /app/components/atomic/molecules/cards/IssueCard.tsx
 
 'use client'
 

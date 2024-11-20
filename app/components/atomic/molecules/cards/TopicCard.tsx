@@ -1,4 +1,4 @@
-// /app/components/atomic/molecules/TopicCard.tsx
+// /app/components/atomic/molecules/cards/TopicCard.tsx
 
 import React from "react";
 import { Topic } from "@/app/types";

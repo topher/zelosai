@@ -1,4 +1,4 @@
-// /app/components/atomic/molecules/PersonaCard.tsx
+// /app/components/atomic/molecules/cards/PersonaCard.tsx
 
 "use client";
 

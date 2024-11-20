@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import { Statistic } from "@/app/types";
 import { Button } from "@/components/ui/button";
 import HomeDashboardLayout from "@/app/components/atomic/templates/HomeDashboardLayout";
-import StatisticCard from "@/app/components/atomic/molecules/StatisticCard";
+import StatisticCard from "@/app/components/atomic/molecules/cards/StatisticCard";
 
 const AnalyticsPage: React.FC = () => {
   const [statistics, setStatistics] = useState<Statistic[]>([

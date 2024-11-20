@@ -8,7 +8,7 @@ import { ConnectorForm } from "./connector-form";
 import { DataConnector } from "@/app/types";
 import { ConnectorFormValues } from "./connectorFormSchema";
 import CardGridLayout from "@/app/components/atomic/templates/CardGridLayout";
-import ConnectorCard from "@/app/components/atomic/molecules/ConnectorCard";
+import ConnectorCard from "@/app/components/atomic/molecules/cards/ConnectorCard";
 
 export default function ConnectorsLayout() {
   const [selectedConnector, setSelectedConnector] = useState<DataConnector | null>(null);

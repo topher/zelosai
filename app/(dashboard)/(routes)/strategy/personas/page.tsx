@@ -4,7 +4,7 @@
 
 import { useEffect, useState } from "react";
 import CardGridLayout from "@/app/components/atomic/templates/CardGridLayout";
-import PersonaCard from "@/app/components/atomic/molecules/PersonaCard";
+import PersonaCard from "@/app/components/atomic/molecules/cards/PersonaCard";
 import { Persona } from "@/app/types";
 import { Button } from "@/components/ui/button";
 

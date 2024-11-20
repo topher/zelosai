@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { Alert } from "@/app/types";
 import { Button } from "@/components/ui/button";
 import HomeDashboardLayout from "@/app/components/atomic/templates/HomeDashboardLayout";
-import AlertCard from "@/app/components/atomic/molecules/AlertCard";
+import AlertCard from "@/app/components/atomic/molecules/cards/AlertCard";
 
 const AlertsPage: React.FC = () => {
   const [alerts, setAlerts] = useState<Alert[]>([

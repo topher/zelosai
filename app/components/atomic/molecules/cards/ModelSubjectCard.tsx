@@ -1,4 +1,4 @@
-// /app/components/atomic/molecules/ModelSubjectCard.tsx
+// /app/components/atomic/molecules/cards/ModelSubjectCard.tsx
 
 'use client'
 

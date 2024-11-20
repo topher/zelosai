@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import { SubscriptionTier } from "@/config/featuresConfig";
 import { useFeatureAccess } from "@/hooks/useFeatureAccess";
 import { Button } from "@/components/ui/button";
-import ActionResourceRecommendationCard from "./components/ActionResourceRecommendationCard";
+import ActionResourceRecommendationCard from "../../../../components/atomic/molecules/cards/ActionResourceRecommendationCard";
 import HomeDashboardLayout from "@/app/components/atomic/templates/HomeDashboardLayout";
 
 const RecommendationsPage: React.FC = () => {

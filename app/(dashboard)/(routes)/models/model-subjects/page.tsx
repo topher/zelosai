@@ -4,7 +4,7 @@
 
 import React, { useEffect, useState } from 'react'
 import CardGridLayout from '@/app/components/atomic/templates/CardGridLayout'
-import ModelSubjectCard from '@/app/components/atomic/molecules/ModelSubjectCard'
+import ModelSubjectCard from '@/app/components/atomic/molecules/cards/ModelSubjectCard'
 import { ModelSubject } from '@/app/types'
 
 const ModelSubjectsPage: React.FC = () => {

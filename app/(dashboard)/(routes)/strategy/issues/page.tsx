@@ -4,7 +4,7 @@
 
 import { useEffect, useState } from "react";
 import CardGridLayout from "@/app/components/atomic/templates/CardGridLayout";
-import IssueCard from "@/app/components/atomic/molecules/IssueCard";
+import IssueCard from "@/app/components/atomic/molecules/cards/IssueCard";
 import { StategicIssue } from "@/app/types";
 import { issues as issuesDemoData } from "@/app/data";
 

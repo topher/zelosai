@@ -1,4 +1,4 @@
-// /app/components/atomic/molecules/StatisticCard.tsx
+// /app/components/atomic/molecules/cards/StatisticCard.tsx
 
 "use client";
 

@@ -1,4 +1,4 @@
-// app/(dashboard)/components/ActionResourceRecommendationCard.tsx
+// /app/components/atomic/molecules/cards/ActionResourceRecommendationCard.tsx
 
 "use client";
 

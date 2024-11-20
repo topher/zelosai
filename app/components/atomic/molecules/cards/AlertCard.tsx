@@ -1,4 +1,4 @@
-// /app/components/atomic/molecules/AlertCard.tsx
+// /app/components/atomic/molecules/cards/AlertCard.tsx
 
 "use client";
 

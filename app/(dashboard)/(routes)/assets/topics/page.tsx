@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import { Topic } from "@/app/types";
 import { useUser } from "@clerk/nextjs";
 import CardGridLayout from "@/app/components/atomic/templates/CardGridLayout";
-import TopicCard from "@/app/components/atomic/molecules/TopicCard";
+import TopicCard from "@/app/components/atomic/molecules/cards/TopicCard";
 import { Input } from "@/components/ui/input";
 import * as z from "zod";
 import {

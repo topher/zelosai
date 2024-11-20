@@ -1,4 +1,4 @@
-// /app/components/atomic/molecules/ConnectorCard.tsx
+// /app/components/atomic/molecules/cards/ConnectorCard.tsx
 
 import React, { useState } from 'react';
 import { DataConnector } from '@/app/types';
