@@ -1,4 +1,4 @@
-// /app/(dashboard)/(routes)/dashboard/analytics/components/StatisticCard.tsx
+// /app/components/atomic/molecules/StatisticCard.tsx
 
 "use client";
 
