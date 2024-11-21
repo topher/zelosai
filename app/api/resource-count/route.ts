@@ -27,7 +27,7 @@ export async function GET(request: { url: string | URL; }) {
     // Return the count in the response
     return NextResponse.json({ count }, { status: 200 });
   } catch (error) {
-    console.error(`Error in /api/resource-count:`, error);
+    // console.error(`Error in /api/resource-count:`, error);
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }

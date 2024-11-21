@@ -1,7 +1,7 @@
 [
   {
     "id": "zelos/agents/ai-scout-bot-01",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId": "user_5iNop9rQvxzrVSDe6RXW6LddXH",
     "resourceType": "Agent",
     "visibility": "public",
@@ -23,7 +23,7 @@
   },
   {
     "id": "zelos/agents/human-agent-02",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId": "user_6jOpq0sRwyasWTFe7SYX7MffZI",
     "resourceType": "Agent",
     "visibility": "restricted",
@@ -48,7 +48,7 @@
   },
   {
     "id": "zelos/agents/ai-marketing-genie-03",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId": "user_7kPqr1tSwzbtXUGf8TZY8NgghJ",
     "resourceType": "Agent",
     "visibility": "public",
@@ -70,7 +70,7 @@
   },
   {
     "id": "zelos/agents/human-agent-04",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
     "resourceType": "Agent",
     "visibility": "public",

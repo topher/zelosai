@@ -13,17 +13,17 @@
           "properties": {
             "createGoal": { "type": "integer" },
             "readGoal": { "type": "integer" },
-            "editGoal": { "type": "integer" },
+            "updateGoal": { "type": "integer" },
             "deleteGoal": { "type": "integer" },
   
             "createUseCase": { "type": "integer" },
             "readUseCase": { "type": "integer" },
-            "editUseCase": { "type": "integer" },
+            "updateUseCase": { "type": "integer" },
             "deleteUseCase": { "type": "integer" },
   
             "readModel": { "type": "integer" },
             "createModel": { "type": "integer" },
-            "editModel": { "type": "integer" },
+            "updateModel": { "type": "integer" },
             "deleteModel": { "type": "integer" },
   
             "readAnalytics": { "type": "integer" },
@@ -34,7 +34,7 @@
             "facetsPerBrandingCardType": { "type": "integer" },
   
             "readProfileView": { "type": "integer" },
-            "editProfile": { "type": "integer" },
+            "updateProfile": { "type": "integer" },
   
             "connectWallet": { "type": "integer" },
   

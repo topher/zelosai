@@ -1,7 +1,7 @@
 [
     {
       "id": "scheduledEvent-001",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "resourceType": "ScheduledEvent",
       "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
       "createdAt": "2024-04-01T09:00:00Z",
@@ -19,7 +19,7 @@
     },
     {
       "id": "scheduledEvent-002",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "resourceType": "ScheduledEvent",
       "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
       "createdAt": "2024-05-20T10:00:00Z",
@@ -37,7 +37,7 @@
     },
     {
       "id": "scheduledEvent-003",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "resourceType": "ScheduledEvent",
       "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
       "createdAt": "2024-06-25T11:00:00Z",

@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Separator } from "@/components/ui/separator";
 import { createAgent, deleteAgent } from "@/app/actions/agentsActions"; // Import CRUD actions
 import { Agent } from "@/app/types"; // Import the Agent type
-import StrategyLayout from "@/app/components/atomic/templates/StrategyLayout";
+import StrategyLayout from "@/app/components/atomic/ttemplates/StrategyLayout";
 
 const AgentsPage = () => {
   const [agents, setAgents] = useState<Agent[]>([]);

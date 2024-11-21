@@ -1,7 +1,7 @@
 [
     {
       "id": "topic-1",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "resourceType": "Topic",
       "ownerId": "user-456",
       "createdAt": "2024-04-15T10:30:00Z",
@@ -16,7 +16,7 @@
     },
     {
       "id": "topic-2",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "resourceType": "Topic",
       "ownerId": "user-456",
       "createdAt": "2024-04-16T12:00:00Z",
@@ -31,7 +31,7 @@
     },
     {
       "id": "topic-3",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "resourceType": "Topic",
       "ownerId": "user-789",
       "createdAt": "2024-04-17T09:15:00Z",
@@ -46,7 +46,7 @@
     },
     {
         "id": "topic-4",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "resourceType": "Topic",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "createdAt": "2024-04-15T10:30:00Z",
@@ -61,7 +61,7 @@
       },
       {
         "id": "topic-5",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "resourceType": "Topic",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "createdAt": "2024-04-16T12:00:00Z",
@@ -76,7 +76,7 @@
       },
       {
         "id": "topic-6",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "resourceType": "Topic",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "createdAt": "2024-04-17T09:15:00Z",

@@ -4,7 +4,7 @@
         "resourceId": {
           "type": "keyword"
         },
-        "orgId": {
+        "accountId": {
           "type": "keyword"
         },
         "resourceType": {
@@ -16,7 +16,7 @@
             "id": {
               "type": "keyword"
             },
-            "orgId": {
+            "accountId": {
               "type": "keyword"
             },
             "resourceType": {

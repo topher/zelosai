@@ -1,7 +1,7 @@
 [
     {
       "id": "transaction-001",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "resourceType": "Transaction",
       "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
       "createdAt": "2024-04-10T11:00:00Z",
@@ -19,7 +19,7 @@
     },
     {
       "id": "transaction-002",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "resourceType": "Transaction",
       "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
       "createdAt": "2024-05-25T16:30:00Z",
@@ -37,7 +37,7 @@
     },
     {
       "id": "transaction-003",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "resourceType": "Transaction",
       "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
       "createdAt": "2024-06-15T09:20:00Z",

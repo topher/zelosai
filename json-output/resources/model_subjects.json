@@ -1,7 +1,7 @@
 [
     {
       "id": "zelos/model-subject/sports-analytics-1",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_3gJik7pKtsxplQTb4PUV4JbbUF",
       "resourceType": "ModelSubject",
       "visibility": "public",
@@ -16,7 +16,7 @@
     },
     {
       "id": "zelos/model-subject/marketing-strategies-1",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_4hLmn8qMuvyqmRUc5QWV5KccVG",
       "resourceType": "ModelSubject",
       "visibility": "restricted",
@@ -31,7 +31,7 @@
     },
     {
         "id": "zelos/model-subject/fan-behavior-analytics-2",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_0nSuv4wVacevYWJg1WDC0QhHrK",
         "resourceType": "ModelSubject",
         "visibility": "public",

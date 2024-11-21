@@ -1,6 +1,8 @@
 [
-    {
+    {   
         "subject": "http://zelos.ai/knowledge/athlete/1346266",
+        "resourceType": "ProfileAthlete",
+        "visibility": "public",
         "triples": [
             {
                 "predicate": "represents_noc",
@@ -97,6 +99,8 @@
     },
     {
         "subject": "http://zelos.ai/knowledge/athlete/1355250",
+        "resourceType": "ProfileAthlete",
+        "visibility": "public",
         "triples": [
             {
                 "predicate": "represents_noc",
@@ -259,6 +263,8 @@
     },
     {
         "subject": "http://zelos.ai/knowledge/athlete/1321381",
+        "resourceType": "ProfileAthlete",
+        "visibility": "public",
         "triples": [
             {
                 "predicate": "represents_noc",
@@ -368,6 +374,8 @@
     },
     {
         "subject": "http://zelos.ai/knowledge/athlete/1322233",
+        "resourceType": "ProfileAthlete",
+        "visibility": "public",
         "triples": [
             {
                 "predicate": "represents_noc",
@@ -473,6 +481,8 @@
     },
     {
         "subject": "http://zelos.ai/knowledge/athlete/1322271",
+        "resourceType": "ProfileAthlete",
+        "visibility": "public",
         "triples": [
             {
                 "predicate": "represents_noc",
@@ -595,6 +605,8 @@
     },
     {
         "subject": "http://zelos.ai/knowledge/athlete/1350409",
+        "resourceType": "ProfileAthlete",
+        "visibility": "public",
         "triples": [
             {
                 "predicate": "represents_noc",
@@ -745,6 +757,8 @@
     },
     {
         "subject": "http://zelos.ai/knowledge/athlete/1309960",
+        "resourceType": "ProfileAthlete",
+        "visibility": "public",
         "triples": [
             {
                 "predicate": "represents_noc",
@@ -878,6 +892,8 @@
     },
     {
         "subject": "http://zelos.ai/knowledge/athlete/1344792",
+        "resourceType": "ProfileAthlete",
+        "visibility": "public",
         "triples": [
             {
                 "predicate": "represents_noc",
@@ -918,6 +934,8 @@
     },
     {
         "subject": "http://zelos.ai/knowledge/athlete/1331787",
+        "resourceType": "ProfileAthlete",
+        "visibility": "public",
         "triples": [
             {
                 "predicate": "represents_noc",
@@ -958,6 +976,8 @@
     },
     {
         "subject": "http://zelos.ai/knowledge/athlete/1284763",
+        "resourceType": "ProfileAthlete",
+        "visibility": "public",
         "triples": [
             {
                 "predicate": "represents_noc",

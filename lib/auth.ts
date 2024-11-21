@@ -12,11 +12,6 @@ export interface AuthContext {
   orgRole: string | null;
 }
 
-export function getAuthContext(req: NextApiRequest): AuthContext {
-  const { userId, orgId, orgRole } = getAuth(req);
-  return { userId, orgId, orgRole };
-}
-
 export async function getUserAttributes(
   req: Request | NextRequest | NextApiRequest,
   authContext?: { userId: string | null; orgId: string | null; orgRole: string | null },
@@ -58,6 +53,7 @@ export async function getUserAttributes(
       orgId: null,
       orgRole: null,
       subscription: null,
+      accountId: null, // Explicitly set to null
     };
   }
 
@@ -83,43 +79,29 @@ export async function getUserAttributes(
     if (typeof userSubscriptionId === 'string') {
       subscription = await getSubscriptionById(userSubscriptionId);
     } else {
-      console.warn(userSubscriptionId, 'User subscriptionId is not a string:', userSubscriptionId);
+      console.warn('User subscriptionId is not a string:', userSubscriptionId);
     }
   }
 
   // Fetch user
   const user = await clerkClient.users.getUser(userId);
 
-  // Safely extract subscriptionId from privateMetadata
-  const subscriptionIdRaw = user.privateMetadata?.subscriptionId;
-  let subscriptionId: string | null = null;
-
-  if (typeof subscriptionIdRaw === 'string') {
-    subscriptionId = subscriptionIdRaw;
-  } else {
-    console.warn('Invalid subscriptionId type:', subscriptionIdRaw);
-  }
-
-  if (subscriptionId) {
-    try {
-      subscription = await getSubscriptionById(subscriptionId);
-    } catch (error) {
-      console.error('Error fetching subscription by ID:', error);
-    }
-  }
-
   // Extract role and groups
   const role = orgRole || user.publicMetadata?.role || 'user';
   const groups = user.publicMetadata?.groups || [];
 
-  console.log('🚀 User Attributes Retrieved:', {
-    userId,
-    orgId,
-    orgRole,
-    role,
-    groups,
-    subscription,
-  });
+  // Map orgId to accountId if orgId exists, else use userId
+  const accountId = orgId || userId;
+
+  // console.log('🚀 User Attributes Retrieved:', {
+  //   userId,
+  //   orgId,
+  //   orgRole,
+  //   role,
+  //   groups,
+  //   accountId, // Include accountId in logs
+  //   subscription,
+  // });
 
   return {
     role,
@@ -127,6 +109,7 @@ export async function getUserAttributes(
     groups,
     orgId,
     orgRole,
+    accountId, // Include accountId in userAttributes
     subscription,
   };
 }

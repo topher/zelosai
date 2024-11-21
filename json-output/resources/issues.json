@@ -1,6 +1,6 @@
 [
   {
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "visibility": "public",
     "resourceType":"StrategicIssue",
@@ -15,7 +15,7 @@
     ]
   },
   {
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "visibility": "public",
     "resourceType":"StrategicIssue",
@@ -27,7 +27,7 @@
     ]
   },
   {
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "visibility": "public",
     "resourceType":"StrategicIssue",

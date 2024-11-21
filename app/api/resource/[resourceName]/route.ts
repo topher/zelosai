@@ -45,3 +45,50 @@ export async function GET(
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }
+
+import { createResource } from '@/lib/resource';
+import { v4 as uuidv4 } from 'uuid';
+import { getResourceTypeByResourceName } from '@/lib/featureUtils';
+
+export async function POST(
+  request: NextRequest,
+  { params }: { params: { resourceName: string } }
+) {
+  try {
+    // Get auth context
+    const auth = getAuth(request);
+    const { userId, orgId, orgRole } = auth;
+
+    if (!userId) {
+      console.warn('Unauthenticated access to resource API.');
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    // Fetch user attributes
+    const userAttributes = await getUserAttributes(request, { userId, orgId, orgRole });
+
+    const resourceName = params.resourceName.toLowerCase();
+
+    // Parse the request body
+    const resourceData = await request.json();
+
+    // Generate unique ID
+    resourceData.id = uuidv4();
+
+    // Add critical resource values
+    resourceData.ownerId = userId;
+    resourceData.accountId = orgId || userId; // Use orgId if available
+    resourceData.createdAt = new Date().toISOString();
+    resourceData.updatedAt = new Date().toISOString();
+    resourceData.resourceType =  getResourceTypeByResourceName(resourceName); // Ensure consistency
+    resourceData.visibility = resourceData.visibility || 'public';
+
+    // Create the resource
+    const result = await createResource(resourceName, resourceData, resourceData.id);
+
+    return NextResponse.json(result, { status: 201 });
+  } catch (error: any) {
+    console.error(`❌ Error creating resource of type ${params.resourceName}:`, error);
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+  }
+}

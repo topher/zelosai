@@ -16,8 +16,8 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs";
-import { CalendarDateRangePicker } from "./components/date-range-picker";
-import { Overview } from "./components/overview";
+import { CalendarDateRangePicker } from "@/app/components/atomic/organisms/date-range-picker";
+import { Overview } from "./components/sankey-overview";
 import { RecentActivties } from "@/app/components/atomic/molecules/recent-activity";
 import { getWorkflowAnalytics } from "@/app/actions/analyticsActions";
 

@@ -1,59 +1,61 @@
 // lib/limits.ts
 
 import { countLimits } from '../config/creditConfig';
-import { getUserById, getUserSubscriptionTier, incrementFeatureCount } from '@/lib/user';
 import { sendLimitNotification } from '@/lib/notifications';
+import { Subscription } from '@/app/types';
+import { features, ActionFeatureKey, TIER_ORDER } from '@/config/featuresConfig';
+import { subscriptionTiers } from '@/config/subscriptionTiers';
 
 interface CheckLimitParams {
   userId: string;
   feature: string;
 }
 
-export async function checkFeatureLimit(params: CheckLimitParams): Promise<boolean> {
-  const { userId, feature } = params;
+/**
+ * Checks if a user can proceed with an action based on feature limits.
+ * @param params - Contains userId and the feature (ActionFeatureKey).
+ * @param subscription - The user's subscription object.
+ * @returns A boolean indicating if the user can proceed.
+ */
+export async function checkFeatureLimit(
+  params: { userId: string; feature: ActionFeatureKey },
+  subscription: Subscription
+): Promise<boolean> {
+  const { feature } = params;
+  const usage = subscription.featuresUsage[feature]?.count || 0;
 
-  console.log("Feature Limit Check - Start");
-  console.log(`User ID: ${userId}`);
-  console.log(`Feature: ${feature}`);
+  const tier = subscription.subscriptionTier;
+  const tierIndex = TIER_ORDER.indexOf(tier);
 
-  // Fetch user details
-  const user = await getUserById(userId);
-  const subscriptionTier = user.subscriptionTier; // Directly from user data
-
-  console.log(`Subscription Tier: ${subscriptionTier}`);
-
-  // Get the limit for the feature based on subscription tier
-  const featureLimits = countLimits[feature];
-  if (!featureLimits) {
-    console.log("No Limit Defined for Feature");
-    return true; // No limit defined for this feature
+  if (tierIndex === -1) {
+    console.error(`Invalid subscription tier: ${tier}`);
+    return false;
   }
 
-  const limit = featureLimits[subscriptionTier];
+  // Find the feature and action to get resourceLimits
+  let resourceLimits: number[] | undefined;
 
-  console.log(`Limit for Feature: ${limit}`);
-
-  if (limit === Infinity || limit === 'unlimited') {
-    console.log("Unlimited Feature");
-    return true; // No limit
+  for (const feat of features) {
+    for (const action of feat.actions) {
+      if (action.actionKey === feature) {
+        resourceLimits = action.resourceLimits;
+        break;
+      }
+    }
+    if (resourceLimits) break;
   }
 
-  // Fetch current count
-  const currentCount = user.featuresUsage[feature] || 0;
-
-  console.log(`Current Count: ${currentCount}`);
-
-  if (currentCount >= limit) {
-    console.log("Feature Limit Reached");
-    // Notify the user
-    await sendLimitNotification(userId, `You have reached the limit for ${feature}. Please upgrade your subscription or purchase additional credits.`);
-    return false; // Limit reached
+  if (!resourceLimits) {
+    console.error(`No resourceLimits found for ActionFeatureKey: ${feature}`);
+    return false;
   }
 
-  // Increment the usage count
-  await incrementFeatureCount(userId, feature);
+  const featureLimit = resourceLimits[tierIndex];
 
-  console.log("Feature Limit Check - End");
+  if (featureLimit === undefined) {
+    console.error(`No feature limit defined for ActionFeatureKey: ${feature} at tier index: ${tierIndex}`);
+    return false;
+  }
 
-  return true;
+  return usage < featureLimit;
 }

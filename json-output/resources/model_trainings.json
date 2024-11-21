@@ -1,7 +1,7 @@
 [
     {
       "id": "zelos/model-training/athlete-performance-1",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_3gJik7pKtsxplQTb4PUV4JbbUF",
       "resourceType": "ModelTraining",
       "URI": "zelos/model-training/athlete-performance-1",
@@ -26,7 +26,7 @@
     },
     {
       "id": "zelos/model-training/fan-engagement-1",
-      "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_4hLmn8qMuvyqmRUc5QWV5KccVG",
       "resourceType": "ModelTraining",
       "visibility": "public",
@@ -50,7 +50,7 @@
       "tags": ["AIModel", "Fan Engagement", "Marketing Analytics"]    },
     {
         "id": "zelos/model-training/injury-prediction-1",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_9mRst3vUzbduXVIg0VBY9PggJQ",
         "resourceType": "ModelTraining",
         "visibility": "publlic",

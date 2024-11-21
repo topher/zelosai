@@ -1,7 +1,7 @@
 [
   {
     "id": "goal-1",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "resourceType": "Goal",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "visibility": "public",
@@ -18,7 +18,7 @@
   },
   {
     "id": "goal-2",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "resourceType": "Goal",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "visibility": "private",
@@ -34,7 +34,7 @@
   },
   {
     "id": "goal-3",
-    "orgId": "org_2nc9c87ihMBSTJxcYc4X4dwmdH4",
+    "accountId": "org_2nc9c87ihMBSTJxcYc4X4dwmdH4",
     "resourceType": "Goal",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "visibility": "public",
@@ -51,7 +51,7 @@
   },
   {
     "id": "goal-4",
-    "orgId": "org_2nc9c87ihMBSTJxcYc4X4dwmdH4",
+    "accountId": "org_2nc9c87ihMBSTJxcYc4X4dwmdH4",
     "resourceType": "Goal",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "visibility": "private",

@@ -1,7 +1,7 @@
 [
     {
         "id": "card-selectedMarketingChannels-1",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "resourceType": "BrandModelCard",
         "sectionName": "selectedMarketingChannels",
@@ -12,7 +12,7 @@
     },
     {
         "id": "card-selectedMarketingChannels-2",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "resourceType": "BrandModelCard",
         "sectionName": "selectedMarketingChannels",
@@ -23,7 +23,7 @@
     },
     {
         "id": "card-selectedMarkets-eea",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "resourceType": "BrandModelCard",
         "sectionName": "selectedMarkets",
@@ -34,7 +34,7 @@
     },
     {
         "id": "card-selectedMarkets-north_america",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "resourceType": "BrandModelCard",
         "sectionName": "selectedMarkets",
@@ -45,7 +45,7 @@
     },
     {
         "id": "card-selectedIndustries-01",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "resourceType": "BrandModelCard",
         "sectionName": "selectedIndustries",
@@ -56,7 +56,7 @@
     },
     {
         "id": "card-selectedIndustries-04",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "resourceType": "BrandModelCard",
         "sectionName": "selectedIndustries",
@@ -67,7 +67,7 @@
     },
     {
         "id": "card-selectedVALSSegments-7",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "resourceType": "BrandModelCard",
         "sectionName": "selectedVALSSegments",
@@ -78,7 +78,7 @@
     },
     {
         "id": "card-selectedLanguages-en",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "resourceType": "BrandModelCard",
         "sectionName": "selectedLanguages",
@@ -89,7 +89,7 @@
     },
     {
         "id": "card-selectedLanguages-es",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "resourceType": "BrandModelCard",
         "sectionName": "selectedLanguages",
@@ -100,7 +100,7 @@
     },
     {
         "id": "card-selectedLanguages-aa",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "resourceType": "BrandModelCard",
         "sectionName": "selectedLanguages",
@@ -111,7 +111,7 @@
     },
     {
         "id": "card-selectedNILActivities-9",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "resourceType": "BrandModelCard",
         "sectionName": "selectedNILActivities",
@@ -122,7 +122,7 @@
     },
     {
         "id": "card-selectedInterests-1",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "resourceType": "BrandModelCard",
         "sectionName": "selectedInterests",
@@ -133,7 +133,7 @@
     },
     {
         "id": "card-selectedInterests-2",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "resourceType": "BrandModelCard",
         "sectionName": "selectedInterests",
@@ -144,7 +144,7 @@
     },
     {
         "id": "card-selectedInterests-3",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "resourceType": "BrandModelCard",
         "sectionName": "selectedInterests",
@@ -155,7 +155,7 @@
     },
     {
         "id": "card-selectedInterests-10",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "resourceType": "BrandModelCard",
         "sectionName": "selectedInterests",
@@ -166,7 +166,7 @@
     },
     {
         "id": "card-selectedInterests-50",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "resourceType": "BrandModelCard",
         "sectionName": "selectedInterests",
@@ -177,7 +177,7 @@
     },
     {
         "id": "card-selectedProducts-1",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "resourceType": "BrandModelCard",
         "sectionName": "selectedProducts",
@@ -188,7 +188,7 @@
     },
     {
         "id": "card-selectedProducts-2",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "resourceType": "BrandModelCard",
         "sectionName": "selectedProducts",
@@ -199,7 +199,7 @@
     },
     {
         "id": "card-selectedProducts-3",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "resourceType": "BrandModelCard",
         "sectionName": "selectedProducts",
@@ -210,7 +210,7 @@
     },
     {
         "id": "card-selectedProducts-10",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "resourceType": "BrandModelCard",
         "sectionName": "selectedProducts",
@@ -221,7 +221,7 @@
     },
     {
         "id": "card-selectedProducts-50",
-        "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
         "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
         "resourceType": "BrandModelCard",
         "sectionName": "selectedProducts",

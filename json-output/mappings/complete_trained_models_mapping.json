@@ -1,19 +1,16 @@
 {
   "mappings": {
     "properties": {
-      "orgId": { "type": "keyword" },
-      "label": { "type": "text" },
-      "tags": { "type": "keyword" },
-      "default_language": { "type": "keyword" },
-      "subject_prompt_key": { "type": "text" },
-      "subject_prompt_alias": { "type": "keyword" },
-      "description": { "type": "text" },
-      "foundational_model": { "type": "boolean" },
-      "modelId": { "type": "keyword" },
-      "thumbnail": { "type": "keyword", "index": false },
-      "prompt_template": { "type": "text" },
-      "createdAt": { "type": "date", "format": "strict_date_optional_time||epoch_millis" },
-      "updatedAt": { "type": "date", "format": "strict_date_optional_time||epoch_millis" }
+      "id": { "type": "keyword" },
+      "resourceType": { "type": "keyword" },
+      "accountId": { "type": "keyword" },
+      "ownerId": { "type": "keyword" },
+      "visibility": { "type": "keyword" },
+      "name": { "type": "text" },
+      "includes": { "type": "keyword" },
+      "excludes": { "type": "keyword" },
+      "createdAt": { "type": "date" },
+      "updatedAt": { "type": "date" }
     }
   }
 }

@@ -1,7 +1,7 @@
 [
   {
     "id": "connector-1",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
      "resourceType": "DataConnector",
     "visibility": "public",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
@@ -17,7 +17,7 @@
   },
   {
     "id": "connector-2",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
      "resourceType": "DataConnector",
     "visibility": "public",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
@@ -33,7 +33,7 @@
   },
   {
     "id": "connector-3",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
      "resourceType": "DataConnector",
     "visibility": "public",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
@@ -51,7 +51,7 @@
   },
   {
     "id": "connector-10",
-    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
      "resourceType": "DataConnector",
     "visibility": "public",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",

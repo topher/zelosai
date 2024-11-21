@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { ListContainer } from './_components/list-container';
+import { ListContainer } from './components/list-container';
 import { demoData } from '@/app/data';
 import { Board } from '@/app/types';
 
