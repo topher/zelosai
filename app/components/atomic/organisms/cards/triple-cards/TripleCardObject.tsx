@@ -3,6 +3,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import DynamicResourceModal from '../../../templates/modals/DynamicResourceModal';
 import TripleCardUserActions from './TripleCardUserActions';
 import Link from 'next/link';
 import {

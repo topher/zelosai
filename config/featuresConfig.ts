@@ -1073,10 +1073,10 @@ export const features: Feature[] = [
   {
     key: FeatureKey.UseCases,
     metadata: {
-      category: FeatureCategory.Strategy,
+      category: FeatureCategory.Models,
       icon: AlertTriangle,
       label: 'Safety',
-      href: '/strategy/use-cases',
+      href: '/models/use-cases',
       description: 'Set the practical applications for your AI models and products.',
       isInProd: true,
       resourceName: 'use_cases',

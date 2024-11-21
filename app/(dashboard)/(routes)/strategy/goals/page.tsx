@@ -7,13 +7,13 @@ import { Switch } from "@/components/ui/switch";
 import { Badge } from "@/components/ui/badge";
 import { Info, Pencil, Trash } from "lucide-react";
 import { FeatureKey } from "@/config/featuresConfig";
-import StrategyLayout from "@/app/components/atomic/ttemplates/StrategyLayout";
+import StrategyLayout from "@/app/components/atomic/templates/StrategyLayout";
 import { useResourceModal } from "@/app/context/ResourceModalContext";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/use-toast";
 
 import { Goal } from "@/app/types";
-import DeleteConfirmationModal from '@/app/components/atomic/ttemplates/modals/DeleteConfirmationModal'; // New import
+import DeleteConfirmationModal from "@/app/components/atomic/templates/modals/DeleteConfirmationModal";
 import { ResourceType } from "@/config/resourceTypes";
 
 const GoalsPage = () => {
