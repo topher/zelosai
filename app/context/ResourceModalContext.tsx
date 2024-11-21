@@ -3,7 +3,7 @@
 "use client";
 
 import React, { createContext, useContext, ReactNode, useState, useCallback } from 'react';
-import DynamicResourceModal, { DynamicResourceModalProps } from '@/app/components/atomic/ttemplates/modals/DynamicResourceModal'; // Ensure this path is correct
+import DynamicResourceModal, { DynamicResourceModalProps } from '@/app/components/atomic/templates/modals/DynamicResourceModal'; // Ensure this path is correct
 import { FeatureKey } from '@/config/featuresConfig';
 import { Resource } from '@/app/types';
 import { ResourceType } from '@/config/resourceTypes';
