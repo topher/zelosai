@@ -5,7 +5,7 @@
 import React, { useState, useEffect } from 'react';
 import { InstantSearch, Configure } from 'react-instantsearch-dom';
 import { createCustomSearchClient } from '@/lib/customSearchClient';
-import ThreePanelTemplate from '@/app/components/atomic/ttemplates/ThreePanelTemplate';
+import ThreePanelTemplate from '@/app/components/atomic/templates/ThreePanelTemplate';
 import { MessageCatalog } from '@/app/components/atomic/organisms/MessageCatalog';
 import { useAuth } from '@clerk/nextjs';
 import { Message } from '@/app/types';

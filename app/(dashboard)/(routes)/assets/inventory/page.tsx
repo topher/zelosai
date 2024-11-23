@@ -5,7 +5,7 @@
 import React, { useState } from 'react';
 import { InstantSearch, Configure } from 'react-instantsearch-dom';
 import Client from '@searchkit/instantsearch-client';
-import ThreePanelTemplate from '@/app/components/atomic/ttemplates/ThreePanelTemplate';
+import ThreePanelTemplate from '@/app/components/atomic/templates/ThreePanelTemplate';
 import { InfoAssetCatalog } from '@/app/components/atomic/organisms/InfoAssetCatalog';
 
 const searchClient = Client({
