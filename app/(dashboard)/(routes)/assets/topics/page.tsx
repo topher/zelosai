@@ -5,6 +5,7 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
+import { PlusCircledIcon } from "@radix-ui/react-icons";
 import { useEffect, useState } from "react";
 import { Topic } from "@/app/types";
 import { useUser } from "@clerk/nextjs";
@@ -132,7 +133,8 @@ const TopicsPage = () => {
           >
             <DialogTrigger asChild>
               <Button onClick={() => setIsAddTopicDialogOpen(true)}>
-                + Add Topic
+                <PlusCircledIcon className="mr-2 h-5 w-5" />
+                Add Topic
               </Button>
             </DialogTrigger>
             <DialogContent>

@@ -7,6 +7,7 @@ import CardGridLayout from "@/app/components/atomic/templates/CardGridLayout";
 import PersonaCard from "@/app/components/atomic/molecules/cards/PersonaCard";
 import { Persona } from "@/app/types";
 import { Button } from "@/components/ui/button";
+import { PlusCircledIcon } from "@radix-ui/react-icons";
 
 const PersonasPage = () => {
   const [personas, setPersonas] = useState<Persona[]>([]);
@@ -37,6 +38,7 @@ const PersonasPage = () => {
     description: "Manage and view all your personas.",
     actions: (
       <Button>
+        <PlusCircledIcon className="mr-2 h-5 w-5" />
         Add New Persona
       </Button>
     ),

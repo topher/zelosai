@@ -1561,7 +1561,7 @@ export const features: Feature[] = [
       key: FeatureKey.Workflows,
       metadata: {
         category: FeatureCategory.Workflows,
-        icon: CheckSquare,
+        icon: Library,
         label: 'Library',
         href: '/workflows/library',
         description: 'Manage your workflows.',

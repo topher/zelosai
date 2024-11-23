@@ -4,6 +4,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { PlusCircledIcon } from "@radix-ui/react-icons";
 import { ConnectorForm } from "./connector-form";
 import { DataConnector } from "@/app/types";
 import { ConnectorFormValues } from "./connectorFormSchema";
@@ -98,7 +99,8 @@ export default function ConnectorsLayout() {
               "Connect your favorite tools and platforms to streamline your workflow.",
             actions: (
               <Button onClick={handleOpenCreateConnectorModal}>
-                + Add Connector
+                <PlusCircledIcon className="mr-2 h-5 w-5" />
+                Add Connector
               </Button>
             ),
           }}

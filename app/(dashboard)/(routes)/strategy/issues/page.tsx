@@ -7,6 +7,8 @@ import CardGridLayout from "@/app/components/atomic/templates/CardGridLayout";
 import IssueCard from "@/app/components/atomic/molecules/cards/IssueCard";
 import { StategicIssue } from "@/app/types";
 import { issues as issuesDemoData } from "@/app/data";
+import { Button } from "@/components/ui/button";
+import { PlusCircledIcon } from "@radix-ui/react-icons";
 
 const IssuesPage = () => {
   const [issues, setIssues] = useState<StategicIssue[]>([]);
@@ -38,9 +40,10 @@ const IssuesPage = () => {
     title: "Issues",
     description: "List of issues and topics related to your organization.",
     actions: (
-      <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+      <Button>
+        <PlusCircledIcon className="mr-2 h-5 w-5" />
         Add New Issue
-      </button>
+      </Button>
     ),
   };
 
