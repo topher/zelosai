@@ -31,6 +31,7 @@ import {
   Library,
   Info,
   MousePointer2,
+  ShieldCheck,
   Fingerprint,
   Box,
   FileBox,
@@ -1074,7 +1075,7 @@ export const features: Feature[] = [
     key: FeatureKey.UseCases,
     metadata: {
       category: FeatureCategory.Models,
-      icon: AlertTriangle,
+      icon: ShieldCheck,
       label: 'Safety',
       href: '/models/use-cases',
       description: 'Set the practical applications for your AI models and products.',
@@ -1295,7 +1296,7 @@ export const features: Feature[] = [
       key: FeatureKey.Terms,
       metadata: {
         category: FeatureCategory.KnowledgeBank,
-        icon: Book,
+        icon: BookLock,
         label: 'Terms',
         href: '/assets/terms',
         description: 'Manage terms and conditions.',
@@ -1976,7 +1977,7 @@ export const features: Feature[] = [
       key: FeatureKey.SearchableModels,
       metadata: {
         category: FeatureCategory.Search,
-        icon: LayoutDashboard,
+        icon: PackageSearch,
         label: 'Models',
         href: '/search/models',
         description: 'Search through AI models.',
