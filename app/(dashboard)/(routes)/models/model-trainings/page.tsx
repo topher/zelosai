@@ -1,15 +1,14 @@
+// /app/(dashboard)/(routes)/models/model-trainings/page.tsx
+
 "use client";
 
 import { useEffect, useState } from "react";
 import { useAuth } from "@clerk/nextjs";
-import { Montserrat } from "next/font/google";
 import { Button } from "@/components/ui/button";
-import { DataTable } from "@/app/components/atomic/organisms/data-table";
+import { PlusCircledIcon } from "@radix-ui/react-icons";
+import TableViewLayout from "@/app/components/atomic/templates/TableViewLayout";
 import { ModelTraining } from "@/app/types";
 import { columns } from "./components/columns"; // ModelTraining-specific columns
-import Image from "next/image";
-
-const montserrat = Montserrat({ weight: "600", subsets: ["latin"] });
 
 const ModelTrainingsPage = () => {
   const { userId, orgId } = useAuth();
@@ -63,48 +62,23 @@ const ModelTrainingsPage = () => {
     }
   };
 
-  if (loading) return <p>Loading model trainings...</p>;
-  if (error) return <p className="text-red-500">{error}</p>;
-
   return (
-    <>
-      <div className="md:hidden">
-        {/* Mobile view images for model trainings if any */}
-        <Image
-          src="/examples/model-trainings-light.png"
-          width={1280}
-          height={998}
-          alt="Model Trainings"
-          className="block dark:hidden"
-        />
-        <Image
-          src="/examples/model-trainings-dark.png"
-          width={1280}
-          height={998}
-          alt="Model Trainings"
-          className="hidden dark:block"
-        />
-      </div>
-      <div className="hidden h-full flex-1 flex-col space-y-8 p-8 md:flex">
-        <div className="flex items-center justify-between space-y-2">
-          <div>
-            <h2 className={`text-2xl font-bold tracking-tight ${montserrat.className}`}>
-              Model Trainings
-            </h2>
-            <p className="text-muted-foreground">
-              Manage your model training sessions.
-            </p>
-          </div>
-          <div className="flex items-center space-x-2">
-            <Button onClick={() => alert("Add New Model Training")}>Add New Model Training</Button>
-          </div>
-        </div>
-        <DataTable<ModelTraining, string>
-          columns={columns(handleDelete)}
-          data={modelTrainings}
-        />
-      </div>
-    </>
+    <TableViewLayout<ModelTraining, string>
+      header={{
+        title: "Model Trainings",
+        description: "Manage your model training sessions.",
+        actions: (
+          <Button onClick={() => alert("Add New Model Training")}>
+            <PlusCircledIcon className="mr-2 h-5 w-5" />
+            Add New Model Training
+          </Button>
+        ),
+      }}
+      isLoading={loading}
+      error={error}
+      data={modelTrainings}
+      columns={columns(handleDelete)}
+    />
   );
 };
 
