@@ -31,7 +31,7 @@ const ContractSearchPage: React.FC = () => {
     <SearchPageLayout
       header={{
         title: "Contracts",
-        description: "Browse and search through a comprehensive list of contracts.",
+        description: "Browse and search through a list of contracts.",
       }}
       indexName="contracts"
       searchSettings={searchSettings}

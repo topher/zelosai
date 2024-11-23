@@ -69,7 +69,7 @@ const BrandSearchPage: React.FC = () => {
     <SearchPageLayout
       header={{
         title: "Brands",
-        description: "Browse and search through a comprehensive list of brand profiles.",
+        description: "Browse and search through a list of brand profiles.",
       }}
       indexName="brands_triples"
       searchSettings={searchSettings}

@@ -34,7 +34,7 @@ const AthleteSearchPage: React.FC = () => {
     <SearchPageLayout
       header={{
         title: "Athlete Profiles",
-        description: "Browse and search through a comprehensive list of athlete profiles.",
+        description: "Browse and search through a list of athlete profiles.",
       }}
       indexName="athletes_triples"
       searchSettings={searchSettings}

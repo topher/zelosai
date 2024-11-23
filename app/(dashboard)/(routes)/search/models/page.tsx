@@ -30,7 +30,7 @@ const AIModelSearchPage: React.FC = () => {
     <SearchPageLayout
       header={{
         title: "Models",
-        description: "Browse and search through a comprehensive list of AI models.",
+        description: "Browse and search through a list of AI models.",
       }}
       indexName="complete_trained_models"
       searchSettings={searchSettings}
