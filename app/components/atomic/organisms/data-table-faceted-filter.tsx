@@ -1,3 +1,5 @@
+// /app/components/atomic/organisms/data-table-faceted-filter.tsx
+
 import * as React from "react"
 import { CheckIcon, PlusCircledIcon } from "@radix-ui/react-icons"
 import { Column } from "@tanstack/react-table"
@@ -24,6 +26,7 @@ import { Separator } from "@/components/ui/separator"
 interface DataTableFacetedFilterProps<TData, TValue> {
   column?: Column<TData, TValue>
   title?: string
+  className?: string
   options: {
     label: string
     value: string
@@ -35,6 +38,7 @@ export function DataTableFacetedFilter<TData, TValue>({
   column,
   title,
   options,
+  className
 }: DataTableFacetedFilterProps<TData, TValue>) {
   const facets = column?.getFacetedUniqueValues()
   const selectedValues = new Set(column?.getFilterValue() as string[])

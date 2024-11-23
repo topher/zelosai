@@ -1,40 +1,42 @@
-"use client"
+// /app/components/atomic/organisms/data-table-toolbar.tsx
 
-import { Cross2Icon } from "@radix-ui/react-icons"
-import { Table } from "@tanstack/react-table"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { DataTableViewOptions } from "./data-table-view-options"
+import { Cross2Icon } from "@radix-ui/react-icons";
+import { Table } from "@tanstack/react-table";
 
-import { priorities, statuses } from "@/app/data"
-import { DataTableFacetedFilter } from "./data-table-faceted-filter"
+import { Input } from "@/components/ui/input";
+import { DataTableViewOptions } from "./data-table-view-options";
+
+import { priorities, statuses } from "@/app/data";
+import { DataTableFacetedFilter } from "./data-table-faceted-filter";
 
 interface DataTableToolbarProps<TData> {
-  table: Table<TData>
+  table: Table<TData>;
 }
 
 export function DataTableToolbar<TData>({
   table,
 }: DataTableToolbarProps<TData>) {
-  const isFiltered = table.getState().columnFilters.length > 0
+  const isFiltered = table.getState().columnFilters.length > 0;
 
   return (
-    <div className="flex items-center justify-between">
-      <div className="flex flex-1 items-center space-x-2">
+    <div className="flex flex-wrap items-center justify-between gap-4 px-4 py-3">
+      <div className="flex flex-1 items-center flex-wrap gap-4">
         <Input
-          placeholder="Filter tasks..."
+          placeholder="Search..."
           value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("title")?.setFilterValue(event.target.value)
           }
-          className="h-8 w-[150px] lg:w-[250px]"
+          className="h-8 w-full max-w-xs bg-transparent text-white placeholder-gray-400 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50"
         />
         {table.getColumn("status") && (
           <DataTableFacetedFilter
             column={table.getColumn("status")}
             title="Status"
             options={statuses}
+            className="bg-transparent text-white border border-white/20 rounded-md"
           />
         )}
         {table.getColumn("priority") && (
@@ -42,20 +44,20 @@ export function DataTableToolbar<TData>({
             column={table.getColumn("priority")}
             title="Priority"
             options={priorities}
+            className="bg-transparent text-white border border-white/20 rounded-md"
           />
         )}
         {isFiltered && (
-          <Button
-            variant="ghost"
+          <button
             onClick={() => table.resetColumnFilters()}
-            className="h-8 px-2 lg:px-3"
+            className="flex items-center h-8 px-3 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors duration-200"
           >
-            Reset
+            Reset Filters
             <Cross2Icon className="ml-2 h-4 w-4" />
-          </Button>
+          </button>
         )}
       </div>
       <DataTableViewOptions table={table} />
     </div>
-  )
+  );
 }

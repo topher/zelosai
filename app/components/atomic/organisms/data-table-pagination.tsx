@@ -1,3 +1,5 @@
+// /app/components/atomic/organisms/data-table-pagination.tsx
+
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
