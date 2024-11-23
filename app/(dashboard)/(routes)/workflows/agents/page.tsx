@@ -1,35 +1,46 @@
+// /app/(dashboard)/(routes)/workflows/agents/page.tsx
+
 "use client";
+
 import { useEffect, useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { createAgent, deleteAgent } from "@/app/actions/agentsActions"; // Import CRUD actions
-import { Agent } from "@/app/types"; // Import the Agent type
-import StrategyLayout from "@/app/components/atomic/ttemplates/StrategyLayout";
+import CardGridLayout from "@/app/components/atomic/templates/CardGridLayout";
+import { Agent } from "@/app/types";
+import { createAgent, deleteAgent } from "@/app/actions/agentsActions";
+import AgentCard from "@/app/components/atomic/molecules/cards/AgentCard";
+import { Button } from "@/components/ui/button";
+import { Pencil } from "lucide-react";
+import { PlusCircledIcon } from "@radix-ui/react-icons";
 
 const AgentsPage = () => {
   const [agents, setAgents] = useState<Agent[]>([]);
-  const [accountId] = useState("12345"); // Static accountId for now
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   // Fetch agents on component mount
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
+      setError(null);
       try {
         const response = await fetch("/api/resource/agents");
         if (response.ok) {
           const data = await response.json();
           setAgents(data.resources);
         } else {
+          setError("Failed to fetch agents.");
           console.error("Error fetching agents:", response.statusText);
         }
       } catch (error) {
+        setError("An unexpected error occurred.");
         console.error("Error fetching agents:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchData();
   }, []);
 
-
-  // Handle creating a new agent (this could be hooked up to a form or modal)
+  // Handle creating a new agent
   const handleCreateAgent = async (newAgentData: Agent) => {
     try {
       const createdAgent = await createAgent(newAgentData);
@@ -43,47 +54,37 @@ const AgentsPage = () => {
   const handleDeleteAgent = async (agentId: string) => {
     try {
       await deleteAgent(agentId);
-      setAgents(agents.filter(agent => agent.id !== agentId));
+      setAgents(agents.filter((agent) => agent.id !== agentId));
     } catch (error) {
       console.error("Error deleting agent:", error);
     }
   };
 
   return (
-    <StrategyLayout>
-    <div className="space-y-8 p-6">
-      <main className="flex-1 p-4">
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
-          {agents.map((agent: Agent, index: number) => (
-            <Card key={agent.id}>
-              <CardHeader>
-                <CardTitle>{agent.Name}</CardTitle>
-                <CardDescription>{agent.Description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <img src={agent.Image} alt={agent.Name} className="w-full h-auto rounded-md" />
-                <p className="mt-4 text-sm">{agent.Type}</p>
-                <p className="mt-2 text-sm font-semibold">Associated Use Cases:</p>
-                <ul className="list-disc ml-4">
-                  {agent.expertiseAreas.map((area, idx) => (
-                    <li key={idx} className="text-sm">{area}</li>
-                  ))}
-                </ul>
-                {/* Example delete button */}
-                <button
-                  onClick={() => handleDeleteAgent(agent.id)}
-                  className="mt-4 bg-red-500 text-white px-2 py-1 rounded"
-                >
-                  Delete Agent
-                </button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </main>
-    </div>
-  </StrategyLayout>
+    <CardGridLayout
+      header={{
+        title: "Agents",
+        description: "Manage your agents efficiently.",
+        actions: (
+          <Button
+            onClick={() => {
+              console.log("Open create agent modal");
+              // Implement modal opening logic here
+            }}
+          >
+            <PlusCircledIcon className="mr-2 h-5 w-5" />
+            <span>Create New Agent</span>
+          </Button>
+        ),
+      }}
+      isLoading={isLoading}
+      error={error}
+      items={agents}
+      renderItem={(agent) => (
+        <AgentCard key={agent.id} agent={agent} onDelete={handleDeleteAgent} />
+      )}
+    />
   );
-}
+};
 
 export default AgentsPage;
