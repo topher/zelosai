@@ -1,148 +1,264 @@
-import React, { useEffect, useState } from 'react';
-
-interface ResourceType {
-  id: string;
-  name: string;
-  thumbnailUrl?: string; // Add additional fields as needed
-}
+import React, { useEffect, useState, useRef, forwardRef } from "react";
+import debounce from "lodash.debounce";
+import { X } from "lucide-react";
+import { toast } from "react-hot-toast";
+import { Predicate } from "@/app/types";
+import { predicates } from "@/config/predicates";
+import { LucideIcon } from "lucide-react";
+import { profileTypeToResourceType } from "@/utils/profileTypeToResourceType";
 
 interface AutocompleteSelectProps {
+  multiple: boolean;
+  resourceTypes: string[];
+  placeholder: string;
+  disabled: boolean;
+  fetchPredicates: boolean;
   value: string | string[];
   onChange: (value: string | string[]) => void;
-  multiple?: boolean;
-  resourceTypes?: string[]; // Now represents resource types to fetch
-  placeholder?: string;
-  disabled?: boolean;
-  fetchPredicates?: any;
+  maxSelection?: number;
+  icons?: boolean;
+  profileType?: string;
+  onBlur?: React.FocusEventHandler<HTMLInputElement>;
+  name?: string;
 }
 
-const AutocompleteSelect: React.FC<AutocompleteSelectProps> = ({
-  value,
-  onChange,
-  multiple,
-  resourceTypes,
-  placeholder,
-  disabled = false,
-}) => {
-  const [options, setOptions] = useState<ResourceType[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+const AutocompleteSelect = forwardRef<
+  HTMLInputElement,
+  AutocompleteSelectProps
+>(
+  (
+    {
+      multiple,
+      resourceTypes,
+      placeholder,
+      disabled = false,
+      fetchPredicates = false,
+      value,
+      onChange,
+      maxSelection,
+      icons = false,
+      profileType,
+      onBlur,
+      name,
+    },
+    ref
+  ) => {
+    const [inputValue, setInputValue] = useState("");
+    const [options, setOptions] = useState<Predicate[]>([]);
+    const [loading, setLoading] = useState(false);
+    const [showDropdown, setShowDropdown] = useState(false);
+    const containerRef = useRef<HTMLDivElement>(null);
 
-  // Fetch options based on resourceTypes
-  useEffect(() => {
-    const fetchOptions = async () => {
-      if (!resourceTypes || resourceTypes.length === 0) return;
+    const resourceType = profileTypeToResourceType(profileType || "");
 
-      setLoading(true);
+    // Debounced fetch function
+    const debouncedFetch = React.useMemo(
+      () =>
+        debounce(async (query: string) => {
+          setLoading(true);
+          try {
+            let url = `/api/resource/predicate`;
+            const params = new URLSearchParams();
+            if (resourceType) {
+              params.append(
+                "applicableSubjectResourceType",
+                resourceType
+              );
+            }
+            if (query) {
+              params.append("q", query);
+            }
+            url += `?${params.toString()}`;
 
-      try {
-        // Fetch options for each resource type and combine them
-        const fetchedOptions = await Promise.all(
-          resourceTypes.map(async (type) => {
-            const response = await fetch(`/api/resource/${type}`);
-            if (!response.ok) throw new Error(`Failed to fetch ${type}`);
-            const data = await response.json();
-            // Assuming data.resources is an array of resources
-            return data.resources.map((resource: any) => ({
-              id: resource.id,
-              name: resource.name || resource.title || resource.Goal || 'Unnamed',
-              thumbnailUrl: resource.thumbnailUrl, // Adjust based on your resource structure
-            }));
-          })
-        );
+            const response = await fetch(url);
 
-        // Flatten the array of arrays
-        setOptions(fetchedOptions.flat());
-      } catch (error) {
-        console.error('Error fetching options:', error);
-      } finally {
-        setLoading(false);
+            if (response.ok) {
+              const data = await response.json();
+              setOptions(data.resources);
+            } else {
+              const errorData = await response.json();
+              console.error("Failed to fetch predicates:", errorData.error);
+              toast.error(errorData.error || "Failed to fetch predicates.");
+            }
+          } catch (error) {
+            console.error("Error fetching predicates:", error);
+            toast.error("An unexpected error occurred.");
+          } finally {
+            setLoading(false);
+          }
+        }, 300),
+      [resourceType]
+    );
+
+    useEffect(() => {
+      if (fetchPredicates) {
+        debouncedFetch(inputValue);
+      }
+    }, [inputValue, fetchPredicates, debouncedFetch]);
+
+    // Close dropdown when clicking outside
+    useEffect(() => {
+      const handleClickOutside = (event: MouseEvent) => {
+        if (
+          containerRef.current &&
+          !containerRef.current.contains(event.target as Node)
+        ) {
+          setShowDropdown(false);
+        }
+      };
+
+      if (showDropdown) {
+        document.addEventListener("mousedown", handleClickOutside);
+      } else {
+        document.removeEventListener("mousedown", handleClickOutside);
+      }
+
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [showDropdown]);
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setInputValue(e.target.value);
+      setShowDropdown(true);
+    };
+
+    const handleOptionClick = (optionId: string) => {
+      if (multiple) {
+        let newValue: string[] = Array.isArray(value) ? [...value] : [];
+        if (!newValue.includes(optionId)) {
+          if (maxSelection && newValue.length >= maxSelection) {
+            toast.error(`You can select up to ${maxSelection} options.`);
+            return;
+          }
+          newValue.push(optionId);
+          onChange(newValue);
+        }
+      } else {
+        onChange(optionId);
+      }
+      setInputValue("");
+      setShowDropdown(false);
+    };
+
+    const handleRemoveChip = (optionId: string) => {
+      if (multiple) {
+        let newValue: string[] = Array.isArray(value) ? [...value] : [];
+        newValue = newValue.filter((id) => id !== optionId);
+        onChange(newValue);
+      } else {
+        onChange("");
       }
     };
 
-    fetchOptions();
-  }, [resourceTypes]);
+    const renderOption = (option: Predicate) => {
+      const IconComponent: LucideIcon | undefined =
+        typeof option.icon === 'function' ? option.icon : undefined;
 
-  // Handle displaying previously selected resources
-  const [selectedOptions, setSelectedOptions] = useState<ResourceType[]>([]);
-
-  useEffect(() => {
-    const fetchSelectedOptions = async () => {
-      if (!value || (Array.isArray(value) && value.length === 0)) return;
-
-      const ids = Array.isArray(value) ? value : [value];
-
-      try {
-        const fetchedSelectedOptions = await Promise.all(
-          ids.map(async (id) => {
-            const response = await fetch(`/api/resource/${id}`);
-            if (!response.ok) throw new Error(`Failed to fetch resource with id ${id}`);
-            const resource = await response.json();
-            return {
-              id: resource.id,
-              name: resource.name || resource.title || resource.Goal || 'Unnamed',
-              thumbnailUrl: resource.thumbnailUrl, // Adjust based on your resource structure
-            };
-          })
-        );
-
-        setSelectedOptions(fetchedSelectedOptions);
-      } catch (error) {
-        console.error('Error fetching selected options:', error);
-      }
-    };
-
-    fetchSelectedOptions();
-  }, [value]);
-
-  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedValues = multiple
-      ? Array.from(e.target.selectedOptions, (option) => option.value)
-      : e.target.value;
-
-    onChange(selectedValues);
-  };
-
-  return (
-    <div>
-      {loading ? (
-        <p>Loading options...</p>
-      ) : (
-        <select
-          value={value}
-          onChange={handleSelectChange}
-          multiple={multiple}
-          disabled={disabled}
-          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          {...(!multiple && placeholder && { 'aria-label': placeholder })}
+      return (
+        <li
+          key={option.id}
+          onClick={() => handleOptionClick(option.id)}
+          className="px-4 py-2 hover:bg-gray-200 cursor-pointer flex items-center"
         >
-          {!multiple && placeholder && (
-            <option value="" disabled>
-              {placeholder}
-            </option>
+          {icons && IconComponent && (
+            <IconComponent className="w-4 h-4 mr-2 text-gray-500" />
           )}
-          {options.map((option) => (
-            <option key={option.id} value={option.id}>
-              {option.name}
-            </option>
-          ))}
-        </select>
-      )}
+          <span>{option.label}</span>
+        </li>
+      );
+    };
 
-      {/* Display selected options with thumbnails */}
-      {selectedOptions.length > 0 && (
-        <div className="mt-2 flex flex-wrap gap-2">
-          {selectedOptions.map((option) => (
-            <div key={option.id} className="flex items-center space-x-2">
-              {option.thumbnailUrl && (
-                <img src={option.thumbnailUrl} alt={option.name} className="w-6 h-6 rounded-full" />
+    const renderChips = () => {
+      if (multiple && Array.isArray(value)) {
+        return value.map((val) => {
+          const option = predicates[val];
+          if (!option) return null;
+          const IconComponent: LucideIcon | undefined =
+            typeof option.icon === 'function' ? option.icon : undefined;
+
+          return (
+            <div
+              key={val}
+              className="flex items-center bg-blue-500 text-white px-2 py-1 rounded-full mr-2 mt-2"
+            >
+              {icons && IconComponent && (
+                <IconComponent className="w-4 h-4 mr-1 text-white" />
               )}
-              <span>{option.name}</span>
+              <span>{option.label}</span>
+              {!disabled && (
+                <X
+                  className="w-4 h-4 ml-1 cursor-pointer"
+                  onClick={() => handleRemoveChip(val)}
+                />
+              )}
             </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-};
+          );
+        });
+      } else if (!multiple && typeof value === "string") {
+        const option = predicates[value];
+        if (!option) return null;
+        const IconComponent: LucideIcon | undefined =
+          typeof option.icon === 'function' ? option.icon : undefined;
+
+        return (
+          <div className="flex items-center bg-blue-500 text-white px-2 py-1 rounded-full mr-2 mt-2">
+            {icons && IconComponent && (
+              <IconComponent className="w-4 h-4 mr-1 text-white" />
+            )}
+            <span>{option.label}</span>
+            {!disabled && (
+              <X
+                className="w-4 h-4 ml-1 cursor-pointer"
+                onClick={() => handleRemoveChip(value)}
+              />
+            )}
+          </div>
+        );
+      }
+      return null;
+    };
+
+    return (
+      <div className="relative" ref={containerRef}>
+        {renderChips()}
+        {!disabled && (
+          <input
+            type="text"
+            ref={ref}
+            name={name}
+            value={inputValue}
+            onChange={handleInputChange}
+            onBlur={onBlur}
+            placeholder={placeholder}
+            disabled={disabled}
+            onFocus={() => {
+              setShowDropdown(true);
+              if (options.length === 0) {
+                debouncedFetch(inputValue);
+              }
+            }}
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mt-2"
+          />
+        )}
+        {loading && (
+          <p className="absolute top-full left-0 mt-1 text-sm text-gray-500">
+            Loading...
+          </p>
+        )}
+        {!disabled && showDropdown && options.length > 0 && (
+          <ul className="absolute z-10 w-full bg-white border rounded-md mt-1 max-h-60 overflow-auto shadow-lg">
+            {options.map((option) => renderOption(option))}
+          </ul>
+        )}
+        {!disabled && showDropdown && !loading && options.length === 0 && (
+          <p className="absolute top-full left-0 mt-1 text-sm text-gray-500">
+            No options found.
+          </p>
+        )}
+      </div>
+    );
+  }
+);
 
 export default AutocompleteSelect;

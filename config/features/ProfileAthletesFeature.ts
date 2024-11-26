@@ -79,7 +79,7 @@ export const profileAthletesFeature: Feature = {
         href: '/profiles/athletes',
         description: 'Manage athlete profiles.',
         isInProd: true,
-        resourceName: 'profile_athletes',
+        resourceName: 'athletes_triples',
         resourceType: ResourceType.ProfileAthlete,
         maxResourceCount: [10, 100, 1000],
     },

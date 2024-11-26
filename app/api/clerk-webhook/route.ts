@@ -94,7 +94,9 @@ export async function POST(request: Request) {
             tags: ['organization', 'brand'],
             visibility: 'public',
             subjectId: generateSubjectId(ResourceType.ProfileBrand, `profile_${orgId}`),
-            type: 'brand'
+            type: 'brand',
+            idOfProfileSubject: '',
+            triples: []
           });
           // Create organization subscription
           const subscriptionTier = SubscriptionTier.PRO;

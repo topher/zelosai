@@ -1,0 +1,36 @@
+{
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "accountId": {
+        "type": "keyword"
+      },
+      "ownerId": {
+        "type": "keyword"
+      },
+      "visibility": {
+        "type": "keyword"
+      },
+      "resourceType": {
+        "type": "keyword"
+      },
+      "Description": {
+        "type": "text"
+      },
+      "Subject": {
+        "type": "keyword"
+      },
+      "Target": {
+        "type": "keyword"
+      },
+      "ForPurpose": {
+        "type": "keyword"
+      },
+      "Models": {
+        "type": "integer"
+      }
+    }
+  }
+}

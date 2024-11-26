@@ -6,31 +6,57 @@ import { FeatureCategory, Feature, FeatureKey, SubscriptionTier, ActionFeatureKe
 export const triplesFeature: Feature = {
     key: FeatureKey.Triples,
     schema: Yup.object().shape({
-      subject: Yup.string().required('Subject is required').max(255, 'Subject is too long'),
-      predicate: Yup.string().required('Predicate is required').max(255, 'Predicate is too long'),
-      object: Yup.string().required('Object is required').max(1024, 'Object is too long'),
-      citation: Yup.string().max(1024, 'Citation is too long').nullable(),
-      visibility: Yup.string().oneOf(['public', 'private']).required('Visibility is required'),
-      profileId: Yup.string().required('Profile ID is required'), // Ensure profileId is present
-    }),
+      subject: Yup.string().required("Subject is required."),
+      predicate: Yup.lazy((value) =>
+        Array.isArray(value)
+          ? Yup.array()
+              .of(Yup.string().required())
+              .max(3, "You can select a maximum of 3 predicates.")
+              .required("At least one predicate is required.")
+          : Yup.string().required("Predicate is required.")
+      ),
+      object: Yup.lazy((value) =>
+        Array.isArray(value)
+          ? Yup.array()
+              .of(Yup.string().required())
+              .max(3, "You can select a maximum of 3 objects.")
+              .required("At least one object is required.")
+          : Yup.string().required("Object is required.")
+      ),
+      // Custom validation to ensure only one field is multiple
+    }).test(
+      "only-one-multiple",
+      "Please select multiple values for only one field (either Predicate or Object).",
+      (value) => {
+        const isPredicateMultiple = Array.isArray(value.predicate) && value.predicate.length > 1;
+        const isObjectMultiple = Array.isArray(value.object) && value.object.length > 1;
+        return !(isPredicateMultiple && isObjectMultiple);
+      }
+    ),
     fields: [
       {
-        name: 'subject',
-        label: 'Subject',
-        type: 'text',
+        name: "subject",
+        label: "Subject",
+        type: "autocomplete",
         required: true,
+        resourceTypes: ["ProfileUser", "ProfileBrand", "ProfileAthlete"],
+        multiple: false, // Single subject
       },
       {
-        name: 'predicate',
-        label: 'Predicate',
-        type: 'text',
+        name: "predicate",
+        label: "Predicate",
+        type: "autocomplete",
         required: true,
+        fetchPredicates: true,
+        multiple: true, // Allow multiple predicates
       },
       {
-        name: 'object',
-        label: 'Object',
-        type: 'text',
+        name: "object",
+        label: "Object",
+        type: "autocomplete",
         required: true,
+        resourceTypes: ["Goal", "Task"],
+        multiple: false, // Single object
       },
       {
         name: 'citation',
@@ -43,7 +69,7 @@ export const triplesFeature: Feature = {
         label: 'Visibility',
         type: 'select',
         required: true,
-        options: ['public', 'private'],
+        options: ['public', 'private', 'restricted'],
       },
       {
         name: 'profileId',

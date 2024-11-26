@@ -11,11 +11,12 @@ import ProfileGrid from './ProfileGrid';
 import { Triple, ProfileType } from '@/app/types';
 
 interface ProfileProps {
+  profileId: string;
   triples: Triple[];
   profileType: ProfileType;
 }
 
-const Profile: React.FC<ProfileProps> = ({ triples, profileType }) => {
+const Profile: React.FC<ProfileProps> = ({ triples, profileType, profileId }) => {
   const [filteredTriples, setFilteredTriples] = useState<Triple[]>([]);
 
   useEffect(() => {
@@ -59,7 +60,7 @@ const Profile: React.FC<ProfileProps> = ({ triples, profileType }) => {
       {/* <ProfileInfo triples={triples} type={type} /> */}
 
       {/* User Actions */}
-      <ProfileUserActions type={profileType} />
+      <ProfileUserActions type={profileType} profileId={profileId} />
 
       {/* Mosaic Grid */}
       <ProfileGrid triples={filteredTriples} gridClassName="my-masonry-grid" />

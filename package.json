@@ -91,6 +91,7 @@
     "cytoscape": "^3.28.1",
     "d3": "^7.9.0",
     "date-fns": "^3.6.0",
+    "deepmerge": "^4.3.1",
     "dialog": "^0.3.1",
     "easymde": "^2.18.0",
     "elasticsearch": "^16.7.3",

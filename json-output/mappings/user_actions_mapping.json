@@ -1,0 +1,52 @@
+{
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "accountId": {
+        "type": "keyword"
+      },
+      "ownerId": {
+        "type": "keyword"
+      },
+      "visibility": {
+        "type": "keyword"
+      },
+      "resourceType": {
+        "type": "keyword"
+      },
+      "avatarSrc": {
+        "type": "keyword"
+      },
+      "name": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "email": {
+        "type": "keyword"
+      },
+      "action": {
+        "type": "keyword"
+      },
+      "content": {
+        "type": "text"
+      },
+      "createdAt": {
+        "type": "date",
+        "format": "strict_date_optional_time||epoch_millis"
+      },
+      "target": {
+        "type": "keyword"
+      },
+      "creditsUsed": {
+        "type": "integer"
+      }
+    }
+  }
+}

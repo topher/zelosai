@@ -96,8 +96,10 @@ const ProfileGrid: React.FC<ProfileGridProps> = ({ triples, gridClassName }) => 
           <TripleCardObject
             triple={triple}
             onUpdateTriple={handleUpdateTriple}
-            onDeleteTriple={handleDeleteTriple}
-          />
+            onDeleteTriple={handleDeleteTriple} 
+            onEditTriple={function (triple: Triple): void {
+              throw new Error("Function not implemented.");
+            } }          />
         </div>
       ))}
     </div>

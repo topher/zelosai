@@ -1,5 +1,3 @@
-// utils/import-data.js
-
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
@@ -136,11 +134,43 @@ async function uploadData(indexName, data) {
     try {
         console.log(`📤 Uploading ${data.length} documents to index "${indexName}"...`);
 
-        const bulkBody = data.flatMap(doc => [{ index: { _index: indexName, _id: doc.subject || doc.id } }, doc]);
+        // 🔄 Determine the ID field
+        const idField = 'id'; // Change this if your ID field has a different name
+
+        const bulkBody = data.flatMap(doc => {
+            // Ensure that only triples are uploaded to 'triples' index
+            if (indexName.toLowerCase() === 'triples' && doc.resourceType !== 'Triple') {
+                console.warn(`⚠️  Document with id "${doc.id}" is not a Triple. Skipping document.`);
+                return []; // Skip non-triples
+            }
+
+            // Extract simple ID from subject URI if necessary
+            if (!doc[idField] && doc.subject) {
+                const subjectUriParts = doc.subject.split('/');
+                doc.id = subjectUriParts[subjectUriParts.length - 1]; // Use the last part as the ID
+                // Store RDF URI separately
+                doc.rdf_uri = doc.subject;
+            }
+
+            const docId = doc[idField] || doc.subject || doc.id;
+            if (!docId) {
+                console.warn(`⚠️  Document missing ID field. Skipping document:`, doc);
+                return []; // Skip documents without an ID
+            }
+
+            return [{ index: { _index: indexName, _id: docId } }, doc];
+        });
+
+        if (bulkBody.length === 0) {
+            console.warn(`⚠️  No valid documents to upload for index "${indexName}".`);
+            return;
+        }
+
+        // Convert to NDJSON format
         const ndjson = bulkBody.map(line => JSON.stringify(line)).join('\n') + '\n';
 
-        const url = `${ELASTICSEARCH_URL}/_bulk`;
-        const config = {
+        // Send bulk request
+        const response = await axios.post(`${ELASTICSEARCH_URL}/_bulk`, ndjson, {
             headers: {
                 'Content-Type': 'application/x-ndjson',
             },
@@ -148,9 +178,7 @@ async function uploadData(indexName, data) {
                 username: ELASTICSEARCH_USERNAME,
                 password: ELASTICSEARCH_PASSWORD
             } : undefined
-        };
-
-        const response = await axios.post(url, ndjson, config);
+        });
 
         if (response.data.errors) {
             console.error(`⚠️  Errors occurred while uploading data to "${indexName}":`);
@@ -204,12 +232,13 @@ async function bulkImport() {
                     await createIndex(indexName, mappings);
 
                     // Read data
-                    const data = readJSONFile(filePath);
+                    let data = readJSONFile(filePath);
 
                     if (Array.isArray(data)) {
                         // Upload the data
                         await uploadData(indexName, data);
                     } else if (typeof data === 'object') {
+                        // Upload the single document
                         await uploadData(indexName, [data]);
                     } else {
                         console.error(`❌ Invalid data format in file "${file}". Expected an array of documents or a single document.`);

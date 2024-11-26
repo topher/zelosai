@@ -28,7 +28,7 @@ const ListingPage = ({ params }: ListingPageProps) => {
     const fetchProfile = async () => {
       try {
         // Construct the resourceName based on profileType
-        const resourceName = `${profileType}_triples`; // e.g., 'user_triples', 'athlete_triples', 'brand_triples'
+        const resourceName = `${profileType}s_triples`; // e.g., 'user_triples', 'athlete_triples', 'brand_triples'
 
         const res = await fetch(`/api/resource/${resourceName}/${profileId}`, {
           method: 'GET',
@@ -84,7 +84,7 @@ const ListingPage = ({ params }: ListingPageProps) => {
   return (
     <ListingProvider>
       <ClientOnly>
-        <Profile triples={resource.triples} profileType={profileType} />
+        <Profile triples={resource.triples} profileId={profileId} profileType={profileType} />
       </ClientOnly>
     </ListingProvider>
   );

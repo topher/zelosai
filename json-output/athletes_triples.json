@@ -1,66 +1,25 @@
 [
-    {   
-        "subject": "http://zelos.ai/knowledge/athlete/1346266",
+    {
+        "id": "1346266",
         "resourceType": "ProfileAthlete",
         "visibility": "public",
-        "triples": [
-            {
-                "predicate": "represents_noc",
-                "object": "NOR",
-                "citation": null
-            },
-            {
-                "predicate": "has_name",
-                "object": "AALERUD Katrine",
-                "citation": null
-            },
-            {
-                "predicate": "has_short_name",
-                "object": "AALERUD K",
-                "citation": null
-            },
-            {
-                "predicate": "has_occupation",
-                "object": "Athlete",
-                "citation": null
-            },
-            {
-                "predicate": "speaks_language",
-                "object": "English",
-                "citation": null
-            },
-            {
-                "predicate": "speaks_language",
-                "object": "Norwegian",
-                "citation": null
-            },
-            {
-                "predicate": "speaks_language",
-                "object": "Spanish",
-                "citation": null
-            },
-            {
-                "predicate": "belongs_to_club",
-                "object": "Movistar Team Women [Spain] since 2020",
-                "citation": null
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://www.facebook.com/katrine.aalerud",
-                "citation": null
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://instagram.com/aalerud94",
-                "citation": null
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://twitter.com/katrineaalerud",
-                "citation": null
-            }
-        ],
-        "id": "1346266",
+        "subject": "http://zelos.ai/knowledge/ProfileAthlete/1346266",
+        "rdf_uri": "http://zelos.ai/knowledge/ProfileAthlete/1346266",
+        "linkedResources": {
+            "Triple": [
+                "triple_9586fafc-8ad5-4cba-8e34-2e789ff20050",
+                "triple_e636d7f4-8602-4592-a6f1-dc5bf2ea367d",
+                "triple_72f8a365-5d7a-4bfe-b6e4-b04fd58aaa0f",
+                "triple_b06d7e53-51f9-48de-ab51-bf16b52fb529",
+                "triple_3014dac4-a153-45e7-bc64-f0dd21bbd09a",
+                "triple_31fc5742-ef02-4c96-a397-eb8fc7d86550",
+                "triple_98bdf87e-dccb-4a22-9fa1-0505e3819b51",
+                "triple_76a9689c-6d71-49ea-9e40-59de1c4b4baa",
+                "triple_11ce1580-0009-43f8-ad8b-8fde7ef6bdc2",
+                "triple_008ff842-e1fe-4a41-9abd-3b2c2a04cba8",
+                "triple_35403be0-5caf-463c-8283-09af45e43d22"
+            ]
+        },
         "noc": "NOR",
         "code": "1346266",
         "name": "AALERUD Katrine",
@@ -80,8 +39,8 @@
         },
         "social_media_platforms": [
             "Twitter",
-            "Instagram",
-            "Facebook"
+            "Facebook",
+            "Instagram"
         ],
         "hobbies": [],
         "family": [],
@@ -94,131 +53,42 @@
             "Spanish"
         ],
         "coach": null,
-        "createdAt": "2024-10-14T17:46:24.644325",
-        "updatedAt": "2024-10-14T17:46:24.644546"
+        "createdAt": "2024-11-21T23:42:28.044142",
+        "updatedAt": "2024-11-21T23:42:28.044143"
     },
     {
-        "subject": "http://zelos.ai/knowledge/athlete/1355250",
+        "id": "1355250",
         "resourceType": "ProfileAthlete",
         "visibility": "public",
-        "triples": [
-            {
-                "predicate": "represents_noc",
-                "object": "ESP",
-                "citation": null
-            },
-            {
-                "predicate": "has_name",
-                "object": "ABAD Nestor",
-                "citation": null
-            },
-            {
-                "predicate": "has_short_name",
-                "object": "ABAD N",
-                "citation": null
-            },
-            {
-                "predicate": "has_occupation",
-                "object": "Athlete",
-                "citation": null
-            },
-            {
-                "predicate": "has_family",
-                "object": "Partner Sonia",
-                "citation": null
-            },
-            {
-                "predicate": "has_family",
-                "object": "son Eiden",
-                "citation": null
-            },
-            {
-                "predicate": "has_family",
-                "object": "daughter Lis",
-                "citation": null
-            },
-            {
-                "predicate": "speaks_language",
-                "object": "Spanish",
-                "citation": null
-            },
-            {
-                "predicate": "belongs_to_club",
-                "object": "Club Gimnastico San Blas [Madrid, ESP]",
-                "citation": null
-            },
-            {
-                "predicate": "has_coach",
-                "object": "Fernando Siscar [national], ESP",
-                "citation": null
-            },
-            {
-                "predicate": "has_injuries",
-                "object": "In 2017 he suffered from a collarbone injury that ruled him out of the 2017 Spanish Championships in Valladolid. He also sustained a broken thumb that year. (gimnasialatina.com, 11 Jul 2017; plazadeportiva.valenciaplaza.com, 23 Feb 2018)In early 2011 he tore the anterior cruciate ligament [ACL] in his right knee while practising a floor exercise. He was unable to compete for a year and missed the qualifying tournaments for the 2012 Olympic Games in London. In 2014 he tore his ACL again while competing at a World Cup event in Cottbus, Germany. He underwent surgery in April 2014 and returned to competition a year later.",
-                "citation": "marca.com, 23 Oct 2015; abc.es, 23 Mar 2015"
-            },
-            {
-                "predicate": "has_award",
-                "object": "He has received the Juan Agudo Garat  as the Athlete of the Year in Alcoy, Spain, in 2013, 2015, 2016, 2018 and 2019. (diarioinformacion.com, 15 Nov 2018, 14 Nov 2019)He was named 2016 Male Athlete of the Year in the Alicante province in Spain.",
-                "citation": "alcoyinforma.es, 26 Nov 2018; aepde.org, 25 Sep 2017"
-            },
-            {
-                "predicate": "has_start",
-                "object": "He began gymnastics at age four at Club Gimnastico Pastoret in Alcoy, Spain.",
-                "citation": "marca.com, 23 Oct 2015"
-            },
-            {
-                "predicate": "has_reason",
-                "object": "He used to go with his parents to watch his sister training and he asked to join the gym too. \"I think that what hooked me the most was how this sport allows me to move my body. The movement is limitless.\"",
-                "citation": "marca.com, 23 Oct 2015; plazadeportiva.valenciaplaza.com, 23 Feb 2018"
-            },
-            {
-                "predicate": "has_ambition",
-                "object": "To compete at the 2020 Olympic Games in Tokyo.",
-                "citation": "proyectofer.es, 11 Apr 2019; plazadeportiva.com, 23 Feb 2018"
-            },
-            {
-                "predicate": "has_training",
-                "object": "He trains six times a week.",
-                "citation": "elmundo.es, 25 Jan 2020"
-            },
-            {
-                "predicate": "has_influence",
-                "object": "His family.",
-                "citation": "elmundo.es, 25 Jan 2020"
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://www.facebook.com/nestor.abad.395",
-                "citation": null
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://www.facebook.com/NestorAbadSanjuan",
-                "citation": null
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://instagram.com/nestorabad1",
-                "citation": null
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://twitter.com/NestorAbad1",
-                "citation": null
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://twitter.com/nabadpodium",
-                "citation": null
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://www.youtube.com/c/NestorabadGAM",
-                "citation": null
-            }
-        ],
-        "id": "1355250",
+        "subject": "http://zelos.ai/knowledge/ProfileAthlete/1355250",
+        "rdf_uri": "http://zelos.ai/knowledge/ProfileAthlete/1355250",
+        "linkedResources": {
+            "Triple": [
+                "triple_3538f92d-e0cb-4540-92fe-075daf8f0208",
+                "triple_6fb325eb-e384-4d5f-82e3-38c5b465aef3",
+                "triple_4d0f7fda-4972-4818-917f-feb1716e07eb",
+                "triple_a8300d08-4dfd-4413-8a0f-e81ca8c7c01e",
+                "triple_be8c0a9e-f334-4735-aa0d-1880a6bda8a3",
+                "triple_cc2d0fa5-8942-46d8-8d5c-585d7ad613b7",
+                "triple_fc26b7a3-d26d-4f28-9d31-5da25b25dae8",
+                "triple_e291c7be-c96b-454a-8d83-9e7222cd4bca",
+                "triple_147a6210-ccad-478d-89ee-69cc348bcdd1",
+                "triple_ab7db9be-c320-4f4c-a240-f90884953e97",
+                "triple_cece432f-d13e-46e6-aab8-92f921f7f0aa",
+                "triple_d66607d5-2814-4a47-9d52-4fad83b4d6aa",
+                "triple_0f75f6ed-520e-4c91-96e3-ce5517bb72d3",
+                "triple_08f891af-9717-4176-a406-4d222dafd793",
+                "triple_e4e0cf33-70b6-4d53-bb97-2959c61a7d09",
+                "triple_d45e63e2-ebc2-4ad2-bf25-c880b7903225",
+                "triple_321f5273-0edc-43f5-8bff-8671f5489b1a",
+                "triple_6d1fd9a9-5652-4f3e-8364-b7ebed7b810f",
+                "triple_5641bc27-e540-4960-9cae-4d1cbf98a2d2",
+                "triple_bd3cc553-c4e0-4cd8-aebd-842b082b0080",
+                "triple_15d94f92-54af-474d-af7a-28b8daaaa654",
+                "triple_e86e69bc-1d45-4e0b-97ec-0e9325440543",
+                "triple_37c74997-e4ff-4fde-af38-f6d24a978a6c"
+            ]
+        },
         "noc": "ESP",
         "code": "1355250",
         "name": "ABAD Nestor",
@@ -240,10 +110,10 @@
             ]
         },
         "social_media_platforms": [
-            "YouTube",
             "Twitter",
-            "Instagram",
-            "Facebook"
+            "YouTube",
+            "Facebook",
+            "Instagram"
         ],
         "hobbies": [],
         "family": [
@@ -258,86 +128,33 @@
             "Spanish"
         ],
         "coach": "Fernando Siscar [national], ESP",
-        "createdAt": "2024-10-14T17:46:24.644689",
-        "updatedAt": "2024-10-14T17:46:24.644690"
+        "createdAt": "2024-11-21T23:42:28.045523",
+        "updatedAt": "2024-11-21T23:42:28.045527"
     },
     {
-        "subject": "http://zelos.ai/knowledge/athlete/1321381",
+        "id": "1321381",
         "resourceType": "ProfileAthlete",
         "visibility": "public",
-        "triples": [
-            {
-                "predicate": "represents_noc",
-                "object": "ITA",
-                "citation": null
-            },
-            {
-                "predicate": "has_name",
-                "object": "ABAGNALE Giovanni",
-                "citation": null
-            },
-            {
-                "predicate": "has_short_name",
-                "object": "ABAGNALE G",
-                "citation": null
-            },
-            {
-                "predicate": "has_occupation",
-                "object": "Athlete",
-                "citation": null
-            },
-            {
-                "predicate": "has_occupation",
-                "object": "Serves in the Navy",
-                "citation": null
-            },
-            {
-                "predicate": "speaks_language",
-                "object": "Italian",
-                "citation": null
-            },
-            {
-                "predicate": "belongs_to_club",
-                "object": "Marina Militare [Sabaudia, ITA]",
-                "citation": null
-            },
-            {
-                "predicate": "has_coach",
-                "object": "Andrea Coppola [national], ITA",
-                "citation": null
-            },
-            {
-                "predicate": "has_start",
-                "object": "He began rowing at age 14 at the Circolo Nautico Stabia rowing club in Italy.",
-                "citation": "canottaggio.org, 22 Apr 2020; worldrowing.com, 01 Jan 2014"
-            },
-            {
-                "predicate": "has_reason",
-                "object": "He was involved in swimming and basketball before his physical education teacher encouraged him to take up rowing. \"I quickly found good friends. I got in the boat and understood what it means to have healthy and fair competition. In basketball the mothers of opponents were shouting at me about everything. I think that is highly counterproductive and certainly does not allow young people to become passionate about a sport.\"",
-                "citation": "camcampania.it, 01 Aug 2013"
-            },
-            {
-                "predicate": "has_influence",
-                "object": "His first coach Antonio La Padula.",
-                "citation": "camcampania.it, 01 Aug 2013"
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://www.facebook.com/giovanni.abagnale.3",
-                "citation": null
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://www.facebook.com/Giovanni.abagnale95",
-                "citation": null
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://instagram.com/giovanni_abagnale/",
-                "citation": null
-            }
-        ],
-        "id": "1321381",
+        "subject": "http://zelos.ai/knowledge/ProfileAthlete/1321381",
+        "rdf_uri": "http://zelos.ai/knowledge/ProfileAthlete/1321381",
+        "linkedResources": {
+            "Triple": [
+                "triple_2fa58069-7385-4733-ad36-ace68b6a9855",
+                "triple_ea2e0f25-2d72-4e54-9f8f-5c5e0a5320c2",
+                "triple_d903d823-4a6a-41e1-93aa-184ce91b271d",
+                "triple_58b1eda2-bacd-4eb3-a618-2d10b76a485d",
+                "triple_2640972b-ce63-4c8c-9cbc-0efb66ae8934",
+                "triple_423c0418-4b2b-41d3-ad23-515ede64fa79",
+                "triple_a9a500a9-7584-4772-864e-ca974e85471a",
+                "triple_c36cb9bc-d580-4fed-b0c7-8e40cac7c378",
+                "triple_bfcd1819-7694-4302-8b64-ae161ba33b39",
+                "triple_b0ec0125-d496-4e6f-8d47-adf19363833c",
+                "triple_4bd392e4-1520-4cda-8676-750900d66a01",
+                "triple_78aceb56-3191-4885-81c0-780a9ab0d772",
+                "triple_99881d11-a3e2-4804-a4b8-f217fd0cdd84",
+                "triple_407ced3e-a072-43cd-8ced-5614c620b711"
+            ]
+        },
         "noc": "ITA",
         "code": "1321381",
         "name": "ABAGNALE Giovanni",
@@ -356,8 +173,8 @@
             ]
         },
         "social_media_platforms": [
-            "Instagram",
-            "Facebook"
+            "Facebook",
+            "Instagram"
         ],
         "hobbies": [],
         "family": [],
@@ -369,86 +186,33 @@
             "Italian"
         ],
         "coach": "Andrea Coppola [national], ITA",
-        "createdAt": "2024-10-14T17:46:24.644752",
-        "updatedAt": "2024-10-14T17:46:24.644753"
+        "createdAt": "2024-11-21T23:42:28.046238",
+        "updatedAt": "2024-11-21T23:42:28.046240"
     },
     {
-        "subject": "http://zelos.ai/knowledge/athlete/1322233",
+        "id": "1322233",
         "resourceType": "ProfileAthlete",
         "visibility": "public",
-        "triples": [
-            {
-                "predicate": "represents_noc",
-                "object": "ESP",
-                "citation": null
-            },
-            {
-                "predicate": "has_name",
-                "object": "ABALDE Alberto",
-                "citation": null
-            },
-            {
-                "predicate": "has_short_name",
-                "object": "ABALDE A",
-                "citation": null
-            },
-            {
-                "predicate": "speaks_language",
-                "object": "Spanish",
-                "citation": null
-            },
-            {
-                "predicate": "belongs_to_club",
-                "object": "Real Madrid [Spain] since 2020",
-                "citation": null
-            },
-            {
-                "predicate": "has_coach",
-                "object": "Pablo Laso [club], ESP; Sergio Scariolo [national], ITA",
-                "citation": null
-            },
-            {
-                "predicate": "has_position_style",
-                "object": "Shooting Guard",
-                "citation": "baloncesto.as.com, 27 Jun 2016"
-            },
-            {
-                "predicate": "has_sporting_relatives",
-                "object": "His father Alberto was a professional basketball player and his sister Tamara represented Spain in basketball at the 2008 Olympic Games in Beijing, and was named to the Spanish squad for the 2020 Olympic Games in Tokyo.",
-                "citation": "SportsDeskOnline, 01 Jul 2021; acb.com, 22 May 2016; vigoe.es, 29 Apr 2015"
-            },
-            {
-                "predicate": "has_injuries",
-                "object": "He sprained his right ankle in 2015 and missed four weeks of competition.",
-                "citation": "acb.com, 03 Mar 2015"
-            },
-            {
-                "predicate": "competes_in_national_league",
-                "object": "Liga ACB [ESP]",
-                "citation": "realmadrid.com, 20 Jul 2021"
-            },
-            {
-                "predicate": "has_start",
-                "object": "He took up basketball in school and in 2010 received a grant from the Joventut club in Badalona, Spain.",
-                "citation": "vigoe.es, 29 Apr 2015; gigantes.com, 27 May 2013"
-            },
-            {
-                "predicate": "has_reason",
-                "object": "\"Being the son of a basketball player has had a lot to do with it. From a very young age they instilled it in us at home, starting with my sister Lucia. It encouraged me even more to see my sister go through the youth teams at club and national level. I have had a passion for this sport from a very young age.\"",
-                "citation": "iusport.com, 21 Jul 2020"
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://instagram.com/aabalde6/",
-                "citation": null
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://twitter.com/albertoabalde6",
-                "citation": null
-            }
-        ],
-        "id": "1322233",
+        "subject": "http://zelos.ai/knowledge/ProfileAthlete/1322233",
+        "rdf_uri": "http://zelos.ai/knowledge/ProfileAthlete/1322233",
+        "linkedResources": {
+            "Triple": [
+                "triple_5e96950d-4a5f-4ab8-af75-09110077dcf9",
+                "triple_3ab85aa5-1880-4527-bc5a-8dbc9585ac64",
+                "triple_0722800c-7a7a-46be-8466-83aeb0197044",
+                "triple_476f826f-30aa-4b26-8552-b11c3982d128",
+                "triple_f886cd6b-9f0f-46a7-a346-5b55a6fc7244",
+                "triple_85ac9c0c-04a2-46c8-8fab-94d199771dad",
+                "triple_b797788e-5eaa-4c74-ae12-ac1400c775f1",
+                "triple_d0dc0adc-2131-41b7-9ed1-b67639979822",
+                "triple_1b2817fc-1d5b-458b-8a0c-cb8af900505f",
+                "triple_0359552e-e165-43f7-a50a-3d0152df1c76",
+                "triple_e50a9081-4ae1-4a7b-8922-3a615e8f4245",
+                "triple_a6c63ef7-2346-452f-8b23-e063a7685d00",
+                "triple_97ed7725-f698-45d2-978a-9be812e9a647",
+                "triple_a7a8297d-6781-484c-a81b-aa1eaee4b928"
+            ]
+        },
         "noc": "ESP",
         "code": "1322233",
         "name": "ABALDE Alberto",
@@ -476,101 +240,36 @@
             "Spanish"
         ],
         "coach": "Pablo Laso [club], ESP; Sergio Scariolo [national], ITA",
-        "createdAt": "2024-10-14T17:46:24.644798",
-        "updatedAt": "2024-10-14T17:46:24.644799"
+        "createdAt": "2024-11-21T23:42:28.046658",
+        "updatedAt": "2024-11-21T23:42:28.046659"
     },
     {
-        "subject": "http://zelos.ai/knowledge/athlete/1322271",
+        "id": "1322271",
         "resourceType": "ProfileAthlete",
         "visibility": "public",
-        "triples": [
-            {
-                "predicate": "represents_noc",
-                "object": "ESP",
-                "citation": null
-            },
-            {
-                "predicate": "has_name",
-                "object": "ABALDE Tamara",
-                "citation": null
-            },
-            {
-                "predicate": "has_short_name",
-                "object": "ABALDE T",
-                "citation": null
-            },
-            {
-                "predicate": "has_occupation",
-                "object": "Athlete",
-                "citation": null
-            },
-            {
-                "predicate": "speaks_language",
-                "object": "Spanish",
-                "citation": null
-            },
-            {
-                "predicate": "belongs_to_club",
-                "object": "Valencia Basket [Spain] since 2018/19",
-                "citation": null
-            },
-            {
-                "predicate": "has_coach",
-                "object": "Ruben Burgos [club], ESP; Lucas Mondelo [national], ESP",
-                "citation": null
-            },
-            {
-                "predicate": "has_position_style",
-                "object": "Power forward",
-                "citation": "seleccionfemenina.feb.es, 09 Feb 2020"
-            },
-            {
-                "predicate": "has_sporting_relatives",
-                "object": "Her brother Alberto has played basketball at international level for Spain, and was named to the men's team for the 2020 Olympic Games in Tokyo. Her father Alberto also played club basketball in the Spanish top tier.",
-                "citation": "as.com, 01 Mar 2020; as.com, 05 Jul 2018; SportsDeskOnline, 12 May 2020"
-            },
-            {
-                "predicate": "has_injuries",
-                "object": "In October 2018 she was suffering from Achilles tendonitis in her left foot. She returned to the court after about a month.",
-                "citation": "superdeporte.es, 24 Oct 2018; galiciadeportiva.es, 23 Nov 2018"
-            },
-            {
-                "predicate": "competes_in_national_league",
-                "object": "Liga Femenina [ESP]",
-                "citation": "lavozdegalicia.es, 11 Feb 2020"
-            },
-            {
-                "predicate": "has_award",
-                "object": "In 2008, in her only season playing for Lamar University in the United States of America, she was named to the All-Southland Conference First Team.",
-                "citation": "southland.org, 04 Jun 2008"
-            },
-            {
-                "predicate": "has_start",
-                "object": "She took up the sport at age eight in Vigo, Spain.",
-                "citation": "visibilitas.com, 06 Mar 2020"
-            },
-            {
-                "predicate": "has_reason",
-                "object": "\"In my school in Vigo there was a long tradition of basketball. My classmates signed up and so did I and that's where it all got started.\"",
-                "citation": "visibilitas.com, 06 Mar 2020"
-            },
-            {
-                "predicate": "has_ambition",
-                "object": "To compete at the 2020 Olympic Games in Tokyo.",
-                "citation": "as.com, 01 Mar 2020; lavozdegalicia.es, 11 Feb 2020"
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://instagram.com/tamaraabalde6",
-                "citation": null
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://twitter.com/tamaraabalde6",
-                "citation": null
-            }
-        ],
-        "id": "1322271",
+        "subject": "http://zelos.ai/knowledge/ProfileAthlete/1322271",
+        "rdf_uri": "http://zelos.ai/knowledge/ProfileAthlete/1322271",
+        "linkedResources": {
+            "Triple": [
+                "triple_d509ea8a-93bb-4ad3-8742-eec1fbbf04f1",
+                "triple_8be6acdc-5821-495c-8d16-d474cdebc67c",
+                "triple_0e13a5a4-c6a8-473f-8c3c-49ef89d09b49",
+                "triple_020e0210-031e-4c55-831b-2308c029a257",
+                "triple_207814a4-0f58-4d29-ba62-2459f855a50f",
+                "triple_35b8924b-83a4-4917-b245-09241fda7c9d",
+                "triple_0b4a7d62-708c-4c6c-8d9c-05df5527dea8",
+                "triple_faf6c3b7-c378-478b-a703-682e8fcb55ae",
+                "triple_805e225e-48a6-4661-9f21-688034eddec9",
+                "triple_b36e2cff-1781-4e47-b543-e4f34aee6ed1",
+                "triple_70355574-bda0-4bbb-bb7b-ef269bc943f0",
+                "triple_f642ee4d-1489-41af-8c23-ff9391aca5dc",
+                "triple_02429700-1459-4173-befc-1960a07ace15",
+                "triple_cfd03ae8-abd7-427d-b2f3-62f023ce1aef",
+                "triple_c189c1cc-9e42-4b0c-a0fc-05f9662da854",
+                "triple_2aa729d7-ee49-423d-8f35-2ec568a60bf9",
+                "triple_48a41b2a-53f2-4b4c-ad30-3d6f71d36ba4"
+            ]
+        },
         "noc": "ESP",
         "code": "1322271",
         "name": "ABALDE Tamara",
@@ -600,121 +299,40 @@
             "Spanish"
         ],
         "coach": "Ruben Burgos [club], ESP; Lucas Mondelo [national], ESP",
-        "createdAt": "2024-10-14T17:46:24.644845",
-        "updatedAt": "2024-10-14T17:46:24.644846"
+        "createdAt": "2024-11-21T23:42:28.047196",
+        "updatedAt": "2024-11-21T23:42:28.047198"
     },
     {
-        "subject": "http://zelos.ai/knowledge/athlete/1350409",
+        "id": "1350409",
         "resourceType": "ProfileAthlete",
         "visibility": "public",
-        "triples": [
-            {
-                "predicate": "represents_noc",
-                "object": "FRA",
-                "citation": null
-            },
-            {
-                "predicate": "has_name",
-                "object": "ABALO Luc",
-                "citation": null
-            },
-            {
-                "predicate": "has_short_name",
-                "object": "ABALO L",
-                "citation": null
-            },
-            {
-                "predicate": "has_occupation",
-                "object": "Athlete",
-                "citation": null
-            },
-            {
-                "predicate": "speaks_language",
-                "object": "English",
-                "citation": null
-            },
-            {
-                "predicate": "speaks_language",
-                "object": "French",
-                "citation": null
-            },
-            {
-                "predicate": "speaks_language",
-                "object": "Spanish",
-                "citation": null
-            },
-            {
-                "predicate": "belongs_to_club",
-                "object": "Elverum Handball [Norway] since 2020/21",
-                "citation": null
-            },
-            {
-                "predicate": "has_coach",
-                "object": "Borge Lund [club], NOR; Guillaume Gille [national], FRA",
-                "citation": null
-            },
-            {
-                "predicate": "has_position_style",
-                "object": "Right wing",
-                "citation": "lequipe.fr, 30 Dec 2020"
-            },
-            {
-                "predicate": "competes_in_national_league",
-                "object": "Eliteserien [NOR]",
-                "citation": "lequipe.fr, 29 May 2020"
-            },
-            {
-                "predicate": "has_award",
-                "object": "He was named to the All-Star team at the 2010 European Championships in Austria and the 2014 European Championships in Denmark. (ehf-euro.com, 31 Jan 2010; timeoutmag.com, 31 Jan 2014)In 2008 he was named a Knight of the Legion of Honour in France. (legifrance.gouv.fr, 2008)He was named the French Division 1 Player of the Year in 2007. He was also named the league's Best Right Wing in 2005, 2006 and 2007.",
-                "citation": "ff-handball.org, 05 Jun 2008"
-            },
-            {
-                "predicate": "has_start",
-                "object": "He began playing handball at age 14 at secondary school in Ivry-sur-Seine, France. He was introduced to the sport by a friend who was already playing.",
-                "citation": "NOC Media Guide, 2016; olympicchannel.com, 01 Jan 2020"
-            },
-            {
-                "predicate": "has_reason",
-                "object": "\"Ivry-sur-Seine has been a big handball town for almost 60 years. When you live there, you are almost conditioned to play handball. So I tried it once, I was pretty good, and the magic worked.\"",
-                "citation": "parismatch.com, 07 Apr 2017"
-            },
-            {
-                "predicate": "has_ambition",
-                "object": "To compete at the 2020 Olympic Games in Tokyo.",
-                "citation": "Instagram profile, 09 Apr 2021"
-            },
-            {
-                "predicate": "has_interest",
-                "object": "Photography",
-                "citation": "olympicchannel.com, 01 Jan 2020"
-            },
-            {
-                "predicate": "has_interest",
-                "object": "Painting",
-                "citation": "olympicchannel.com, 01 Jan 2020"
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://www.facebook.com/lucianoivry",
-                "citation": null
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://www.facebook.com/lucabaloofficiel",
-                "citation": null
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://instagram.com/lucabalo19/?hl=en",
-                "citation": null
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://twitter.com/lucabalo",
-                "citation": null
-            }
-        ],
-        "id": "1350409",
+        "subject": "http://zelos.ai/knowledge/ProfileAthlete/1350409",
+        "rdf_uri": "http://zelos.ai/knowledge/ProfileAthlete/1350409",
+        "linkedResources": {
+            "Triple": [
+                "triple_92382b02-d791-4e0f-9777-6f25324f91ba",
+                "triple_9078e491-5b8a-4992-bea0-eb02476ee19f",
+                "triple_b517c53a-3e13-4e9e-b09a-a1599fc24463",
+                "triple_9ba0396f-39ee-4a75-9c79-c1c3d5fcb098",
+                "triple_c5ff7cd5-dd1e-4741-9c40-154b9f67a886",
+                "triple_291978e6-55d6-4573-8763-6ea408263fff",
+                "triple_649f6b50-8d14-49aa-8241-9c7745a243e0",
+                "triple_21bbdd82-c162-46a7-b387-77f75ab9a799",
+                "triple_5c9abb4d-fe6e-4eea-8368-834ced6023db",
+                "triple_752df3d6-62a6-4e36-860d-678287bf1344",
+                "triple_f5c14d9f-71f0-47cc-be7a-4efc4567cd96",
+                "triple_4218cbee-01c0-4890-a038-598e5b798441",
+                "triple_0ff6efb4-e5af-48d9-a8fa-4e8d60744a25",
+                "triple_15bd1e78-e0a5-4b81-b3b8-c9bc362a5607",
+                "triple_bbd3d2e4-709f-4114-b78f-df57445a05c8",
+                "triple_de31e007-ec21-449c-b755-889f6359da3a",
+                "triple_150d4a1f-69ab-4b67-9afb-a4e4f82713f7",
+                "triple_1980cd5d-2596-40fb-85e9-d37702aa15ae",
+                "triple_536162b3-5663-4fab-a949-de431ab5ac84",
+                "triple_c45496c0-3b22-4f6e-8ef1-00e7ac8fa14f",
+                "triple_66f22f82-b631-4178-861f-60ec932dcba1"
+            ]
+        },
         "noc": "FRA",
         "code": "1350409",
         "name": "ABALO Luc",
@@ -735,8 +353,8 @@
         },
         "social_media_platforms": [
             "Twitter",
-            "Instagram",
-            "Facebook"
+            "Facebook",
+            "Instagram"
         ],
         "hobbies": [
             "Photography",
@@ -752,346 +370,7 @@
             "Spanish"
         ],
         "coach": "Borge Lund [club], NOR; Guillaume Gille [national], FRA",
-        "createdAt": "2024-10-14T17:46:24.644924",
-        "updatedAt": "2024-10-14T17:46:24.644925"
-    },
-    {
-        "subject": "http://zelos.ai/knowledge/athlete/1309960",
-        "resourceType": "ProfileAthlete",
-        "visibility": "public",
-        "triples": [
-            {
-                "predicate": "represents_noc",
-                "object": "CHI",
-                "citation": null
-            },
-            {
-                "predicate": "has_name",
-                "object": "ABAROA Cesar",
-                "citation": null
-            },
-            {
-                "predicate": "has_short_name",
-                "object": "ABAROA C",
-                "citation": null
-            },
-            {
-                "predicate": "has_occupation",
-                "object": "Athlete",
-                "citation": null
-            },
-            {
-                "predicate": "has_family",
-                "object": "Partner Catalina Quintana",
-                "citation": null
-            },
-            {
-                "predicate": "speaks_language",
-                "object": "English",
-                "citation": null
-            },
-            {
-                "predicate": "speaks_language",
-                "object": "Spanish",
-                "citation": null
-            },
-            {
-                "predicate": "belongs_to_club",
-                "object": "CDE Inger [Concepcion, CHI]",
-                "citation": null
-            },
-            {
-                "predicate": "has_coach",
-                "object": "Carlos Alarcon [club]; Bienvenido Front [national], ESP",
-                "citation": null
-            },
-            {
-                "predicate": "has_injuries",
-                "object": "He dislocated his kneecap in 2010 and was out of action for two months.",
-                "citation": "Athlete, 23 Jul 2021"
-            },
-            {
-                "predicate": "has_start",
-                "object": "He began rowing at age 15 in Concepcion, Chile.",
-                "citation": "Athlete, 23 Jul 2021"
-            },
-            {
-                "predicate": "has_reason",
-                "object": "He took up the sport in order to become healthier and lose weight.",
-                "citation": "Athlete, 23 Jul 2021"
-            },
-            {
-                "predicate": "has_ambition",
-                "object": "To finish in the top eight at the 2020 Olympic Games in Tokyo.",
-                "citation": "diarioconcepcion.cl, 12 Mar 2021"
-            },
-            {
-                "predicate": "has_influence",
-                "object": "His grandmother.",
-                "citation": "Athlete, 23 Jul 2021"
-            },
-            {
-                "predicate": "has_interest",
-                "object": "Reading",
-                "citation": "Athlete, 23 Jul 2021"
-            },
-            {
-                "predicate": "has_interest",
-                "object": "Spending time with his partner",
-                "citation": "Athlete, 23 Jul 2021"
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://www.facebook.com/cesar.abaroa96",
-                "citation": null
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://instagram.com/cesarabaroap/",
-                "citation": null
-            }
-        ],
-        "id": "1309960",
-        "noc": "CHI",
-        "code": "1309960",
-        "name": "ABAROA Cesar",
-        "shortName": "ABAROA C",
-        "sport": "ROW",
-        "location": null,
-        "description": "Youth Olympic GamesYearLocation2-2014Nanjing, CHN10World ChampionshipsYearLocationL2x2018Plovdiv, BUL20Pan American GamesYearLocationL2x8+2019Lima, PER32World CupRankEventYearLocationResult11Lightweight Double Sculls2021Lucerne, SUI6:42.2816Lightweight Double Sculls2019Poznan, POL7:01.97World Championships Under 23YearLocationL2xL4-2018Poznan, POL4-2017Plovdiv, BUL7-2016Rotterdam, NED-10LegendDNF - Did Not Finish, DNS - Did Not Start, EXC - Excluded",
-        "email": null,
-        "imageSrc": "/placeholder_avatar.png",
-        "achievements": [],
-        "socialMedia": {
-            "urls": [
-                "https://www.facebook.com/cesar.abaroa96",
-                "https://instagram.com/cesarabaroap/"
-            ]
-        },
-        "social_media_platforms": [
-            "Instagram",
-            "Facebook"
-        ],
-        "hobbies": [
-            "Reading",
-            "Spending time with his partner"
-        ],
-        "family": [
-            "Partner Catalina Quintana"
-        ],
-        "occupation": [
-            "Athlete"
-        ],
-        "languages_spoken": [
-            "English",
-            "Spanish"
-        ],
-        "coach": "Carlos Alarcon [club]; Bienvenido Front [national], ESP",
-        "createdAt": "2024-10-14T17:46:24.644976",
-        "updatedAt": "2024-10-14T17:46:24.644977"
-    },
-    {
-        "subject": "http://zelos.ai/knowledge/athlete/1344792",
-        "resourceType": "ProfileAthlete",
-        "visibility": "public",
-        "triples": [
-            {
-                "predicate": "represents_noc",
-                "object": "SUD",
-                "citation": null
-            },
-            {
-                "predicate": "has_name",
-                "object": "ABASS Abobakr",
-                "citation": null
-            },
-            {
-                "predicate": "has_short_name",
-                "object": "ABASS A",
-                "citation": null
-            }
-        ],
-        "id": "1344792",
-        "noc": "SUD",
-        "code": "1344792",
-        "name": "ABASS Abobakr",
-        "shortName": "ABASS A",
-        "sport": "SWM",
-        "location": null,
-        "description": "World ChampionshipsYearLocation50Free100Breast2019Gwangju, KORH (26.21)H (1:09.34)World Championships Short CourseYearLocation50Free50Fly2018Hangzhou, CHNH (25.40)H (27.74)LegendFree - Freestyle, Back - Backstroke, Breast - Breaststroke, Fly - Butterfly, IndMed - Individual Medley, SF - Semifinal, H - Heats, DNS - Did Not Start, M - Men, W - Women, X - Mixed, DSQ - Disqualified, [Relay athlete without time] - Did not swim in final",
-        "email": null,
-        "imageSrc": "/placeholder_avatar.png",
-        "achievements": [],
-        "socialMedia": {},
-        "social_media_platforms": [],
-        "hobbies": [],
-        "family": [],
-        "occupation": [],
-        "languages_spoken": [],
-        "coach": null,
-        "createdAt": "2024-10-14T17:46:24.644985",
-        "updatedAt": "2024-10-14T17:46:24.644986"
-    },
-    {
-        "subject": "http://zelos.ai/knowledge/athlete/1331787",
-        "resourceType": "ProfileAthlete",
-        "visibility": "public",
-        "triples": [
-            {
-                "predicate": "represents_noc",
-                "object": "ITA",
-                "citation": null
-            },
-            {
-                "predicate": "has_name",
-                "object": "ABBAGNALE Vincenzo",
-                "citation": null
-            },
-            {
-                "predicate": "has_short_name",
-                "object": "ABBAGNALE V",
-                "citation": null
-            }
-        ],
-        "id": "1331787",
-        "noc": "ITA",
-        "code": "1331787",
-        "name": "ABBAGNALE Vincenzo",
-        "shortName": "ABBAGNALE V",
-        "sport": "ROW",
-        "location": null,
-        "description": null,
-        "email": null,
-        "imageSrc": "/placeholder_avatar.png",
-        "achievements": [],
-        "socialMedia": {},
-        "social_media_platforms": [],
-        "hobbies": [],
-        "family": [],
-        "occupation": [],
-        "languages_spoken": [],
-        "coach": null,
-        "createdAt": "2024-10-14T17:46:24.644993",
-        "updatedAt": "2024-10-14T17:46:24.644994"
-    },
-    {
-        "subject": "http://zelos.ai/knowledge/athlete/1284763",
-        "resourceType": "ProfileAthlete",
-        "visibility": "public",
-        "triples": [
-            {
-                "predicate": "represents_noc",
-                "object": "IRI",
-                "citation": null
-            },
-            {
-                "predicate": "has_name",
-                "object": "ABBASALI Hamideh",
-                "citation": null
-            },
-            {
-                "predicate": "has_short_name",
-                "object": "ABBASALI H",
-                "citation": null
-            },
-            {
-                "predicate": "has_occupation",
-                "object": "Athlete",
-                "citation": null
-            },
-            {
-                "predicate": "speaks_language",
-                "object": "English",
-                "citation": null
-            },
-            {
-                "predicate": "speaks_language",
-                "object": "Persian",
-                "citation": null
-            },
-            {
-                "predicate": "has_coach",
-                "object": "Samaneh Khoshghadam [national], IRI; Fatemeh Ghasemi [national]",
-                "citation": null
-            },
-            {
-                "predicate": "has_start",
-                "object": "She took up karate at age eight.",
-                "citation": "khabaronline.ir, 12 Oct 2014"
-            },
-            {
-                "predicate": "has_reason",
-                "object": "She was encouraged by her mother to begin karate. \"She was interested in her daughters being athletes. I enrolled with my sister in a club near our house. But my sister did not continue, and I, who was not interested in karate in the beginning, gradually became interested in the sport.\"",
-                "citation": "olympic.org, 02 Jul 2020"
-            },
-            {
-                "predicate": "has_ambition",
-                "object": "To win a medal at the 2020 Olympic Games in Tokyo.",
-                "citation": "tehrantimes.com, 10 Feb 2021; isna.ir, 02 Jul 2020"
-            },
-            {
-                "predicate": "has_interest",
-                "object": "Music",
-                "citation": "khabarvarzeshi.com, 30 Mar 2019"
-            },
-            {
-                "predicate": "has_interest",
-                "object": "Supporting iranian football team esteghlal",
-                "citation": "khabarvarzeshi.com, 30 Mar 2019"
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://www.facebook.com/hamideh.abbasali",
-                "citation": null
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://instagram.com/hamideh_abbasali",
-                "citation": null
-            },
-            {
-                "predicate": "has_social_media",
-                "object": "https://twitter.com/hamideh_abasali",
-                "citation": null
-            }
-        ],
-        "id": "1284763",
-        "noc": "IRI",
-        "code": "1284763",
-        "name": "ABBASALI Hamideh",
-        "shortName": "ABBASALI H",
-        "sport": "KTE",
-        "location": null,
-        "description": "World ChampionshipsYearLocationKumite +68kgTeam Kumite2018Madrid, ESP1952016Linz, AUT392014Bremen, GER215Asian GamesYearLocationKumite +68kg2018Indonesia3Asian ChampionshipsYearLocationKumite +68kgTeam Kumite2019Can Tho, VIE112018Amman, JOR192017Astana, KAZ-1Karate 1 Premier League - Ten best performances since 2017RankYearEventLocation12020/2021Kumite +68kgSalzburg, AUT12020/2021Kumite +68kgParis, FRA22018Kumite +68kgRotterdam, NED32020/2021Kumite +68kgLisbon, POR32019Kumite +68kgMadrid, ESP32019Kumite +68kgShanghai, CHN32019Kumite +68kgRabat, MAR32018Kumite +68kgDubai, UAE52019Kumite +68kgMoscow, RUS52019Kumite +68kgParis, FRAKarate 1 Series A - Ten best performances since 2017RankYearEventLocation12020Kumite +68kgSantiago, CHI12019Kumite +68kgIstanbul, TUR32019Kumite +68kgMontreal, QC, CAN352019Kumite +68kgSalzburg, AUT",
-        "email": null,
-        "imageSrc": "/placeholder_avatar.png",
-        "achievements": [],
-        "socialMedia": {
-            "urls": [
-                "https://www.facebook.com/hamideh.abbasali",
-                "https://instagram.com/hamideh_abbasali",
-                "https://twitter.com/hamideh_abasali"
-            ]
-        },
-        "social_media_platforms": [
-            "Twitter",
-            "Instagram",
-            "Facebook"
-        ],
-        "hobbies": [
-            "Music",
-            "Supporting iranian football team esteghlal"
-        ],
-        "family": [],
-        "occupation": [
-            "Athlete"
-        ],
-        "languages_spoken": [
-            "English",
-            "Persian"
-        ],
-        "coach": "Samaneh Khoshghadam [national], IRI; Fatemeh Ghasemi [national]",
-        "createdAt": "2024-10-14T17:46:24.645063",
-        "updatedAt": "2024-10-14T17:46:24.645063"
+        "createdAt": "2024-11-21T23:42:28.048333",
+        "updatedAt": "2024-11-21T23:42:28.048336"
     }
 ]

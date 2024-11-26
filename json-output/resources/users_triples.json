@@ -9,7 +9,7 @@
         "tags": ["user", "persona"],
         "visibility": "public",
         "linkedResources": {
-          "Triple": ["triples_123e4567-e89b-12d3-a456-426614174001", "triples_123e4567-e89b-12d3-a456-426614174002", "triples_123e4567-e89b-12d3-a456-426614174003"]
+          "Triple": ["triple_123e4567-e89b-12d3-a456-426614174001", "triple_123e4567-e89b-12d3-a456-426614174002", "triple_123e4567-e89b-12d3-a456-426614174003"]
         },
         "idOfProfileSubject": "",
         "subjectId": "zelos.ai/knowledge/ProfileUser/profile_user_victor_amo_123e4567-e89b-12d3-a456-426614174000",
@@ -28,7 +28,7 @@
         "tags": ["user", "persona"],
         "visibility": "public",
         "linkedResources": {
-          "Triple": ["triples_123e4567-e89b-12d3-a456-426614174001", "triples_123e4567-e89b-12d3-a456-426614174002", "triples_123e4567-e89b-12d3-a456-426614174003"]
+          "Triple": ["triple_123e4567-e89b-12d3-a456-426614174001", "triple_123e4567-e89b-12d3-a456-426614174002", "triple_123e4567-e89b-12d3-a456-426614174003"]
         },
         "idOfProfileSubject": "",
         "subjectId": "zelos.ai/knowledge/ProfileUser/profile_user_victor_amo_123e4567-e89b-12d3-a456-426614174000",

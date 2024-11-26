@@ -1,3 +1,5 @@
+// /app/(dashboard)/(routes)/goals/GoalsPage.tsx
+
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
@@ -6,14 +8,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import { Badge } from "@/components/ui/badge";
 import { Info, Pencil, Trash } from "lucide-react";
-import { FeatureKey } from "@/config/featuresConfig";
 import StrategyLayout from "@/app/components/atomic/ttemplates/StrategyLayout";
 import { useResourceModal } from "@/app/context/ResourceModalContext";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/use-toast";
 
 import { Goal } from "@/app/types";
-import DeleteConfirmationModal from '@/app/components/atomic/ttemplates/modals/DeleteConfirmationModal'; // New import
+import DeleteConfirmationModal from "@/app/components/atomic/ttemplates/modals/DeleteConfirmationModal";
 import { ResourceType } from "@/config/resourceTypes";
 
 const GoalsPage = () => {
@@ -77,15 +78,15 @@ const GoalsPage = () => {
     try {
       // Update the goal in the backend
       const response = await fetch(`/api/resource/goals/${goal.id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ isActive: updatedGoal.isActive }),
       });
 
       if (response.ok) {
         toast({
           title: "Success",
-          description: `Goal "${updatedGoal.Goal}" is now ${updatedGoal.isActive ? 'active' : 'inactive'}.`,
+          description: `Goal "${updatedGoal.Goal}" is now ${updatedGoal.isActive ? "active" : "inactive"}.`,
         });
       } else {
         throw new Error(`Failed to update goal status: ${response.statusText}`);
@@ -132,7 +133,7 @@ const GoalsPage = () => {
             onClick={() => {
               console.log("Create New Goal button clicked");
               openResourceModal(
-                'create',
+                "create",
                 ResourceType.Goal,
                 undefined,
                 undefined,
@@ -149,10 +150,15 @@ const GoalsPage = () => {
 
         <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {goals.map((goal) => (
-            <Card key={goal.id} className="bg-white border border-gray-200 shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300">
+            <Card
+              key={goal.id}
+              className="bg-white border border-gray-200 shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300"
+            >
               <CardHeader>
                 <div className="flex justify-between items-center">
-                  <CardTitle className="text-lg font-semibold text-gray-800">{goal.Goal}</CardTitle>
+                  <CardTitle className="text-lg font-semibold text-gray-800">
+                    {goal.Goal}
+                  </CardTitle>
                   <Switch
                     checked={goal.isActive}
                     onCheckedChange={() => toggleGoalStatus(goal)}
@@ -166,21 +172,27 @@ const GoalsPage = () => {
                 </div>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mt-4 space-y-2 sm:space-y-0">
                   <div className="flex flex-wrap gap-2">
-                    <span className="text-sm font-medium text-gray-600">Strategic Indicator:</span>
-                    <Badge color="primary">{goal.StrategicIndicator || 'N/A'}</Badge>
+                    <span className="text-sm font-medium text-gray-600">
+                      Strategic Indicator:
+                    </span>
+                    <Badge color="primary">{goal.StrategicIndicator || "N/A"}</Badge>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     <span className="text-sm font-medium text-gray-600">KPI:</span>
-                    <Badge color="secondary">{goal.KPI || 'N/A'}</Badge>
+                    <Badge color="secondary">{goal.KPI || "N/A"}</Badge>
                   </div>
                 </div>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mt-2 space-y-2 sm:space-y-0">
                   <div className="flex flex-wrap gap-2">
-                    <span className="text-sm font-medium text-gray-600">Developer:</span>
-                    <Badge color="success">{goal.Developer || 'N/A'}</Badge>
+                    <span className="text-sm font-medium text-gray-600">
+                      Developer:
+                    </span>
+                    <Badge color="success">{goal.Developer || "N/A"}</Badge>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    <span className="text-sm font-medium text-gray-600">Related Issues:</span>
+                    <span className="text-sm font-medium text-gray-600">
+                      Related Issues:
+                    </span>
                     {goal.RelatedIssues?.length ? (
                       goal.RelatedIssues.map((issue, i) => (
                         <Badge key={i} color="warning">
@@ -201,13 +213,15 @@ const GoalsPage = () => {
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={() => openResourceModal(
-                      'update',
-                      ResourceType.Goal,
-                      goal.id,
-                      goal,
-                      handleUpdateSuccess
-                    )}
+                    onClick={() =>
+                      openResourceModal(
+                        "update",
+                        ResourceType.Goal,
+                        goal.id,
+                        goal,
+                        handleUpdateSuccess
+                      )
+                    }
                     className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 border-blue-600 hover:border-blue-700"
                   >
                     <Pencil className="h-4 w-4" />

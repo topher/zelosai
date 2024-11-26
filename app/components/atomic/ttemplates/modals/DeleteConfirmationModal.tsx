@@ -1,17 +1,22 @@
-// components/modals/DeleteConfirmationModal.tsx
+// /app/components/atomic/templates/modals/DeleteConfirmationModal.tsx
 
 "use client";
 
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog';
+import React from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 import { toast } from "react-hot-toast";
-import { Trash } from 'lucide-react';
 
-export interface DeleteConfirmationModalProps {
+interface DeleteConfirmationModalProps {
   isOpen: boolean;
   onClose: () => void;
-  resourceType: string;
+  resourceType: string; // e.g., "goals"
   resourceId: string;
   onSuccess: () => void;
 }
@@ -23,61 +28,47 @@ const DeleteConfirmationModal: React.FC<DeleteConfirmationModalProps> = ({
   resourceId,
   onSuccess,
 }) => {
-  const [loading, setLoading] = useState(false);
-  const [apiError, setApiError] = useState<string | null>(null);
-
   const handleDelete = async () => {
-    setLoading(true);
-    setApiError(null);
     try {
       const response = await fetch(`/api/resource/${resourceType}/${resourceId}`, {
-        method: 'DELETE',
+        method: "DELETE",
       });
 
-      const result = await response.json();
-
       if (response.ok) {
-        toast.success(`${resourceType} deleted successfully.`);
         onSuccess();
-        onClose();
+        toast.success(`Successfully deleted ${resourceType.slice(0, -1)}.`);
       } else {
-        throw new Error(result.message || 'Failed to delete the resource.');
+        const data = await response.json();
+        console.error("Failed to delete:", data.message);
+        toast.error(data.message || "Failed to delete.");
       }
-    } catch (error: any) {
-      console.error('DeleteConfirmationModal Error:', error);
-      setApiError(error.message || 'An unexpected error occurred.');
-      toast.error(error.message || 'An unexpected error occurred.');
-    } finally {
-      setLoading(false);
+    } catch (error) {
+      console.error("Error deleting resource:", error);
+      toast.error("An unexpected error occurred.");
     }
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-md">
+      <DialogContent className="max-w-sm">
         <DialogHeader>
-          <DialogTitle className="text-xl font-semibold text-red-600">Confirm Deletion</DialogTitle>
+          <DialogTitle>Confirm Deletion</DialogTitle>
         </DialogHeader>
         <div className="p-4">
-          {apiError && <p className="text-red-500 mb-4">{apiError}</p>}
-          <p className="text-gray-700">
-            Are you sure you want to delete this {resourceType}? This action cannot be undone.
-          </p>
+          <p>Are you sure you want to delete this {resourceType.slice(0, -1)}?</p>
         </div>
-        <DialogFooter>
-          <Button variant="secondary" onClick={onClose} disabled={loading}>
+        <DialogFooter className="flex justify-end space-x-4">
+          <Button variant="secondary" onClick={onClose}>
             Cancel
           </Button>
           <Button
             variant="destructive"
-            onClick={handleDelete}
-            disabled={loading}
-            className="flex items-center space-x-2"
+            onClick={() => {
+              handleDelete();
+              onClose();
+            }}
           >
-            {loading ? 'Deleting...' : <>
-              <Trash className="h-4 w-4" />
-              <span>Delete</span>
-            </>}
+            Delete
           </Button>
         </DialogFooter>
       </DialogContent>

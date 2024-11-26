@@ -1,6 +1,6 @@
 [
-
   {
+    "id": "sub_free_001",
     "subscriptionId": "sub_free_001",
     "userId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "subscriptionTier": "FREE",
@@ -53,6 +53,7 @@
     "credits": 50
   },
   {
+    "id": "sub_pro_001",
     "subscriptionId": "sub_pro_001",
     "organizationId": "org_2nc9c87ihMBSTJxcYc4X4dwmdH4",
     "subscriptionTier": "PRO",
@@ -105,6 +106,7 @@
     "credits": 250
   },
   {
+    "id": "sub_pro_002",
     "subscriptionId": "sub_pro_002",
     "organizationId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "subscriptionTier": "ENTERPRISE",

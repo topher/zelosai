@@ -1,5 +1,6 @@
 [
   {
+    "id": "strategy-issue-1",
     "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "visibility": "public",
@@ -15,6 +16,7 @@
     ]
   },
   {
+    "id": "strategy-issue-2",
     "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "visibility": "public",
@@ -27,6 +29,7 @@
     ]
   },
   {
+    "id": "strategy-issue-3",
     "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "visibility": "public",

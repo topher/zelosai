@@ -1,0 +1,17 @@
+{
+    "mappings": {
+      "properties": {
+        "id": { "type": "keyword" },
+        "subject": { "type": "keyword" },
+        "predicate": { "type": "keyword" },
+        "object": { "type": "text" },
+        "citation": { "type": "text" },
+        "resourceType": { "type": "keyword" },
+        "createdAt": { "type": "date" },
+        "updatedAt": { "type": "date" },
+        "visibility": { "type": "keyword" },
+        "rdf_uri": { "type": "keyword" }
+      }
+    }
+  }
+  

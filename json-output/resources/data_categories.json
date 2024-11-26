@@ -1,5 +1,6 @@
 [
     {
+      "id": "data_category",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -16,6 +17,7 @@
       "description": ""
     },
     {
+      "id": "system",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -32,6 +34,7 @@
       "description": "Data unique to, and under control of the system."
     },
     {
+      "id": "system.authentication",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -48,6 +51,7 @@
       "description": "Data used to manage access to the system."
     },
     {
+      "id": "system.operations",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -64,6 +68,7 @@
       "description": "Data used for system operations."
     },
     {
+      "id": "user",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -80,6 +85,7 @@
       "description": "Data related to the user of the system, either provided directly or derived based on their usage."
     },
     {
+      "id": "user.account",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -96,6 +102,7 @@
       "description": "Account creation or registration information."
     },
     {
+      "id": "user.authorization",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -112,6 +119,7 @@
       "description": "Scope of permissions and access to a system."
     },
     {
+      "id": "user.behavior",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -128,6 +136,7 @@
       "description": "Behavioral data about the subject."
     },
     {
+      "id": "user.biometric",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -144,6 +153,7 @@
       "description": "Encoded characteristics provided by a user."
     },
     {
+      "id": "user.childrens",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -160,6 +170,7 @@
       "description": "Data relating to children."
     },
     {
+      "id": "user.contact",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -176,6 +187,7 @@
       "description": "Contact data collected about a user."
     },
     {
+      "id": "user.content",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -192,6 +204,7 @@
       "description": "Content related to, or created by the subject."
     },
     {
+      "id": "user.demographic",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -208,6 +221,7 @@
       "description": "Demographic data about a user."
     },
     {
+      "id": "user.location",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -224,6 +238,7 @@
       "description": "Records of the location of a user."
     },
     {
+      "id": "user.device",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -240,6 +255,7 @@
       "description": "Data related to a user's device, configuration and setting."
     },
     {
+      "id": "user.payment",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -256,6 +272,7 @@
       "description": "Payment data related to user."
     },
     {
+      "id": "user.social",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -272,6 +289,7 @@
       "description": "Social activity and interaction data."
     },
     {
+      "id": "user.unique_id",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -288,6 +306,7 @@
       "description": "Unique identifier for a user assigned through system use."
     },
     {
+      "id": "user.telemetry",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -304,6 +323,7 @@
       "description": "User identifiable measurement data from system sensors and monitoring."
     },
     {
+      "id": "user.user_sensor",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -320,6 +340,7 @@
       "description": "Measurement data about a user's environment through system use."
     },
     {
+      "id": "user.workplace",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -336,6 +357,7 @@
       "description": "Organization of employment."
     },
     {
+      "id": "user.sensor",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -352,6 +374,7 @@
       "description": "Measurement data from sensors and monitoring systems."
     },
     {
+      "id": "user.financial",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -368,6 +391,7 @@
       "description": "Payment data and financial history."
     },
     {
+      "id": "user.government_id",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -384,6 +408,7 @@
       "description": "State provided identification data."
     },
     {
+      "id": "user.health_and_medical",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -400,6 +425,7 @@
       "description": "Health records or individual's personal medical information."
     },
     {
+      "id": "user.name",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -416,6 +442,7 @@
       "description": "User's real name."
     },
     {
+      "id": "user.criminal_history",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -432,6 +459,7 @@
       "description": "Criminal records or information about the data subject."
     },
     {
+      "id": "user.privacy_preferences",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -448,6 +476,7 @@
       "description": "Privacy preferences or settings set by the subject."
     },
     {
+      "id": "user.job_title",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -464,6 +493,7 @@
       "description": "Professional data."
     },
     {
+      "id": "user.account.settings",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -480,6 +510,7 @@
       "description": "Account preferences and settings."
     },
     {
+      "id": "user.account.username",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -496,6 +527,7 @@
       "description": "Username associated with account."
     },
     {
+      "id": "user.authorization.credentials",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -512,6 +544,7 @@
       "description": "Authentication credentials to a system."
     },
     {
+      "id": "user.authorization.biometric",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -528,6 +561,7 @@
       "description": "Credentials for system authentication."
     },
     {
+      "id": "user.authorization.password",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -544,6 +578,7 @@
       "description": "Password for system authentication."
     },
     {
+      "id": "user.behavior.browsing_history",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -560,6 +595,7 @@
       "description": "Content browsing history of a user."
     },
     {
+      "id": "user.behavior.media_consumption",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -576,6 +612,7 @@
       "description": "Content consumption history of the subject."
     },
     {
+      "id": "user.behavior.purchase_history",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -592,6 +629,7 @@
       "description": "Purchase history of the subject."
     },
     {
+      "id": "user.behavior.search_history",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -608,6 +646,7 @@
       "description": "Search history of the subject."
     },
     {
+      "id": "user.biometric.fingerprint",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -624,6 +663,7 @@
       "description": "Fingerprint encoded data about a subject."
     },
     {
+      "id": "user.biometric.retinal",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -640,6 +680,7 @@
       "description": "Retinal data about a subject."
     },
     {
+      "id": "user.biometric.voice",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -656,6 +697,7 @@
       "description": "Voice encoded data about a subject."
     },
     {
+      "id": "user.biometric.health",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -672,6 +714,7 @@
       "description": "Encoded characteristic collected about a user."
     },
     {
+      "id": "user.contact.address",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -688,6 +731,7 @@
       "description": "Contact address data collected about a user."
     },
     {
+      "id": "user.contact.email",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -704,6 +748,7 @@
       "description": "User's contact email address."
     },
     {
+      "id": "user.contact.phone_number",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -720,6 +765,7 @@
       "description": "User's phone number."
     },
     {
+      "id": "user.contact.url",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -736,6 +782,7 @@
       "description": "Subject's websites or links to social and personal profiles."
     },
     {
+      "id": "user.contact.fax_number",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -752,6 +799,7 @@
       "description": "Data Subject's fax number."
     },
     {
+      "id": "user.contact.organization",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -768,6 +816,7 @@
       "description": "Data Subject's Organization."
     },
     {
+      "id": "user.contact.address.city",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -784,6 +833,7 @@
       "description": "User's city level address data."
     },
     {
+      "id": "user.contact.address.country",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -800,6 +850,7 @@
       "description": "User's country level address data."
     },
     {
+      "id": "user.contact.address.postal_code",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -816,6 +867,7 @@
       "description": "User's postal code."
     },
     {
+      "id": "user.contact.address.state",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -832,6 +884,7 @@
       "description": "User's state level address data."
     },
     {
+      "id": "user.contact.address.street",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -848,6 +901,7 @@
       "description": "User's street level address data."
     },
     {
+      "id": "user.content.private",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -864,6 +918,7 @@
       "description": "Private content related to, or created by the subject, not publicly available."
     },
     {
+      "id": "user.content.public",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -880,6 +935,7 @@
       "description": "Publicly shared Content related to, or created by the subject."
     },
     {
+      "id": "user.content.self_image",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -896,6 +952,7 @@
       "description": "Photograph or image in which subject is whole or partially recognized."
     },
     {
+      "id": "user.demographic.age_range",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -912,6 +969,7 @@
       "description": "Non specific age or age-range of data subject."
     },
     {
+      "id": "user.demographic.date_of_birth",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -928,6 +986,7 @@
       "description": "Date of birth of data subject."
     },
     {
+      "id": "user.demographic.gender",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -944,6 +1003,7 @@
       "description": "Gender of data subject."
     },
     {
+      "id": "user.demographic.language",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -960,6 +1020,7 @@
       "description": "Spoken or written language of subject."
     },
     {
+      "id": "user.demographic.marital_status",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -976,6 +1037,7 @@
       "description": "Marital status of data subject."
     },
     {
+      "id": "user.demographic.political_opinion",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -992,6 +1054,7 @@
       "description": "Political opinion or belief of data subject."
     },
     {
+      "id": "user.demographic.profile",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1008,6 +1071,7 @@
       "description": "Profile or preference information about the data subject."
     },
     {
+      "id": "user.demographic.race_ethnicity",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1024,6 +1088,7 @@
       "description": "Race or ethnicity of data subject."
     },
     {
+      "id": "user.demographic.religious_belief",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1040,6 +1105,7 @@
       "description": "Religion or religious beliefs of the data subject."
     },
     {
+      "id": "user.demographic.sexual_orientation",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1056,6 +1122,7 @@
       "description": "Sexual orientation of data subject."
     },
     {
+      "id": "user.device.cookie",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1072,6 +1139,7 @@
       "description": "Data related to a subject, stored within a cookie."
     },
     {
+      "id": "user.device.cookie_id",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1088,6 +1156,7 @@
       "description": "Cookie unique identification number."
     },
     {
+      "id": "user.device.device_id",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1104,6 +1173,7 @@
       "description": "Device unique identification number."
     },
     {
+      "id": "user.device.ip_address",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1120,6 +1190,7 @@
       "description": "Unique identifier related to device connection."
     },
     {
+      "id": "user.financial.bank_account",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1136,6 +1207,7 @@
       "description": "Bank account information belonging to the subject."
     },
     {
+      "id": "user.financial.credit_card",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1152,6 +1224,7 @@
       "description": "Credit card information belonging to the subject."
     },
     {
+      "id": "user.government_id.birth_certificate",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1168,6 +1241,7 @@
       "description": "State issued certificate of birth."
     },
     {
+      "id": "user.government_id.drivers_license_number",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1184,6 +1258,7 @@
       "description": "State issued driving identification number."
     },
     {
+      "id": "user.government_id.immigration",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1200,6 +1275,7 @@
       "description": "State issued immigration or residency data."
     },
     {
+      "id": "user.government_id.national_identification_number",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1216,6 +1292,7 @@
       "description": "State issued personal identification number."
     },
     {
+      "id": "user.government_id.passport_number",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1232,6 +1309,7 @@
       "description": "State issued passport data."
     },
     {
+      "id": "user.government_id.vehicle_registration",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1248,6 +1326,7 @@
       "description": "State issued license plate or vehicle registration data."
     },
     {
+      "id": "user.health_and_medical.genetic",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1264,6 +1343,7 @@
       "description": "Data about the genetic makeup provided by the subject."
     },
     {
+      "id": "user.health_and_medical.insurance_beneficiary_id",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1280,6 +1360,7 @@
       "description": "Health insurance beneficiary number of the subject."
     },
     {
+      "id": "user.health_and_medical.record_id",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1296,6 +1377,7 @@
       "description": "Medical record identifiers belonging to a subject."
     },
     {
+      "id": "user.location.imprecise",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1312,6 +1394,7 @@
       "description": "Imprecise location derived from sensors (more than 500M)."
     },
     {
+      "id": "user.location.precise",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1328,6 +1411,7 @@
       "description": "Precise location derived from sensors (less than 500M)."
     },
     {
+      "id": "user.name.first",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1344,6 +1428,7 @@
       "description": "Subject's first name."
     },
     {
+      "id": "user.name.last",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1360,6 +1445,7 @@
       "description": "Subject's last, or family, name."
     },
     {
+      "id": "user.unique_id.pseudonymous",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1376,6 +1462,7 @@
       "description": "A pseudonymous, or probabilistic identifier generated from other subject or device data belonging to the subject."
     },
     {
+      "id": "user.personality_rights.tracking",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1392,6 +1479,7 @@
       "description": ""
     },
     {
+      "id": "user.personality_rights.tracking.content",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1408,6 +1496,7 @@
       "description": ""
     },
     {
+      "id": "user.personality_rights.tracking.social",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1424,6 +1513,7 @@
       "description": ""
     },
     {
+      "id": "user.personality_rights.tracking.browsing",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1440,6 +1530,7 @@
       "description": ""
     },
     {
+      "id": "user.personality_rights.security",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1456,6 +1547,7 @@
       "description": ""
     },
     {
+      "id": "user.personality_rights.security.privacy",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1472,6 +1564,7 @@
       "description": ""
     },
     {
+      "id": "user.personality_rights.security.authentication",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1488,6 +1581,7 @@
       "description": ""
     },
     {
+      "id": "user.personality_rights.security.device",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1504,6 +1598,7 @@
       "description": ""
     },
     {
+      "id": "user.personality_rights.expression",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1520,6 +1615,7 @@
       "description": "behavior"
     },
     {
+      "id": "user.personality_rights.expression.communication",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1536,6 +1632,7 @@
       "description": "2.0.0"
     },
     {
+      "id": "user.personality_rights.expression.creative_output",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1552,6 +1649,7 @@
       "description": ""
     },
     {
+      "id": "user.personality_rights.perception",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1568,6 +1666,7 @@
       "description": ""
     },
     {
+      "id": "user.personality_rights.perception.inferred_traits",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1584,6 +1683,7 @@
       "description": "2.0.0"
     },
     {
+      "id": "user.personality_rights.perception.sentiment_analysis",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1600,6 +1700,7 @@
       "description": ""
     },
     {
+      "id": "user.personality_rights.preferences",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1616,6 +1717,7 @@
       "description": ""
     },
     {
+      "id": "user.personality_rights.preferences.content_preferences",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1632,6 +1734,7 @@
       "description": ""
     },
     {
+      "id": "user.personality_rights.preferences.interaction_style",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1648,6 +1751,7 @@
       "description": ""
     },
     {
+      "id": "data_category",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
@@ -1664,6 +1768,7 @@
       "description": "and under control of the system."
     },
     {
+      "id": "user.personality_rights",
       "accountId": "org_platform",
       "ownerId": "system_user",
       "resourceType":"DataCategory",
