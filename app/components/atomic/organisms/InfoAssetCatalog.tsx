@@ -53,7 +53,7 @@ export function InfoAssetCatalog({
   ];
 
   const leftPanel = (
-    <div className="p-4">
+    <div className="p-4 text-white">
       <StatusNav
         selectedStatus={selectedStatus}
         onStatusChange={setSelectedStatus}
@@ -69,7 +69,7 @@ export function InfoAssetCatalog({
   );
 
   const centerPanel = (
-    <div className="p-4">
+    <div className="p-4 text-white">
       <SearchBox />
       <div className="mt-4">
         <h4>Active Filters</h4>
@@ -99,7 +99,7 @@ export function InfoAssetCatalog({
   );
 
   const rightPanel = (
-    <div className="p-4">
+    <div className="p-4 text-white">
       {selectedAsset ? (
         <InfoAssetDisplay infoAsset={selectedAsset} />
       ) : (

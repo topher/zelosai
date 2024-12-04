@@ -34,7 +34,7 @@ const ConditionDisplay: React.FC<{ condition: Condition | ConditionGroup }> = ({
 
 const PolicyList: React.FC<PolicyListProps> = ({ policies }) => {
   if (policies.length === 0) {
-    return <p className="text-gray-600">No policies found.</p>;
+    return <p className="text-gray-600 px-6">No policies found.</p>;
   }
 
   return (

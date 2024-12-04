@@ -7,19 +7,31 @@ import { InstantSearch, Configure } from 'react-instantsearch-dom';
 import Client from '@searchkit/instantsearch-client';
 import ThreePanelTemplate from '@/app/components/atomic/templates/ThreePanelTemplate';
 import { InfoAssetCatalog } from '@/app/components/atomic/organisms/InfoAssetCatalog';
+import { Button } from '@/components/ui/button';
+import { PlusCircledIcon } from '@radix-ui/react-icons';
 
 const searchClient = Client({
   url: '/api/search',
 });
 
-export default function HomePage() {
-  // Initialize state
+export default function InfoAssets() {
   const [assets, setAssets] = useState<any[]>([]); // Replace 'any' with your asset type
   const [selectedAsset, setSelectedAsset] = useState<any | null>(null); // Replace 'any' with your asset type
 
   // Handler for selecting an asset
   const handleSelectAsset = (asset: any | null) => {
     setSelectedAsset(asset);
+  };
+
+  const header = {
+    title: 'Information Assets Inventory',
+    description: 'Manage your information assets here.',
+    actions: (
+      <Button>
+        <PlusCircledIcon className="mr-2 h-5 w-5" />
+        Add Asset
+      </Button>
+    ),
   };
 
   // Pass the required props to InfoAssetCatalog
@@ -33,6 +45,7 @@ export default function HomePage() {
     <InstantSearch indexName="info_assets" searchClient={searchClient}>
       <Configure hitsPerPage={15} />
       <ThreePanelTemplate
+        header={header}
         leftPanel={leftPanel}
         centerPanel={centerPanel}
         rightPanel={rightPanel}

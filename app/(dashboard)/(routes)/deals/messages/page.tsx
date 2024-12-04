@@ -8,14 +8,14 @@ import { createCustomSearchClient } from '@/lib/customSearchClient';
 import ThreePanelTemplate from '@/app/components/atomic/templates/ThreePanelTemplate';
 import { MessageCatalog } from '@/app/components/atomic/organisms/MessageCatalog';
 import { useAuth } from '@clerk/nextjs';
-import { Message } from '@/app/types';
+import { SearchHit } from '@/app/types';
 
 export default function MessagesPage() {
   const { userId, orgId } = useAuth();
   const [searchClient, setSearchClient] = useState<any>(null);
 
   // Initialize state
-  const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
+  const [selectedMessage, setSelectedMessage] = useState<SearchHit | null>(null);
   const [query, setQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
   const [messageTypeFilter, setMessageTypeFilter] = useState('');
@@ -23,7 +23,7 @@ export default function MessagesPage() {
   const [error, setError] = useState<string | null>(null);
 
   // Handler for selecting a message
-  const handleSelectMessage = (message: Message | null) => {
+  const handleSelectMessage = (message: SearchHit | null) => {
     setSelectedMessage(message);
   };
 
@@ -37,6 +37,12 @@ export default function MessagesPage() {
   if (!searchClient) {
     return <div>Loading...</div>;
   }
+
+  // Define header props
+  const header = {
+    title: 'Messages',
+    description: 'View and manage your messages here.',
+  };
 
   const { leftPanel, centerPanel, rightPanel } = MessageCatalog({
     selectedMessage,
@@ -55,6 +61,7 @@ export default function MessagesPage() {
     <InstantSearch indexName="messages" searchClient={searchClient}>
       <Configure hitsPerPage={15} />
       <ThreePanelTemplate
+        header={header}
         leftPanel={leftPanel}
         centerPanel={centerPanel}
         rightPanel={rightPanel}

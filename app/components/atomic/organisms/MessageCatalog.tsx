@@ -37,7 +37,7 @@ export function MessageCatalog({
   error,
 }: MessageCatalogProps) {
   const leftPanel = (
-    <div className="p-4">
+    <div className="p-4 text-white">
       <StatusNav selectedStatus={statusFilter} onStatusChange={setStatusFilter} />
       <Separator className="my-4" />
       <MessageTypeNav selectedType={messageTypeFilter} onTypeChange={setMessageTypeFilter} />
@@ -62,7 +62,7 @@ export function MessageCatalog({
   });
 
   const centerPanel = (
-    <div className="p-4">
+    <div className="p-4 text-white">
       <SearchBox />
       {loading && <div>Loading messages...</div>}
       {error && <div className="text-red-500">{error}</div>}
@@ -71,7 +71,7 @@ export function MessageCatalog({
   );
 
   const rightPanel = (
-    <div className="p-4">
+    <div className="p-4 text-white">
       {selectedMessage ? (
         <MessageDisplay message={selectedMessage} />
       ) : (

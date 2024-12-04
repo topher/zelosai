@@ -65,7 +65,7 @@ export function InfoAssetDisplay({ infoAsset }: InfoAssetDisplayProps) {
       <Separator />
 
       {/* Action Buttons */}
-      <div className="p-4 flex gap-2">
+      <div className="p-4 flex flex-wrap gap-2">
         <Button className='transition hover:scale-105 hover:bg-indigo-light duration-300' variant="default" onClick={handleClaimOwnership}>
           Claim Ownership
         </Button>
