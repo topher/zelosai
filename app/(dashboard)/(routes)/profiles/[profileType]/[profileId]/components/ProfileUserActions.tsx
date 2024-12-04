@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { BiMessageSquareAdd, BiUserCheck, BiStar, BiUserPlus, BiPlus } from 'react-icons/bi'; // Added BiPlus
 import { Montserrat } from 'next/font/google';
 import { ChevronDown } from 'lucide-react';
-import { TripleModal } from '@/app/components/atomic/ttemplates/modals/TripleModal'; // Adjust the import path as necessary
+import { TripleModal } from '@/app/components/atomic/templates/modals/TripleModal'; // Adjust the import path as necessary
 import { Triple } from '@/app/types';
 
 const font = Montserrat({ weight: '600', subsets: ['latin'] });

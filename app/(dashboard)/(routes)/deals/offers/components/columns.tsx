@@ -173,6 +173,7 @@ export const columns = (
         <Button
           variant="ghost"
           size="sm"
+          className="text-white"
           onClick={() => handleSendMessage(row.original.id)}
           title="Send Message"
         >
