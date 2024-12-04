@@ -20,7 +20,7 @@ import {
   TooltipContent,
   TooltipProvider,
 } from "@/components/ui/tooltip";
-import { TripleModal } from "@/app/components/atomic/ttemplates/modals/TripleModal";
+import { TripleModal } from "@/app/components/atomic/templates/modals/TripleModal";
 import { Triple } from "@/app/types";
 import { ResourceType } from "@/config/resourceTypes";
 import { toast } from "react-hot-toast";
