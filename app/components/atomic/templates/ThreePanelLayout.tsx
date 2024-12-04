@@ -1,9 +1,13 @@
 // /app/components/atomic/templates/ThreePanelTemplate.tsx
 
-"use client"
+"use client";
 
 import React, { ReactNode } from 'react';
-import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from '@/components/ui/resizable';
+import {
+  ResizablePanelGroup,
+  ResizablePanel,
+  ResizableHandle,
+} from '@/components/ui/resizable';
 import FeaturePageHeader from '../molecules/FeaturePageHeader';
 
 interface PageHeaderProps {
@@ -17,7 +21,23 @@ interface ThreePanelTemplateProps {
   leftPanel: ReactNode;
   centerPanel: ReactNode;
   rightPanel: ReactNode;
-  isCollapsed?: boolean;
+  leftPanelProps?: {
+    defaultSize?: number;
+    minSize?: number;
+    maxSize?: number;
+    collapsible?: boolean;
+  };
+  centerPanelProps?: {
+    defaultSize?: number;
+    minSize?: number;
+    maxSize?: number;
+  };
+  rightPanelProps?: {
+    defaultSize?: number;
+    minSize?: number;
+    maxSize?: number;
+    collapsible?: boolean;
+  };
 }
 
 const ThreePanelLayout: React.FC<ThreePanelTemplateProps> = ({
@@ -25,10 +45,24 @@ const ThreePanelLayout: React.FC<ThreePanelTemplateProps> = ({
   leftPanel,
   centerPanel,
   rightPanel,
-  isCollapsed = false,
+  leftPanelProps = {
+    defaultSize: 25,
+    minSize: 15,
+    maxSize: 35,
+    collapsible: true,
+  },
+  centerPanelProps = {
+    defaultSize: 50,
+    minSize: 30,
+    maxSize: 70,
+  },
+  rightPanelProps = {
+    defaultSize: 25,
+    minSize: 15,
+    maxSize: 35,
+    collapsible: true,
+  },
 }) => {
-  const [collapsed, setCollapsed] = React.useState(isCollapsed);
-
   return (
     <div className="feature-layout flex flex-col h-full">
       {/* Header Component */}
@@ -42,28 +76,15 @@ const ThreePanelLayout: React.FC<ThreePanelTemplateProps> = ({
       <div className="flex-1 overflow-hidden relative">
         <div className="h-full w-full">
           <ResizablePanelGroup direction="horizontal" className="h-full w-full">
-            <ResizablePanel
-              defaultSize={25}
-              minSize={15}
-              maxSize={35}
-              collapsible
-              onCollapse={() => setCollapsed(true)}
-              onExpand={() => setCollapsed(false)}
-            >
-              {leftPanel}
-            </ResizablePanel>
+            <ResizablePanel {...leftPanelProps}>{leftPanel}</ResizablePanel>
 
             <ResizableHandle withHandle />
 
-            <ResizablePanel defaultSize={50} minSize={30} maxSize={70}>
-              {centerPanel}
-            </ResizablePanel>
+            <ResizablePanel {...centerPanelProps}>{centerPanel}</ResizablePanel>
 
             <ResizableHandle withHandle />
 
-            <ResizablePanel defaultSize={25} minSize={15} maxSize={35}>
-              {rightPanel}
-            </ResizablePanel>
+            <ResizablePanel {...rightPanelProps}>{rightPanel}</ResizablePanel>
           </ResizablePanelGroup>
         </div>
       </div>

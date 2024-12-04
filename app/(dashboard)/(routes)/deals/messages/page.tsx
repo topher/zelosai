@@ -38,12 +38,6 @@ export default function MessagesPage() {
     return <div>Loading...</div>;
   }
 
-  // Define header props
-  const header = {
-    title: 'Messages',
-    description: 'View and manage your messages here.',
-  };
-
   const { leftPanel, centerPanel, rightPanel } = MessageCatalog({
     selectedMessage,
     onSelectMessage: handleSelectMessage,
@@ -61,7 +55,10 @@ export default function MessagesPage() {
     <InstantSearch indexName="messages" searchClient={searchClient}>
       <Configure hitsPerPage={15} />
       <ThreePanelLayout
-        header={header}
+        header={{
+          title: 'Messages',
+          description: 'View and manage your messages here.',
+        }}
         leftPanel={leftPanel}
         centerPanel={centerPanel}
         rightPanel={rightPanel}
