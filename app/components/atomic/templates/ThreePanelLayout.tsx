@@ -20,7 +20,7 @@ interface ThreePanelTemplateProps {
   isCollapsed?: boolean;
 }
 
-const ThreePanelTemplate: React.FC<ThreePanelTemplateProps> = ({
+const ThreePanelLayout: React.FC<ThreePanelTemplateProps> = ({
   header,
   leftPanel,
   centerPanel,
@@ -71,4 +71,4 @@ const ThreePanelTemplate: React.FC<ThreePanelTemplateProps> = ({
   );
 };
 
-export default ThreePanelTemplate;
+export default ThreePanelLayout;

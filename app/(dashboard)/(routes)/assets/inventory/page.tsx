@@ -5,7 +5,7 @@
 import React, { useState } from 'react';
 import { InstantSearch, Configure } from 'react-instantsearch-dom';
 import Client from '@searchkit/instantsearch-client';
-import ThreePanelTemplate from '@/app/components/atomic/templates/ThreePanelTemplate';
+import ThreePanelLayout from '@/app/components/atomic/templates/ThreePanelLayout';
 import { InfoAssetCatalog } from '@/app/components/atomic/organisms/InfoAssetCatalog';
 import { Button } from '@/components/ui/button';
 import { PlusCircledIcon } from '@radix-ui/react-icons';
@@ -44,7 +44,7 @@ export default function InfoAssets() {
   return (
     <InstantSearch indexName="info_assets" searchClient={searchClient}>
       <Configure hitsPerPage={15} />
-      <ThreePanelTemplate
+      <ThreePanelLayout
         header={header}
         leftPanel={leftPanel}
         centerPanel={centerPanel}

@@ -5,7 +5,7 @@
 import React, { useState, useEffect } from 'react';
 import { InstantSearch, Configure } from 'react-instantsearch-dom';
 import { createCustomSearchClient } from '@/lib/customSearchClient';
-import ThreePanelTemplate from '@/app/components/atomic/templates/ThreePanelTemplate';
+import ThreePanelLayout from '@/app/components/atomic/templates/ThreePanelLayout';
 import { MessageCatalog } from '@/app/components/atomic/organisms/MessageCatalog';
 import { useAuth } from '@clerk/nextjs';
 import { SearchHit } from '@/app/types';
@@ -60,7 +60,7 @@ export default function MessagesPage() {
   return (
     <InstantSearch indexName="messages" searchClient={searchClient}>
       <Configure hitsPerPage={15} />
-      <ThreePanelTemplate
+      <ThreePanelLayout
         header={header}
         leftPanel={leftPanel}
         centerPanel={centerPanel}

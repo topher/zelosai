@@ -24,7 +24,7 @@ import { getRulesByAccountId } from '@/app/actions/rulesActions';
 import { getPoliciesByAccountId } from '@/app/actions/policiesActions'; // Import policies action
 import { Rule, Policy } from '@/app/types'; // Ensure you have Policy interface
 import { useRouter } from 'next/navigation';
-import ThreePanelTemplate from '@/app/components/atomic/templates/ThreePanelTemplate';
+import ThreePanelLayout from '@/app/components/atomic/templates/ThreePanelLayout';
 
 const accountId = '12345'; // Replace this with the actual accountId from your context or state
 
@@ -140,7 +140,7 @@ export default function PoliciesPage() {
   if (error) return <p>{error}</p>;
 
   return (
-    <ThreePanelTemplate
+    <ThreePanelLayout
       header={header}
       leftPanel={
         <Tabs defaultValue="policies" orientation="vertical">
