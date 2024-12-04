@@ -1,9 +1,11 @@
 // /app/(dashboard)/(routes)/profiles/[type]/[id]/components/ProfileUserActions.tsx
 
 import React, { useState, useRef, useEffect } from 'react';
-import { BiMessageSquareAdd, BiUserCheck, BiStar, BiUserPlus } from 'react-icons/bi';
+import { BiMessageSquareAdd, BiUserCheck, BiStar, BiUserPlus, BiPlus } from 'react-icons/bi'; // Added BiPlus
 import { Montserrat } from 'next/font/google';
 import { ChevronDown } from 'lucide-react';
+import { TripleModal } from '@/app/components/atomic/ttemplates/modals/TripleModal'; // Adjust the import path as necessary
+import { Triple } from '@/app/types';
 
 const font = Montserrat({ weight: '600', subsets: ['latin'] });
 
@@ -15,6 +17,7 @@ interface ActionButtonProps {
 
 interface ProfileUserActionsProps {
   type: 'athlete' | 'brand' | 'user';
+  profileId: string; // Added profileId to pass to TripleModal
 }
 
 // ActionButton Component
@@ -29,7 +32,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({ icon, label, onClick }) => 
 );
 
 // Dropdown for Action Buttons on Small Screens
-const ActionsDropdown: React.FC<{ type: 'athlete' | 'brand' | 'user' }> = ({ type }) => {
+const ActionsDropdown: React.FC<{ type: 'athlete' | 'brand' | 'user'; onAddTriple: () => void }> = ({ type, onAddTriple }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -75,21 +78,21 @@ const ActionsDropdown: React.FC<{ type: 'athlete' | 'brand' | 'user' }> = ({ typ
         >
           <div className="p-2">
             <button
-              className="block w-full text-left px-4 py-2 text-sm rounded-lg hover:bg-white/10 transition-colors"
+              className="flex items-center w-full text-left px-4 py-2 text-sm rounded-lg hover:bg-white/10 transition-colors"
               onClick={() => console.log('Message clicked')}
             >
               <BiMessageSquareAdd className="inline-block mr-2" size={20} />
               Message
             </button>
             <button
-              className="block w-full text-left px-4 py-2 text-sm rounded-lg hover:bg-white/10 transition-colors"
+              className="flex items-center w-full text-left px-4 py-2 text-sm rounded-lg hover:bg-white/10 transition-colors"
               onClick={() => console.log('Follow clicked')}
             >
               <BiUserCheck className="inline-block mr-2" size={20} />
               Follow
             </button>
             <button
-              className="block w-full text-left px-4 py-2 text-sm rounded-lg hover:bg-white/10 transition-colors"
+              className="flex items-center w-full text-left px-4 py-2 text-sm rounded-lg hover:bg-white/10 transition-colors"
               onClick={() => console.log('Favorite clicked')}
             >
               <BiStar className="inline-block mr-2" size={20} />
@@ -97,13 +100,21 @@ const ActionsDropdown: React.FC<{ type: 'athlete' | 'brand' | 'user' }> = ({ typ
             </button>
             {type === 'athlete' && (
               <button
-                className="block w-full text-left px-4 py-2 text-sm rounded-lg hover:bg-white/10 transition-colors"
+                className="flex items-center w-full text-left px-4 py-2 text-sm rounded-lg hover:bg-white/10 transition-colors"
                 onClick={() => console.log('Claim Profile clicked')}
               >
                 <BiUserPlus className="inline-block mr-2" size={20} />
                 Claim Profile
               </button>
             )}
+            {/* Add Triple Button in Dropdown */}
+            <button
+              className="flex items-center w-full text-left px-4 py-2 text-sm rounded-lg hover:bg-white/10 transition-colors"
+              onClick={onAddTriple}
+            >
+              <BiPlus className="inline-block mr-2" size={20} />
+              Add Triple
+            </button>
           </div>
         </div>
       )}
@@ -193,47 +204,80 @@ const DropdownButton: React.FC = () => {
   );
 };
 
-
 // Main ProfileUserActions Component
-const ProfileUserActions: React.FC<ProfileUserActionsProps> = ({ type }) => {
+const ProfileUserActions: React.FC<ProfileUserActionsProps> = ({ type, profileId }) => {
+  // State to manage TripleModal visibility
+  const [isTripleModalOpen, setTripleModalOpen] = useState(false);
+
+  // Handler to open TripleModal
+  const handleAddTriple = () => {
+    setTripleModalOpen(true);
+  };
+
+  // Handler for TripleModal success
+  const handleTripleSuccess = (result: Triple) => {
+    // Handle success (e.g., refresh data, show notification)
+    console.log('Triple created/updated successfully:', result);
+    // You can add more logic here as needed
+  };
+
   return (
-    <div className="flex flex-row items-center justify-start md:justify-between gap-4 p-4">
-      {/* Left Side: Action Buttons (md and up) or Dropdown (small screens) */}
-      <div className="flex items-center md:space-x-4 space-x-0 w-full md:w-auto">
-        {/* Action Buttons: Visible on medium and larger screens */}
-        <div className="hidden md:flex space-x-4">
-          <ActionButton
-            icon={<BiMessageSquareAdd size={24} />}
-            label="Message"
-            onClick={() => console.log('Message clicked')}
-          />
-          <ActionButton
-            icon={<BiUserCheck size={24} />}
-            label="Follow"
-            onClick={() => console.log('Follow clicked')}
-          />
-          <ActionButton
-            icon={<BiStar size={24} />}
-            label="Favorite"
-            onClick={() => console.log('Favorite clicked')}
-          />
-          {type === 'athlete' && (
+    <>
+      <div className="flex flex-row items-center justify-start md:justify-between gap-4 p-4">
+        {/* Left Side: Action Buttons (md and up) or Dropdown (small screens) */}
+        <div className="flex items-center md:space-x-4 space-x-0 w-full md:w-auto">
+          {/* Action Buttons: Visible on medium and larger screens */}
+          <div className="hidden md:flex space-x-4">
             <ActionButton
-              icon={<BiUserPlus size={24} />}
-              label="Claim Profile"
-              onClick={() => console.log('Claim Profile clicked')}
+              icon={<BiMessageSquareAdd size={24} />}
+              label="Message"
+              onClick={() => console.log('Message clicked')}
             />
-          )}
+            <ActionButton
+              icon={<BiUserCheck size={24} />}
+              label="Follow"
+              onClick={() => console.log('Follow clicked')}
+            />
+            <ActionButton
+              icon={<BiStar size={24} />}
+              label="Favorite"
+              onClick={() => console.log('Favorite clicked')}
+            />
+            {type === 'athlete' && (
+              <ActionButton
+                icon={<BiUserPlus size={24} />}
+                label="Claim Profile"
+                onClick={() => console.log('Claim Profile clicked')}
+              />
+            )}
+            {/* Add Triple Button: Visible on medium and larger screens */}
+            <ActionButton
+              icon={<BiPlus size={24} />}
+              label="Add Triple"
+              onClick={handleAddTriple}
+            />
+          </div>
+          {/* Actions Dropdown: Visible on small screens */}
+          <div className="md:hidden w-full">
+            <ActionsDropdown type={type} onAddTriple={handleAddTriple} />
+          </div>
         </div>
-        {/* Actions Dropdown: Visible on small screens */}
-        <div className="md:hidden w-full">
-          <ActionsDropdown type={type} />
-        </div>
+
+        {/* Right Side: Collab Dropdown (Only for athletes) */}
+        {type === 'athlete' && <DropdownButton />}
       </div>
 
-      {/* Right Side: Collab Dropdown (Only for athletes) */}
-      {type === 'athlete' && <DropdownButton />}
-    </div>
+      {/* TripleModal Component */}
+      <TripleModal
+        isOpen={isTripleModalOpen}
+        onClose={() => setTripleModalOpen(false)}
+        action="create"
+        initialData={undefined} // No initial data for creating a new triple
+        profileId={profileId} // Pass the profileId to the modal
+        onSuccess={handleTripleSuccess}
+        profileType={type} // Pass the profileId to the modal
+      />
+    </>
   );
 };
 

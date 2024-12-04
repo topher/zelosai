@@ -1,95 +1,24 @@
 {
   "mappings": {
-    "properties": {
-      "subject": {
-        "type": "keyword"
-      },
-      "triples": {
-        "type": "nested",
-        "properties": {
-          "predicate": {
-            "type": "keyword"
-          },
-          "object": {
-            "type": "text"
-          },
-          "citation": {
-            "type": "text"
-          }
-        }
-      },
-      "resourceType": {
-        "type": "keyword"
-      },
-      "visibility": {
-        "type": "keyword"
-      },
-      "id": {
-        "type": "keyword"
-      },
-      "noc": {
-        "type": "keyword"
-      },
-      "code": {
-        "type": "keyword"
-      },
-      "name": {
-        "type": "text"
-      },
-      "shortName": {
-        "type": "text"
-      },
-      "sport": {
-        "type": "keyword"
-      },
-      "location": {
-        "type": "text"
-      },
-      "description": {
-        "type": "text"
-      },
-      "email": {
-        "type": "keyword"
-      },
-      "imageSrc": {
-        "type": "keyword"
-      },
-      "achievements": {
-        "type": "text"
-      },
-      "socialMedia": {
-        "properties": {
-          "urls": {
-            "type": "keyword"
-          }
-        }
-      },
-      "social_media_platforms": {
-        "type": "keyword"
-      },
-      "hobbies": {
-        "type": "keyword"
-      },
-      "family": {
-        "type": "keyword"
-      },
-      "occupation": {
-        "type": "keyword"
-      },
-      "languages_spoken": {
-        "type": "keyword"
-      },
-      "coach": {
-        "type": "text"
-      },
-      "createdAt": {
-        "type": "date",
-        "format": "strict_date_optional_time||epoch_millis"
-      },
-      "updatedAt": {
-        "type": "date",
-        "format": "strict_date_optional_time||epoch_millis"
+  "properties": {
+      "id": { "type": "keyword" },
+      "accountId": { "type": "keyword" },
+      "resourceType": { "type": "keyword" },
+      "ownerId": { "type": "keyword" },
+      "createdAt": { "type": "date" },
+      "updatedAt": { "type": "date" },
+      "tags": { "type": "keyword" },
+      "visibility": { "type": "keyword" },
+      "linkedResources": {
+      "properties": {
+          "Triple": { "type": "keyword" }
       }
-    }
+      },
+      "subjectId": { "type": "keyword" },
+      "type": { "type": "keyword" },
+      "name": { "type": "text" },
+      "email": { "type": "keyword" },
+      "bio": { "type": "text" }
+  }
   }
 }

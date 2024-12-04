@@ -1,0 +1,58 @@
+{
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "accountId": {
+        "type": "keyword"
+      },
+      "ownerId": {
+        "type": "keyword"
+      },
+      "resourceType": {
+        "type": "keyword"
+      },
+      "visibility": {
+        "type": "keyword"
+      },
+      "URI": {
+        "type": "keyword"
+      },
+      "agentType": {
+        "type": "keyword"
+      },
+      "name": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "expertiseAreas": {
+        "type": "keyword"
+      },
+      "availabilityStatus": {
+        "type": "keyword"
+      },
+      "aiCapabilities": {
+        "properties": {
+          "supportedLanguages": {
+            "type": "keyword"
+          },
+          "responseTime": {
+            "type": "integer"
+          },
+          "integrations": {
+            "type": "keyword"
+          }
+        }
+      },
+      "tags": {
+        "type": "keyword"
+      }
+    }
+  }
+}

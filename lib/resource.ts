@@ -6,6 +6,8 @@ import { buildAccessControlledQuery } from './accessControl';
 import { integer } from '@elastic/elasticsearch/lib/api/types'; // Retain if used elsewhere
 import { SubscriptionTier, TIER_ORDER } from '@/config/featuresConfig';
 import { Message } from '@/app/types';
+import { generateSubjectId } from "./subjectIdGenerator";
+import { ResourceType } from "@/config/resourceTypes";
 
 /**
 /**
@@ -136,28 +138,45 @@ export async function getResourceById(resourceName: string, resourceId: string):
 }
 
 /**
- * Get triples by subjectId
+ * Fetches triples from Elasticsearch based on the subject ID.
+ *
+ * @param resourceType - The type of resource (e.g., ProfileAthlete, userProfile).
+ * @param resourceId - The unique identifier of the resource.
+ * @returns A promise that resolves to an array of triples.
  */
-export async function getTriplesBySubjectId(subjectId: string): Promise<any[]> {
+export async function getTriplesBySubjectId(resourceType: string, resourceId: string): Promise<any[]> {
   try {
-    console.log(`🔍 getTriplesBySubjectId ${subjectId}`);
+    // Generate the full subject URI based on the resource type and ID
+    let subjectIdFull: string;
+
+    if (resourceType === "ProfileAthlete") {
+      subjectIdFull = generateSubjectId(resourceType, resourceId);
+    } else {
+      subjectIdFull = resourceId;
+    }
+
+    console.log(`🔍 getTriplesBySubjectId for Subject ID: ${resourceType} ${resourceId}`);
+
+    // Perform the Elasticsearch query
     const response = await elasticsearchAxios.post('/triples/_search', {
       query: {
         term: {
-          'subject.keyword': subjectId,
+          'subject.keyword': subjectIdFull,
         },
       },
       size: 1000, // Adjust size as needed
     });
 
+    // Check if any triples were found
     if (!response.data || !response.data.hits || response.data.hits.total.value === 0) {
-      console.error(`❌ No triples found for subjectId ${subjectId}`);
+      console.warn(`⚠️  No triples found for subjectId: ${subjectIdFull}`);
       return [];
     }
 
+    // Return the list of triples
     return response.data.hits.hits.map((hit: any) => hit._source) || [];
   } catch (error: any) {
-    console.error(`❌ Error fetching triples for subjectId ${subjectId}:`, error.response?.data || error.message);
+    console.error(`❌ Error fetching triples for subjectId ${resourceId}:`, error.response?.data || error.message);
     throw error;
   }
 }

@@ -139,8 +139,8 @@ async function handleResourceAction(
       }
 
       // Fetch triples associated with the resource
-      const triples = await getTriplesBySubjectId(resourceData.id);
-      console.log(triples, "straight from the press")
+      const triples = await getTriplesBySubjectId(resourceType,resourceData.id);
+      // console.log(triples, "straight from the press")
       // Attach triples to the resource data
       result = { ...resourceData, triples };
     } else if (action === 'create') {

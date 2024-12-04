@@ -85,15 +85,15 @@ const GoalsPage = () => {
     try {
       // Update the goal in the backend
       const response = await fetch(`/api/resource/goals/${goal.id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ isActive: updatedGoal.isActive }),
       });
 
       if (response.ok) {
         toast({
           title: "Success",
-          description: `Goal "${updatedGoal.Goal}" is now ${updatedGoal.isActive ? 'active' : 'inactive'}.`,
+          description: `Goal "${updatedGoal.Goal}" is now ${updatedGoal.isActive ? "active" : "inactive"}.`,
         });
       } else {
         throw new Error(`Failed to update goal status: ${response.statusText}`);

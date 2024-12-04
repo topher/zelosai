@@ -1,0 +1,36 @@
+{
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "accountId": {
+        "type": "keyword"
+      },
+      "ownerId": {
+        "type": "keyword"
+      },
+      "visibility": {
+        "type": "keyword"
+      },
+      "resourceType": {
+        "type": "keyword"
+      },
+      "Topic": {
+        "type": "text"
+      },
+      "SWOT Type": {
+        "type": "keyword"
+      },
+      "Subscribed": {
+        "type": "boolean"
+      },
+      "RelatedGoals": {
+        "type": "keyword"
+      },
+      "RelatedUseCases": {
+        "type": "keyword"
+      }
+    }
+  }
+}

@@ -1,58 +1,6 @@
 [
-
   {
-    "subscriptionId": "sub_free_002",
-    "userId": "user_2oOmRfZkRrG97dPx1RqHQngd1EY",
-    "subscriptionTier": "FREE",
-    "creditsUsed": 50,
-    "monthlyCreditLimit": 100,
-    "featuresUsage": {
-      "CreateGoal": {
-        "count": 1,
-        "creditsUsed": 20
-      },
-      "ReadGoal": {
-        "count": 10,
-        "creditsUsed": 5
-      },
-      "EditGoal": {
-        "count": 2,
-        "creditsUsed": 10
-      },
-      "DeleteGoal": {
-        "count": 0,
-        "creditsUsed": 0
-      },
-      "CreateUseCase": {
-        "count": 1,
-        "creditsUsed": 15
-      },
-      "ReadUseCase": {
-        "count": 5,
-        "creditsUsed": 5
-      },
-      "EditUseCase": {
-        "count": 1,
-        "creditsUsed": 5
-      },
-      "DeleteUseCase": {
-        "count": 0,
-        "creditsUsed": 0
-      }
-    },
-    "resourceCounts": {
-      "Goals": 3,
-      "UseCases": 2,
-      "Models": 1,
-      "Analytics": 1,
-      "Wallet": 1,
-      "AccountManagement": 0
-    },
-    "createdAt": "2023-01-01T00:00:00.000Z",
-    "updatedAt": "2023-01-02T00:00:00.000Z",
-    "credits": 50
-  },
-  {
+    "id": "sub_free_001",
     "subscriptionId": "sub_free_001",
     "userId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "subscriptionTier": "FREE",
@@ -105,6 +53,7 @@
     "credits": 50
   },
   {
+    "id": "sub_pro_001",
     "subscriptionId": "sub_pro_001",
     "organizationId": "org_2nc9c87ihMBSTJxcYc4X4dwmdH4",
     "subscriptionTier": "PRO",
@@ -157,6 +106,7 @@
     "credits": 250
   },
   {
+    "id": "sub_pro_002",
     "subscriptionId": "sub_pro_002",
     "organizationId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "subscriptionTier": "ENTERPRISE",

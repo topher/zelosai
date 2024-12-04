@@ -14,7 +14,10 @@
       "Market Expansion",
       "Product Launch"
     ],
-    "isActive": true
+    "isActive": true,
+    "linkedResources": {
+      "Triple": ["triple_123e4567-e89b-12d3-a456-426614174001", "triple_123e4567-e89b-12d3-a456-426614174002", "triple_123e4567-e89b-12d3-a456-426614174003"]
+    }
   },
   {
     "id": "goal-2",

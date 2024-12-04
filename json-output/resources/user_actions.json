@@ -1,5 +1,6 @@
 [
   {
+    "id": "user-action-1",
     "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "visibility": "public",
@@ -14,6 +15,7 @@
     "creditsUsed": 2
   },
   {
+    "id": "user-action-2",
     "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId": "user_3eYop7fGhtijLKUa4PQVW4JbbUF",
     "visibility": "public",
@@ -28,6 +30,7 @@
     "creditsUsed": 2
   },
   {
+    "id": "user-action-3",
     "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "visibility": "public",
@@ -42,6 +45,7 @@
     "creditsUsed": 2
   },
   {
+    "id": "user-action-4",
     "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId": "user_3eYop7fGhtijLKUa4PQVW4JbbUF",
     "visibility": "public",
@@ -56,6 +60,7 @@
     "creditsUsed": 2
   },
   {
+    "id": "user-action-5",
     "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "visibility": "public",
@@ -70,6 +75,7 @@
     "creditsUsed": 3
   },
   {
+    "id": "user-action-6",
     "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId": "user_3eYop7fGhtijLKUa4PQVW4JbbUF",
     "visibility": "public",
@@ -84,6 +90,7 @@
     "creditsUsed": 1
   },
   {
+    "id": "user-action-7",
     "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "visibility": "public",
@@ -98,6 +105,7 @@
     "creditsUsed": 2
   },
   {
+    "id": "user-action-8",
     "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId": "user_3eYop7fGhtijLKUa4PQVW4JbbUF",
     "visibility": "public",
@@ -112,6 +120,7 @@
     "creditsUsed": 3
   },
   {
+    "id": "user-action-9",
     "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
     "visibility": "public",
@@ -126,6 +135,7 @@
     "creditsUsed": 2
   },
   {
+    "id": "user-action-10",
     "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
     "ownerId": "user_3eYop7fGhtijLKUa4PQVW4JbbUF",
     "visibility": "public",

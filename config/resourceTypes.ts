@@ -38,5 +38,11 @@ export enum ResourceType {
     Triple = "Triple",
     ModelInference = "ModelInference",
     scalarString = "scalarString",
-    ScalarString = "ScalarString"
+    ScalarString = "ScalarString",
+    ScalarEnum = "ScalarEnum",
+    ScalarDate = "ScalarDate",
+    ProfileOrganization = "ProfileOrganization",
+    Interest = "Interest",
+    Industry = "Industry"
+  
 }

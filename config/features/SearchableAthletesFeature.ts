@@ -48,7 +48,7 @@ export const searchableAthletesFeature: Feature = {
         href: '/search/athletes',
         description: 'Search through athlete profiles.',
         isInProd: true,
-        resourceName: 'athletes_triples',
+        resourceName: 'athletes_triple',
         resourceType: ResourceType.SearchableAthlete,
         maxResourceCount: [100, 1000, 10000],
     },

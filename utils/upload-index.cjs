@@ -1,5 +1,3 @@
-// utils/upload-index.js
-
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
@@ -16,9 +14,13 @@ const ELASTICSEARCH_PASSWORD = process.env.ELASTICSEARCH_PASSWORD;
  */
 const indexIdFieldMap = {
     subscriptions: 'subscriptionId',
+    athletes_triples: 'id',
+    users_triples: 'id',
+    triples: 'id',
     // Add other indices and their ID fields as needed
-    // e.g., athletes_triples: 'athleteId',
 };
+
+
 
 /**
  * Displays usage instructions.
@@ -46,9 +48,9 @@ Parameters:
                           - json-output/mappings/<index_name>_mapping.json
 
     --folder        (Optional) Indicates that the input path is a directory containing multiple JSON files.
-    
+
     --resource      (Optional) Indicates that the input data is a resource and should be fetched from the 'resources' subdirectory.
-    
+
     --limit <num>   (Optional) Number of documents to process. Defaults to 10 if not specified.
 
 Examples:
@@ -117,6 +119,11 @@ function readJSONFilesFromDirectory(dirPath) {
                         object: triple.object,
                         citation: triple.citation
                     }));
+                    // Extract simple ID from subject URI
+                    const subjectUriParts = parsedContent.subject.split('/');
+                    parsedContent.id = subjectUriParts[subjectUriParts.length - 1]; // Use the last part as the ID
+                    // Store RDF URI separately
+                    parsedContent.rdf_uri = parsedContent.subject;
                     // Push the entire document, including flat fields
                     data.push(parsedContent);
                 } else {
@@ -198,8 +205,14 @@ async function uploadData(indexName, data) {
                 console.warn(`⚠️  Document missing '${idField}' field. Skipping document:`, doc);
                 return []; // Skip documents without the required ID field
             }
-            const action = { index: { _index: indexName, _id: docId } };
-            return [action, doc];
+
+            // **Important**: For 'triples' index, ensure 'id' starts with 'triple_'
+            if (indexName.toLowerCase() === 'triples' && !docId.startsWith('triple_')) {
+                console.warn(`⚠️  Document with id "${docId}" does not start with 'triple_'. Skipping document.`);
+                return []; // Skip invalid triples
+            }
+
+            return [{ index: { _index: indexName, _id: docId } }, doc];
         });
 
         if (bulkBody.length === 0) {
@@ -210,8 +223,8 @@ async function uploadData(indexName, data) {
         // Convert to NDJSON format
         const ndjson = bulkBody.map(line => JSON.stringify(line)).join('\n') + '\n';
 
-        const url = `${ELASTICSEARCH_URL}/_bulk`;
-        const config = {
+        // Perform bulk upload
+        const response = await axios.post(`${ELASTICSEARCH_URL}/_bulk`, ndjson, {
             headers: {
                 'Content-Type': 'application/x-ndjson',
             },
@@ -219,10 +232,7 @@ async function uploadData(indexName, data) {
                 username: ELASTICSEARCH_USERNAME,
                 password: ELASTICSEARCH_PASSWORD
             } : undefined
-        };
-
-        // Send bulk request
-        const response = await axios.post(url, ndjson, config);
+        });
 
         if (response.data.errors) {
             console.error(`⚠️  Errors occurred while uploading data to "${indexName}":`);
@@ -298,7 +308,7 @@ function processCommasAndCitationsHelper(text) {
 async function main() {
     const args = process.argv.slice(2);
 
-    if (args.length < 1 || args.length > 4) {
+    if (args.length < 1 || args.length > 6) { // Adjusted maximum number of arguments
         showUsage();
     }
 
@@ -394,7 +404,24 @@ async function main() {
     }
 
     // Transform documents
-    data = data.map(doc => transformDocument(doc));
+    data = data.map(doc => {
+        if (doc.resourceType !== 'Triple') {
+            // For resource documents, set 'id' based on 'subject' URI
+            if (doc.subject) {
+                const subjectUriParts = doc.subject.split('/');
+                doc.id = subjectUriParts[subjectUriParts.length - 1];
+                doc.rdf_uri = doc.subject;
+            }
+        } else {
+            // For triples, ensure 'id' starts with 'triple_'
+            if (!doc.id || !doc.id.startsWith('triple_')) {
+                throw new Error(`Triple document is missing a valid 'id' starting with 'triple_': ${JSON.stringify(doc)}`);
+            }
+            // Set 'rdf_uri' correctly for triples
+            doc.rdf_uri = `zelos.ai/knowledge/Triple/${doc.id}`;
+        }
+        return transformDocument(doc);
+    });
 
     // Upload data
     await uploadData(indexName, data);
