@@ -25,6 +25,7 @@ const ConnectedNav: React.FC<NavProps> = ({
 }) => {
   return (
     <div data-collapsed={isCollapsed} className="group flex flex-col gap-4 py-2">
+      <h3 className="text-lg font-semibold mb-2 text-gray-200">Asset Type</h3>
       <nav className="grid gap-1 px-2">
         {items.map((item) => (
           <button

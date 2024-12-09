@@ -58,8 +58,9 @@ export function InfoAssetCatalog({
         selectedStatus={selectedStatus}
         onStatusChange={setSelectedStatus}
         statuses={statuses}
+        attribute='status'
       />
-      <Separator />
+      <Separator className="my-4" />
       <AssetTypeNav
         selectedType={selectedAssetType}
         onTypeChange={setSelectedAssetType}
@@ -71,7 +72,7 @@ export function InfoAssetCatalog({
   const centerPanel = (
     <div className="p-4 text-white">
       <SearchBox />
-      <div className="mt-4">
+      <div className="my-4">
         <h4>Active Filters</h4>
         <CustomCurrentRefinements />
         <ClearRefinements

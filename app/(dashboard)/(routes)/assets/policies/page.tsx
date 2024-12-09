@@ -84,34 +84,36 @@ export default function PoliciesPage() {
           orientation="vertical"
         >
           <TabsList className="flex flex-col space-y-2 p-4">
-            <TabsTrigger value="policies">Policies</TabsTrigger>
-            <TabsTrigger value="access_rules">Access Rules</TabsTrigger>
-            <TabsTrigger value="action_rules">Action Rules</TabsTrigger>
-            <TabsTrigger value="content_rules">Content Rules</TabsTrigger>
+            <TabsTrigger className="text-lg" value="policies">Policies</TabsTrigger>
+            <TabsTrigger className="text-lg" value="access_rules">Access Rules</TabsTrigger>
+            <TabsTrigger className="text-lg" value="action_rules">Action Rules</TabsTrigger>
+            <TabsTrigger className="text-lg" value="content_rules">Content Rules</TabsTrigger>
           </TabsList>
         </Tabs>
       }
       centerPanel={
-        <Tabs value={tabValue} onValueChange={setTabValue}>
-          <TabsContent value="policies">
-            <PolicyList policies={policies} />
-          </TabsContent>
-          <TabsContent value="access_rules">
-            <RulesList
-              rules={rules.filter((rule) => rule.ruleType === "access")}
-            />
-          </TabsContent>
-          <TabsContent value="action_rules">
-            <RulesList
-              rules={rules.filter((rule) => rule.ruleType === "action")}
-            />
-          </TabsContent>
-          <TabsContent value="content_rules">
-            <RulesList
-              rules={rules.filter((rule) => rule.ruleType === "content")}
-            />
-          </TabsContent>
-        </Tabs>
+        <div className="p-4">
+          <Tabs value={tabValue} onValueChange={setTabValue}>
+            <TabsContent value="policies">
+              <PolicyList policies={policies} />
+            </TabsContent>
+            <TabsContent value="access_rules">
+              <RulesList
+                rules={rules.filter((rule) => rule.ruleType === "access")}
+              />
+            </TabsContent>
+            <TabsContent value="action_rules">
+              <RulesList
+                rules={rules.filter((rule) => rule.ruleType === "action")}
+              />
+            </TabsContent>
+            <TabsContent value="content_rules">
+              <RulesList
+                rules={rules.filter((rule) => rule.ruleType === "content")}
+              />
+            </TabsContent>
+          </Tabs>
+        </div>
       }
       rightPanel={
         isCreateRuleModalOpen && (
