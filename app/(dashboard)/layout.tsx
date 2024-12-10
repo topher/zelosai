@@ -5,6 +5,7 @@ import Sidebar from "@/app/components/atomic/organisms/sidebar";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Montserrat } from "next/font/google";
+import Link from "next/link";
 
 const montserrat = Montserrat({ weight: "400", subsets: ["latin"] });
 
@@ -61,9 +62,11 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
                 />
               </svg>
             </button>
-            <h1 className={cn("text-3xl font-bold", montserrat.className)}>
-              ZELOS
-            </h1>
+            <Link href="/dashboard">
+              <h1 className={cn("text-3xl font-bold cursor-pointer", montserrat.className)}>
+                ZELOS
+              </h1>
+            </Link>
           </header>
         )}
         <main className="flex-1 overflow-y-auto overflow-x-hidden">
