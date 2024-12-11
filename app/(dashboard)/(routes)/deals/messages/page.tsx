@@ -53,7 +53,7 @@ export default function MessagesPage() {
 
   return (
     <InstantSearch indexName="messages" searchClient={searchClient}>
-      <Configure hitsPerPage={15} />
+      <Configure hitsPerPage={10} />
       <ThreePanelLayout
         header={{
           title: 'Messages',

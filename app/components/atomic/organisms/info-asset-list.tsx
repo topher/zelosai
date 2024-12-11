@@ -77,4 +77,9 @@ const InfoAssetListComponent: React.FC<InfoAssetListProps> = ({ hits, onSelect }
   );
 };
 
-export const InfoAssetList = connectHits(InfoAssetListComponent);
+// Connect the component to InstantSearch and pass down the `onSelect` prop
+const ConnectedInfoAssetList = connectHits((props: Omit<InfoAssetListProps, 'hits'> & { hits: InfoAsset[] }) => (
+  <InfoAssetListComponent hits={props.hits} onSelect={props.onSelect} />
+));
+
+export const InfoAssetList = ConnectedInfoAssetList;

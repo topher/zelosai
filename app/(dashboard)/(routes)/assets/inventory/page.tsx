@@ -15,7 +15,6 @@ const searchClient = Client({
 });
 
 export default function InfoAssets() {
-  const [assets, setAssets] = useState<any[]>([]); // Replace 'any' with your asset type
   const [selectedAsset, setSelectedAsset] = useState<any | null>(null); // Replace 'any' with your asset type
 
   // Handler for selecting an asset
@@ -36,14 +35,13 @@ export default function InfoAssets() {
 
   // Pass the required props to InfoAssetCatalog
   const { leftPanel, centerPanel, rightPanel } = InfoAssetCatalog({
-    assets,
     selectedAsset,
     onSelectAsset: handleSelectAsset,
   });
 
   return (
     <InstantSearch indexName="info_assets" searchClient={searchClient}>
-      <Configure hitsPerPage={15} />
+      <Configure hitsPerPage={10} />
       <ThreePanelLayout
         header={header}
         leftPanel={leftPanel}

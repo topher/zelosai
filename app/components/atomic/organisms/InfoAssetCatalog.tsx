@@ -5,12 +5,11 @@
 import React, { useState } from 'react';
 import {
   SearchBox,
-  Hits,
   Pagination,
   ClearRefinements,
 } from 'react-instantsearch-dom';
-import { InfoAssetDisplay } from './info-asset-display';
 import { InfoAssetList } from './info-asset-list';
+import { InfoAssetDisplay } from './info-asset-display';
 import AssetTypeNav from '@/app/components/atomic/molecules/AssetTypeNav';
 import { StatusNav } from '../molecules/StatusNav';
 import CustomRefinementList from '@/app/components/atomic/molecules/CustomRefinementList';
@@ -18,13 +17,11 @@ import { CustomCurrentRefinements } from '../molecules/CustomCurrentRefinements'
 import { Separator } from '@/components/ui/separator';
 
 interface InfoAssetCatalogProps {
-  assets: any[];
-  selectedAsset: any;
-  onSelectAsset: (asset: any | null) => void;
+  selectedAsset: any; // Replace 'any' with your asset type
+  onSelectAsset: (asset: any | null) => void; // Replace 'any' with your asset type
 }
 
 export function InfoAssetCatalog({
-  assets,
   selectedAsset,
   onSelectAsset,
 }: InfoAssetCatalogProps) {
@@ -58,7 +55,7 @@ export function InfoAssetCatalog({
         selectedStatus={selectedStatus}
         onStatusChange={setSelectedStatus}
         statuses={statuses}
-        attribute='status'
+        attribute="status"
       />
       <Separator className="my-4" />
       <AssetTypeNav
@@ -90,11 +87,8 @@ export function InfoAssetCatalog({
           );
         }}
       />
-      <Hits
-        hitComponent={({ hit }) => (
-          <InfoAssetList hits={assets} onSelect={onSelectAsset} />
-        )}
-      />
+      {/* Use the connected InfoAssetList directly */}
+      <InfoAssetList onSelect={onSelectAsset} />
       <Pagination />
     </div>
   );
