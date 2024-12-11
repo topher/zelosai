@@ -3,7 +3,7 @@
 'use client';
 
 import React from 'react';
-import { SearchHit } from '@/app/types'; // Ensure correct import
+import { SearchHit } from '@/app/types';
 
 interface MessageListProps {
   messages: SearchHit[];

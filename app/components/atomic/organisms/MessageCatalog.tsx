@@ -9,7 +9,7 @@ import { MessageDisplay } from './message-display';
 import { StatusNav } from '../molecules/StatusNav';
 import { MessageTypeNav } from '../molecules/MessageTypeNav';
 import { Separator } from '@/components/ui/separator';
-import { SearchHit } from '@/app/types'; // Ensure correct import
+import { SearchHit } from '@/app/types';
 
 interface MessageCatalogProps {
   selectedMessage: SearchHit | null;
