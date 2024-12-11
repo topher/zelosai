@@ -1,11 +1,12 @@
-'use client';
+// /app/(dashboard)/(routes)/strategy/branding/page.tsx
+
+"use client";
 
 import { useEffect, useState } from 'react';
 import FilterPanel from '../components/FilterPanel';
 import { BrandModelCard, DropdownOption } from '@/app/types';
 import axios from 'axios';
-import { Separator } from '@/components/ui/separator';
-import StrategyLayout from '@/app/components/atomic/templates/StrategyLayout';
+import SmartFormLayout from '@/app/components/atomic/templates/SmartFormLayout';
 
 const BrandPersonalityPage: React.FC = () => {
   const [brandModelCards, setBrandModelCards] = useState<BrandModelCard[]>([]);
@@ -91,33 +92,22 @@ const BrandPersonalityPage: React.FC = () => {
     }
   };
 
-  if (isLoading) {
-    return <div>Loading your preferences...</div>;
-  }
-
-  if (error) {
-    return <div className="error">{error}</div>;
-  }
-
   return (
-    <StrategyLayout>
-      <div className="space-y-8 p-6">
-        <div>
-          {/* Main content */}
-          <FilterPanel
-            brandModelCards={brandModelCards}
-            dropdownOptions={dropdownOptions}
-            setBrandModelCards={setBrandModelCards}
-          />
-          <button
-            onClick={handleSaveSelections}
-            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-          >
-            Save
-          </button>
-        </div>
-      </div>
-    </StrategyLayout>
+    <SmartFormLayout
+      header={{
+        title: "Brand Identity",
+        description: "Customize your brand's personality traits.",
+      }}
+      isLoading={isLoading}
+      error={error}
+    >
+      {/* Main content */}
+      <FilterPanel
+        brandModelCards={brandModelCards}
+        dropdownOptions={dropdownOptions}
+        setBrandModelCards={setBrandModelCards}
+      />
+    </SmartFormLayout>
   );
 };
 

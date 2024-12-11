@@ -1,7 +1,12 @@
+// /app/(dashboard)/(routes)/strategy/components/businessModelSection.tsx
+
 import React from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import Tag from "@/app/(dashboard)/(routes)/strategy/components/tag";
 import { createCard, deleteCard } from "@/app/actions/getBusinessModelByUserId";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({ weight: "600", subsets: ["latin"] });
 
 interface SectionProps {
   sectionName: string;
@@ -13,7 +18,7 @@ interface SectionProps {
 const Section: React.FC<SectionProps> = ({ sectionName, sectionTitle, icon, cards }) => {
   const handleDeleteCard = async (cardId: string) => {
     await deleteCard(cardId);
-    // Trigger a re-fetch or update the local state to reflect the deleted card
+    // Implement state update or re-fetch logic here
   };
 
   const handleAddCard = async () => {
@@ -21,38 +26,54 @@ const Section: React.FC<SectionProps> = ({ sectionName, sectionTitle, icon, card
       id: `new_${Date.now()}`,
       name: "New Card",
       description: "New card description",
+      // Add other necessary fields
     };
     await createCard(sectionName, newCard);
-    // Trigger a re-fetch or update the local state to reflect the new card
+    // Implement state update or re-fetch logic here
   };
 
   return (
-    <div className="mb-6">
-      <div className="flex items-center mb-2">
-        {icon && <div className="mr-2">{icon}</div>}
-        <h2 className="text-xl font-semibold text-[#111827]">{sectionTitle}</h2>
-      </div>
+    <div className="relative group bg-gray-800 rounded-xl overflow-hidden p-6 shadow-lg">
+      {/* Background Overlay */}
+      <div
+        className="absolute inset-0 rounded-xl"
+        style={{
+          background: "linear-gradient(135deg, rgba(0,0,0,0.8) 0%, transparent 100%)",
+        }}
+      ></div>
 
-      <div className="flex flex-wrap items-center">
-        {cards.length > 0 ? (
-          cards.map((card) => (
-            <Tag
-              key={card.id}
-              label={card.name || "Untitled"}
-              onDelete={() => handleDeleteCard(card.id)}
-            />
-          ))
-        ) : (
-          <p>No items available in this section</p>
-        )}
+      <div className="relative z-10">
+        {/* Header */}
+        <div className="flex items-center mb-4">
+          {icon && <div className="text-primary text-3xl mr-4">{icon}</div>}
+          <h2 className={`text-2xl font-semibold text-white ${montserrat.className}`}>
+            {sectionTitle}
+          </h2>
+        </div>
 
-        {/* Add Card Button */}
-        <button
-          className="bg-green-500 text-white p-2 rounded-full hover:bg-green-700 focus:outline-none ml-2 mb-2 shadow-sm"
-          onClick={handleAddCard}
-        >
-          <AiOutlinePlus className="text-lg" />
-        </button>
+        {/* Tags and Add Button */}
+        <div className="flex flex-wrap items-center gap-3">
+          {cards.length > 0 ? (
+            cards.map((card) => (
+              <Tag
+                key={card.id}
+                label={card.name || "Untitled"}
+                onDelete={() => handleDeleteCard(card.id)}
+              />
+            ))
+          ) : (
+            <p className="text-gray-400">No items available in this section</p>
+          )}
+
+          {/* Add Card Button */}
+          <button
+            className="bg-primary text-white p-3 rounded-full hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary-dark shadow-md transition-all duration-200"
+            onClick={handleAddCard}
+            aria-label={`Add card to ${sectionTitle}`}
+          >
+            <AiOutlinePlus className="text-xl" />
+          </button>
+        </div>
       </div>
     </div>
   );

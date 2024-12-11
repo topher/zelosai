@@ -26,7 +26,7 @@ const AgentCard: React.FC<AgentCardProps> = ({ agent, onDelete }) => {
       ></div>
 
       <div className="relative z-10 flex flex-col h-full">
-        <h3 className="text-white text-xl font-semibold mb-2">{agent.Name}</h3>
+        <h3 className="text-white text-xl font-semibold mb-2">{agent.name}</h3>
         <p className="text-white text-sm mb-4">{agent.Description}</p>
         <img
           src={agent.Image}
@@ -34,7 +34,7 @@ const AgentCard: React.FC<AgentCardProps> = ({ agent, onDelete }) => {
           className="w-full h-auto rounded-md mb-4"
         />
         <p className="text-sm text-white">
-          <strong>Type:</strong> {agent.Type}
+          <strong>Type:</strong> {agent.agentType}
         </p>
         <p className="mt-2 text-sm font-semibold text-white">
           Associated Use Cases:
@@ -49,7 +49,6 @@ const AgentCard: React.FC<AgentCardProps> = ({ agent, onDelete }) => {
             variant="destructive"
             size="sm"
             onClick={() => onDelete(agent.id)}
-            className="text-red-500 border-red-500 hover:bg-red-500 hover:text-white transform hover:-translate-y-0.5 hover:scale-105"
           >
             Delete Agent
           </Button>
