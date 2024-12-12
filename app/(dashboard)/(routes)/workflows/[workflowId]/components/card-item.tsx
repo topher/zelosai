@@ -27,8 +27,8 @@ export const CardItem = ({ data, index }: CardItemProps) => {
             style={provided.draggableProps.style}
             onClick={() => cardModal.onOpen(data.id)}
             className={`
-              select-none cursor-grab rounded-md p-3 border border-white/10 text-white text-sm font-medium truncate shadow-md
-              bg-gray-800
+              select-none cursor-grab rounded-md p-3 border border-white/10 text-white text-sm font-medium
+              shadow-md bg-gray-800 whitespace-normal break-words
               transition-transform duration-200 relative
               hover:scale-[1.02] hover:shadow-lg hover:shadow-black/50
               ${isDragging ? 'z-50 bg-primary scale-105 ring-2 ring-white/20 shadow-2xl' : ''}
