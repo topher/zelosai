@@ -67,7 +67,7 @@ const Section: React.FC<SectionProps> = ({ sectionName, sectionTitle, icon, card
 
           {/* Add Card Button */}
           <button
-            className="bg-primary text-white p-3 rounded-full hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary-dark shadow-md transition-all duration-200"
+            className="bg-primary text-white p-3 rounded-full hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary-dark shadow-md transition-all duration-200 hover:scale-105"
             onClick={handleAddCard}
             aria-label={`Add card to ${sectionTitle}`}
           >

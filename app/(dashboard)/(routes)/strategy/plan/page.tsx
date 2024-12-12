@@ -49,12 +49,6 @@ const BusinessPlan = () => {
       header={{
         title: "Business Plan",
         description: "Manage your business plan effectively.",
-        // Optional: Add actions if needed
-        // actions: (
-        //   <button className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-hover transition-colors duration-200 shadow-lg">
-        //     Save Plan
-        //   </button>
-        // ),
       }}
       isLoading={loading}
       error={error}
