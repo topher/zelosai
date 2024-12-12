@@ -2,13 +2,14 @@
 
 "use client";
 
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState, useEffect } from 'react';
 import {
   ResizablePanelGroup,
   ResizablePanel,
   ResizableHandle,
 } from '@/components/ui/resizable';
 import FeaturePageHeader from '../molecules/FeaturePageHeader';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 interface PageHeaderProps {
   title: string;
@@ -40,6 +41,20 @@ interface ThreePanelTemplateProps {
   };
 }
 
+// Hook to detect window size
+function useIsSmallScreen() {
+  const [isSmall, setIsSmall] = useState(false);
+  useEffect(() => {
+    const checkSize = () => {
+      setIsSmall(window.innerWidth < 768); // Example breakpoint
+    };
+    window.addEventListener('resize', checkSize);
+    checkSize();
+    return () => window.removeEventListener('resize', checkSize);
+  }, []);
+  return isSmall;
+}
+
 const ThreePanelLayout: React.FC<ThreePanelTemplateProps> = ({
   header,
   leftPanel,
@@ -63,6 +78,8 @@ const ThreePanelLayout: React.FC<ThreePanelTemplateProps> = ({
     collapsible: true,
   },
 }) => {
+  const isSmallScreen = useIsSmallScreen();
+
   return (
     <div className="feature-layout flex flex-col h-full">
       {/* Header Component */}
@@ -74,19 +91,40 @@ const ThreePanelLayout: React.FC<ThreePanelTemplateProps> = ({
 
       {/* Content Area */}
       <div className="flex-1 overflow-hidden relative">
-        <div className="h-full w-full">
-          <ResizablePanelGroup direction="horizontal" className="h-full w-full">
-            <ResizablePanel {...leftPanelProps}>{leftPanel}</ResizablePanel>
+        {isSmallScreen ? (
+          // On small screens, use a tab-based interface:
+          <Tabs defaultValue="center" className="h-full w-full flex flex-col">
+            <TabsList className="flex justify-around bg-gray-800">
+              <TabsTrigger value="left">Filter</TabsTrigger>
+              <TabsTrigger value="center">Inbox</TabsTrigger>
+              <TabsTrigger value="right">Content</TabsTrigger>
+            </TabsList>
+            <TabsContent value="left" className="overflow-auto p-4">
+              {leftPanel}
+            </TabsContent>
+            <TabsContent value="center" className="overflow-auto p-4">
+              {centerPanel}
+            </TabsContent>
+            <TabsContent value="right" className="overflow-auto p-4">
+              {rightPanel}
+            </TabsContent>
+          </Tabs>
+        ) : (
+          // On larger screens, use the three-panel resizable layout:
+          <div className="h-full w-full">
+            <ResizablePanelGroup direction="horizontal" className="h-full w-full">
+              <ResizablePanel {...leftPanelProps}>{leftPanel}</ResizablePanel>
 
-            <ResizableHandle withHandle />
+              <ResizableHandle withHandle />
 
-            <ResizablePanel {...centerPanelProps}>{centerPanel}</ResizablePanel>
+              <ResizablePanel {...centerPanelProps}>{centerPanel}</ResizablePanel>
 
-            <ResizableHandle withHandle />
+              <ResizableHandle withHandle />
 
-            <ResizablePanel {...rightPanelProps}>{rightPanel}</ResizablePanel>
-          </ResizablePanelGroup>
-        </div>
+              <ResizablePanel {...rightPanelProps}>{rightPanel}</ResizablePanel>
+            </ResizablePanelGroup>
+          </div>
+        )}
       </div>
     </div>
   );

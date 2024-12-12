@@ -37,7 +37,7 @@ const StatusNavComponent: React.FC<StatusNavProps> = ({ items, refine }) => {
 
   return (
     <div>
-      <h3 className="text-lg font-semibold mb-2 text-gray-200">Status</h3>
+      <h3 className="text-lg font-semibold mb-2">Status</h3>
       <CustomRefinementList items={transformedItems} onToggle={onToggle} />
     </div>
   );
