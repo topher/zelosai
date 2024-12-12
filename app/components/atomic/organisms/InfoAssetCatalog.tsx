@@ -68,7 +68,15 @@ export function InfoAssetCatalog({
 
   const centerPanel = (
     <div className="p-4 text-white">
-      <SearchBox />
+      {/* The SearchBox will render with ais-SearchBox classes, which we can style globally */}
+      <SearchBox
+        submit={null}
+        reset={null}
+        loadingIndicator={null}
+        translations={{
+          placeholder: 'Search...',
+        }}
+      />
       <div className="my-4">
         <h4>Active Filters</h4>
         <CustomCurrentRefinements />
@@ -87,9 +95,18 @@ export function InfoAssetCatalog({
           );
         }}
       />
-      {/* Use the connected InfoAssetList directly */}
+      {/* Connected InfoAssetList */}
       <InfoAssetList onSelect={onSelectAsset} />
-      <Pagination />
+
+      {/* The Pagination will render with ais-Pagination classes, which we can style globally */}
+      <Pagination
+        showFirst={false}
+        showLast={false}
+        translations={{
+          previous: '‹',
+          next: '›',
+        }}
+      />
     </div>
   );
 
