@@ -1,7 +1,9 @@
+// /app/(dashboard)/(routes)/workflows/[workflowId]/components/card-item.tsx
+
 'use client';
 
 import { Card } from "@/app/types";
-import { Draggable } from "react-beautiful-dnd";
+import { Draggable } from '@hello-pangea/dnd';
 import { useCardModal } from "@/hooks/use-card-modal";
 
 interface CardItemProps {
@@ -11,21 +13,31 @@ interface CardItemProps {
 
 export const CardItem = ({ data, index }: CardItemProps) => {
   const cardModal = useCardModal();
+  const draggableId = typeof data.id === 'string' ? data.id : String(data.id);
 
   return (
-    <Draggable draggableId={data.id} index={index}>
-      {(provided) => (
-        <div
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-          ref={provided.innerRef}
-          role="button"
-          onClick={() => cardModal.onOpen(data.id)}
-          className="truncate border-2 border-transparent hover:border-black py-2 px-3 text-sm bg-white rounded-md shadow-sm"
-        >
-          {data.title}
-        </div>
-      )}
+    <Draggable draggableId={draggableId} index={index}>
+      {(provided, snapshot) => {
+        const isDragging = snapshot.isDragging;
+        return (
+          <div
+            ref={provided.innerRef}
+            {...provided.draggableProps}
+            {...provided.dragHandleProps}
+            style={provided.draggableProps.style}
+            onClick={() => cardModal.onOpen(data.id)}
+            className={`
+              select-none cursor-grab rounded-md p-3 border border-white/10 text-white text-sm font-medium truncate shadow-md
+              bg-gray-800
+              transition-transform duration-200 relative
+              hover:scale-[1.02] hover:shadow-lg hover:shadow-black/50
+              ${isDragging ? 'z-50 bg-primary scale-105 ring-2 ring-white/20 shadow-2xl' : ''}
+            `}
+          >
+            {data.title}
+          </div>
+        );
+      }}
     </Draggable>
   );
 };
