@@ -1,20 +1,53 @@
+// /app/(dashboard)/layout.tsx
+
 "use client";
 
 import Navbar from "@/app/components/atomic/organisms/navbar";
 import Sidebar from "@/app/components/atomic/organisms/sidebar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Montserrat } from "next/font/google";
 import Link from "next/link";
+import ZelosLogo from "@/app/components/atomic/atoms/icons/Zelos.png"; // Import your Zelos logo
 
 const montserrat = Montserrat({ weight: "400", subsets: ["latin"] });
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // For small screens
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); 
+  const [isLoading, setIsLoading] = useState(true);
 
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
   const toggleCollapse = () => setIsCollapsed((prev) => !prev);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="feature-layout relative flex flex-col items-center justify-center min-h-screen">
+        {/* Pulsing halo behind the icon */}
+        <div className="absolute h-64 w-64 rounded-full bg-white opacity-20 animate-ping"></div>
+        
+        {/* Zelos logo transformed into white and gently bouncing */}
+        <img
+          src={ZelosLogo.src}
+          alt="Zelos Logo"
+          className="h-32 w-32 animate-bounce filter brightness-0 invert"
+        />
+
+        {/* Pulsing Loading text */}
+        <p className={cn("text-white text-2xl mt-4 animate-pulse", montserrat.className)}>
+          ZELOS
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col md:flex-row h-screen overflow-x-hidden">
@@ -47,18 +80,17 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         {!isSidebarOpen && (
           <header className="md:hidden bg-darkGray text-white h-16 flex items-center justify-between px-4">
             <button onClick={toggleSidebar} aria-label="Open sidebar">
-              {/* Hamburger icon */}
               <svg
                 className="h-6 w-6 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 8h16M4 16h16"
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth="2" 
+                  d="M4 8h16M4 16h16" 
                 />
               </svg>
             </button>
@@ -69,8 +101,8 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
             </Link>
           </header>
         )}
+
         <main className="flex-1 overflow-y-auto overflow-x-hidden">
-          {/* Main content */}
           <div className="min-h-full">{children}</div>
         </main>
       </div>
