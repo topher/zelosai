@@ -4,8 +4,10 @@
 
 import * as React from "react";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
-
 import { cn } from "@/lib/utils";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({ weight: "400", subsets: ["latin"] });
 
 const Tabs = TabsPrimitive.Root;
 
@@ -33,12 +35,11 @@ const TabsTrigger = React.forwardRef<
     className={cn(
       "relative px-4 py-2 text-sm font-medium transition-colors duration-300",
       "border-b-2 border-transparent text-gray-300 dark:text-gray-500",
-      // Enhanced hover gradient for better visibility on dark backgrounds
-      "hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-indigo-400 hover:via-blue-500 hover:to-purple-500",
+      "hover:text-white",
       "data-[state=active]:border-white data-[state=active]:text-white",
       "focus:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-opacity-75",
-      "data-[state=active]:shadow-md data-[state=active]:bg-opacity-20",
       "after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-1 after:bg-white after:transform after:scale-x-0 after:origin-left after:transition-transform after:duration-300 data-[state=active]:after:scale-x-100",
+      montserrat.className,
       className
     )}
     {...props}

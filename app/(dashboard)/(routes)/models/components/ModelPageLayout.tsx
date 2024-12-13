@@ -1,4 +1,4 @@
-// models/components/ModelPageLayout.tsx
+// /app/(dashboard)/(routes)/models/components/ModelPageLayout.tsx
 
 "use client";
 
