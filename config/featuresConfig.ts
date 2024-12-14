@@ -464,6 +464,7 @@ export enum ActionFeatureKey {
  */
 export interface FeatureMetadata {
   resourceType: any;
+  agentId?: string;
   category: FeatureCategory;
   icon: LucideIcon; // Updated typing;
   label: string;

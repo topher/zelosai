@@ -8,9 +8,6 @@ export const brandingFeature: Feature = {
     schema: Yup.object().shape({
         // Define the schema for Branding feature fields
     }),
-    fields: [
-        // Define the field configurations for Branding feature
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadBranding,
@@ -51,5 +48,8 @@ export const brandingFeature: Feature = {
         resourceName: 'brand_model_cards',
         resourceType: ResourceType.BrandModelCard,
         maxResourceCount: [3, 10, 30],
+        agentId: 'leadBrandingAgent',
+        requiredPredicates: [],
+        defaultPredicates: {}
     },
 };

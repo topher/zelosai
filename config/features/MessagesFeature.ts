@@ -16,12 +16,6 @@ export const messagesFeature: Feature = {
             size: Yup.number().required('Attachment size is required'),
         })),
     }),
-    fields: [
-        { name: 'content', label: 'Content', type: 'textarea', required: true },
-        { name: 'recipientId', label: 'Recipient ID', type: 'text', required: true },
-        { name: 'messageType', label: 'Message Type', type: 'text', required: true },
-        { name: 'attachments', label: 'Attachments', type: 'autocomplete', required: true },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadMessage,
@@ -62,5 +56,13 @@ export const messagesFeature: Feature = {
         resourceName: 'messages',
         resourceType: ResourceType.Message,
         maxResourceCount: [3, 100, 100],
+        agentId: 'leadMessagesAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "content": "required",
+              "recipient_id": "required",
+              "message_type": "required",
+              "attachments": "required"
+            }
     },
 };

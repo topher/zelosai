@@ -20,19 +20,6 @@ export const connectorsFeature: Feature = {
             whitelist: Yup.array().of(Yup.string()),
         }),
     }),
-    fields: [
-        { name: 'name', label: 'Name', type: 'text', required: true },
-        { name: 'description', label: 'Description', type: 'textarea', required: true },
-        { name: 'icon', label: 'Icon', type: 'text', required: true },
-        { name: 'connectionType', label: 'Connection Type', type: 'text', required: true },
-        { name: 'disabled', label: 'Disabled', type: 'checkbox' },
-        { name: 'metadata.email', label: 'Email', type: 'text', required: false },
-        { name: 'metadata.api_key', label: 'API Key', type: 'text', required: false },
-        { name: 'metadata.username', label: 'Username', type: 'text', required: false },
-        { name: 'metadata.password', label: 'Password', type: 'text', required: false },
-        { name: 'metadata.shop_name', label: 'Shop Name', type: 'text', required: false },
-        { name: 'metadata.whitelist', label: 'Whitelist', type: 'autocomplete', required: false },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadConnector,
@@ -73,5 +60,20 @@ export const connectorsFeature: Feature = {
         resourceName: 'connectors',
         resourceType: ResourceType.DataConnector,
         maxResourceCount: [1, 5, 15],
+        agentId: 'leadConnectorsAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "name": "required",
+              "description": "required",
+              "icon": "required",
+              "connection_type": "required",
+              "disabled": "allowed",
+              "metadata.email": "allowed",
+              "metadata.api_key": "allowed",
+              "metadata.username": "allowed",
+              "metadata.password": "allowed",
+              "metadata.shop_name": "allowed",
+              "metadata.whitelist": "allowed"
+            }
     },
 };

@@ -28,7 +28,6 @@ const AgentsPage = () => {
     fetchData();
   }, []);
 
-
   // Handle creating a new agent (this could be hooked up to a form or modal)
   const handleCreateAgent = async (newAgentData: Agent) => {
     try {
@@ -51,39 +50,42 @@ const AgentsPage = () => {
 
   return (
     <StrategyLayout>
-    <div className="space-y-8 p-6">
-      <main className="flex-1 p-4">
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
-          {agents.map((agent: Agent, index: number) => (
-            <Card key={agent.id}>
-              <CardHeader>
-                <CardTitle>{agent.Name}</CardTitle>
-                <CardDescription>{agent.Description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <img src={agent.Image} alt={agent.Name} className="w-full h-auto rounded-md" />
-                <p className="mt-4 text-sm">{agent.Type}</p>
-                <p className="mt-2 text-sm font-semibold">Associated Use Cases:</p>
-                <ul className="list-disc ml-4">
-                  {agent.expertiseAreas.map((area, idx) => (
-                    <li key={idx} className="text-sm">{area}</li>
-                  ))}
-                </ul>
-                {/* Example delete button */}
-                <button
-                  onClick={() => handleDeleteAgent(agent.id)}
-                  className="mt-4 bg-red-500 text-white px-2 py-1 rounded"
-                >
-                  Delete Agent
-                </button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </main>
-    </div>
-  </StrategyLayout>
+      <div className="space-y-8 p-6">
+        <main className="flex-1 p-4">
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
+            {agents.map((agent: Agent) => (
+              <Card key={agent.id}>
+                <CardHeader>
+                  <CardTitle>{agent.name}</CardTitle>
+                  <CardDescription>{agent.availabilityStatus}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <img
+                    src={`/${agent.image}`} // Render agent photo
+                    alt={agent.name}
+                    className="w-full h-auto rounded-md"
+                  />
+                  <p className="mt-4 text-sm">{agent.agentType}</p>
+                  <p className="mt-2 text-sm font-semibold">Expertise Areas:</p>
+                  <ul className="list-disc ml-4">
+                    {agent.expertiseAreas.map((area, idx) => (
+                      <li key={idx} className="text-sm">{area}</li>
+                    ))}
+                  </ul>
+                  <button
+                    onClick={() => handleDeleteAgent(agent.id)}
+                    className="mt-4 bg-blue-500 text-white px-2 py-1 rounded"
+                  >
+                    Chat
+                  </button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </main>
+      </div>
+    </StrategyLayout>
   );
-}
+};
 
 export default AgentsPage;

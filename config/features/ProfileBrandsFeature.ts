@@ -8,12 +8,6 @@ export const profileBrandsFeature: Feature = {
     schema: Yup.object().shape({
         // Define the schema for profile brands
     }),
-    fields: [
-        { name: 'BrandName', label: 'Brand Name', type: 'text', required: true },
-        { name: 'Description', label: 'Description', type: 'textarea', required: true },
-        { name: 'Logo', label: 'Logo', type: 'text', required: true },
-        // Add more fields as needed
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadProfileBrand,
@@ -54,5 +48,30 @@ export const profileBrandsFeature: Feature = {
         resourceName: 'profile_brands',
         resourceType: ResourceType.ProfileBrand,
         maxResourceCount: [10, 100, 1000],
+        agentId: 'leadProfileBrandsAgent',
+        requiredPredicates: [
+              "has_name",
+              "has_short_name",
+              "has_description",
+              "mission_vision",
+              "sponsorship_activities",
+              "channels",
+              "primary_industry",
+              "secondary_industry",
+              "regions",
+              "audience_lifestyle",
+              "key_partners",
+              "key_activities",
+              "value_propositions",
+              "customer_relationships",
+              "customer_segments",
+              "cost_structure",
+              "revenue_streams"
+            ],
+        defaultPredicates: {
+              "brand_name": "required",
+              "description": "required",
+              "logo": "required"
+            }
     },
 };

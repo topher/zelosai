@@ -92,5 +92,8 @@ export const profileContractsFeature: Feature = {
         resourceName: 'profile_contracts',
         resourceType: ResourceType.ProfileContract,
         maxResourceCount: [10, 100, 1000],
+        agentId: 'leadProfileContractsAgent',
+        requiredPredicates: [],
+        defaultPredicates: {}
     },
 };

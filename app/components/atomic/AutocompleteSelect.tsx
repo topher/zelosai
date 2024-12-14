@@ -6,6 +6,8 @@ import { Predicate } from "@/app/types";
 import { predicates } from "@/config/predicates";
 import { LucideIcon } from "lucide-react";
 import { profileTypeToResourceType } from "@/utils/profileTypeToResourceType";
+import { getIconComponent } from '@/utils/getIconComponent';
+import { searchPredicates } from '@/lib/predicateService';
 
 interface AutocompleteSelectProps {
   multiple: boolean;
@@ -57,29 +59,8 @@ const AutocompleteSelect = forwardRef<
         debounce(async (query: string) => {
           setLoading(true);
           try {
-            let url = `/api/resource/predicate`;
-            const params = new URLSearchParams();
-            if (resourceType) {
-              params.append(
-                "applicableSubjectResourceType",
-                resourceType
-              );
-            }
-            if (query) {
-              params.append("q", query);
-            }
-            url += `?${params.toString()}`;
-
-            const response = await fetch(url);
-
-            if (response.ok) {
-              const data = await response.json();
-              setOptions(data.resources);
-            } else {
-              const errorData = await response.json();
-              console.error("Failed to fetch predicates:", errorData.error);
-              toast.error(errorData.error || "Failed to fetch predicates.");
-            }
+            const options = await searchPredicates(query, resourceType);
+            setOptions(options);
           } catch (error) {
             console.error("Error fetching predicates:", error);
             toast.error("An unexpected error occurred.");
@@ -152,9 +133,8 @@ const AutocompleteSelect = forwardRef<
     };
 
     const renderOption = (option: Predicate) => {
-      const IconComponent: LucideIcon | undefined =
-        typeof option.icon === 'function' ? option.icon : undefined;
-
+      const IconComponent = getIconComponent(option.icon);
+    
       return (
         <li
           key={option.id}

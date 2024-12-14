@@ -15,19 +15,6 @@ export const workflowsFeature: Feature = {
             params: Yup.object(),
         })).required('Stages are required'),
     }),
-    fields: [
-        { name: 'name', label: 'Name', type: 'text', required: true },
-        { name: 'description', label: 'Description', type: 'textarea', required: true },
-        { name: 'creator', label: 'Creator', type: 'text', required: true },
-        {
-            name: 'stages',
-            label: 'Stages',
-            type: 'autocomplete',
-            resourceTypes: ['workflowStages'],
-            multiple: true,
-            required: true,
-        },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadWorkflow,
@@ -68,5 +55,13 @@ export const workflowsFeature: Feature = {
         resourceName: 'workflows',
         resourceType: ResourceType.Workflow,
         maxResourceCount: [0, 10, 100],
+        agentId: 'leadWorkflowsAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "name": "required",
+              "description": "required",
+              "creator": "required",
+              "stages": "required"
+            }
     },
 };

@@ -20,21 +20,6 @@ export const offersFeature: Feature = {
         termsOfService: Yup.string(),
         status: Yup.string().required('Status is required'),
     }),
-    fields: [
-        { name: 'name', label: 'Name', type: 'text', required: true },
-        { name: 'description', label: 'Description', type: 'textarea', required: true },
-        { name: 'price', label: 'Price', type: 'number', required: true },
-        { name: 'priceCurrency', label: 'Price Currency', type: 'text', required: true },
-        { name: 'availability', label: 'Availability', type: 'text', required: true },
-        { name: 'validFrom', label: 'Valid From', type: 'text', required: true },
-        { name: 'validThrough', label: 'Valid Through', type: 'text', required: true },
-        { name: 'itemOffered', label: 'Item Offered', type: 'text', required: true },
-        { name: 'sellerId', label: 'Seller ID', type: 'text', required: true },
-        { name: 'buyerId', label: 'Buyer ID', type: 'text' },
-        { name: 'offerType', label: 'Offer Type', type: 'text' },
-        { name: 'termsOfService', label: 'Terms of Service', type: 'text' },
-        { name: 'status', label: 'Status', type: 'text', required: true },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadOffer,
@@ -75,5 +60,22 @@ export const offersFeature: Feature = {
         resourceName: 'offers',
         resourceType: ResourceType.Offer,
         maxResourceCount: [3, 100, 100],
+        agentId: 'leadOffersAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "name": "required",
+              "description": "required",
+              "price": "required",
+              "price_currency": "required",
+              "availability": "required",
+              "valid_from": "required",
+              "valid_through": "required",
+              "item_offered": "required",
+              "seller_id": "required",
+              "buyer_id": "allowed",
+              "offer_type": "allowed",
+              "terms_of_service": "allowed",
+              "status": "required"
+            }
     },
 };

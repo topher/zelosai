@@ -27,35 +27,49 @@ const ListingPage = ({ params }: ListingPageProps) => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        // Construct the resourceName based on profileType
-        const resourceName = `${profileType}s_triples`; // e.g., 'user_triples', 'athlete_triples', 'brand_triples'
-
-        const res = await fetch(`/api/resource/${resourceName}/${profileId}`, {
-          method: 'GET',
+        // Adjust endpoint based on profileType
+        const resourceName =
+          profileType === "athlete"
+            ? `${profileType}s_triples` // Add 's' for plural
+            : `${profileType}_triples`;
+  
+        const endpoint = `/api/resource/${resourceName}/${profileId}`;
+        console.log("Fetching profile from:", endpoint);
+  
+        const res = await fetch(endpoint, {
+          method: "GET",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         });
-
+  
         if (!res.ok) {
           const errorData = await res.json();
-          setError(errorData.message || 'Failed to fetch profile.');
+          console.error("Error response from API:", errorData);
+          setError(errorData.message || "Failed to fetch profile.");
           return;
         }
-
+  
         const data: SubjectProfileType = await res.json();
-        console.log('Profile Data:', data);
+        console.log("Fetched Profile Data:", data);
+  
+        if (!data || !data.triples) {
+          setError("Invalid profile data received from API.");
+          return;
+        }
+  
         setResource(data);
       } catch (err: any) {
-        console.error('Error fetching profile:', err);
-        setError('Failed to fetch profile');
+        console.error("Error during fetchProfile:", err);
+        setError("Failed to fetch profile.");
       } finally {
         setLoading(false);
       }
     };
-
+  
     fetchProfile();
   }, [profileType, profileId]);
+  
 
   if (loading) {
     return (

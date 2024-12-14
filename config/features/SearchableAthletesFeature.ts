@@ -8,9 +8,6 @@ export const searchableAthletesFeature: Feature = {
     schema: Yup.object().shape({
         // Define the schema for athlete profiles
     }),
-    fields: [
-        // Define fields for athlete profiles
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadSearchableAthlete,
@@ -51,5 +48,8 @@ export const searchableAthletesFeature: Feature = {
         resourceName: 'athletes_triple',
         resourceType: ResourceType.SearchableAthlete,
         maxResourceCount: [100, 1000, 10000],
+        agentId: 'leadSearchableAthletesAgent',
+        requiredPredicates: [],
+        defaultPredicates: {}
     },
 };

@@ -21,27 +21,6 @@ export const modelsFeature: Feature = {
             layers: Yup.array().of(Yup.number()).required('Layers are required'),
         }),
     }),
-    fields: [
-        { name: 'modelName', label: 'Model Name', type: 'text', required: true },
-        { name: 'description', label: 'Description', type: 'textarea', required: true },
-        { name: 'trainingDataSources', label: 'Training Data Sources', type: 'autocomplete', multiple: true, required: true },
-        { name: 'trainingStatus', label: 'Training Status', type: 'text', required: true },
-        { name: 'accuracy', label: 'Accuracy', type: 'number', required: true },
-        { name: 'lastTrainedAt', label: 'Last Trained At', type: 'text', required: true },
-        { name: 'relatedModels', label: 'Related Models', type: 'autocomplete', multiple: true },
-        {
-            name: 'parameters',
-            label: 'Parameters',
-            type: 'object',
-            fields: [
-                { name: 'epochs', label: 'Epochs', type: 'number', required: true },
-                { name: 'learningRate', label: 'Learning Rate', type: 'number', required: true },
-                { name: 'batchSize', label: 'Batch Size', type: 'number', required: true },
-                { name: 'optimizer', label: 'Optimizer', type: 'text', required: true },
-                { name: 'layers', label: 'Layers', type: 'text', required: true },
-            ],
-        },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadModel,
@@ -82,5 +61,17 @@ export const modelsFeature: Feature = {
         resourceName: 'complete_trained_models',
         resourceType: ResourceType.AIModel,
         maxResourceCount: [10, 100, 1000],
+        agentId: 'leadModelsAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "model_name": "required",
+              "description": "required",
+              "training_data_sources": "required",
+              "training_status": "required",
+              "accuracy": "required",
+              "last_trained_at": "required",
+              "related_models": "allowed",
+              "parameters": "allowed"
+            }
     },
 };

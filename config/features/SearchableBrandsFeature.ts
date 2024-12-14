@@ -8,9 +8,6 @@ export const searchableBrandsFeature: Feature = {
     schema: Yup.object().shape({
         // Define the schema for searchable brands feature
     }),
-    fields: [
-        // Define fields for searchable brands feature
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadSearchableBrand,
@@ -51,5 +48,8 @@ export const searchableBrandsFeature: Feature = {
         resourceName: 'brands_triples',
         resourceType: ResourceType.SearchableBrand,
         maxResourceCount: [100, 1000, 10000],
+        agentId: 'leadSearchableBrandsAgent',
+        requiredPredicates: [],
+        defaultPredicates: {}
     },
 };

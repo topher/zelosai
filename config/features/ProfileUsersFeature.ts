@@ -8,11 +8,6 @@ export const profileUsersFeature: Feature = {
     schema: Yup.object().shape({
         // Define the schema for profile users
     }),
-    fields: [
-        { name: 'Field1', label: 'Field 1', type: 'text', required: true },
-        { name: 'Field2', label: 'Field 2', type: 'textarea', required: true },
-        // Add more field configurations as needed
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadProfileUser,
@@ -53,5 +48,23 @@ export const profileUsersFeature: Feature = {
         resourceName: 'users_triples',
         resourceType: ResourceType.ProfileUser,
         maxResourceCount: [0, 100, 1000],
+        agentId: 'leadProfileUsersAgent',
+        requiredPredicates: [
+              "has_name",
+              "has_occupation",
+              "has_family",
+              "speaks_language",
+              "has_award",
+              "has_achievements",
+              "has_description",
+              "has_reason",
+              "has_ambition",
+              "has_influence",
+              "has_interest"
+            ],
+        defaultPredicates: {
+              "field1": "required",
+              "field2": "required"
+            }
     },
 };

@@ -5,14 +5,14 @@
 import React, { useEffect, useState } from "react";
 import {
   useForm,
-  Controller,
   SubmitHandler,
+  Controller,
 } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-hot-toast";
 import { useFeatureAccess } from "@/hooks/useFeatureAccess";
 import { features } from "@/config/features";
-import { FeatureKey, FieldConfig, Feature } from "@/config/featuresConfig";
+import { FeatureKey, Feature } from "@/config/featuresConfig";
 import { getFeatureKeyFromResourceType } from "@/lib/featureUtils";
 import { Button } from "@/components/ui/button";
 import Input from "@/app/components/atomic/atoms/Input";
@@ -27,11 +27,18 @@ import {
 } from "@/components/ui/dialog";
 import { Pencil, Trash } from "lucide-react";
 import { ResourceType } from "@/config/resourceTypes";
-import { Triple, FormFieldName, Predicate } from "@/app/types"; // ✅ Import Predicate
+import { Triple, Predicate } from "@/app/types"; // ✅ Import Predicate
 import TripleCardObject from "../../organisms/cards/triple-cards/TripleCardObject";
 import { TripleModal } from "@/app/components/atomic/ttemplates/modals/TripleModal"; // 🔧 Corrected the path
 import { predicates } from "@/config/predicates"; // ✅ Correct path
 import { profileTypeToResourceType } from "@/utils/profileTypeToResourceType";
+import * as resourceConfigs from '@/config/resources'; // Import all resource configs
+import { searchPredicates } from "@/lib/predicateService";
+
+// Define the type of resourceConfigs for TypeScript
+interface ResourceConfigs {
+  [key: string]: any; // Replace 'any' with a specific type if available
+}
 
 export interface DynamicResourceModalProps {
   isOpen: boolean;
@@ -54,6 +61,8 @@ interface FormData {
   [key: string]: any;
 }
 
+type PredicatesMap = Record<string, Predicate>;
+
 const DynamicResourceModal: React.FC<DynamicResourceModalProps> = ({
   isOpen,
   onClose,
@@ -63,7 +72,27 @@ const DynamicResourceModal: React.FC<DynamicResourceModalProps> = ({
   initialData,
   onSuccess,
 }) => {
+  const [predicates, setPredicates] = useState<PredicatesMap>({});
+
   console.log("DynamicResourceModal Props:", { isOpen, resourceType, action, resourceId, initialData });
+  // 0. fetchPredicates
+  useEffect(() => {
+    const fetchPredicates = async () => {
+      if (!resourceType) {
+        console.error('ResourceType is required!');
+        return;
+      }
+      try {
+        const fetchedPredicates = await searchPredicates('', resourceType);
+        // Handle predicates
+      } catch (error) {
+        console.error('Error fetching predicates:', error);
+      }
+    };
+  
+    fetchPredicates();
+  }, [resourceType]);
+  
 
   // 1. Retrieve the FeatureKey based on ResourceType
   const featureKey = getFeatureKeyFromResourceType(resourceType);
@@ -81,7 +110,16 @@ const DynamicResourceModal: React.FC<DynamicResourceModalProps> = ({
     return null;
   }
 
-  // 3. Initialize react-hook-form with Yup resolver imported from features 🚀
+  // 3. Map resourceType to resourceConfig using resourceConfigs imported via index.ts
+  const resourceConfigKey = `${resourceType}Resource`;
+  const resourceConfig: any = (resourceConfigs as ResourceConfigs)[resourceConfigKey];
+
+  if (!resourceConfig) {
+    console.error(`Resource config not found for ResourceType: ${resourceType}`);
+    return null;
+  }
+
+  // 4. Initialize react-hook-form with Yup resolver imported from resourceConfig
   const {
     register,
     handleSubmit,
@@ -89,47 +127,28 @@ const DynamicResourceModal: React.FC<DynamicResourceModalProps> = ({
     reset,
     watch,
     formState: { errors },
-  } = useForm<FormData>({
-    resolver: yupResolver(feature.schema), // 🛠️ Imported schema
-    defaultValues: initialData || {
-      subject: "",
-      predicate: "",
-      object: "",
-      citation: "",
-      visibility: "public",
-      profileId: "",
-      type: "",
-    },
+  } = useForm<any>({
+    resolver: yupResolver(resourceConfig.schema), // 🛠️ Imported schema
+    defaultValues: initialData || {},
   });
 
-  // 4. Reset form when initialData changes
+  // 5. Reset form when initialData changes
   useEffect(() => {
     console.log("DynamicResourceModal useEffect: resetting form with initialData:", initialData);
-    reset(initialData || {
-      subject: "",
-      predicate: "",
-      object: "",
-      citation: "",
-      visibility: "public",
-      profileId: "",
-      type: "",
-    });
+    reset(initialData || {});
   }, [initialData, reset]);
 
-  // 5. Local State for Loading and API Errors
+  // 6. Local State for Loading and API Errors
   const [loading, setLoading] = useState(false);
   const [apiError, setApiError] = useState<string | null>(null);
 
-  // State to keep track of which field is set to multiple
-  const [multipleField, setMultipleField] = useState<"predicate" | "object" | null>(null);
-
-  const router = useRouter();
-
-  // 6. Use the custom hook for feature access
+  // 7. Use the custom hook for feature access
   const { isFeatureAllowed, performAction, subscription } = useFeatureAccess();
 
-  // 7. State to manage existing triples
+  // 8. State to manage existing triples
   const [existingTriples, setExistingTriples] = useState<Triple[]>([]);
+
+  const router = useRouter();
 
   useEffect(() => {
     if ((action === "read" || action === "update") && resourceId) {
@@ -139,6 +158,7 @@ const DynamicResourceModal: React.FC<DynamicResourceModalProps> = ({
           const response = await fetch(`/api/resource/triples?subject=${resourceId}`); // 🔧 Adjusted endpoint
           if (response.ok) {
             const data = await response.json();
+            console.log(data, resourceId);
             setExistingTriples(data.resources);
           } else {
             console.error("Failed to fetch existing triples");
@@ -151,7 +171,7 @@ const DynamicResourceModal: React.FC<DynamicResourceModalProps> = ({
     }
   }, [action, resourceId, feature.metadata.resourceName]);
 
-  // 8. Define handleEditTriple function
+  // 9. Define handleEditTriple function
   const handleEditTriple = (triple: Triple): void => {
     // Open the TripleModal in 'update' mode with the selected triple's data
     setModalAction("update");
@@ -159,7 +179,7 @@ const DynamicResourceModal: React.FC<DynamicResourceModalProps> = ({
     setTripleModalOpen(true);
   };
 
-  // 9. Define handleDeleteTriple function
+  // 10. Define handleDeleteTriple function
   const handleDeleteTriple = async (tripleId: string): Promise<void> => {
     if (confirm("Are you sure you want to delete this triple?")) {
       try {
@@ -187,12 +207,12 @@ const DynamicResourceModal: React.FC<DynamicResourceModalProps> = ({
     }
   };
 
-  // 10. State to manage modal for editing/creating triples
+  // 11. State to manage modal for editing/creating triples
   const [isTripleModalOpen, setTripleModalOpen] = useState(false);
   const [modalAction, setModalAction] = useState<"create" | "update">("create");
   const [selectedTriple, setSelectedTriple] = useState<Triple | null>(null);
 
-  // 11. Handle Form Submission
+  // 12. Handle Form Submission
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     setLoading(true);
     setApiError(null);
@@ -298,8 +318,7 @@ const DynamicResourceModal: React.FC<DynamicResourceModalProps> = ({
     }
   };
 
-  // 12. Function to determine object field type based on selected predicates
-  // Updated code to fix Error 2
+  // 13. Function to determine object field type based on selected predicates
   const predicateValue = watch("predicate");
 
   const selectedPredicates: string[] = [];
@@ -317,7 +336,7 @@ const DynamicResourceModal: React.FC<DynamicResourceModalProps> = ({
   const firstPredicate: Predicate | undefined = predicates[firstPredicateId];
 
   const determineObjectFieldType = (): {
-    type: "text" | "number" | "date" | "enum" | "reference";
+    type: "text" |  "checkbox" | "number" | "date" | "enum" | "reference";
     enumOptions?: string[];
     referenceResourceTypes?: ResourceType[];
   } => {
@@ -329,38 +348,45 @@ const DynamicResourceModal: React.FC<DynamicResourceModalProps> = ({
     const firstPredicate: Predicate | undefined = predicates[firstPredicateId];
 
     if (firstPredicate) {
-      // Map ResourceType to input type
-      const objectType = (() => {
-        const type = firstPredicate.applicableObjectResourceTypes[0];
-        switch (type) {
-          case ResourceType.ScalarString:
-            return "text";
-          case ResourceType.Goal:
-          case ResourceType.Task:
-            return "reference";
-          case ResourceType.ScalarEnum: // Replace with actual enum type if applicable
-            return "enum";
-          // Add other cases as needed
-          default:
-            return "text";
-        }
-      })();
+      // Map applicableObjectResourceTypes to input types
+      const objectType = firstPredicate.applicableObjectResourceTypes[0];
+      let determinedType: "text" | "checkbox" | "number" | "date" | "enum" | "reference" = "text";
+      let enumOptions: string[] | undefined;
+      let referenceResourceTypes: ResourceType[] | undefined;
 
-      if (objectType === "enum" && firstPredicate.enumOptions) {
-        return { type: "enum", enumOptions: firstPredicate.enumOptions };
-      } else if (objectType === "reference" && firstPredicate.referenceResourceTypes) {
-        return {
-          type: "reference",
-          referenceResourceTypes: firstPredicate.referenceResourceTypes,
-        };
-      } else if (["text", "number", "date"].includes(objectType)) {
-        return { type: objectType as "text" | "number" | "date" };
-      } else {
-        console.warn(
-          `Unsupported object type: ${objectType}. Defaulting to 'text'.`
-        );
-        return { type: "text" };
+      switch (objectType) {
+        case 'ScalarString':
+          determinedType = "text";
+          break;
+        case 'ScalarInt':
+        case 'ScalarFloat':
+          determinedType = "number";
+          break;
+        case 'ScalarDate':
+          determinedType = "date";
+          break;
+        case 'ScalarBoolean':
+          determinedType = "checkbox";
+          break;
+        case 'ScalarEnum':
+          determinedType = "enum";
+          enumOptions = firstPredicate.enumOptions; // Ensure enumOptions exist in Predicate
+          break;
+        case 'Reference':
+          determinedType = "reference";
+          referenceResourceTypes = firstPredicate.referenceResourceTypes; // Ensure referenceResourceTypes exist in Predicate
+          break;
+        // Add other cases as needed
+        default:
+          determinedType = "text";
+          break;
       }
+
+      return {
+        type: determinedType,
+        enumOptions,
+        referenceResourceTypes,
+      };
     }
 
     return { type: "text" };
@@ -369,293 +395,128 @@ const DynamicResourceModal: React.FC<DynamicResourceModalProps> = ({
   const { type: objectFieldType, enumOptions, referenceResourceTypes } =
     determineObjectFieldType();
 
-  // 13. Render Form Fields Dynamically Based on Feature Configuration
+  // 14. Render Form Fields Dynamically Based on Feature Configuration
   const renderFormFields = () => {
-    const fields = feature.fields;
+    const { defaultPredicates } = resourceConfig; // resourceConfig is your resource definition
 
-    return fields.map((field: FieldConfig) => {
-      let {
-        name,
-        label,
-        type,
-        required,
-        resourceTypes,
-        multiple,
-        options,
-        placeholder,
-        fetchPredicates,
-      } = field;
+    return Object.entries(defaultPredicates).map(([predicateKey, status]) => {
+      const predicateConfig = predicates[predicateKey];
 
-      // Cast name to FormFieldName
-      const fieldName = name as FormFieldName;
-
-      // Determine if this field should be multiple
-      if (fieldName === "predicate") {
-        multiple = multipleField === "predicate";
-      } else if (fieldName === "object") {
-        multiple = multipleField === "object";
+      if (!predicateConfig) {
+        console.warn(`Predicate "${predicateKey}" not found in predicates. Skipping.`);
+        return null;
       }
 
-      // Limit selection to a maximum of 3
-      const maxSelection = 3;
+      const fieldLabel = predicateConfig.label || predicateKey;
+      const isRequired = status === 'required';
+      const isProhibited = status === 'prohibited';
 
-      // Access errors using fieldName
-      const fieldError = errors[fieldName]?.message;
-
-      // Render based on field type
-      switch (type) {
-        case "autocomplete":
-          return (
-            <div key={fieldName} className="mb-4">
-              <label
-                htmlFor={fieldName}
-                className="block font-medium mb-1 text-gray-700"
-              >
-                {label}
-                {required && <span className="text-red-500"> *</span>}
-              </label>
-              <Controller
-                name={fieldName}
-                control={control}
-                render={({ field }) => (
-                  <AutocompleteSelect
-                    value={field.value as string | string[]}
-                    onChange={(value) => {
-                      field.onChange(value);
-                      // Update multipleField state
-                      if (Array.isArray(value) && value.length > 1) {
-                        setMultipleField(fieldName as "predicate" | "object");
-                      } else if (Array.isArray(value) && value.length <= 1) {
-                        setMultipleField(null);
-                      }
-                    }}
-                    onBlur={field.onBlur} // Ensure AutocompleteSelect accepts onBlur
-                    name={field.name}     // Ensure AutocompleteSelect accepts name
-                    multiple={multiple || false}
-                    resourceTypes={resourceTypes || []}
-                    placeholder={placeholder || `Select ${label}`}
-                    disabled={action === "read"}
-                    fetchPredicates={fetchPredicates || false}
-                    maxSelection={multiple ? 3 : undefined}
-                  />
-                )}
-              />
-
-              {fieldError && (
-                <p className="text-red-500 text-sm mt-1">
-                  {String(fieldError)}
-                </p>
-              )}
-            </div>
-          );
-        case "select":
-          if (fieldName === "object" && objectFieldType === "enum" && Array.isArray(enumOptions)) {
-            return (
-              <div key={fieldName} className="mb-4">
-                <label
-                  htmlFor={fieldName}
-                  className="block font-medium mb-1 text-gray-700"
-                >
-                  {label}
-                  {required && <span className="text-red-500"> *</span>}
-                </label>
-                <select
-                  id={fieldName}
-                  {...register(fieldName)}
-                  disabled={action === "read"}
-                  className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                    errors[fieldName] ? "border-red-500" : "border-gray-300"
-                  }`}
-                >
-                  <option value="">Select {label}</option>
-                  {enumOptions.map((option: string) => (
-                    <option key={option} value={option}>
-                      {option.charAt(0).toUpperCase() + option.slice(1)}
-                    </option>
-                  ))}
-                </select>
-                {fieldError && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {String(fieldError)}
-                  </p>
-                )}
-              </div>
-            );
-          }
-
-          if (
-            fieldName === "object" &&
-            objectFieldType === "reference" &&
-            Array.isArray(referenceResourceTypes) &&
-            referenceResourceTypes.length > 0
-          ) {
-            return (
-              <div key={fieldName} className="mb-4">
-                <label
-                  htmlFor={fieldName}
-                  className="block font-medium mb-1 text-gray-700"
-                >
-                  {label}
-                  {required && <span className="text-red-500"> *</span>}
-                </label>
-                <Controller
-                  name={fieldName}
-                  control={control}
-                  render={({ field }) => (
-                    <AutocompleteSelect
-                      value={field.value as string | string[]}
-                      onChange={(value) => {
-                        field.onChange(value);
-                        // Update multipleField state
-                        if (Array.isArray(value) && value.length > 1) {
-                          setMultipleField(fieldName as "predicate" | "object");
-                        } else if (Array.isArray(value) && value.length <= 1) {
-                          setMultipleField(null);
-                        }
-                      }}
-                      onBlur={field.onBlur}
-                      name={field.name}
-                      multiple={multiple || false}
-                      resourceTypes={resourceTypes || []}
-                      placeholder={placeholder || `Select ${label}`}
-                      disabled={action === "read"}
-                      fetchPredicates={fetchPredicates || false}
-                      maxSelection={multiple ? 3 : undefined}
-                    />
-                  )}
-                />
-
-                {fieldError && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {String(fieldError)}
-                  </p>
-                )}
-              </div>
-            );
-          }
-
-          // Generic select handling for other fields
-          return (
-            <div key={fieldName} className="mb-4">
-              <label
-                htmlFor={fieldName}
-                className="block font-medium mb-1 text-gray-700"
-              >
-                {label}
-                {required && <span className="text-red-500"> *</span>}
-              </label>
-              <select
-                id={fieldName}
-                {...register(fieldName)}
-                disabled={action === "read"}
-                className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                  errors[fieldName] ? "border-red-500" : "border-gray-300"
-                }`}
-              >
-                <option value="">Select {label}</option>
-                {options?.map((option: any) =>
-                  typeof option === "string" ? (
-                    <option key={option} value={option}>
-                      {option.charAt(0).toUpperCase() + option.slice(1)}
-                    </option>
-                  ) : (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  )
-                )}
-              </select>
-              {fieldError && (
-                <p className="text-red-500 text-sm mt-1">
-                  {String(fieldError)}
-                </p>
-              )}
-            </div>
-          );
-
-        case "textarea":
-          return (
-            <div key={fieldName} className="mb-4">
-              <label
-                htmlFor={fieldName}
-                className="block font-medium mb-1 text-gray-700"
-              >
-                {label}
-                {required && <span className="text-red-500"> *</span>}
-              </label>
-              <textarea
-                {...register(fieldName)}
-                id={fieldName}
-                placeholder={placeholder || label}
-                disabled={action === "read"}
-                className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                  errors[fieldName] ? "border-red-500" : "border-gray-300"
-                }`}
-              />
-              {fieldError && (
-                <p className="text-red-500 text-sm mt-1">
-                  {String(fieldError)}
-                </p>
-              )}
-            </div>
-          );
-
-        case "checkbox":
-          return (
-            <div key={fieldName} className="mb-4 flex items-center">
-              <input
-                {...register(fieldName)}
-                type="checkbox"
-                id={fieldName}
-                disabled={action === "read"}
-                className="mr-2 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-              />
-              <label htmlFor={fieldName} className="block font-medium text-gray-700">
-                {label}
-              </label>
-              {fieldError && (
-                <p className="text-red-500 text-sm mt-1">
-                  {String(fieldError)}
-                </p>
-              )}
-            </div>
-          );
-
-        // Add more cases for different field types as needed
-
-        default:
-          return (
-            <div key={fieldName} className="mb-4">
-              <label
-                htmlFor={fieldName}
-                className="block font-medium mb-1 text-gray-700"
-              >
-                {label}
-                {required && <span className="text-red-500"> *</span>}
-              </label>
-              <Input
-                {...register(fieldName)}
-                id={fieldName}
-                type={type}
-                placeholder={placeholder || label}
-                disabled={action === "read"}
-                required={required}
-                className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                  errors[fieldName] ? "border-red-500" : "border-gray-300"
-                }`}
-              />
-              {fieldError && (
-                <p className="text-red-500 text-sm mt-1">
-                  {String(fieldError)}
-                </p>
-              )}
-            </div>
-          );
+      if (isProhibited) {
+        // Do not render a form field for prohibited predicates
+        return null;
       }
+
+      // Determine the field type based on predicateConfig
+      let fieldType = 'text'; // Default to 'text', adjust based on predicateConfig
+
+      // Map applicableObjectResourceTypes to input types
+      const objectTypes = predicateConfig.applicableObjectResourceTypes;
+      if (objectTypes.includes(ResourceType.ScalarString)) {
+        fieldType = 'text';
+      } else if (objectTypes.includes(ResourceType.ScalarInt) || objectTypes.includes(ResourceType.ScalarFloat)) {
+        fieldType = 'number';
+      } else if (objectTypes.includes(ResourceType.ScalarBoolean)) {
+        fieldType = 'checkbox';
+      } else if (objectTypes.includes(ResourceType.ScalarDate)) {
+        fieldType = 'date';
+      } else if (objectTypes.includes(ResourceType.ScalarEnum)) {
+        fieldType = 'select';
+      } else if (objectTypes.includes(ResourceType.Reference)) {
+        fieldType = 'autocomplete'; // Assuming AutocompleteSelect handles references
+      }
+
+      // Render the form field based on fieldType
+      let inputElement = null;
+
+      if (fieldType === 'select' && enumOptions) {
+        inputElement = (
+          <select
+            {...register(predicateKey)}
+            id={predicateKey}
+            disabled={action === 'read'}
+            required={isRequired}
+            className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+              errors[predicateKey] ? 'border-red-500' : 'border-gray-300'
+            }`}
+          >
+            <option value="">Select {fieldLabel}</option>
+            {enumOptions.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        );
+      } else if (fieldType === 'autocomplete' && referenceResourceTypes) {
+        inputElement = (
+          <Controller
+            control={control}
+            name={predicateKey}
+            render={({ field }) => (
+            <AutocompleteSelect
+              fetchPredicates={true} {...field}
+              resourceTypes={referenceResourceTypes} // Swapped from 'options' to 'resourceTypes'
+              placeholder={`Select ${fieldLabel}`}
+              disabled={action === 'read'}
+              multiple={false} // Adjust based on requirements
+            />
+            )}
+          />
+        );
+      } else if (fieldType === 'checkbox') {
+        inputElement = (
+          <input
+            {...register(predicateKey)}
+            id={predicateKey}
+            type={fieldType}
+            disabled={action === 'read'}
+            className={`h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500`}
+          />
+        );
+      } else {
+        inputElement = (
+          <Input
+            {...register(predicateKey)}
+            id={predicateKey}
+            type={fieldType}
+            placeholder={`Enter ${fieldLabel}`}
+            disabled={action === 'read'}
+            required={isRequired}
+            className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+              errors[predicateKey] ? 'border-red-500' : 'border-gray-300'
+            }`}
+          />
+        );
+      }
+
+      return (
+        <div key={predicateKey} className="mb-4">
+          <label htmlFor={predicateKey} className="block font-medium mb-1 text-gray-700">
+            {fieldLabel}
+            {isRequired && <span className="text-red-500"> *</span>}
+          </label>
+          {inputElement}
+          {errors[predicateKey]?.message && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors[predicateKey]?.message as React.ReactNode}
+            </p>
+          )}
+        </div>
+      );
     });
   };
 
-  // 14. Render Existing Triples
+  // 15. Render Existing Triples
   const renderExistingTriples = () => {
     if (existingTriples.length === 0) {
       return <p>No existing triples for this resource.</p>;

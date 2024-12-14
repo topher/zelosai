@@ -8,9 +8,6 @@ export const searchableContractsFeature: Feature =     {
     schema: Yup.object().shape({
         // Define the schema for searchable contracts feature
     }),
-    fields: [
-        // Define fields for searchable contracts feature
-    ],
     metadata: {
       category: FeatureCategory.Search,
       icon: ClipboardList,
@@ -21,6 +18,9 @@ export const searchableContractsFeature: Feature =     {
       resourceName: 'contracts',
       resourceType: ResourceType.SearchableContract,
       maxResourceCount: [100, 1000, 10000],
+        agentId: 'leadSearchableContractsAgent',
+        requiredPredicates: [],
+        defaultPredicates: {}
     },
     actions: [
       {

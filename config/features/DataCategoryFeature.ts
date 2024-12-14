@@ -8,9 +8,6 @@ export const termsFeature: Feature = {
     schema: Yup.object().shape({
         data_category: Yup.string().required('Data Category is required'),
     }),
-    fields: [
-        { name: 'data_category', label: 'Data Category', type: 'text', required: true },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadTerm,
@@ -51,5 +48,10 @@ export const termsFeature: Feature = {
         resourceName: 'data_category',
         resourceType: ResourceType.DataCategory,
         maxResourceCount: [0, 10, 100],
+        agentId: 'leadTermsAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "data_category": "required"
+            }
     },
 };

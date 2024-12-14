@@ -46,15 +46,6 @@ export const contractsFeature: Feature = {
         relatedOffers: Yup.array().of(Yup.string()),
         linkedTransactions: Yup.array().of(Yup.string()),
     }),
-    fields: [
-        { name: 'id', label: 'ID', type: 'text', required: true },
-        { name: 'accountId', label: 'Account ID', type: 'text', required: true },
-        { name: 'title', label: 'Title', type: 'text', required: true },
-        { name: 'effectiveDate', label: 'Effective Date', type: 'text', required: true },
-        { name: 'expirationDate', label: 'Expiration Date', type: 'text', required: true },
-        { name: 'status', label: 'Status', type: 'text', required: true },
-        // Add other fields as needed
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadContract,
@@ -95,5 +86,15 @@ export const contractsFeature: Feature = {
         resourceName: 'contracts',
         resourceType: ResourceType.Contract,
         maxResourceCount: [1, 5, 100],
+        agentId: 'leadContractsAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "id": "required",
+              "account_id": "required",
+              "title": "required",
+              "effective_date": "required",
+              "expiration_date": "required",
+              "status": "required"
+            }
     },
 };

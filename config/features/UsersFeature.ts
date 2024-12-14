@@ -13,20 +13,6 @@ export const searchableUsersFeature: Feature = {
         profileImage: Yup.string().url('Invalid URL format'),
         relatedContacts: Yup.array().of(Yup.string()),
     }),
-    fields: [
-        { name: 'username', label: 'Username', type: 'text', required: true },
-        { name: 'email', label: 'Email', type: 'text', required: true },
-        { name: 'role', label: 'Role', type: 'text', required: true },
-        { name: 'isActive', label: 'Is Active', type: 'checkbox' },
-        { name: 'profileImage', label: 'Profile Image', type: 'text' },
-        {
-            name: 'relatedContacts',
-            label: 'Related Contacts',
-            type: 'autocomplete',
-            resourceTypes: ['contacts'],
-            multiple: true,
-        },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadSearchableUser,
@@ -67,5 +53,8 @@ export const searchableUsersFeature: Feature = {
         resourceName: 'users',
         resourceType: ResourceType.SearchableUser,
         maxResourceCount: [0, 1000, 10000],
+        agentId: 'leadSearchableUsersAgent',
+        requiredPredicates: [],
+        defaultPredicates: {}
     },
 };

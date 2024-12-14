@@ -14,15 +14,6 @@ export const modelSubjectsFeature: Feature = {
         associatedPersonas: Yup.array().of(Yup.string()),
         linkedInfoAssets: Yup.array().of(Yup.string()),
     }),
-    fields: [
-        { name: 'subjectName', label: 'Subject Name', type: 'text', required: true },
-        { name: 'description', label: 'Description', type: 'textarea', required: true },
-        { name: 'expertiseLevel', label: 'Expertise Level', type: 'text', required: true },
-        { name: 'relatedModels', label: 'Related Models', type: 'autocomplete', resourceTypes: ['AI Models'], multiple: true, required: true },
-        { name: 'relatedTrainingIds', label: 'Related Training IDs', type: 'autocomplete', resourceTypes: ['Model Training'], multiple: true },
-        { name: 'associatedPersonas', label: 'Associated Personas', type: 'autocomplete', resourceTypes: ['Personas'], multiple: true },
-        { name: 'linkedInfoAssets', label: 'Linked Info Assets', type: 'autocomplete', resourceTypes: ['Info Assets'], multiple: true },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadModelSubject,
@@ -62,5 +53,16 @@ export const modelSubjectsFeature: Feature = {
         isInProd: true,
         resourceName: 'model_subjects',
         resourceType: ResourceType.ModelSubject,
+        agentId: 'leadModelSubjectsAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "subject_name": "required",
+              "description": "required",
+              "expertise_level": "required",
+              "related_models": "required",
+              "related_training_ids": "allowed",
+              "associated_personas": "allowed",
+              "linked_info_assets": "allowed"
+            }
     },
 };

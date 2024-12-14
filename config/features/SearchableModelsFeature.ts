@@ -7,9 +7,6 @@ export const searchableModelsFeature: Feature =     {
     schema: Yup.object().shape({
         // Define the schema for searchable feature
     }),
-    fields: [
-        // Define fields for searchable feature
-    ],
     key: FeatureKey.SearchableModels,
     metadata: {
       category: FeatureCategory.Search,
@@ -21,6 +18,9 @@ export const searchableModelsFeature: Feature =     {
       resourceName: 'complete_trained_models',
       resourceType: ResourceType.SearchableModel,
       maxResourceCount: [100, 1000, 10000],
+        agentId: 'leadSearchableModelsAgent',
+        requiredPredicates: [],
+        defaultPredicates: {}
     },
     actions: [
       {

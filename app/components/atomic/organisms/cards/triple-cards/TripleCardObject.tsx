@@ -140,6 +140,8 @@ const TripleCardObject: React.FC<TripleCardObjectProps> = ({
   const socialMediaIcon =
     predicate === "has_social_media" ? getSocialMediaIcon(object) : null;
 
+  console.log(predicate, "hiya")
+
   return (
     <>
       <div className={`${cardStyles} flex flex-col cursor-pointer`}>

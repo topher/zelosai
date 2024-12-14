@@ -246,6 +246,7 @@ export async function getAccessibleResources({
   size = 100,
   from = 0,
   userAttributes,
+  filters = {},
 }: {
   userId: string;
   action: string;
@@ -254,21 +255,51 @@ export async function getAccessibleResources({
   size?: number;
   from?: number;
   userAttributes: any;
-}): Promise<Message[]> { // Replace 'Message' with your actual type
+  filters?: { [key: string]: any };
+}): Promise<any[]> {
   const resourceType = mapResourceNameToType(resourceName);
   if (!resourceType) {
     throw new Error(`Unknown resource name: ${resourceName}`);
   }
 
-  // Build the access-controlled query, possibly incorporating 'query'
-  const constructedQuery = await buildAccessControlledQuery(userAttributes, action, resourceType);
+  // Get the access-controlled query
+  const accessControlledQuery = await buildAccessControlledQuery(userAttributes, action, resourceType);
+
+  // Ensure 'accessControlledQuery' is a 'bool' query
+  if (!accessControlledQuery.bool) {
+    throw new Error('Access controlled query is not a bool query');
+  }
+
+  // Prepare filter queries
+  const filterQueries = Object.entries(filters).map(([field, value]) => ({
+    term: { [field]: value },
+  }));
+
+  // Combine 'must' clauses
+  const combinedMust = [
+    ...(accessControlledQuery.bool.must || []),
+    ...filterQueries,
+  ];
+
+  // Build the final query
+  const finalQuery = {
+    bool: {
+      ...accessControlledQuery.bool,
+      must: combinedMust,
+    },
+  };
 
   try {
-    const response = await elasticsearchAxios.post(`/${resourceName.toLowerCase()}/_search`, {
-      query: constructedQuery,
-      size,
-      from, // Include 'from' for pagination
-    });
+    console.log("🏁 Final constructed query:", JSON.stringify(finalQuery, null, 2));
+
+    const response = await elasticsearchAxios.post(
+      `/${resourceName.toLowerCase()}/_search`,
+      {
+        query: finalQuery,
+        size,
+        from,
+      }
+    );
 
     if (!response.data || !response.data.hits) {
       console.error(`❌ No hits found for resources of type ${resourceType}`);
@@ -277,7 +308,11 @@ export async function getAccessibleResources({
 
     return response.data.hits.hits.map((hit: any) => hit._source) || [];
   } catch (error: any) {
-    console.error(`❌ Failed to fetch resources of type ${resourceType} from Elasticsearch:`, error.response?.data || error.message);
+    console.error(
+      `❌ Failed to fetch resources of type ${resourceType} from Elasticsearch:`,
+      error.response?.data || error.message
+    );
     return [];
   }
 }
+

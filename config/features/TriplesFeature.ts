@@ -33,52 +33,6 @@ export const triplesFeature: Feature = {
         return !(isPredicateMultiple && isObjectMultiple);
       }
     ),
-    fields: [
-      {
-        name: "subject",
-        label: "Subject",
-        type: "autocomplete",
-        required: true,
-        resourceTypes: ["ProfileUser", "ProfileBrand", "ProfileAthlete"],
-        multiple: false, // Single subject
-      },
-      {
-        name: "predicate",
-        label: "Predicate",
-        type: "autocomplete",
-        required: true,
-        fetchPredicates: true,
-        multiple: true, // Allow multiple predicates
-      },
-      {
-        name: "object",
-        label: "Object",
-        type: "autocomplete",
-        required: true,
-        resourceTypes: ["Goal", "Task"],
-        multiple: false, // Single object
-      },
-      {
-        name: 'citation',
-        label: 'Citation',
-        type: 'text',
-        required: false,
-      },
-      {
-        name: 'visibility',
-        label: 'Visibility',
-        type: 'select',
-        required: true,
-        options: ['public', 'private', 'restricted'],
-      },
-      {
-        name: 'profileId',
-        label: 'Profile',
-        type: 'autocomplete', // Assuming you have an autocomplete component to select profiles
-        required: true,
-        resourceTypes: ['ProfileUser', 'ProfileAthlete', 'ProfileBrand'],
-      },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadTriple,
@@ -118,5 +72,15 @@ export const triplesFeature: Feature = {
         resourceType: ResourceType.Triple,
         resourceName: 'triples',
         label: 'Triple',
+        agentId: 'leadTriplesAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "subject": "required",
+              "predicate": "required",
+              "object": "required",
+              "citation": "allowed",
+              "visibility": "required",
+              "profile_id": "required"
+            }
     }
 };

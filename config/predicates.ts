@@ -1,9 +1,98 @@
 // /config/predicatesConfig.ts
-
-import { Predicate } from "@/app/types";
-import { ResourceType } from "@/config/resourceTypes";
+// import { ResourceType } from "@/config/resourceTypes";
 import { LucideIcon, Link, Pen, Award, MapPin, Users, Briefcase, GroupIcon, Languages, UserPlus, Target, Heart, Trophy, Star, Info, Clock, TrendingUp, Activity, Smile, Eye, Gift, DollarSign, UserCheck, Globe } from 'lucide-react';
 
+export enum ResourceType {
+    UserAction = 'UserAction',
+    Recommendation = 'Recommendation',
+    Statistic = 'Statistic',
+    Alert = 'Alert',
+    Goal = 'Goal',
+    Persona = 'Persona',
+    StrategicIssue = 'StrategicIssue',
+    BusinessModelCard = 'BusinessModelCard',
+    BrandModelCard = 'BrandModelCard',
+    AIModel = 'AIModel',
+    ModelSubject = 'ModelSubject',
+    ModelTraining = 'ModelTraining',
+    UseCase = 'UseCase',
+    DataConnector = 'DataConnector',
+    Topic = 'Topic',
+    InfoAsset = 'InfoAsset',
+    Policy = 'Policy',
+    DataCategory = 'DataCategory',
+    Message = 'Message',
+    Offer = 'Offer',
+    ScheduledEvent = 'ScheduledEvent',
+    Transaction = 'Transaction',
+    Contract = 'Contract',
+    Workflow = 'Workflow',
+    Task = 'Task',
+    Agent = 'Agent',
+    ProfileAthlete = 'ProfileAthlete',
+    ProfileContract = 'ProfileContract',
+    ProfileModel = 'ProfileModel',
+    ProfileBrand = 'ProfileBrand',
+    ProfileUser = 'ProfileUser',
+    SearchableAthlete = 'SearchableAthlete',
+    SearchableContract = 'SearchableContract',
+    SearchableModel = 'SearchableModel',
+    SearchableBrand = 'SearchableBrand',
+    SearchableUser = 'SearchableUser',
+    Triple = "Triple",
+    ModelInference = "ModelInference",
+    scalarString = "scalarString",
+    ScalarString = 'ScalarString',
+    ScalarInt = 'ScalarInt',
+    ScalarFloat = 'ScalarFloat',
+    ScalarBoolean = 'ScalarBoolean',
+    ScalarDate = 'ScalarDate',     
+    ScalarEnum = "ScalarEnum",  
+    ProfileOrganization = "ProfileOrganization",
+    Interest = "Interest",
+    Industry = "Industry",
+    Reference = "Reference"
+  
+}
+
+export interface Resource {
+    id: string;                             // Unique identifier for the resource
+    accountId: string;                      // Account or organization ID the resource belongs to
+    resourceType: ResourceType | string;             // Type of the resource (enum)
+    ownerId: string;                        // User ID of the owner or creator
+    createdAt: Date;                        // Timestamp of creation
+    updatedAt?: Date;                       // Timestamp of the last update
+    tags?: string[];                        // Optional tags for categorization
+    visibility?: 'public' | 'private' | 'restricted'; // Access level
+    linkedResources?: {
+      [key in any]?: string[];
+    };
+    subjectId?: string;
+  }
+export interface Triple extends Resource {
+    subject: string;
+    predicate: string;
+    object: string;
+    citation?: string;
+    visibility: "public" | "private" | "restricted";
+    profileId: string;
+    type: string;
+  }
+  export type FormFieldName = keyof Triple;
+  
+  // /config/predicates.json
+  export interface Predicate extends Resource {
+    icon: string;
+    id: string;
+    description: string;
+    label: string;
+    synonyms: string[];
+    applicableSubjectResourceTypes: ResourceType[];
+    applicableObjectResourceTypes: ResourceType[];
+    enumOptions?: string[];
+    referenceResourceTypes?: ResourceType[];
+  }
+  
 // Mapping from your `predicate_mappings`
 export const predicates: { [key: string]: Predicate } = {
   represents_noc: {
@@ -11,7 +100,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Represents NOC",
       description: "The National Olympic Committee that the athlete represents.",
       synonyms: ["nationality", "country"],
-      icon: MapPin,
+      icon: "MapPin",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -24,7 +113,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Has Name",
       description: "The full name of the individual or brand.",
       synonyms: ["name", "full name"],
-      icon: Users,
+      icon: "Users",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete, ResourceType.ProfileBrand, ResourceType.ProfileUser],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -37,7 +126,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Has Short Name",
       description: "The nickname or short name.",
       synonyms: ["nickname", "alias"],
-      icon: Users,
+      icon: "Users",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete, ResourceType.ProfileBrand],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -50,7 +139,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Participates in Sport",
       description: "The sport in which the athlete participates.",
       synonyms: ["sport", "discipline"],
-      icon: Activity,
+      icon: "Activity",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -63,7 +152,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Represents Location",
       description: "The location or region the athlete represents.",
       synonyms: ["location", "region", "hometown"],
-      icon: MapPin,
+      icon: "MapPin",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -76,7 +165,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Has Occupation",
       description: "The occupation or profession.",
       synonyms: ["job", "profession"],
-      icon: Briefcase,
+      icon: "Briefcase",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete, ResourceType.ProfileUser],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -89,7 +178,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Has Family",
       description: "Information about family members.",
       synonyms: ["family", "relatives"],
-      icon: GroupIcon,
+      icon: "GroupIcon",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete, ResourceType.ProfileUser],
       applicableObjectResourceTypes: [ResourceType.ProfileUser],
       accountId: "",
@@ -102,7 +191,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Speaks Language",
       description: "Languages spoken by the individual.",
       synonyms: ["languages", "language proficiency"],
-      icon: Languages,
+      icon: "Languages",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete, ResourceType.ProfileUser],
       applicableObjectResourceTypes: [ResourceType.ScalarEnum],
       enumOptions: ["English", "Spanish", "French", "German", "Chinese", "Japanese", "Russian", "Arabic", "Portuguese", "Hindi"],
@@ -116,7 +205,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Belongs to Club",
       description: "The club or team the athlete is associated with.",
       synonyms: ["club", "team"],
-      icon: Users,
+      icon: "Users",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete],
       applicableObjectResourceTypes: [ResourceType.ProfileOrganization],
       accountId: "",
@@ -129,7 +218,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Has Coach",
       description: "The coach of the athlete.",
       synonyms: ["coach", "trainer"],
-      icon: UserPlus,
+      icon: "UserPlus",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete],
       applicableObjectResourceTypes: [ResourceType.ProfileUser],
       accountId: "",
@@ -142,7 +231,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Has Position Style",
       description: "The position or style the athlete plays.",
       synonyms: ["position", "style"],
-      icon: Target,
+      icon: "Target",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -155,7 +244,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Has Sporting Relatives",
       description: "Relatives who are also involved in sports.",
       synonyms: ["sporting family", "athletic relatives"],
-      icon: GroupIcon,
+      icon: "GroupIcon",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete],
       applicableObjectResourceTypes: [ResourceType.ProfileAthlete],
       accountId: "",
@@ -168,7 +257,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Has Injuries",
       description: "Information about past injuries.",
       synonyms: ["injuries", "medical history"],
-      icon: Heart,
+      icon: "Heart",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -181,7 +270,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Competes in National League",
       description: "Participation in national leagues.",
       synonyms: ["league", "competition"],
-      icon: Trophy,
+      icon: "Trophy",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -194,7 +283,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Has Award",
       description: "Awards received by the individual.",
       synonyms: ["awards", "recognition"],
-      icon: Award,
+      icon: "Award",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete, ResourceType.ProfileUser],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -207,7 +296,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Has Achievements",
       description: "Notable achievements.",
       synonyms: ["achievements", "accomplishments"],
-      icon: Star,
+      icon: "Star",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete, ResourceType.ProfileUser],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -220,7 +309,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Has Description",
       description: "A description or bio.",
       synonyms: ["bio", "about"],
-      icon: Info,
+      icon: "Info",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete, ResourceType.ProfileBrand, ResourceType.ProfileUser],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -233,7 +322,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Has Start",
       description: "When the individual started their career.",
       synonyms: ["career start", "beginning"],
-      icon: Clock,
+      icon: "Clock",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete],
       applicableObjectResourceTypes: [ResourceType.ScalarDate],
       accountId: "",
@@ -246,7 +335,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Has Reason",
       description: "Reason for starting or pursuing something.",
       synonyms: ["motivation", "inspiration"],
-      icon: Pen,
+      icon: "Pen",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete, ResourceType.ProfileUser],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -259,7 +348,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Has Ambition",
       description: "Future goals or ambitions.",
       synonyms: ["goals", "aspirations"],
-      icon: TrendingUp,
+      icon: "TrendingUp",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete, ResourceType.ProfileUser],
       applicableObjectResourceTypes: [ResourceType.Goal],
       referenceResourceTypes: [ResourceType.Goal],
@@ -273,7 +362,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Has Training",
       description: "Training routines or methods.",
       synonyms: ["training", "practice"],
-      icon: Activity,
+      icon: "Activity",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -286,7 +375,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Has Influence",
       description: "Influential people or factors.",
       synonyms: ["influences", "role models"],
-      icon: UserCheck,
+      icon: "UserCheck",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete, ResourceType.ProfileUser],
       applicableObjectResourceTypes: [ResourceType.ProfileAthlete, ResourceType.ProfileUser],
       accountId: "",
@@ -299,7 +388,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Has Interest",
       description: "Interests or hobbies.",
       synonyms: ["hobbies", "interests"],
-      icon: Smile,
+      icon: "Smile",
       applicableSubjectResourceTypes: [ResourceType.ProfileAthlete, ResourceType.ProfileUser],
       applicableObjectResourceTypes: [ResourceType.Interest],
       accountId: "",
@@ -313,7 +402,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Mission Vision",
       description: "The mission and vision statement of the brand.",
       synonyms: ["mission", "vision", "purpose"],
-      icon: Eye,
+      icon: "Eye",
       applicableSubjectResourceTypes: [ResourceType.ProfileBrand],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -326,7 +415,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Sponsorship Activities",
       description: "Sponsorship activities and their details.",
       synonyms: ["sponsorships", "sponsorship activities"],
-      icon: Gift,
+      icon: "Gift",
       applicableSubjectResourceTypes: [ResourceType.ProfileBrand],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -339,7 +428,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Channels",
       description: "Marketing and distribution channels used by the brand.",
       synonyms: ["marketing channels", "distribution channels"],
-      icon: Link,
+      icon: "Link",
       applicableSubjectResourceTypes: [ResourceType.ProfileBrand],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -352,7 +441,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Primary Industry",
       description: "The primary industry in which the brand operates.",
       synonyms: ["industry", "sector"],
-      icon: Briefcase,
+      icon: "Briefcase",
       applicableSubjectResourceTypes: [ResourceType.ProfileBrand],
       applicableObjectResourceTypes: [ResourceType.Industry],
       accountId: "",
@@ -365,7 +454,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Secondary Industry",
       description: "The secondary industry in which the brand operates.",
       synonyms: ["secondary sector"],
-      icon: Briefcase,
+      icon: "Briefcase",
       applicableSubjectResourceTypes: [ResourceType.ProfileBrand],
       applicableObjectResourceTypes: [ResourceType.Industry],
       accountId: "",
@@ -378,7 +467,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Regions",
       description: "Geographical regions where the brand is active.",
       synonyms: ["locations", "areas"],
-      icon: Globe,
+      icon: "Globe",
       applicableSubjectResourceTypes: [ResourceType.ProfileBrand],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -391,7 +480,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Audience Lifestyle",
       description: "VALS psychographic segmentation framework used to categorize consumers.",
       synonyms: ["lifestyle", "psychographics"],
-      icon: Smile,
+      icon: "Smile",
       applicableSubjectResourceTypes: [ResourceType.ProfileBrand],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -404,7 +493,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Key Partners",
       description: "Key partners in the brand's business model.",
       synonyms: ["partners", "alliances"],
-      icon: Users,
+      icon: "Users",
       applicableSubjectResourceTypes: [ResourceType.ProfileBrand],
       applicableObjectResourceTypes: [ResourceType.ProfileOrganization],
       accountId: "",
@@ -417,7 +506,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Key Activities",
       description: "Key activities in the brand's business model.",
       synonyms: ["activities", "operations"],
-      icon: Activity,
+      icon: "Activity",
       applicableSubjectResourceTypes: [ResourceType.ProfileBrand],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -430,7 +519,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Value Propositions",
       description: "Value propositions of the brand's business model.",
       synonyms: ["value", "propositions"],
-      icon: Gift,
+      icon: "Gift",
       applicableSubjectResourceTypes: [ResourceType.ProfileBrand],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -443,7 +532,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Customer Relationships",
       description: "Customer relationships in the brand's business model.",
       synonyms: ["customer relations", "client relationships"],
-      icon: UserCheck,
+      icon: "UserCheck",
       applicableSubjectResourceTypes: [ResourceType.ProfileBrand],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -456,7 +545,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Customer Segments",
       description: "Customer segments of the brand.",
       synonyms: ["segments", "target market"],
-      icon: Users,
+      icon: "Users",
       applicableSubjectResourceTypes: [ResourceType.ProfileBrand],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -469,7 +558,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Cost Structure",
       description: "Cost structure of the brand's business model.",
       synonyms: ["costs", "expenses"],
-      icon: DollarSign,
+      icon: "DollarSign",
       applicableSubjectResourceTypes: [ResourceType.ProfileBrand],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -482,7 +571,7 @@ export const predicates: { [key: string]: Predicate } = {
       label: "Revenue Streams",
       description: "Revenue streams of the brand's business model.",
       synonyms: ["revenues", "income sources"],
-      icon: DollarSign,
+      icon: "DollarSign",
       applicableSubjectResourceTypes: [ResourceType.ProfileBrand],
       applicableObjectResourceTypes: [ResourceType.ScalarString],
       accountId: "",
@@ -490,5 +579,4 @@ export const predicates: { [key: string]: Predicate } = {
       ownerId: "",
       createdAt: undefined
   },
-  // Add more predicates as necessary
 };

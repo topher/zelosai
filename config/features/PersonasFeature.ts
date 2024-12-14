@@ -13,14 +13,6 @@ export const personasFeature: Feature = {
         isPersona: Yup.boolean().default(true),
         image: Yup.string().required('Image URL is required'),
     }),
-    fields: [
-        { name: 'personaName', label: 'Persona Name', type: 'text', required: true },
-        { name: 'description', label: 'Description', type: 'textarea', required: true },
-        { name: 'type', label: 'Type', type: 'text', required: true },
-        { name: 'AssociatedUseCases', label: 'Associated Use Cases', type: 'autocomplete', resourceTypes: ['use_cases'], multiple: true, required: true },
-        { name: 'isPersona', label: 'Is Persona', type: 'checkbox' },
-        { name: 'image', label: 'Image URL', type: 'text', required: true },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadPersona,
@@ -60,5 +52,15 @@ export const personasFeature: Feature = {
         isInProd: true,
         resourceName: 'persona',
         resourceType: ResourceType.Persona,
+        agentId: 'leadPersonasAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "persona_name": "required",
+              "description": "required",
+              "type": "required",
+              "associated_use_cases": "required",
+              "is_persona": "allowed",
+              "image": "required"
+            }
     },
 };

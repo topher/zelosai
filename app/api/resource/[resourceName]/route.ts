@@ -1,7 +1,7 @@
 // app/api/resource/[resourceName]/route.ts
 
 import { NextResponse } from 'next/server';
-import { getAccessibleResources } from '@/lib/dataFetching';
+import { getAccessibleResources } from '@/lib/resource';
 import { getUserAttributes } from '@/lib/auth';
 import { NextRequest } from 'next/server';
 import { getAuth } from '@clerk/nextjs/server';
@@ -23,20 +23,30 @@ export async function GET(
     // Fetch user attributes
     const userAttributes = await getUserAttributes(request, { userId, orgId, orgRole });
 
-    const resourceName = params.resourceName.toLowerCase(); // e.g., 'goals'
+    const resourceName = params.resourceName.toLowerCase(); // e.g., 'triples'
 
     const { searchParams } = new URL(request.url);
     const sizeParam = searchParams.get('size');
     const size = sizeParam ? parseInt(sizeParam, 10) : 100; // Default to 100 if no size is specified
     const action = 'read';
 
+    // Extract 'subject' parameter from query string
+    const subjectParam = searchParams.get('subject');
+
+    // Build filters object
+    const filters: { [key: string]: any } = {};
+    if (subjectParam) {
+      filters['subject.keyword'] = subjectParam; // Use 'subject.keyword' instead of 'subject'
+    }
+    
     // Fetch accessible resources directly using resourceName as the Elasticsearch index
     const resources = await getAccessibleResources({
       userId: userId,
       action: action,
-      resourceName: resourceName, // e.g., 'goals'
+      resourceName: resourceName, // e.g., 'triples'
       size: size,
       userAttributes, // Pass user attributes for access control
+      filters, // Pass filters to include in the query
     });
 
     return NextResponse.json({ resources });

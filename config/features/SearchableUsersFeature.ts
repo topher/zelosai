@@ -7,9 +7,6 @@ export const searchableUsersFeature: Feature =     {
     schema: Yup.object().shape({
         // Define the schema for searchable brands feature
     }),
-    fields: [
-        // Define fields for searchable brands feature
-    ],
     key: FeatureKey.SearchableUsers,
     metadata: {
       category: FeatureCategory.Search,
@@ -21,6 +18,9 @@ export const searchableUsersFeature: Feature =     {
       resourceName: 'users',
       resourceType: ResourceType.SearchableUser,
       maxResourceCount: [0, 1000, 10000],
+        agentId: 'leadSearchableUsersAgent',
+        requiredPredicates: [],
+        defaultPredicates: {}
     },
     actions: [
       {

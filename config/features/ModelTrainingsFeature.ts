@@ -20,19 +20,6 @@ export const modelTrainingsFeature: Feature = {
             layers: Yup.array().of(Yup.number()).required('Layers are required'),
         }),
     }),
-    fields: [
-        { name: 'modelName', label: 'Model Name', type: 'text', required: true },
-        { name: 'description', label: 'Description', type: 'textarea', required: true },
-        { name: 'trainingDataSources', label: 'Training Data Sources', type: 'autocomplete', resourceTypes: ['data_sources'], multiple: true, required: true },
-        { name: 'trainingStatus', label: 'Training Status', type: 'text', required: true },
-        { name: 'accuracy', label: 'Accuracy', type: 'number', required: true },
-        { name: 'lastTrainedAt', label: 'Last Trained At', type: 'text', required: true },
-        { name: 'parameters.epochs', label: 'Epochs', type: 'number', required: true },
-        { name: 'parameters.learningRate', label: 'Learning Rate', type: 'number', required: true },
-        { name: 'parameters.batchSize', label: 'Batch Size', type: 'number', required: true },
-        { name: 'parameters.optimizer', label: 'Optimizer', type: 'text', required: true },
-        { name: 'parameters.layers', label: 'Layers', type: 'text', required: true },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadModelTraining,
@@ -72,5 +59,20 @@ export const modelTrainingsFeature: Feature = {
         isInProd: true,
         resourceName: 'model_training',
         resourceType: ResourceType.ModelTraining,
+        agentId: 'leadModelTrainingsAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "model_name": "required",
+              "description": "required",
+              "training_data_sources": "required",
+              "training_status": "required",
+              "accuracy": "required",
+              "last_trained_at": "required",
+              "parameters.epochs": "required",
+              "parameters.learning_rate": "required",
+              "parameters.batch_size": "required",
+              "parameters.optimizer": "required",
+              "parameters.layers": "required"
+            }
     },
 };

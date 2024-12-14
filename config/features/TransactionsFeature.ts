@@ -16,17 +16,6 @@ export const transactionsFeature: Feature = {
         relatedResourceId: Yup.string(),
         notes: Yup.string(),
     }),
-    fields: [
-        { name: 'transactionType', label: 'Transaction Type', type: 'text', required: true },
-        { name: 'amount', label: 'Amount', type: 'number', required: true },
-        { name: 'currency', label: 'Currency', type: 'text', required: true },
-        { name: 'senderId', label: 'Sender ID', type: 'text', required: true },
-        { name: 'recipientId', label: 'Recipient ID', type: 'text', required: true },
-        { name: 'transactionDate', label: 'Transaction Date', type: 'text', required: true },
-        { name: 'status', label: 'Status', type: 'text', required: true },
-        { name: 'relatedResourceId', label: 'Related Resource ID', type: 'text' },
-        { name: 'notes', label: 'Notes', type: 'textarea' },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadTransaction,
@@ -67,5 +56,18 @@ export const transactionsFeature: Feature = {
         resourceName: 'transactions',
         resourceType: ResourceType.Transaction,
         maxResourceCount: [3, 100, 100],
+        agentId: 'leadTransactionsAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "transaction_type": "required",
+              "amount": "required",
+              "currency": "required",
+              "sender_id": "required",
+              "recipient_id": "required",
+              "transaction_date": "required",
+              "status": "required",
+              "related_resource_id": "allowed",
+              "notes": "allowed"
+            }
     },
 };

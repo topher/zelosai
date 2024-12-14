@@ -14,15 +14,6 @@ export const recommendationsFeature: Feature = {
         reason: Yup.string(),
         recommenderId: Yup.string().required('Recommender ID is required'),
     }),
-    fields: [
-        { name: 'title', label: 'Title', type: 'text', required: true },
-        { name: 'description', label: 'Description', type: 'textarea', required: true },
-        { name: 'recommendedResourceId', label: 'Recommended Resource ID', type: 'text' },
-        { name: 'recommendedResourceType', label: 'Recommended Resource Type', type: 'text', required: true },
-        { name: 'action', label: 'Action', type: 'text', required: true },
-        { name: 'reason', label: 'Reason', type: 'textarea' },
-        { name: 'recommenderId', label: 'Recommender ID', type: 'text', required: true },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadRecommendation,
@@ -62,5 +53,16 @@ export const recommendationsFeature: Feature = {
         isInProd: false,
         resourceName: 'recommendations',
         resourceType: ResourceType.Recommendation,
+        agentId: 'leadRecommendationsAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "title": "required",
+              "description": "required",
+              "recommended_resource_id": "allowed",
+              "recommended_resource_type": "required",
+              "action": "required",
+              "reason": "allowed",
+              "recommender_id": "required"
+            }
     },
 };

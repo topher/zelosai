@@ -14,15 +14,6 @@ export const issuesFeature: Feature = {
         relatedTopics: Yup.array().of(Yup.string()),
         associatedGoals: Yup.array().of(Yup.string()),
     }),
-    fields: [
-        { name: 'Topic', label: 'Topic', type: 'text', required: true },
-        { name: 'SWOT Type', label: 'SWOT Type', type: 'text', required: true },
-        { name: 'Subscribed', label: 'Subscribed', type: 'checkbox' },
-        { name: 'RelatedGoals', label: 'Related Goals', type: 'autocomplete', resourceTypes: ['goals'], multiple: true },
-        { name: 'RelatedUseCases', label: 'Related Use Cases', type: 'autocomplete', resourceTypes: ['use_cases'], multiple: true },
-        { name: 'relatedTopics', label: 'Related Topics', type: 'autocomplete', resourceTypes: ['topics'], multiple: true },
-        { name: 'associatedGoals', label: 'Associated Goals', type: 'autocomplete', resourceTypes: ['goals'], multiple: true },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadIssue,
@@ -63,5 +54,16 @@ export const issuesFeature: Feature = {
         resourceName: 'issues',
         resourceType: ResourceType.StrategicIssue,
         maxResourceCount: [0, 5, 15],
+        agentId: 'leadIssuesAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "topic": "required",
+              "swot _type": "required",
+              "subscribed": "allowed",
+              "related_goals": "allowed",
+              "related_use_cases": "allowed",
+              "related_topics": "allowed",
+              "associated_goals": "allowed"
+            }
     },
 };

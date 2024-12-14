@@ -103,6 +103,9 @@ export const businessModelFeature: Feature = {
         isInProd: true,
         resourceName: 'business_model_cards',
         maxResourceCount: [1, 5, 15],
-        resourceType: ResourceType.BusinessModelCard
+        resourceType: ResourceType.BusinessModelCard,
+        agentId: 'leadBusinessModelAgent',
+        requiredPredicates: [],
+        defaultPredicates: {}
     },
 };

@@ -12,13 +12,6 @@ export const topicsFeature: Feature = {
         influencerName: Yup.string().required('Influencer Name is required'),
         brand: Yup.string().required('Brand is required'),
     }),
-    fields: [
-        { name: 'category', label: 'Category', type: 'text', required: true },
-        { name: 'description', label: 'Description', type: 'textarea', required: true },
-        { name: 'preferences', label: 'Preferences', type: 'autocomplete', required: true },
-        { name: 'influencerName', label: 'Influencer Name', type: 'text', required: true },
-        { name: 'brand', label: 'Brand', type: 'text', required: true },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadTopic,
@@ -59,5 +52,14 @@ export const topicsFeature: Feature = {
         resourceName: 'topics',
         resourceType: ResourceType.Topic,
         maxResourceCount: [0, 10, 100],
+        agentId: 'leadTopicsAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "category": "required",
+              "description": "required",
+              "preferences": "required",
+              "influencer_name": "required",
+              "brand": "required"
+            }
     },
 };

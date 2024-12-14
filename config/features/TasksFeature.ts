@@ -14,15 +14,6 @@ export const tasksFeature: Feature = {
         relatedWorkflows: Yup.array().of(Yup.string()),
         relatedAgents: Yup.array().of(Yup.string()),
     }),
-    fields: [
-        { name: 'title', label: 'Title', type: 'text', required: true },
-        { name: 'description', label: 'Description', type: 'textarea' },
-        { name: 'status', label: 'Status', type: 'text', required: true },
-        { name: 'priority', label: 'Priority', type: 'text', required: true },
-        { name: 'stageId', label: 'Stage ID', type: 'text', required: true },
-        { name: 'relatedWorkflows', label: 'Related Workflows', type: 'autocomplete', multiple: true },
-        { name: 'relatedAgents', label: 'Related Agents', type: 'autocomplete', multiple: true },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadTask,
@@ -63,5 +54,16 @@ export const tasksFeature: Feature = {
         resourceName: 'tasks',
         resourceType: ResourceType.Task,
         maxResourceCount: [0, 10, 100],
+        agentId: 'leadTasksAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "title": "required",
+              "description": "allowed",
+              "status": "required",
+              "priority": "required",
+              "stage_id": "required",
+              "related_workflows": "allowed",
+              "related_agents": "allowed"
+            }
     },
 };

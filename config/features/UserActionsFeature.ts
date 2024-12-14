@@ -8,9 +8,6 @@ export const userActionsFeature: Feature = {
     schema: Yup.object().shape({
         // Define the schema for User Actions feature
     }),
-    fields: [
-        // Define fields for User Actions feature
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadUserAction,
@@ -49,6 +46,9 @@ export const userActionsFeature: Feature = {
         description: 'View Past Activity.',
         isInProd: false,
         resourceName: 'user_actions',
-        resourceType: ResourceType.UserAction
+        resourceType: ResourceType.UserAction,
+        agentId: 'leadUserActionsAgent',
+        requiredPredicates: [],
+        defaultPredicates: {}
     },
 };

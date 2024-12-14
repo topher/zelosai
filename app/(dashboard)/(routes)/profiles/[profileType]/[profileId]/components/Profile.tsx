@@ -27,7 +27,7 @@ const Profile: React.FC<ProfileProps> = ({ triples, profileType, profileId }) =>
   }, [triples, profileType]);
 
   // Retrieve nameTriple and imageTriple from the original resource before filtering
-  const nameTriple = triples.find((triple) => triple.predicate === 'has_name');
+  const nameTriple = triples.find((triple) => triple.predicate === 'name');
   const imageTriple = triples.find((triple) => triple.predicate === 'has_wiki_logo_url');
 
   // Use different placeholders for athlete and brand
@@ -40,7 +40,7 @@ const Profile: React.FC<ProfileProps> = ({ triples, profileType, profileId }) =>
       {/* Header */}
       <div className="p-6">
         <ProfileHead
-          name={nameTriple?.object || 'Name Unavailable'}
+          name={nameTriple?.object || 'Victor Amo'}
           imageSrc={imageSrc}
         />
       </div>

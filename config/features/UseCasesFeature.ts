@@ -12,13 +12,6 @@ export const useCasesFeature: Feature = {
         ForPurpose: Yup.array().of(Yup.string()).required('For Purpose is required'),
         Models: Yup.number().required('Models is required'),
     }),
-    fields: [
-        { name: 'Description', label: 'Description', type: 'textarea', required: true },
-        { name: 'Subject', label: 'Subject', type: 'text', required: true },
-        { name: 'Target', label: 'Target', type: 'text', required: true },
-        { name: 'ForPurpose', label: 'For Purpose', type: 'autocomplete', multiple: true, required: true },
-        { name: 'Models', label: 'Models', type: 'number', required: true },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadUseCase,
@@ -59,5 +52,14 @@ export const useCasesFeature: Feature = {
         resourceName: 'use_cases',
         resourceType: ResourceType.UseCase,
         maxResourceCount: [0, 5, 15],
+        agentId: 'leadUseCasesAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "description": "required",
+              "subject": "required",
+              "target": "required",
+              "for_purpose": "required",
+              "models": "required"
+            }
     },
 };

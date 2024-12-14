@@ -8,9 +8,6 @@ export const profileModelsFeature: Feature = {
     schema: Yup.object().shape({
         // Define the schema for profile models
     }),
-    fields: [
-        // Define the fields for profile models
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadProfileModel,
@@ -51,5 +48,8 @@ export const profileModelsFeature: Feature = {
         resourceName: 'profile_models',
         resourceType: ResourceType.ProfileModel,
         maxResourceCount: [10, 100, 1000],
+        agentId: 'leadProfileModelsAgent',
+        requiredPredicates: [],
+        defaultPredicates: {}
     },
 };

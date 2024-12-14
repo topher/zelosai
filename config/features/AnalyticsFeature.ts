@@ -13,14 +13,6 @@ export const analyticsFeature: Feature = {
         tags: Yup.array().of(Yup.string()).required('Tags are required'),
         relatedGoals: Yup.array().of(Yup.string()),
     }),
-    fields: [
-        { name: 'title', label: 'Title', type: 'text', required: true },
-        { name: 'value', label: 'Value', type: 'number', required: true },
-        { name: 'description', label: 'Description', type: 'textarea', required: true },
-        { name: 'date', label: 'Date', type: 'text', required: true },
-        { name: 'tags', label: 'Tags', type: 'autocomplete', resourceTypes: ['tags'], multiple: true, required: true },
-        { name: 'relatedGoals', label: 'Related Goals', type: 'autocomplete', resourceTypes: ['goals'], multiple: true },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadStatistic,
@@ -60,5 +52,15 @@ export const analyticsFeature: Feature = {
         isInProd: true,
         resourceName: 'statistics',
         resourceType: ResourceType.Statistic,
+        agentId: 'leadAnalyticsAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "title": "required",
+              "value": "required",
+              "description": "required",
+              "date": "required",
+              "tags": "required",
+              "related_goals": "allowed"
+            }
     },
 };

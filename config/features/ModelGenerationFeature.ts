@@ -10,11 +10,6 @@ export const modelGenerationFeature: Feature = {
         description: Yup.string().required('Description is required'),
         creator: Yup.string().required('Creator is required'),
     }),
-    fields: [
-        { name: 'name', label: 'Name', type: 'text', required: true },
-        { name: 'description', label: 'Description', type: 'textarea', required: true },
-        { name: 'creator', label: 'Creator', type: 'text', required: true },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadModelGeneration,
@@ -55,5 +50,12 @@ export const modelGenerationFeature: Feature = {
         resourceName: 'model_inferences',
         resourceType: ResourceType.ModelInference,
         maxResourceCount: [0, 10, 100],
+        agentId: 'leadModelGenerationAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "name": "required",
+              "description": "required",
+              "creator": "required"
+            }
     },
 };

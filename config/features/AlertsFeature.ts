@@ -13,14 +13,6 @@ export const alertsFeature: Feature = {
         tags: Yup.array().of(Yup.string()).required('Tags are required'),
         relatedGoals: Yup.array().of(Yup.string()),
     }),
-    fields: [
-        { name: 'title', label: 'Title', type: 'text', required: true },
-        { name: 'message', label: 'Message', type: 'textarea', required: true },
-        { name: 'severity', label: 'Severity', type: 'text', required: true },
-        { name: 'date', label: 'Date', type: 'text', required: true },
-        { name: 'tags', label: 'Tags', type: 'autocomplete', required: true },
-        { name: 'relatedGoals', label: 'Related Goals', type: 'autocomplete' },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadAlert,
@@ -59,6 +51,16 @@ export const alertsFeature: Feature = {
         description: 'Manage alert notifications.',
         isInProd: true,
         resourceName: 'alerts',
-        resourceType: ResourceType.Alert
+        resourceType: ResourceType.Alert,
+        agentId: 'leadAlertsAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "title": "required",
+              "message": "required",
+              "severity": "required",
+              "date": "required",
+              "tags": "required",
+              "related_goals": "allowed"
+            }
     }
 };

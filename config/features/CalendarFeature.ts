@@ -18,19 +18,6 @@ export const calendarFeature: Feature = {
         associatedContacts: Yup.array().of(Yup.string()),
         relatedGoals: Yup.array().of(Yup.string()),
     }),
-    fields: [
-        { name: 'name', label: 'Event Name', type: 'text', required: true },
-        { name: 'description', label: 'Description', type: 'textarea' },
-        { name: 'startDate', label: 'Start Date', type: 'text', required: true },
-        { name: 'endDate', label: 'End Date', type: 'text' },
-        { name: 'location', label: 'Location', type: 'text' },
-        { name: 'organizerId', label: 'Organizer ID', type: 'text', required: true },
-        { name: 'participantIds', label: 'Participant IDs', type: 'autocomplete', multiple: true },
-        { name: 'eventStatus', label: 'Event Status', type: 'text' },
-        { name: 'eventType', label: 'Event Type', type: 'text' },
-        { name: 'associatedContacts', label: 'Associated Contacts', type: 'autocomplete', multiple: true },
-        { name: 'relatedGoals', label: 'Related Goals', type: 'autocomplete', multiple: true },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadScheduledEvent,
@@ -71,5 +58,20 @@ export const calendarFeature: Feature = {
         resourceName: 'scheduled_events',
         resourceType: ResourceType.ScheduledEvent,
         maxResourceCount: [0, 50, 500],
+        agentId: 'leadCalendarAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "name": "required",
+              "description": "allowed",
+              "start_date": "required",
+              "end_date": "allowed",
+              "location": "allowed",
+              "organizer_id": "required",
+              "participant_ids": "allowed",
+              "event_status": "allowed",
+              "event_type": "allowed",
+              "associated_contacts": "allowed",
+              "related_goals": "allowed"
+            }
     },
 };

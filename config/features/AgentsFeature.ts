@@ -22,13 +22,6 @@ export const agentsFeature: Feature = {
             // Define contact info schema if needed
         }),
     }),
-    fields: [
-        { name: 'agentType', label: 'Agent Type', type: 'text', required: true },
-        { name: 'name', label: 'Name', type: 'text', required: true },
-        { name: 'expertiseAreas', label: 'Expertise Areas', type: 'autocomplete', required: true },
-        { name: 'availabilityStatus', label: 'Availability Status', type: 'text', required: true },
-        // Add more fields as needed
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadAgent,
@@ -68,5 +61,13 @@ export const agentsFeature: Feature = {
         isInProd: true,
         resourceName: 'agents',
         resourceType: ResourceType.Agent,
+        agentId: 'leadAgentsAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "agent_type": "required",
+              "name": "required",
+              "expertise_areas": "required",
+              "availability_status": "required"
+            }
     },
 };

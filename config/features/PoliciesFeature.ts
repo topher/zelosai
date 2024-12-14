@@ -11,12 +11,6 @@ export const policiesFeature: Feature = {
         Category: Yup.string().required('Category is required'),
         isActive: Yup.boolean().default(true),
     }),
-    fields: [
-        { name: 'Policy', label: 'Policy', type: 'text', required: true },
-        { name: 'Description', label: 'Description', type: 'textarea', required: true },
-        { name: 'Category', label: 'Category', type: 'text', required: true },
-        { name: 'isActive', label: 'Is Active', type: 'checkbox' },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadPolicy,
@@ -57,5 +51,13 @@ export const policiesFeature: Feature = {
         resourceName: 'policies',
         resourceType: ResourceType.Policy,
         maxResourceCount: [0, 10, 100],
+        agentId: 'leadPoliciesAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "policy": "required",
+              "description": "required",
+              "category": "required",
+              "is_active": "allowed"
+            }
     },
 };

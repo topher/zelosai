@@ -157,6 +157,7 @@
     "tailwindcss": "3.3.2",
     "tailwindcss-animate": "^1.0.6",
     "three": "^0.160.1",
+    "ts-morph": "^24.0.0",
     "typewriter-effect": "^2.20.1",
     "ui": "github:shadcn/ui",
     "unsplash-js": "^7.0.19",

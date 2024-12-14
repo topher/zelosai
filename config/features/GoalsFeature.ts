@@ -16,33 +16,6 @@ export const goalsFeature: Feature = {
         relatedStrategicIssues: Yup.array().of(Yup.string()),
         relatedModelTrainings: Yup.array().of(Yup.string()),
     }),
-    fields: [
-        { name: 'Goal', label: 'Goal', type: 'text', required: true },
-        { name: 'Description', label: 'Description', type: 'textarea', required: true },
-        { name: 'StrategicIndicator', label: 'Strategic Indicator', type: 'text', required: true },
-        { name: 'KPI', label: 'KPI', type: 'text', required: true },
-        { name: 'Developer', label: 'Developer', type: 'text', required: true },
-        {
-            name: 'RelatedIssues',
-            label: 'Related Issues',
-            type: 'autocomplete',
-            resourceTypes: ['issues'],
-            multiple: true,
-            required: true,
-        },
-        {
-            name: 'isActive',
-            label: 'Is Active',
-            type: 'checkbox',
-        },
-        {
-            name: 'relatedModelTrainings',
-            label: 'Related Model Trainings',
-            type: 'autocomplete',
-            resourceTypes: ['model_trainings'],
-            multiple: true,
-        },
-    ],
     actions: [
         {
             actionKey: ActionFeatureKey.ReadGoal,
@@ -83,5 +56,18 @@ export const goalsFeature: Feature = {
         resourceName: 'goals',
         resourceType: ResourceType.Goal,
         maxResourceCount: [2, 5, 15],
+        agentId: 'leadGoalsAgent',
+        requiredPredicates: [],
+        defaultPredicates: {
+              "goal": "required",
+              "description": "required",
+              "strategic_indicator": "required",
+              "kpi": "required",
+              "developer": "required",
+              "related_issues": "required",
+              "is_active": "allowed",
+              "related_strategic_issues": "allowed",
+              "related_model_trainings": "allowed"
+            }
     },
 };
