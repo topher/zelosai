@@ -1,4 +1,6 @@
-// molecules/StatusNav.tsx
+// components/atomic/molecules/StatusNav.tsx
+
+'use client';
 
 import React from 'react';
 import { connectRefinementList } from 'react-instantsearch-dom';
@@ -28,7 +30,7 @@ const StatusNavComponent: React.FC<StatusNavProps> = ({ items, refine }) => {
   };
 
   const transformedItems = items.map(item => ({
-    label: item.label,
+    label: `${item.label} (${item.count})`,
     value: item.value,
     isSelected: item.isRefined,
   }));

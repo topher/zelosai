@@ -1,4 +1,4 @@
-// image/components/generationTabs/ImageGenerationTab.tsx
+// /app/(dashboard)/(routes)/models/image/[id]/components/ImageGenerationTab.tsx
 
 "use client";
 
@@ -19,6 +19,11 @@ import { Empty } from "@/components/ui/empty";
 import { parameterDefinitions, imageFormSchema } from "../../../components/constants";
 import CustomAmountSlider from "app/(dashboard)/(routes)/models/components/CustomAmountSlider";
 import { constructImagePrompt } from "@/utils/promptBuilder";
+
+import { Montserrat } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const montserrat = Montserrat({ weight: "400", subsets: ["latin"] });
 
 interface ImageGenerationTabProps {
   modelId: string | undefined;
@@ -71,47 +76,62 @@ export const ImageGenerationTab: React.FC<ImageGenerationTabProps> = ({ modelId,
   };
 
   const renderSidebarContent = () => (
-    <aside className="w-full p-6 bg-offWhite relative">
+    <aside className={cn("w-full p-6 bg-gray-800 text-gray-200 relative h-full", montserrat.className)}>
       {isSmallScreen && drawerOpen && (
-        <IconButton onClick={() => setDrawerOpen(false)} className="absolute top-2 right-2">
+        <IconButton
+          onClick={() => setDrawerOpen(false)}
+          aria-label="Close drawer"
+          sx={{
+            position: 'absolute',
+            top: '0.5rem',
+            right: '0.5rem',
+            color: '#e5e7eb',
+            backgroundColor: 'transparent',
+            '&:hover': {
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+            },
+          }}
+        >
           <Close />
         </IconButton>
       )}
-      <h2 className="text-xl font-semibold mb-6 text-darkGray">Image Parameters</h2>
+      <h2 className="text-2xl font-semibold mb-6 text-white">Image Parameters</h2>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-w-3xl">
-          {parameterDefinitions.txt2image.map((param) => (
-            <FormItem key={param.name} className="space-y-2">
-              <label className="block text-sm font-medium text-darkGray">{param.label}</label>
-              <div className="flex flex-wrap gap-2">
-                {param.options.map((option) => {
-                  const watchedValue = form.watch(param.name as keyof z.infer<typeof imageFormSchema>);
-                  const isSelected = watchedValue === option.value;
-                  return (
-                    <Button
-                      key={option.value}
-                      type="button"
-                      className={`px-4 py-2 text-sm font-medium rounded-md ${
-                        isSelected
-                          ? "bg-gradient-to-r from-[#4b0082] to-[#ff69b4] text-white"
-                          : "bg-white text-darkGray hover:bg-[#b366e2] hover:text-white"
-                      }`}
-                      onClick={() =>
-                        form.setValue(param.name as keyof z.infer<typeof imageFormSchema>, option.value)
-                      }
-                    >
-                      {option.label}
-                    </Button>
-                  );
-                })}
-              </div>
-            </FormItem>
-          ))}
+          {parameterDefinitions.txt2image.map((param) => {
+            const watchedValue = form.watch(param.name as keyof z.infer<typeof imageFormSchema>);
+            return (
+              <FormItem key={param.name} className="space-y-2">
+                <label className="block text-sm font-medium text-gray-300">{param.label}</label>
+                <div className="flex flex-wrap gap-2">
+                  {param.options.map((option) => {
+                    const isSelected = watchedValue === option.value;
+                    return (
+                      <Button
+                        key={option.value}
+                        type="button"
+                        className={`px-4 py-2 text-sm font-medium rounded-md transition-transform transform ${
+                          isSelected
+                            ? "bg-gradient-to-r from-purple-800 to-pink-500 text-white scale-105"
+                            : "bg-gray-700 text-gray-200 hover:bg-gray-600"
+                        }`}
+                        onClick={() =>
+                          form.setValue(param.name as keyof z.infer<typeof imageFormSchema>, option.value)
+                        }
+                      >
+                        {option.label}
+                      </Button>
+                    );
+                  })}
+                </div>
+              </FormItem>
+            );
+          })}
           <FormField
             name="amount"
             render={({ field }) => (
               <FormItem className="col-span-12">
-                <label className="block text-sm font-medium text-darkGray">Amount</label>
+                <label className="block text-sm font-medium text-gray-300">Amount</label>
                 <FormControl>
                   <CustomAmountSlider
                     value={field.value}
@@ -124,7 +144,7 @@ export const ImageGenerationTab: React.FC<ImageGenerationTabProps> = ({ modelId,
           <Button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-gradient-to-r from-[#4b0082] to-[#ff69b4] text-white transform transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+            className="w-full bg-gradient-to-r from-purple-800 to-pink-500 text-white hover:scale-105 hover:shadow-lg transition-transform"
           >
             {isLoading ? <Loader className="mr-2" /> : "Generate Image"}
           </Button>
@@ -133,51 +153,83 @@ export const ImageGenerationTab: React.FC<ImageGenerationTabProps> = ({ modelId,
     </aside>
   );
 
+  // Dummy images for preview if no images generated yet
+  const dummyImages = [
+    "https://picsum.photos/300/200?random=1",
+    "https://picsum.photos/300/200?random=2",
+    "https://picsum.photos/300/200?random=3",
+    "https://picsum.photos/300/200?random=4",
+    "https://picsum.photos/300/200?random=5",
+    "https://picsum.photos/300/200?random=6",
+  ];
+
+  const displayImages = images.length > 0 ? images : dummyImages;
+
   return (
-    <div className={`flex flex-col md:flex-row flex-1 bg-white`}>
+    <div className={cn("flex flex-col md:flex-row flex-1 bg-gray-900", montserrat.className)}>
       {isSmallScreen ? (
         <>
-          <IconButton
-            onClick={() => setDrawerOpen(true)}
-            className="fixed top-1/4 left-0 transform -translate-y-1/2 bg-white/30 text-darkGray shadow-lg backdrop-blur-md rounded-full p-3 border border-white/20"
-            style={{ width: "50px", height: "50px" }}
-          >
-            <Menu />
-          </IconButton>
+          {/* Conditionally render the Menu IconButton only when the drawer is closed */}
+          {!drawerOpen && (
+            <IconButton
+              onClick={() => setDrawerOpen(true)}
+              sx={{
+                position: 'fixed',
+                top: '50%',
+                left: '0',
+                transform: 'translateY(-50%)',
+                backgroundColor: '#1f2937',
+                color: '#e5e7eb',
+                boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+                backdropFilter: 'blur(10px)',
+                borderRadius: '50%',
+                padding: '0.75rem',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                width: '50px',
+                height: '50px',
+                '&:hover': {
+                  backgroundColor: '#374151',
+                },
+                zIndex: 1300,
+              }}
+            >
+              <Menu />
+            </IconButton>
+          )}
+
           <Drawer
             anchor="left"
             open={drawerOpen}
             onClose={() => setDrawerOpen(false)}
             PaperProps={{
-              style: { backgroundColor: "#f4f4f4", width: "75vw" },
+              style: { backgroundColor: "#1f2937", width: "75vw" },
             }}
           >
             {renderSidebarContent()}
           </Drawer>
         </>
       ) : (
-        <aside className="w-1/4 bg-offWhite">
-          {renderSidebarContent()}
-        </aside>
+        <aside className="w-1/4 bg-gray-800">{renderSidebarContent()}</aside>
       )}
-      <main className="flex-1 flex flex-col justify-start items-center p-2 sm:p-6">
-        <h2 className="text-xl sm:text-2xl font-bold text-darkGray mb-4 sm:mb-8">
-          Generated Images
-        </h2>
-        {isLoading && <Loader />}
-        {!images.length && !isLoading && <Empty label="No images generated yet." />}
-        {images.length > 0 && (
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
-            {images.map((src, idx) => (
+
+      <main className="flex-1 flex flex-col p-2 sm:p-6 bg-gray-900 text-gray-200">
+        <h2 className="text-2xl font-bold text-white mb-8 self-center">Generated Images</h2>
+        {isLoading && <Loader className="text-gray-200 self-center" />}
+        {!isLoading && images.length === 0 && (
+          <p className="text-gray-400 mb-4 text-center">Sample images:</p>
+        )}
+        <div className="max-w-5xl mx-auto w-full mt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-items-center">
+            {displayImages.map((src, idx) => (
               <img
                 key={idx}
                 src={src}
                 alt={`Generated image ${idx + 1}`}
-                className="rounded-lg shadow-md w-full h-auto max-w-full"
+                className="rounded-lg shadow-md border border-gray-700 w-full h-auto"
               />
             ))}
           </div>
-        )}
+        </div>
       </main>
     </div>
   );

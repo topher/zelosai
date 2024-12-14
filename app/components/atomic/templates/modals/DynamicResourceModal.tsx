@@ -29,7 +29,7 @@ import { Pencil, Trash } from "lucide-react";
 import { ResourceType } from "@/config/resourceTypes";
 import { Triple, Predicate } from "@/app/types"; // ✅ Import Predicate
 import TripleCardObject from "../../organisms/cards/triple-cards/TripleCardObject";
-import { TripleModal } from "@/app/components/atomic/ttemplates/modals/TripleModal"; // 🔧 Corrected the path
+import { TripleModal } from "@/app/components/atomic/templates/modals/TripleModal"; // 🔧 Corrected the path
 import { predicates } from "@/config/predicates"; // ✅ Correct path
 import { profileTypeToResourceType } from "@/utils/profileTypeToResourceType";
 import * as resourceConfigs from '@/config/resources'; // Import all resource configs

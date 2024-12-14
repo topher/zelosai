@@ -3,8 +3,9 @@
 "use client";
 
 import React from "react";
-import SearchPageLayout from "@/app/(dashboard)/(routes)/search/components/SearchPageLayout";
-import BrandSearchCard from "@/app/(dashboard)/(routes)/search/components/BrandSearchCard";
+import SearchPageLayout from "@/app/components/atomic/templates/SearchPageLayout";
+// import BrandSearchCard from "@/app/(dashboard)/(routes)/search/components/BrandSearchCard";
+import SearchCard from "../components/SearchCard";
 
 const BrandSearchPage: React.FC = () => {
   const searchSettings = {
@@ -66,12 +67,16 @@ const BrandSearchPage: React.FC = () => {
 
   return (
     <SearchPageLayout
+      header={{
+        title: "Brands",
+        description: "Browse and search through a list of brand profiles.",
+      }}
       indexName="brands_triples"
       searchSettings={searchSettings}
-      pageTitle="Brands"
       placeholder="Search for brands..."
       sidebarSection="Brands"
-      HitComponent={BrandSearchCard}
+      HitComponent={SearchCard}
+      type="brand"
       extractId={extractIdFromSubject}
     />
   );

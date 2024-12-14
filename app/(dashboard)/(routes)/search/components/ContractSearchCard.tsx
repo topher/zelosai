@@ -1,4 +1,4 @@
-// app/components/ContractSearchCard.tsx
+// /app/(dashboard)/(routes)/search/components/ContractSearchCard.tsx
 
 import React from "react";
 import Link from "next/link";

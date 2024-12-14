@@ -1,4 +1,4 @@
-// models/image/page.tsx
+// /app/(dashboard)/(routes)/models/image/[id]/page.tsx
 
 "use client";
 
@@ -48,15 +48,17 @@ const ImageModelPage = () => {
   ];
 
   return (
-    <ModelPageLayout
-      modelData={modelData}
-      activeTab={activeTab}
-      setActiveTab={setActiveTab}
-      tabs={tabs}
-      icon={ImageIcon}
-      iconColor="text-pink-700"
-      bgColor="bg-pink-700/10"
-    />
+    <div className="feature-layout min-h-screen text-gray-200">
+      <ModelPageLayout
+        modelData={modelData}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        tabs={tabs}
+        icon={ImageIcon}
+        iconColor="text-pink-500"
+        bgColor="bg-pink-700/20"
+      />
+    </div>
   );
 };
 

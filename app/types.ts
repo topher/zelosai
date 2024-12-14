@@ -155,13 +155,13 @@ export interface Alert extends Resource {
 }
 
 export interface Persona extends Resource {
-  personaName: string;               // Corresponds to "Name" in JSON
-  description: string;               // Corresponds to "Description" in JSON
+  Name: string;                      // Corresponds to "Name" in JSON
+  Description: string;               // Corresponds to "Description" in JSON
   ageRange?: string;                 // Optional field, as not provided in JSON
   interests?: string[];              // Optional field, as not provided in JSON
   profession?: string;               // Optional field, as not provided in JSON
   location?: string;                 // Optional field, as not provided in JSON
-  type: string;                      // Corresponds to "Type" in JSON
+  Type: string;                      // Corresponds to "Type" in JSON
   AssociatedUseCases: string[];      // Corresponds to "AssociatedUseCases" in JSON
   isPersona: boolean;                // Corresponds to "is_persona" in JSON
   image: string;                     // Corresponds to "Image" in JSON

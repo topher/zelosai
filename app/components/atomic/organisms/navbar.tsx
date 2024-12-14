@@ -7,7 +7,7 @@ const Navbar = () => {
     <div className="navbar flex items-center justify-between p-4">
       {/* Add your logo and navigation links here */}
       <div className="flex w-full justify-end">
-      <UserOrganizationButton />
+        <UserOrganizationButton />
       </div>
     </div>
   );

@@ -27,7 +27,17 @@ import {
   Shield,
   Link,
   Book,
+  BookLock,
+  Library,
   Info,
+  MousePointer2,
+  ShieldCheck,
+  Fingerprint,
+  Box,
+  FileBox,
+  Rocket,
+  PackageSearch,
+  LineChart,
   LucideIcon,
 } from 'lucide-react';
 
@@ -543,7 +553,7 @@ export const features: Feature[] = [
     key: FeatureKey.UserActions,
     metadata: {
       category: FeatureCategory.Dashboard,
-      icon: ThumbsUp,
+      icon: MousePointer2,
       label: 'Usage',
       href: '/settings/usage',
       description: 'View Past Activity.',
@@ -629,7 +639,7 @@ export const features: Feature[] = [
     key: FeatureKey.Analytics,
     metadata: {
       category: FeatureCategory.Dashboard,
-      icon: LayoutDashboard,
+      icon: LineChart,
       label: 'Analytics',
       href: '/dashboard/analytics',
       description: 'View analytics statistics.',
@@ -891,7 +901,7 @@ export const features: Feature[] = [
     key: FeatureKey.Branding,
     metadata: {
       category: FeatureCategory.Strategy,
-      icon: Building,
+      icon: Fingerprint,
       label: 'Brand Identity',
       href: '/strategy/branding',
       description: 'Manage branding models.',
@@ -936,7 +946,7 @@ export const features: Feature[] = [
     key: FeatureKey.Models,
     metadata: {
       category: FeatureCategory.Models,
-      icon: LayoutDashboard,
+      icon: Box,
       label: 'Models',
       href: '/models/library',
       description: 'Explore your AI models.',
@@ -980,7 +990,7 @@ export const features: Feature[] = [
     key: FeatureKey.ModelSubjects,
     metadata: {
       category: FeatureCategory.Models,
-      icon: LayoutDashboard,
+      icon: FileBox,
       label: 'Model Subjects',
       href: '/models/model-subjects',
       description: 'Define model subjects.',
@@ -1023,7 +1033,7 @@ export const features: Feature[] = [
     key: FeatureKey.ModelTrainings,
     metadata: {
       category: FeatureCategory.Models,
-      icon: Database,
+      icon: Rocket,
       label: 'Model Trainings',
       href: '/models/model-trainings',
       description: 'Manage model training sessions.',
@@ -1066,7 +1076,7 @@ export const features: Feature[] = [
     key: FeatureKey.UseCases,
     metadata: {
       category: FeatureCategory.Models,
-      icon: AlertTriangle,
+      icon: ShieldCheck,
       label: 'Safety',
       href: '/models/use-cases',
       description: 'Set the practical applications for your AI models and products.',
@@ -1287,7 +1297,7 @@ export const features: Feature[] = [
       key: FeatureKey.Terms,
       metadata: {
         category: FeatureCategory.KnowledgeBank,
-        icon: Book,
+        icon: BookLock,
         label: 'Terms',
         href: '/assets/terms',
         description: 'Manage terms and conditions.',
@@ -1553,7 +1563,7 @@ export const features: Feature[] = [
       key: FeatureKey.Workflows,
       metadata: {
         category: FeatureCategory.Workflows,
-        icon: CheckSquare,
+        icon: Library,
         label: 'Library',
         href: '/workflows/library',
         description: 'Manage your workflows.',
@@ -1968,7 +1978,7 @@ export const features: Feature[] = [
       key: FeatureKey.SearchableModels,
       metadata: {
         category: FeatureCategory.Search,
-        icon: LayoutDashboard,
+        icon: PackageSearch,
         label: 'Models',
         href: '/search/models',
         description: 'Search through AI models.',

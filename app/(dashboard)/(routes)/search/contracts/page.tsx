@@ -3,8 +3,9 @@
 "use client";
 
 import React from "react";
-import SearchPageLayout from "@/app/(dashboard)/(routes)/search/components/SearchPageLayout";
-import ContractSearchCard from "@/app/(dashboard)/(routes)/search/components/ContractSearchCard";
+import SearchPageLayout from "@/app/components/atomic/templates/SearchPageLayout";
+// import ContractSearchCard from "@/app/(dashboard)/(routes)/search/components/ContractSearchCard";
+import SearchCard from "../components/SearchCard";
 
 const ContractSearchPage: React.FC = () => {
   const searchSettings = {
@@ -28,12 +29,16 @@ const ContractSearchPage: React.FC = () => {
 
   return (
     <SearchPageLayout
+      header={{
+        title: "Contracts",
+        description: "Browse and search through a list of contracts.",
+      }}
       indexName="contracts"
       searchSettings={searchSettings}
-      pageTitle="Contracts"
       placeholder="Search for contracts..."
       sidebarSection="Contracts"
-      HitComponent={ContractSearchCard}
+      HitComponent={SearchCard}
+      type="contract"
     />
   );
 };

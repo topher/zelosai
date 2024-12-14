@@ -1,4 +1,4 @@
-// app/components/AIModelSearchCard.tsx
+// /app/(dashboard)/(routes)/search/components/AIModelSearchCard.tsx
 
 import React from "react";
 import Image from "next/image";

@@ -111,6 +111,7 @@ export const columns = (
         <Button
           variant="ghost"
           size="sm"
+          className="text-white"
           onClick={() => toggleTransactionStatus(row.original.id)}
         >
           {row.original.status === "Pending" ? (
@@ -120,7 +121,7 @@ export const columns = (
           )}
           {row.original.status === "Pending" ? "Complete" : "Reopen"}
         </Button>
-        <Button variant="ghost" size="sm" color="red" onClick={() => handleDeleteTransaction(row.original.id)}>
+        <Button variant="destructive" size="sm" onClick={() => handleDeleteTransaction(row.original.id)}>
           <TrashIcon className="h-4 w-4" />
         </Button>
       </div>

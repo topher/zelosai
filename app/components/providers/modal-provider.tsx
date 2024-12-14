@@ -4,12 +4,12 @@
 
 import { useEffect, useState } from "react";
 
-import { PurchaseCreditsModal } from "@/app/components/atomic/ttemplates/modals/purchase-credits-modal";
-import { ProModal } from "@/app/components/atomic/ttemplates/modals/pro-modal";
+import { PurchaseCreditsModal } from "@/app/components/atomic/templates/modals/purchase-credits-modal";
+import { ProModal } from "@/app/components/atomic/templates/modals/pro-modal";
 import { ProModalProvider } from "@/hooks/use-pro-modal";
 import { PurchaseCreditsModalProvider } from "@/hooks/use-purchase-credits-modal";
-import { CardModal } from "@/app/components/atomic/ttemplates/modals/card-modal"; // Ensure correct path
-import { DynamicResourceModal } from "@/app/components/atomic/ttemplates/modals/DynamicResourceModal"; // Import DynamicResourceModal
+import { CardModal } from "@/app/components/atomic/templates/modals/card-modal"; // Ensure correct path
+import DynamicResourceModal from "@/app/components/atomic/templates/modals/DynamicResourceModal"; // Import DynamicResourceModal
 
 import { ResourceModalProvider } from "@/app/context/ResourceModalContext"; // Ensure correct path
 

@@ -14,7 +14,7 @@ const SidebarToggle: React.FC<SidebarToggleProps> = ({ toggleSidebar }) => {
   return (
     <button
       onClick={toggleSidebar}
-      className="p-2 bg-gray-200 text-darkGray rounded-md focus:outline-none"
+      className="p-2 ml-2 bg-gray-200 text-darkGray rounded-md focus:outline-none lg:hidden"
       aria-label="Open sidebar"
     >
       <IconContext.Provider value={{ size: "1.5em" }}>

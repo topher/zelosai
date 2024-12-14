@@ -3,13 +3,13 @@
 'use client';
 
 import React from 'react';
-import { connectHits, SearchBox } from 'react-instantsearch-dom';
+import { connectHits, SearchBox, Pagination } from 'react-instantsearch-dom';
 import { MessageList } from './message-list';
 import { MessageDisplay } from './message-display';
 import { StatusNav } from '../molecules/StatusNav';
 import { MessageTypeNav } from '../molecules/MessageTypeNav';
 import { Separator } from '@/components/ui/separator';
-import { SearchHit } from '@/app/types'; // Ensure correct import
+import { SearchHit } from '@/app/types';
 
 interface MessageCatalogProps {
   selectedMessage: SearchHit | null;
@@ -37,7 +37,7 @@ export function MessageCatalog({
   error,
 }: MessageCatalogProps) {
   const leftPanel = (
-    <div className="p-4">
+    <div className="p-4 text-white">
       <StatusNav selectedStatus={statusFilter} onStatusChange={setStatusFilter} />
       <Separator className="my-4" />
       <MessageTypeNav selectedType={messageTypeFilter} onTypeChange={setMessageTypeFilter} />
@@ -62,16 +62,31 @@ export function MessageCatalog({
   });
 
   const centerPanel = (
-    <div className="p-4">
-      <SearchBox />
+    <div className="p-4 text-white">
+      <SearchBox
+        submit={null}
+        reset={null}
+        loadingIndicator={null}
+        translations={{
+          placeholder: 'Search...',
+        }}
+      />
       {loading && <div>Loading messages...</div>}
       {error && <div className="text-red-500">{error}</div>}
       {!loading && !error && <CustomHits />}
+      <Pagination
+        showFirst={false}
+        showLast={false}
+        translations={{
+          previous: '‹',
+          next: '›',
+        }}
+      />
     </div>
   );
 
   const rightPanel = (
-    <div className="p-4">
+    <div className="p-4 text-white">
       {selectedMessage ? (
         <MessageDisplay message={selectedMessage} />
       ) : (

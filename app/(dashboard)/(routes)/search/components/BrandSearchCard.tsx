@@ -1,4 +1,4 @@
-// app/components/BrandSearchCard.tsx
+// /app/(dashboard)/(routes)/search/components/BrandSearchCard.tsx
 
 "use client";
 

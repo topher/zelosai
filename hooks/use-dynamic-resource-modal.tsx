@@ -2,7 +2,8 @@
 
 import React, { createContext, useContext, ReactNode, useState, useCallback } from "react";
 import { FeatureKey } from "@/config/featuresConfig"; // Ensure correct path
-import { DynamicResourceModal, DynamicResourceModalProps } from "@/app/components/atomic/ttemplates/modals/DynamicResourceModal";
+import { DynamicResourceModalProps } from "@/app/components/atomic/templates/modals/DynamicResourceModal";
+import DynamicResourceModal from "@/app/components/atomic/templates/modals/DynamicResourceModal";
 
 interface DynamicResourceModalContextProps {
   openModal: (modalProps: Omit<DynamicResourceModalProps, "isOpen">) => void;

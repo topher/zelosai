@@ -97,7 +97,7 @@ export default withClerkMiddleware(async (req: NextRequest) => {
         }
     } else {
         // For non-resource routes, map to feature keys based on featureRoutes
-        const featureKey = getFeatureKey(action, resourceName);
+        const featureKey = getActionFeatureKey(action, resourceName);
         if (!featureKey) {
           console.error(`No FeatureKey mapping found for action: ${action}, resourceType: ${resourceName}`);
           return NextResponse.json({ error: 'Invalid Feature' }, { status: 400 });
@@ -144,7 +144,7 @@ export default withClerkMiddleware(async (req: NextRequest) => {
         }
 
         // Map action and resourceType to FeatureKey
-        const featureKey = getFeatureKey(action, resourceName);
+        const featureKey = getActionFeatureKey(action, resourceName);
         if (!featureKey) {
             console.error(`No FeatureKey mapping found for action: ${action}, resourceType: ${resourceName}`);
             return NextResponse.json({ error: 'Invalid Feature' }, { status: 400 });

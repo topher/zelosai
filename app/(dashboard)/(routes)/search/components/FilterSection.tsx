@@ -1,4 +1,4 @@
-// app/components/FilterSection.tsx
+// /app/(dashboard)/(routes)/search/components/FilterSection.tsx
 
 "use client";
 
@@ -20,18 +20,20 @@ const FilterSection: React.FC<FilterSectionProps> = ({ title, children }) => {
   };
 
   return (
-    <div className="mb-4">
+    <div className="mb-6">
       <button
         onClick={toggleCollapse}
-        className="flex items-center justify-between w-full p-2 text-left text-darkGray bg-white rounded-xl focus:outline-none"
+        className="flex items-center justify-between w-full px-4 py-2 text-left text-white bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 shadow-md hover:bg-gray-600 transition-colors"
       >
-        <span className="font-semibold">{title}</span>
+        <span className="text-lg font-semibold">{title}</span>
         <IconContext.Provider value={{ size: "1.2em" }}>
           {open ? <IoIosArrowDown /> : <IoIosArrowForward />}
         </IconContext.Provider>
       </button>
       <Collapse in={open}>
-        <div className="mt-2">{children}</div>
+        <div className="mt-4 pl-2 border-l-2 border-gray-600">
+          {children}
+        </div>
       </Collapse>
     </div>
   );

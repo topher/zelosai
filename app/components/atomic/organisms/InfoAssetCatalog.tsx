@@ -5,12 +5,11 @@
 import React, { useState } from 'react';
 import {
   SearchBox,
-  Hits,
   Pagination,
   ClearRefinements,
 } from 'react-instantsearch-dom';
-import { InfoAssetDisplay } from './info-asset-display';
 import { InfoAssetList } from './info-asset-list';
+import { InfoAssetDisplay } from './info-asset-display';
 import AssetTypeNav from '@/app/components/atomic/molecules/AssetTypeNav';
 import { StatusNav } from '../molecules/StatusNav';
 import CustomRefinementList from '@/app/components/atomic/molecules/CustomRefinementList';
@@ -18,13 +17,11 @@ import { CustomCurrentRefinements } from '../molecules/CustomCurrentRefinements'
 import { Separator } from '@/components/ui/separator';
 
 interface InfoAssetCatalogProps {
-  assets: any[];
-  selectedAsset: any;
-  onSelectAsset: (asset: any | null) => void;
+  selectedAsset: any; // Replace 'any' with your asset type
+  onSelectAsset: (asset: any | null) => void; // Replace 'any' with your asset type
 }
 
 export function InfoAssetCatalog({
-  assets,
   selectedAsset,
   onSelectAsset,
 }: InfoAssetCatalogProps) {
@@ -53,13 +50,14 @@ export function InfoAssetCatalog({
   ];
 
   const leftPanel = (
-    <div className="p-4">
+    <div className="p-4 text-white">
       <StatusNav
         selectedStatus={selectedStatus}
         onStatusChange={setSelectedStatus}
         statuses={statuses}
+        attribute="status"
       />
-      <Separator />
+      <Separator className="my-4" />
       <AssetTypeNav
         selectedType={selectedAssetType}
         onTypeChange={setSelectedAssetType}
@@ -69,9 +67,17 @@ export function InfoAssetCatalog({
   );
 
   const centerPanel = (
-    <div className="p-4">
-      <SearchBox />
-      <div className="mt-4">
+    <div className="p-4 text-white">
+      {/* The SearchBox will render with ais-SearchBox classes, which we can style globally */}
+      <SearchBox
+        submit={null}
+        reset={null}
+        loadingIndicator={null}
+        translations={{
+          placeholder: 'Search...',
+        }}
+      />
+      <div className="my-4">
         <h4>Active Filters</h4>
         <CustomCurrentRefinements />
         <ClearRefinements
@@ -89,17 +95,23 @@ export function InfoAssetCatalog({
           );
         }}
       />
-      <Hits
-        hitComponent={({ hit }) => (
-          <InfoAssetList hits={assets} onSelect={onSelectAsset} />
-        )}
+      {/* Connected InfoAssetList */}
+      <InfoAssetList onSelect={onSelectAsset} />
+
+      {/* The Pagination will render with ais-Pagination classes, which we can style globally */}
+      <Pagination
+        showFirst={false}
+        showLast={false}
+        translations={{
+          previous: '‹',
+          next: '›',
+        }}
       />
-      <Pagination />
     </div>
   );
 
   const rightPanel = (
-    <div className="p-4">
+    <div className="p-4 text-white">
       {selectedAsset ? (
         <InfoAssetDisplay infoAsset={selectedAsset} />
       ) : (

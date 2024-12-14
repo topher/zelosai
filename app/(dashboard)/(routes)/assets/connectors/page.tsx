@@ -1,17 +1,21 @@
-// ConnectorsLayout.tsx
+// /app/(dashboard)/(routes)/assets/connectors/page.tsx
+
 "use client";
 
 import { useState, useEffect } from "react";
-import SidebarNav from "./sidebar-nav";
 import { Button } from "@/components/ui/button";
+import { PlusCircledIcon } from "@radix-ui/react-icons";
 import { ConnectorForm } from "./connector-form";
-import { DataConnector } from "@/app/types"; // Ensure ConnectorFormValues is exported from types
-import TopicsPage from "../topics/page"; // Ensure the path is correct
+import { DataConnector } from "@/app/types";
 import { ConnectorFormValues } from "./connectorFormSchema";
+import CardGridLayout from "@/app/components/atomic/templates/CardGridLayout";
+import ConnectorCard from "@/app/components/atomic/molecules/cards/ConnectorCard";
 
 export default function ConnectorsLayout() {
-  const [selectedItem, setSelectedItem] = useState<any | null>(null);
+  const [selectedConnector, setSelectedConnector] = useState<DataConnector | null>(null);
   const [connectors, setConnectors] = useState<DataConnector[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
   const [isCreateConnectorModalOpen, setIsCreateConnectorModalOpen] = useState(false);
 
   // Fetch connectors dynamically on mount
@@ -24,49 +28,36 @@ export default function ConnectorsLayout() {
           setConnectors(data.resources);
         } else {
           console.error("Error fetching connectors:", response.statusText);
+          setError("Failed to load connectors.");
         }
       } catch (error) {
         console.error("Error fetching connectors:", error);
+        setError("Failed to load connectors.");
+      } finally {
+        setIsLoading(false);
       }
     }
     fetchData();
   }, []);
 
-
-  const handleItemClick = (item: any) => {
-    setSelectedItem(item);
+  const handleConnectorCardClick = (connector: DataConnector) => {
+    setSelectedConnector(connector);
   };
 
   const handleOpenCreateConnectorModal = () => setIsCreateConnectorModalOpen(true);
   const handleCloseCreateConnectorModal = () => setIsCreateConnectorModalOpen(false);
 
-  const ConnectorCard: React.FC<{ connector: DataConnector }> = ({ connector }) => (
-    <div
-      className="bg-white rounded-lg shadow-md px-6 py-8 cursor-pointer hover:shadow-lg hover:bg-gray-100 w-full max-w-[300px]"
-      onClick={() => handleItemClick({ type: 'connector', data: connector })}
-    >
-      <img src={connector.icon} alt={connector.name} className="w-16 h-16 mx-auto mb-4" />
-      <h3 className="text-lg font-medium text-center">{connector.name}</h3>
-      <p className="text-muted-foreground text-center">
-        {connector.description?.slice(0, 70) + "..."}
-      </p>
-      <Button variant="outline" size="sm" className="mt-4 mx-auto">
-        Connect
-      </Button>
-    </div>
-  );
-
   const ConnectorDetails = ({ connector }: { connector: DataConnector }) => {
     // Map connectionType to form type
     const typeMapping: Record<string, string> = {
-      "API": "api_key",
+      API: "api_key",
       "Social Media": "social_media",
       "Email Marketing": "email_marketing",
-      "HTTP": "http",
+      HTTP: "http",
     };
-  
+
     const formType = typeMapping[connector.connectionType] || "http"; // Default to 'http' if not mapped
-  
+
     return (
       <div>
         <h2 className="text-2xl font-bold mb-4">{connector.name} Connector</h2>
@@ -80,7 +71,10 @@ export default function ConnectorsLayout() {
             password: connector.metadata.password || "",
             whitelist: connector.metadata.whitelist
               ? connector.metadata.whitelist.map((url: string) => ({ url }))
-              : [{ url: "https://dummyurl1.com" }, { url: "https://dummyurl2.com" }], // Pre-populated dummy URLs
+              : [
+                  { url: "https://dummyurl1.com" },
+                  { url: "https://dummyurl2.com" },
+                ], // Pre-populated dummy URLs
           }}
           onSubmit={(data: ConnectorFormValues) => {
             console.log("Connector Submitted:", data);
@@ -90,52 +84,38 @@ export default function ConnectorsLayout() {
       </div>
     );
   };
-  
-  const DefaultContent = ({ connectors }: { connectors: DataConnector[] }) => (
-    <>
-      <div className="space-y-0.5">
-        <h2 className="text-2xl font-bold tracking-tight">Discover Connectors</h2>
-        <p className="text-muted-foreground mb-6">
-          Connect your favorite tools and platforms to streamline your workflow.
-        </p>
-      </div>
-      <div className="flex flex-wrap gap-6">
-        {connectors.map((connector) => (
-          <ConnectorCard key={connector.id} connector={connector} />
-        ))}
-      </div>
-    </>
-  );
 
   return (
-    <div className="flex">
-      {/* Sidebar Navigation */}
-      <div className="w-1/4 bg-gray-100 h-screen p-6 sticky top-0">
-        <h2 className="text-xl font-bold tracking-tight mb-6">My Integrations</h2>
-        <SidebarNav onItemClick={handleItemClick} />
-        <Button
-          onClick={handleOpenCreateConnectorModal}
-          className="mt-6"
-        >
-          + Add Connector
-        </Button>
-      </div>
-
-      {/* Main Content Area */}
-      <div className="w-3/4 p-8 overflow-auto">
-        {selectedItem ? (
-          selectedItem.type === 'connector' ? (
-            // Render Connector Details
-            <ConnectorDetails connector={selectedItem.data} />
-          ) : selectedItem.type === 'topics' ? (
-            // Render Topics Page
-            <TopicsPage />
-          ) : null
-        ) : (
-          // Default Content
-          <DefaultContent connectors={connectors} />
-        )}
-      </div>
+    <div>
+      {selectedConnector ? (
+        // Render Connector Details
+        <ConnectorDetails connector={selectedConnector} />
+      ) : (
+        // Use CardGridLayout for Default Content
+        <CardGridLayout<DataConnector>
+          header={{
+            title: "Discover Connectors",
+            description:
+              "Connect your favorite tools and platforms to streamline your workflow.",
+            actions: (
+              <Button onClick={handleOpenCreateConnectorModal}>
+                <PlusCircledIcon className="mr-2 h-5 w-5" />
+                Add Connector
+              </Button>
+            ),
+          }}
+          isLoading={isLoading}
+          error={error}
+          items={connectors}
+          renderItem={(connector) => (
+            <ConnectorCard
+              key={connector.id}
+              connector={connector}
+              onClick={handleConnectorCardClick}
+            />
+          )}
+        />
+      )}
     </div>
   );
 }

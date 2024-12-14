@@ -1,4 +1,4 @@
-// models/voice/page.tsx
+// /app/(dashboard)/(routes)/models/voice/[modelId]/page.tsx
 
 "use client";
 
@@ -48,15 +48,17 @@ const VoiceModelPage = () => {
   ];
 
   return (
-    <ModelPageLayout
-      modelData={modelData}
-      activeTab={activeTab}
-      setActiveTab={setActiveTab}
-      tabs={tabs}
-      icon={FileAudio}
-      iconColor="text-emerald-500"
-      bgColor="bg-emerald-500/10"
-    />
+    <div className="feature-layout min-h-screen text-gray-200">
+      <ModelPageLayout
+        modelData={modelData}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        tabs={tabs}
+        icon={FileAudio}
+        iconColor="text-emerald-500"
+        bgColor="bg-emerald-500/20"
+      />
+    </div>
   );
 };
 

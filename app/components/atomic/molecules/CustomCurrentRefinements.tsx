@@ -1,4 +1,4 @@
-// molecules/CustomCurrentRefinements.tsx
+// components/atomic/molecules/CustomCurrentRefinements.tsx
 
 import React from 'react';
 import { connectCurrentRefinements } from 'react-instantsearch-dom';
@@ -33,12 +33,12 @@ const CustomCurrentRefinementsComponent: React.FC<CustomCurrentRefinementsProps>
         key={`${item.attribute}-${refinement.label}`}
         label={`${item.label}: ${refinement.label}`}
         onClick={() => item.refine(refinement)}
-        className="m-1 bg-primary text-white"
+        className="px-3 py-1 text-sm font-medium rounded-full border border-primary bg-primary text-white hover:bg-primary/90 transition-colors duration-200"
       />
     ))
   );
 
-  return <div className="flex flex-wrap mb-4">{chips}</div>;
+  return <div className="flex flex-wrap gap-2 mb-4">{chips}</div>;
 };
 
 export const CustomCurrentRefinements = connectCurrentRefinements(CustomCurrentRefinementsComponent);

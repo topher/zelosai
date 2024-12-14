@@ -1,4 +1,4 @@
-// models/text/page.tsx
+// /app/(dashboard)/(routes)/models/text/[id]/page.tsx
 
 "use client";
 
@@ -48,15 +48,17 @@ const TextModelPage = () => {
   ];
 
   return (
-    <ModelPageLayout
-      modelData={modelData}
-      activeTab={activeTab}
-      setActiveTab={setActiveTab}
-      tabs={tabs}
-      icon={MessageSquare}
-      iconColor="text-violet-500"
-      bgColor="bg-violet-500/10"
-    />
+    <div className="feature-layout min-h-screen text-gray-200">
+      <ModelPageLayout
+        modelData={modelData}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        tabs={tabs}
+        icon={MessageSquare}
+        iconColor="text-violet-500"
+        bgColor="bg-violet-500/20"
+      />
+    </div>
   );
 };
 

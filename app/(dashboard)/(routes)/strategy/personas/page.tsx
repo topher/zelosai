@@ -1,13 +1,18 @@
+// /app/(dashboard)/(routes)/strategy/personas/page.tsx
+
 "use client";
 
 import { useEffect, useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import CardGridLayout from "@/app/components/atomic/templates/CardGridLayout";
+import PersonaCard from "@/app/components/atomic/molecules/cards/PersonaCard";
 import { Persona } from "@/app/types";
-import StrategyLayout from "@/app/components/atomic/ttemplates/StrategyLayout";
+import { Button } from "@/components/ui/button";
+import { PlusCircledIcon } from "@radix-ui/react-icons";
 
 const PersonasPage = () => {
   const [personas, setPersonas] = useState<Persona[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchPersonas = async () => {
@@ -17,51 +22,38 @@ const PersonasPage = () => {
           const data = await response.json();
           setPersonas(data.resources);
         } else {
-          console.error("Failed to fetch personas:", response.statusText);
+          setError(`Failed to fetch personas: ${response.statusText}`);
         }
-      } catch (error) {
-        console.error("Error fetching personas:", error);
+      } catch (error: any) {
+        setError(`Error fetching personas: ${error.message}`);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchPersonas();
   }, []);
 
+  const header = {
+    title: "Personas",
+    description: "Manage and view all your personas.",
+    actions: (
+      <Button>
+        <PlusCircledIcon className="mr-2 h-5 w-5" />
+        Add New Persona
+      </Button>
+    ),
+  };
+
   return (
-    <StrategyLayout>
-      <div className="space-y-8 p-6">
-        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {personas.map((persona) => (
-            <Card key={persona.id} className="bg-white border border-gray-200 shadow-md">
-              <CardHeader>
-                <CardTitle>{persona.personaName}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="mb-4">
-                  <p>{persona.description}</p>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  <Badge color="primary">{persona.type}</Badge>
-                  <Badge color="secondary">{persona.visibility}</Badge>
-                </div>
-                <div className="mt-2">
-                  <p>Associated Use Cases:</p>
-                  <ul className="list-disc list-inside">
-                    {persona.AssociatedUseCases?.map((useCase, idx) => (
-                      <li key={idx}>{useCase}</li>
-                    ))}
-                  </ul>
-                </div>
-                {persona.image && (
-                  <div className="mt-4">
-                    <img src={persona.image} alt={`${persona.personaName}'s image`} />
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-    </StrategyLayout>
+    <CardGridLayout
+      header={header}
+      isLoading={isLoading}
+      error={error}
+      items={personas}
+      renderItem={(persona: Persona) => (
+        <PersonaCard key={persona.id} persona={persona} />
+      )}
+    />
   );
 };
 

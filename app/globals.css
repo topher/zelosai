@@ -97,6 +97,12 @@ body,
   min-height: 100vh; /* Ensures that the background covers the entire viewport */
 }
 
+.feature-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #111827, #1f2937, #312e81);
+}
 
 /* StrategyLayout.css */
 .glassmorphic-card {
@@ -649,4 +655,36 @@ body .MuiAccordionDetails-root {
   -webkit-line-clamp: 2; /* Number of lines to clamp */
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* Style the SearchBox */
+.ais-SearchBox-form {
+  @apply relative mb-6 flex items-center;
+}
+
+.ais-SearchBox-input {
+  @apply w-full rounded-lg border border-gray-400 bg-gray-800 text-white py-3 px-5 pr-16 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-900;
+}
+
+/* Style the Pagination */
+.ais-Pagination-list {
+  @apply flex items-center justify-center space-x-2 mt-4;
+}
+
+.ais-Pagination-item {
+  @apply px-4 py-2 rounded-lg border text-sm font-medium bg-gray-800 hover:bg-gray-700 hover:shadow transition-colors duration-200 cursor-pointer text-white;
+}
+
+/* Disabled pages */
+.ais-Pagination-item--disabled {
+  @apply cursor-not-allowed text-gray-600 border-gray-600 bg-transparent;
+}
+
+.ais-Pagination-link {
+  @apply text-white;
+}
+
+/* Current page */
+.ais-Pagination-item--selected {
+  @apply bg-primary text-primary-foreground border-gray-400 ring-2 ring-indigo-400 ring-offset-2 ring-offset-gray-800;
 }

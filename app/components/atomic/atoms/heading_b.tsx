@@ -1,7 +1,8 @@
-// /components/heading.tsx
+// /app/components/atomic/atoms/heading_b.tsx
 
 import { Icon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Montserrat } from "next/font/google";
 
 interface HeadingProps {
   title: string;
@@ -10,6 +11,9 @@ interface HeadingProps {
   iconColor?: string;
   bgColor?: string;
 }
+
+const montserrat = Montserrat({ weight: "600", subsets: ["latin"] });
+const montserratThin = Montserrat({ weight: "400", subsets: ["latin"] });
 
 export const Heading = ({
   title,
@@ -24,8 +28,10 @@ export const Heading = ({
         <Icon className={cn("w-8 h-8 sm:w-10 sm:h-10", iconColor)} />
       </div>
       <div className="text-center sm:text-left">
-        <h2 className="text-2xl sm:text-3xl font-bold">{title}</h2>
-        <p className="text-sm sm:text-base text-muted-foreground">
+        <h2 className={cn("text-2xl sm:text-3xl font-bold text-white", montserrat.className)}>
+          {title}
+        </h2>
+        <p className={cn("text-sm sm:text-base text-gray-300", montserratThin.className)}>
           {description}
         </p>
       </div>

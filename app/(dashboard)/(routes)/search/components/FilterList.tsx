@@ -1,4 +1,4 @@
-// app/components/FilterList.tsx
+// /app/(dashboard)/(routes)/search/components/FilterList.tsx
 
 "use client";
 
@@ -8,7 +8,6 @@ import {
   UseRefinementListProps,
   useMenu,
 } from "react-instantsearch-hooks-web";
-import { Chip, Stack } from "@mui/material";
 import { languageMap, countryMap, sportsMap } from "lib/utils";
 
 interface MultiSelectFilterListProps
@@ -23,11 +22,11 @@ interface SingleSelectFilterListProps {
 // Helper function to map labels
 const mapLabel = (attribute: string, label: string): React.ReactNode => {
   // Attributes that use language codes
-  const languageAttributes = ["default_language", "language"]; // Add more if needed
+  const languageAttributes = ["default_language", "language"];
   // Attributes that use country codes
-  const countryAttributes = ["location", "country"]; // Add more if needed
+  const countryAttributes = ["location", "country"];
   // Attributes that use sport codes
-  const sportAttributes = ["sport"]; // Add more if needed
+  const sportAttributes = ["sport"];
 
   if (languageAttributes.includes(attribute)) {
     return languageMap[label] || label;
@@ -62,35 +61,27 @@ export const MultiSelectFilterList: React.FC<MultiSelectFilterListProps> = ({
 }) => {
   const { items, refine } = useRefinementList({
     attribute,
-    operator: operator ?? "or", // Allows multiple selections
+    operator: operator ?? "or",
     transformItems,
     ...rest,
   });
 
   return (
-    <Stack direction="row" flexWrap="wrap">
+    <div className="flex flex-wrap gap-2">
       {items.map((item) => (
-        <Chip
+        <button
           key={item.label}
-          label={mapLabel(attribute, item.label)}
           onClick={() => refine(item.value)}
-          sx={{
-            margin: "4px",
-            backgroundImage: item.isRefined
-              ? "linear-gradient(to right, #4b0082, #ff69b4)"
-              : "none",
-            backgroundColor: item.isRefined ? "transparent" : "white",
-            color: item.isRefined ? "white" : "#111827",
-            border: "none",
-            cursor: "pointer",
-            "&:hover": {
-              backgroundColor: "#b366e2",
-              color: "white",
-            },
-          }}
-        />
+          className={`px-3 py-1 rounded-md border text-sm font-medium ${
+            item.isRefined
+              ? "bg-indigo-500 text-white border-indigo-500"
+              : "bg-gray-700 text-gray-200 border-gray-700 hover:bg-gray-600"
+          } transition-colors`}
+        >
+          {mapLabel(attribute, item.label)}
+        </button>
       ))}
-    </Stack>
+    </div>
   );
 };
 
@@ -102,28 +93,20 @@ export const SingleSelectFilterList: React.FC<SingleSelectFilterListProps> = ({
   });
 
   return (
-    <Stack direction="row" flexWrap="wrap">
+    <div className="flex flex-wrap gap-2">
       {items.map((item) => (
-        <Chip
+        <button
           key={item.label}
-          label={mapLabel(attribute, item.label)}
           onClick={() => refine(item.value)}
-          sx={{
-            margin: "4px",
-            backgroundImage: item.isRefined
-              ? "linear-gradient(to right, #4b0082, #ff69b4)"
-              : "none",
-            backgroundColor: item.isRefined ? "transparent" : "#f4e7c3",
-            color: item.isRefined ? "white" : "#111827",
-            border: "none",
-            cursor: "pointer",
-            "&:hover": {
-              backgroundColor: "#b366e2",
-              color: "white",
-            },
-          }}
-        />
+          className={`px-3 py-1 rounded-md border text-sm font-medium ${
+            item.isRefined
+              ? "bg-indigo-500 text-white border-indigo-500"
+              : "bg-gray-700 text-gray-200 border-gray-700 hover:bg-gray-600"
+          } transition-colors`}
+        >
+          {mapLabel(attribute, item.label)}
+        </button>
       ))}
-    </Stack>
+    </div>
   );
 };
