@@ -1,4 +1,34 @@
 [
+  {
+    "id": "message-101",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Message",
+    "ownerId": "user_victor_amo_manager",
+    "createdAt": "2024-09-01T12:00:00Z",
+    "senderId": "user_sportssponsor123",
+    "recipientId": "user_victor_amo_manager",
+    "content": "Hello! We’re interested in featuring Victor Amo in our new cycling gear campaign. Can we discuss partnership terms?",
+    "sentAt": "2024-09-01T12:00:00Z",
+    "subject": "Potential Sponsorship Inquiry",
+    "messageType": "Text",
+    "priority": "high",
+    "visibility": "private"
+  },
+  {
+    "id": "message-102",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Message",
+    "ownerId": "user_victor_amo",
+    "createdAt": "2024-09-03T14:45:00Z",
+    "senderId": "org_eventmanagement",
+    "recipientId": "user_victor_amo",
+    "content": "Your custom training bot is now active. Fans have started to submit their goals. Engagement metrics are available on your dashboard.",
+    "sentAt": "2024-09-03T14:45:00Z",
+    "subject": "Training Bot Launch Confirmation",
+    "messageType": "Text",
+    "priority": "medium",
+    "visibility": "public"
+  },
     {
       "id": "message-001",
       "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",

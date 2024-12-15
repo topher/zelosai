@@ -1,5 +1,46 @@
 [
-    {
+  {
+    "id": "workflow-201",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "ownerId": "user_victor_amo_manager",
+    "resourceType": "Workflow",
+    "createdAt": "2024-09-01T08:30:00.000Z",
+    "updatedAt": "2024-09-10T11:15:00.000Z",
+    "tags": ["AIModel", "CyclingTraining", "VictorAmo"],
+    "visibility": "public",
+    "workflow_creator": "user_defined",
+    "name": "Cycling Training Plan AI Model Configuration",
+    "emoji": "🚴‍♂️",
+    "artist": "Zelos AI",
+    "cover": "https://images.unsplash.com/photo-1518123272285-281b9767f4e3",
+    "description": "A structured workflow for configuring, training, and deploying an AI model that generates personalized cycling training plans for Victor Amo’s fans.",
+    "stages": [
+      {
+        "id": "stage-201-backlog",
+        "workflowId": "workflow-201",
+        "name": "backlog",
+        "params": {}
+      },
+      {
+        "id": "stage-201-todo",
+        "workflowId": "workflow-201",
+        "name": "todo",
+        "params": {}
+      },
+      {
+        "id": "stage-201-inprogress",
+        "workflowId": "workflow-201",
+        "name": "in progress",
+        "params": {}
+      },
+      {
+        "id": "stage-201-done",
+        "workflowId": "workflow-201",
+        "name": "done",
+        "params": {}
+      }
+    ]
+  },{
       "id": "workflow-101",
       "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",

@@ -1,5 +1,53 @@
 [
-    {
+  {
+    "id": "zelos/model-training/victor-training-bot-v1",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "ownerId": "user_victor_amo_manager",
+    "resourceType": "ModelTraining",
+    "URI": "zelos/model-training/victor-training-bot-v1",
+    "modelName": "VictorAmoTrainingAdvisor v1.0",
+    "description": "A custom AI model to generate personalized training suggestions for Victor Amo’s fans, based on his historical performance and training techniques.",
+    "trainingDataSources": [
+      "zelos/victor-amo/performance-data-2023.csv",
+      "zelos/victor-amo/historical-training-sessions.txt"
+    ],
+    "trainingStatus": "in_progress",
+    "accuracy": 92.0,
+    "lastTrainedAt": "2024-09-03T14:30:00Z",
+    "parameters": {
+      "epochs": 50,
+      "learningRate": 0.001,
+      "batchSize": 32,
+      "optimizer": "Adam",
+      "layers": [128, 256, 128]
+    },
+    "tags": ["AIModel", "FanEngagement", "VictorAmo"],
+    "visibility": "public"
+  },
+  {
+    "id": "zelos/model-training/brand-alignment-analyzer-v2",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "ownerId": "user_brand_specialist",
+    "resourceType": "ModelTraining",
+    "URI": "zelos/model-training/brand-alignment-analyzer-v2",
+    "modelName": "BrandAlignmentOptimizer v2.0",
+    "description": "Model designed to analyze and suggest brand partnerships for athletes based on profile attributes, target audiences, and mutual brand values.",
+    "trainingDataSources": [
+      "zelos/global-athlete-brand-dataset-2024.csv"
+    ],
+    "trainingStatus": "completed",
+    "accuracy": 89.5,
+    "lastTrainedAt": "2024-09-02T09:15:00Z",
+    "parameters": {
+      "epochs": 60,
+      "learningRate": 0.0005,
+      "batchSize": 64,
+      "optimizer": "SGD",
+      "layers": [64, 128, 64]
+    },
+    "tags": ["AIModel", "BrandEngagement", "MarketingAnalytics"],
+    "visibility": "public"
+  },{
       "id": "zelos/model-training/athlete-performance-1",
       "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
       "ownerId": "user_3gJik7pKtsxplQTb4PUV4JbbUF",

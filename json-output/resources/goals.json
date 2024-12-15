@@ -67,5 +67,35 @@
       "Brand Reputation Management"
     ],
     "isActive": true
+  },{
+    "id": "goal-101",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Goal",
+    "ownerId": "user_victor_amo_manager",
+    "visibility": "public",
+    "Goal": "Increase Athlete Fan Engagement",
+    "Description": "Boost direct fan interactions and personalized training experiences to improve overall community engagement.",
+    "StrategicIndicator": "Fan Engagement Index",
+    "KPI": "Average Time Fans Spend on Victor's Training Platform",
+    "Developer": "Marketing & AI Team",
+    "RelatedIssues": ["Community Building", "Content Personalization"],
+    "isActive": true,
+    "linkedResources": {
+      "Triple": ["triple_fan_001", "triple_fan_002", "triple_fan_003"]
+    }
+  },
+  {
+    "id": "goal-102",
+    "accountId": "org_2nc9c87ihMBSTJxcYc4X4dwmdH4",
+    "resourceType": "Goal",
+    "ownerId": "user_brand_specialist",
+    "visibility": "private",
+    "Goal": "Enhance Brand Partnerships",
+    "Description": "Identify and align with top-tier sports brands to create valuable sponsorship opportunities.",
+    "StrategicIndicator": "Brand Partnership Value",
+    "KPI": "Number of High-Value Sponsorship Deals",
+    "Developer": "Business Dev Team",
+    "RelatedIssues": ["Brand Alignment", "Market Expansion"],
+    "isActive": true
   }
 ]

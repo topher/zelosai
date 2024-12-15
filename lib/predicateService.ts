@@ -9,7 +9,8 @@ export const fetchPredicateById = async (id: string) => {
 
 export const searchPredicates = async (query: string, resourceType: string) => {
   if (!resourceType) {
-    throw new Error("ResourceType is required for the predicate search.");
+    console.warn("ResourceType is required for the predicate search. Returning empty results as a fallback.");
+    return []; // Return an empty array or any suitable fallback value.
   }
 
   const mustClause = query && query.trim() !== ''

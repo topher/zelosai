@@ -12,9 +12,10 @@ const montserrat = Montserrat({ weight: "600", subsets: ["latin"] });
 interface ListContainerProps {
   boardId: string;
   data: List[];
+  agents: { [key: string]: { name: string; image: string } };
 };
 
-export const ListContainer = ({ boardId, data }: ListContainerProps) => {
+export const ListContainer = ({ boardId, data, agents }: ListContainerProps) => {
   return (
     <div className="flex gap-6 min-h-full">
       {data.map((list) => (
@@ -47,7 +48,7 @@ export const ListContainer = ({ boardId, data }: ListContainerProps) => {
                 className="flex flex-col gap-3 relative z-10"
               >
                 {list.cards.map((card, cardIndex) => (
-                  <CardItem key={card.id} data={card} index={cardIndex} />
+                  <CardItem key={card.id} data={card} index={cardIndex} agentsDict={agents} />
                 ))}
                 {provided.placeholder}
               </div>
