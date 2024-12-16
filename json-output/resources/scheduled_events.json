@@ -1,0 +1,57 @@
+[
+    {
+      "id": "scheduledEvent-001",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "resourceType": "ScheduledEvent",
+      "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "createdAt": "2024-04-01T09:00:00Z",
+      "name": "Virtual Fan Meet and Greet",
+      "description": "An exclusive virtual event with live Q&A.",
+      "startDate": "2024-12-05T18:00:00Z",
+      "endDate": "2024-12-05T20:00:00Z",
+      "location": "Online",
+      "organizerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "participantIds": ["user_fan1", "user_fan2"],
+      "eventStatus": "Scheduled",
+      "eventType": "Webinar",
+      "priority": "high",
+      "visibility": "public"
+    },
+    {
+      "id": "scheduledEvent-002",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "resourceType": "ScheduledEvent",
+      "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "createdAt": "2024-05-20T10:00:00Z",
+      "name": "Athlete Training Workshop",
+      "description": "A hands-on workshop to improve your skills.",
+      "startDate": "2024-12-15T09:00:00Z",
+      "endDate": "2024-12-15T17:00:00Z",
+      "location": "Sports Complex, City Center",
+      "organizerId": "user_organizer1",
+      "participantIds": [],
+      "eventStatus": "Scheduled",
+      "eventType": "Training",
+      "priority": "medium",
+      "visibility": "public"
+    },
+    {
+      "id": "scheduledEvent-003",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "resourceType": "ScheduledEvent",
+      "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "createdAt": "2024-06-25T11:00:00Z",
+      "name": "AI-Driven Strategy Seminar",
+      "description": "Seminar on leveraging AI for sports strategies.",
+      "startDate": "2024-12-20T14:00:00Z",
+      "endDate": "2024-12-20T16:00:00Z",
+      "location": "Main Auditorium, Stadium",
+      "organizerId": "user_organizer2",
+      "participantIds": ["user_attendee1", "user_attendee2"],
+      "eventStatus": "Scheduled",
+      "eventType": "Conference",
+      "priority": "low",
+      "visibility": "public"
+    }
+  ]
+  

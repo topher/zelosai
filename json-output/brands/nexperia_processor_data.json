@@ -1,0 +1,40 @@
+{
+  "brand_name": "Nexperia",
+  "mission_vision": null,
+  "sponsorship_activities": [],
+  "channels": [],
+  "industry": {
+    "Primary_Industry": "Semiconductors",
+    "Secondary_Industry": "Consumer Electronics"
+  },
+  "regions": [],
+  "interests": [
+    {
+      "category": "Technology and Science Interests",
+      "specifics": [
+        "Computer Science",
+        "Software Development"
+      ]
+    }
+  ],
+  "audience_lifestyle": [],
+  "languages": [],
+  "business_model_canvas": {
+    "Key_Partners": [],
+    "Key_Activities": [],
+    "Value_Propositions": [],
+    "Customer_Relationships": [],
+    "Customer_Segments": [],
+    "Channels": [],
+    "Cost_Structure": [],
+    "Revenue_Streams": []
+  },
+  "link": "https://en.wikipedia.org/wiki/Nexperia_(processor)",
+  "parsed_at": "2024-10-01T14:38:09.534143Z",
+  "country": "Dutch brands",
+  "category": "Philips",
+  "body_text": "From Wikipedia, the free encyclopedia Line of processors by NXP Semiconductors For the NXP Semiconductors spin-off company, see Nexperia . This article needs additional citations for verification . Please help improve this article by adding citations to reliable sources . Unsourced material may be challenged and removed. Find sources: \"Nexperia\" processor – news · newspapers · books · scholar · JSTOR ( April 2023 ) ( Learn how and when to remove this message ) Nexperia was the NXP Semiconductors (formerly Philips Semiconductors) brand for a family of processors, primarily featuring media processor system-on-chip (SoC) and media co-processors, but also briefly including highly integrated mobile (SoC) products. Nexperia media processors [ edit ] Philips Semiconductor began producing processors for multimedia applications, under the TriMedia brand. Later model SoC processors with greater integration were sold under the Nexperia brand. PNX1300 [ edit ] The PNX1500 was a basic media processor, designed for DVD players, set-top boxes, and internet appliances. Featuring a 200 MHz TriMedia CPU core, DVD decryption/descrambling, partial hardware acceleration for MPEG-1 and MPEG-2 decoding, and 10/100 Ethernet support. It was designed to be a pin-compatible successor to the TriMedia TM-1300. PNX1500 [ edit ] The PNX1500 was a media processor SoC. Featuring the 266 MHz TriMedia TM3260 CPU core, 2D graphics acceleration, and MPEG-1 and MPEG-2 decoding, and 10/100 Ethernet support. It was designed to be code compatible with the PNX1300. PNX1700 [ edit ] The PNX1700 was an HD media processor SoC for connected media devices, like set-top boxes, PVRs and TV's, [ 1 ] announced in March 2005. This media chip included a 500 MHz TriMedia TM5250 CPU core, 10/100 ethernet, and an LCD controller, and was capable of decoding HD video formats, including Windows Media Video, DivX, MPEG-4 and MPEG-2, and able to perform simultaneous encode and decode of full D1 resolution MPEG-2 and MPEG-4 video, including support for H.264 codec. [ 2 ] The 1700 was pin-compatible with the predecessor PNX1500. PNX5100 [ edit ] Full-HD video post processor [ 3 ] Nexperia mobile phone processors [ edit ] Philips Semiconductor had been producing Nexperia mobile chips since 1999. These included application processors, imaging co-processors, and both baseband and RF supporting components. Nexperia PNX4000 [ edit ] The PNX4000 was publicly launched by Philips Semiconductor in November 2003, as an imaging co-processor for mid-range camera-phone devices. [ 4 ] [ 5 ] This processor was featured in a number of Sony Ericsson phones, even before the public release of the chip: Sony Ericsson P800 (Sep 2002) Sony Ericsson P900 (Jan 2003) Sony Ericsson P910 (2004) Nexperia 6100 platform [ edit ] Nexperia 6100 cellular system solution was launched in February 2005, and was a platform that includes an ARM9 processor, and support for EDGE. [ 6 ] [ 7 ] The platform supports Java with JSR 135 Mobile Multimedia API. This platform was used for the 2006 Samsung SGH-P200. [ 8 ] Nexperia 7130 platform [ edit ] Nexperia 7130 cellular system solution was also launched in February 2005, and extended on the 6100 platform with support for 2.75G/EDGE and 3G/UMTS. [ 9 ] Nexperia 5130 platform [ edit ] Nexperia Cellular System Solution 5130 was a $5 part designed to enable low cost (~$20) basic phones, and featured an ARM7 baseband processor (OM6357). [ 10 ] Nexperia 5210 platform [ edit ] The Nexperia Cellular System Solution 5210 was launched in November 2005. This system platform was designed for basic mobile phones, and included the PNX5230 cellular baseband chip, which featured a 130 MHz ARM946E-S system controller core, EDGE data support, and support for 1.3MP camera sensors with a built-in JPEG encoder. [ 11 ] [ 12 ] Nexperia PNX4008 SoC [ edit ] The PNX4008 SoC was launched on February 7, 2005, [ 13 ] as the first 90 nm ARM9 SoC CPU. This processor included PowerVR 3D graphics from Imagination Technologies for hardware-accelerated 3D graphics (80 MHz: 160Mpix/s, 1Mpolygons/s), and security IP from Discretix. Philips claimed that consumers could have up to 100 hours of uninterrupted audio playback on their MP3 players due the chips' low power usage [ 14 ] In September 2006, Philips formed NXP as a spin-out of their semiconductor division. [ 15 ] The Nexperia PNX4008 was then used as the foundation for the subsequent LPC processor series from NXP . [ 16 ] This processor was used in a number of Sony Ericsson phones, including: Sony Ericsson P990 [ 17 ] (Oct 2005) Sony Ericsson P1 (May 2007) Sony Ericsson M600 (Feb 2006) Sony Ericsson W950 (Feb 2006) Sony Ericsson W960 (Jun 2007) Nexperia PNX4009 SoC [ edit ] Sony Ericsson G700 and G700c Sony Ericsson G700 Business Edition Sony Ericsson G900 Sony Ericsson 'Paris' P200 Following the formation of the ST-NXP Wireless joint venture in 2008, and subsequent ST-NXP/Ericsson merger to form ST-Ericsson in 2009, later mobile processors were launched by ST-Ericsson under the brand ' NovaThor ', thus bringing an end to the Nexperia mobile line. TriMedia - the TriMedia CPU line used in the Nexperia media processors Nomadik - competing mobile processor line from STMicro NovaThor - successor mobile processor line from the ST-Ericsson joint-venture Nexperia product page Retrieved from \" https://en.wikipedia.org/w/index.php?title=Nexperia_(processor)&oldid=1202601257 \" Categories : 32-bit microprocessors NXP Semiconductors Philips Hidden categories: Articles with short description Short description matches Wikidata Use dmy dates from September 2023 Articles needing additional references from April 2023 All articles needing additional references",
+  "infobox": {},
+  "company_name": "Unknown",
+  "logo_url": "No logo available"
+}

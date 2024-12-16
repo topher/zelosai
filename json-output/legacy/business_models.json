@@ -1,0 +1,172 @@
+[{
+  "id": "BIZM-0",
+  "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+  "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+  "visibility": "public",
+  "resourceType":"BusinessModel",
+  "companyName": "Amotion",
+  "logo": "https://example.com/logo.png",
+  "industry": "Technology",
+  "location": "San Francisco, CA",
+  "foundedYear": 2010,
+  "description": "Amotion is a leading technology company specializing in immersive AI solutions.",
+  "website": "https://www.gorigogo.com",
+  "socialMedia": {
+      "linkedin": "https://www.linkedin.com/company/gorigogo",
+      "twitter": "https://twitter.com/gorigogo",
+      "facebook": "https://www.facebook.com/gorigogo"
+  },
+  "customerSegments": [
+      {
+          "id": "seg-001",
+          "name": "Enterprises",
+          "description": "Large companies looking for AI solutions for automation and optimization."
+      },
+      {
+          "id": "seg-002",
+          "name": "Startups",
+          "description": "Tech startups seeking AI-driven innovation to gain a competitive edge."
+      },
+      {
+          "id": "seg-003",
+          "name": "Education",
+          "description": "Educational institutions interested in AI applications for e-learning."
+      }
+  ],
+  "valuePropositions": [
+      {
+          "id": "vp-001",
+          "name": "AI Automation",
+          "description": "Our immersive AI technology simplifies processes and increases efficiency."
+      },
+      {
+          "id": "vp-002",
+          "name": "Innovation",
+          "description": "We offer cutting-edge AI solutions to drive innovation and growth."
+      },
+      {
+          "id": "vp-003",
+          "name": "Personalization",
+          "description": "AI solutions tailored to meet unique business needs and objectives."
+      }
+  ],
+  "channels": [
+      {
+          "id": "ch-001",
+          "name": "Online Platform",
+          "description": "Our website and online platform for client interaction."
+      },
+      {
+          "id": "ch-002",
+          "name": "B2B Partnerships",
+          "description": "Collaboration with B2B partners to reach a broader audience."
+      },
+      {
+          "id": "ch-003",
+          "name": "Direct Sales",
+          "description": "Direct sales and support for enterprise clients."
+      }
+  ],
+  "customerRelationships": [
+      {
+          "id": "cr-001",
+          "name": "Personalized Support",
+          "description": "Dedicated account managers for personalized customer support."
+      },
+      {
+          "id": "cr-002",
+          "name": "User Community",
+          "description": "Building an active user community for feedback and interaction."
+      },
+      {
+          "id": "cr-003",
+          "name": "Regular Updates",
+          "description": "Providing regular updates and AI training sessions for clients."
+      }
+  ],
+  "revenueStreams": [
+      {
+          "id": "rs-001",
+          "name": "SaaS Subscriptions",
+          "description": "Revenue model based on subscriptions for AI software."
+      },
+      {
+          "id": "rs-002",
+          "name": "Consulting Services",
+          "description": "Consulting services for AI strategy and implementation."
+      },
+      {
+          "id": "rs-003",
+          "name": "Customized Solutions",
+          "description": "Revenue from customized AI solutions for clients."
+      }
+  ],
+  "keyResources": [
+      {
+          "id": "kr-001",
+          "name": "AI Research Team",
+          "description": "A dedicated team of AI researchers and developers."
+      },
+      {
+          "id": "kr-002",
+          "name": "Data Centers",
+          "description": "State-of-the-art data centers for AI model training."
+      },
+      {
+          "id": "kr-003",
+          "name": "Intellectual Property",
+          "description": "Valuable patents related to AI and intellectual property."
+      }
+  ],
+  "keyActivities": [
+      {
+          "id": "ka-001",
+          "name": "AI Development",
+          "description": "Continuous development and improvement of AI models."
+      },
+      {
+          "id": "ka-002",
+          "name": "Market Research",
+          "description": "Ongoing market research to identify new opportunities."
+      },
+      {
+          "id": "ka-003",
+          "name": "Customer Integration",
+          "description": "Integrating and training clients on AI solutions."
+      }
+  ],
+  "keyPartners": [
+      {
+          "id": "kp-001",
+          "name": "Zelos",
+          "description": "Collaboration with tech startups for joint projects."
+      },
+      {
+          "id": "kp-002",
+          "name": "Cloud Providers",
+          "description": "Partnerships with cloud providers for infrastructure."
+      },
+      {
+          "id": "kp-003",
+          "name": "Universities",
+          "description": "Collaboration with universities for AI research."
+      }
+  ],
+  "cost": [
+      {
+          "id": "co-001",
+          "name": "Research and Development",
+          "description": "Investment in AI research and development."
+      },
+      {
+          "id": "co-002",
+          "name": "Infrastructure",
+          "description": "Costs associated with data centers and cloud services."
+      },
+      {
+          "id": "co-003",
+          "name": "Marketing and Sales",
+          "description": "Expenses related to marketing and sales efforts."
+      }
+  ]
+}]

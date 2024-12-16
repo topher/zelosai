@@ -7,7 +7,13 @@ body,
 :root {
   height: 100%;
 }
+
+.banner-skybox {
+  width: 100%;
+  height: 100%;
+}
  
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -91,6 +97,12 @@ body,
   min-height: 100vh; /* Ensures that the background covers the entire viewport */
 }
 
+.feature-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #111827, #1f2937, #312e81);
+}
 
 /* StrategyLayout.css */
 .glassmorphic-card {
@@ -169,4 +181,510 @@ body,
   box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
   font-size: 12px;
   color: #333;
+}
+
+
+html,
+body,
+:root {
+  height: 100%;
+}
+
+.leaflet-bottom,
+.leaflet-control,
+.leaflet-pane,
+.leaflet-top {
+  z-index: 0 !important;
+}
+
+.rdrMonth {
+  width: 100% !important;
+}
+
+.rdrCalendarWrapper {
+  font-size: 16px !important;
+  width: 100% !important;
+}
+
+/* Accordion custom styles */
+.accordion {
+  box-shadow: none;
+  /* other styles... */
+}
+
+.athlete-brand-profile {
+  background: linear-gradient(to right, #0f172a, #1e293b, #4b0082);
+  min-height: 100vh; /* Ensure it covers the full screen height */
+  display: flex;
+  flex-direction: column; /* For better structure */
+}
+
+.css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root {
+  box-shadow: none !important;
+}
+
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root {
+  background-color: #fff;
+  color: rgba(92, 92, 92, 0.87);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 4px ;
+  box-shadow: none !important;
+  position: relative;
+}
+
+/* Increase specificity by prefixing with body if needed */
+
+/* Adjust spacing between accordions */
+body .MuiAccordion-root + .MuiAccordion-root {
+  margin-top: 8px; /* Adjust as needed */
+}
+
+/* Adjust summary typography and spacing */
+body .MuiAccordionSummary-root {
+  font-family: '__Nunito_bfc3c1', '__Nunito_Fallback_bfc3c1'; /* Or whatever font you're using */
+  font-style: normal;
+  font-size: 16px; /* Adjust as needed */
+  line-height: 1.5;
+  padding: 8px 16px; /* Adjust as needed */
+}
+
+/* Adjust detailed typography and spacing */
+body .MuiAccordionDetails-root {
+  font-family: '__Nunito_bfc3c1', '__Nunito_Fallback_bfc3c1'; /* Or whatever font you're using */
+  font-style: normal;
+  font-size: 14px; /* Adjust as needed */
+  line-height: 1.4;
+  padding: 8px 16px; /* Adjust as needed */
+}
+
+
+/* 1. Make the text bigger */
+.MuiTypography-root.css-ahj2mt-MuiTypography-root {
+  font-size: 1.2rem; /* Adjust this value as per your requirement */
+}
+
+/* Reduce the font size for the content inside the Accordion details */
+.MuiAccordionDetails-root .MuiTypography-root {
+  font-size: 1rem !important; /* Adjust this value to your preference */
+}
+
+/* 2. Set the font family */
+.MuiTypography-root.css-ahj2mt-MuiTypography-root {
+  font-family: '__Nunito_bfc3c1', '__Nunito_Fallback_bfc3c1';
+  font-style: normal;
+}
+
+/* Override font-family for MUI Typography */
+.MuiTypography-root {
+  font-family: '__Nunito_bfc3c1', '__Nunito_Fallback_bfc3c1'; 
+}
+
+/* 3. Reduce the whitespace above and below text */
+.MuiAccordionSummary-root.css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root {
+  padding: 8px 0px !important; /* Adjust the 8px to reduce vertical padding */
+}
+
+.expandIcon {
+  transition: transform 0.3s; /* smooth rotation */
+  transform-origin: center; /* ensure the icon rotates around its center */
+}
+
+.expandIcon.expanded {
+  transform: rotate(180deg);
+}
+.details-container {
+  display: flex;
+  flex-wrap: wrap; /* This allows items to wrap if there isn't enough space */
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+}
+
+.detail {
+  flex: 1; /* Ensure each item can grow equally */
+  flex-basis: calc(25% - 10px); /* Start with roughly 25% of the parent width, minus margin */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  margin: 0.5rem;
+}
+
+
+/* PhotoGallery */
+.imageContainer {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  font-family: Circular, -apple-system, "system-ui", Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  width: 795px;
+  height: 414.797px; /* Adjusted height */
+  display: flex;
+  gap: 8px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.leftMainImage {
+  flex: 1;
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+
+.rightImageContainer {
+  position: relative; 
+  width: 100%; 
+  height: 100%;
+}
+
+
+.rightImagesGrid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 8px;
+  width: 100%;
+  height: 100%; /* ensure the grid takes the full height */
+}
+
+.rightImage {
+  object-fit: cover;
+  object-position: 50% 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; 
+  height: 100%; 
+  border-radius: 15px;
+}
+
+.rightImage:nth-child(1) {
+  border-top-right-radius: 15px;
+}
+
+.rightImage:nth-child(4) {
+  border-bottom-right-radius: 15px;
+}
+
+.search-container {
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 9999px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: box-shadow 0.2s ease;
+  width: 100%;
+  max-width: 600px; /* Set a max-width if necessary */
+  margin: auto; /* Center the search bar */
+}
+
+.search-container:hover {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 4px 8px;
+}
+
+.search-icon-container {
+  background-color: #fbbf24; /* amber-500 */
+  border-radius: 50%;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+
+/* Dashboard.css */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust minmax for your card width */
+  grid-gap: 1rem; /* Space between cards */
+  justify-content: center; /* Center grid items horizontally */
+  align-items: start; /* Align grid items to the top */
+  padding: 1rem; /* Padding around the grid */
+  background-color: #0e0e10; /* Dark background color for the dashboard */
+  min-height: 100vh; /* Full viewport height */
+}
+
+.mosaic-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust based on your preferred card width */
+  /* grid-auto-rows: 1fr; Ensures that rows have equal height */
+  gap: 1rem; /* Adjust the gap as needed */
+}
+
+/* TripleCard.css */
+.triple-card {
+  position: relative;
+  background: #1c1c1e; /* Dark background for the card */
+  color: #fff; /* Keep text color white for contrast */
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  border-radius: 20px;
+  padding: 1rem; /* Padding inside cards */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #fff; /* Text color */
+  display: flex;
+  flex-direction: column; /* Stack card content vertically */
+  justify-content: space-between; /* Space between content and actions */
+  transition: transform 0.2s ease-in-out;
+  margin-bottom: 10px; /* Adjust the margin as needed */
+}
+
+.triple-card:hover {
+  transform: translateY(-5px);
+  background: linear-gradient(145deg, #5856d6, #ff2d55); /* Gradient background on hover */
+}
+
+.triple-card .title,
+.triple-card .value {
+  text-align: center; /* Center text */
+}
+
+.triple-card .title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem; /* Space below title */
+  color: linear-gradient(145deg, #5856d6, #ff2d55); /* Gradient background on hover */
+}
+
+.triple-card .value {
+  font-size: 2rem;
+  color: #fff; /* White text color */
+}
+
+.triple-card .user-actions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 1rem 0; /* Adjust padding to fit content */
+  background: rgba(255, 255, 255, 0.7); /* White glassy background */
+  backdrop-filter: blur(5px); /* Blur effect for glassy look */
+  color: transparent; /* Hide icons initially */
+  transition: color 0.3s ease;
+}
+
+.triple-card .user-actions .icon {
+  color: inherit; /* Use parent's text color */
+}
+
+.triple-card:hover .user-actions {
+  color: linear-gradient(45deg, #5856d6, #ff2d55); /* Gradient color for icons on hover */
+}
+
+/* Reverse colors for user actions */
+.user-actions.expanded {
+  background: linear-gradient(45deg, #5856d6, #ff2d55); /* Gradient background */
+  color: white; /* Icons color */
+}
+
+.user-actions {
+  display: flex;
+  justify-content: space-around; /* Align icons horizontally */
+  align-items: center;
+  position: absolute;
+  width: 100%; /* Full width */
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow-y: hidden; /* Prevent vertical expansion */
+}
+
+.icons-layout {
+  display: flex;
+  flex-wrap: wrap; /* Wrap icons for grid-like layout */
+  justify-content: center;
+}
+
+.counts-info {
+  flex-basis: 100%; /* Full width */
+  text-align: center;
+  /* Other styles */
+}
+.user-actions.expanded {
+  flex-direction: column; /* Stack content vertically */
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  top: 0;
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.user-actions.expanded .icons-layout {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping for two-column layout */
+  justify-content: space-around;
+}
+
+.icon, .icon-expanded {
+  margin: 0.5rem; /* Adjust margin for proper spacing */
+  flex-basis: 48%; /* Adjust for two-column layout */
+}
+
+
+.collaboration-request {
+  position: sticky;
+  top: 0; /* Adjust as needed */
+  z-index: 10; /* Ensure it stays on top of other content */
+}
+
+/* StatCard.css */
+.stat-card {
+  background: #1c1c1e; /* Dark background for the card */
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: white;
+  max-width: 300px;
+  margin: 20px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.stat-card .title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #8e8e93; /* Subdued color for the title */
+}
+
+.stat-card .value {
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, #5856d6, #ff2d55);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  background: linear-gradient(45deg, #5856d6, #ff2d55);
+}
+
+.filters-section {
+  margin-bottom: 24px;
+}
+
+.filters-section h4 {
+  margin-bottom: 8px;
+}
+
+
+/* In your global CSS file or Tailwind configuration */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap');
+
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-sans {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+/* styles/globals.css */
+
+.sidebar {
+  width: 250px;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+.sidebar-section-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-item {
+  margin-bottom: 10px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #555;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.sidebar-link:hover {
+  background-color: #e0e0e0;
+}
+
+.sidebar-link.disabled {
+  cursor: not-allowed;
+  color: #999;
+}
+
+.sidebar-icon {
+  margin-right: 8px;
+}
+
+.sidebar-icon.locked {
+  color: #999;
+}
+
+.clamp-2-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Number of lines to clamp */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Style the SearchBox */
+.ais-SearchBox-form {
+  @apply relative mb-6 flex items-center;
+}
+
+.ais-SearchBox-input {
+  @apply w-full rounded-lg border border-gray-400 bg-gray-800 text-white py-3 px-5 pr-16 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-900;
+}
+
+/* Style the Pagination */
+.ais-Pagination-list {
+  @apply flex items-center justify-center space-x-2 mt-4;
+}
+
+.ais-Pagination-item {
+  @apply px-4 py-2 rounded-lg border text-sm font-medium bg-gray-800 hover:bg-gray-700 hover:shadow transition-colors duration-200 cursor-pointer text-white;
+}
+
+/* Disabled pages */
+.ais-Pagination-item--disabled {
+  @apply cursor-not-allowed text-gray-600 border-gray-600 bg-transparent;
+}
+
+.ais-Pagination-link {
+  @apply text-white;
+}
+
+/* Current page */
+.ais-Pagination-item--selected {
+  @apply bg-primary text-primary-foreground border-gray-400 ring-2 ring-indigo-400 ring-offset-2 ring-offset-gray-800;
 }

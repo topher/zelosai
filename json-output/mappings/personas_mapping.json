@@ -1,0 +1,45 @@
+{
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "accountId": {
+        "type": "keyword"
+      },
+      "ownerId": {
+        "type": "keyword"
+      },
+      "resourceType": {
+        "type": "keyword"
+      },
+      "visibility": {
+        "type": "keyword"
+      },
+      "Name": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "Description": {
+        "type": "text"
+      },
+      "Type": {
+        "type": "keyword"
+      },
+      "AssociatedUseCases": {
+        "type": "keyword"
+      },
+      "is_persona": {
+        "type": "boolean"
+      },
+      "Image": {
+        "type": "keyword"
+      }
+    }
+  }
+}

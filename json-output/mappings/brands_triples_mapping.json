@@ -1,0 +1,55 @@
+{
+  "mappings": {
+    "properties": {
+      "subject": { "type": "keyword" },
+      "triples": { "type": "nested",
+        "properties": {
+          "predicate": { "type": "keyword" },
+          "object": { "type": "text" },
+          "citation": { "type": "keyword" }
+        }
+      },
+      "brand_name": { "type": "text" },
+      "mission_vision": { "type": "text" },
+      "sponsorship_activities": { "type": "text" },
+      "channels": { "type": "keyword" },
+      "primary_industry": { "type": "keyword" },
+      "secondary_industry": { "type": "keyword" },
+      "regions": { "type": "keyword" },
+      "interests": { "type": "keyword" },
+      "audience_lifestyle": { "type": "keyword" },
+      "languages": { "type": "keyword" },
+      "key_partners": { "type": "text" },
+      "key_activities": { "type": "text" },
+      "value_propositions": { "type": "text" },
+      "customer_relationships": { "type": "text" },
+      "customer_segments": { "type": "text" },
+      "cost_structure": { "type": "text" },
+      "revenue_streams": { "type": "text" },
+      "link": { "type": "keyword" },
+      "parsed_at": { "type": "date"
+      },
+      "country": { "type": "keyword" },
+      "category": { "type": "keyword" },
+      "body_text": { "type": "text",
+        "index": true,
+        "store": false
+      },
+      "infobox": {
+        "properties": {
+          "logo_url": { "type": "keyword" },
+          "name": { "type": "text" },
+          "company_type": { "type": "keyword" },
+          "industry": { "type": "keyword" },
+          "predecessor": { "type": "keyword" },
+          "headquarters": { "type": "text" },
+          "parent": { "type": "keyword" },
+          "divisions": { "type": "keyword" },
+          "website": { "type": "keyword" }
+        }
+      },
+      "company_name": { "type": "text" },
+      "logo_url": { "type": "keyword" }
+    }
+  }
+}

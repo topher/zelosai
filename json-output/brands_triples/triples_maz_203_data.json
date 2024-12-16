@@ -1,0 +1,256 @@
+{
+    "subject": "http://zelos.ai/knowledge/brand/maz_203",
+    "triples": [
+        {
+            "predicate": "has_name",
+            "object": "MAZ-203",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "belongs_to_industry",
+            "object": "Automotive",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "belongs_to_industry",
+            "object": "Public Transport",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "operates_in_region",
+            "object": "Belarus",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "operates_in_region",
+            "object": "Poland",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "operates_in_region",
+            "object": "Ukraine",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "operates_in_region",
+            "object": "Russia",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "operates_in_region",
+            "object": "Romania",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "operates_in_region",
+            "object": "Serbia",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "has_key_partner",
+            "object": "Vulović Transport",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "has_key_partner",
+            "object": "BIK (Bus Industries Kragujevac)",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "performs_key_activity",
+            "object": "Manufacturing",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "performs_key_activity",
+            "object": "Assembly",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "offers_value_proposition",
+            "object": "Low-floor accessibility",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "offers_value_proposition",
+            "object": "Durability",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "offers_value_proposition",
+            "object": "Comfortable public transport solution",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "targets_customer_segment",
+            "object": "Public transport authorities",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "targets_customer_segment",
+            "object": "City municipalities",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "supports_language",
+            "object": "Russian",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "has_wiki_logo_url",
+            "object": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/MAZ_203-076_in_Kielce.jpg/280px-MAZ_203-076_in_Kielce.jpg",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "has_wiki_name",
+            "object": "MAZ-203",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "has_wiki_manufacturer",
+            "object": "MAZ",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "has_wiki_production",
+            "object": "2006–present",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "has_wiki_assembly",
+            "object": "Minsk , Belarus ( MAZ ) Kragujevac , Serbia (Vulović Transport)",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "has_wiki_class",
+            "object": "Single-decker city-bus",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "has_wiki_doors",
+            "object": "3",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "has_wiki_floor_type",
+            "object": "Low-floor",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "has_wiki_chassis",
+            "object": "MAZ",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "has_wiki_engine",
+            "object": "Mercedes-Benz OM 906 LA Deutz TCD 2013LO6 Euro III or Euro IV",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "has_wiki_power_output",
+            "object": "205 ( Mercedes-Benz ) or 170 (Deutz)",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "has_wiki_transmission",
+            "object": "automatic or mechanic ZF or Voith Diwa",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "has_wiki_length",
+            "object": "12,000 mm (39 ft 4 + 1 ⁄ 2 in)",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "has_wiki_width",
+            "object": "2,550 mm (8 ft 4 + 3 ⁄ 8 in)",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "has_wiki_height",
+            "object": "2,930 mm (9 ft 7 + 3 ⁄ 8 in) ( 3,050 mm [10 ft 1 ⁄ 8 in] with air-conditioning )",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "has_wiki_curb_weight",
+            "object": "11,100 kg (24,500 lb) (kerb) 18,000 kg (40,000 lb) (full)",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "has_wiki_predecessor",
+            "object": "MAZ-103",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        },
+        {
+            "predicate": "has_wiki_successor",
+            "object": "MAZ-303",
+            "citation": "https://en.wikipedia.org/wiki/MAZ-203"
+        }
+    ],
+    "brand_name": "MAZ-203",
+    "mission_vision": null,
+    "sponsorship_activities": [],
+    "channels": [],
+    "primary_industry": "Automotive",
+    "secondary_industry": "Public Transport",
+    "regions": [
+        "Belarus",
+        "Poland",
+        "Ukraine",
+        "Russia",
+        "Romania",
+        "Serbia"
+    ],
+    "interests": [],
+    "audience_lifestyle": null,
+    "languages": [
+        "Russian"
+    ],
+    "key_partners": [
+        "Vulović Transport",
+        "BIK (Bus Industries Kragujevac)"
+    ],
+    "key_activities": [
+        "Manufacturing",
+        "Assembly"
+    ],
+    "value_propositions": [
+        "Low-floor accessibility",
+        "Durability",
+        "Comfortable public transport solution"
+    ],
+    "customer_relationships": null,
+    "customer_segments": [
+        "Public transport authorities",
+        "City municipalities"
+    ],
+    "cost_structure": null,
+    "revenue_streams": null,
+    "link": "https://en.wikipedia.org/wiki/MAZ-203",
+    "parsed_at": "2024-10-02T21:15:04.121696Z",
+    "country": "Belarusian brands",
+    "category": "Minsk Automobile Plant vehicles",
+    "body_text": "From Wikipedia, the free encyclopedia This article relies largely or entirely on a single source . Relevant discussion may be found on the talk page . Please help improve this article by introducing citations to additional sources . Find sources: \"MAZ-203\" – news · newspapers · books · scholar · JSTOR ( January 2024 ) Belarus manufactured low-floor single-decker bus Motor vehicle MAZ-203 MAZ-203 Overview Manufacturer MAZ Production 2006–present Assembly Minsk , Belarus ( MAZ ) Kragujevac , Serbia (Vulović Transport) Body and chassis Class Single-decker city-bus Doors 3 Floor type Low-floor Chassis MAZ Powertrain Engine Mercedes-Benz OM 906 LA Deutz TCD 2013LO6 Euro III or Euro IV Power output 205 ( Mercedes-Benz ) or 170 (Deutz) Transmission automatic or mechanic ZF or Voith Diwa Dimensions Length 12,000 mm (39 ft 4 + 1 ⁄ 2 in) Width 2,550 mm (8 ft 4 + 3 ⁄ 8 in) Height 2,930 mm (9 ft 7 + 3 ⁄ 8 in) ( 3,050 mm [10 ft 1 ⁄ 8 in] with air-conditioning ) Curb weight 11,100 kg (24,500 lb) (kerb) 18,000 kg (40,000 lb) (full) Chronology Predecessor MAZ-103 Successor MAZ-303 The MAZ-203 is a fully low-floor single-decker bus . It is a representative of second generation of MAZ city buses, being a successor of MAZ-103 . It has been built since 2006, there are over 100 models built already. MAZ 203 can be found in Poland, Ukraine, Russia and Romania. In Serbia , MAZ has been working in cooperation with local-based company BIK (Bus industries Kragujevac) for the manufacture of BIK-203, a bus manufactured on the basis of the platform of MAZ-203. [ 1 ] There is also a trolleybus variant of the MAZ-203 built from 2008, MAZ-ETON T203 with electrical equipment of Eton , Belarus ( GTO or IGBT ). List of buses MAZ-203 page on MAZ website (in Russian) 50 MAZ-203 supplied to Kazan, Russia Photos of MAZ-203 in Gomel, Belarus Wikimedia Commons has media related to MAZ-203 . Retrieved from \" https://en.wikipedia.org/w/index.php?title=MAZ-203&oldid=1198552157 \" Categories : Minsk Automobile Plant vehicles Full-size buses Low-floor buses Trolleybuses Vehicles introduced in 2006 Hidden categories: Articles needing additional references from January 2024 All articles needing additional references Articles with short description Short description is different from Wikidata Articles with Russian-language sources (ru) Commons category link is on Wikidata",
+    "infobox": {
+        "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/MAZ_203-076_in_Kielce.jpg/280px-MAZ_203-076_in_Kielce.jpg",
+        "name": "MAZ-203",
+        "manufacturer": "MAZ",
+        "production": "2006–present",
+        "assembly": "Minsk , Belarus ( MAZ ) Kragujevac , Serbia (Vulović Transport)",
+        "class": "Single-decker city-bus",
+        "doors": "3",
+        "floor_type": "Low-floor",
+        "chassis": "MAZ",
+        "engine": "Mercedes-Benz OM 906 LA Deutz TCD 2013LO6 Euro III or Euro IV",
+        "power_output": "205 ( Mercedes-Benz ) or 170 (Deutz)",
+        "transmission": "automatic or mechanic ZF or Voith Diwa",
+        "length": "12,000 mm (39 ft 4 + 1 ⁄ 2 in)",
+        "width": "2,550 mm (8 ft 4 + 3 ⁄ 8 in)",
+        "height": "2,930 mm (9 ft 7 + 3 ⁄ 8 in) ( 3,050 mm [10 ft 1 ⁄ 8 in] with air-conditioning )",
+        "curb_weight": "11,100 kg (24,500 lb) (kerb) 18,000 kg (40,000 lb) (full)",
+        "predecessor": "MAZ-103",
+        "successor": "MAZ-303"
+    },
+    "company_name": "MAZ-203",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/MAZ_203-076_in_Kielce.jpg/280px-MAZ_203-076_in_Kielce.jpg"
+}

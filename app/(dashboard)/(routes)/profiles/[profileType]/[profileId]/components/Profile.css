@@ -1,0 +1,53 @@
+/* /app/(dashboard)/(routes)/profiles/[type]/[id]/components/Profile.css */
+
+/* Masonry Grid Styles */
+.my-masonry-grid {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.grid-sizer,
+.grid-item {
+  width: 25%; /* Adjust percentage for the number of columns */
+  box-sizing: border-box;
+}
+
+.grid-item {
+  padding: 15px; /* Half of desired gutter size */
+}
+
+.grid-item > * {
+  width: 100%;
+  height: 100%; /* Ensure the child fills the grid-item */
+}
+
+/* Clearfix for Masonry container */
+.my-masonry-grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .grid-sizer,
+  .grid-item {
+    width: 33.3333%;
+  }
+}
+
+@media (max-width: 900px) {
+  .grid-sizer,
+  .grid-item {
+    width: 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-sizer,
+  .grid-item {
+    width: 100%;
+  }
+}

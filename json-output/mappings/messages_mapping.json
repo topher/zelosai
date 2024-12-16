@@ -1,0 +1,47 @@
+{
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "accountId": {
+        "type": "keyword"
+      },
+      "resourceType": {
+        "type": "keyword"
+      },
+      "ownerId": {
+        "type": "keyword"
+      },
+      "createdAt": {
+        "type": "date",
+        "format": "strict_date_optional_time||epoch_millis"
+      },
+      "senderId": {
+        "type": "keyword"
+      },
+      "recipientId": {
+        "type": "keyword"
+      },
+      "content": {
+        "type": "text"
+      },
+      "sentAt": {
+        "type": "date",
+        "format": "strict_date_optional_time||epoch_millis"
+      },
+      "subject": {
+        "type": "text"
+      },
+      "messageType": {
+        "type": "keyword"
+      },
+      "priority": {
+        "type": "keyword"
+      },
+      "visibility": {
+        "type": "keyword"
+      }
+    }
+  }
+}

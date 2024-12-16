@@ -1,0 +1,39 @@
+[
+    {
+      "title": "Nike in the Metaverse",
+      "url": "https://www.wired.co.uk/article/nike-will-let-people-design-and-sell-sneakers-for-the-metaverse",
+      "date": "2022-11-18",
+      "image": "https://media.wired.co.uk/photos/63727049ab57b5ecdfc2fb42/16:9/w_1920,c_limit/Nike-Swoosh-News-Gear.jpg",
+      "bullets": [
+        "Launch of .Swoosh, a Web3-enabled platform for virtual products",
+        "Focus on community building with interactive voting",
+        "Virtual collection of footwear, apparel and accessories",
+        "Use of cash (USD) for transactions on the Polygon chain",
+        "Plans for members to co-develop products and earn royalties"
+      ]
+    },
+    {
+      "title": "The AT&T and Karol G Fan Experience",
+      "date": "2022-09-15",
+      "url": "https://shortyawards.com/15th/att-presents-karol-g",
+      "image": "https://shortyawards.imgix.net/entries/15th/150e9859-b58a-4ac9-9c16-3413804bdaf6.JPG?auto=format&fit=crop&h=300&q=65&w=500&s=43bf4ad7996348a3393609bc80afde0a",
+      "bullets": [
+        "Partnership for the $trip Love 2022 tour with exclusive content",
+        "Innovative bilingual AR experiences in stores and at events",
+        "Engagement with next-generation Hispanic consumers",
+        "Successful in achieving a positive brand perception"
+      ]
+    },
+    {
+      "title": "Coca-Cola's Metaverse Strategy",
+      "date": "2023-02-27",
+      "url": "https://info.6connex.com/blog/a-case-study-of-coca-cola-and-the-metaverse",
+      "image": "https://info.6connex.com/hubfs/6_Blog/2023/02_FEB_Social_16x9_CocaCola-Blank.jpg",
+      "bullets": [
+        "Participation in virtual reality with digital collectibles",
+        "Coca-Cola metaverse beverage for a unique consumer experience",
+        "Significant increase in sales and brand reinforcement in digital spaces",
+        "Partnership with Meta for virtual products in the Avatar Store"
+      ]
+    }
+  ]

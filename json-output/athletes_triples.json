@@ -1,0 +1,376 @@
+[
+    {
+        "id": "1346266",
+        "resourceType": "ProfileAthlete",
+        "visibility": "public",
+        "subject": "http://zelos.ai/knowledge/ProfileAthlete/1346266",
+        "rdf_uri": "http://zelos.ai/knowledge/ProfileAthlete/1346266",
+        "linkedResources": {
+            "Triple": [
+                "triple_9586fafc-8ad5-4cba-8e34-2e789ff20050",
+                "triple_e636d7f4-8602-4592-a6f1-dc5bf2ea367d",
+                "triple_72f8a365-5d7a-4bfe-b6e4-b04fd58aaa0f",
+                "triple_b06d7e53-51f9-48de-ab51-bf16b52fb529",
+                "triple_3014dac4-a153-45e7-bc64-f0dd21bbd09a",
+                "triple_31fc5742-ef02-4c96-a397-eb8fc7d86550",
+                "triple_98bdf87e-dccb-4a22-9fa1-0505e3819b51",
+                "triple_76a9689c-6d71-49ea-9e40-59de1c4b4baa",
+                "triple_11ce1580-0009-43f8-ad8b-8fde7ef6bdc2",
+                "triple_008ff842-e1fe-4a41-9abd-3b2c2a04cba8",
+                "triple_35403be0-5caf-463c-8283-09af45e43d22"
+            ]
+        },
+        "noc": "NOR",
+        "code": "1346266",
+        "name": "AALERUD Katrine",
+        "shortName": "AALERUD K",
+        "sport": "CRD",
+        "location": null,
+        "description": "UCI Road World ChampionshipsYearLocationRoad RaceIndividual Time Trial2020Imola, ITA24-2019Harrogate, GBR40312018Innsbruck, AUTDNF-2017Bergen, NORDNF-2016Doha, QAT39-Ten best performances in major races in careerRankYearEventCompetitionLocation72019Women's IndividualEmakumeen BiraOnyate, ESP92020Road RaceLiege - Bastogne - LiegeLiege, BEL92018Team Time TrialLadies Tour of Norway TTTHalden, NOR112021Road RaceAmstel Gold RaceVilt, NED112020Road RaceFleche WallonneHuy, BEL152021Road RaceFleche WallonneHuy, BEL152016Team Time TrialVargarda TTTVargarda, SWE162020Women's IndividualGiro d'Italia DonneMotta Montecorvino, ITA182018Women's IndividualGiro d'Italia DonneCividale del Friuli, ITA202021Women's IndividualGiro d'Italia DonneCormons, ITA202017Road RaceLiege - Bastogne - LiegeAns, BELLegendDNF - Did Not Finish, DNS - Did Not Start, DSQ - Disqualified, OTL - Outside the Time Limit",
+        "email": null,
+        "imageSrc": "/placeholder_avatar.png",
+        "achievements": [],
+        "socialMedia": {
+            "urls": [
+                "https://www.facebook.com/katrine.aalerud",
+                "https://instagram.com/aalerud94",
+                "https://twitter.com/katrineaalerud"
+            ]
+        },
+        "social_media_platforms": [
+            "Twitter",
+            "Facebook",
+            "Instagram"
+        ],
+        "hobbies": [],
+        "family": [],
+        "occupation": [
+            "Athlete"
+        ],
+        "languages_spoken": [
+            "English",
+            "Norwegian",
+            "Spanish"
+        ],
+        "coach": null,
+        "createdAt": "2024-11-21T23:42:28.044142",
+        "updatedAt": "2024-11-21T23:42:28.044143"
+    },
+    {
+        "id": "1355250",
+        "resourceType": "ProfileAthlete",
+        "visibility": "public",
+        "subject": "http://zelos.ai/knowledge/ProfileAthlete/1355250",
+        "rdf_uri": "http://zelos.ai/knowledge/ProfileAthlete/1355250",
+        "linkedResources": {
+            "Triple": [
+                "triple_3538f92d-e0cb-4540-92fe-075daf8f0208",
+                "triple_6fb325eb-e384-4d5f-82e3-38c5b465aef3",
+                "triple_4d0f7fda-4972-4818-917f-feb1716e07eb",
+                "triple_a8300d08-4dfd-4413-8a0f-e81ca8c7c01e",
+                "triple_be8c0a9e-f334-4735-aa0d-1880a6bda8a3",
+                "triple_cc2d0fa5-8942-46d8-8d5c-585d7ad613b7",
+                "triple_fc26b7a3-d26d-4f28-9d31-5da25b25dae8",
+                "triple_e291c7be-c96b-454a-8d83-9e7222cd4bca",
+                "triple_147a6210-ccad-478d-89ee-69cc348bcdd1",
+                "triple_ab7db9be-c320-4f4c-a240-f90884953e97",
+                "triple_cece432f-d13e-46e6-aab8-92f921f7f0aa",
+                "triple_d66607d5-2814-4a47-9d52-4fad83b4d6aa",
+                "triple_0f75f6ed-520e-4c91-96e3-ce5517bb72d3",
+                "triple_08f891af-9717-4176-a406-4d222dafd793",
+                "triple_e4e0cf33-70b6-4d53-bb97-2959c61a7d09",
+                "triple_d45e63e2-ebc2-4ad2-bf25-c880b7903225",
+                "triple_321f5273-0edc-43f5-8bff-8671f5489b1a",
+                "triple_6d1fd9a9-5652-4f3e-8364-b7ebed7b810f",
+                "triple_5641bc27-e540-4960-9cae-4d1cbf98a2d2",
+                "triple_bd3cc553-c4e0-4cd8-aebd-842b082b0080",
+                "triple_15d94f92-54af-474d-af7a-28b8daaaa654",
+                "triple_e86e69bc-1d45-4e0b-97ec-0e9325440543",
+                "triple_37c74997-e4ff-4fde-af38-f6d24a978a6c"
+            ]
+        },
+        "noc": "ESP",
+        "code": "1355250",
+        "name": "ABAD Nestor",
+        "shortName": "ABAD N",
+        "sport": "GAR",
+        "location": null,
+        "description": "Olympic GamesYearLocationFXHBPBPHSRAA2016Rio de Janeiro, BRA451964553331Youth Olympic GamesYearLocationFXVTHBSRAA2010Singapore, SIN732328World ChampionshipsYearLocationFXHBPBPHSRAATeam2019Stuttgart, GER318642535122112018Doha, QAT542036434311112017Montreal, QC, CAN236897----2015Glasgow, GBR2117645993551132013Antwerp, BEL203496632620-European GamesYearLocationFXHBPBPHSRAA2019Minsk, BLR109112396European ChampionshipsYearLocationFXHBPBPHSRAATeam2018Glasgow, GBR1816182222-62017Cluj-Napoca, ROU175318465630-World Cup overview - Best rank per season and event since 2017YearPBPHSRAA2020/2021---1 x 9th2019/20201 x 5th1 x 20th1 x 9th-2019---1 x 7th2018---1 x 9thWorld Cup - Ten best performances since 2017RankYearEventLocationResult52019/2020Parallel BarsDoha, QAT14.30072019All-AroundTokyo, JPN80.49892019/2020RingsDoha, QAT13.93392020/2021All-AroundMilwaukee, WI, USA80.58192018All-AroundChicago, IL, USA78.432202019/2020Pommel HorseDoha, QAT10.000LegendFX - Floor Excercise, VT - Vault, HB - Horizontal Bar, PB - Parallel Bars, PH - Pommel Horse, SR - Rings, AA - Individual All-Around, DNS - Did Not Start, DSQ - Disqualified",
+        "email": null,
+        "imageSrc": "/placeholder_avatar.png",
+        "achievements": [],
+        "socialMedia": {
+            "urls": [
+                "https://www.facebook.com/nestor.abad.395",
+                "https://www.facebook.com/NestorAbadSanjuan",
+                "https://instagram.com/nestorabad1",
+                "https://twitter.com/NestorAbad1",
+                "https://twitter.com/nabadpodium",
+                "https://www.youtube.com/c/NestorabadGAM"
+            ]
+        },
+        "social_media_platforms": [
+            "Twitter",
+            "YouTube",
+            "Facebook",
+            "Instagram"
+        ],
+        "hobbies": [],
+        "family": [
+            "Partner Sonia",
+            "son Eiden",
+            "daughter Lis"
+        ],
+        "occupation": [
+            "Athlete"
+        ],
+        "languages_spoken": [
+            "Spanish"
+        ],
+        "coach": "Fernando Siscar [national], ESP",
+        "createdAt": "2024-11-21T23:42:28.045523",
+        "updatedAt": "2024-11-21T23:42:28.045527"
+    },
+    {
+        "id": "1321381",
+        "resourceType": "ProfileAthlete",
+        "visibility": "public",
+        "subject": "http://zelos.ai/knowledge/ProfileAthlete/1321381",
+        "rdf_uri": "http://zelos.ai/knowledge/ProfileAthlete/1321381",
+        "linkedResources": {
+            "Triple": [
+                "triple_2fa58069-7385-4733-ad36-ace68b6a9855",
+                "triple_ea2e0f25-2d72-4e54-9f8f-5c5e0a5320c2",
+                "triple_d903d823-4a6a-41e1-93aa-184ce91b271d",
+                "triple_58b1eda2-bacd-4eb3-a618-2d10b76a485d",
+                "triple_2640972b-ce63-4c8c-9cbc-0efb66ae8934",
+                "triple_423c0418-4b2b-41d3-ad23-515ede64fa79",
+                "triple_a9a500a9-7584-4772-864e-ca974e85471a",
+                "triple_c36cb9bc-d580-4fed-b0c7-8e40cac7c378",
+                "triple_bfcd1819-7694-4302-8b64-ae161ba33b39",
+                "triple_b0ec0125-d496-4e6f-8d47-adf19363833c",
+                "triple_4bd392e4-1520-4cda-8676-750900d66a01",
+                "triple_78aceb56-3191-4885-81c0-780a9ab0d772",
+                "triple_99881d11-a3e2-4804-a4b8-f217fd0cdd84",
+                "triple_407ced3e-a072-43cd-8ced-5614c620b711"
+            ]
+        },
+        "noc": "ITA",
+        "code": "1321381",
+        "name": "ABAGNALE Giovanni",
+        "shortName": "ABAGNALE G",
+        "sport": "ROW",
+        "location": null,
+        "description": "Olympic GamesYearLocation2-2016Rio de Janeiro, BRA3World ChampionshipsYearLocation4-8+2019Linz, AUT4-2018Plovdiv, BUL-52017Sarasota, FL, USA2-2015Aiguebelette-le-Lac, FRA-62014Amsterdam, NED-9European ChampionshipsYearLocation2-4-2021Varese, ITA-32020Poznan, POL-22019Lucerne, SUI4-2018Glasgow, GBR-42017Racice, CZE-1World CupRankEventYearLocationResult2Four2019Poznan, POL6:18.592Four2017Lucerne, SUI5:54.424Pair2021Sabaudia, ITA6:26.154Four2021Lucerne, SUI6:01.119Four2018Linz, AUT6:02.58World Championships Under 23YearLocation8+2016Rotterdam, NED6LegendDNF - Did Not Finish, DNS - Did Not Start, EXC - Excluded",
+        "email": null,
+        "imageSrc": "/placeholder_avatar.png",
+        "achievements": [],
+        "socialMedia": {
+            "urls": [
+                "https://www.facebook.com/giovanni.abagnale.3",
+                "https://www.facebook.com/Giovanni.abagnale95",
+                "https://instagram.com/giovanni_abagnale/"
+            ]
+        },
+        "social_media_platforms": [
+            "Facebook",
+            "Instagram"
+        ],
+        "hobbies": [],
+        "family": [],
+        "occupation": [
+            "Athlete",
+            "Serves in the Navy"
+        ],
+        "languages_spoken": [
+            "Italian"
+        ],
+        "coach": "Andrea Coppola [national], ITA",
+        "createdAt": "2024-11-21T23:42:28.046238",
+        "updatedAt": "2024-11-21T23:42:28.046240"
+    },
+    {
+        "id": "1322233",
+        "resourceType": "ProfileAthlete",
+        "visibility": "public",
+        "subject": "http://zelos.ai/knowledge/ProfileAthlete/1322233",
+        "rdf_uri": "http://zelos.ai/knowledge/ProfileAthlete/1322233",
+        "linkedResources": {
+            "Triple": [
+                "triple_5e96950d-4a5f-4ab8-af75-09110077dcf9",
+                "triple_3ab85aa5-1880-4527-bc5a-8dbc9585ac64",
+                "triple_0722800c-7a7a-46be-8466-83aeb0197044",
+                "triple_476f826f-30aa-4b26-8552-b11c3982d128",
+                "triple_f886cd6b-9f0f-46a7-a346-5b55a6fc7244",
+                "triple_85ac9c0c-04a2-46c8-8fab-94d199771dad",
+                "triple_b797788e-5eaa-4c74-ae12-ac1400c775f1",
+                "triple_d0dc0adc-2131-41b7-9ed1-b67639979822",
+                "triple_1b2817fc-1d5b-458b-8a0c-cb8af900505f",
+                "triple_0359552e-e165-43f7-a50a-3d0152df1c76",
+                "triple_e50a9081-4ae1-4a7b-8922-3a615e8f4245",
+                "triple_a6c63ef7-2346-452f-8b23-e063a7685d00",
+                "triple_97ed7725-f698-45d2-978a-9be812e9a647",
+                "triple_a7a8297d-6781-484c-a81b-aa1eaee4b928"
+            ]
+        },
+        "noc": "ESP",
+        "code": "1322233",
+        "name": "ABALDE Alberto",
+        "shortName": "ABALDE A",
+        "sport": "BKB",
+        "location": null,
+        "description": "RankEventYearLocationEuropean Championship U-202Men2015Lignano Sabbiadoro, ITA2Men2014Rethymno, GREEuropean Championship U-183Men2013Riga, LATWorld Championship U-174Men2012Kaunas, LTU",
+        "email": null,
+        "imageSrc": "/placeholder_avatar.png",
+        "achievements": [],
+        "socialMedia": {
+            "urls": [
+                "https://instagram.com/aabalde6/",
+                "https://twitter.com/albertoabalde6"
+            ]
+        },
+        "social_media_platforms": [
+            "Twitter",
+            "Instagram"
+        ],
+        "hobbies": [],
+        "family": [],
+        "occupation": [],
+        "languages_spoken": [
+            "Spanish"
+        ],
+        "coach": "Pablo Laso [club], ESP; Sergio Scariolo [national], ITA",
+        "createdAt": "2024-11-21T23:42:28.046658",
+        "updatedAt": "2024-11-21T23:42:28.046659"
+    },
+    {
+        "id": "1322271",
+        "resourceType": "ProfileAthlete",
+        "visibility": "public",
+        "subject": "http://zelos.ai/knowledge/ProfileAthlete/1322271",
+        "rdf_uri": "http://zelos.ai/knowledge/ProfileAthlete/1322271",
+        "linkedResources": {
+            "Triple": [
+                "triple_d509ea8a-93bb-4ad3-8742-eec1fbbf04f1",
+                "triple_8be6acdc-5821-495c-8d16-d474cdebc67c",
+                "triple_0e13a5a4-c6a8-473f-8c3c-49ef89d09b49",
+                "triple_020e0210-031e-4c55-831b-2308c029a257",
+                "triple_207814a4-0f58-4d29-ba62-2459f855a50f",
+                "triple_35b8924b-83a4-4917-b245-09241fda7c9d",
+                "triple_0b4a7d62-708c-4c6c-8d9c-05df5527dea8",
+                "triple_faf6c3b7-c378-478b-a703-682e8fcb55ae",
+                "triple_805e225e-48a6-4661-9f21-688034eddec9",
+                "triple_b36e2cff-1781-4e47-b543-e4f34aee6ed1",
+                "triple_70355574-bda0-4bbb-bb7b-ef269bc943f0",
+                "triple_f642ee4d-1489-41af-8c23-ff9391aca5dc",
+                "triple_02429700-1459-4173-befc-1960a07ace15",
+                "triple_cfd03ae8-abd7-427d-b2f3-62f023ce1aef",
+                "triple_c189c1cc-9e42-4b0c-a0fc-05f9662da854",
+                "triple_2aa729d7-ee49-423d-8f35-2ec568a60bf9",
+                "triple_48a41b2a-53f2-4b4c-ad30-3d6f71d36ba4"
+            ]
+        },
+        "noc": "ESP",
+        "code": "1322271",
+        "name": "ABALDE Tamara",
+        "shortName": "ABALDE T",
+        "sport": "BKB",
+        "location": null,
+        "description": "Olympic GamesRankEventYearLocation5Women2008Beijing, CHNEuropean ChampionshipRankEventYearLocation1Women2019",
+        "email": null,
+        "imageSrc": "/placeholder_avatar.png",
+        "achievements": [],
+        "socialMedia": {
+            "urls": [
+                "https://instagram.com/tamaraabalde6",
+                "https://twitter.com/tamaraabalde6"
+            ]
+        },
+        "social_media_platforms": [
+            "Twitter",
+            "Instagram"
+        ],
+        "hobbies": [],
+        "family": [],
+        "occupation": [
+            "Athlete"
+        ],
+        "languages_spoken": [
+            "Spanish"
+        ],
+        "coach": "Ruben Burgos [club], ESP; Lucas Mondelo [national], ESP",
+        "createdAt": "2024-11-21T23:42:28.047196",
+        "updatedAt": "2024-11-21T23:42:28.047198"
+    },
+    {
+        "id": "1350409",
+        "resourceType": "ProfileAthlete",
+        "visibility": "public",
+        "subject": "http://zelos.ai/knowledge/ProfileAthlete/1350409",
+        "rdf_uri": "http://zelos.ai/knowledge/ProfileAthlete/1350409",
+        "linkedResources": {
+            "Triple": [
+                "triple_92382b02-d791-4e0f-9777-6f25324f91ba",
+                "triple_9078e491-5b8a-4992-bea0-eb02476ee19f",
+                "triple_b517c53a-3e13-4e9e-b09a-a1599fc24463",
+                "triple_9ba0396f-39ee-4a75-9c79-c1c3d5fcb098",
+                "triple_c5ff7cd5-dd1e-4741-9c40-154b9f67a886",
+                "triple_291978e6-55d6-4573-8763-6ea408263fff",
+                "triple_649f6b50-8d14-49aa-8241-9c7745a243e0",
+                "triple_21bbdd82-c162-46a7-b387-77f75ab9a799",
+                "triple_5c9abb4d-fe6e-4eea-8368-834ced6023db",
+                "triple_752df3d6-62a6-4e36-860d-678287bf1344",
+                "triple_f5c14d9f-71f0-47cc-be7a-4efc4567cd96",
+                "triple_4218cbee-01c0-4890-a038-598e5b798441",
+                "triple_0ff6efb4-e5af-48d9-a8fa-4e8d60744a25",
+                "triple_15bd1e78-e0a5-4b81-b3b8-c9bc362a5607",
+                "triple_bbd3d2e4-709f-4114-b78f-df57445a05c8",
+                "triple_de31e007-ec21-449c-b755-889f6359da3a",
+                "triple_150d4a1f-69ab-4b67-9afb-a4e4f82713f7",
+                "triple_1980cd5d-2596-40fb-85e9-d37702aa15ae",
+                "triple_536162b3-5663-4fab-a949-de431ab5ac84",
+                "triple_c45496c0-3b22-4f6e-8ef1-00e7ac8fa14f",
+                "triple_66f22f82-b631-4178-861f-60ec932dcba1"
+            ]
+        },
+        "noc": "FRA",
+        "code": "1350409",
+        "name": "ABALO Luc",
+        "shortName": "ABALO L",
+        "sport": "HBL",
+        "location": null,
+        "description": "Olympic GamesRankEventYearLocation1Men2012London, GBR1Men2008Beijing, CHN2Men2016Rio de Janeiro, BRAWorld ChampionshipRankEventYearLocation1Men2017France1Men2011Sweden1Men2009Croatia3Men20194Men2021Egypt4Men2007Germany6Men2013SpainEuropean ChampionshipRankEventYearLocation3Men2018Croatia14Men2020",
+        "email": null,
+        "imageSrc": "/placeholder_avatar.png",
+        "achievements": [],
+        "socialMedia": {
+            "urls": [
+                "https://www.facebook.com/lucianoivry",
+                "https://www.facebook.com/lucabaloofficiel",
+                "https://instagram.com/lucabalo19/?hl=en",
+                "https://twitter.com/lucabalo"
+            ]
+        },
+        "social_media_platforms": [
+            "Twitter",
+            "Facebook",
+            "Instagram"
+        ],
+        "hobbies": [
+            "Photography",
+            "Painting"
+        ],
+        "family": [],
+        "occupation": [
+            "Athlete"
+        ],
+        "languages_spoken": [
+            "English",
+            "French",
+            "Spanish"
+        ],
+        "coach": "Borge Lund [club], NOR; Guillaume Gille [national], FRA",
+        "createdAt": "2024-11-21T23:42:28.048333",
+        "updatedAt": "2024-11-21T23:42:28.048336"
+    }
+]

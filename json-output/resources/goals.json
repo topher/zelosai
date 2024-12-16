@@ -1,0 +1,101 @@
+[
+  {
+    "id": "goal-1",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Goal",
+    "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "visibility": "public",
+    "Goal": "(orgdaG Vamos public) Increase revenue",
+    "Description": "To enhance the company's financial performance and profitability.",
+    "StrategicIndicator": "Revenue Growth",
+    "KPI": "Revenue Growth Rate",
+    "Developer": "Finance Department",
+    "RelatedIssues": [
+      "Market Expansion",
+      "Product Launch"
+    ],
+    "isActive": true,
+    "linkedResources": {
+      "Triple": ["triple_123e4567-e89b-12d3-a456-426614174001", "triple_123e4567-e89b-12d3-a456-426614174002", "triple_123e4567-e89b-12d3-a456-426614174003"]
+    }
+  },
+  {
+    "id": "goal-2",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Goal",
+    "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "visibility": "private",
+    "Goal": "(orgAG Vamos private) Maintain authenticity",
+    "Description": "To preserve the genuine and unique identity of the brand or product.",
+    "StrategicIndicator": "Brand Authenticity Index",
+    "KPI": "Customer Trust Score",
+    "Developer": "Marketing Team",
+    "RelatedIssues": [
+      "Brand Reputation Management"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "goal-3",
+    "accountId": "org_2nc9c87ihMBSTJxcYc4X4dwmdH4",
+    "resourceType": "Goal",
+    "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "visibility": "public",
+    "Goal": "(orgdH4 public) Increase revenue",
+    "Description": "To enhance the company's financial performance and profitability.",
+    "StrategicIndicator": "Revenue Growth",
+    "KPI": "Revenue Growth Rate",
+    "Developer": "Finance Department",
+    "RelatedIssues": [
+      "Market Expansion",
+      "Product Launch"
+    ],
+    "isActive": true
+  },
+  {
+    "id": "goal-4",
+    "accountId": "org_2nc9c87ihMBSTJxcYc4X4dwmdH4",
+    "resourceType": "Goal",
+    "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "visibility": "private",
+    "Goal": "(orgdH4 private) Maintain authenticity",
+    "Description": "To preserve the genuine and unique identity of the brand or product.",
+    "StrategicIndicator": "Brand Authenticity Index",
+    "KPI": "Customer Trust Score",
+    "Developer": "Marketing Team",
+    "RelatedIssues": [
+      "Brand Reputation Management"
+    ],
+    "isActive": true
+  },{
+    "id": "goal-101",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Goal",
+    "ownerId": "user_victor_amo_manager",
+    "visibility": "public",
+    "Goal": "Increase Athlete Fan Engagement",
+    "Description": "Boost direct fan interactions and personalized training experiences to improve overall community engagement.",
+    "StrategicIndicator": "Fan Engagement Index",
+    "KPI": "Average Time Fans Spend on Victor's Training Platform",
+    "Developer": "Marketing & AI Team",
+    "RelatedIssues": ["Community Building", "Content Personalization"],
+    "isActive": true,
+    "linkedResources": {
+      "Triple": ["triple_fan_001", "triple_fan_002", "triple_fan_003"]
+    }
+  },
+  {
+    "id": "goal-102",
+    "accountId": "org_2nc9c87ihMBSTJxcYc4X4dwmdH4",
+    "resourceType": "Goal",
+    "ownerId": "user_brand_specialist",
+    "visibility": "private",
+    "Goal": "Enhance Brand Partnerships",
+    "Description": "Identify and align with top-tier sports brands to create valuable sponsorship opportunities.",
+    "StrategicIndicator": "Brand Partnership Value",
+    "KPI": "Number of High-Value Sponsorship Deals",
+    "Developer": "Business Dev Team",
+    "RelatedIssues": ["Brand Alignment", "Market Expansion"],
+    "isActive": true
+  }
+]

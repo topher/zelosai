@@ -1,0 +1,13 @@
+{
+  "mappings": {
+    "properties": {
+      "id": { "type": "keyword" },
+      "title": { "type": "text" },
+      "status": { "type": "keyword" },
+      "tags": { "type": "keyword" },
+      "rights": { "type": "keyword" },
+      "effectiveDate": { "type": "date", "format": "yyyy-MM-dd" },
+      "expirationDate": { "type": "date", "format": "yyyy-MM-dd" }
+    }
+  }
+}

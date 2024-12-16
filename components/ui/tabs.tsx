@@ -1,11 +1,15 @@
-"use client"
+// /components/ui/tabs.tsx
 
-import * as React from "react"
-import * as TabsPrimitive from "@radix-ui/react-tabs"
+"use client";
 
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import * as TabsPrimitive from "@radix-ui/react-tabs";
+import { cn } from "@/lib/utils";
+import { Montserrat } from "next/font/google";
 
-const Tabs = TabsPrimitive.Root
+const montserrat = Montserrat({ weight: "400", subsets: ["latin"] });
+
+const Tabs = TabsPrimitive.Root;
 
 const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
@@ -14,13 +18,13 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground",
+      "flex items-center space-x-4 border-b border-gray-300 dark:border-gray-600",
       className
     )}
     {...props}
   />
-))
-TabsList.displayName = TabsPrimitive.List.displayName
+));
+TabsList.displayName = TabsPrimitive.List.displayName;
 
 const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
@@ -29,13 +33,19 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm",
+      "relative px-4 py-2 text-sm font-medium transition-colors duration-300",
+      "border-b-2 border-transparent text-gray-300 dark:text-gray-500",
+      "hover:text-white",
+      "data-[state=active]:border-white data-[state=active]:text-white",
+      "focus:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-opacity-75",
+      "after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-1 after:bg-white after:transform after:scale-x-0 after:origin-left after:transition-transform after:duration-300 data-[state=active]:after:scale-x-100",
+      montserrat.className,
       className
     )}
     {...props}
   />
-))
-TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
+));
+TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
 
 const TabsContent = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Content>,
@@ -43,13 +53,10 @@ const TabsContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <TabsPrimitive.Content
     ref={ref}
-    className={cn(
-      "mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-      className
-    )}
+    className={cn("mt-4 focus:outline-none", className)}
     {...props}
   />
-))
-TabsContent.displayName = TabsPrimitive.Content.displayName
+));
+TabsContent.displayName = TabsPrimitive.Content.displayName;
 
-export { Tabs, TabsList, TabsTrigger, TabsContent }
+export { Tabs, TabsList, TabsTrigger, TabsContent };

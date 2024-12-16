@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { routes } from "@/components/sidebar";
+import { routes } from "@/app/components/atomic/organisms/sidebar";
 import { Montserrat } from 'next/font/google';
 
 const montserrat = Montserrat({ weight: '600', subsets: ['latin'] });
@@ -13,7 +13,7 @@ const Campaigns: React.FC = () => {
   const campaignsRoute = routes.find(route => route.label === 'Campaigns');
 
   return (
-    <div className={`container mx-auto flex flex-col justify-center h-full -mt-10 ${montserrat.className}`}>
+    <div className={`container mx-auto flex flex-col justify-center h-full my-8 ${montserrat.className}`}>
       <h1 className="text-6xl font-black mb-4 tracking-tight leading-tight text-left">
         <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500">
           {campaignsRoute?.label}
@@ -30,14 +30,14 @@ const Campaigns: React.FC = () => {
               <div className="flex flex-col justify-center items-center h-full p-6">
                 <div className="mb-4">
                   <Image
-                    src={`/${child.icon}/${child.icon}-dynamic-color.png`}
+                    src={`/3dicons/${child.icon}/${child.icon}-dynamic-color.png`}
                     alt={child.label}
                     width={200}
                     height={200}
                     className="group-hover:hidden transition-opacity duration-300"
                   />
                   <Image
-                    src={`/${child.icon}/${child.icon}-dynamic-premium.png`}
+                    src={`/3dicons/${child.icon}/${child.icon}-dynamic-premium.png`}
                     alt={child.label}
                     width={200}
                     height={200}

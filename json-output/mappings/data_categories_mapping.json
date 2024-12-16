@@ -1,0 +1,57 @@
+{
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "accountId": {
+        "type": "keyword"
+      },
+      "ownerId": {
+        "type": "keyword"
+      },
+      "resourceType": {
+        "type": "keyword"
+      },
+      "visibility": {
+        "type": "keyword"
+      },
+      "fides_key": {
+        "type": "keyword"
+      },
+      "is_default": {
+        "type": "boolean"
+      },
+      "name": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "organization_fides_key": {
+        "type": "keyword"
+      },
+      "parent_key": {
+        "type": "keyword"
+      },
+      "replaced_by": {
+        "type": "keyword"
+      },
+      "tags": {
+        "type": "keyword"
+      },
+      "version_added": {
+        "type": "keyword"
+      },
+      "version_deprecated": {
+        "type": "keyword"
+      },
+      "description": {
+        "type": "text"
+      }
+    }
+  }
+}

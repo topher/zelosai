@@ -1,0 +1,63 @@
+{
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "accountId": {
+        "type": "keyword"
+      },
+      "resourceType": {
+        "type": "keyword"
+      },
+      "ownerId": {
+        "type": "keyword"
+      },
+      "createdAt": {
+        "type": "date",
+        "format": "strict_date_optional_time||epoch_millis"
+      },
+      "name": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "description": {
+        "type": "text"
+      },
+      "startDate": {
+        "type": "date",
+        "format": "strict_date_optional_time||epoch_millis"
+      },
+      "endDate": {
+        "type": "date",
+        "format": "strict_date_optional_time||epoch_millis"
+      },
+      "location": {
+        "type": "text"
+      },
+      "organizerId": {
+        "type": "keyword"
+      },
+      "participantIds": {
+        "type": "keyword"
+      },
+      "eventStatus": {
+        "type": "keyword"
+      },
+      "eventType": {
+        "type": "keyword"
+      },
+      "priority": {
+        "type": "keyword"
+      },
+      "visibility": {
+        "type": "keyword"
+      }
+    }
+  }
+}

@@ -1,0 +1,2246 @@
+[
+    {
+      "id": "policy-1",
+      "organizationId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "description": "Administrator full access to all resources.",
+      "rules": [
+        {
+          "id": "rule-1",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "read",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "org:admin"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "exists"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-2",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "create",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "org:admin"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "exists"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-3",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "update",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "org:admin"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "exists"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-4",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "delete",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "org:admin"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "exists"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        }
+      ]
+    },
+    {
+      "id": "policy-2",
+      "organizationId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "description": "Manager access to read and update resources within their account.",
+      "rules": [
+        {
+          "id": "rule-5",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "read",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "org:admin"
+              },
+              {
+                "attribute": "orgId",
+                "operator": "is",
+                "value": "$orgId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgId",
+                "operator": "is",
+                "value": "$orgId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-6",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "update",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "org:admin"
+              },
+              {
+                "attribute": "orgId",
+                "operator": "is",
+                "value": "$orgId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgId",
+                "operator": "is",
+                "value": "$orgId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        }
+      ]
+    },
+    {
+      "id": "policy-3",
+      "organizationId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "description": "Regular users can read public resources and create resources.",
+      "rules": [
+        {
+          "id": "rule-7",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "read",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "user"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "visibility",
+                "operator": "is",
+                "value": "public"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-8",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "create",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "user"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "exists"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        }
+      ]
+    },
+    {
+      "id": "policy-4",
+      "organizationId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "description": "Creators can update and delete their own resources.",
+      "rules": [
+        {
+          "id": "rule-9",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "update",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-10",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "delete",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        }
+      ]
+    },
+    {
+      "id": "policy-5",
+      "organizationId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "description": "Access control for Topics.",
+      "rules": [
+        {
+          "id": "rule-11",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "read",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "user"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "Topic"
+              },
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },        
+        {
+          "id": "rule-12",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "create",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "user"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "Topic"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-13",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "update",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "Topic"
+              },
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-14",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "delete",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "Topic"
+              },
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        }
+      ]
+    },
+    {
+      "id": "policy-6",
+      "organizationId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "description": "Access control for AIModels.",
+      "rules": [
+        {
+          "id": "rule-15",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "read",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "user"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "AIModel"
+              },
+              {
+                "attribute": "visibility",
+                "operator": "is",
+                "value": "public"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-16",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "create",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "user"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "AIModel"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-17",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "update",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "AIModel"
+              },
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-18",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "delete",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "AIModel"
+              },
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        }
+      ]
+    },
+    {
+      "id": "policy-7",
+      "organizationId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "description": "Prohibit specific user from deleting specific AIModel.",
+      "rules": [
+        {
+          "id": "rule-19",
+          "ruleType": "access",
+          "deontologicalDuty": "prohibited",
+          "predicate": "delete",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "user-789"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "AIModel"
+              },
+              {
+                "attribute": "id",
+                "operator": "is",
+                "value": "ai-model-3"
+              }
+            ]
+          },
+          "createdBy": "admin",
+          "ownedBy": "admin"
+        }
+      ]
+    },
+    {
+      "id": "policy-8",
+      "organizationId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "description": "Access control for InfoAssets.",
+      "rules": [
+        {
+          "id": "rule-20",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "read",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "user"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "InfoAsset"
+              },
+              {
+                "attribute": "visibility",
+                "operator": "is",
+                "value": "public"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-21",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "create",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "user"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "InfoAsset"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-22",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "update",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              },
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "InfoAsset"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-23",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "delete",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "InfoAsset"
+              },
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        }
+      ]
+    },
+    {
+      "id": "policy-9",
+      "organizationId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "description": "Access control for ContractModels.",
+      "rules": [
+        {
+          "id": "rule-24",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "read",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "contract_manager"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "ContractModel"
+              },
+              {
+                "attribute": "orgId",
+                "operator": "is",
+                "value": "$orgId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-25",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "create",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "contract_manager"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "ContractModel"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-26",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "update",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "ContractModel"
+              },
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-27",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "delete",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "ContractModel"
+              },
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        }
+      ]
+    },
+    {
+      "id": "policy-10",
+      "organizationId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "description": "Access control for BusinessModels.",
+      "rules": [
+        {
+          "id": "rule-28",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "read",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "business_analyst"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "BusinessModel"
+              },
+              {
+                "attribute": "visibility",
+                "operator": "is",
+                "value": "public"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-29",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "create",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "business_analyst"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "BusinessModel"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-30",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "update",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "BusinessModel"
+              },
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-31",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "delete",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "BusinessModel"
+              },
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        }
+      ]
+    },
+    {
+      "id": "policy-11",
+      "organizationId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "description": "Prohibit specific user from accessing certain UseCases.",
+      "rules": [
+        {
+          "id": "rule-32",
+          "ruleType": "access",
+          "deontologicalDuty": "prohibited",
+          "predicate": "read",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "user-999"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "UseCase"
+              },
+              {
+                "attribute": "id",
+                "operator": "is",
+                "value": "usecase-5"
+              }
+            ]
+          },
+          "createdBy": "admin",
+          "ownedBy": "admin"
+        }
+      ]
+    },
+    {
+      "id": "policy-12",
+      "organizationId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "description": "Access control for Agents.",
+      "rules": [
+        {
+          "id": "rule-33",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "read",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "agent_manager"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "Agent"
+              },
+              {
+                "attribute": "visibility",
+                "operator": "is",
+                "value": "public"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-34",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "create",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "agent_manager"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "Agent"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-35",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "update",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "Agent"
+              },
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-36",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "delete",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "Agent"
+              },
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        }
+      ]
+    },
+    {
+      "id": "policy-13",
+      "organizationId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "description": "Access control for Contact resources.",
+      "rules": [
+        {
+          "id": "rule-37",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "read",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "user"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "Contact"
+              },
+              {
+                "attribute": "visibility",
+                "operator": "is",
+                "value": "public"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-38",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "create",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "user"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "Contact"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-39",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "update",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "Contact"
+              },
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-40",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "delete",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "Contact"
+              },
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        }
+      ]
+    },
+    {
+      "id": "policy-14",
+      "organizationId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "description": "Access control for Workflows.",
+      "rules": [
+        {
+          "id": "rule-41",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "read",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "workflow_manager"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "Workflow"
+              },
+              {
+                "attribute": "orgId",
+                "operator": "is",
+                "value": "$orgId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-42",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "create",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "workflow_manager"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "Workflow"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-43",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "update",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "Workflow"
+              },
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-44",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "delete",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "Workflow"
+              },
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        }
+      ]
+    },
+    {
+      "id": "policy-15",
+      "organizationId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "description": "Access control for Goals.",
+      "rules": [
+        {
+          "id": "rule-45",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "read",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "goal_manager"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "Goal"
+              },
+              {
+                "attribute": "visibility",
+                "operator": "is",
+                "value": "public"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-46",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "create",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "goal_manager"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "Goal"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-47",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "update",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "Goal"
+              },
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-48",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "delete",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "Goal"
+              },
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        }
+      ]
+    },
+    {
+      "id": "policy-16",
+      "organizationId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "description": "Access control for StrategicIssues.",
+      "rules": [
+        {
+          "id": "rule-49",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "read",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "strategic_manager"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "StrategicIssue"
+              },
+              {
+                "attribute": "visibility",
+                "operator": "is",
+                "value": "public"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-50",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "create",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "strategic_manager"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "StrategicIssue"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-51",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "update",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "StrategicIssue"
+              },
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-52",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "delete",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "StrategicIssue"
+              },
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        }
+      ]
+    },
+    {
+      "id": "policy-17",
+      "organizationId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "description": "Access control for UseCases.",
+      "rules": [
+        {
+          "id": "rule-53",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "read",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "usecase_manager"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "UseCase"
+              },
+              {
+                "attribute": "visibility",
+                "operator": "is",
+                "value": "public"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-54",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "create",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "usecase_manager"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "UseCase"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-55",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "update",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "UseCase"
+              },
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-56",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "delete",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "UseCase"
+              },
+              {
+                "attribute": "ownerId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        }
+      ]
+    },
+    {
+      "id": "policy-18",
+      "organizationId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "description": "Access control for UserSelectedFacets.",
+      "rules": [
+        {
+          "id": "rule-57",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "read",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "BrandModelCard"
+              },
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-58",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "create",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "UserSelectedFacets"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-59",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "update",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "UserSelectedFacets"
+              },
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-60",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "delete",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "is",
+                "value": "UserSelectedFacets"
+              },
+              {
+                "attribute": "userId",
+                "operator": "is",
+                "value": "$userId"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        }
+      ]
+    },
+    {
+      "id": "policy-1",
+      "organizationId": "org_2nc9c87ihMBSTJxcYc4X4dwmdH4",
+      "description": "Administrator full access to all resources.",
+      "rules": [
+        {
+          "id": "rule-1",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "read",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "org:admin"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "exists"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-2",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "create",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "org:admin"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "exists"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-3",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "update",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "org:admin"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "exists"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        },
+        {
+          "id": "rule-4",
+          "ruleType": "access",
+          "deontologicalDuty": "allowed",
+          "predicate": "delete",
+          "subjectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "orgRole",
+                "operator": "is",
+                "value": "org:admin"
+              }
+            ]
+          },
+          "objectCondition": {
+            "type": "group",
+            "operator": "AND",
+            "conditions": [
+              {
+                "attribute": "resourceType",
+                "operator": "exists"
+              }
+            ]
+          },
+          "createdBy": "system",
+          "ownedBy": "admin"
+        }
+      ]
+    }
+]

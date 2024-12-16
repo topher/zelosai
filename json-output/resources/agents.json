@@ -1,0 +1,348 @@
+[  {
+  "id": "agents-feature",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+  "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+  "resourceType": "Agent",
+    "visibility": "public",
+  "name": "Agents Manager",
+  "image": "bot_printer.png",
+  "agentType": "AI",
+  "expertiseAreas": ["Agent Management", "Resource Allocation"],
+  "availabilityStatus": "online"
+},
+{
+  "id": "alerts-feature",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+  "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+  "resourceType": "Agent",
+    "visibility": "public",
+  "name": "Alert Bot",
+  "image": "bot_doctor.png",
+  "agentType": "AI",
+  "expertiseAreas": ["Real-time Alerts", "Notification Management"],
+  "availabilityStatus": "online"
+},
+{
+  "id": "analytics-feature",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+  "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+  "resourceType": "Agent",
+    "visibility": "public",
+  "name": "Analytics Advisor",
+  "image": "bot_cashier.png",
+  "agentType": "AI",
+  "expertiseAreas": ["Data Insights", "Performance Analytics"],
+  "availabilityStatus": "online"
+},
+{
+  "id": "branding-feature",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+  "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+  "resourceType": "Agent",
+    "visibility": "public",
+  "name": "Brand Strategist",
+  "image": "bot_environment.png",
+  "agentType": "AI",
+  "expertiseAreas": ["Brand Positioning", "Market Analysis"],
+  "availabilityStatus": "online"
+},
+{
+  "id": "business-model-feature",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+  "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+  "resourceType": "Agent",
+    "visibility": "public",
+  "name": "Business Model Architect",
+  "image": "bot_gamer.png",
+  "agentType": "AI",
+  "expertiseAreas": ["Revenue Modeling", "Profit Optimization"],
+  "availabilityStatus": "online"
+},
+{
+  "id": "connectors-feature",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+  "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+  "resourceType": "Agent",
+    "visibility": "public",
+  "name": "Connector Coordinator",
+  "image": "bot_printer.png",
+  "agentType": "AI",
+  "expertiseAreas": ["API Management", "Integration Solutions"],
+  "availabilityStatus": "online"
+},
+{
+  "id": "contracts-feature",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+  "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+  "resourceType": "Agent",
+    "visibility": "public",
+  "name": "Contracts Manager",
+  "image": "bot_cashier.png",
+  "agentType": "AI",
+  "expertiseAreas": ["Contract Drafting", "Compliance Checks"],
+  "availabilityStatus": "online"
+},
+{
+  "id": "terms-feature",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+  "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+  "resourceType": "Agent",
+    "visibility": "public",
+  "name": "Terms Wizard",
+  "image": "bot_printer.png",
+  "agentType": "AI",
+  "expertiseAreas": ["Terms Negotiation", "Policy Drafting"],
+  "availabilityStatus": "online"
+},
+{
+  "id": "goals-feature",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+  "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+  "resourceType": "Agent",
+    "visibility": "public",
+  "name": "Goal Setter",
+  "image": "bot_doctor.png",
+  "agentType": "AI",
+  "expertiseAreas": ["Goal Planning", "Progress Tracking"],
+  "availabilityStatus": "online"
+},
+{
+  "id": "info-assets-feature",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+  "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+  "resourceType": "Agent",
+    "visibility": "public",
+  "name": "Information Curator",
+  "image": "bot_environment.png",
+  "agentType": "AI",
+  "expertiseAreas": ["Asset Management", "Information Retrieval"],
+  "availabilityStatus": "online"
+},
+{
+  "id": "issues-feature",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+  "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+  "resourceType": "Agent",
+    "visibility": "public",
+  "name": "Issues Resolver",
+  "image": "bot_printer.png",
+  "agentType": "AI",
+  "expertiseAreas": ["Problem Identification", "Resolution Strategies"],
+  "availabilityStatus": "online"
+},
+{
+  "id": "messages-feature",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+  "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+  "resourceType": "Agent",
+    "visibility": "public",
+  "name": "Message Manager",
+  "image": "bot_messenger.png",
+  "agentType": "AI",
+  "expertiseAreas": ["Communication Management", "Message Routing"],
+  "availabilityStatus": "online"
+},
+{
+  "id": "model-subjects-feature",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+  "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+  "resourceType": "Agent",
+    "visibility": "public",
+  "name": "Model Subjects Expert",
+  "image": "bot_gamer.png",
+  "agentType": "AI",
+  "expertiseAreas": ["Subject Analysis", "Topic Categorization"],
+  "availabilityStatus": "online"
+},
+{
+  "id": "models-feature",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+  "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+  "resourceType": "Agent",
+    "visibility": "public",
+  "name": "Models Creator",
+  "image": "bot_cashier.png",
+  "agentType": "AI",
+  "expertiseAreas": ["Model Training", "Performance Tuning"],
+  "availabilityStatus": "online"
+},
+{
+  "id": "offers-feature",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+  "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+  "resourceType": "Agent",
+    "visibility": "public",
+  "name": "Offers Generator",
+  "image": "bot_printer.png",
+  "agentType": "AI",
+  "expertiseAreas": ["Offer Crafting", "Personalization"],
+  "availabilityStatus": "online"
+},
+{
+  "id": "policies-feature",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+  "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+  "resourceType": "Agent",
+    "visibility": "public",
+  "name": "Policy Bot",
+  "image": "bot_doctor.png",
+  "agentType": "AI",
+  "expertiseAreas": ["Policy Creation", "Governance"],
+  "availabilityStatus": "online"
+},
+{
+  "id": "profile-athletes-feature",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+  "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+  "resourceType": "Agent",
+    "visibility": "public",
+  "name": "Athlete Profiler",
+  "image": "bot_environment.png",
+  "agentType": "AI",
+  "expertiseAreas": ["Athlete Data Analysis", "Profile Optimization"],
+  "availabilityStatus": "online"
+},
+{
+  "id": "profile-brands-feature",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+  "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+  "resourceType": "Agent",
+    "visibility": "public",
+  "name": "Brand Profiler",
+  "image": "bot_cashier.png",
+  "agentType": "AI",
+  "expertiseAreas": ["Brand Analysis", "Market Positioning"],
+  "availabilityStatus": "online"
+},
+{
+  "id": "profile-users-feature",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+  "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+  "resourceType": "Agent",
+    "visibility": "public",
+  "name": "User Profiler",
+  "image": "bot_doctor.png",
+  "agentType": "AI",
+  "expertiseAreas": ["User Data Management", "Behavior Analysis"],
+  "availabilityStatus": "online"
+},
+{
+  "id": "recommendations-feature",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+  "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+  "resourceType": "Agent",
+    "visibility": "public",
+  "name": "Recommendation Bot",
+  "image": "bot_environment.png",
+  "agentType": "AI",
+  "expertiseAreas": ["Product Recommendations", "User Suggestions"],
+  "availabilityStatus": "online"
+},
+{
+  "id": "tasks-feature",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+  "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+  "resourceType": "Agent",
+    "visibility": "public",
+  "name": "Task Bot",
+  "image": "bot_messenger.png",
+  "agentType": "AI",
+  "expertiseAreas": ["Task Assignment", "Workflow Management"],
+  "availabilityStatus": "online"
+}
+,
+  {
+    "id": "zelos/agents/ai-scout-bot-01",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "ownerId": "user_5iNop9rQvxzrVSDe6RXW6LddXH",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "zelos/agents/ai-scout-bot-01",
+    "agentType": "AI",
+    "name": "ScoutBot X",
+    "expertiseAreas": [
+      "Player Scouting",
+      "Performance Analysis",
+      "Injury Prediction"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": ["English", "French", "German"],
+      "responseTime": 150,
+      "integrations": ["Slack", "Microsoft Teams", "Email"]
+    },
+    "tags": ["AI", "Scouting", "Analytics"]
+  },
+  {
+    "id": "zelos/agents/human-agent-02",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "ownerId": "user_6jOpq0sRwyasWTFe7SYX7MffZI",
+    "resourceType": "Agent",
+    "visibility": "restricted",
+    "URI": "zelos/agents/human-agent-02",
+    "agentType": "Human",
+    "name": "Alexandra Martinez",
+    "expertiseAreas": [
+      "Marketing Strategy",
+      "Sponsorship Negotiation",
+      "Brand Management"
+    ],
+    "availabilityStatus": "busy",
+    "contactInfo": {
+      "email": "alex.martinez@vamo.co",
+      "phone": "+19876543210",
+      "socialMedia": {
+        "LinkedIn": "linkedin.com/in/alexandramartinez",
+        "Twitter": "@AlexMartinezMarketing"
+      }
+    },
+    "tags": ["Human", "Marketing", "Sponsorship"]
+  },
+  {
+    "id": "zelos/agents/ai-marketing-genie-03",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "ownerId": "user_7kPqr1tSwzbtXUGf8TZY8NgghJ",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "zelos/agents/ai-marketing-genie-03",
+    "agentType": "AI",
+    "name": "MarketingGenie Pro",
+    "expertiseAreas": [
+      "Campaign Optimization",
+      "Customer Segmentation",
+      "Social Media Analytics"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": ["English", "Spanish"],
+      "responseTime": 200,
+      "integrations": ["Google Analytics", "HubSpot", "Salesforce"]
+    },
+    "tags": ["AI", "Marketing", "Optimization"]
+  },
+  {
+    "id": "zelos/agents/human-agent-04",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "ownerId": "user_8lQrs2uTxactYVHf9UAZ9OggiK",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "zelos/agents/human-agent-04",
+    "agentType": "Human",
+    "name": "Michael Thompson",
+    "expertiseAreas": [
+      "Financial Planning",
+      "Revenue Forecasting",
+      "Budget Management"
+    ],
+    "availabilityStatus": "offline",
+    "contactInfo": {
+      "email": "michael.thompson@vamo.co",
+      "phone": "+11234567890",
+      "socialMedia": {
+        "LinkedIn": "linkedin.com/in/michaelthompson",
+        "Twitter": "@MikeThompsonFinance"
+      }
+    },
+    "tags": ["Human", "Finance", "Budgeting"]
+  }
+]

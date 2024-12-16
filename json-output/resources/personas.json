@@ -1,0 +1,62 @@
+[
+    {
+      "id": "PSNA-0",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "visibility": "public",
+      "resourceType":"Persona",
+      "Name": "John Doe",
+      "Description": "Marketing Lead of Sponsors Inc.",
+      "Type": "Corporate Entity",
+      "AssociatedUseCases": [
+        "Respond to customer inquiries via chatbot"
+      ],
+      "is_persona": true,
+      "Image": "/image57.png"
+    },
+    {
+      "id": "PSNA-1",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "visibility": "public",
+      "resourceType":"Persona",
+      "Name": "Alice Smith",
+      "Description": "Longtime customer of the company",
+      "Type": "Individual",
+      "AssociatedUseCases": [
+        "Generate personalized product recommendations"
+      ],
+      "is_persona": true,
+      "Image": "/image266.png"
+    },
+    {
+      "id": "PSNA-2",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "visibility": "public",
+      "resourceType":"Persona",
+      "Name": "Karly Carmicheal",
+      "Description": "Disgruntled Shopper",
+      "Type": "Corporate Entity",
+      "AssociatedUseCases": [
+        "Respond to customer inquiries via chatbot"
+      ],
+      "is_persona": true,
+      "Image": "/image58.png"
+    },
+    {
+      "id": "PSNA-3",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "visibility": "public",
+      "resourceType":"Persona",
+      "Name": "Superman Inc.",
+      "Description": "Regular data provider of the company",
+      "Type": "Individual",
+      "AssociatedUseCases": [
+        "Generate personalized product recommendations"
+      ],
+      "is_persona": true,
+      "Image": "/image269.png"
+    }
+  ]

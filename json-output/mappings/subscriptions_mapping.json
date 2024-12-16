@@ -1,0 +1,46 @@
+{
+    "mappings": {
+      "properties": {
+        "createdAt": { "type": "date", "format": "strict_date_optional_time||epoch_millis" },
+        "updatedAt": { "type": "date", "format": "strict_date_optional_time||epoch_millis" },
+        "subscriptionId": { "type": "keyword" },
+        "subscriptionTier": { "type": "keyword" },
+        "organizationId": { "type": "keyword" },
+        "userId": { "type": "keyword" },
+        "credits": { "type": "integer" },
+        "featuresUsage": {
+          "type": "object",
+          "properties": {
+            "createGoal": { "type": "integer" },
+            "readGoal": { "type": "integer" },
+            "updateGoal": { "type": "integer" },
+            "deleteGoal": { "type": "integer" },
+  
+            "createUseCase": { "type": "integer" },
+            "readUseCase": { "type": "integer" },
+            "updateUseCase": { "type": "integer" },
+            "deleteUseCase": { "type": "integer" },
+  
+            "readModel": { "type": "integer" },
+            "createModel": { "type": "integer" },
+            "updateModel": { "type": "integer" },
+            "deleteModel": { "type": "integer" },
+  
+            "readAnalytics": { "type": "integer" },
+            "exportAnalytics": { "type": "integer" },
+  
+            "readBrandingCard": { "type": "integer" },
+            "createBrandingCard": { "type": "integer" },
+            "facetsPerBrandingCardType": { "type": "integer" },
+  
+            "readProfileView": { "type": "integer" },
+            "updateProfile": { "type": "integer" },
+  
+            "connectWallet": { "type": "integer" },
+  
+            "manageAccount": { "type": "integer" }
+          }
+        }
+      }
+    }
+  }

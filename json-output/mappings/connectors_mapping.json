@@ -1,0 +1,54 @@
+{
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "accountId": {
+        "type": "keyword"
+      },
+      "resourceType": {
+        "type": "keyword"
+      },
+      "visibility": {
+        "type": "keyword"
+      },
+      "ownerId": {
+        "type": "keyword"
+      },
+      "name": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "description": {
+        "type": "text"
+      },
+      "icon": {
+        "type": "keyword"
+      },
+      "connectionType": {
+        "type": "keyword"
+      },
+      "disabled": {
+        "type": "boolean"
+      },
+      "metadata": {
+        "properties": {
+          "api_key": {
+            "type": "keyword",
+            "index": false
+          },
+          "shop_name": {
+            "type": "keyword",
+            "index": false
+          }
+        }
+      }
+    }
+  }
+}

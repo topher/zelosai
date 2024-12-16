@@ -1,76 +1,103 @@
-import { promises as fs } from "fs"
-import path from "path"
-import { Metadata } from "next"
-import Image from "next/image"
-import { z } from "zod"
+// /app/(dashboard)/(routes)/workflows/tasks/page.tsx
 
-import { columns } from "./components/columns"
-import { DataTable } from "./components/data-table"
-import { UserNav } from "./components/user-nav"
-import { tasks, allStatCards } from "@/app/data"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+"use client";
 
-export const metadata: Metadata = {
-  title: "Tasks",
-  description: "A task and issue tracker build using Tanstack Table.",
-}
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useAuth } from "@clerk/nextjs";
+import { Button } from "@/components/ui/button";
+import { PlusCircledIcon } from "@radix-ui/react-icons";
+import TableViewLayout from "@/app/components/atomic/templates/TableViewLayout";
+import { Task } from "@/app/types";
+import { columns } from "./components/columns"; // Task-specific columns
 
-const stat_cards_workflow_analytics = allStatCards.filter(
-  (stat) => stat.page === "workflow_analytics"
-);
+const TaskPage = () => {
+  const { userId, orgId } = useAuth();
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-export default async function TaskPage() {
+  useEffect(() => {
+    if (userId && orgId) {
+      const fetchTasks = async () => {
+        try {
+          const response = await fetch(`/api/resource/tasks?orgId=${orgId}&ownerId=${userId}`);
+
+          if (response.ok) {
+            const data = await response.json();
+            setTasks(data.resources);
+          } else {
+            console.error("Failed to fetch tasks:", response.statusText);
+            setError("Failed to load tasks.");
+          }
+        } catch (err) {
+          console.error("Error fetching tasks:", err);
+          setError("Failed to load tasks.");
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      fetchTasks();
+    }
+  }, [userId, orgId]);
+
+  // Function to toggle task visibility or any other status
+  const toggleTaskVisibility = async (taskId: string) => {
+    const taskIndex = tasks.findIndex((task) => task.id === taskId);
+    if (taskIndex === -1) return;
+
+    const updatedTask: Task = {
+      ...tasks[taskIndex],
+      visibility: tasks[taskIndex].visibility === "public" ? "private" : "public",
+    };
+
+    try {
+      // Update the task in the backend
+      const response = await fetch(`/api/resource/tasks/${taskId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ visibility: updatedTask.visibility }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to update task visibility.");
+      }
+
+      // Update the task in the local state
+      setTasks((prevTasks) => {
+        const newTasks = [...prevTasks];
+        newTasks[taskIndex] = updatedTask;
+        return newTasks;
+      });
+    } catch (error) {
+      console.error("Error updating task visibility:", error);
+      alert("Failed to update task visibility.");
+    }
+  };
 
   return (
-    <>
-      <div className="md:hidden">
-        <Image
-          src="/examples/tasks-light.png"
-          width={1280}
-          height={998}
-          alt="Playground"
-          className="block dark:hidden"
-        />
-        <Image
-          src="/examples/tasks-dark.png"
-          width={1280}
-          height={998}
-          alt="Playground"
-          className="hidden dark:block"
-        />
-      </div>
-      <div className="hidden h-full flex-1 flex-col space-y-8 p-8 md:flex">
+    <TableViewLayout<Task, string>
+      header={{
+        title: "Tasks",
+        description: "Here's a list of your tasks for this month!",
+        actions: (
+          <Link href="/dashboard/workflows/tasks/new">
+            <Button>
+              <PlusCircledIcon className="mr-2 h-5 w-5" />
+              Add New Task
+            </Button>
+          </Link>
+        ),
+      }}
+      isLoading={loading}
+      error={error}
+      data={tasks}
+      columns={columns(toggleTaskVisibility)}
+    />
+  );
+};
 
-        <div className="flex items-center justify-between space-y-2">
-          <div>
-            <h2 className="text-2xl font-bold tracking-tight">Welcome back!</h2>
-            <p className="text-muted-foreground">
-              Here&apos;s a list of your tasks for this month!
-            </p>
-          </div>
-        </div>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-              {stat_cards_workflow_analytics.map((item) => (
-                <Card key={item.title} className="card"> {/* Add a class name for styling */}
-                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium"> {/* Apply styles to title */}
-                      {item.title}
-                    </CardTitle>
-                    {/* {item.icon && ( // Conditionally render icon if provided
-                      <svg>
-                        <path d={item.icon} />
-                      </svg>
-                    )} */}
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-2xl font-bold">{item.value}</div>
-                    <p className="text-xs text-muted-foreground">{item.subtitle || "This month"}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-        <DataTable data={tasks} columns={columns} />
-      </div>
-    </>
-  )
-}
+export default TaskPage;

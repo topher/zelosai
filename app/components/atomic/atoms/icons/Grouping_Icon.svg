@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 19 12" height="12" width="19">
+<circle stroke-width="0.75" stroke="#2A4494" r="3.125" cy="8.5" cx="15.5"></circle>
+<circle fill="#2A4494" r="2" cy="2" cx="13"></circle>
+<mask height="12" width="12" y="1" x="0" maskUnits="userSpaceOnUse" id="mask0">
+<line stroke-width="0.75" stroke="white" y2="12.2652" x2="7.51517" y1="8.26517" x1="11.5152"></line>
+<line stroke-width="0.75" stroke="white" y2="12.2652" x2="5.51516" y1="6.26517" x1="11.5152"></line>
+<line stroke-width="0.75" stroke="white" y2="12.2652" x2="3.51517" y1="4.26517" x1="11.5152"></line>
+<line stroke-width="0.75" stroke="white" y2="11.2652" x2="2.51517" y1="3.26517" x1="10.5152"></line>
+<line stroke-width="0.75" stroke="white" y2="10.2652" x2="1.51517" y1="2.26517" x1="9.51517"></line>
+<line stroke-width="0.75" stroke="white" y2="9.26516" x2="0.515165" y1="1.26517" x1="8.51517"></line>
+<line stroke-width="0.75" stroke="white" y2="7.26517" x2="0.515165" y1="1.26517" x1="6.51517"></line>
+<line stroke-width="0.75" stroke="white" y2="5.26516" x2="0.515165" y1="1.26517" x1="4.51517"></line>
+</mask>
+<g mask="url(#mask0)">
+<circle fill="#2A4494" r="5" cy="7" cx="6"></circle>
+</g>
+</svg>
