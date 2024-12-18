@@ -1,0 +1,20 @@
+export const demoTriples = [
+    { subject: 'Uploads', predicate: 'stat', object: '320 uploads' },
+    { subject: 'Profile Completion', predicate: 'progress', object: '75%' },
+    { subject: 'Events', predicate: 'calendar', object: '5 events this month' },
+    { subject: 'Tags', predicate: 'label', object: 'Fitness, Wellness, Nutrition' },
+    { subject: 'Task List', predicate: 'task', object: '3 tasks pending' },
+    { subject: 'Revenue', predicate: 'chart', object: 'Yearly Revenue Data' },
+    { subject: 'User Engagement', predicate: 'analytics', object: 'High' },
+    { subject: 'Jane Doe', predicate: 'user', object: 'Active User' },
+    { subject: 'Start Campaign', predicate: 'interactive', object: 'Draft Marketing Plan' },
+    { subject: 'New Messages', predicate: 'notification', object: 'You have 2 new messages' },
+    { subject: 'Website Traffic', predicate: 'analytics_overview', object: 'Increased by 20%' },
+    { subject: 'Goal Setting', predicate: 'recommended_action', object: 'Set your Q3 Goals' },
+    // ... existing triples
+    { subject: 'user', predicate: 'canTake', object: 'Upload IP' },
+    { subject: 'user', predicate: 'canTake', object: 'Draft Monetization Strategy' },
+    { subject: 'user', predicate: 'canTake', object: 'Mint Smart Contract' },
+    { subject: 'user', predicate: 'canTake', object: 'Upload Contract' },
+    { subject: 'user', predicate: 'canTake', object: 'Set Goals' },
+  ];

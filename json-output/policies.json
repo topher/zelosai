@@ -1,0 +1,363 @@
+[
+  {
+    "id": "policy-agent-access",
+    "organizationId": "*",
+    "description": "Agent has read and write access to Agent Org resources.",
+    "rules": [
+      {
+        "id": "rule-agent-read",
+        "ruleType": "access",
+        "deontologicalDuty": "allowed",
+        "predicate": ["read"],
+        "subjectCondition": {
+          "type": "group",
+          "operator": "AND",
+          "conditions": [
+            {
+              "attribute": "orgRole",
+              "operator": "is",
+              "value": "org:admin"
+            }
+          ]
+        },
+        "objectCondition": {
+          "type": "group",
+          "operator": "OR",
+          "conditions": [
+            {
+              "attribute": "accountId",
+              "operator": "is",
+              "value": "$orgId"
+            },
+            {
+              "attribute": "accountId",
+              "operator": "is",
+              "value": "$userId"
+            },
+            {
+              "attribute": "accountId",
+              "operator": "is",
+              "value": "org_platform"
+            }
+          ]
+        },
+        "createdBy": "system",
+        "ownedBy": "admin"
+      },
+      {
+        "id": "rule-agent-write",
+        "ruleType": "access",
+        "deontologicalDuty": "allowed",
+        "predicate": ["update", "delete", "create"],
+        "subjectCondition": {
+          "type": "group",
+          "operator": "AND",
+          "conditions": [
+            {
+              "attribute": "orgRole",
+              "operator": "is",
+              "value": "org:admin"
+            }
+          ]
+        },
+        "objectCondition": {
+          "type": "group",
+          "operator": "OR",
+          "conditions": [
+            {
+              "attribute": "accountId",
+              "operator": "is",
+              "value": "$orgId"
+            },
+            {
+              "attribute": "accountId",
+              "operator": "is",
+              "value": "$userId"
+            },
+            {
+              "attribute": "accountId",
+              "operator": "is",
+              "value": "org_platform"
+            }
+          ]
+        },
+        "createdBy": "system",
+        "ownedBy": "admin"
+      }
+    ]
+  },
+  {
+    "id": "policy-athlete-admin",
+    "organizationId": "*",
+    "description": "Athlete Admin has full access to all resources in Athletes Org.",
+    "rules": [
+      {
+        "id": "rule-athlete-admin-access",
+        "ruleType": "access",
+        "deontologicalDuty": "allowed",
+        "predicate": ["*"],
+        "subjectCondition": {
+          "type": "group",
+          "operator": "AND",
+          "conditions": [
+            {
+              "attribute": "orgRole",
+              "operator": "is",
+              "value": "org:admin"
+            }
+          ]
+        },
+        "objectCondition": {
+          "type": "group",
+          "operator": "OR",
+          "conditions": [
+            {
+              "attribute": "accountId",
+              "operator": "is",
+              "value": "$orgId"
+            },
+            {
+              "attribute": "accountId",
+              "operator": "is",
+              "value": "$userId"
+            },
+            {
+              "attribute": "accountId",
+              "operator": "is",
+              "value": "org_platform"
+            }
+          ]
+        },
+        "createdBy": "system",
+        "ownedBy": "admin"
+      }
+    ]
+  },
+  {
+    "id": "policy-member-public-read",
+    "organizationId": "*",
+    "description": "Members can read public resources within their organization or from the platform.",
+    "rules": [
+      {
+        "id": "rule-member-read-public",
+        "ruleType": "access",
+        "deontologicalDuty": "allowed",
+        "predicate": ["read"],
+        "subjectCondition": {
+          "type": "group",
+          "operator": "AND",
+          "conditions": [
+            {
+              "attribute": "orgRole",
+              "operator": "is",
+              "value": "org:member"
+            }
+          ]
+        },
+        "objectCondition": {
+          "type": "group",
+          "operator": "AND",
+          "conditions": [
+            {
+              "attribute": "visibility",
+              "operator": "is",
+              "value": "public"
+            },
+            {
+              "attribute": "accountId",
+              "operator": "in",
+              "value": ["$accountId", "org_platform", "$userId"]
+            }
+          ]
+        },
+        "createdBy": "system",
+        "ownedBy": "admin"
+      }
+    ]
+  },
+  {
+    "id": "policy-prohibit-member-delete",
+    "organizationId": "*",
+    "description": "Members are prohibited from deleting any resources.",
+    "rules": [
+      {
+        "id": "rule-prohibit-delete",
+        "ruleType": "access",
+        "deontologicalDuty": "prohibited",
+        "predicate": ["delete"],
+        "subjectCondition": {
+          "type": "group",
+          "operator": "AND",
+          "conditions": [
+            {
+              "attribute": "orgRole",
+              "operator": "is",
+              "value": "org:member"
+            }
+          ]
+        },
+        "objectCondition": null,
+        "createdBy": "system",
+        "ownedBy": "admin"
+      }
+    ]
+  },
+  {
+    "id": "policy-manager-access",
+    "organizationId": "*",
+    "description": "Users in 'manager' group have elevated access.",
+    "rules": [
+      {
+        "id": "rule-manager-read-write",
+        "ruleType": "access",
+        "deontologicalDuty": "allowed",
+        "predicate": ["read", "update", "delete", "create"],
+        "subjectCondition": {
+          "type": "group",
+          "operator": "AND",
+          "conditions": [
+            {
+              "attribute": "groups",
+              "operator": "contains",
+              "value": "manager"
+            }
+          ]
+        },
+        "objectCondition": {
+          "type": "group",
+          "operator": "OR",
+          "conditions": [
+            {
+              "attribute": "accountId",
+              "operator": "is",
+              "value": "$orgId"
+            },
+            {
+              "attribute": "accountId",
+              "operator": "is",
+              "value": "$userId"
+            },
+            {
+              "attribute": "accountId",
+              "operator": "is",
+              "value": "org_platform"
+            }
+          ]
+        },
+        "createdBy": "system",
+        "ownedBy": "admin"
+      }
+    ]
+  },
+  {
+    "id": "policy-platform-admin-access",
+    "organizationId": "org_platform",
+    "description": "Platform Admin has full access to all platform resources.",
+    "rules": [
+      {
+        "id": "rule-platform-admin-access",
+        "ruleType": "access",
+        "deontologicalDuty": "allowed",
+        "predicate": ["*"],
+        "subjectCondition": {
+          "type": "group",
+          "operator": "AND",
+          "conditions": [
+            {
+              "attribute": "orgRole",
+              "operator": "is",
+              "value": "platform:admin"
+            }
+          ]
+        },
+        "objectCondition": null,
+        "createdBy": "system",
+        "ownedBy": "admin"
+      }
+    ]
+  },
+  {
+    "id": "policy-member-update-access",
+    "organizationId": "*",
+    "description": "Members can update resources within their organization.",
+    "rules": [
+      {
+        "id": "rule-member-update",
+        "ruleType": "access",
+        "deontologicalDuty": "allowed",
+        "predicate": ["update"],
+        "subjectCondition": {
+          "type": "group",
+          "operator": "AND",
+          "conditions": [
+            {
+              "attribute": "orgRole",
+              "operator": "is",
+              "value": "org:member"
+            }
+          ]
+        },
+        "objectCondition": {
+          "type": "group",
+          "operator": "OR",
+          "conditions": [
+            {
+              "attribute": "accountId",
+              "operator": "is",
+              "value": "$orgId"
+            },
+            {
+              "attribute": "accountId",
+              "operator": "is",
+              "value": "$userId"
+            },
+            {
+              "attribute": "accountId",
+              "operator": "is",
+              "value": "org_platform"
+            }
+          ]
+        },
+        "createdBy": "system",
+        "ownedBy": "admin"
+      }
+    ]
+  },
+  {
+    "id": "policy-member-delete-own-resources",
+    "organizationId": "*",
+    "description": "Members can delete resources they own.",
+    "rules": [
+      {
+        "id": "rule-member-delete-own-resources",
+        "ruleType": "access",
+        "deontologicalDuty": "allowed",
+        "predicate": ["delete"],
+        "subjectCondition": {
+          "type": "group",
+          "operator": "AND",
+          "conditions": [
+            {
+              "attribute": "orgRole",
+              "operator": "is",
+              "value": "org:member"
+            }
+          ]
+        },
+        "objectCondition": {
+          "type": "group",
+          "operator": "AND",
+          "conditions": [
+            {
+              "attribute": "ownerId",
+              "operator": "is",
+              "value": "$userId"
+            }
+          ]
+        },
+        "createdBy": "system",
+        "ownedBy": "admin"
+      }
+    ]
+  }  
+]

@@ -1,0 +1,230 @@
+[
+  {
+    "id": "sub_free_001",
+    "subscriptionId": "sub_free_001",
+    "userId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+    "subscriptionTier": "FREE",
+    "creditsUsed": 50,
+    "monthlyCreditLimit": 100,
+    "featuresUsage": {
+      "CreateGoal": {
+        "count": 1,
+        "creditsUsed": 20
+      },
+      "ReadGoal": {
+        "count": 10,
+        "creditsUsed": 5
+      },
+      "UpdateGoal": {
+        "count": 2,
+        "creditsUsed": 10
+      },
+      "DeleteGoal": {
+        "count": 0,
+        "creditsUsed": 0
+      },
+      "CreateUseCase": {
+        "count": 1,
+        "creditsUsed": 15
+      },
+      "ReadUseCase": {
+        "count": 5,
+        "creditsUsed": 5
+      },
+      "UpdateUseCase": {
+        "count": 1,
+        "creditsUsed": 5
+      },
+      "DeleteUseCase": {
+        "count": 0,
+        "creditsUsed": 0
+      }
+    },
+    "resourceCounts": {
+      "Goals": 3,
+      "UseCases": 2,
+      "Models": 1,
+      "Analytics": 1,
+      "Wallet": 1,
+      "AccountManagement": 0
+    },
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "updatedAt": "2023-01-02T00:00:00.000Z",
+    "credits": 50
+  },
+  {
+    "id": "sub_pro_001",
+    "subscriptionId": "sub_pro_001",
+    "organizationId": "org_2nc9c87ihMBSTJxcYc4X4dwmdH4",
+    "subscriptionTier": "PRO",
+    "creditsUsed": 250,
+    "monthlyCreditLimit": 500,
+    "featuresUsage": {
+      "CreateGoal": {
+        "count": 5,
+        "creditsUsed": 100
+      },
+      "ReadGoal": {
+        "count": 50,
+        "creditsUsed": 20
+      },
+      "UpdateGoal": {
+        "count": 10,
+        "creditsUsed": 50
+      },
+      "DeleteGoal": {
+        "count": 2,
+        "creditsUsed": 10
+      },
+      "CreateUseCase": {
+        "count": 8,
+        "creditsUsed": 60
+      },
+      "ReadUseCase": {
+        "count": 25,
+        "creditsUsed": 10
+      },
+      "UpdateUseCase": {
+        "count": 5,
+        "creditsUsed": 15
+      },
+      "DeleteUseCase": {
+        "count": 1,
+        "creditsUsed": 5
+      }
+    },
+    "resourceCounts": {
+      "Goals": 8,
+      "UseCases": 5,
+      "Models": 10,
+      "Analytics": 3,
+      "Wallet": 2,
+      "AccountManagement": 1
+    },
+    "createdAt": "2023-02-01T00:00:00.000Z",
+    "updatedAt": "2023-02-02T00:00:00.000Z",
+    "credits": 250
+  },
+  {
+    "id": "sub_pro_002",
+    "subscriptionId": "sub_pro_002",
+    "organizationId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "subscriptionTier": "ENTERPRISE",
+    "creditsUsed": 700,
+    "monthlyCreditLimit": 1000,
+    "featuresUsage": {
+      "CreateRecommendation": { "count": 0, "creditsUsed": 0 },
+      "ReadRecommendation": { "count": 0, "creditsUsed": 0 },
+      "UpdateRecommendation": { "count": 0, "creditsUsed": 0 },
+      "DeleteRecommendation": { "count": 0, "creditsUsed": 0 },
+      "CreateUserAction": { "count": 0, "creditsUsed": 0 },
+      "ReadUserAction": { "count": 0, "creditsUsed": 0 },
+      "UpdateUserAction": { "count": 0, "creditsUsed": 0 },
+      "DeleteUserAction": { "count": 0, "creditsUsed": 0 },
+      "CreateGoal": { "count": 0, "creditsUsed": 0 },
+      "ReadGoal": { "count": 0, "creditsUsed": 0 },
+      "UpdateGoal": { "count": 0, "creditsUsed": 0 },
+      "DeleteGoal": { "count": 0, "creditsUsed": 0 },
+      "CreateUseCase": { "count": 0, "creditsUsed": 0 },
+      "ReadUseCase": { "count": 0, "creditsUsed": 0 },
+      "UpdateUseCase": { "count": 0, "creditsUsed": 0 },
+      "DeleteUseCase": { "count": 0, "creditsUsed": 0 },
+      "CreateIssue": { "count": 0, "creditsUsed": 0 },
+      "ReadIssue": { "count": 0, "creditsUsed": 0 },
+      "UpdateIssue": { "count": 0, "creditsUsed": 0 },
+      "DeleteIssue": { "count": 0, "creditsUsed": 0 },
+      "CreateBusinessModel": { "count": 0, "creditsUsed": 0 },
+      "ReadBusinessModel": { "count": 0, "creditsUsed": 0 },
+      "UpdateBusinessModel": { "count": 0, "creditsUsed": 0 },
+      "DeleteBusinessModel": { "count": 0, "creditsUsed": 0 },
+      "CreateBranding": { "count": 0, "creditsUsed": 0 },
+      "ReadBranding": { "count": 0, "creditsUsed": 0 },
+      "UpdateBranding": { "count": 0, "creditsUsed": 0 },
+      "DeleteBranding": { "count": 0, "creditsUsed": 0 },
+      "CreateModel": { "count": 0, "creditsUsed": 0 },
+      "ReadModel": { "count": 0, "creditsUsed": 0 },
+      "UpdateModel": { "count": 0, "creditsUsed": 0 },
+      "DeleteModel": { "count": 0, "creditsUsed": 0 },
+      "CreateTrainModel": { "count": 0, "creditsUsed": 0 },
+      "ReadTrainModel": { "count": 0, "creditsUsed": 0 },
+      "UpdateTrainModel": { "count": 0, "creditsUsed": 0 },
+      "DeleteTrainModel": { "count": 0, "creditsUsed": 0 },
+      "CreateConnector": { "count": 0, "creditsUsed": 0 },
+      "ReadConnector": { "count": 0, "creditsUsed": 0 },
+      "UpdateConnector": { "count": 0, "creditsUsed": 0 },
+      "DeleteConnector": { "count": 0, "creditsUsed": 0 },
+      "CreateTopic": { "count": 0, "creditsUsed": 0 },
+      "ReadTopic": { "count": 0, "creditsUsed": 0 },
+      "UpdateTopic": { "count": 0, "creditsUsed": 0 },
+      "DeleteTopic": { "count": 0, "creditsUsed": 0 },
+      "CreateInfoAsset": { "count": 0, "creditsUsed": 0 },
+      "ReadInfoAsset": { "count": 0, "creditsUsed": 0 },
+      "UpdateInfoAsset": { "count": 0, "creditsUsed": 0 },
+      "DeleteInfoAsset": { "count": 0, "creditsUsed": 0 },
+      "CreatePolicy": { "count": 0, "creditsUsed": 0 },
+      "ReadPolicy": { "count": 0, "creditsUsed": 0 },
+      "UpdatePolicy": { "count": 0, "creditsUsed": 0 },
+      "DeletePolicy": { "count": 0, "creditsUsed": 0 },
+      "CreateTerm": { "count": 0, "creditsUsed": 0 },
+      "ReadTerm": { "count": 0, "creditsUsed": 0 },
+      "UpdateTerm": { "count": 0, "creditsUsed": 0 },
+      "DeleteTerm": { "count": 0, "creditsUsed": 0 },
+      "CreateMessage": { "count": 0, "creditsUsed": 0 },
+      "ReadMessage": { "count": 0, "creditsUsed": 0 },
+      "UpdateMessage": { "count": 0, "creditsUsed": 0 },
+      "DeleteMessage": { "count": 0, "creditsUsed": 0 },
+      "CreateOffer": { "count": 0, "creditsUsed": 0 },
+      "ReadOffer": { "count": 0, "creditsUsed": 0 },
+      "UpdateOffer": { "count": 0, "creditsUsed": 0 },
+      "DeleteOffer": { "count": 0, "creditsUsed": 0 },
+      "CreateContract": { "count": 0, "creditsUsed": 0 },
+      "ReadContract": { "count": 0, "creditsUsed": 0 },
+      "UpdateContract": { "count": 0, "creditsUsed": 0 },
+      "DeleteContract": { "count": 0, "creditsUsed": 0 },
+      "CreateTransaction": { "count": 0, "creditsUsed": 0 },
+      "ReadTransaction": { "count": 0, "creditsUsed": 0 },
+      "UpdateTransaction": { "count": 0, "creditsUsed": 0 },
+      "DeleteTransaction": { "count": 0, "creditsUsed": 0 },
+      "CreateWorkflow": { "count": 0, "creditsUsed": 0 },
+      "ReadWorkflow": { "count": 0, "creditsUsed": 0 },
+      "UpdateWorkflow": { "count": 0, "creditsUsed": 0 },
+      "DeleteWorkflow": { "count": 0, "creditsUsed": 0 },
+      "CreateTask": { "count": 0, "creditsUsed": 0 },
+      "ReadTask": { "count": 0, "creditsUsed": 0 },
+      "UpdateTask": { "count": 0, "creditsUsed": 0 },
+      "DeleteTask": { "count": 0, "creditsUsed": 0 },
+      "CreateScheduledEvent": { "count": 0, "creditsUsed": 0 },
+      "ReadScheduledEvent": { "count": 0, "creditsUsed": 0 },
+      "UpdateScheduledEvent": { "count": 0, "creditsUsed": 0 },
+      "DeleteScheduledEvent": { "count": 0, "creditsUsed": 0 },
+      "CreateProfileAthlete": { "count": 0, "creditsUsed": 0 },
+      "ReadProfileAthlete": { "count": 0, "creditsUsed": 0 },
+      "UpdateProfileAthlete": { "count": 0, "creditsUsed": 0 },
+      "DeleteProfileAthlete": { "count": 0, "creditsUsed": 0 },
+      "ReadProfileView": { "count": 0, "creditsUsed": 0 },
+      "ConnectWallet": { "count": 0, "creditsUsed": 0 },
+      "ManageAccount": { "count": 0, "creditsUsed": 0 }
+    },
+    "resourceCounts": {
+      "Goals": 0,
+      "UseCases": 0,
+      "Models": 0,
+      "Analytics": 0,
+      "Wallet": 0,
+      "AccountManagement": 0,
+      "Workflows": 0,
+      "Tasks": 0,
+      "Contracts": 0,
+      "Messages": 0,
+      "Alerts": 0,
+      "Profiles": 0,
+      "Policies": 0,
+      "Statistics": 0,
+      "Terms": 0,
+      "Transactions": 0
+    },
+    "createdAt": "2023-03-01T00:00:00.000Z",
+    "updatedAt": "2023-03-02T00:00:00.000Z",
+    "credits": 700
+  }
+]

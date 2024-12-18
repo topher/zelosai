@@ -1,0 +1,904 @@
+[
+  {
+    "id": "leadAgentsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Agents Agent",
+    "expertiseAreas": [
+      "FeatureKey.Agents"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadAlertsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Alerts Agent",
+    "expertiseAreas": [
+      "FeatureKey.Alerts"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadAnalyticsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Analytics Agent",
+    "expertiseAreas": [
+      "FeatureKey.Analytics"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadBrandingAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Branding Agent",
+    "expertiseAreas": [
+      "FeatureKey.Branding"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadBusinessModelAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.BusinessModel Agent",
+    "expertiseAreas": [
+      "FeatureKey.BusinessModel"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadCalendarAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Calendar Agent",
+    "expertiseAreas": [
+      "FeatureKey.Calendar"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadConnectorsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Connectors Agent",
+    "expertiseAreas": [
+      "FeatureKey.Connectors"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadContractsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Contracts Agent",
+    "expertiseAreas": [
+      "FeatureKey.Contracts"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadTermsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Terms Agent",
+    "expertiseAreas": [
+      "FeatureKey.Terms"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadGoalsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Goals Agent",
+    "expertiseAreas": [
+      "FeatureKey.Goals"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadGoalsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Goals Agent",
+    "expertiseAreas": [
+      "FeatureKey.Goals"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadInfoAssetsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.InfoAssets Agent",
+    "expertiseAreas": [
+      "FeatureKey.InfoAssets"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadIssuesAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Issues Agent",
+    "expertiseAreas": [
+      "FeatureKey.Issues"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadMessagesAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Messages Agent",
+    "expertiseAreas": [
+      "FeatureKey.Messages"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadModelGenerationAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.ModelGeneration Agent",
+    "expertiseAreas": [
+      "FeatureKey.ModelGeneration"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadModelSubjectsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.ModelSubjects Agent",
+    "expertiseAreas": [
+      "FeatureKey.ModelSubjects"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadModelTrainingsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.ModelTrainings Agent",
+    "expertiseAreas": [
+      "FeatureKey.ModelTrainings"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadModelsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Models Agent",
+    "expertiseAreas": [
+      "FeatureKey.Models"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadOffersAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Offers Agent",
+    "expertiseAreas": [
+      "FeatureKey.Offers"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadPersonasAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Personas Agent",
+    "expertiseAreas": [
+      "FeatureKey.Personas"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadPoliciesAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Policies Agent",
+    "expertiseAreas": [
+      "FeatureKey.Policies"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadProfileAthletesAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.ProfileAthletes Agent",
+    "expertiseAreas": [
+      "FeatureKey.ProfileAthletes"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadProfileBrandsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.ProfileBrands Agent",
+    "expertiseAreas": [
+      "FeatureKey.ProfileBrands"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadProfileContractsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.ProfileContracts Agent",
+    "expertiseAreas": [
+      "FeatureKey.ProfileContracts"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadProfileModelsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.ProfileModels Agent",
+    "expertiseAreas": [
+      "FeatureKey.ProfileModels"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadProfileUsersAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.ProfileUsers Agent",
+    "expertiseAreas": [
+      "FeatureKey.ProfileUsers"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadRecommendationsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Recommendations Agent",
+    "expertiseAreas": [
+      "FeatureKey.Recommendations"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadSearchableAthletesAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.SearchableAthletes Agent",
+    "expertiseAreas": [
+      "FeatureKey.SearchableAthletes"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadSearchableBrandsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.SearchableBrands Agent",
+    "expertiseAreas": [
+      "FeatureKey.SearchableBrands"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadSearchableContractsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.SearchableContracts Agent",
+    "expertiseAreas": [
+      "FeatureKey.SearchableContracts"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadSearchableModelsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.SearchableModels Agent",
+    "expertiseAreas": [
+      "FeatureKey.SearchableModels"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadSearchableUsersAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.SearchableUsers Agent",
+    "expertiseAreas": [
+      "FeatureKey.SearchableUsers"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadAnalyticsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Analytics Agent",
+    "expertiseAreas": [
+      "FeatureKey.Analytics"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadTasksAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Tasks Agent",
+    "expertiseAreas": [
+      "FeatureKey.Tasks"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadTopicsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Topics Agent",
+    "expertiseAreas": [
+      "FeatureKey.Topics"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadTransactionsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Transactions Agent",
+    "expertiseAreas": [
+      "FeatureKey.Transactions"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadTriplesAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Triples Agent",
+    "expertiseAreas": [
+      "FeatureKey.Triples"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadUseCasesAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.UseCases Agent",
+    "expertiseAreas": [
+      "FeatureKey.UseCases"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadUserActionsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.UserActions Agent",
+    "expertiseAreas": [
+      "FeatureKey.UserActions"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadSearchableUsersAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.SearchableUsers Agent",
+    "expertiseAreas": [
+      "FeatureKey.SearchableUsers"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  },
+  {
+    "id": "leadWorkflowsAgent",
+    "accountId": "default_account",
+    "ownerId": "system",
+    "resourceType": "Agent",
+    "visibility": "public",
+    "URI": "",
+    "agentType": "AI",
+    "name": "Lead FeatureKey.Workflows Agent",
+    "expertiseAreas": [
+      "FeatureKey.Workflows"
+    ],
+    "availabilityStatus": "online",
+    "aiCapabilities": {
+      "supportedLanguages": [
+        "en"
+      ],
+      "responseTime": 100,
+      "integrations": []
+    },
+    "tags": []
+  }
+]

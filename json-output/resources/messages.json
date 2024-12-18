@@ -1,0 +1,86 @@
+[
+  {
+    "id": "message-101",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Message",
+    "ownerId": "user_victor_amo_manager",
+    "createdAt": "2024-09-01T12:00:00Z",
+    "senderId": "user_sportssponsor123",
+    "recipientId": "user_victor_amo_manager",
+    "content": "Hello! We’re interested in featuring Victor Amo in our new cycling gear campaign. Can we discuss partnership terms?",
+    "sentAt": "2024-09-01T12:00:00Z",
+    "subject": "Potential Sponsorship Inquiry",
+    "messageType": "Text",
+    "priority": "high",
+    "visibility": "private"
+  },
+  {
+    "id": "message-102",
+    "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "resourceType": "Message",
+    "ownerId": "user_victor_amo",
+    "createdAt": "2024-09-03T14:45:00Z",
+    "senderId": "org_eventmanagement",
+    "recipientId": "user_victor_amo",
+    "content": "Your custom training bot is now active. Fans have started to submit their goals. Engagement metrics are available on your dashboard.",
+    "sentAt": "2024-09-03T14:45:00Z",
+    "subject": "Training Bot Launch Confirmation",
+    "messageType": "Text",
+    "priority": "medium",
+    "visibility": "public"
+  },
+    {
+      "id": "message-001",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "resourceType": "Message",
+      "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "createdAt": "2024-04-10T12:00:00Z",
+      "senderId": "user_seller1",
+      "recipientId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "content": "Hello! I am interested in your Exclusive Training Session offer.",
+      "sentAt": "2024-04-10T12:00:00Z",
+      "subject": "Inquiry About Training Session",
+      "messageType": "Text",
+      "priority": "high",
+      "visibility": "private"
+    },
+    {
+      "id": "message-002",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "resourceType": "Message",
+      "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "createdAt": "2024-05-18T14:45:00Z",
+      "senderId": "user_seller2",
+      "recipientId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "content": "Your Digital Art NFT bid has been received and is currently pending.",
+      "sentAt": "2024-05-18T14:45:00Z",
+      "subject": "NFT Bid Confirmation",
+      "messageType": "Text",
+      "attachments": [
+        {
+          "id": "attachment-001",
+          "url": "https://example.com/attachments/bid-details.pdf",
+          "contentType": "application/pdf",
+          "size": 204800
+        }
+      ],
+      "priority": "medium",
+      "visibility": "private"
+    },
+    {
+      "id": "message-003",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "resourceType": "Message",
+      "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "createdAt": "2024-06-30T10:30:00Z",
+      "senderId": "org_2nc9c87ihMBSTJxcYc4X4dwmdH4",
+      "recipientId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "content": "Your scheduled event has been successfully updated.",
+      "sentAt": "2024-06-30T10:30:00Z",
+      "subject": "Event Update Notification",
+      "messageType": "Text",
+      "priority": "low",
+      "visibility": "public"
+    }
+  ]
+  

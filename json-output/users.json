@@ -1,0 +1,26 @@
+[
+  {
+    "email": "member1@example.com",
+    "password": "SecurePassword123!",
+    "privateMetadata": {
+      "orgIds": ["org_2nc9c87ihMBSTJxcYc4X4dwmdH4", "org_2ncENhn6JwWpZA2lTOdmnXAFjaG"]
+    },
+    "publicMetadata": {
+      "groups": ["user"]
+    },
+    "roles": ["member"]
+  },
+  {
+    "email": "admin1@example.com",
+    "password": "SecurePassword456!",
+    "privateMetadata": {
+      "orgIds": ["org_2nc9c87ihMBSTJxcYc4X4dwmdH4"]
+    },
+    "publicMetadata": {
+      "groups": ["admin"]
+    },
+    "roles": ["admin"]
+  }
+]
+
+  

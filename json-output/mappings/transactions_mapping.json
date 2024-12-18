@@ -1,0 +1,56 @@
+{
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "accountId": {
+        "type": "keyword"
+      },
+      "resourceType": {
+        "type": "keyword"
+      },
+      "ownerId": {
+        "type": "keyword"
+      },
+      "createdAt": {
+        "type": "date",
+        "format": "strict_date_optional_time||epoch_millis"
+      },
+      "transactionType": {
+        "type": "keyword"
+      },
+      "amount": {
+        "type": "float"
+      },
+      "currency": {
+        "type": "keyword"
+      },
+      "senderId": {
+        "type": "keyword"
+      },
+      "recipientId": {
+        "type": "keyword"
+      },
+      "transactionDate": {
+        "type": "date",
+        "format": "strict_date_optional_time||epoch_millis"
+      },
+      "status": {
+        "type": "keyword"
+      },
+      "relatedResourceId": {
+        "type": "keyword"
+      },
+      "notes": {
+        "type": "text"
+      },
+      "priority": {
+        "type": "keyword"
+      },
+      "visibility": {
+        "type": "keyword"
+      }
+    }
+  }
+}

@@ -1,0 +1,302 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ns1: <http://zelos.ai/knowledge/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <http://zelos.ai/knowledge/dashboard#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix acl: <http://www.w3.org/ns/auth/acl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+
+# Athlete demo profile Instance Data
+# Example of an athlete profile
+
+
+# :JaneDoe schema:image :ProfilePicture ;
+#     schema:occupation :Occupation ;
+#     foaf:age "29"^^xsd:integer .
+
+# Athlete instance data
+<http://zelos.ai/knowledge/athlete/1321381> a <http://iptc.org/std/nar/2006-10-01/Athlete> ;
+    foaf:account <https://instagram.com/giovanni_abagnale/>,
+        <https://www.facebook.com/Giovanni.abagnale95>,
+        <https://www.facebook.com/giovanni.abagnale.3> ;
+    foaf:name "ABAGNALE Giovanni" ;
+    ns1:Athlete "Olympic GamesYearLocation2-2016Rio de Janeiro, BRA3World ChampionshipsYearLocation4-8+2019Linz, AUT4-2018Plovdiv, BUL-52017Sarasota, FL, USA2-2015Aiguebelette-le-Lac, FRA-62014Amsterdam, NED-9European ChampionshipsYearLocation2-4-2021Varese, ITA-32020Poznan, POL-22019Lucerne, SUI4-2018Glasgow, GBR-42017Racice, CZE-1World CupRankEventYearLocationResult2Four2019Poznan, POL6:18.592Four2017Lucerne, SUI5:54.424Pair2021Sabaudia, ITA6:26.154Four2021Lucerne, SUI6:01.119Four2018Linz, AUT6:02.58World Championships Under 23YearLocation8+2016Rotterdam, NED6LegendDNF - Did Not Finish, DNS - Did Not Start, EXC - Excluded" ;
+    ns1:Club_name "Marina Militare [Sabaudia, ITA]" ;
+    ns1:Coach "Andrea Coppola [national], ITA" ;
+    ns1:Education "Business, Management, Tourism" ;
+    ns1:Hero [ dc:source "(canottaggio.org, 22 Apr 2020; worldrowing.com, 01 Jan 2014)" ;
+            rdf:value "US basketball player Michael Jordan, Italian rower Agostino Abbagnale." ] ;
+    ns1:Influence [ dc:source "(camcampania.it, 01 Aug 2013)" ;
+            rdf:value "His first coach Antonio La Padula." ] ;
+    ns1:Languages_spoken "Italian" ;
+    ns1:Memorable [ dc:source "(sportface.it, 28 Apr 2020)" ;
+            rdf:value "Winning a bronze medal in the coxles pair at the 2016 Olympic Games in Rio de Janeiro." ] ;
+    ns1:Occupation "Athlete, Serves in the Navy" ;
+    ns1:Reason [ dc:source "(camcampania.it, 01 Aug 2013)" ;
+            rdf:value "He was involved in swimming and basketball before his physical education teacher encouraged him to take up rowing. \"I quickly found good friends. I got in the boat and understood what it means to have healthy and fair competition. In basketball the mothers of opponents were shouting at me about everything. I think that is highly counterproductive and certainly does not allow young people to become passionate about a sport.\"" ] ;
+    ns1:Ritual [ dc:source "(rio2016.coni.it, 01 Jul 2016)" ;
+            rdf:value "He listens to music and talks to his crew before a race." ] ;
+    ns1:Start [ dc:source "(canottaggio.org, 22 Apr 2020; worldrowing.com, 01 Jan 2014)" ;
+            rdf:value "He began rowing at age 14 at the Circolo Nautico Stabia rowing club in Italy." ] ;
+    ns1:dis "ROW" ;
+    ns1:noc "ITA" ;
+    ns1:orgNOrder "OC" ;
+    ns1:shortName "ABAGNALE G" ;
+    ns1:url "https://web.archive.org/web/20210902071116/https://olympics.com/tokyo-2020/olympic-games/en/results/rowing/athlete-profile-n1321381-abagnale-giovanni.htm" .
+
+<http://zelos.ai/knowledge/athlete/1322233> a <http://iptc.org/std/nar/2006-10-01/Athlete> ;
+    foaf:account <https://instagram.com/aabalde6/>,
+        <https://twitter.com/albertoabalde6> ;
+    foaf:name "ABALDE Alberto" ;
+    ns1:Athlete "RankEventYearLocationEuropean Championship U-202Men2015Lignano Sabbiadoro, ITA2Men2014Rethymno, GREEuropean Championship U-183Men2013Riga, LATWorld Championship U-174Men2012Kaunas, LTU" ;
+    ns1:Club_name "Real Madrid [Spain] since 2020" ;
+    ns1:Coach "Pablo Laso [club], ESP; Sergio Scariolo [national], ITA" ;
+    ns1:Education "Marketing" ;
+    ns1:Hero [ dc:source "(talentoabordo.com, 12 Jun 2019)" ;
+            rdf:value "His sister Tamara Abalde." ] ;
+    ns1:Injuries [ dc:source "(acb.com, 03 Mar 2015)" ;
+            rdf:value "He sprained his right ankle in 2015 and missed four weeks of competition." ] ;
+    ns1:Languages_spoken "Spanish" ;
+    ns1:Memorable [ dc:source "(talentoabordo.com, 12 Jun 2019)" ;
+            rdf:value "Winning the 2019 EuroCup with Valencia Basket and the 2013 Junior EuroLeague with CB Joventut." ] ;
+    ns1:National_league [ dc:source "(realmadrid.com, 20 Jul 2021)" ;
+            rdf:value "Liga ACB [ESP]" ] ;
+    ns1:Position_style [ dc:source "(baloncesto.as.com, 27 Jun 2016)" ;
+            rdf:value "Shooting Guard" ] ;
+    ns1:Reason [ dc:source "(iusport.com, 21 Jul 2020)" ;
+            rdf:value "\"Being the son of a basketball player has had a lot to do with it. From a very young age they instilled it in us at home, starting with my sister Lucia. It encouraged me even more to see my sister go through the youth teams at club and national level. I have had a passion for this sport from a very young age.\"" ] ;
+    ns1:Sporting_relatives [ dc:source "(SportsDeskOnline, 01 Jul 2021; acb.com, 22 May 2016; vigoe.es, 29 Apr 2015)" ;
+            rdf:value "His father Alberto was a professional basketball player and his sister Tamara represented Spain in basketball at the 2008 Olympic Games in Beijing, and was named to the Spanish squad for the 2020 Olympic Games in Tokyo." ] ;
+    ns1:Start [ dc:source "(vigoe.es, 29 Apr 2015; gigantes.com, 27 May 2013)" ;
+            rdf:value "He took up basketball in school and in 2010 received a grant from the Joventut club in Badalona, Spain." ] ;
+    ns1:dis "BKB" ;
+    ns1:noc "ESP" ;
+    ns1:orgNOrder "OC" ;
+    ns1:shortName "ABALDE A" ;
+    ns1:url "https://web.archive.org/web/20210902071129/https://olympics.com/tokyo-2020/olympic-games/en/results/basketball/athlete-profile-n1322233-abalde-alberto.htm" .
+
+<http://zelos.ai/knowledge/athlete/1322271> a <http://iptc.org/std/nar/2006-10-01/Athlete> ;
+    foaf:account <https://instagram.com/tamaraabalde6>,
+        <https://twitter.com/tamaraabalde6> ;
+    foaf:name "ABALDE Tamara" ;
+    ns1:Ambition [ dc:source "(as.com, 01 Mar 2020; lavozdegalicia.es, 11 Feb 2020)" ;
+            rdf:value "To compete at the 2020 Olympic Games in Tokyo." ] ;
+    ns1:Athlete "Olympic GamesRankEventYearLocation5Women2008Beijing, CHNEuropean ChampionshipRankEventYearLocation1Women2019" ;
+    ns1:Award [ dc:source "(southland.org, 04 Jun 2008)" ;
+            rdf:value "In 2008, in her only season playing for Lamar University in the United States of America, she was named to the All-Southland Conference First Team." ] ;
+    ns1:Club_name "Valencia Basket [Spain] since 2018/19" ;
+    ns1:Coach "Ruben Burgos [club], ESP; Lucas Mondelo [national], ESP" ;
+    ns1:Debut [ dc:source "(seleccionfemenina.feb.es, 09 Feb 2020)" ;
+            rdf:value "2008 for Spain, Friendly Match" ] ;
+    ns1:Education "Lamar University , Beaumont, TX, USA" ;
+    ns1:Hero [ dc:source "(dedeporte.es, 17 Jun 2008)" ;
+            rdf:value "US basketball players Michael Jordan and Kobe Bryant, Spanish basketball player Amaya Valdemoro." ] ;
+    ns1:Injuries [ dc:source "(superdeporte.es, 24 Oct 2018; galiciadeportiva.es, 23 Nov 2018)" ;
+            rdf:value "In October 2018 she was suffering from Achilles tendonitis in her left foot. She returned to the court after about a month." ] ;
+    ns1:Languages_spoken "Spanish" ;
+    ns1:National_league [ dc:source "(lavozdegalicia.es, 11 Feb 2020)" ;
+            rdf:value "Liga Femenina [ESP]" ] ;
+    ns1:Occupation "Athlete" ;
+    ns1:Position_style [ dc:source "(seleccionfemenina.feb.es, 09 Feb 2020)" ;
+            rdf:value "Power forward" ] ;
+    ns1:Reason [ dc:source "(visibilitas.com, 06 Mar 2020)" ;
+            rdf:value "\"In my school in Vigo there was a long tradition of basketball. My classmates signed up and so did I and that's where it all got started.\"" ] ;
+    ns1:Sporting_relatives [ dc:source "(as.com, 01 Mar 2020; as.com, 05 Jul 2018; SportsDeskOnline, 12 May 2020)" ;
+            rdf:value "Her brother Alberto has played basketball at international level for Spain, and was named to the men's team for the 2020 Olympic Games in Tokyo. Her father Alberto also played club basketball in the Spanish top tier." ] ;
+    ns1:Start [ dc:source "(visibilitas.com, 06 Mar 2020)" ;
+            rdf:value "She took up the sport at age eight in Vigo, Spain." ] ;
+    ns1:dis "BKB" ;
+    ns1:noc "ESP" ;
+    ns1:orgNOrder "OC" ;
+    ns1:shortName "ABALDE T" ;
+    ns1:url "https://web.archive.org/web/20210902073434/https://olympics.com/tokyo-2020/olympic-games/en/results/basketball/athlete-profile-n1322271-abalde-tamara.htm" .
+
+<http://zelos.ai/knowledge/athlete/1346266> a <http://iptc.org/std/nar/2006-10-01/Athlete> ;
+    foaf:account <https://instagram.com/aalerud94>,
+        <https://twitter.com/katrineaalerud>,
+        <https://www.facebook.com/katrine.aalerud> ;
+    foaf:name "AALERUD Katrine" ;
+    ns1:Athlete "UCI Road World ChampionshipsYearLocationRoad RaceIndividual Time Trial2020Imola, ITA24-2019Harrogate, GBR40312018Innsbruck, AUTDNF-2017Bergen, NORDNF-2016Doha, QAT39-Ten best performances in major races in careerRankYearEventCompetitionLocation72019Women's IndividualEmakumeen BiraOnyate, ESP92020Road RaceLiege - Bastogne - LiegeLiege, BEL92018Team Time TrialLadies Tour of Norway TTTHalden, NOR112021Road RaceAmstel Gold RaceVilt, NED112020Road RaceFleche WallonneHuy, BEL152021Road RaceFleche WallonneHuy, BEL152016Team Time TrialVargarda TTTVargarda, SWE162020Women's IndividualGiro d'Italia DonneMotta Montecorvino, ITA182018Women's IndividualGiro d'Italia DonneCividale del Friuli, ITA202021Women's IndividualGiro d'Italia DonneCormons, ITA202017Road RaceLiege - Bastogne - LiegeAns, BELLegendDNF - Did Not Finish, DNS - Did Not Start, DSQ - Disqualified, OTL - Outside the Time Limit" ;
+    ns1:Club_name "Movistar Team Women [Spain] since 2020" ;
+    ns1:Debut "Turned professional in 2017" ;
+    ns1:Education "Economics" ;
+    ns1:Languages_spoken "English, Norwegian, Spanish" ;
+    ns1:Occupation "Athlete" ;
+    ns1:dis "CRD" ;
+    ns1:noc "NOR" ;
+    ns1:orgNOrder "OC" ;
+    ns1:shortName "AALERUD K" ;
+    ns1:url "https://web.archive.org/web/20210902065033/https://olympics.com/tokyo-2020/olympic-games/en/results/cycling-road/athlete-profile-n1346266-aalerud-katrine.htm" .
+
+<http://zelos.ai/knowledge/athlete/1350409> a <http://iptc.org/std/nar/2006-10-01/Athlete> ;
+    foaf:account <https://instagram.com/lucabalo19/?hl=en>,
+        <https://twitter.com/lucabalo>,
+        <https://www.facebook.com/lucabaloofficiel>,
+        <https://www.facebook.com/lucianoivry> ;
+    foaf:name "ABALO Luc" ;
+    ns1:Ambition [ dc:source "(Instagram profile, 09 Apr 2021)" ;
+            rdf:value "To compete at the 2020 Olympic Games in Tokyo." ] ;
+    ns1:Athlete "Olympic GamesRankEventYearLocation1Men2012London, GBR1Men2008Beijing, CHN2Men2016Rio de Janeiro, BRAWorld ChampionshipRankEventYearLocation1Men2017France1Men2011Sweden1Men2009Croatia3Men20194Men2021Egypt4Men2007Germany6Men2013SpainEuropean ChampionshipRankEventYearLocation3Men2018Croatia14Men2020" ;
+    ns1:Award [ dc:source "(ff-handball.org, 05 Jun 2008)" ;
+            rdf:value "He was named to the All-Star team at the 2010 European Championships in Austria and the 2014 European Championships in Denmark. (ehf-euro.com, 31 Jan 2010; timeoutmag.com, 31 Jan 2014)In 2008 he was named a Knight of the Legion of Honour in France. (legifrance.gouv.fr, 2008)He was named the French Division 1 Player of the Year in 2007. He was also named the league's Best Right Wing in 2005, 2006 and 2007." ] ;
+    ns1:Club_name "Elverum Handball [Norway] since 2020/21" ;
+    ns1:Coach "Borge Lund [club], NOR; Guillaume Gille [national], FRA" ;
+    ns1:Debut [ dc:source "(lequipe.fr, 31 Jul 2008; ffhandball.fr, 01 Jul 2019)" ;
+            rdf:value "2005 for France Against Turkey, in Almeria, Spain" ] ;
+    ns1:Education "Paul Sabatier University, Toulouse, FRA" ;
+    ns1:Hand [ dc:source "(handball-planet.com, 14 Sep 2020)" ;
+            rdf:value "Left" ] ;
+    ns1:Hero [ dc:source "(handball.blog.lemonde.fr, 17 Jan 2012)" ;
+            rdf:value "US basketball player Michael Jordan, French footballer Zinedine Zidane." ] ;
+    ns1:Hobbies [ dc:source "(olympicchannel.com, 01 Jan 2020)" ;
+            rdf:value "Photography, painting." ] ;
+    ns1:Languages_spoken "English, French, Spanish" ;
+    ns1:Memorable [ dc:source "(olympicchannel.com, 01 Jan 2020)" ;
+            rdf:value "Winning gold at the 2012 Olympic Games in London. \"That was the hardest tournament for me. We weren't a very confident team. Nevertheless, we managed to win.\"" ] ;
+    ns1:National_league [ dc:source "(lequipe.fr, 29 May 2020)" ;
+            rdf:value "Eliteserien [NOR]" ] ;
+    ns1:Nickname [ dc:source "(sportplacer.com, 07 Jan 2016; handball-planet.com, 29 May 2020)" ;
+            rdf:value "Lucho, Skywalker" ] ;
+    ns1:Occupation "Athlete" ;
+    ns1:Position_style [ dc:source "(lequipe.fr, 30 Dec 2020)" ;
+            rdf:value "Right wing" ] ;
+    ns1:Reason [ dc:source "(parismatch.com, 07 Apr 2017)" ;
+            rdf:value "\"Ivry-sur-Seine has been a big handball town for almost 60 years. When you live there, you are almost conditioned to play handball. So I tried it once, I was pretty good, and the magic worked.\"" ] ;
+    ns1:Start [ dc:source "(NOC Media Guide, 2016; olympicchannel.com, 01 Jan 2020)" ;
+            rdf:value "He began playing handball at age 14 at secondary school in Ivry-sur-Seine, France. He was introduced to the sport by a friend who was already playing." ] ;
+    ns1:dis "HBL" ;
+    ns1:noc "FRA" ;
+    ns1:orgNOrder "OC" ;
+    ns1:shortName "ABALO L" ;
+    ns1:url "https://web.archive.org/web/20211010100854/https://olympics.com/tokyo-2020/olympic-games/en/results/handball/athlete-profile-n1350409-abalo-luc.htm" .
+
+<http://zelos.ai/knowledge/athlete/1355250> a <http://iptc.org/std/nar/2006-10-01/Athlete> ;
+    foaf:account <https://instagram.com/nestorabad1>,
+        <https://twitter.com/NestorAbad1>,
+        <https://twitter.com/nabadpodium>,
+        <https://www.facebook.com/NestorAbadSanjuan>,
+        <https://www.facebook.com/nestor.abad.395>,
+        <https://www.youtube.com/c/NestorabadGAM> ;
+    foaf:name "ABAD Nestor" ;
+    ns1:Ambition [ dc:source "(proyectofer.es, 11 Apr 2019; plazadeportiva.com, 23 Feb 2018)" ;
+            rdf:value "To compete at the 2020 Olympic Games in Tokyo." ] ;
+    ns1:Athlete "Olympic GamesYearLocationFXHBPBPHSRAA2016Rio de Janeiro, BRA451964553331Youth Olympic GamesYearLocationFXVTHBSRAA2010Singapore, SIN732328World ChampionshipsYearLocationFXHBPBPHSRAATeam2019Stuttgart, GER318642535122112018Doha, QAT542036434311112017Montreal, QC, CAN236897----2015Glasgow, GBR2117645993551132013Antwerp, BEL203496632620-European GamesYearLocationFXHBPBPHSRAA2019Minsk, BLR109112396European ChampionshipsYearLocationFXHBPBPHSRAATeam2018Glasgow, GBR1816182222-62017Cluj-Napoca, ROU175318465630-World Cup overview - Best rank per season and event since 2017YearPBPHSRAA2020/2021---1 x 9th2019/20201 x 5th1 x 20th1 x 9th-2019---1 x 7th2018---1 x 9thWorld Cup - Ten best performances since 2017RankYearEventLocationResult52019/2020Parallel BarsDoha, QAT14.30072019All-AroundTokyo, JPN80.49892019/2020RingsDoha, QAT13.93392020/2021All-AroundMilwaukee, WI, USA80.58192018All-AroundChicago, IL, USA78.432202019/2020Pommel HorseDoha, QAT10.000LegendFX - Floor Excercise, VT - Vault, HB - Horizontal Bar, PB - Parallel Bars, PH - Pommel Horse, SR - Rings, AA - Individual All-Around, DNS - Did Not Start, DSQ - Disqualified" ;
+    ns1:Award [ dc:source "(alcoyinforma.es, 26 Nov 2018; aepde.org, 25 Sep 2017)" ;
+            rdf:value "He has received the Juan Agudo Garat  as the Athlete of the Year in Alcoy, Spain, in 2013, 2015, 2016, 2018 and 2019. (diarioinformacion.com, 15 Nov 2018, 14 Nov 2019)He was named 2016 Male Athlete of the Year in the Alicante province in Spain." ] ;
+    ns1:Club_name "Club Gimnastico San Blas [Madrid, ESP]" ;
+    ns1:Coach "Fernando Siscar [national], ESP" ;
+    ns1:Family "Partner Sonia, son Eiden, daughter Lis" ;
+    ns1:Influence [ dc:source "(elmundo.es, 25 Jan 2020)" ;
+            rdf:value "His family." ] ;
+    ns1:Injuries [ dc:source "(marca.com, 23 Oct 2015; abc.es, 23 Mar 2015)" ;
+            rdf:value "In 2017 he suffered from a collarbone injury that ruled him out of the 2017 Spanish Championships in Valladolid. He also sustained a broken thumb that year. (gimnasialatina.com, 11 Jul 2017; plazadeportiva.valenciaplaza.com, 23 Feb 2018)In early 2011 he tore the anterior cruciate ligament [ACL] in his right knee while practising a floor exercise. He was unable to compete for a year and missed the qualifying tournaments for the 2012 Olympic Games in London. In 2014 he tore his ACL again while competing at a World Cup event in Cottbus, Germany. He underwent surgery in April 2014 and returned to competition a year later." ] ;
+    ns1:Languages_spoken "Spanish" ;
+    ns1:Occupation "Athlete" ;
+    ns1:Philosophy [ dc:source "(Facebook page, 22 Mar 2016)" ;
+            rdf:value "\"If you have a dream, protect it. People who cannot do it by themselves will tell you that neither can you. But if you want something, go and get it.\"" ] ;
+    ns1:Reason [ dc:source "(marca.com, 23 Oct 2015; plazadeportiva.valenciaplaza.com, 23 Feb 2018)" ;
+            rdf:value "He used to go with his parents to watch his sister training and he asked to join the gym too. \"I think that what hooked me the most was how this sport allows me to move my body. The movement is limitless.\"" ] ;
+    ns1:Start [ dc:source "(marca.com, 23 Oct 2015)" ;
+            rdf:value "He began gymnastics at age four at Club Gimnastico Pastoret in Alcoy, Spain." ] ;
+    ns1:Training [ dc:source "(elmundo.es, 25 Jan 2020)" ;
+            rdf:value "He trains six times a week." ] ;
+    ns1:dis "GAR" ;
+    ns1:noc "ESP" ;
+    ns1:orgNOrder "OC" ;
+    ns1:shortName "ABAD N" ;
+    ns1:url "https://web.archive.org/web/20210902065050/https://olympics.com/tokyo-2020/olympic-games/en/results/artistic-gymnastics/athlete-profile-n1355250-abad-nestor.htm" .
+
+
+
+
+
+
+
+
+
+# DASHBOARD INSTANCE DATA
+
+
+# Existing predicates
+rdf:stat :communicativeAct :giveInformation .
+rdf:progress :communicativeAct :giveInformation .
+rdf:calendar :communicativeAct :giveInformation .
+rdf:label :communicativeAct :giveDescription .
+rdf:task :communicativeAct :giveWarning .
+rdf:chart :communicativeAct :giveInformation .
+rdf:analytics :communicativeAct :giveInformation .
+rdf:interactive :communicativeAct :makeAppeal .
+rdf:notification :communicativeAct :announceVerdict .
+rdf:analytics_overview :communicativeAct :giveInformation .
+rdf:recommended_action :communicativeAct :makeAppeal .
+
+# UI Elements
+:Uploads rdf:stat "320 uploads" .
+:ProfileCompletion rdf:progress "75%"^^xsd:decimal .
+:Events rdf:calendar "5 events this month" .
+:Tags rdf:label "Fitness, Wellness, Nutrition" .
+:TaskList rdf:task "3 tasks pending" .
+:Revenue rdf:chart "Yearly Revenue Data" .
+:UserEngagement rdf:analytics "High" .
+:StartCampaign rdf:interactive "Draft Marketing Plan" .
+:NewMessages rdf:notification "You have 2 new messages" .
+:WebsiteTraffic rdf:analytics_overview "Increased by 20%" .
+:GoalSetting rdf:recommended_action "Set your Q3 Goals" .
+
+# SUBJECT PROFILE ACTIONS START
+
+# Additional user actions
+:LikeAction a acl:Action ;
+    rdfs:label "Like" .
+
+:DislikeAction a acl:Action ;
+    rdfs:label "Dislike" .
+
+:CommentAction a acl:Action ;
+    rdfs:label "Comment" .
+
+# Define specific actions for SubjectProfile
+:MessageAction a acl:Action ;
+    rdfs:label "Message" .
+:FollowAction a acl:Action ;
+    rdfs:label "Follow" .
+:FavoriteAction a acl:Action ;
+    rdfs:label "Favorite" .
+
+
+# Define actions as resources
+:UploadIPAction a acl:Action ;
+    rdfs:label "Upload Intellectual Property" .
+
+:DraftMonetizationStrategyAction a acl:Action ;
+    rdfs:label "Draft Monetization Strategy" .
+
+:MintSmartContractAction a acl:Action ;
+    rdfs:label "Mint Smart Contract" .
+
+:UploadContractAction a acl:Action ;
+    rdfs:label "Upload Contract" .
+
+:SetGoalsAction a acl:Action ;
+    rdfs:label "Set Goals" .
+
+
+# Define user actions on dashboard
+
+# SUBJECT PROFILE ACTIONS END
+
+:UserDashboard a schema:WebPage ;
+    acl:canTake :UploadIPAction, :LikeAction, :MintSmartContractAction, :UploadContractAction, :SetGoalsAction, :DraftMonetizationStrategyAction .
+
+:SubjectProfile a schema:WebPage ;
+    acl:canTake :MessageAction, :FollowAction, :FavoriteAction .
+
+:TripleCard a schema:WebPageElement ;
+   acl:canTake :LikeAction, :DislikeAction, :CommentAction .
+
+
+
+

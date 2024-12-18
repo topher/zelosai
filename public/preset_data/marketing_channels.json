@@ -1,0 +1,352 @@
+[
+    {
+        "id": "1",
+        "name": "Digital Marketing",
+        "type": "digital"
+    },
+    {
+        "id": "2",
+        "name": "Social Media",
+        "type": "digital",
+        "parentChannelId": "1"
+    },
+    {
+        "id": "3",
+        "name": "Facebook",
+        "type": "digital",
+        "parentChannelId": "2"
+    },
+    {
+        "id": "4",
+        "name": "Instagram",
+        "type": "digital",
+        "parentChannelId": "2"
+    },
+    {
+        "id": "5",
+        "name": "LinkedIn",
+        "type": "digital",
+        "parentChannelId": "2"
+    },
+    {
+        "id": "6",
+        "name": "Twitter",
+        "type": "digital",
+        "parentChannelId": "2"
+    },
+    {
+        "id": "7",
+        "name": "TikTok",
+        "type": "digital",
+        "parentChannelId": "2"
+    },
+    {
+        "id": "8",
+        "name": "YouTube",
+        "type": "digital",
+        "parentChannelId": "2"
+    },
+    {
+        "id": "9",
+        "name": "Pinterest",
+        "type": "digital",
+        "parentChannelId": "2"
+    },
+    {
+        "id": "10",
+        "name": "Snapchat",
+        "type": "digital",
+        "parentChannelId": "2"
+    },
+    {
+        "id": "11",
+        "name": "Search Engine Marketing",
+        "type": "digital",
+        "parentChannelId": "1"
+    },
+    {
+        "id": "12",
+        "name": "Search Engine Optimization (SEO)",
+        "type": "digital",
+        "parentChannelId": "11"
+    },
+    {
+        "id": "13",
+        "name": "Pay-Per-Click Advertising (PPC)",
+        "type": "digital",
+        "parentChannelId": "11"
+    },
+    {
+        "id": "14",
+        "name": "Email Marketing",
+        "type": "digital",
+        "parentChannelId": "1"
+    },
+    {
+        "id": "15",
+        "name": "Content Marketing",
+        "type": "digital",
+        "parentChannelId": "1"
+    },
+    {
+        "id": "16",
+        "name": "Blogs",
+        "type": "digital",
+        "parentChannelId": "15"
+    },
+    {
+        "id": "17",
+        "name": "Podcasts",
+        "type": "digital",
+        "parentChannelId": "15"
+    },
+    {
+        "id": "18",
+        "name": "Webinars",
+        "type": "digital",
+        "parentChannelId": "15"
+    },
+    {
+        "id": "19",
+        "name": "Ebooks",
+        "type": "digital",
+        "parentChannelId": "15"
+    },
+    {
+        "id": "20",
+        "name": "Whitepapers",
+        "type": "digital",
+        "parentChannelId": "15"
+    },
+    {
+        "id": "21",
+        "name": "Affiliate Marketing",
+        "type": "digital",
+        "parentChannelId": "1"
+    },
+    {
+        "id": "22",
+        "name": "Influencer Marketing",
+        "type": "digital",
+        "parentChannelId": "1"
+    },
+    {
+        "id": "23",
+        "name": "Mobile Marketing",
+        "type": "digital",
+        "parentChannelId": "1"
+    },
+    {
+        "id": "24",
+        "name": "SMS Marketing",
+        "type": "digital",
+        "parentChannelId": "23"
+    },
+    {
+        "id": "25",
+        "name": "Mobile Apps",
+        "type": "digital",
+        "parentChannelId": "23"
+    },
+    {
+        "id": "26",
+        "name": "Push Notifications",
+        "type": "digital",
+        "parentChannelId": "23"
+    },
+    {
+        "id": "27",
+        "name": "Video Marketing",
+        "type": "digital",
+        "parentChannelId": "1"
+    },
+    {
+        "id": "28",
+        "name": "Advertising",
+        "type": "digital",
+        "parentChannelId": "1"
+    },
+    {
+        "id": "29",
+        "name": "Display Advertising",
+        "type": "digital",
+        "parentChannelId": "28"
+    },
+    {
+        "id": "30",
+        "name": "Native Advertising",
+        "type": "digital",
+        "parentChannelId": "28"
+    },
+    {
+        "id": "31",
+        "name": "Traditional Marketing",
+        "type": "traditional"
+    },
+    {
+        "id": "32",
+        "name": "Television",
+        "type": "traditional",
+        "parentChannelId": "31"
+    },
+    {
+        "id": "33",
+        "name": "Radio",
+        "type": "traditional",
+        "parentChannelId": "31"
+    },
+    {
+        "id": "34",
+        "name": "Print Media",
+        "type": "traditional",
+        "parentChannelId": "31"
+    },
+    {
+        "id": "35",
+        "name": "Newspapers",
+        "type": "traditional",
+        "parentChannelId": "34"
+    },
+    {
+        "id": "36",
+        "name": "Magazines",
+        "type": "traditional",
+        "parentChannelId": "34"
+    },
+    {
+        "id": "37",
+        "name": "Brochures",
+        "type": "traditional",
+        "parentChannelId": "34"
+    },
+    {
+        "id": "38",
+        "name": "Flyers",
+        "type": "traditional",
+        "parentChannelId": "34"
+    },
+    {
+        "id": "39",
+        "name": "Direct Mail",
+        "type": "traditional",
+        "parentChannelId": "31"
+    },
+    {
+        "id": "40",
+        "name": "Outdoor Advertising",
+        "type": "traditional",
+        "parentChannelId": "31"
+    },
+    {
+        "id": "41",
+        "name": "Billboards",
+        "type": "traditional",
+        "parentChannelId": "40"
+    },
+    {
+        "id": "42",
+        "name": "Transit Ads",
+        "type": "traditional",
+        "parentChannelId": "40"
+    },
+    {
+        "id": "43",
+        "name": "Posters",
+        "type": "traditional",
+        "parentChannelId": "40"
+    },
+    {
+        "id": "44",
+        "name": "Telemarketing",
+        "type": "traditional",
+        "parentChannelId": "31"
+    },
+    {
+        "id": "45",
+        "name": "In-Person Marketing",
+        "type": "in-person"
+    },
+    {
+        "id": "46",
+        "name": "Events and Conferences",
+        "type": "in-person",
+        "parentChannelId": "45"
+    },
+    {
+        "id": "47",
+        "name": "Trade Shows",
+        "type": "in-person",
+        "parentChannelId": "46"
+    },
+    {
+        "id": "48",
+        "name": "Pop-up Shops",
+        "type": "in-person",
+        "parentChannelId": "46"
+    },
+    {
+        "id": "49",
+        "name": "Networking Events",
+        "type": "in-person",
+        "parentChannelId": "46"
+    },
+    {
+        "id": "50",
+        "name": "Workshops and Seminars",
+        "type": "in-person",
+        "parentChannelId": "46"
+    },
+    {
+        "id": "51",
+        "name": "Sponsorships",
+        "type": "in-person",
+        "parentChannelId": "45"
+    },
+    {
+        "id": "52",
+        "name": "Other Marketing Channels",
+        "type": "other"
+    },
+    {
+        "id": "53",
+        "name": "Word-of-Mouth Marketing",
+        "type": "other",
+        "parentChannelId": "52"
+    },
+    {
+        "id": "54",
+        "name": "Referral Programs",
+        "type": "other",
+        "parentChannelId": "52"
+    },
+    {
+        "id": "55",
+        "name": "Public Relations",
+        "type": "other",
+        "parentChannelId": "52"
+    },
+    {
+        "id": "56",
+        "name": "Guerrilla Marketing",
+        "type": "other",
+        "parentChannelId": "52"
+    },
+    {
+        "id": "57",
+        "name": "Product Placement",
+        "type": "other",
+        "parentChannelId": "52"
+    },
+    {
+        "id": "58",
+        "name": "Packaging",
+        "type": "other",
+        "parentChannelId": "52"
+    },
+    {
+        "id": "59",
+        "name": "Customer Service",
+        "type": "other",
+        "parentChannelId": "52"
+    }
+]

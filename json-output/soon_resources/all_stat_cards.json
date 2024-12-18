@@ -1,0 +1,174 @@
+[
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "title": "Total Visits",
+    "value": "12345",
+    "subtitle": "This month",
+    "icon": "path/to/svg.svg",
+    "measureId": "M_001",
+    "page": "workflow_analytics"
+  },
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "title": "Avg. Visit Duration",
+    "value": "00:03:22",
+    "subtitle": "This session",
+    "icon": "path/to/another/svg.svg",
+    "measureId": "M_002",
+    "page": "workflow_analytics"
+  },
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "title": "Goal Alignment",
+    "value": "8/10",
+    "subtitle": "This month",
+    "icon": "path/to/svg.svg",
+    "measureId": "M_001",
+    "page": "workflow_analytics"
+  },
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "title": "Total Roles",
+    "value": "22",
+    "subtitle": "Across all workflows",
+    "icon": "path/to/another/svg.svg",
+    "measureId": "M_002",
+    "page": "workflow_analytics"
+  },
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "title": "Generations",
+    "value": "749",
+    "subtitle": "This month",
+    "icon": "path/to/svg.svg",
+    "measureId": "M_003",
+    "page": "dashboard"
+  },
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "title": "Unique Models",
+    "value": "12",
+    "subtitle": "This session",
+    "icon": "path/to/another/svg.svg",
+    "measureId": "M_004",
+    "page": "dashboard"
+  },
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "title": "Cost",
+    "value": "$39.86",
+    "subtitle": "This month",
+    "icon": "path/to/svg.svg",
+    "measureId": "M_005",
+    "page": "dashboard"
+  },
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "title": "Revenue",
+    "value": "$2,056.62",
+    "subtitle": "This session",
+    "icon": "path/to/another/svg.svg",
+    "measureId": "M_006",
+    "page": "dashboard"
+  },
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "title": "Generations",
+    "value": "749",
+    "subtitle": "This month",
+    "icon": "path/to/svg.svg",
+    "measureId": "M_007",
+    "page": "digital_twin"
+  },
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "title": "Unique Models",
+    "value": "12",
+    "subtitle": "This session",
+    "icon": "path/to/another/svg.svg",
+    "measureId": "M_008",
+    "page": "digital_twin"
+  },
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "title": "Cost",
+    "value": "$39.86",
+    "subtitle": "This month",
+    "icon": "path/to/svg.svg",
+    "measureId": "M_009",
+    "page": "digital_twin"
+  },
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "title": "Revenue",
+    "value": "$2,056.62",
+    "subtitle": "This session",
+    "icon": "path/to/another/svg.svg",
+    "measureId": "M_010",
+    "page": "digital_twin"
+  },
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "title": "Total Assets",
+    "value": "1,234",
+    "subtitle": "As of today",
+    "icon": "path/to/assets-icon.svg",
+    "page": "knowledge_bank"
+  },
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "title": "Total Rules",
+    "value": "134",
+    "subtitle": "Active connections",
+    "icon": "path/to/relationship-icon.svg",
+    "page": "knowledge_bank"
+  },
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "title": "Health Percentage",
+    "value": "87%",
+    "subtitle": "Overall system health",
+    "icon": "path/to/health-icon.svg",
+    "page": "knowledge_bank"
+  },
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "title": "Enforcement Violations",
+    "value": "25",
+    "subtitle": "Current violations",
+    "icon": "path/to/violations-icon.svg",
+    "page": "knowledge_bank"
+  },
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "title": "Generations",
+    "value": "749",
+    "subtitle": "This month",
+    "icon": "path/to/svg.svg",
+    "page": "business_terminology"
+  },
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "title": "Unique Models",
+    "value": "12",
+    "subtitle": "This session",
+    "icon": "path/to/another/svg.svg",
+    "page": "business_terminology"
+  },
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "title": "Cost",
+    "value": "$39.86",
+    "subtitle": "This month",
+    "icon": "path/to/svg.svg",
+    "page": "business_terminology"
+  },
+  {
+    "orgId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+    "title": "Revenue",
+    "value": "$2,056.62",
+    "subtitle": "This session",
+    "icon": "path/to/another/svg.svg",
+    "page": "business_terminology"
+  }
+]

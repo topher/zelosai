@@ -1,0 +1,77 @@
+{
+  "brand_name": "GEN Corporation",
+  "mission_vision": null,
+  "sponsorship_activities": [],
+  "channels": [
+    {
+      "channel_type": "Online",
+      "specifics": [
+        "Website"
+      ]
+    }
+  ],
+  "industry": {
+    "Primary_Industry": "Aerospace",
+    "Secondary_Industry": "Helicopter Manufacturing"
+  },
+  "regions": [
+    "Japan"
+  ],
+  "interests": [
+    {
+      "category": "Technology and Science Interests",
+      "specifics": [
+        "Aerospace Engineering"
+      ]
+    }
+  ],
+  "audience_lifestyle": null,
+  "languages": [
+    "Japanese",
+    "English"
+  ],
+  "business_model_canvas": {
+    "Key_Partners": [],
+    "Key_Activities": [
+      "Helicopter Development",
+      "Engine Manufacturing"
+    ],
+    "Value_Propositions": [
+      "Innovative Helicopter Designs",
+      "Lightweight Aircraft Engines"
+    ],
+    "Customer_Relationships": [],
+    "Customer_Segments": [
+      "Aviation Enthusiasts",
+      "Aerospace Companies"
+    ],
+    "Channels": [
+      "Direct Sales",
+      "Online Marketing"
+    ],
+    "Cost_Structure": [
+      "Research and Development Costs",
+      "Manufacturing Costs"
+    ],
+    "Revenue_Streams": [
+      "Sales of Helicopters",
+      "Sales of Aircraft Engines"
+    ]
+  },
+  "link": "https://en.wikipedia.org/wiki/GEN_Corporation",
+  "parsed_at": "2024-10-01T14:39:44.354710Z",
+  "country": "Japanese brands",
+  "category": "General",
+  "body_text": "From Wikipedia, the free encyclopedia GEN Corporation Company type Privately held company Industry Aerospace Headquarters Matsumoto , Nagano , Japan Products Helicopters Website en .gen-corp .jp GEN Corporation of Japan developed a personal helicopter named the GEN H-4 , but production was deferred pending large enough orders to make the aircraft economical. [ 1 ] [ 2 ] The company also developed the GEN 125 , a very small 8 hp (6 kW), twin-cylinder, two-stroke aircraft engine to power the H-4. The engine weighs 3 kg (6.6 lb) and four are used in the H-4 design to provide redundancy. [ 1 ] The company does not have any fixed location, but has carried out its development work in borrowed facilities. [ 3 ] The company name translates as \"fountain of wisdom\". [ 3 ] GEN Corp official site [ permanent dead link ] (English) GEN Corp official site (Japanese) GEN H-4 flight video This article about transport in Japan is a stub . You can help Wikipedia by expanding it . v t e Retrieved from \" https://en.wikipedia.org/w/index.php?title=GEN_Corporation&oldid=1240924712 \" Categories : Helicopter manufacturers of Japan Japanese brands Companies based in Nagano Prefecture Japan transport stubs Hidden categories: All articles with dead external links Articles with dead external links from August 2024 Articles with permanently dead external links Use dmy dates from November 2019 All stub articles",
+  "infobox": {
+    "logo_url": "https://upload.wikimedia.org/wikipedia/en/thumb/d/df/GEN_Corporation_Logo.png/220px-GEN_Corporation_Logo.png",
+    "name": "",
+    "company_type": "Privately held company",
+    "industry": "Aerospace",
+    "headquarters": "Matsumoto , Nagano , Japan",
+    "products": "Helicopters",
+    "website": "en .gen-corp .jp"
+  },
+  "company_name": "Unknown",
+  "logo_url": "https://upload.wikimedia.org/wikipedia/en/thumb/d/df/GEN_Corporation_Logo.png/220px-GEN_Corporation_Logo.png"
+}

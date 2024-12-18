@@ -1,0 +1,82 @@
+{
+    "mappings": {
+      "properties": {
+        "resourceId": {
+          "type": "keyword"
+        },
+        "accountId": {
+          "type": "keyword"
+        },
+        "resourceType": {
+          "type": "keyword"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "keyword"
+            },
+            "accountId": {
+              "type": "keyword"
+            },
+            "resourceType": {
+              "type": "keyword"
+            },
+            "ownerId": {
+              "type": "keyword"
+            },
+            "visibility": {
+              "type": "keyword"
+            },
+            "Goal": {
+              "type": "text"
+            },
+            "Description": {
+              "type": "text"
+            },
+            "StrategicIndicator": {
+              "type": "text"
+            },
+            "KPI": {
+              "type": "text"
+            },
+            "Developer": {
+              "type": "text"
+            },
+            "RelatedIssues": {
+              "type": "keyword"
+            },
+            "isActive": {
+              "type": "boolean"
+            },
+            "name": {
+              "type": "text"
+            },
+            "email": {
+              "type": "keyword"
+            },
+            "phone": {
+              "type": "keyword"
+            },
+            "address": {
+              "type": "text"
+            },
+            "createdAt": {
+              "type": "date"
+            },
+            "updatedAt": {
+              "type": "date"
+            }
+          },
+          "dynamic": true
+        },
+        "createdAt": {
+          "type": "date"
+        },
+        "updatedAt": {
+          "type": "date"
+        }
+      }
+    }
+  }
+  

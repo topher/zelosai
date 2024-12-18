@@ -1,0 +1,100 @@
+{
+  "brand_name": "Wey Latte",
+  "mission_vision": null,
+  "sponsorship_activities": [],
+  "channels": [],
+  "industry": {
+    "Primary_Industry": "Automotive",
+    "Secondary_Industry": "Luxury Vehicles"
+  },
+  "regions": [
+    "China",
+    "Europe"
+  ],
+  "interests": [
+    {
+      "category": "Technology and Science Interests",
+      "specifics": [
+        "Robotics",
+        "Computer Science"
+      ]
+    },
+    {
+      "category": "Health and Wellness",
+      "specifics": [
+        "Alternative Medicine"
+      ]
+    }
+  ],
+  "audience_lifestyle": [
+    "Innovators",
+    "Achievers"
+  ],
+  "languages": [
+    "Chinese",
+    "English"
+  ],
+  "business_model_canvas": {
+    "Key_Partners": [
+      "Suppliers",
+      "Dealerships"
+    ],
+    "Key_Activities": [
+      "Vehicle Manufacturing",
+      "Marketing"
+    ],
+    "Value_Propositions": [
+      "Luxury Features",
+      "Hybrid Technology"
+    ],
+    "Customer_Relationships": [
+      "Customer Support",
+      "Loyalty Programs"
+    ],
+    "Customer_Segments": [
+      "Luxury Vehicle Buyers",
+      "Eco-conscious Consumers"
+    ],
+    "Channels": [
+      "Online Sales",
+      "Dealerships"
+    ],
+    "Cost_Structure": [
+      "Manufacturing Costs",
+      "Research and Development"
+    ],
+    "Revenue_Streams": [
+      "Vehicle Sales",
+      "Aftermarket Services"
+    ]
+  },
+  "link": "https://en.wikipedia.org/wiki/Wey_Latte",
+  "parsed_at": "2024-10-01T14:37:59.665257Z",
+  "country": "Chinese brands",
+  "category": "Cars of China",
+  "body_text": "From Wikipedia, the free encyclopedia Compact luxury crossover SUV produced by Great Wall Motors Motor vehicle Wey Latte Overview Manufacturer Great Wall Motor Also called Wey Coffee 02 (Europe until end of 2023) GWM Wey 03 (Europe starting 2024) Production 2021–present Assembly China: Tianjin Body and chassis Class Compact luxury crossover SUV Body style 5-door SUV Layout Front-engine, front-wheel-drive or all-wheel-drive Powertrain Engine 2.0 L E20N I4 ( turbo gasoline ) 1.5 L GWM4B15D I4 ( petrol Hybrid) 1.5 L GW4B15 GDIT EVO I4 ( turbo petrol Hybrid) Electric motor 134 bhp; 136 PS (100 kW) DHT100 BorgWarner permanent magnet synchronous motor 174 bhp; 177 PS (130 kW) DHT130 BorgWarner permanent magnet synchronous motor 114 bhp; 116 PS (85 kW) BorgWarner permanent magnet synchronous motor Transmission 9-speed DCT Multi-mode DHT (Hybrid) Hybrid drivetrain Power-split Hybrid (Latte Hybrid) PHEV (Latte PHEV) Battery 1.6 kWh Li-ion (Hybrid) 45 kWh Li-ion (PHEV) Range 373 mi (600 kilometres) Dimensions Wheelbase 2,745 mm (108.1 in) Length 4,668 mm (183.8 in) Width 1,890 mm (74.4 in) Height 1,730 mm (68.1 in) Chronology Predecessor Wey VV5 The Wey Latte is a compact luxury crossover SUV produced by Great Wall Motor under the premium brand, Wey . Overview [ edit ] Rear view The Latte was presented during the Shanghai Auto Show in 2021. [ 1 ] Sales started in April 2021 at Auto Shanghai in the Mainland Chinese market. The crossover SUV is named after the latte coffee . [ 2 ] With the Mocha and the Macchiato , two other vehicles of the brand named after coffee specialties were also presented at Auto Shanghai. [ 3 ] At the IAA in Munich in September 2021, Great Wall Motor presented the version for the European market as the Wey Coffee 02 . From 2023, the model was meant to be marketed in Germany . [ 4 ] Powertrain [ edit ] The Latte compact crossover is equipped with a 2.0-litre turbocharged inline-four engine code-named E20N . The four-cylinder engine uses a Miller cycle design with a thermal efficiency of over 38% and a maximum power output of 213 hp (159 kW; 216 PS). In terms of transmission, it is mated to a 9-speed wet dual-clutch gearbox developed inhouse by Great Wall. [ 3 ] A 1.5-litre turbocharged inline-four engine with the Intelligent hybrid DHT technology is also available. The 1.5-litre turbo engine powertrain focuses on the economy of urban use scenarios, and supports working modes such as pure EV driving, hybrid drive, series drive, energy recovery and idle charging. The system achieves a total power of 175 kW (235 hp; 238 PS), 530 N⋅m (390 lb⋅ft; 54 kg⋅m) of torque, acceleration from 0–100 km/h (0–62 mph) 7.5 seconds, and 4.9 L/100 km (58 mpg ‑imp ; 48 mpg ‑US ) of fuel economy. [ 5 ] Safety [ edit ] Euro NCAP test results GWM Wey Coffee 02 2.0 Hybrid Prestige (LHD) (2022) [ 6 ] Test Points % Overall: Adult occupant: 35.8 94% Child occupant: 43 87% Pedestrian: 39.6 73% Safety assist: 15 93% Official website in Chinese Retrieved from \" https://en.wikipedia.org/w/index.php?title=Wey_Latte&oldid=1240938736 \" Categories : WEY vehicles Crossover sport utility vehicles Compact sport utility vehicles Plug-in hybrid vehicles Front-wheel-drive vehicles All-wheel-drive vehicles Cars introduced in 2021 Cars of China Hidden categories: CS1 Chinese-language sources (zh) Use British English from August 2024 Articles with short description Short description is different from Wikidata",
+  "infobox": {
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/GWM_Wey_03_Ditzingen_Mobil_IMG_9795.jpg/280px-GWM_Wey_03_Ditzingen_Mobil_IMG_9795.jpg",
+    "name": "",
+    "manufacturer": "Great Wall Motor",
+    "also_called": "Wey Coffee 02 (Europe until end of 2023) GWM Wey 03 (Europe starting 2024)",
+    "production": "2021–present",
+    "assembly": "China: Tianjin",
+    "class": "Compact luxury crossover SUV",
+    "body_style": "5-door SUV",
+    "layout": "Front-engine, front-wheel-drive or all-wheel-drive",
+    "engine": "2.0 L E20N I4 ( turbo gasoline ) 1.5 L GWM4B15D I4 ( petrol Hybrid) 1.5 L GW4B15 GDIT EVO I4 ( turbo petrol Hybrid)",
+    "electric_motor": "134 bhp; 136 PS (100 kW) DHT100 BorgWarner permanent magnet synchronous motor 174 bhp; 177 PS (130 kW) DHT130 BorgWarner permanent magnet synchronous motor 114 bhp; 116 PS (85 kW) BorgWarner permanent magnet synchronous motor",
+    "transmission": "9-speed DCT Multi-mode DHT (Hybrid)",
+    "hybrid_drivetrain": "Power-split Hybrid (Latte Hybrid) PHEV (Latte PHEV)",
+    "battery": "1.6 kWh Li-ion (Hybrid) 45 kWh Li-ion (PHEV)",
+    "range": "373 mi (600 kilometres)",
+    "wheelbase": "2,745 mm (108.1 in)",
+    "length": "4,668 mm (183.8 in)",
+    "width": "1,890 mm (74.4 in)",
+    "height": "1,730 mm (68.1 in)",
+    "predecessor": "Wey VV5"
+  },
+  "company_name": "Unknown",
+  "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/GWM_Wey_03_Ditzingen_Mobil_IMG_9795.jpg/280px-GWM_Wey_03_Ditzingen_Mobil_IMG_9795.jpg"
+}

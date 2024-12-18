@@ -12,13 +12,17 @@ const Handler = async (data: InputType): Promise<ReturnType> => {
   let card;
 
   try {
-    const cardToCopy = demoData.lists.flatMap(list => list.cards).find(card => card.id === id);
+    const cardToCopy = demoData[0].lists.flatMap(list => list.cards).find(card => card.id === id);
 
     if (!cardToCopy) {
       return { error: "Card not found" };
     }
 
-    const list = demoData.lists.find(list => list.cards.some(card => card.id === id));
+    // Iterate over each item in demoData to find the list containing the card
+    const list = demoData.find(data => 
+      data.lists.some(list => list.cards.some(card => card.id === id))
+    )?.lists.find(list => list.cards.some(card => card.id === id));
+
     if (!list) {
       return { error: "List not found" };
     }

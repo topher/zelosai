@@ -1,0 +1,47 @@
+{
+    "subject": "http://zelos.ai/knowledge/brand/unknown_brand",
+    "triples": [
+        {
+            "predicate": "has_name",
+            "object": null,
+            "citation": "https://en.wikipedia.org/wiki/Category:Aircraft_engine_manufacturers_of_Italy"
+        },
+        {
+            "predicate": "belongs_to_industry",
+            "object": "Aerospace",
+            "citation": "https://en.wikipedia.org/wiki/Category:Aircraft_engine_manufacturers_of_Italy"
+        },
+        {
+            "predicate": "operates_in_region",
+            "object": "Italy",
+            "citation": "https://en.wikipedia.org/wiki/Category:Aircraft_engine_manufacturers_of_Italy"
+        }
+    ],
+    "brand_name": null,
+    "mission_vision": null,
+    "sponsorship_activities": [],
+    "channels": [],
+    "primary_industry": "Aerospace",
+    "secondary_industry": null,
+    "regions": [
+        "Italy"
+    ],
+    "interests": [],
+    "audience_lifestyle": [],
+    "languages": [],
+    "key_partners": [],
+    "key_activities": [],
+    "value_propositions": [],
+    "customer_relationships": [],
+    "customer_segments": [],
+    "cost_structure": [],
+    "revenue_streams": [],
+    "link": "https://en.wikipedia.org/wiki/Category:Aircraft_engine_manufacturers_of_Italy",
+    "parsed_at": "2024-10-02T21:15:02.305580Z",
+    "country": "Italian brands",
+    "category": "Aircraft manufacturers of Italy",
+    "body_text": "Help From Wikipedia, the free encyclopedia Pages in category \"Aircraft engine manufacturers of Italy\" The following 7 pages are in this category, out of 7 total. This list may not reflect recent changes . A Alfa Romeo Avio D DieselJet I Isotta Fraschini P Piaggio Piaggio Aerospace S Simonini Racing Retrieved from \" https://en.wikipedia.org/w/index.php?title=Category:Aircraft_engine_manufacturers_of_Italy&oldid=903716661 \" Categories : Aircraft engine manufacturers by country Aviation in Italy Engine manufacturers of Italy Aerospace companies of Italy Aircraft manufacturers of Italy",
+    "infobox": {},
+    "company_name": "Unknown",
+    "logo_url": "No logo available"
+}

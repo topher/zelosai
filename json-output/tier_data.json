@@ -1,0 +1,149 @@
+[{
+    "Zelos_Tiers": {
+      "Price (USD)": {
+        "Basic": "$1k / mo",
+        "Silver": "$2.5k / mo",
+        "Premium": "$5k / mo"
+      }
+    },
+    "Platform Features": {
+      "Digital_Twin_Launch_Program": {
+        "Basic": "Included (w/ pilot program)",
+        "Silver": "Included",
+        "Premium": "Included"
+      },
+      "Zelos_Platform_Access": {
+        "Basic": "Basic",
+        "Silver": "Standard",
+        "Premium": "Advanced"
+      },
+      "Training_Credits": {
+        "Basic": "10k credits/mo",
+        "Silver": "25k credits/mo",
+        "Premium": "50k credits/no"
+      },
+      "Generation_Credits": {
+        "Basic": "5k credits/mo",
+        "Silver": "15k credits/mo",
+        "Premium": "25k credits/mo"
+      },
+      "Data_Storage": {
+        "Basic": "10GB",
+        "Silver": "50GB",
+        "Premium": "100GB"
+      },
+      "Knowledge_Vault_Storage": {
+        "Basic": "5GB",
+        "Silver": "25GB",
+        "Premium": "50GB"
+      },
+      "Customer_Support": {
+        "Basic": "Basic (24-48 hrs)",
+        "Silver": "Priority (12-24 hrs)",
+        "Premium": "Dedicated (same-day)"
+      }
+    },
+    "Content_Hub_Features": {
+      "Custom_AI_Model_Creation": {
+        "Basic": "3",
+        "Silver": "5",
+        "Premium": "10+"
+      },
+      "Live_Data_Integration": {
+        "Basic": "Limited to 1-2 sources",
+        "Silver": "Standard (3-5 sources)",
+        "Premium": "Advanced (customizable)"
+      },
+      "Knowledge_Extraction_Capabilities": {
+        "Basic": "None",
+        "Silver": "Basic",
+        "Premium": "Advanced"
+      },
+      "Content_Collaboration": {
+        "Basic": "None",
+        "Silver": "Up to 3 users",
+        "Premium": "Unlimited users"
+      }
+    },
+    "Strategy_Hub_Features": {
+      "Use_Case_and_Goal_Optimization": {
+        "Basic": "3 pre-defined",
+        "Silver": "5 pre-defined",
+        "Premium": "Customizable goals"
+      },
+      "AI_Recommendations": {
+        "Basic": "Basic (limited)",
+        "Silver": "Standard (detailed)",
+        "Premium": "Advanced (in-depth)"
+      },
+      "IP_Optimization_Tools": {
+        "Basic": "Limited access",
+        "Silver": "Standard access",
+        "Premium": "Advanced access"
+      },
+      "User_Personas_Profiles": {
+        "Basic": "3",
+        "Silver": "5",
+        "Premium": "Unlimited"
+      },
+      "Reporting_Analytics": {
+        "Basic": "Basic dashboards",
+        "Silver": "Standard dashboards",
+        "Premium": "Advanced dashboards & reports"
+      }
+    },
+    "Workflow_Designer_Features": {
+      "Preset_Workflows": {
+        "Basic": "3 steps, single user",
+        "Silver": "5 steps, single user",
+        "Premium": "Unlimited steps, multi-user"
+      },
+      "Conditional_Branching": {
+        "Basic": "None",
+        "Silver": "Limited branching",
+        "Premium": "Unlimited branching"
+      },
+      "Automation_Capabilities": {
+        "Basic": "Limited to basic triggers",
+        "Silver": "Standard automation",
+        "Premium": "Advanced automation (custom)"
+      },
+      "Standard_Operating_Procedures": {
+        "Basic": "None",
+        "Silver": "Basic SOP templates",
+        "Premium": "Advanced SOP builder"
+      },
+      "Workflow_Collaboration": {
+        "Basic": "None",
+        "Silver": "Up to 3 users",
+        "Premium": "Unlimited users"
+      },
+      "Workflow_Versioning_Rollback": {
+        "Basic": "Limited version history",
+        "Silver": "Standard version history",
+        "Premium": "Advanced version control"
+      }
+    },
+    "Marketplace_Hub_Features": {
+      "Access_to_Pre-built_Components": {
+        "Basic": "Yes",
+        "Silver": "Yes",
+        "Premium": "Yes"
+      },
+      "Uploading_Custom_Components": {
+        "Basic": "No",
+        "Silver": "Up to 5 components",
+        "Premium": "Unlimited components"
+      },
+      "Component_Search_Filtering": {
+        "Basic": "Basic search",
+        "Silver": "Standard search",
+        "Premium": "Advanced search"
+      },
+      "Component_Reviews_Ratings": {
+        "Basic": "No",
+        "Silver": "Yes",
+        "Premium": "Yes (additional data)"
+      }
+    }    
+  }]

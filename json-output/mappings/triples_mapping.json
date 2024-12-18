@@ -1,0 +1,34 @@
+{
+    "mappings": {
+      "properties": {
+        "id": { "type": "keyword" },
+        "accountId": { "type": "keyword" },
+        "resourceType": { "type": "keyword" },
+        "ownerId": { "type": "keyword" },
+        "createdAt": { "type": "date" },
+        "updatedAt": { "type": "date" },
+        "tags": { "type": "keyword" },
+        "visibility": { "type": "keyword" },
+        "linkedResources": {
+          "properties": {
+            "ProfileUser": { "type": "keyword" },
+            "ProfileAthlete": { "type": "keyword" },
+            "ProfileBrand": { "type": "keyword" }
+          }
+        },
+        "subjectId": { "type": "keyword" },
+        "subject": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+        "predicate": { "type": "keyword" },
+        "object": { "type": "text" },
+        "citation": { "type": "text" }
+      }
+    }
+  }
+  

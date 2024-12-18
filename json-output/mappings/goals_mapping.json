@@ -1,0 +1,21 @@
+{
+    "mappings": {
+      "properties": {
+        "id": { "type": "keyword" },
+        "resourceType": { "type": "keyword" },
+        "accountId": { "type": "keyword" },
+        "ownerId": { "type": "keyword" },
+        "visibility": { "type": "keyword" },
+        "isActive": { "type": "boolean" },
+        "Goal": { "type": "text" },
+        "Description": { "type": "text" },
+        "StrategicIndicator": { "type": "text" },
+        "KPI": { "type": "text" },
+        "Developer": { "type": "text" },
+        "RelatedIssues": { "type": "text" },
+        "createdAt": { "type": "date" },
+        "updatedAt": { "type": "date" }
+      }
+    }
+  }
+  

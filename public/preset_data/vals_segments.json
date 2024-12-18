@@ -1,0 +1,58 @@
+[
+  {
+    "id": "1",
+    "name": "Innovators",
+    "motivations": "Abundant resources; motivated by ideals, achievement, and self-expression.",
+    "description": "Innovators are successful, sophisticated, take-charge people with high self-esteem. Because they have abundant resources, they exhibit all three primary motivations in varying degrees. They are change leaders and are the most receptive to new ideas and technologies. Their purchases reflect cultivated tastes for upscale, niche products and services.",
+    "traits": ["Take-charge", "Sophisticated", "Curious"]
+  },
+  {
+    "id": "2",
+    "name": "Thinkers",
+    "motivations": "Motivated by ideals; high resources.",
+    "description": "Thinkers are mature, satisfied, comfortable, and reflective. They tend to be well educated and actively seek out information in the decision-making process. They favor durability, functionality, and value in products.",
+    "traits": ["Reflective", "Informed", "Content"]
+  },
+  {
+    "id": "3",
+    "name": "Believers",
+    "motivations": "Motivated by ideals; low resources.",
+    "description": "Believers are strongly traditional and respect rules and authority. Because they are fundamentally conservative, they are slow to change and technology averse. They choose familiar products and established brands.",
+    "traits": ["Literal", "Loyal", "Moralistic"]
+  },
+  {
+    "id": "4",
+    "name": "Achievers",
+    "motivations": "Motivated by achievement; high resources.",
+    "description": "Achievers have goal-oriented lifestyles that center on family and career. They avoid situations that encourage a high degree of stimulation or change. They prefer premium products that demonstrate success to their peers.",
+    "traits": ["Goal-oriented", "Brand conscious", "Conventional"]
+  },
+  {
+    "id": "5",
+    "name": "Strivers",
+    "motivations": "Motivated by achievement; low resources.",
+    "description": "Strivers are trendy and fun-loving. They have little discretionary income and tend to have narrow interests. They favor stylish products that emulate the purchases of people with greater material wealth.",
+    "traits": ["Contemporary", "Imitative", "Style conscious"]
+  },
+  {
+    "id": "6",
+    "name": "Experiencers",
+    "motivations": "Motivated by self-expression; high resources.",
+    "description": "Experiencers appreciate the unconventional. They are active and impulsive, seeking stimulation from the new, offbeat, and risky. They spend a comparatively high proportion of their income on fashion, socializing, and entertainment.",
+    "traits": ["Trend-setting", "Impulsive", "Variety-seeking"]
+  },
+  {
+    "id": "7",
+    "name": "Makers",
+    "motivations": "Motivated by self-expression; low resources.",
+    "description": "Makers value practicality and self-sufficiency. They choose hands-on constructive activities and spend leisure time with family and close friends. Because they prefer value to luxury, they buy basic products.",
+    "traits": ["Responsible", "Practical", "Self-sufficient"]
+  },
+  {
+    "id": "8",
+    "name": "Survivors",
+    "motivations": "Low resources.",
+    "description": "Survivors lead narrowly focused lives. Because they have the fewest resources, they do not exhibit a primary motivation and often feel powerless. They are primarily concerned about safety and security, so they tend to be brand loyal and buy discounted merchandise.",
+    "traits": ["Nostalgic", "Constrained", "Cautious"]
+  }
+]

@@ -1,0 +1,1646 @@
+[
+  {
+    "id": "uri",
+    "label": "URI",
+    "applicableSubjectResourceTypes": [
+      "Agent",
+      "Contract",
+      "InfoAsset",
+      "ModelSubject",
+      "ModelTraining"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "agent_type",
+    "label": "agentType",
+    "applicableSubjectResourceTypes": [
+      "Agent"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "name",
+    "label": "name",
+    "applicableSubjectResourceTypes": [
+      "Agent",
+      "BusinessModelCard",
+      "DataConnector",
+      "DataCategory",
+      "InfoAsset",
+      "Offer",
+      "Persona",
+      "ScheduledEvent",
+      "UserAction",
+      "UserDefinedModelCategory",
+      "ProfileUser",
+      "Workflow"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "expertise_areas",
+    "label": "expertiseAreas",
+    "applicableSubjectResourceTypes": [
+      "Agent"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "availability_status",
+    "label": "availabilityStatus",
+    "applicableSubjectResourceTypes": [
+      "Agent"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "ai_capabilities",
+    "label": "aiCapabilities",
+    "applicableSubjectResourceTypes": [
+      "Agent"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "contact_info",
+    "label": "contactInfo",
+    "applicableSubjectResourceTypes": [
+      "Agent"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "section_name",
+    "label": "sectionName",
+    "applicableSubjectResourceTypes": [
+      "BrandModelCard",
+      "BusinessModelCard"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "brand_facet_id",
+    "label": "brandFacetId",
+    "applicableSubjectResourceTypes": [
+      "BrandModelCard"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "description",
+    "label": "description",
+    "applicableSubjectResourceTypes": [
+      "BusinessModelCard",
+      "AIModel",
+      "DataConnector",
+      "Contract",
+      "DataCategory",
+      "Goal",
+      "ModelSubject",
+      "ModelTraining",
+      "Offer",
+      "Persona",
+      "Recommendation",
+      "ScheduledEvent",
+      "Task",
+      "Topic",
+      "UseCase",
+      "Workflow"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "label",
+    "label": "label",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "default_language",
+    "label": "default_language",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "subject_prompt_key",
+    "label": "subject_prompt_key",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "subject_prompt_alias",
+    "label": "subject_prompt_alias",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "elabs_voice_id",
+    "label": "elabs_voice_id",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "elabs_model_id",
+    "label": "elabs_model_id",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "icon_name",
+    "label": "iconName",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "href",
+    "label": "href",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "color",
+    "label": "color",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "bg_color",
+    "label": "bgColor",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "foundational_model",
+    "label": "foundational_model",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarBoolean"
+    ]
+  },
+  {
+    "id": "model_file_path",
+    "label": "model_file_path",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "model_id",
+    "label": "modelId",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "thumbnail",
+    "label": "thumbnail",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "prompt_template",
+    "label": "prompt_template",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "use_case_ids",
+    "label": "use_case_ids",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "version",
+    "label": "version",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarInt"
+    ]
+  },
+  {
+    "id": "safety_details",
+    "label": "safety_details",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "training_details",
+    "label": "training_details",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "evaluation",
+    "label": "evaluation",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "environmental_impact",
+    "label": "environmental_impact",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "technical_specifications",
+    "label": "technical_specifications",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "model_sources",
+    "label": "model_sources",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "mini_icon_name",
+    "label": "miniIconName",
+    "applicableSubjectResourceTypes": [
+      "AIModel"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "emoji",
+    "label": "emoji",
+    "applicableSubjectResourceTypes": [
+      "AIModel",
+      "Contract",
+      "Workflow"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "icon",
+    "label": "icon",
+    "applicableSubjectResourceTypes": [
+      "DataConnector"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "connection_type",
+    "label": "connectionType",
+    "applicableSubjectResourceTypes": [
+      "DataConnector"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "disabled",
+    "label": "disabled",
+    "applicableSubjectResourceTypes": [
+      "DataConnector"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarBoolean"
+    ]
+  },
+  {
+    "id": "metadata",
+    "label": "metadata",
+    "applicableSubjectResourceTypes": [
+      "DataConnector"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "title",
+    "label": "title",
+    "applicableSubjectResourceTypes": [
+      "Contract",
+      "Recommendation",
+      "Task"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "effective_date",
+    "label": "effectiveDate",
+    "applicableSubjectResourceTypes": [
+      "Contract"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "expiration_date",
+    "label": "expirationDate",
+    "applicableSubjectResourceTypes": [
+      "Contract"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "status",
+    "label": "status",
+    "applicableSubjectResourceTypes": [
+      "Contract",
+      "InfoAsset",
+      "Transaction"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "cover",
+    "label": "cover",
+    "applicableSubjectResourceTypes": [
+      "Contract",
+      "Workflow"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "contract_creator",
+    "label": "contract_creator",
+    "applicableSubjectResourceTypes": [
+      "Contract"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "uri",
+    "label": "uri",
+    "applicableSubjectResourceTypes": [
+      "Contract"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "parties",
+    "label": "parties",
+    "applicableSubjectResourceTypes": [
+      "Contract"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "sections",
+    "label": "sections",
+    "applicableSubjectResourceTypes": [
+      "Contract"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "assets",
+    "label": "assets",
+    "applicableSubjectResourceTypes": [
+      "Contract"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "obligations",
+    "label": "obligations",
+    "applicableSubjectResourceTypes": [
+      "Contract"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "events",
+    "label": "events",
+    "applicableSubjectResourceTypes": [
+      "Contract"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "creation_date",
+    "label": "creationDate",
+    "applicableSubjectResourceTypes": [
+      "Contract",
+      "InfoAsset"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "last_updated",
+    "label": "lastUpdated",
+    "applicableSubjectResourceTypes": [
+      "Contract"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "creator",
+    "label": "creator",
+    "applicableSubjectResourceTypes": [
+      "Contract"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "rights",
+    "label": "rights",
+    "applicableSubjectResourceTypes": [
+      "Contract"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "schema_date_created",
+    "label": "schemaDateCreated",
+    "applicableSubjectResourceTypes": [
+      "Contract"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "schema_content_url",
+    "label": "schemaContentUrl",
+    "applicableSubjectResourceTypes": [
+      "Contract"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "schema_content_type",
+    "label": "schemaContentType",
+    "applicableSubjectResourceTypes": [
+      "Contract"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "priority",
+    "label": "priority",
+    "applicableSubjectResourceTypes": [
+      "Contract",
+      "Message",
+      "Offer",
+      "Recommendation",
+      "ScheduledEvent",
+      "Task",
+      "Transaction"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "fides_key",
+    "label": "fides_key",
+    "applicableSubjectResourceTypes": [
+      "DataCategory"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "is_default",
+    "label": "is_default",
+    "applicableSubjectResourceTypes": [
+      "DataCategory"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "organization_fides_key",
+    "label": "organization_fides_key",
+    "applicableSubjectResourceTypes": [
+      "DataCategory"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "parent_key",
+    "label": "parent_key",
+    "applicableSubjectResourceTypes": [
+      "DataCategory"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "replaced_by",
+    "label": "replaced_by",
+    "applicableSubjectResourceTypes": [
+      "DataCategory"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "version_added",
+    "label": "version_added",
+    "applicableSubjectResourceTypes": [
+      "DataCategory"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "version_deprecated",
+    "label": "version_deprecated",
+    "applicableSubjectResourceTypes": [
+      "DataCategory"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "goal",
+    "label": "Goal",
+    "applicableSubjectResourceTypes": [
+      "Goal"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "strategic_indicator",
+    "label": "StrategicIndicator",
+    "applicableSubjectResourceTypes": [
+      "Goal"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "k_p_i",
+    "label": "KPI",
+    "applicableSubjectResourceTypes": [
+      "Goal"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "developer",
+    "label": "Developer",
+    "applicableSubjectResourceTypes": [
+      "Goal"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "related_issues",
+    "label": "RelatedIssues",
+    "applicableSubjectResourceTypes": [
+      "Goal"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "is_active",
+    "label": "isActive",
+    "applicableSubjectResourceTypes": [
+      "Goal"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarBoolean"
+    ]
+  },
+  {
+    "id": "category",
+    "label": "category",
+    "applicableSubjectResourceTypes": [
+      "InfoAsset",
+      "Topic"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "asset_type",
+    "label": "asset_type",
+    "applicableSubjectResourceTypes": [
+      "InfoAsset"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "content",
+    "label": "content",
+    "applicableSubjectResourceTypes": [
+      "InfoAsset",
+      "Message",
+      "UserAction"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "dc:creator",
+    "label": "dc:creator",
+    "applicableSubjectResourceTypes": [
+      "InfoAsset"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "dc:description",
+    "label": "dc:description",
+    "applicableSubjectResourceTypes": [
+      "InfoAsset"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "schema:date_created",
+    "label": "schema:dateCreated",
+    "applicableSubjectResourceTypes": [
+      "InfoAsset"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "labels",
+    "label": "labels",
+    "applicableSubjectResourceTypes": [
+      "InfoAsset"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "dcma_registrant_email",
+    "label": "dcma_registrant_email",
+    "applicableSubjectResourceTypes": [
+      "InfoAsset"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "read",
+    "label": "read",
+    "applicableSubjectResourceTypes": [
+      "InfoAsset"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarBoolean"
+    ]
+  },
+  {
+    "id": "media_link",
+    "label": "media_link",
+    "applicableSubjectResourceTypes": [
+      "InfoAsset"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "mimetype",
+    "label": "mimetype",
+    "applicableSubjectResourceTypes": [
+      "InfoAsset"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "schema:content_url",
+    "label": "schema:contentUrl",
+    "applicableSubjectResourceTypes": [
+      "InfoAsset"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "scale",
+    "label": "scale",
+    "applicableSubjectResourceTypes": [
+      "InfoAsset"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarInt",
+      "ScalarFloat"
+    ]
+  },
+  {
+    "id": "schema:content_type",
+    "label": "schema:contentType",
+    "applicableSubjectResourceTypes": [
+      "InfoAsset"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "dc:rights",
+    "label": "dc:rights",
+    "applicableSubjectResourceTypes": [
+      "InfoAsset"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "topic",
+    "label": "Topic",
+    "applicableSubjectResourceTypes": [
+      "StrategicIssue"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "s_w_o_t_type",
+    "label": "SWOT Type",
+    "applicableSubjectResourceTypes": [
+      "StrategicIssue"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "subscribed",
+    "label": "Subscribed",
+    "applicableSubjectResourceTypes": [
+      "StrategicIssue"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarBoolean"
+    ]
+  },
+  {
+    "id": "related_goals",
+    "label": "RelatedGoals",
+    "applicableSubjectResourceTypes": [
+      "StrategicIssue"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "related_use_cases",
+    "label": "RelatedUseCases",
+    "applicableSubjectResourceTypes": [
+      "StrategicIssue"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "sender_id",
+    "label": "senderId",
+    "applicableSubjectResourceTypes": [
+      "Message",
+      "Transaction"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "recipient_id",
+    "label": "recipientId",
+    "applicableSubjectResourceTypes": [
+      "Message",
+      "Transaction"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "sent_at",
+    "label": "sentAt",
+    "applicableSubjectResourceTypes": [
+      "Message"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "message_type",
+    "label": "messageType",
+    "applicableSubjectResourceTypes": [
+      "Message"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "attachments",
+    "label": "attachments",
+    "applicableSubjectResourceTypes": [
+      "Message"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "subject_name",
+    "label": "subjectName",
+    "applicableSubjectResourceTypes": [
+      "ModelSubject"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "related_models",
+    "label": "relatedModels",
+    "applicableSubjectResourceTypes": [
+      "ModelSubject"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "expertise_level",
+    "label": "expertiseLevel",
+    "applicableSubjectResourceTypes": [
+      "ModelSubject"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "model_name",
+    "label": "modelName",
+    "applicableSubjectResourceTypes": [
+      "ModelTraining"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "training_data_sources",
+    "label": "trainingDataSources",
+    "applicableSubjectResourceTypes": [
+      "ModelTraining"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "training_status",
+    "label": "trainingStatus",
+    "applicableSubjectResourceTypes": [
+      "ModelTraining"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "accuracy",
+    "label": "accuracy",
+    "applicableSubjectResourceTypes": [
+      "ModelTraining"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarFloat"
+    ]
+  },
+  {
+    "id": "last_trained_at",
+    "label": "lastTrainedAt",
+    "applicableSubjectResourceTypes": [
+      "ModelTraining"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "parameters",
+    "label": "parameters",
+    "applicableSubjectResourceTypes": [
+      "ModelTraining"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "price",
+    "label": "price",
+    "applicableSubjectResourceTypes": [
+      "Offer"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarInt"
+    ]
+  },
+  {
+    "id": "price_currency",
+    "label": "priceCurrency",
+    "applicableSubjectResourceTypes": [
+      "Offer"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "availability",
+    "label": "availability",
+    "applicableSubjectResourceTypes": [
+      "Offer"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "valid_from",
+    "label": "validFrom",
+    "applicableSubjectResourceTypes": [
+      "Offer"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "valid_through",
+    "label": "validThrough",
+    "applicableSubjectResourceTypes": [
+      "Offer"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "item_offered",
+    "label": "itemOffered",
+    "applicableSubjectResourceTypes": [
+      "Offer"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "seller_id",
+    "label": "sellerId",
+    "applicableSubjectResourceTypes": [
+      "Offer"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "offer_type",
+    "label": "offerType",
+    "applicableSubjectResourceTypes": [
+      "Offer"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "terms_of_service",
+    "label": "termsOfService",
+    "applicableSubjectResourceTypes": [
+      "Offer"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "type",
+    "label": "Type",
+    "applicableSubjectResourceTypes": [
+      "Persona",
+      "ProfileUser"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "associated_use_cases",
+    "label": "AssociatedUseCases",
+    "applicableSubjectResourceTypes": [
+      "Persona"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "is_persona",
+    "label": "is_persona",
+    "applicableSubjectResourceTypes": [
+      "Persona"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarBoolean"
+    ]
+  },
+  {
+    "id": "image",
+    "label": "Image",
+    "applicableSubjectResourceTypes": [
+      "Persona"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "recommended_resource_id",
+    "label": "recommendedResourceId",
+    "applicableSubjectResourceTypes": [
+      "Recommendation"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "recommended_resource_type",
+    "label": "recommendedResourceType",
+    "applicableSubjectResourceTypes": [
+      "Recommendation"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "reason",
+    "label": "reason",
+    "applicableSubjectResourceTypes": [
+      "Recommendation"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "recommender_id",
+    "label": "recommenderId",
+    "applicableSubjectResourceTypes": [
+      "Recommendation"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "feature_key",
+    "label": "featureKey",
+    "applicableSubjectResourceTypes": [
+      "Recommendation"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "action_feature_key",
+    "label": "actionFeatureKey",
+    "applicableSubjectResourceTypes": [
+      "Recommendation"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "start_date",
+    "label": "startDate",
+    "applicableSubjectResourceTypes": [
+      "ScheduledEvent"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "end_date",
+    "label": "endDate",
+    "applicableSubjectResourceTypes": [
+      "ScheduledEvent"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "location",
+    "label": "location",
+    "applicableSubjectResourceTypes": [
+      "ScheduledEvent"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "organizer_id",
+    "label": "organizerId",
+    "applicableSubjectResourceTypes": [
+      "ScheduledEvent"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "participant_ids",
+    "label": "participantIds",
+    "applicableSubjectResourceTypes": [
+      "ScheduledEvent"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "event_status",
+    "label": "eventStatus",
+    "applicableSubjectResourceTypes": [
+      "ScheduledEvent"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "event_type",
+    "label": "eventType",
+    "applicableSubjectResourceTypes": [
+      "ScheduledEvent"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "workflow_id",
+    "label": "workflowId",
+    "applicableSubjectResourceTypes": [
+      "Task"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "stage_id",
+    "label": "stageId",
+    "applicableSubjectResourceTypes": [
+      "Task"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "preferences",
+    "label": "preferences",
+    "applicableSubjectResourceTypes": [
+      "Topic"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "influencer_name",
+    "label": "influencerName",
+    "applicableSubjectResourceTypes": [
+      "Topic"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "brand",
+    "label": "brand",
+    "applicableSubjectResourceTypes": [
+      "Topic"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "transaction_type",
+    "label": "transactionType",
+    "applicableSubjectResourceTypes": [
+      "Transaction"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "amount",
+    "label": "amount",
+    "applicableSubjectResourceTypes": [
+      "Transaction"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarInt"
+    ]
+  },
+  {
+    "id": "currency",
+    "label": "currency",
+    "applicableSubjectResourceTypes": [
+      "Transaction"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "transaction_date",
+    "label": "transactionDate",
+    "applicableSubjectResourceTypes": [
+      "Transaction"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "related_resource_id",
+    "label": "relatedResourceId",
+    "applicableSubjectResourceTypes": [
+      "Transaction"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "notes",
+    "label": "notes",
+    "applicableSubjectResourceTypes": [
+      "Transaction"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "profile_id",
+    "label": "profileId",
+    "applicableSubjectResourceTypes": [
+      "Triple"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "subject",
+    "label": "Subject",
+    "applicableSubjectResourceTypes": [
+      "UseCase"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "target",
+    "label": "Target",
+    "applicableSubjectResourceTypes": [
+      "UseCase",
+      "UserAction"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "for_purpose",
+    "label": "ForPurpose",
+    "applicableSubjectResourceTypes": [
+      "UseCase"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "models",
+    "label": "Models",
+    "applicableSubjectResourceTypes": [
+      "UseCase"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarInt"
+    ]
+  },
+  {
+    "id": "avatar_src",
+    "label": "avatarSrc",
+    "applicableSubjectResourceTypes": [
+      "UserAction"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "email",
+    "label": "email",
+    "applicableSubjectResourceTypes": [
+      "UserAction",
+      "ProfileUser"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "action",
+    "label": "action",
+    "applicableSubjectResourceTypes": [
+      "UserAction"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "credits_used",
+    "label": "creditsUsed",
+    "applicableSubjectResourceTypes": [
+      "UserAction"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarInt"
+    ]
+  },
+  {
+    "id": "includes",
+    "label": "includes",
+    "applicableSubjectResourceTypes": [
+      "UserDefinedModelCategory"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "excludes",
+    "label": "excludes",
+    "applicableSubjectResourceTypes": [
+      "UserDefinedModelCategory"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "id_of_profile_subject",
+    "label": "idOfProfileSubject",
+    "applicableSubjectResourceTypes": [
+      "ProfileUser"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "bio",
+    "label": "bio",
+    "applicableSubjectResourceTypes": [
+      "ProfileUser"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "workflow_creator",
+    "label": "workflow_creator",
+    "applicableSubjectResourceTypes": [
+      "Workflow"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "artist",
+    "label": "artist",
+    "applicableSubjectResourceTypes": [
+      "Workflow"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  },
+  {
+    "id": "stages",
+    "label": "stages",
+    "applicableSubjectResourceTypes": [
+      "Workflow"
+    ],
+    "applicableObjectResourceTypes": [
+      "ScalarString"
+    ]
+  }
+]

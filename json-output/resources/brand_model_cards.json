@@ -1,0 +1,233 @@
+[
+    {
+        "id": "card-selectedMarketingChannels-1",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+        "resourceType": "BrandModelCard",
+        "sectionName": "selectedMarketingChannels",
+        "brandFacetId": "1",
+        "createdAt": "2024-10-18T12:32:43.738440",
+        "updatedAt": "2024-10-18T12:32:43.738451",
+        "visibility": "public"
+    },
+    {
+        "id": "card-selectedMarketingChannels-2",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+        "resourceType": "BrandModelCard",
+        "sectionName": "selectedMarketingChannels",
+        "brandFacetId": "2",
+        "createdAt": "2024-10-18T12:32:43.738457",
+        "updatedAt": "2024-10-18T12:32:43.738459",
+        "visibility": "public"
+    },
+    {
+        "id": "card-selectedMarkets-eea",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+        "resourceType": "BrandModelCard",
+        "sectionName": "selectedMarkets",
+        "brandFacetId": "eea",
+        "createdAt": "2024-10-18T12:32:43.738463",
+        "updatedAt": "2024-10-18T12:32:43.738466",
+        "visibility": "public"
+    },
+    {
+        "id": "card-selectedMarkets-north_america",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+        "resourceType": "BrandModelCard",
+        "sectionName": "selectedMarkets",
+        "brandFacetId": "north_america",
+        "createdAt": "2024-10-18T12:32:43.738469",
+        "updatedAt": "2024-10-18T12:32:43.738471",
+        "visibility": "public"
+    },
+    {
+        "id": "card-selectedIndustries-01",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+        "resourceType": "BrandModelCard",
+        "sectionName": "selectedIndustries",
+        "brandFacetId": "01",
+        "createdAt": "2024-10-18T12:32:43.738475",
+        "updatedAt": "2024-10-18T12:32:43.738477",
+        "visibility": "public"
+    },
+    {
+        "id": "card-selectedIndustries-04",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+        "resourceType": "BrandModelCard",
+        "sectionName": "selectedIndustries",
+        "brandFacetId": "04",
+        "createdAt": "2024-10-18T12:32:43.738483",
+        "updatedAt": "2024-10-18T12:32:43.738485",
+        "visibility": "public"
+    },
+    {
+        "id": "card-selectedVALSSegments-7",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+        "resourceType": "BrandModelCard",
+        "sectionName": "selectedVALSSegments",
+        "brandFacetId": "7",
+        "createdAt": "2024-10-18T12:32:43.738490",
+        "updatedAt": "2024-10-18T12:32:43.738492",
+        "visibility": "public"
+    },
+    {
+        "id": "card-selectedLanguages-en",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+        "resourceType": "BrandModelCard",
+        "sectionName": "selectedLanguages",
+        "brandFacetId": "en",
+        "createdAt": "2024-10-18T12:32:43.738496",
+        "updatedAt": "2024-10-18T12:32:43.738498",
+        "visibility": "public"
+    },
+    {
+        "id": "card-selectedLanguages-es",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+        "resourceType": "BrandModelCard",
+        "sectionName": "selectedLanguages",
+        "brandFacetId": "es",
+        "createdAt": "2024-10-18T12:32:43.738501",
+        "updatedAt": "2024-10-18T12:32:43.738503",
+        "visibility": "public"
+    },
+    {
+        "id": "card-selectedLanguages-aa",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+        "resourceType": "BrandModelCard",
+        "sectionName": "selectedLanguages",
+        "brandFacetId": "aa",
+        "createdAt": "2024-10-18T12:32:43.738506",
+        "updatedAt": "2024-10-18T12:32:43.738508",
+        "visibility": "public"
+    },
+    {
+        "id": "card-selectedNILActivities-9",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+        "resourceType": "BrandModelCard",
+        "sectionName": "selectedNILActivities",
+        "brandFacetId": "9",
+        "createdAt": "2024-10-18T12:32:43.738511",
+        "updatedAt": "2024-10-18T12:32:43.738513",
+        "visibility": "public"
+    },
+    {
+        "id": "card-selectedInterests-1",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+        "resourceType": "BrandModelCard",
+        "sectionName": "selectedInterests",
+        "brandFacetId": "1",
+        "createdAt": "2024-10-18T12:32:43.738517",
+        "updatedAt": "2024-10-18T12:32:43.738519",
+        "visibility": "public"
+    },
+    {
+        "id": "card-selectedInterests-2",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+        "resourceType": "BrandModelCard",
+        "sectionName": "selectedInterests",
+        "brandFacetId": "2",
+        "createdAt": "2024-10-18T12:32:43.738521",
+        "updatedAt": "2024-10-18T12:32:43.738524",
+        "visibility": "public"
+    },
+    {
+        "id": "card-selectedInterests-3",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+        "resourceType": "BrandModelCard",
+        "sectionName": "selectedInterests",
+        "brandFacetId": "3",
+        "createdAt": "2024-10-18T12:32:43.738526",
+        "updatedAt": "2024-10-18T12:32:43.738529",
+        "visibility": "public"
+    },
+    {
+        "id": "card-selectedInterests-10",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+        "resourceType": "BrandModelCard",
+        "sectionName": "selectedInterests",
+        "brandFacetId": "10",
+        "createdAt": "2024-10-18T12:32:43.738532",
+        "updatedAt": "2024-10-18T12:32:43.738534",
+        "visibility": "public"
+    },
+    {
+        "id": "card-selectedInterests-50",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+        "resourceType": "BrandModelCard",
+        "sectionName": "selectedInterests",
+        "brandFacetId": "50",
+        "createdAt": "2024-10-18T12:32:43.738537",
+        "updatedAt": "2024-10-18T12:32:43.738539",
+        "visibility": "public"
+    },
+    {
+        "id": "card-selectedProducts-1",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+        "resourceType": "BrandModelCard",
+        "sectionName": "selectedProducts",
+        "brandFacetId": "1",
+        "createdAt": "2024-10-18T12:32:43.738543",
+        "updatedAt": "2024-10-18T12:32:43.738545",
+        "visibility": "public"
+    },
+    {
+        "id": "card-selectedProducts-2",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+        "resourceType": "BrandModelCard",
+        "sectionName": "selectedProducts",
+        "brandFacetId": "2",
+        "createdAt": "2024-10-18T12:32:43.738558",
+        "updatedAt": "2024-10-18T12:32:43.738560",
+        "visibility": "public"
+    },
+    {
+        "id": "card-selectedProducts-3",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+        "resourceType": "BrandModelCard",
+        "sectionName": "selectedProducts",
+        "brandFacetId": "3",
+        "createdAt": "2024-10-18T12:32:43.738563",
+        "updatedAt": "2024-10-18T12:32:43.738565",
+        "visibility": "public"
+    },
+    {
+        "id": "card-selectedProducts-10",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+        "resourceType": "BrandModelCard",
+        "sectionName": "selectedProducts",
+        "brandFacetId": "10",
+        "createdAt": "2024-10-18T12:32:43.738568",
+        "updatedAt": "2024-10-18T12:32:43.738570",
+        "visibility": "public"
+    },
+    {
+        "id": "card-selectedProducts-50",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "ownerId": "user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+        "resourceType": "BrandModelCard",
+        "sectionName": "selectedProducts",
+        "brandFacetId": "50",
+        "createdAt": "2024-10-18T12:32:43.738573",
+        "updatedAt": "2024-10-18T12:32:43.738575",
+        "visibility": "public"
+    }
+]

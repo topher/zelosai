@@ -1,0 +1,257 @@
+{
+  "mappings": {
+    "properties": {
+      "subject": { 
+        "type": "keyword"
+      },
+      "id": { 
+        "type": "keyword"
+      },
+      "noc": { 
+        "type": "keyword"
+      },
+      "code": { 
+        "type": "keyword"
+      },
+      "name": { 
+        "type": "text",
+        "fields": {
+          "keyword": { 
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "shortName": { 
+        "type": "text",
+        "fields": {
+          "keyword": { 
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "sport": { 
+        "type": "keyword"
+      },
+      "location": { 
+        "type": "keyword"
+      },
+      "description": { 
+        "type": "text"
+      },
+      "email": { 
+        "type": "keyword",
+        "index": false
+      },
+      "imageSrc": { 
+        "type": "keyword",
+        "index": false
+      },
+      "achievements": { 
+        "type": "text"
+      },
+      "socialMedia": { 
+        "type": "object",
+        "properties": {
+          "urls": { 
+            "type": "keyword"
+          },
+          "url": { 
+            "type": "keyword"
+          }
+        }
+      },
+      "Medalist_rawScore": { 
+        "type": "float"
+      },
+      "Medalist_isCategory": { 
+        "type": "boolean"
+      },
+      "Record Holder_rawScore": { 
+        "type": "float"
+      },
+      "Record Holder_isCategory": { 
+        "type": "boolean"
+      },
+      "Social Sensation_rawScore": { 
+        "type": "float"
+      },
+      "Social Sensation_isCategory": { 
+        "type": "boolean"
+      },
+      "Philanthropist_rawScore": { 
+        "type": "float"
+      },
+      "Philanthropist_isCategory": { 
+        "type": "boolean"
+      },
+      "Rising Star_rawScore": { 
+        "type": "float"
+      },
+      "Rising Star_isCategory": { 
+        "type": "boolean"
+      },
+      "Veteran_rawScore": { 
+        "type": "float"
+      },
+      "Veteran_isCategory": { 
+        "type": "boolean"
+      },
+      "Fitness Guru_rawScore": { 
+        "type": "float"
+      },
+      "Fitness Guru_isCategory": { 
+        "type": "boolean"
+      },
+      "Adventurer_rawScore": { 
+        "type": "float"
+      },
+      "Adventurer_isCategory": { 
+        "type": "boolean"
+      },
+      "Wellness advocate_rawScore": { 
+        "type": "float"
+      },
+      "Wellness advocate_isCategory": { 
+        "type": "boolean"
+      },
+      "Lifestyle advocate_rawScore": { 
+        "type": "float"
+      },
+      "Lifestyle advocate_isCategory": { 
+        "type": "boolean"
+      },
+      "Comeback athlete_rawScore": { 
+        "type": "float"
+      },
+      "Comeback athlete_isCategory": { 
+        "type": "boolean"
+      },
+      "Inspirational figure_rawScore": { 
+        "type": "float"
+      },
+      "Inspirational figure_isCategory": { 
+        "type": "boolean"
+      },
+      "Team Player_rawScore": { 
+        "type": "float"
+      },
+      "Team Player_isCategory": { 
+        "type": "boolean"
+      },
+      "Innovator_rawScore": { 
+        "type": "float"
+      },
+      "Innovator_isCategory": { 
+        "type": "boolean"
+      },
+      "Fan Favorite_rawScore": { 
+        "type": "float"
+      },
+      "Fan Favorite_isCategory": { 
+        "type": "boolean"
+      },
+      "Romantic figure_rawScore": { 
+        "type": "float"
+      },
+      "Romantic figure_isCategory": { 
+        "type": "boolean"
+      },
+      "Endurance athlete_rawScore": { 
+        "type": "float"
+      },
+      "Endurance athlete_isCategory": { 
+        "type": "boolean"
+      },
+      "Charismatic figure_rawScore": { 
+        "type": "float"
+      },
+      "Charismatic figure_isCategory": { 
+        "type": "boolean"
+      },
+      "Eco-Friendly advocate_rawScore": { 
+        "type": "float"
+      },
+      "Eco-Friendly advocate_isCategory": { 
+        "type": "boolean"
+      },
+      "Mental Health advocate_rawScore": { 
+        "type": "float"
+      },
+      "Mental Health advocate_isCategory": { 
+        "type": "boolean"
+      },
+      "Fashionista_rawScore": { 
+        "type": "float"
+      },
+      "Fashionista_isCategory": { 
+        "type": "boolean"
+      },
+      "Foodie_rawScore": { 
+        "type": "float"
+      },
+      "Foodie_isCategory": { 
+        "type": "boolean"
+      },
+      "Traveler_rawScore": { 
+        "type": "float"
+      },
+      "Traveler_isCategory": { 
+        "type": "boolean"
+      },
+      "Tech-Savvy individual_rawScore": { 
+        "type": "float"
+      },
+      "Tech-Savvy individual_isCategory": { 
+        "type": "boolean"
+      },
+      "Gamer_rawScore": { 
+        "type": "float"
+      },
+      "Gamer_isCategory": { 
+        "type": "boolean"
+      },
+      "Art Lover_rawScore": { 
+        "type": "float"
+      },
+      "Art Lover_isCategory": { 
+        "type": "boolean"
+      },
+      "Music Lover_rawScore": { 
+        "type": "float"
+      },
+      "Music Lover_isCategory": { 
+        "type": "boolean"
+      },
+      "Family-Oriented individual_rawScore": { 
+        "type": "float"
+      },
+      "Family-Oriented individual_isCategory": { 
+        "type": "boolean"
+      },
+      "createdAt": { 
+        "type": "date",
+        "format": "strict_date_optional_time||epoch_millis"
+      },
+      "updatedAt": { 
+        "type": "date",
+        "format": "strict_date_optional_time||epoch_millis"
+      },
+      "triples": { 
+        "type": "nested",
+        "properties": {
+          "predicate": { 
+            "type": "keyword"
+          },
+          "object": { 
+            "type": "text"
+          },
+          "citation": { 
+            "type": "keyword"
+          }
+        }
+      }
+    }
+  }
+}

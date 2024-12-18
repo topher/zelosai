@@ -1,0 +1,47 @@
+{
+  "brand_name": "PLEX (programming language)",
+  "mission_vision": null,
+  "sponsorship_activities": [],
+  "channels": [],
+  "industry": {
+    "Primary_Industry": "Programming Languages",
+    "Secondary_Industry": "Telecommunications"
+  },
+  "regions": [],
+  "interests": [
+    {
+      "category": "Technology and Science Interests",
+      "specifics": [
+        "Computer Science",
+        "Software Development"
+      ]
+    }
+  ],
+  "audience_lifestyle": [],
+  "languages": [],
+  "business_model_canvas": {
+    "Key_Partners": [],
+    "Key_Activities": [],
+    "Value_Propositions": [],
+    "Customer_Relationships": [],
+    "Customer_Segments": [],
+    "Channels": [],
+    "Cost_Structure": [],
+    "Revenue_Streams": []
+  },
+  "link": "https://en.wikipedia.org/wiki/PLEX_(programming_language)",
+  "parsed_at": "2024-10-01T14:37:26.070092Z",
+  "country": "Swedish brands",
+  "category": "Ericsson",
+  "body_text": "From Wikipedia, the free encyclopedia Plex Paradigm procedural , imperative , concurrent Developer Göran Hemdahl First appeared 1970s OS Ericsson APZ License Proprietary Dialects Plex-C, Plex-M Influenced Erlang Ericsson AXE PLEX (Programming Language for EXchanges) is a special-purpose, concurrent, real-time programming language . The proprietary PLEX language is closely tied to the architecture of Ericsson's AXE telephone exchanges which it was designed to control. PLEX was developed by Göran Hemdahl at Ericsson in the 1970s, [ 1 ] and it has been continuously evolving since then. [ 2 ] PLEX was described in 2008 as \"a cross between Fortran and a macro assembler .\" [ 3 ] The language has two variants: Plex-C used for the AXE Central Processor (CP) and Plex-M used for Extension Module Regional Processors (EMRP). [ 4 ] Ericsson started a project in the mid-1980s to create a successor language which resulted in Erlang . According to co-creator Joe Armstrong , \"Erlang was heavily influenced by PLEX and the AXE design.\" [ 1 ] Erlang did not replace PLEX, but was used alongside it. Execution model [ edit ] A system is divided into separately compiled and loaded units of code called \"blocks.\" A block waits for one or more signals sent from elsewhere in the system which triggers code execution. [ 4 ] Pre-compilers [ edit ] This section does not cite any sources . Please help improve this section by adding citations to reliable sources . Unsourced material may be challenged and removed . ( February 2020 ) ( Learn how and when to remove this message ) Several precompilers or code generators exist, to produce source code in Plex-C from higher level languages or graphical models. These can generate Plex-C from: Specification and Description Language graphical representation (SDL/GR) Plex-SQL , an extension of Plex-C with database facilities High Level Plex (HLPLEX) another extension of Plex-C Source code in Plex-C is compiled into the assembly language ASA210C. The binary form of ASA210C is either interpreted by a combination of hardware and microcode , or is compiled by a just-in-time compiler into native machine code for a high-capacity microprocessor . This programming-language -related article is a stub . You can help Wikipedia by expanding it . v t e Retrieved from \" https://en.wikipedia.org/w/index.php?title=PLEX_(programming_language)&oldid=1147262995 \" Categories : Concurrent programming languages Domain-specific programming languages Ericsson Programming languages created in the 1970s Programming language topic stubs Hidden categories: Articles needing additional references from February 2020 All articles needing additional references All stub articles",
+  "infobox": {
+    "paradigm": "procedural , imperative , concurrent",
+    "developer": "Göran Hemdahl",
+    "first_appeared": "1970s",
+    "os": "Ericsson APZ",
+    "license": "Proprietary",
+    "name": "Plex-C, Plex-M"
+  },
+  "company_name": "Plex-C, Plex-M",
+  "logo_url": "No logo available"
+}

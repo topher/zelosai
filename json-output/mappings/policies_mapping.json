@@ -1,0 +1,48 @@
+{
+  "mappings": {
+    "properties": {
+      "id": { "type": "keyword" },
+      "organizationId": { "type": "keyword" },
+      "description": { "type": "text" },
+      "rules": {
+        "type": "nested",
+        "properties": {
+          "id": { "type": "keyword" },
+          "ruleType": { "type": "keyword" },
+          "deontologicalDuty": { "type": "keyword" },
+          "predicate": { "type": "keyword" },
+          "subjectCondition": {
+            "type": "nested",
+            "properties": {
+              "operator": { "type": "keyword" },
+              "conditions": {
+                "type": "nested",
+                "properties": {
+                  "attribute": { "type": "keyword" },
+                  "operator": { "type": "keyword" },
+                  "value": { "type": "keyword" }
+                }
+              }
+            }
+          },
+          "objectCondition": {
+            "type": "nested",
+            "properties": {
+              "operator": { "type": "keyword" },
+              "conditions": {
+                "type": "nested",
+                "properties": {
+                  "attribute": { "type": "keyword" },
+                  "operator": { "type": "keyword" },
+                  "value": { "type": "keyword" }
+                }
+              }
+            }
+          },
+          "createdBy": { "type": "keyword" },
+          "ownedBy": { "type": "keyword" }
+        }
+      }
+    }
+  }
+}

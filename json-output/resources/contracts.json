@@ -1,0 +1,1218 @@
+[
+    {
+        "id": "contract-001",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "title": "Intellectual Property Agreement",
+        "effectiveDate": "2024-04-01",
+        "expirationDate": "2029-01-01",
+        "status": "active",
+        "emoji": "🤝",
+        "cover": "/contract.webp",
+        "contract_creator": "user_defined",
+        "uri": "http://example.com/contracts/contract-001",
+        "parties": [
+            {
+                "id": "party-001",
+                "name": "Acme Tech Innovations Inc.",
+                "role": "Employer",
+                "contactInfo": "1234 Innovation Drive, Silicon Valley, CA 94043"
+            },
+            {
+                "id": "party-002",
+                "name": "John Q. Inventor",
+                "role": "Employee",
+                "contactInfo": "789 Creative Way, Tech Town, TX 78701"
+            }
+        ],
+        "sections": [
+            {
+                "id": "section-001",
+                "title": "Intellectual Property",
+                "order": 1,
+                "clauses": [
+                    {
+                        "id": "clause-001",
+                        "title": "Ownership of Intellectual Property",
+                        "content": "All present and future rights and title, as well as the interest to all intellectual property created during the term of the employment, is transferred from the Employee to the Employer.",
+                        "type": "obligation"
+                    },
+                    {
+                        "id": "clause-002",
+                        "title": "Rights Transfer",
+                        "content": "The Employee agrees to transfer all intellectual property rights to the Employer immediately upon creation.",
+                        "type": "obligation"
+                    }
+                ]
+            }
+        ],
+        "assets": [
+            {
+                "id": "asset-001",
+                "name": "Time-Travel Algorithm",
+                "description": "An algorithm designed to simulate the effects of time travel.",
+                "type": "algorithm",
+                "creation_date": "2023-01-10",
+                "last_updated": "2023-06-15",
+                "dc:creator": "John Q. Inventor",
+                "dc:description": "A sophisticated algorithm that models time travel scenarios.",
+                "dc:rights": "Acme Tech Innovations Inc.",
+                "schema:dateCreated": "2023-01-10",
+                "URI": "http://example.com/assets/time-travel-algorithm",
+                "schema:contentUrl": "http://example.com/assets/time-travel-algorithm",
+                "schema:contentType": "application/json"
+            },
+            {
+                "id": "asset-002",
+                "name": "Invisible Ink Formula",
+                "description": "A chemical formula for creating invisible ink.",
+                "type": "chemical_formula",
+                "creation_date": "2022-05-20",
+                "last_updated": "2023-02-01",
+                "dc:creator": "John Q. Inventor",
+                "dc:description": "A unique formula that allows ink to become invisible until a specific reaction occurs.",
+                "dc:rights": "Acme Tech Innovations Inc.",
+                "schema:dateCreated": "2022-05-20",
+                "URI": "http://example.com/assets/invisible-ink-formula",
+                "schema:contentUrl": "http://example.com/assets/invisible-ink-formula",
+                "schema:contentType": "application/pdf"
+            }
+        ],
+        "obligations": [
+            {
+                "id": "obligation-001",
+                "deontologicalDuty": "Obligated",
+                "subjectCondition": {
+                    "attribute": "Employee",
+                    "operator": "is",
+                    "value": "John Q. Inventor"
+                },
+                "predicate": "transfer all created intellectual property",
+                "objectCondition": {
+                    "attribute": "Employer",
+                    "operator": "is",
+                    "value": "Acme Tech Innovations Inc."
+                },
+                "createdBy": "Acme Tech Innovations Inc.",
+                "ownedBy": "Acme Tech Innovations Inc.",
+                "ruleType": "content",
+                "debtorPartyId": "party-002",
+                "creditorPartyId": "party-001",
+                "status": "active",
+                "dueDate": "2029-01-01"
+            }
+        ],
+        "events": [
+            {
+                "id": "event-001",
+                "type": "contract-signing",
+                "date": "2024-04-01",
+                "description": "The contract was signed by both parties.",
+                "relatedPartyIds": ["party-001", "party-002"]
+            },
+            {
+                "id": "event-002",
+                "type": "patent-filed",
+                "date": "2024-06-15",
+                "description": "A patent was filed for the Time-Travel Algorithm.",
+                "relatedPartyIds": ["party-001"]
+            },
+            {
+                "id": "event-003",
+                "type": "breach",
+                "date": "2025-01-10",
+                "description": "A breach of contract occurred when the Employee failed to transfer rights to the Invisible Ink Formula.",
+                "relatedPartyIds": ["party-002"]
+            }
+        ],
+        "creationDate": "2024-04-01",
+        "lastUpdated": "2024-04-01",
+        "creator": "Contract Admin",
+        "description": "Agreement concerning the transfer of intellectual property from Employee to Employer.",
+        "rights": "All rights reserved by Acme Tech Innovations Inc.",
+        "schemaDateCreated": "2024-04-01",
+        "schemaContentUrl": "http://example.com/contracts/contract-001",
+        "schemaContentType": "application/pdf",
+        "tags": ["intellectual property", "employment contract"],
+        "URI": "http://example.com/contracts/contract-001",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "resourceType": "Contract",
+        "ownerId": "Contract Admin",
+        "createdAt": "2024-04-01",
+        "visibility": "public",
+        "priority": "medium"
+    },
+    {
+        "id": "001",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "title": "Photo Rights Agreement",
+        "effectiveDate": "2024-01-01",
+        "expirationDate": "2025-01-01",
+        "status": "active",
+        "parties": [
+            {
+                "id": "party1",
+                "name": "Athlete Name",
+                "role": "Owner",
+                "contactInfo": "athlete@example.com"
+            },
+            {
+                "id": "party2",
+                "name": "Media Company",
+                "role": "Licensee",
+                "contactInfo": "media@example.com"
+            }
+        ],
+        "sections": [
+            {
+                "id": "section-001",
+                "title": "Intellectual Property",
+                "order": 1,
+                "clauses": [
+                    {
+                        "id": "clause-001",
+                        "title": "Ownership of Intellectual Property",
+                        "content": "All present and future rights and title, as well as the interest to all intellectual property created during the term of the employment, is transferred from the Employee to the Employer.",
+                        "type": "obligation"
+                    },
+                    {
+                        "id": "clause-002",
+                        "title": "Rights Transfer",
+                        "content": "The Employee agrees to transfer all intellectual property rights to the Employer immediately upon creation.",
+                        "type": "obligation"
+                    }
+                ]
+            }
+        ],
+        "assets": [
+            {
+                "id": "asset-002",
+                "name": "Invisible Ink Formula",
+                "URI": "http://example.com/assets/invisible-ink-formula"
+            }
+        ],
+        "obligations": [
+            {
+                "debtorPartyId": "party2",
+                "creditorPartyId": "party1",
+                "status": "active",
+                "dueDate": "2024-12-31"
+            }
+        ],
+        "events": [
+            {
+                "id": "event-001",
+                "type": "contract-signing",
+                "date": "2024-04-01",
+                "description": "The contract was signed by both parties.",
+                "relatedPartyIds": ["party-001", "party-002"]
+            }
+        ],
+        "creationDate": "2023-12-01",
+        "lastUpdated": "2024-01-01",
+        "emoji": "🤝",
+        "cover": "/contract.webp",
+        "contract_creator": "user_defined",
+        "creator": "Contract Admin",
+        "description": "Agreement for the use of athlete's photos in promotional materials.",
+        "rights": "Image and Likeness",
+        "schemaDateCreated": "2023-12-01",
+        "schemaContentUrl": "https://example.com/schema/photo-rights-agreement",
+        "schemaContentType": "application/json",
+        "tags": ["image", "promotion"],
+        "uri": "https://example.com/contracts/001",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "resourceType": "Contract",
+        "ownerId": "Contract Admin",
+        "createdAt": "2023-12-01",
+        "visibility": "public",
+        "priority": "medium"
+    },
+    {
+        "id": "002",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "title": "Merchandise Licensing Contract",
+        "effectiveDate": "2024-02-01",
+        "expirationDate": "2025-02-01",
+        "status": "active",
+        "parties": [
+            {
+                "id": "party1",
+                "name": "Athlete Name",
+                "role": "Owner",
+                "contactInfo": "athlete@example.com"
+            },
+            {
+                "id": "party3",
+                "name": "Merchandise Company",
+                "role": "Licensee",
+                "contactInfo": "merch@example.com"
+            }
+        ],
+        "sections": [],
+        "assets": [],
+        "obligations": [
+            {
+                "debtorPartyId": "party3",
+                "creditorPartyId": "party1",
+                "status": "active",
+                "dueDate": "2024-12-31"
+            }
+        ],
+        "events": [],
+        "creationDate": "2023-12-15",
+        "lastUpdated": "2024-02-01",
+        "emoji": "🤝",
+        "cover": "/contract.webp",
+        "contract_creator": "user_defined",
+        "creator": "Contract Admin",
+        "description": "Contract for the use of athlete's image on branded merchandise.",
+        "rights": "Image and Likeness",
+        "schemaDateCreated": "2023-12-15",
+        "schemaContentUrl": "https://example.com/schema/merch-license-contract",
+        "schemaContentType": "application/json",
+        "tags": ["merchandise", "licensing"],
+        "uri": "https://example.com/contracts/002",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "resourceType": "Contract",
+        "ownerId": "Contract Admin",
+        "createdAt": "2023-12-15",
+        "visibility": "public",
+        "priority": "medium"
+    },
+    {
+        "id": "003",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "title": "Name Endorsement Deal",
+        "effectiveDate": "2024-03-01",
+        "expirationDate": "2025-03-01",
+        "status": "active",
+        "parties": [
+            {
+                "id": "party1",
+                "name": "Athlete Name",
+                "role": "Endorser",
+                "contactInfo": "athlete@example.com"
+            },
+            {
+                "id": "party4",
+                "name": "Brand Company",
+                "role": "Licensee",
+                "contactInfo": "brand@example.com"
+            }
+        ],
+        "sections": [],
+        "assets": [],
+        "obligations": [
+            {
+                "debtorPartyId": "party4",
+                "creditorPartyId": "party1",
+                "status": "active",
+                "dueDate": "2024-12-31"
+            }
+        ],
+        "events": [],
+        "creationDate": "2024-01-01",
+        "lastUpdated": "2024-03-01",
+        "emoji": "🤝",
+        "cover": "/contract.webp",
+        "contract_creator": "user_defined",
+        "creator": "Contract Admin",
+        "description": "Exclusive contract for the athlete to endorse a specific product or brand.",
+        "rights": "Sponsorship and Endorsements",
+        "schemaDateCreated": "2024-01-01",
+        "schemaContentUrl": "https://example.com/schema/exclusive-endorsement-deal",
+        "schemaContentType": "application/json",
+        "tags": ["exclusive", "endorsement"],
+        "uri": "https://example.com/contracts/003",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "resourceType": "Contract",
+        "ownerId": "Contract Admin",
+        "createdAt": "2024-01-01",
+        "visibility": "public",
+        "priority": "medium"
+    },
+    {
+        "id": "004",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "title": "Autograph Signing Contract",
+        "effectiveDate": "2024-04-01",
+        "expirationDate": "2025-04-01",
+        "status": "active",
+        "parties": [
+            {
+                "id": "party1",
+                "name": "Athlete Name",
+                "role": "Signer",
+                "contactInfo": "athlete@example.com"
+            },
+            {
+                "id": "party5",
+                "name": "Collectibles Company",
+                "role": "Licensee",
+                "contactInfo": "collectibles@example.com"
+            }
+        ],
+        "sections": [],
+        "assets": [],
+        "obligations": [
+            {
+                "debtorPartyId": "party5",
+                "creditorPartyId": "party1",
+                "status": "active",
+                "dueDate": "2024-12-31"
+            }
+        ],
+        "events": [],
+        "creationDate": "2024-02-01",
+        "lastUpdated": "2024-04-01",
+        "emoji": "🤝",
+        "cover": "/contract.webp",
+        "contract_creator": "user_defined",
+        "creator": "Contract Admin",
+        "description": "Agreement for the sale and distribution of athlete's autographed memorabilia.",
+        "rights": "Name and Signature",
+        "schemaDateCreated": "2024-02-01",
+        "schemaContentUrl": "https://example.com/schema/autograph-signing-contract",
+        "schemaContentType": "application/json",
+        "tags": ["autograph", "collectibles"],
+        "uri": "https://example.com/contracts/004",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "resourceType": "Contract",
+        "ownerId": "Contract Admin",
+        "createdAt": "2024-02-01",
+        "visibility": "public",
+        "priority": "medium"
+    },
+    {
+        "id": "005",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "title": "Voice-over Agreement",
+        "effectiveDate": "2024-05-01",
+        "expirationDate": "2025-05-01",
+        "status": "active",
+        "parties": [
+            {
+                "id": "party1",
+                "name": "Athlete Name",
+                "role": "Voice Actor",
+                "contactInfo": "athlete@example.com"
+            },
+            {
+                "id": "party6",
+                "name": "Ad Agency",
+                "role": "Licensee",
+                "contactInfo": "adagency@example.com"
+            }
+        ],
+        "sections": [],
+        "assets": [],
+        "obligations": [
+            {
+                "debtorPartyId": "party6",
+                "creditorPartyId": "party1",
+                "status": "active",
+                "dueDate": "2024-12-31"
+            }
+        ],
+        "events": [],
+        "creationDate": "2024-03-01",
+        "lastUpdated": "2024-05-01",
+        "emoji": "🤝",
+        "cover": "/contract.webp",
+        "contract_creator": "suggested_contract",
+        "creator": "Contract Admin",
+        "description": "Contract for using the athlete's voice in commercials and other media.",
+        "rights": "Voice and Quotes",
+        "schemaDateCreated": "2024-03-01",
+        "schemaContentUrl": "https://example.com/schema/voice-over-agreement",
+        "schemaContentType": "application/json",
+        "tags": ["voice", "commercial"],
+        "uri": "https://example.com/contracts/005",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "resourceType": "Contract",
+        "ownerId": "Contract Admin",
+        "createdAt": "2024-03-01",
+        "visibility": "public",
+        "priority": "medium"
+    },
+    {
+        "id": "006",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "title": "Exclusive Media Interview Rights",
+        "effectiveDate": "2024-06-01",
+        "expirationDate": "2025-06-01",
+        "status": "active",
+        "parties": [
+            {
+                "id": "party1",
+                "name": "Athlete Name",
+                "role": "Interviewee",
+                "contactInfo": "athlete@example.com"
+            },
+            {
+                "id": "party7",
+                "name": "News Network",
+                "role": "Licensee",
+                "contactInfo": "newsnetwork@example.com"
+            }
+        ],
+        "sections": [],
+        "assets": [],
+        "obligations": [
+            {
+                "debtorPartyId": "party7",
+                "creditorPartyId": "party1",
+                "status": "active",
+                "dueDate": "2024-12-31"
+            }
+        ],
+        "events": [],
+        "creationDate": "2024-04-01",
+        "lastUpdated": "2024-06-01",
+        "emoji": "🤝",
+        "cover": "/contract.webp",
+        "contract_creator": "suggested_contract",
+        "creator": "Contract Admin",
+        "description": "Agreement for exclusive rights to use athlete's quotes in interviews.",
+        "rights": "Public Persona",
+        "schemaDateCreated": "2024-04-01",
+        "schemaContentUrl": "https://example.com/schema/interview-rights-contract",
+        "schemaContentType": "application/json",
+        "tags": ["interview", "media"],
+        "uri": "https://example.com/contracts/006",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "resourceType": "Contract",
+        "ownerId": "Contract Admin",
+        "createdAt": "2024-04-01",
+        "visibility": "public",
+        "priority": "medium"
+    },
+    {
+        "id": "007",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "title": "Broadcast Footage Licensing",
+        "effectiveDate": "2024-07-01",
+        "expirationDate": "2025-07-01",
+        "status": "active",
+        "parties": [
+            {
+                "id": "party1",
+                "name": "Athlete Name",
+                "role": "Participant",
+                "contactInfo": "athlete@example.com"
+            },
+            {
+                "id": "party8",
+                "name": "Broadcast Company",
+                "role": "Licensee",
+                "contactInfo": "broadcast@example.com"
+            }
+        ],
+        "sections": [],
+        "assets": [],
+        "obligations": [
+            {
+                "debtorPartyId": "party8",
+                "creditorPartyId": "party1",
+                "status": "active",
+                "dueDate": "2024-12-31"
+            }
+        ],
+        "events": [],
+        "creationDate": "2024-05-01",
+        "lastUpdated": "2024-07-01",
+        "emoji": "🤝",
+        "cover": "/contract.webp",
+        "contract_creator": "suggested_contract",
+        "creator": "Contract Admin",
+        "description": "License for broadcasting game footage involving the athlete.",
+        "rights": "Performance and Stats",
+        "schemaDateCreated": "2024-05-01",
+        "schemaContentUrl": "https://example.com/schema/broadcast-footage-licensing",
+        "schemaContentType": "application/json",
+        "tags": ["broadcast", "footage"],
+        "uri": "https://example.com/contracts/007",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "resourceType": "Contract",
+        "ownerId": "Contract Admin",
+        "createdAt": "2024-05-01",
+        "visibility": "public",
+        "priority": "medium"
+    },
+    {
+        "id": "008",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "title": "Performance Stats Distribution",
+        "effectiveDate": "2024-08-01",
+        "expirationDate": "2025-08-01",
+        "status": "active",
+        "parties": [
+            {
+                "id": "party1",
+                "name": "Athlete Name",
+                "role": "Owner",
+                "contactInfo": "athlete@example.com"
+            },
+            {
+                "id": "party9",
+                "name": "Sports Analytics Co.",
+                "role": "Licensee",
+                "contactInfo": "sportsanalytics@example.com"
+            }
+        ],
+        "sections": [],
+        "assets": [],
+        "obligations": [
+            {
+                "debtorPartyId": "party9",
+                "creditorPartyId": "party1",
+                "status": "active",
+                "dueDate": "2024-12-31"
+            }
+        ],
+        "events": [],
+        "creationDate": "2024-06-01",
+        "lastUpdated": "2024-08-01",
+        "emoji": "🤝",
+        "cover": "/contract.webp",
+        "contract_creator": "suggested_contract",
+        "creator": "Contract Admin",
+        "description": "Agreement for the distribution and use of the athlete's performance statistics.",
+        "rights": "Performance and Stats",
+        "schemaDateCreated": "2024-06-01",
+        "schemaContentUrl": "https://example.com/schema/performance-stats-distribution",
+        "schemaContentType": "application/json",
+        "tags": ["stats", "analytics"],
+        "uri": "https://example.com/contracts/008",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "resourceType": "Contract",
+        "ownerId": "Contract Admin",
+        "createdAt": "2024-06-01",
+        "visibility": "public",
+        "priority": "medium"
+    },
+    {
+        "id": "009",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "title": "Social Media Endorsement",
+        "effectiveDate": "2024-09-01",
+        "expirationDate": "2025-09-01",
+        "status": "active",
+        "parties": [
+            {
+                "id": "party1",
+                "name": "Athlete Name",
+                "role": "Influencer",
+                "contactInfo": "athlete@example.com"
+            },
+            {
+                "id": "party10",
+                "name": "Brand Company",
+                "role": "Licensee",
+                "contactInfo": "brand@example.com"
+            }
+        ],
+        "sections": [],
+        "assets": [],
+        "obligations": [
+            {
+                "debtorPartyId": "party10",
+                "creditorPartyId": "party1",
+                "status": "active",
+                "dueDate": "2024-12-31"
+            }
+        ],
+        "events": [],
+        "creationDate": "2024-07-01",
+        "lastUpdated": "2024-09-01",
+        "emoji": "🤝",
+        "cover": "/contract.webp",
+        "contract_creator": "suggested_contract",
+        "creator": "Contract Admin",
+        "description": "Contract for athlete to endorse products on social media platforms.",
+        "rights": "Public Persona",
+        "schemaDateCreated": "2024-07-01",
+        "schemaContentUrl": "https://example.com/schema/social-media-endorsement",
+        "schemaContentType": "application/json",
+        "tags": ["social media", "endorsement"],
+        "uri": "https://example.com/contracts/009",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "resourceType": "Contract",
+        "ownerId": "Contract Admin",
+        "createdAt": "2024-07-01",
+        "visibility": "public",
+        "priority": "medium"
+    },
+    {
+        "id": "010",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "title": "Brand Ambassador Agreement",
+        "effectiveDate": "2024-10-01",
+        "expirationDate": "2025-10-01",
+        "status": "active",
+        "parties": [
+            {
+                "id": "party1",
+                "name": "Athlete Name",
+                "role": "Ambassador",
+                "contactInfo": "athlete@example.com"
+            },
+            {
+                "id": "party11",
+                "name": "Brand Company",
+                "role": "Sponsor",
+                "contactInfo": "brandcompany@example.com"
+            }
+        ],
+        "sections": [],
+        "assets": [],
+        "obligations": [
+            {
+                "debtorPartyId": "party11",
+                "creditorPartyId": "party1",
+                "status": "active",
+                "dueDate": "2024-12-31"
+            }
+        ],
+        "events": [],
+        "creationDate": "2024-08-01",
+        "lastUpdated": "2024-10-01",
+        "emoji": "🤝",
+        "cover": "/contract.webp",
+        "contract_creator": "suggested_contract",
+        "creator": "Contract Admin",
+        "description": "Agreement for the athlete to represent a brand in public and online.",
+        "rights": "Public Persona",
+        "schemaDateCreated": "2024-08-01",
+        "schemaContentUrl": "https://example.com/schema/brand-ambassador-agreement",
+        "schemaContentType": "application/json",
+        "tags": ["ambassador", "branding"],
+        "uri": "https://example.com/contracts/010",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "resourceType": "Contract",
+        "ownerId": "Contract Admin",
+        "createdAt": "2024-08-01",
+        "visibility": "public",
+        "priority": "medium"
+    },
+    {
+        "id": "011",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "title": "Product Placement Deal",
+        "effectiveDate": "2024-11-01",
+        "expirationDate": "2025-11-01",
+        "status": "active",
+        "parties": [
+            {
+                "id": "party1",
+                "name": "Athlete Name",
+                "role": "Endorser",
+                "contactInfo": "athlete@example.com"
+            },
+            {
+                "id": "party12",
+                "name": "Product Company",
+                "role": "Licensee",
+                "contactInfo": "productcompany@example.com"
+            }
+        ],
+        "sections": [],
+        "assets": [],
+        "obligations": [
+            {
+                "debtorPartyId": "party12",
+                "creditorPartyId": "party1",
+                "status": "active",
+                "dueDate": "2024-12-31"
+            }
+        ],
+        "events": [],
+        "creationDate": "2024-09-01",
+        "lastUpdated": "2025-01-01",
+        "emoji": "🤝",
+        "cover": "/contract.webp",
+        "contract_creator": "suggested_contract",
+        "creator": "Contract Admin",
+        "description": "Agreement for athlete's participation as a commentator in sports broadcasts.",
+        "rights": "Broadcasting Rights",
+        "schemaDateCreated": "2024-09-01",
+        "schemaContentUrl": "https://example.com/schema/broadcast-commentary-deal",
+        "schemaContentType": "application/json",
+        "tags": ["broadcast", "commentary"],
+        "uri": "https://example.com/contracts/011",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "resourceType": "Contract",
+        "ownerId": "Contract Admin",
+        "createdAt": "2024-09-01",
+        "visibility": "public",
+        "priority": "medium"
+    },
+    {
+        "id": "012",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "title": "Paid Appearance Contract",
+        "effectiveDate": "2024-12-01",
+        "expirationDate": "2025-12-01",
+        "status": "active",
+        "parties": [
+            {
+                "id": "party1",
+                "name": "Athlete Name",
+                "role": "Guest",
+                "contactInfo": "athlete@example.com"
+            },
+            {
+                "id": "party13",
+                "name": "Event Company",
+                "role": "Licensee",
+                "contactInfo": "eventcompany@example.com"
+            }
+        ],
+        "sections": [],
+        "assets": [],
+        "obligations": [
+            {
+                "debtorPartyId": "party13",
+                "creditorPartyId": "party1",
+                "status": "active",
+                "dueDate": "2024-12-31"
+            }
+        ],
+        "events": [],
+        "creationDate": "2024-10-01",
+        "lastUpdated": "2024-12-01",
+        "emoji": "🤝",
+        "cover": "/contract.webp",
+        "contract_creator": "suggested_contract",
+        "creator": "Contract Admin",
+        "description": "Contract for paid appearances at events or in media.",
+        "rights": "Sponsorship and Endorsements",
+        "schemaDateCreated": "2024-10-01",
+        "schemaContentUrl": "https://example.com/schema/paid-appearance-contract",
+        "schemaContentType": "application/json",
+        "tags": ["appearance", "sponsorship"],
+        "uri": "https://example.com/contracts/012",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "resourceType": "Contract",
+        "ownerId": "Contract Admin",
+        "createdAt": "2024-10-01",
+        "visibility": "public",
+        "priority": "medium"
+    },
+    {
+        "id": "013",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "title": "Video Game Licensing Agreement",
+        "effectiveDate": "2025-01-01",
+        "expirationDate": "2026-01-01",
+        "status": "active",
+        "parties": [
+            {
+                "id": "party1",
+                "name": "Athlete Name",
+                "role": "Licensor",
+                "contactInfo": "athlete@example.com"
+            },
+            {
+                "id": "party14",
+                "name": "Game Studio",
+                "role": "Licensee",
+                "contactInfo": "gamestudio@example.com"
+            }
+        ],
+        "sections": [],
+        "assets": [],
+        "obligations": [
+            {
+                "debtorPartyId": "party14",
+                "creditorPartyId": "party1",
+                "status": "active",
+                "dueDate": "2025-12-31"
+            }
+        ],
+        "events": [],
+        "creationDate": "2024-11-01",
+        "lastUpdated": "2025-01-01",
+        "emoji": "🤝",
+        "cover": "/contract.webp",
+        "contract_creator": "suggested_contract",
+        "creator": "Contract Admin",
+        "description": "Agreement for the use of athlete's likeness in a video game.",
+        "rights": "Digital and Virtual Use",
+        "schemaDateCreated": "2024-11-01",
+        "schemaContentUrl": "https://example.com/schema/video-game-licensing",
+        "schemaContentType": "application/json",
+        "tags": ["video game", "licensing"],
+        "uri": "https://example.com/contracts/013",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "resourceType": "Contract",
+        "ownerId": "Contract Admin",
+        "createdAt": "2024-11-01",
+        "visibility": "public",
+        "priority": "medium"
+    },
+    {
+        "id": "014",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "title": "NFT Creation Contract",
+        "effectiveDate": "2025-02-01",
+        "expirationDate": "2026-02-01",
+        "status": "active",
+        "parties": [
+            {
+                "id": "party1",
+                "name": "Athlete Name",
+                "role": "Creator",
+                "contactInfo": "athlete@example.com"
+            },
+            {
+                "id": "party15",
+                "name": "Digital Art Studio",
+                "role": "Licensee",
+                "contactInfo": "digitalart@example.com"
+            }
+        ],
+        "sections": [],
+        "assets": [],
+        "obligations": [
+            {
+                "debtorPartyId": "party15",
+                "creditorPartyId": "party1",
+                "status": "active",
+                "dueDate": "2025-12-31"
+            }
+        ],
+        "events": [],
+        "creationDate": "2024-12-01",
+        "lastUpdated": "2025-02-01",
+        "emoji": "🤝",
+        "cover": "/contract.webp",
+        "contract_creator": "suggested_contract",
+        "creator": "Contract Admin",
+        "description": "Contract for creating and selling NFTs based on the athlete's image or achievements.",
+        "rights": "Digital and Virtual Use",
+        "schemaDateCreated": "2024-12-01",
+        "schemaContentUrl": "https://example.com/schema/nft-creation-contract",
+        "schemaContentType": "application/json",
+        "tags": ["nft", "digital"],
+        "uri": "https://example.com/contracts/014",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "resourceType": "Contract",
+        "ownerId": "Contract Admin",
+        "createdAt": "2024-12-01",
+        "visibility": "public",
+        "priority": "medium"
+    },
+    {
+        "id": "015",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "title": "Broadcast Commentary Deal",
+        "effectiveDate": "2025-03-01",
+        "expirationDate": "2026-03-01",
+        "status": "active",
+        "parties": [
+            {
+                "id": "party1",
+                "name": "Athlete Name",
+                "role": "Commentator",
+                "contactInfo": "athlete@example.com"
+            },
+            {
+                "id": "party16",
+                "name": "Sports Network",
+                "role": "Licensee",
+                "contactInfo": "sportsnetwork@example.com"
+            }
+        ],
+        "sections": [],
+        "assets": [],
+        "obligations": [
+            {
+                "debtorPartyId": "party16",
+                "creditorPartyId": "party1",
+                "status": "active",
+                "dueDate": "2025-12-31"
+            }
+        ],
+        "events": [],
+        "creationDate": "2025-01-01",
+        "lastUpdated": "2025-03-01",
+        "emoji": "🤝",
+        "cover": "/contract.webp",
+        "contract_creator": "suggested_contract",
+        "creator": "Contract Admin",
+        "description": "Agreement for athlete's participation as a commentator in sports broadcasts.",
+        "rights": "Broadcasting Rights",
+        "schemaDateCreated": "2025-01-01",
+        "schemaContentUrl": "https://example.com/schema/broadcast-commentary-deal",
+        "schemaContentType": "application/json",
+        "tags": ["broadcast", "commentary"],
+        "uri": "https://example.com/contracts/015",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "resourceType": "Contract",
+        "ownerId": "Contract Admin",
+        "createdAt": "2025-01-01",
+        "visibility": "public",
+        "priority": "medium"
+    },
+    {
+        "id": "016",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "title": "Documentary Rights Agreement",
+        "effectiveDate": "2025-04-01",
+        "expirationDate": "2026-04-01",
+        "status": "active",
+        "parties": [
+            {
+                "id": "party1",
+                "name": "Athlete Name",
+                "role": "Subject",
+                "contactInfo": "athlete@example.com"
+            },
+            {
+                "id": "party17",
+                "name": "Film Studio",
+                "role": "Licensee",
+                "contactInfo": "filmstudio@example.com"
+            }
+        ],
+        "sections": [],
+        "assets": [],
+        "obligations": [
+            {
+                "debtorPartyId": "party17",
+                "creditorPartyId": "party1",
+                "status": "active",
+                "dueDate": "2025-12-31"
+            }
+        ],
+        "events": [],
+        "creationDate": "2025-02-01",
+        "lastUpdated": "2025-04-01",
+        "emoji": "🤝",
+        "cover": "/contract.webp",
+        "contract_creator": "suggested_contract",
+        "creator": "Contract Admin",
+        "description": "Contract for the creation of a documentary or biopic about the athlete.",
+        "rights": "Broadcasting Rights",
+        "schemaDateCreated": "2025-02-01",
+        "schemaContentUrl": "https://example.com/schema/documentary-rights-agreement",
+        "schemaContentType": "application/json",
+        "tags": ["documentary", "film"],
+        "uri": "https://example.com/contracts/016",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "resourceType": "Contract",
+        "ownerId": "Contract Admin",
+        "createdAt": "2025-02-01",
+        "visibility": "public",
+        "priority": "medium"
+    },
+    {
+        "id": "017",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "title": "Royalty Sharing Agreement",
+        "effectiveDate": "2025-05-01",
+        "expirationDate": "2026-05-01",
+        "status": "active",
+        "parties": [
+            {
+                "id": "party1",
+                "name": "Athlete Name",
+                "role": "Owner",
+                "contactInfo": "athlete@example.com"
+            },
+            {
+                "id": "party18",
+                "name": "Rights Management Co.",
+                "role": "Licensee",
+                "contactInfo": "rightsmanagement@example.com"
+            }
+        ],
+        "sections": [],
+        "assets": [],
+        "obligations": [
+            {
+                "debtorPartyId": "party18",
+                "creditorPartyId": "party1",
+                "status": "active",
+                "dueDate": "2025-12-31"
+            }
+        ],
+        "events": [],
+        "creationDate": "2025-03-01",
+        "lastUpdated": "2025-05-01",
+        "emoji": "🤝",
+        "cover": "/contract.webp",
+        "contract_creator": "suggested_contract",
+        "creator": "Contract Admin",
+        "description": "Agreement on royalty distribution for the use of athlete's rights.",
+        "rights": "Licensing and Revenue Sharing",
+        "schemaDateCreated": "2025-03-01",
+        "schemaContentUrl": "https://example.com/schema/royalty-sharing-agreement",
+        "schemaContentType": "application/json",
+        "tags": ["royalty", "licensing"],
+        "uri": "https://example.com/contracts/017",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "resourceType": "Contract",
+        "ownerId": "Contract Admin",
+        "createdAt": "2025-03-01",
+        "visibility": "public",
+        "priority": "medium"
+    },
+    {
+        "id": "018",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "title": "Third-Party Licensing Contract",
+        "effectiveDate": "2025-06-01",
+        "expirationDate": "2026-06-01",
+        "status": "active",
+        "parties": [
+            {
+                "id": "party1",
+                "name": "Athlete Name",
+                "role": "Licensor",
+                "contactInfo": "athlete@example.com"
+            },
+            {
+                "id": "party19",
+                "name": "Marketing Firm",
+                "role": "Licensee",
+                "contactInfo": "marketingfirm@example.com"
+            }
+        ],
+        "sections": [],
+        "assets": [],
+        "obligations": [
+            {
+                "debtorPartyId": "party19",
+                "creditorPartyId": "party1",
+                "status": "active",
+                "dueDate": "2025-12-31"
+            }
+        ],
+        "events": [],
+        "creationDate": "2025-04-01",
+        "lastUpdated": "2025-06-01",
+        "emoji": "🤝",
+        "cover": "/contract.webp",
+        "contract_creator": "suggested_contract",
+        "creator": "Contract Admin",
+        "description": "Contract for licensing athlete's rights to a third party.",
+        "rights": "Licensing and Revenue Sharing",
+        "schemaDateCreated": "2025-04-01",
+        "schemaContentUrl": "https://example.com/schema/third-party-licensing-contract",
+        "schemaContentType": "application/json",
+        "tags": ["licensing", "third party"],
+        "uri": "https://example.com/contracts/018",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "resourceType": "Contract",
+        "ownerId": "Contract Admin",
+        "createdAt": "2025-04-01",
+        "visibility": "public",
+        "priority": "medium"
+    },
+    {
+        "id": "019",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "title": "Custom Merchandise Design",
+        "effectiveDate": "2025-07-01",
+        "expirationDate": "2026-07-01",
+        "status": "active",
+        "parties": [
+            {
+                "id": "party1",
+                "name": "Athlete Name",
+                "role": "Licensor",
+                "contactInfo": "athlete@example.com"
+            },
+            {
+                "id": "party20",
+                "name": "Design Studio",
+                "role": "Licensee",
+                "contactInfo": "designstudio@example.com"
+            }
+        ],
+        "sections": [],
+        "assets": [],
+        "obligations": [
+            {
+                "debtorPartyId": "party20",
+                "creditorPartyId": "party1",
+                "status": "active",
+                "dueDate": "2025-12-31"
+            }
+        ],
+        "events": [],
+        "creationDate": "2025-05-01",
+        "lastUpdated": "2025-07-01",
+        "emoji": "🤝",
+        "cover": "/contract.webp",
+        "contract_creator": "suggested_contract",
+        "creator": "Contract Admin",
+        "description": "Contract for custom design and sale of merchandise featuring the athlete.",
+        "rights": "Image and Likeness",
+        "schemaDateCreated": "2025-05-01",
+        "schemaContentUrl": "https://example.com/schema/custom-merchandise-design",
+        "schemaContentType": "application/json",
+        "tags": ["custom design", "merchandise"],
+        "uri": "https://example.com/contracts/019",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "resourceType": "Contract",
+        "ownerId": "Contract Admin",
+        "createdAt": "2025-05-01",
+        "visibility": "public",
+        "priority": "medium"
+    },
+    {
+        "id": "020",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "title": "Exclusive Endorsement Deal",
+        "effectiveDate": "2025-08-01",
+        "expirationDate": "2026-08-01",
+        "status": "active",
+        "parties": [
+            {
+                "id": "party1",
+                "name": "Athlete Name",
+                "role": "Endorser",
+                "contactInfo": "athlete@example.com"
+            },
+            {
+                "id": "party21",
+                "name": "Brand Company",
+                "role": "Licensee",
+                "contactInfo": "brandcompany@example.com"
+            }
+        ],
+        "sections": [],
+        "assets": [],
+        "obligations": [
+            {
+                "debtorPartyId": "party21",
+                "creditorPartyId": "party1",
+                "status": "active",
+                "dueDate": "2025-12-31"
+            }
+        ],
+        "events": [],
+        "creationDate": "2025-06-01",
+        "lastUpdated": "2025-08-01",
+        "emoji": "🤝",
+        "cover": "/contract.webp",
+        "contract_creator": "suggested_contract",
+        "creator": "Contract Admin",
+        "description": "Exclusive contract for the athlete to endorse a specific product or brand.",
+        "rights": "Sponsorship and Endorsements",
+        "schemaDateCreated": "2025-06-01",
+        "schemaContentUrl": "https://example.com/schema/exclusive-endorsement-deal",
+        "schemaContentType": "application/json",
+        "tags": ["exclusive", "endorsement"],
+        "uri": "https://example.com/contracts/020",
+        "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+        "resourceType": "Contract",
+        "ownerId": "Contract Admin",
+        "createdAt": "2025-06-01",
+        "visibility": "public",
+        "priority": "medium"
+    }
+]

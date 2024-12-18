@@ -1,3 +1,4 @@
+
 import { Metadata } from "next"
 import Image from "next/image"
 
@@ -12,23 +13,23 @@ export const metadata: Metadata = {
 const sidebarNavItems = [
   {
     title: "Profile",
-    href: "/knowledge-bank/settings",
+    href: "/assets/settings",
   },
   {
     title: "Account",
-    href: "/knowledge-bank/settings/account",
+    href: "/settings/account",
   },
   {
     title: "Appearance",
-    href: "/knowledge-bank/settings/appearance",
+    href: "/settings/appearance",
   },
   {
     title: "Notifications",
-    href: "/knowledge-bank/settings/access-rules",
+    href: "/settings/access-rules",
   },
   {
-    title: "Display",
-    href: "/knowledge-bank/settings/display",
+    title: "Usage",
+    href: "/settings/usage",
   },
 ]
 
@@ -55,7 +56,7 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
           className="hidden dark:block"
         />
       </div>
-      <div className="hidden space-y-6 p-10 pb-16 md:block">
+      <div className="hidden space-y-6 p-8 pt-2 pb-16 md:block">
         <div className="space-y-0.5">
           <h2 className="text-2xl font-bold tracking-tight">Settings</h2>
           <p className="text-muted-foreground">

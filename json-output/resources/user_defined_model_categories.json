@@ -1,0 +1,50 @@
+[
+    {
+      "id":"udmc-1",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "visibility": "public",
+      "resourceType":"UserDefinedModelCategory",
+      "name": "Base Models",
+      "includes": ["foundational"]
+    },
+    {
+      "id":"udmc-2",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "visibility": "public",
+      "resourceType":"UserDefinedModelCategory",
+      "name": "Image Models",
+      "includes": ["image"],
+      "excludes": ["foundational"]
+    },
+    {
+      "id":"udmc-3",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "visibility": "public",
+      "resourceType":"UserDefinedModelCategory",
+      "name": "Text Models",
+      "includes": ["text"],
+      "excludes": ["foundational"]
+    },
+    {
+      "id":"udmc-4",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "visibility": "public",
+      "resourceType":"UserDefinedModelCategory",
+      "name": "Voice Models",
+      "includes": ["voice"]
+    },
+    {
+      "id":"udmc-5",
+      "accountId": "org_2ncENhn6JwWpZA2lTOdmnXAFjaG",
+      "ownerId":"user_2fHol6pFisxpkPTa3OTUY3IaaTE",
+      "visibility": "public",
+      "resourceType":"UserDefinedModelCategory",
+      "name": "Recently Used",
+      "includes": ["recent-used"]
+    }
+  
+  ]

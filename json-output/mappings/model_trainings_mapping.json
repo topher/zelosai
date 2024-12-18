@@ -1,0 +1,71 @@
+{
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "accountId": {
+        "type": "keyword"
+      },
+      "ownerId": {
+        "type": "keyword"
+      },
+      "resourceType": {
+        "type": "keyword"
+      },
+      "visibility": {
+        "type": "keyword"
+      },
+      "URI": {
+        "type": "keyword"
+      },
+      "modelName": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "description": {
+        "type": "text"
+      },
+      "trainingDataSources": {
+        "type": "keyword"
+      },
+      "trainingStatus": {
+        "type": "keyword"
+      },
+      "accuracy": {
+        "type": "float"
+      },
+      "lastTrainedAt": {
+        "type": "date",
+        "format": "strict_date_optional_time||epoch_millis"
+      },
+      "parameters": {
+        "properties": {
+          "epochs": {
+            "type": "integer"
+          },
+          "learningRate": {
+            "type": "float"
+          },
+          "batchSize": {
+            "type": "integer"
+          },
+          "optimizer": {
+            "type": "keyword"
+          },
+          "layers": {
+            "type": "integer"
+          }
+        }
+      },
+      "tags": {
+        "type": "keyword"
+      }
+    }
+  }
+}
